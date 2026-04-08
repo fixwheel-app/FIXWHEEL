@@ -18,6 +18,7 @@ export interface BookingDetails {
 }
 
 export const sendBookingNotification = async (details: BookingDetails) => {
+  const resend = new Resend(process.env.RESEND_API_KEY || "placeholder");
   const apiKey = process.env.RESEND_API_KEY;
   const ownerEmail = process.env.OWNER_EMAIL;
 
@@ -58,8 +59,7 @@ export const sendBookingNotification = async (details: BookingDetails) => {
   `;
 
   try {
-    const resendClient = new Resend(apiKey);
-    await resendClient.emails.send({
+    await resend.emails.send({
       from: 'FixWheel <onboarding@resend.dev>',
       to: [ownerEmail],
       subject: "New Booking Received 🚀",
@@ -85,6 +85,7 @@ export interface PartnerDetails {
 }
 
 export const sendPartnerNotification = async (details: PartnerDetails) => {
+  const resend = new Resend(process.env.RESEND_API_KEY || "placeholder");
   if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'we-will-add-this-next') {
     console.log("No RESEND_API_KEY found, skipping partner notification email.");
     return { success: true, message: "Skipped email" };
@@ -124,8 +125,7 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
   `;
 
   try {
-    const resendClient = new Resend(process.env.RESEND_API_KEY);
-    const data = await resendClient.emails.send({
+    const data = await resend.emails.send({
       from: 'FixWheel Partners <onboarding@resend.dev>',
       to: [ownerEmail],
       subject: `New Partner Application — ${partnerRef}`,
