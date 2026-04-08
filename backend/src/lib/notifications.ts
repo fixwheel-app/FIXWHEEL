@@ -2,7 +2,6 @@ import { Resend } from 'resend';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const ownerEmail = process.env.OWNER_EMAIL || 'hello@spinfix.in';
 
 export interface BookingDetails {
@@ -125,7 +124,8 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
   `;
 
   try {
-    const data = await resend.emails.send({
+    const resendClient = new Resend(process.env.RESEND_API_KEY);
+    const data = await resendClient.emails.send({
       from: 'FixWheel Partners <onboarding@resend.dev>',
       to: [ownerEmail],
       subject: `New Partner Application — ${partnerRef}`,
