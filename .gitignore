@@ -1,0 +1,19 @@
+# ignoring node_modules
+node_modules/
+*/node_modules/
+
+# ignoring envs
+.env
+*.env
+backend/.env
+frontend/.env
+**/.env
+
+# ignoring next build
+.next/
+out/
+build/
+dist/
+
+# ignoring README
+README.md
