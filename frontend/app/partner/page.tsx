@@ -6,6 +6,7 @@ import {
   Building2, User, Phone, MapPin, Car, Wrench, Camera, CreditCard,
   CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, Upload, X, ChevronDown, Star
 } from 'lucide-react';
+import { submitPartner } from '@/lib/api';
 
 // ----- Types -----
 type VehicleType = 'Bike' | 'Car';
@@ -249,24 +250,19 @@ export default function PartnerPage() {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-      const response = await fetch(`${apiUrl}/api/partners`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          garageName: formData.garageName,
-          ownerName: formData.ownerName,
-          phone: formData.mobileNumber,
-          mapsLocation: formData.mapsLocation,
-          vehicleType: formData.vehicleType,
-          servicesOffered: formData.servicesOffered,
-        }),
+      const response = await submitPartner({
+        garageName: formData.garageName,
+        ownerName: formData.ownerName,
+        phone: formData.mobileNumber,
+        mapsLocation: formData.mapsLocation,
+        vehicleType: formData.vehicleType as any,
+        servicesOffered: formData.servicesOffered,
       });
-      const data = await response.json();
-      if (data.success) {
+
+      if (response.success) {
         setSubmitted(true);
       } else {
-        setSubmitError(data.error || 'Something went wrong. Please try again.');
+        setSubmitError(response.error || 'Something went wrong. Please try again.');
       }
     } catch (err) {
       setSubmitError('Unable to reach the server. Please check your connection and try again.');

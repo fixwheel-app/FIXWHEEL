@@ -33,3 +33,19 @@ export interface RepairPackage {
   tagline: string;
   accentColor: string;
 }
+export interface PartnerFormData {
+  garageName: string;
+  ownerName: string;
+  phone: string;
+  mapsLocation: string;
+  vehicleType: "Bike" | "Car" | "Both";
+  servicesOffered: string[];
+}
+
+export interface PartnerResponse {
+  success: boolean;
+  partnerId?: string;
+  message?: string;
+  error?: string;
+  details?: any[];
+}
