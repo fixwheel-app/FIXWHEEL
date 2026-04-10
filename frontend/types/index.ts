@@ -40,6 +40,8 @@ export interface PartnerFormData {
   mapsLocation: string;
   vehicleType: "Bike" | "Car" | "Both";
   servicesOffered: string[];
+  garagePhotos?: string[];
+  licensePhoto?: string;
 }
 
 export interface PartnerResponse {

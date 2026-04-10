@@ -7,6 +7,7 @@ import {
   CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, Upload, X, ChevronDown, Star
 } from 'lucide-react';
 import { submitPartner } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 
 // ----- Types -----
 type VehicleType = 'Bike' | 'Car';
@@ -250,6 +251,41 @@ export default function PartnerPage() {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
+      // 1. Upload Garage Photos
+      const garagePhotoUrls: string[] = [];
+      for (const file of formData.garagePhotos) {
+        const fileName = `${Date.now()}-${file.name}`;
+        const { data, error } = await supabase.storage
+          .from('partner-uploads')
+          .upload(`garages/${fileName}`, file);
+        
+        if (error) throw new Error(`Garage photo upload failed: ${error.message}`);
+        
+        const { data: { publicUrl } } = supabase.storage
+          .from('partner-uploads')
+          .getPublicUrl(`garages/${fileName}`);
+        
+        garagePhotoUrls.push(publicUrl);
+      }
+
+      // 2. Upload License Photo
+      let licensePhotoUrl = '';
+      if (formData.licensePhoto) {
+        const fileName = `${Date.now()}-${formData.licensePhoto.name}`;
+        const { data, error } = await supabase.storage
+          .from('partner-uploads')
+          .upload(`licenses/${fileName}`, formData.licensePhoto);
+        
+        if (error) throw new Error(`License photo upload failed: ${error.message}`);
+        
+        const { data: { publicUrl } } = supabase.storage
+          .from('partner-uploads')
+          .getPublicUrl(`licenses/${fileName}`);
+        
+        licensePhotoUrl = publicUrl;
+      }
+
+      // 3. Submit Data to Backend
       const response = await submitPartner({
         garageName: formData.garageName,
         ownerName: formData.ownerName,
@@ -257,6 +293,8 @@ export default function PartnerPage() {
         mapsLocation: formData.mapsLocation,
         vehicleType: formData.vehicleType as any,
         servicesOffered: formData.servicesOffered,
+        garagePhotos: garagePhotoUrls,
+        licensePhoto: licensePhotoUrl,
       });
 
       if (response.success) {
@@ -265,7 +303,8 @@ export default function PartnerPage() {
         setSubmitError(response.error || 'Something went wrong. Please try again.');
       }
     } catch (err) {
-      setSubmitError('Unable to reach the server. Please check your connection and try again.');
+      console.error('Submission error:', err);
+      setSubmitError(err instanceof Error ? err.message : 'Unable to reach the server. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }

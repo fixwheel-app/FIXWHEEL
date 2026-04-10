@@ -22,6 +22,8 @@ export interface PartnerDetails {
   mapsLocation: string;
   vehicleType: string;
   servicesOffered: string[];
+  garagePhotos?: string[];
+  licensePhoto?: string;
 }
 
 export const sendBookingNotification = async (details: BookingDetails) => {
@@ -94,6 +96,16 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
         <p><b>Phone:</b> ${details.phone}</p>
         <p><b>Location:</b> ${details.mapsLocation}</p>
         <p><b>Vehicles:</b> ${details.vehicleType}</p>
+        <p><b>Services:</b> ${details.servicesOffered.join(', ')}</p>
+        ${details.garagePhotos && details.garagePhotos.length > 0 ? `
+          <h3>Garage Photos:</h3>
+          <ul>
+            ${details.garagePhotos.map(url => `<li><a href="${url}">View Photo</a></li>`).join('')}
+          </ul>
+        ` : ''}
+        ${details.licensePhoto ? `
+          <p><b>License Photo:</b> <a href="${details.licensePhoto}">View Photo</a></p>
+        ` : ''}
       `,
     });
     console.log("Partner email sent");

@@ -11,6 +11,8 @@ const partnerSchema = z.object({
   mapsLocation: z.string().min(5, 'Google Maps location is required'),
   vehicleType: z.enum(['Bike', 'Car', 'Both'], { message: 'Vehicle type must be Bike, Car, or Both' }),
   servicesOffered: z.array(z.string()).min(1, 'At least one service must be selected'),
+  garagePhotos: z.array(z.string()).optional(),
+  licensePhoto: z.string().optional(),
 });
 
 const generatePartnerRef = (): string => {
@@ -58,6 +60,8 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
         mapsLocation: data.mapsLocation,
         vehicleType: data.vehicleType,
         servicesOffered: data.servicesOffered,
+        garagePhotos: data.garagePhotos || [],
+        licensePhoto: data.licensePhoto || null,
         status: 'pending',
       },
     });
@@ -71,6 +75,8 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
       mapsLocation: newPartner.mapsLocation,
       vehicleType: newPartner.vehicleType,
       servicesOffered: newPartner.servicesOffered,
+      garagePhotos: newPartner.garagePhotos,
+      licensePhoto: newPartner.licensePhoto || undefined,
     });
 
     res.status(201).json({
