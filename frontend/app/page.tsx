@@ -184,13 +184,13 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  OUR PROCESS
       ════════════════════════════════════════════════════════════════════ */}
-      <section id="process" className="py-10 md:py-16 bg-[#0F172A]">
+      <section id="process" className="py-10 md:py-16 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* Heading */}
           <div className="text-center mb-10 md:mb-16">
             <span className="inline-block bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">How It Works</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-3">How We Work</h2>
-            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">From booking to repair — here's exactly what happens</p>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-[#0F172A] tracking-tight mb-3">How We Work</h2>
+            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">From booking to repair — here's exactly what happens</p>
           </div>
 
           {/* Timeline */}
