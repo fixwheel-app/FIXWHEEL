@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Wrench } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -55,6 +55,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
+              <Wrench className="w-6 h-6 md:w-8 md:h-8 text-accent transform group-hover:rotate-12 transition-transform duration-300" />
               <span className="font-black text-lg md:text-2xl tracking-tighter text-white uppercase">
                 <span className="text-accent">Fix</span>Wheel
               </span>

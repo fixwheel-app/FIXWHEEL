@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description: "Expert repairs. Your doorstep. 60-second booking.",
     url: "https://fixwheel.in",
     type: "website"
+  },
+  icons: {
+    icon: '/icon.png',
   }
 };
 

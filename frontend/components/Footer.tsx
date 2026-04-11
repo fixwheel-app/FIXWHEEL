@@ -8,9 +8,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8">
 
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-3 md:mb-4">
-              <Wrench className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-              <span className="font-bold text-base md:text-lg text-white">FixWheel</span>
+            <Link href="/" className="flex items-center gap-2 mb-3 md:mb-4 group">
+              <Wrench className="w-5 h-5 md:w-6 md:h-6 text-accent transform group-hover:rotate-12 transition-transform duration-300" />
+              <span className="font-black text-base md:text-xl text-white uppercase tracking-tighter">
+                <span className="text-accent">Fix</span>Wheel
+              </span>
             </Link>
             <p className="text-text-secondary text-xs md:text-sm max-w-sm">
               Doorstep bike repairs across Delhi. Fast, reliable, and transparent pricing.
