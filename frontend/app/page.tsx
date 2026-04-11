@@ -16,14 +16,13 @@ export default function Home() {
     { icon: <CheckCircle2 className="w-8 h-8" />, label: "Experienced" },
   ];
 
-  // ── Process steps ──────────────────────────────────────────────────────────
   const steps = [
-    { num: 1, emoji: "📱", title: "Book Online",           desc: "Choose your service package and fill in your details in under 60 seconds." },
-    { num: 2, emoji: "✅", title: "Instant Confirmation",  desc: "We confirm your booking within 30 minutes and lock in your preferred time slot." },
-    { num: 3, emoji: "👨‍🔧", title: "Mechanic Assigned",    desc: "A certified mechanic is assigned to your booking based on your location." },
-    { num: 4, emoji: "🏍️", title: "Mechanic Arrives",      desc: "Your mechanic arrives at your doorstep with all required tools and equipment." },
-    { num: 5, emoji: "🔧", title: "Repair Done",           desc: "Your bike is serviced on the spot. You can watch the entire process if you want." },
-    { num: 6, emoji: "🚀", title: "Ride Away",             desc: "Your bike is ready. Pay only after the service is completed to your satisfaction." },
+    { num: 1, icon: <Step1Icon />, title: "Book Online",           desc: "Choose your service package and fill in your details in under 60 seconds." },
+    { num: 2, icon: <Step2Icon />, title: "Instant Confirmation",  desc: "We confirm your booking within 30 minutes and lock in your preferred time slot." },
+    { num: 3, icon: <Step3Icon />, title: "Mechanic Assigned",    desc: "A certified mechanic is assigned to your booking based on your location." },
+    { num: 4, icon: <Step4Icon />, title: "Mechanic Arrives",      desc: "Your mechanic arrives at your doorstep with all required tools and equipment." },
+    { num: 5, icon: <Step5Icon />, title: "Repair Done",           desc: "Your bike is serviced on the spot. You can watch the entire process if you want." },
+    { num: 6, icon: <Step6Icon />, title: "Ride Away",             desc: "Your bike is ready. Pay only after the service is completed to your satisfaction." },
   ];
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────
@@ -185,19 +184,19 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  OUR PROCESS
       ════════════════════════════════════════════════════════════════════ */}
-      <section id="process" className="py-10 md:py-16 bg-[#F8FAFC]">
+      <section id="process" className="py-10 md:py-16 bg-[#0F172A]">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* Heading */}
           <div className="text-center mb-10 md:mb-16">
-            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">⚙️ How It Works</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">How We Work</h2>
-            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">From booking to repair — here's exactly what happens</p>
+            <span className="inline-block bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">How It Works</span>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-3">How We Work</h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">From booking to repair — here's exactly what happens</p>
           </div>
 
           {/* Timeline */}
           <div className="relative">
             {/* Vertical connecting line */}
-            <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-accent/25 md:-translate-x-px" />
+            <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F97316] to-[#EF4444] md:-translate-x-px" />
 
             <div className="space-y-8 md:space-y-0">
               {steps.map((step, idx) => {
@@ -212,14 +211,14 @@ export default function Home() {
                     className={`relative flex items-start gap-6 md:gap-0 md:mb-10 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                   >
                     {/* Card */}
-                    <div className={`ml-14 md:ml-0 md:w-[45%] bg-white border border-gray-100 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow ${isLeft ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
-                      <div className="text-3xl mb-3">{step.emoji}</div>
-                      <h3 className="font-black text-base md:text-lg uppercase text-black mb-1">{step.title}</h3>
-                      <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{step.desc}</p>
+                    <div className={`ml-14 md:ml-0 md:w-[45%] bg-[#1E293B] border-l-[3px] border-l-[#F97316] rounded-[12px] p-6 shadow-md hover:shadow-[0_0_15px_rgba(249,115,22,0.15)] transition-all duration-300 ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                      <div className="mb-4 flex">{step.icon}</div>
+                      <h3 className="font-bold text-[16px] text-white mb-2">{step.title}</h3>
+                      <p className="text-[#94A3B8] text-[14px] leading-relaxed">{step.desc}</p>
                     </div>
 
                     {/* Circle number on the line */}
-                    <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-4 md:top-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-black text-sm shadow-lg shrink-0 z-10">
+                    <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-4 md:top-1/2 md:-translate-y-1/2 w-[40px] h-[40px] rounded-full bg-[#F97316] flex items-center justify-center text-white font-bold text-sm shadow-md shrink-0 z-10 transition-transform duration-300 hover:scale-110">
                       {step.num}
                     </div>
                   </motion.div>
@@ -456,5 +455,60 @@ export default function Home() {
         </div>
       </footer>
     </main>
+  );
+}
+
+function Step1Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+      <line x1="12" y1="18" x2="12.01" y2="18" />
+    </svg>
+  );
+}
+
+function Step2Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+function Step3Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 19a6 6 0 0 0-12 0" />
+      <circle cx="8" cy="9" r="4" />
+      <path d="m20.61 14.39-1.92 1.92a2 2 0 1 0 2.82 2.82l1.92-1.92a2 2 0 0 0-2.82-2.82Z" />
+      <path d="m14 11 3.54 3.54" />
+    </svg>
+  );
+}
+
+function Step4Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
+function Step5Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    </svg>
+  );
+}
+
+function Step6Icon() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m12 14 4-4" />
+      <path d="M3.34 16.998a10 10 0 1 1 17.32 0" />
+    </svg>
   );
 }
