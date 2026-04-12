@@ -45,7 +45,7 @@ export const sendBookingNotification = async (details: BookingDetails) => {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: 'FixWheel <onboarding@resend.dev>',
+      from: 'FixWheel <support@fixwheel.app>',
       to: [ownerEmail],
       subject: `New Booking — ${details.bookingRef}`,
       html: `
@@ -85,7 +85,7 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: 'FixWheel <onboarding@resend.dev>',
+      from: 'FixWheel <support@fixwheel.app>',
       to: [ownerEmail],
       subject: `New Partner Application — ${details.partnerRef}`,
       html: `
