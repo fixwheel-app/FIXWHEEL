@@ -11,7 +11,7 @@ const WhatsAppButton = () => {
       </div>
       
       <a 
-        href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel." 
+        href="https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel." 
         target="_blank" 
         rel="noopener noreferrer"
         className="relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-200 focus:outline-none"
