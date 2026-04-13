@@ -16,6 +16,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ packageData, bikeType, bikeBrand, bikeModel }: ServiceCardProps) {
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Parse fields
   const { name, tagline, ccRange, accentColor, isPopular, includes, additionalCost } = packageData;
@@ -63,10 +64,13 @@ export default function ServiceCard({ packageData, bikeType, bikeBrand, bikeMode
 
         {/* Services List - Desktop shows all, Mobile collapsible */}
         <div className="flex-grow flex flex-col">
-          <div className={cn(
-            "will-change-[max-height] overflow-hidden transition-all duration-500 ease-in-out flex-grow",
-            !isExpanded ? "max-h-[160px] md:max-h-[4000px] relative" : "max-h-[4000px] mb-6 md:mb-0"
-          )}>
+          <div 
+            className={cn(
+              "overflow-hidden flex-grow",
+              !isExpanded ? "max-h-[160px] md:max-h-[2000px] relative" : "max-h-[2000px] mb-6 md:mb-0"
+            )}
+            style={{ transition: 'max-height 0.2s ease' }}
+          >
             <ul className="space-y-3">
               {includes.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
@@ -81,10 +85,7 @@ export default function ServiceCard({ packageData, bikeType, bikeBrand, bikeMode
             )}
             
             {additionalCost && additionalCost.length > 0 && (
-              <div className={cn(
-                "pt-6 mt-6 border-t border-dashed border-gray-300",
-                !isExpanded && "hidden md:block" // Hidden completely on mobile if not expanded
-              )}>
+              <div className="pt-6 mt-6 border-t border-dashed border-gray-300">
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">At Additional Cost</p>
                 <ul className="space-y-3">
                   {additionalCost.map((item, i) => (
@@ -99,13 +100,19 @@ export default function ServiceCard({ packageData, bikeType, bikeBrand, bikeMode
           </div>
 
           <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="md:hidden shrink-0 w-full flex items-center justify-center gap-2 py-3 mt-2 text-sm font-semibold text-gray-600 hover:text-black transition-colors"
+            disabled={isAnimating}
+            onClick={() => {
+              if (isAnimating) return;
+              setIsAnimating(true);
+              setIsExpanded(!isExpanded);
+              setTimeout(() => setIsAnimating(false), 200);
+            }}
+            className="md:hidden shrink-0 w-full flex items-center justify-center gap-2 py-3 mt-2 text-sm font-semibold text-gray-600 hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isExpanded ? (
-              <>Hide Details <ChevronUp className="w-4 h-4" /></>
+              <>See Less <ChevronUp className="w-4 h-4" /></>
             ) : (
-              <>View All Services <ChevronDown className="w-4 h-4" /></>
+              <>See More <ChevronDown className="w-4 h-4" /></>
             )}
           </button>
         </div>
