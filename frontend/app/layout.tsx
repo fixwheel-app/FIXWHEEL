@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/icon.png',
+  },
+  verification: {
+    google: "C833_fFDkpy5lyqYIs8Tfha4pv5gciagl2uJOEcfB9I"
   }
 };
 

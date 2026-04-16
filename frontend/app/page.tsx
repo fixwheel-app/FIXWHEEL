@@ -417,43 +417,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-      <footer className="relative bg-gray-50 pt-12 md:pt-24 pb-8 md:pb-12 border-t-4 md:border-t-8 border-accent overflow-hidden">
-        <div className="absolute -top-32 right-[-5%] w-[800px] h-[600px] z-0 pointer-events-none hidden lg:block opacity-90 drop-shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-50 via-transparent to-transparent z-20" />
-          <Image src="/red-bike.jpg" alt="Red Sports Motorcycle" fill className="object-cover rounded-xl mix-blend-multiply opacity-50" />
-        </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <div>
-              <Link href="/" className="inline-block mb-6">
-                <span className="font-black text-3xl tracking-tighter text-black uppercase"><span className="text-accent">Fix</span>Wheel</span>
-              </Link>
-              <p className="text-gray-600 text-sm leading-relaxed">The ultimate doorstep bike repair service in town. Professional technicians, guaranteed work, right at your location.</p>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-6 uppercase text-black">Quick Links</h4>
-              <ul className="space-y-3 text-gray-600 text-sm font-medium">
-                <li><Link href="/"         className="hover:text-accent transition-colors">Home</Link></li>
-                <li><Link href="/services" className="hover:text-accent transition-colors">Services</Link></li>
-                <li><Link href="/booking"  className="hover:text-accent transition-colors">Get Appointment</Link></li>
-                <li><Link href="/#faq"     className="hover:text-accent transition-colors">FAQ</Link></li>
-                <li><Link href="/#contact" className="hover:text-accent transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
-            <p>© {new Date().getFullYear()} FixWheel. All rights reserved.</p>
-            <div className="flex gap-4">
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
