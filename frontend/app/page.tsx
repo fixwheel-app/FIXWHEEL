@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
   ArrowRight, ShieldCheck, Wrench, Clock,
-  MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown, Send
+  MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown
 } from 'lucide-react';
 
 export default function Home() {
@@ -53,18 +53,7 @@ export default function Home() {
       a: "Yes, we use genuine and high-quality spare parts to ensure safety and performance." },
   ];
 
-  // ── Contact form ───────────────────────────────────────────────────────────
-  const [contactForm, setContactForm] = useState({ name: '', phone: '', message: '' });
-  const [contactSent, setContactSent] = useState(false);
-  const [sending, setSending] = useState(false);
-
-  const handleContact = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    await new Promise(r => setTimeout(r, 1200));
-    setSending(false);
-    setContactSent(true);
-  };
+  // ── Contact form state removed ─────────────────────────────────────────────
 
   return (
     <main className="min-h-screen bg-white text-black">
@@ -325,8 +314,8 @@ export default function Home() {
             <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Have a question or need help? We are here for you</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {/* Left: details */}
+          <div className="max-w-3xl mx-auto">
+            {/* Contact details */}
             <div className="space-y-4">
               {[
                 { icon: <Phone className="w-5 h-5 text-accent" />, label: "Phone",         value: "+91 87459 45682",     note: "Call us between 8AM and 8PM" },
@@ -336,8 +325,8 @@ export default function Home() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
                   className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl p-4 md:p-5 shadow-sm"
@@ -351,67 +340,24 @@ export default function Home() {
                 </motion.div>
               ))}
 
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-wrap gap-3 pt-4 justify-center sm:justify-start">
                 <a href="https://wa.me/918745945682" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
                   WhatsApp
                 </a>
-                <a href="#"
+                <a href="https://www.instagram.com/fixwheel11?igsh=MTRqeHB0dnRhYWZqaQ==" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
                   Instagram
                 </a>
+                <a href="https://www.facebook.com/profile.php?id=61573309963156" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
+                  Facebook
+                </a>
+                <a href="https://www.linkedin.com/company/fixwheel-app/" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
+                  LinkedIn
+                </a>
               </div>
-            </div>
-
-            {/* Right: form */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 md:p-8 shadow-sm">
-              {contactSent ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center h-full text-center py-10"
-                >
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle2 className="w-8 h-8 text-accent" />
-                  </div>
-                  <h3 className="text-xl font-black uppercase text-black mb-2">Message Sent!</h3>
-                  <p className="text-gray-500 text-sm">Thanks! We will get back to you shortly.</p>
-                  <button onClick={() => { setContactSent(false); setContactForm({ name: '', phone: '', message: '' }); }}
-                    className="mt-6 text-accent text-sm font-bold uppercase tracking-widest hover:underline">
-                    Send another
-                  </button>
-                </motion.div>
-              ) : (
-                <>
-                  <h3 className="text-lg md:text-xl font-black uppercase text-black mb-6">Send Us a Message</h3>
-                  <form onSubmit={handleContact} className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1.5">Full Name *</label>
-                      <input required type="text" placeholder="Rahul Sharma"
-                        value={contactForm.name} onChange={e => setContactForm({ ...contactForm, name: e.target.value })}
-                        className="w-full bg-gray-50 border border-gray-200 text-black rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1.5">Phone Number *</label>
-                      <input required type="tel" placeholder="+91 98765 43210"
-                        value={contactForm.phone} onChange={e => setContactForm({ ...contactForm, phone: e.target.value })}
-                        className="w-full bg-gray-50 border border-gray-200 text-black rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1.5">Message *</label>
-                      <textarea required rows={4} placeholder="Tell us how we can help..."
-                        value={contactForm.message} onChange={e => setContactForm({ ...contactForm, message: e.target.value })}
-                        className="w-full bg-gray-50 border border-gray-200 text-black rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors resize-none" />
-                    </div>
-                    <button type="submit" disabled={sending}
-                      className="w-full flex items-center justify-center gap-2 bg-accent hover:bg-red-600 disabled:bg-accent/50 text-white font-black uppercase tracking-widest py-3.5 rounded-xl text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)]">
-                      {sending
-                        ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        : <><span>Send Message</span><Send className="w-4 h-4" /></>}
-                    </button>
-                  </form>
-                </>
-              )}
             </div>
           </div>
         </div>
