@@ -14,9 +14,9 @@ import PartnersTable from '@/components/admin/PartnersTable';
 import AdminToast, { ToastType } from '@/components/admin/AdminToast';
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState(null);
-  const [bookings, setBookings] = useState([]);
-  const [partners, setPartners] = useState([]);
+  const [stats, setStats] = useState<any>(null);
+  const [bookings, setBookings] = useState<any[]>([]);
+  const [partners, setPartners] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<ToastType>(null);
