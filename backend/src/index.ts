@@ -5,6 +5,8 @@ import { db } from './lib/db';
 import bookingRoutes from './routes/bookings';
 import partnerRoutes from './routes/partners';
 
+import adminRoutes from './routes/admin';
+
 // Load environment variables
 dotenv.config();
 
@@ -27,8 +29,8 @@ app.use(
       'https://fixwheel.app',
       'https://www.fixwheel.app'
     ],
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
+    methods: ['GET', 'POST', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
 
@@ -67,6 +69,7 @@ app.get('/ping-db', async (req: Request, res: Response) => {
 // API Routes
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/partners', partnerRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Root route
 app.get('/', (req: Request, res: Response) => {
