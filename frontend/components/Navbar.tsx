@@ -110,9 +110,9 @@ export default function Navbar() {
               
               {tabWidth > 0 && (
                 <motion.div
-                  layoutId="activeTab"
-                  className="absolute bottom-0 h-1 bg-accent"
-                  style={{ width: tabWidth, left: tabOffset }}
+                  className="absolute bottom-0 h-1 bg-accent origin-left"
+                  initial={false}
+                  animate={{ x: tabOffset, width: tabWidth }}
                   transition={{ type: "spring", stiffness: 400, damping: 35 }}
                 />
               )}
