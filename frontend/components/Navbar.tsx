@@ -79,7 +79,16 @@ export default function Navbar() {
                 >
                   {link.name}
                   {activePath === link.href && (
-                    <motion.div layoutId="navline" className="absolute bottom-0 left-0 right-0 h-1 bg-accent" />
+                    <motion.div 
+                      layoutId="navline" 
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-accent" 
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30
+                      }}
+                    />
                   )}
                 </Link>
               ))}
