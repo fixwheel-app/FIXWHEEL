@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Wrench } from 'lucide-react';
@@ -12,6 +12,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const [activePath, setActivePath] = useState(pathname || '/');
+
+  const [tabWidth, setTabWidth] = useState(0);
+  const [tabOffset, setTabOffset] = useState(0);
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     setActivePath(window.location.pathname + window.location.hash);
@@ -33,10 +37,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (pathname?.startsWith('/admin')) {
-    return null;
-  }
-
   const navLinks = [
     { name: 'HOME',           href: '/' },
     { name: 'SERVICES',       href: '/services' },
@@ -46,6 +46,32 @@ export default function Navbar() {
     { name: 'FAQ',            href: '/#faq' },
     { name: 'CONTACT',        href: '/#contact' },
   ];
+
+  useEffect(() => {
+    const activeIndex = navLinks.findIndex(link => link.href === activePath);
+    const activeElement = navRefs.current[activeIndex];
+    
+    if (activeElement) {
+      setTabWidth(activeElement.offsetWidth);
+      setTabOffset(activeElement.offsetLeft);
+    } else {
+      setTabWidth(0);
+    }
+    
+    // Also recalculate on window resize to ensure correct tab position
+    const handleResize = () => {
+      if (activeElement) {
+        setTabWidth(activeElement.offsetWidth);
+        setTabOffset(activeElement.offsetLeft);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activePath, navLinks]);
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>
@@ -66,32 +92,30 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center h-full">
-              {navLinks.map((link) => (
+            <div className="hidden lg:flex items-center h-full relative">
+              {navLinks.map((link, idx) => (
                 <Link
                   key={link.name}
                   href={link.href}
+                  ref={(el) => { navRefs.current[idx] = el; }}
                   onClick={() => setActivePath(link.href)}
                   className={cn(
-                    "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center relative px-3 xl:px-4 whitespace-nowrap",
+                    "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap",
                     activePath === link.href ? "text-accent" : "text-white"
                   )}
                 >
                   {link.name}
-                  {activePath === link.href && (
-                    <motion.div 
-                      layoutId="navline" 
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-accent" 
-                      initial={false}
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30
-                      }}
-                    />
-                  )}
                 </Link>
               ))}
+              
+              {tabWidth > 0 && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute bottom-0 h-1 bg-accent"
+                  style={{ width: tabWidth, left: tabOffset }}
+                  transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                />
+              )}
             </div>
 
             <div className="hidden lg:flex shrink-0">
