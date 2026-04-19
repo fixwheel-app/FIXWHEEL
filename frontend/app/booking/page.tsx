@@ -1,5 +1,10 @@
 import BookingForm from '@/components/BookingForm';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "Book a Mechanic — FixWheel Doorstep Bike Service",
+  description: "Book your doorstep bike service in minutes. Fill in your details, pick a time slot, and a verified mechanic comes to you. Serving Delhi NCR.",
+};
 export default function BookingPage() {
   return (
     <div className="min-h-screen py-10 md:py-16 bg-white relative">

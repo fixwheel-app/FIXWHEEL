@@ -9,8 +9,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fixwheel.app"),
-  title: "FixWheel — Doorstep Bike Repairs in Delhi",
-  description: "Book expert bike repairs at your doorstep in Delhi. Fast, reliable, transparent pricing. Book online in 60 seconds.",
+  title: {
+    default: "FixWheel — Doorstep Bike Service Delhi NCR",
+    template: "%s | FixWheel",
+  },
+  description: "Doorstep motorcycle servicing platform for Delhi NCR.",
   keywords: "bike repair delhi, doorstep bike service, bicycle mechanic delhi, bike repair at home",
   openGraph: {
     title: "FixWheel — Doorstep Bike Repairs",
