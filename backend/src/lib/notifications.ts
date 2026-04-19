@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import nodemailer from 'nodemailer';
 dotenv.config();
 
 export interface BookingDetails {
@@ -26,12 +27,22 @@ export interface PartnerDetails {
   licensePhoto?: string;
 }
 
-export const sendBookingNotification = async (details: BookingDetails) => {
-  const apiKey = process.env.RESEND_API_KEY;
-  const ownerEmail = process.env.OWNER_EMAIL;
+// Create reusable transporter object using Hostinger SMTP
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp.hostinger.com',
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: true, // true for 465, false for other ports
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
-  if (!apiKey || apiKey === 'placeholder' || apiKey === 'we-will-add-this-next') {
-    console.warn("RESEND_API_KEY missing. Skipping email.");
+export const sendBookingNotification = async (details: BookingDetails) => {
+  const ownerEmail = process.env.OWNER_EMAIL;
+  
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.warn("SMTP_USER or SMTP_PASS missing. Skipping email.");
     return;
   }
 
@@ -41,12 +52,9 @@ export const sendBookingNotification = async (details: BookingDetails) => {
   }
 
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(apiKey);
-
-    await resend.emails.send({
-      from: 'FixWheel <support@fixwheel.app>',
-      to: [ownerEmail],
+    const info = await transporter.sendMail({
+      from: `"FixWheel" <${process.env.SMTP_USER}>`, // sender address must match SMTP user on Hostinger
+      to: ownerEmail,
       subject: `New Booking — ${details.bookingRef}`,
       html: `
         <h2>New Booking Received</h2>
@@ -60,18 +68,17 @@ export const sendBookingNotification = async (details: BookingDetails) => {
         <p><b>Slot:</b> ${details.preferredSlot}</p>
       `,
     });
-    console.log("Booking email sent");
+    console.log("Booking email sent: %s", info.messageId);
   } catch (error) {
     console.error("Email failed:", error);
   }
 };
 
 export const sendPartnerNotification = async (details: PartnerDetails) => {
-  const apiKey = process.env.RESEND_API_KEY;
   const ownerEmail = process.env.OWNER_EMAIL;
 
-  if (!apiKey || apiKey === 'placeholder' || apiKey === 'we-will-add-this-next') {
-    console.warn("RESEND_API_KEY missing. Skipping email.");
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.warn("SMTP_USER or SMTP_PASS missing. Skipping email.");
     return;
   }
 
@@ -81,12 +88,9 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
   }
 
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(apiKey);
-
-    await resend.emails.send({
-      from: 'FixWheel <support@fixwheel.app>',
-      to: [ownerEmail],
+    const info = await transporter.sendMail({
+      from: `"FixWheel" <${process.env.SMTP_USER}>`,
+      to: ownerEmail,
       subject: `New Partner Application — ${details.partnerRef}`,
       html: `
         <h2>New Partner Application</h2>
@@ -108,7 +112,7 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
         ` : ''}
       `,
     });
-    console.log("Partner email sent");
+    console.log("Partner email sent: %s", info.messageId);
   } catch (error) {
     console.error("Email failed:", error);
   }
