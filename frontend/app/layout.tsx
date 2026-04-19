@@ -8,17 +8,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fixwheel.app"),
   title: "FixWheel — Doorstep Bike Repairs in Delhi",
   description: "Book expert bike repairs at your doorstep in Delhi. Fast, reliable, transparent pricing. Book online in 60 seconds.",
   keywords: "bike repair delhi, doorstep bike service, bicycle mechanic delhi, bike repair at home",
   openGraph: {
     title: "FixWheel — Doorstep Bike Repairs",
     description: "Expert repairs. Your doorstep. 60-second booking.",
-    url: "https://fixwheel.in",
-    type: "website"
-  },
-  icons: {
-    icon: '/icon.png',
+    url: "https://fixwheel.app",
+    type: "website",
+    siteName: "FixWheel"
   },
   verification: {
     google: "C833_fFDkpy5lyqYIs8Tfha4pv5gciagl2uJOEcfB9I"
