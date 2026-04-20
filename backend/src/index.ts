@@ -6,6 +6,7 @@ import bookingRoutes from './routes/bookings';
 import partnerRoutes from './routes/partners';
 
 import adminRoutes from './routes/admin';
+import sitemapRoutes from './routes/sitemap';
 
 // Load environment variables
 dotenv.config();
@@ -70,6 +71,7 @@ app.get('/ping-db', async (req: Request, res: Response) => {
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/partners', partnerRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/sitemap', sitemapRoutes);
 
 // Root route
 app.get('/', (req: Request, res: Response) => {
