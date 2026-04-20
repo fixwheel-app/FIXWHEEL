@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "FixWheel"
   },
   verification: {
-    google: "C833_fFDkpy5lyqYIs8Tfha4pv5gciagl2uJOEcfB9I"
+    google: "71UoB7e03OEormKOZ0HXPxAkXORZ37XkQlXdFYx4YxI",
   }
 };
 
