@@ -92,7 +92,7 @@ export default function Home() {
                 href="/services"
                 className="bg-accent border-2 border-accent text-white px-6 py-3 md:px-10 md:py-4 text-sm md:text-base font-black tracking-widest uppercase hover:bg-transparent hover:text-black transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)]"
               >
-                Book a Repair
+                BOOK NOW
               </Link>
             </div>
 

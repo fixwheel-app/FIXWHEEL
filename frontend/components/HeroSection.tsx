@@ -53,7 +53,7 @@ export default function HeroSection() {
               href="/booking" 
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-accent hover:bg-accent-hover text-white font-semibold text-lg transition-all shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transform hover:-translate-y-1"
             >
-              Book a Repair
+              BOOK NOW
             </Link>
             <Link 
               href="/services" 
