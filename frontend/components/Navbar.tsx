@@ -123,7 +123,7 @@ export default function Navbar() {
                 href="/booking"
                 className="bg-accent hover:bg-accent-hover text-white px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap"
               >
-                Booking Setup
+                BOOK NOW
               </Link>
             </div>
 
