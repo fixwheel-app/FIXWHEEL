@@ -31,7 +31,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-[56px] font-bold text-white leading-tight tracking-tight mb-6"
           >
-            Your Bike Broken? <br className="hidden md:block"/> We Come to You.
+            <span className="text-accent">MECHANIC</span> AT YOUR DOOR <br className="hidden md:block"/> NO GARAGE. NO WAITING.
           </motion.h1>
 
           <motion.p 
