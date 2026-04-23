@@ -31,7 +31,7 @@ app.use(
       'https://www.fixwheel.app'
     ],
     methods: ['GET', 'POST', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-key']
   })
 );
 
