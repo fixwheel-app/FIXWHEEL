@@ -321,7 +321,6 @@ export default function Home() {
                 { icon: <Phone className="w-5 h-5 text-accent" />, label: "Phone",         value: "+91 87459 45682",     note: "Call us between 8AM and 8PM" },
                 { icon: <Mail  className="w-5 h-5 text-accent" />, label: "Email",         value: "support@fixwheel.app", note: "We reply within 2 hours" },
                 { icon: <MapPin className="w-5 h-5 text-accent" />, label: "Location",     value: "Delhi NCR, India",    note: "Serving all major areas" },
-                { icon: <Clock  className="w-5 h-5 text-accent" />, label: "Working Hours", value: "Monday to Sunday",   note: "8:00 AM — 8:00 PM, every day" },
               ].map((item, i) => (
                 <motion.div
                   key={i}
