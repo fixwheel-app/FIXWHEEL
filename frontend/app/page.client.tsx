@@ -340,24 +340,7 @@ export default function Home() {
                 </motion.div>
               ))}
 
-              <div className="flex flex-wrap gap-3 pt-4 justify-center sm:justify-start">
-                <a href="https://wa.me/918745945682" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
-                  WhatsApp
-                </a>
-                <a href="https://www.instagram.com/fixwheel11?igsh=MTRqeHB0dnRhYWZqaQ==" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
-                  Instagram
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61573309963156" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
-                  Facebook
-                </a>
-                <a href="https://www.linkedin.com/company/fixwheel-app/" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-[#0077b5] hover:bg-[#006396] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-colors">
-                  LinkedIn
-                </a>
-              </div>
+
             </div>
           </div>
         </div>

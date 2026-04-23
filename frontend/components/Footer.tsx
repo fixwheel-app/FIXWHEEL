@@ -36,10 +36,28 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Contact</h4>
-            <ul className="space-y-2 text-xs md:text-sm text-text-secondary">
+            <ul className="space-y-2 text-xs md:text-sm text-text-secondary mb-4">
               <li>Phone: +91 87459 45682</li>
               <li>Email: support@fixwheel.app</li>
             </ul>
+            <div className="flex flex-wrap gap-2">
+              <a href="https://wa.me/918745945682" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-green-500 hover:bg-green-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors border border-green-400/20">
+                WhatsApp
+              </a>
+              <a href="https://www.instagram.com/fixwheel11?igsh=MTRqeHB0dnRhYWZqaQ==" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors border border-pink-400/20">
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61573309963156" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors border border-blue-400/20">
+                Facebook
+              </a>
+              <a href="https://www.linkedin.com/company/fixwheel-app/" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-[#0077b5] hover:bg-[#006396] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors border border-blue-300/20">
+                LinkedIn
+              </a>
+            </div>
           </div>
 
         </div>
