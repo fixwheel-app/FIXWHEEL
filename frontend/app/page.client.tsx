@@ -80,7 +80,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase text-black tracking-tighter mb-4 md:mb-6 leading-tight break-words">
-              Your Bike <span className="text-accent drop-shadow-[0_0_15px_rgba(230,43,43,0.3)]">Broken?</span><br /> We Come to You.
+              <span className="text-accent drop-shadow-[0_0_15px_rgba(230,43,43,0.3)]">MECHANIC</span> AT YOUR DOOR<br /> NO GARAGE. NO WAITING.
             </h1>
 
             <p className="text-sm md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
