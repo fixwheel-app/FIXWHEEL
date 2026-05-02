@@ -114,20 +114,7 @@ export default function Home() {
         <div className="absolute -bottom-[2px] left-0 right-0 h-16 bg-white [clip-path:polygon(0_100%,100%_100%,100%_0,0_100%)] z-20" />
       </section>
 
-      {/* ── PROMOS ───────────────────────────────────────────────────────── */}
-      <section className="relative z-30 -mt-8 md:-mt-20 container mx-auto px-4 mb-12 md:mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="bg-gray-50 p-8 border-l-4 border-accent relative overflow-hidden group shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
-            <h3 className="text-xl sm:text-2xl font-black relative z-10 w-full sm:w-2/3 uppercase leading-tight">20% off with any new product in expart shop.</h3>
-            <div className="w-16 h-16 shrink-0 rounded-full bg-accent flex items-center justify-center font-black text-xl z-10 text-white shadow-md relative">20%</div>
-          </div>
-          <div className="bg-gray-50 p-8 border-l-4 border-black relative overflow-hidden group shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
-            <h3 className="text-xl sm:text-2xl font-black relative z-10 w-full sm:w-2/3 uppercase leading-tight">30% Off with all services</h3>
-            <div className="w-16 h-16 shrink-0 rounded-full bg-black flex items-center justify-center font-black text-xl z-10 text-white shadow-md relative">30%</div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── FEATURES + QUOTE ─────────────────────────────────────────────── */}
       <section className="py-8 md:py-16 container mx-auto px-4">
@@ -150,24 +137,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Quote block */}
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-gray-50 p-6 md:p-12 border-l-4 md:border-l-8 border-accent relative shadow-xl">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-white [clip-path:polygon(100%_0,0_0,100%_100%)]" />
-          <div className="flex-1">
-            <p className="text-gray-500 font-bold uppercase tracking-[0.2em] mb-4 text-xs">Best Bike Repair Services Shop</p>
-            <h2 className="text-2xl md:text-5xl font-black uppercase leading-tight mb-4 md:mb-6">
-              It's true some men take <span className="text-accent">good care of a bike</span> others treat it like one of <span className="text-accent">the family.</span>
-            </h2>
 
-          </div>
-          <div className="flex-1 text-gray-600 space-y-3 md:space-y-4 text-sm leading-relaxed md:border-l border-black/10 md:pl-8 border-t md:border-t-0 pt-4 md:pt-0">
-            <p>We've created a seamless pipeline to handle all of your connections literally on-time, and a killer price. We treat your two-wheelers with the utmost care, like family.</p>
-            <p>Our experts understand that it's not just about spending hours. While others boast to drive like other cars, that is not for you. It isn't really about racing either. It's sort of about avoiding them and riding with comfort.</p>
-            <Link href="/booking" className="inline-block bg-transparent border border-black/20 px-6 py-2 text-black font-bold uppercase text-xs hover:border-accent hover:text-accent transition-colors mt-4">
-              Get Appointment
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════

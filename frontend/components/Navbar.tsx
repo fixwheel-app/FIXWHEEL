@@ -41,7 +41,6 @@ export default function Navbar() {
     { name: 'HOME',           href: '/' },
     { name: 'SERVICES',       href: '/services' },
     { name: 'OUR PROCESS',    href: '/#process' },
-    { name: 'BOOK NOW',       href: '/booking' },
     { name: 'BECOME PARTNER', href: '/partner' },
     { name: 'FAQ',            href: '/#faq' },
     { name: 'CONTACT',        href: '/#contact' },
