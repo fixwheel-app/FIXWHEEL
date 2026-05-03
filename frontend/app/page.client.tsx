@@ -152,7 +152,7 @@ export default function Home() {
                 <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
                 
                 <Calendar className="relative z-10 w-5 h-5 md:w-6 md:h-6" />
-                <span className="relative z-10">Get Instant Estimate</span>
+                <span className="relative z-10">BOOK NOW</span>
                 <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-2" />
               </Link>
 
