@@ -61,7 +61,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black">
 
       {/* ── IMMERSIVE HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] md:min-h-[100vh] flex items-center bg-[#050505] overflow-hidden pt-20 md:pt-0">
+      <section className="relative min-h-[90vh] md:min-h-[100vh] flex flex-col justify-start md:justify-center bg-[#050505] overflow-hidden pt-28 md:pt-0">
         
         {/* Z-0: Base Background (Already #050505) */}
 
@@ -70,11 +70,11 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-[70%] md:left-[60%] -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[60vw] md:h-[60vw] bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-accent/40 via-accent/5 to-transparent blur-[80px] md:blur-[120px] z-10 pointer-events-none"
+          className="absolute top-1/3 md:top-1/2 left-[70%] md:left-[60%] -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[60vw] md:h-[60vw] bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-accent/40 via-accent/5 to-transparent blur-[80px] md:blur-[120px] z-10 pointer-events-none"
         />
 
         {/* Z-20: The Bike Image (Floating & Immersive) */}
-        <div className="absolute top-[45%] md:top-1/2 -translate-y-1/2 right-[-30%] md:right-[-5%] w-[160%] md:w-[75%] h-[60%] md:h-[90%] z-20 pointer-events-none">
+        <div className="absolute top-[40%] md:top-1/2 -translate-y-1/2 right-[-40%] md:right-[-5%] w-[180%] md:w-[75%] h-[70%] md:h-[90%] z-20 pointer-events-none">
           <motion.div 
             initial={{ opacity: 0, scale: 1.15, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -102,8 +102,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent h-full md:hidden z-30 pointer-events-none" />
 
         {/* Z-40: The Content */}
-        <div className="relative z-40 container mx-auto px-4 md:px-8 lg:px-12 w-full h-full flex flex-col justify-center">
-          <div className="max-w-[100%] md:max-w-[65%] lg:max-w-[60%] pt-10 md:pt-0">
+        <div className="relative z-40 container mx-auto px-4 md:px-8 lg:px-12 w-full flex flex-col">
+          <div className="max-w-[100%] md:max-w-[65%] lg:max-w-[60%]">
             {/* Top Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
