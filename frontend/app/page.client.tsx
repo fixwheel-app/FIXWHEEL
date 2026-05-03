@@ -61,7 +61,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black">
 
       {/* ── IMMERSIVE HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] md:min-h-[100vh] flex flex-col justify-start md:justify-center bg-[#050505] overflow-hidden pt-28 md:pt-0">
+      <section className="relative md:min-h-[100vh] flex flex-col justify-start md:justify-center bg-[#050505] overflow-hidden pt-28 pb-56 md:pt-0 md:pb-0">
         
         {/* Z-0: Base Background (Already #050505) */}
 
@@ -74,7 +74,7 @@ export default function Home() {
         />
 
         {/* Z-20: The Bike Image (Floating & Immersive) */}
-        <div className="absolute top-[40%] md:top-1/2 -translate-y-1/2 right-[-40%] md:right-[-5%] w-[180%] md:w-[75%] h-[70%] md:h-[90%] z-20 pointer-events-none">
+        <div className="absolute bottom-[-5%] md:bottom-auto md:top-1/2 md:-translate-y-1/2 right-[-30%] md:right-[-5%] w-[160%] md:w-[75%] h-[65%] md:h-[90%] z-20 pointer-events-none">
           <motion.div 
             initial={{ opacity: 0, scale: 1.15, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
