@@ -104,16 +104,7 @@ export default function Home() {
         {/* Z-40: The Content */}
         <div className="relative z-40 container mx-auto px-4 md:px-8 lg:px-12 w-full flex flex-col">
           <div className="max-w-[100%] md:max-w-[65%] lg:max-w-[60%]">
-            {/* Top Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 md:mb-8"
-            >
-              <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-gray-300 text-xs md:text-sm font-bold tracking-widest uppercase">⭐ Top-Rated Doorstep Repair in Delhi</span>
-            </motion.div>
+
 
             {/* Headlines */}
             <motion.h1 
