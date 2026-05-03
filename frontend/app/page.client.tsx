@@ -155,13 +155,6 @@ export default function Home() {
 
               {/* Trust Indicators */}
               <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
-                <div className="flex -space-x-2">
-                  {[1,2,3].map(i => (
-                    <div key={i} className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#050505] bg-gray-800 flex items-center justify-center overflow-hidden shrink-0">
-                      <Image src={`https://api.dicebear.com/7.x/notionists/svg?seed=${i}&backgroundColor=transparent`} alt="User" width={36} height={36} />
-                    </div>
-                  ))}
-                </div>
                 <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-gray-300">
                   <Star className="w-4 h-4 text-accent fill-accent" />
                   <span className="text-white">4.8/5</span>
