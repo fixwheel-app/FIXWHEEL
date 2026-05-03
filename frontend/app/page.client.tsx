@@ -57,6 +57,17 @@ export default function Home() {
 
   // ── Contact form state removed ─────────────────────────────────────────────
 
+  const reviews = [
+    { name: "Rahul Sharma", rating: 5, text: "Bike broke down near Cyber Hub. Mechanic arrived in 40 mins. Very professional and didn't overcharge for emergency. Highly recommended.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-2" },
+    { name: "Anjali Verma", rating: 4.5, text: "First time using a doorstep service. The mechanic was polite and did a full servicing right in front of me. Saved me a trip to the local garage.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-2" },
+    { name: "Vikram Singh", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels much smoother now. A bit premium but totally worth it for the convenience.", style: "bg-accent text-white", tilt: "md:-rotate-1" },
+    { name: "Priya Das", rating: 4, text: "Good service but the mechanic was 15 mins late due to traffic. The actual repair was fast and the pricing was very transparent though.", style: "bg-[#1E293B] text-gray-200 border-l-[3px] border-[#0F172A]", tilt: "md:rotate-1" },
+    { name: "Sameer Reddy", rating: 5, text: "Was skeptical at first, but the booking process is super easy. My scooter wouldn't start on the way to office, they fixed the spark plug on the spot.", style: "bg-[#0F172A] text-white", tilt: "md:-rotate-2" },
+    { name: "Neha Gupta", rating: 5, text: "Absolutely hassle-free. They brought all the tools and cleaned up after the oil change. Will definitely use FixWheel again!", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:rotate-2" },
+    { name: "Arjun Nair", rating: 4.5, text: "Great convenience. Pricing is slightly higher than my local guy, but the transparency and not having to leave home makes it 100% worth it.", style: "bg-accent text-white", tilt: "md:-rotate-1" },
+    { name: "Manish Pandey", rating: 5, text: "Mechanic named Suresh was excellent. Explained the brake issue clearly before replacing the pads. Trustworthy service.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-1" },
+  ];
+
   return (
     <main className="min-h-screen bg-white text-black">
 
@@ -244,6 +255,47 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          🟠  CUSTOMER REVIEWS
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 bg-[#050505] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Real Feedback</span>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-3">What Riders Say</h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">Don't just take our word for it. Hear from our actual customers.</p>
+          </div>
+
+          {/* Grid Layout for Desktop, Horizontal Scroll for Mobile */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-4 px-4 md:mx-0 md:px-0">
+            {reviews.map((review, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`min-w-[280px] sm:min-w-[320px] md:min-w-0 snap-center shrink-0 p-6 rounded-[12px] shadow-xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-pointer flex flex-col justify-between h-full ${review.style} ${review.tilt}`}
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="font-bold text-[15px] uppercase tracking-wide">{review.name}</div>
+                    <div className="flex items-center gap-1 bg-black/20 px-2 py-1 rounded-md">
+                      <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                      <span className="text-xs font-bold">{review.rating}</span>
+                    </div>
+                  </div>
+                  <p className="text-[14px] leading-relaxed opacity-90">"{review.text}"</p>
+                </div>
+                <div className="mt-6 flex items-center justify-end">
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-50">Verified Rider</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
