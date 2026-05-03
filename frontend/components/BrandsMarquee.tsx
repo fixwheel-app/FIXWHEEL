@@ -7,21 +7,21 @@ import { ChevronRight, Wrench } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const brandsRow1 = [
-  { id: 'royal-enfield', name: 'Royal Enfield', logo: 'https://logo.clearbit.com/royalenfield.com', price: '₹999', color: 'group-hover:text-[#D92B27]', border: 'group-hover:border-[#D92B27]' },
-  { id: 'honda', name: 'Honda', logo: 'https://logo.clearbit.com/honda.com', price: '₹699', color: 'group-hover:text-[#E40521]', border: 'group-hover:border-[#E40521]' },
-  { id: 'yamaha', name: 'Yamaha', logo: 'https://logo.clearbit.com/yamaha-motor.com', price: '₹799', color: 'group-hover:text-[#003399]', border: 'group-hover:border-[#003399]' },
-  { id: 'suzuki', name: 'Suzuki', logo: 'https://logo.clearbit.com/suzuki.com', price: '₹699', color: 'group-hover:text-[#002C6A]', border: 'group-hover:border-[#002C6A]' },
-  { id: 'ktm', name: 'KTM', logo: 'https://logo.clearbit.com/ktm.com', price: '₹1299', color: 'group-hover:text-[#FF6600]', border: 'group-hover:border-[#FF6600]' },
-  { id: 'bajaj', name: 'Bajaj', logo: 'https://logo.clearbit.com/bajajauto.com', price: '₹599', color: 'group-hover:text-[#0055A5]', border: 'group-hover:border-[#0055A5]' },
+  { id: 'royal-enfield', name: 'Royal Enfield', logo: 'https://www.google.com/s2/favicons?domain=royalenfield.com&sz=128', price: '₹999', color: 'group-hover:text-[#D92B27]', border: 'group-hover:border-[#D92B27]' },
+  { id: 'honda', name: 'Honda', logo: 'https://www.google.com/s2/favicons?domain=honda.com&sz=128', price: '₹699', color: 'group-hover:text-[#E40521]', border: 'group-hover:border-[#E40521]' },
+  { id: 'yamaha', name: 'Yamaha', logo: 'https://www.google.com/s2/favicons?domain=yamahamotorsports.com&sz=128', price: '₹799', color: 'group-hover:text-[#003399]', border: 'group-hover:border-[#003399]' },
+  { id: 'suzuki', name: 'Suzuki', logo: 'https://www.google.com/s2/favicons?domain=suzukicycles.com&sz=128', price: '₹699', color: 'group-hover:text-[#002C6A]', border: 'group-hover:border-[#002C6A]' },
+  { id: 'ktm', name: 'KTM', logo: 'https://www.google.com/s2/favicons?domain=ktm.com&sz=128', price: '₹1299', color: 'group-hover:text-[#FF6600]', border: 'group-hover:border-[#FF6600]' },
+  { id: 'bajaj', name: 'Bajaj', logo: 'https://www.google.com/s2/favicons?domain=bajajauto.com&sz=128', price: '₹599', color: 'group-hover:text-[#0055A5]', border: 'group-hover:border-[#0055A5]' },
 ];
 
 const brandsRow2 = [
-  { id: 'tvs', name: 'TVS', logo: 'https://logo.clearbit.com/tvsmotor.com', price: '₹599', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
-  { id: 'hero', name: 'Hero', logo: 'https://logo.clearbit.com/heromotocorp.com', price: '₹499', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
-  { id: 'vespa', name: 'Vespa', logo: 'https://logo.clearbit.com/vespa.com', price: '₹1499', color: 'group-hover:text-[#008A5E]', border: 'group-hover:border-[#008A5E]' },
-  { id: 'aprilia', name: 'Aprilia', logo: 'https://logo.clearbit.com/aprilia.com', price: '₹1499', color: 'group-hover:text-[#E31837]', border: 'group-hover:border-[#E31837]' },
-  { id: 'bmw', name: 'BMW Motorrad', logo: 'https://logo.clearbit.com/bmw-motorrad.com', price: '₹2499', color: 'group-hover:text-[#0066B1]', border: 'group-hover:border-[#0066B1]' },
-  { id: 'ducati', name: 'Ducati', logo: 'https://logo.clearbit.com/ducati.com', price: '₹2999', color: 'group-hover:text-[#CC0000]', border: 'group-hover:border-[#CC0000]' },
+  { id: 'tvs', name: 'TVS', logo: 'https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=128', price: '₹599', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
+  { id: 'hero', name: 'Hero', logo: 'https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=128', price: '₹499', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
+  { id: 'vespa', name: 'Vespa', logo: 'https://www.google.com/s2/favicons?domain=vespa.com&sz=128', price: '₹1499', color: 'group-hover:text-[#008A5E]', border: 'group-hover:border-[#008A5E]' },
+  { id: 'aprilia', name: 'Aprilia', logo: 'https://www.google.com/s2/favicons?domain=aprilia.com&sz=128', price: '₹1499', color: 'group-hover:text-[#E31837]', border: 'group-hover:border-[#E31837]' },
+  { id: 'bmw', name: 'BMW Motorrad', logo: 'https://www.google.com/s2/favicons?domain=bmwmotorcycles.com&sz=128', price: '₹2499', color: 'group-hover:text-[#0066B1]', border: 'group-hover:border-[#0066B1]' },
+  { id: 'ducati', name: 'Ducati', logo: 'https://www.google.com/s2/favicons?domain=ducati.com&sz=128', price: '₹2999', color: 'group-hover:text-[#CC0000]', border: 'group-hover:border-[#CC0000]' },
 ];
 
 export default function BrandsMarquee() {
