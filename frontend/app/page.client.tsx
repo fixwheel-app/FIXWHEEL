@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
   ArrowRight, ShieldCheck, Wrench, Clock,
-  MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown
+  MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown,
+  Calendar, Star
 } from 'lucide-react';
 import BrandsMarquee from '@/components/BrandsMarquee';
 
@@ -59,60 +60,149 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[85vh] md:h-[100vh] md:min-h-[700px] flex items-center justify-center bg-white overflow-hidden">
-        <div className="absolute inset-0 w-full h-full z-0">
-          <Image
-            src="/bike-bg.png"
-            alt="Triumph Motorcycle"
-            fill
-            className="object-cover object-center opacity-80"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/30 to-transparent z-10 w-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white z-10" />
+      {/* ── PREMIUM HERO SECTION ─────────────────────────────────────────── */}
+      <section className="relative min-h-[90vh] md:min-h-screen flex items-center bg-[#050505] overflow-hidden pt-20 md:pt-0">
+        {/* Background Gradients & Lighting */}
+        <div className="absolute top-0 right-0 w-[100%] md:w-[80%] h-[80%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/30 via-[#050505]/0 to-transparent blur-3xl opacity-60 z-0 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent/20 via-[#050505]/0 to-transparent blur-3xl opacity-40 z-0 pointer-events-none" />
+
+        {/* Bike Image */}
+        <div className="absolute right-0 top-[60%] md:top-1/2 -translate-y-1/2 w-[140%] md:w-[65%] h-[60%] md:h-[90%] z-10 opacity-30 md:opacity-100 pointer-events-none md:translate-x-[5%] mt-10 md:mt-0">
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-full relative"
+          >
+            <Image
+              src="/bike-bg.png"
+              alt="Premium Superbike"
+              fill
+              className="object-contain object-center md:object-right"
+              priority
+            />
+          </motion.div>
         </div>
 
-        <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center text-center max-w-7xl h-full py-10 md:pb-10">
-          <div className="max-w-4xl animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 border border-black/10 text-sm md:text-base text-accent font-medium mb-8">
-              <Wrench className="w-4 h-4" />
-              <span>Delhi's #1 Doorstep Bike Repair</span>
-            </div>
+        {/* Content Container */}
+        <div className="relative z-20 container mx-auto px-4 md:px-8 lg:px-12 w-full h-full flex flex-col justify-center">
+          <div className="max-w-3xl">
+            {/* Top Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-700/50 bg-[#111] backdrop-blur-sm mb-6 md:mb-8"
+            >
+              <MapPin className="w-4 h-4 text-accent" />
+              <span className="text-gray-300 text-xs md:text-sm font-bold tracking-widest uppercase">Delhi's #1 Doorstep Bike Repair</span>
+            </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase text-black tracking-tighter mb-4 md:mb-6 leading-tight break-words">
-              <span className="text-accent drop-shadow-[0_0_15px_rgba(230,43,43,0.3)]">MECHANIC</span> AT YOUR DOOR<br /> NO GARAGE. NO WAITING.
-            </h1>
+            {/* Headlines */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[3.5rem] sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black uppercase tracking-tighter leading-[0.9] mb-4 md:mb-6 flex flex-col"
+            >
+              <span className="text-accent drop-shadow-[0_0_25px_rgba(230,43,43,0.4)]">Mechanic</span>
+              <span className="text-white">At Your Door</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-300 mt-2 md:mt-4 tracking-tight">No Garage. No Waiting.</span>
+            </motion.h1>
 
-            <p className="text-sm md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+            {/* Subtext */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-gray-400 text-sm sm:text-base md:text-xl max-w-xl font-medium leading-relaxed mb-8 md:mb-10"
+            >
               Expert bike repairs at your doorstep. No hassle, no waiting, no hidden charges.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mb-10 md:mb-16">
+            {/* CTA & Trust Group */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col items-start gap-4 md:gap-5"
+            >
               <Link
-                href="/services"
-                className="bg-accent border-2 border-accent text-white px-6 py-3 md:px-10 md:py-4 text-sm md:text-base font-black tracking-widest uppercase hover:bg-transparent hover:text-black transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)]"
+                href="/booking"
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-accent hover:bg-[#ff1a1a] text-white px-8 py-4 rounded-md font-black tracking-widest uppercase text-sm md:text-base transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] hover:scale-[1.02]"
               >
-                BOOK NOW
+                <Calendar className="w-5 h-5" />
+                Book Bike Service
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </div>
 
-            {/* Trust Bar */}
-            <div className="flex flex-wrap justify-center items-center gap-x-4 md:gap-x-8 gap-y-3 text-xs md:text-sm text-gray-600 font-bold uppercase tracking-wider border-t border-black/10 pt-6 md:pt-8 mt-2 md:mt-4">
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-accent" /><span>500+ Repairs</span>
+              {/* Trust Indicators */}
+              <div className="flex items-center gap-3 bg-[#111]/50 backdrop-blur-sm px-4 py-2 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
+                <div className="flex -space-x-2">
+                  {[1,2,3].map(i => (
+                    <div key={i} className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#050505] bg-gray-800 flex items-center justify-center overflow-hidden shrink-0">
+                      <Image src={`https://api.dicebear.com/7.x/notionists/svg?seed=${i}&backgroundColor=transparent`} alt="User" width={32} height={32} />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-gray-300">
+                  <Star className="w-3 h-3 md:w-4 md:h-4 text-accent fill-accent" />
+                  <span className="text-white">4.8/5</span>
+                  <span className="inline">Trusted by 1200+ riders</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-accent" /><span>Transparent Pricing</span>
-              </div>
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Clock className="w-4 h-4 md:w-5 md:h-5 text-accent" /><span>30-Min Response</span>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        <div className="absolute -bottom-[2px] left-0 right-0 h-16 bg-white [clip-path:polygon(0_100%,100%_100%,100%_0,0_100%)] z-20" />
+        {/* Bottom Feature Bar (Desktop/Tablet) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-8 py-5 z-30"
+        >
+          <div className="flex items-center gap-4 group">
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-black/20 group-hover:bg-accent/20 transition-colors shrink-0">
+              <CheckCircle2 className="w-5 h-5 text-accent" />
+            </div>
+            <div>
+              <p className="text-white font-bold tracking-wider uppercase text-sm">500+ Repairs</p>
+            </div>
+          </div>
+          <div className="w-px h-10 bg-white/10" />
+          <div className="flex items-center gap-4 group">
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-black/20 group-hover:bg-accent/20 transition-colors shrink-0">
+              <span className="text-accent font-bold text-lg">₹</span>
+            </div>
+            <div>
+              <p className="text-white font-bold tracking-wider uppercase text-sm">Transparent Pricing</p>
+            </div>
+          </div>
+          <div className="w-px h-10 bg-white/10" />
+          <div className="flex items-center gap-4 group">
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-black/20 group-hover:bg-accent/20 transition-colors shrink-0">
+              <Clock className="w-5 h-5 text-accent" />
+            </div>
+            <div>
+              <p className="text-white font-bold tracking-wider uppercase text-sm">30-Min Response</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 md:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-30 opacity-50 cursor-pointer"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-[10px] uppercase tracking-widest text-white font-semibold hidden md:block">Scroll to explore</span>
+          <ChevronDown className="w-5 h-5 text-white" />
+        </motion.div>
+
+        {/* Slanted Bottom Divider */}
+        <div className="absolute -bottom-1 left-0 right-0 h-12 md:h-24 bg-white [clip-path:polygon(0_100%,100%_100%,100%_0,0_100%)] z-20 pointer-events-none" />
       </section>
 
 
