@@ -217,9 +217,6 @@ export default function Home() {
           <span className="text-[10px] uppercase tracking-widest text-white font-semibold hidden md:block">Scroll to explore</span>
           <ChevronDown className="w-5 h-5 text-white" />
         </motion.div>
-
-        {/* Slanted Bottom Divider */}
-        <div className="absolute -bottom-1 left-0 right-0 h-12 md:h-24 bg-white [clip-path:polygon(0_100%,100%_100%,100%_0,0_100%)] z-50 pointer-events-none" />
       </section>
 
 
