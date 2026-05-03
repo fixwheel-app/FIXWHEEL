@@ -8,6 +8,7 @@ import {
   ArrowRight, ShieldCheck, Wrench, Clock,
   MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown
 } from 'lucide-react';
+import BrandsMarquee from '@/components/BrandsMarquee';
 
 export default function Home() {
   const features = [
@@ -139,6 +140,8 @@ export default function Home() {
 
 
       </section>
+
+      <BrandsMarquee />
 
       {/* ════════════════════════════════════════════════════════════════════
           🟠  OUR PROCESS
