@@ -60,11 +60,11 @@ export default function Home() {
   const reviews = [
     { name: "Rahul Sharma", rating: 5, text: "Bike broke down near Cyber Hub. Mechanic arrived in 40 mins. Very professional and didn't overcharge for emergency. Highly recommended.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-2" },
     { name: "Anjali Verma", rating: 4.5, text: "First time using a doorstep service. The mechanic was polite and did a full servicing right in front of me. Saved me a trip to the local garage.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-2" },
-    { name: "Vikram Singh", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels much smoother now. A bit premium but totally worth it for the convenience.", style: "bg-accent text-white", tilt: "md:-rotate-1" },
+    { name: "Vikram Singh", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels much smoother now. A bit premium but totally worth it for the convenience.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-1" },
     { name: "Priya Das", rating: 4, text: "Good service but the mechanic was 15 mins late due to traffic. The actual repair was fast and the pricing was very transparent though.", style: "bg-[#1E293B] text-gray-200 border-l-[3px] border-[#0F172A]", tilt: "md:rotate-1" },
     { name: "Sameer Reddy", rating: 5, text: "Was skeptical at first, but the booking process is super easy. My scooter wouldn't start on the way to office, they fixed the spark plug on the spot.", style: "bg-[#0F172A] text-white", tilt: "md:-rotate-2" },
     { name: "Neha Gupta", rating: 5, text: "Absolutely hassle-free. They brought all the tools and cleaned up after the oil change. Will definitely use FixWheel again!", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:rotate-2" },
-    { name: "Arjun Nair", rating: 4.5, text: "Great convenience. Pricing is slightly higher than my local guy, but the transparency and not having to leave home makes it 100% worth it.", style: "bg-accent text-white", tilt: "md:-rotate-1" },
+    { name: "Arjun Nair", rating: 4.5, text: "Great convenience. Pricing is slightly higher than my local guy, but the transparency and not having to leave home makes it 100% worth it.", style: "bg-[#0F172A] text-white", tilt: "md:-rotate-1" },
     { name: "Manish Pandey", rating: 5, text: "Mechanic named Suresh was excellent. Explained the brake issue clearly before replacing the pads. Trustworthy service.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-1" },
   ];
 
