@@ -3,10 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef } from 'react';
-import gsap from 'gsap';
-import { Observer } from 'gsap/Observer';
-import { useGSAP } from '@gsap/react';
+import { useState } from 'react';
 import {
   ArrowRight, ShieldCheck, Wrench, Clock,
   MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown,
@@ -15,8 +12,6 @@ import {
 import BrandsMarquee from '@/components/BrandsMarquee';
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
-  const bikeRef = useRef<HTMLDivElement>(null);
   const features = [
     { icon: <Award className="w-8 h-8" />, label: "Trained Technicians" },
     { icon: <ShieldCheck className="w-8 h-8" />, label: "Work Guranted" },
@@ -62,76 +57,11 @@ export default function Home() {
 
   // ── Contact form state removed ─────────────────────────────────────────────
 
-  useGSAP(() => {
-    gsap.registerPlugin(Observer);
-
-    // Only run once per session
-    if (sessionStorage.getItem('heroAnimated') === 'true') return;
-
-    // Check for reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    // Skip if they are already scrolled down
-    if (window.scrollY > 50) return;
-
-    const tl = gsap.timeline({
-      paused: true,
-      onComplete: () => {
-        sessionStorage.setItem('heroAnimated', 'true');
-        document.body.style.overflow = 'auto'; // release scroll lock
-        
-        // Auto scroll to next section
-        window.scrollBy({
-          top: window.innerHeight * 0.8,
-          behavior: 'smooth'
-        });
-      }
-    });
-
-    // The acceleration tilt & zoom effect on the bike
-    tl.to(bikeRef.current, {
-      rotateZ: -6,
-      y: -40,
-      x: -20,
-      scale: 1.08,
-      duration: 1.2,
-      ease: "power3.inOut"
-    }).to(bikeRef.current, {
-      rotateZ: 0,
-      y: 0,
-      x: 30, // coasts slightly forward
-      scale: 1,
-      duration: 0.6,
-      ease: "power2.out"
-    });
-
-    let observer = Observer.create({
-      target: window,
-      type: "wheel,touch,pointer",
-      wheelSpeed: -1,
-      tolerance: 10,
-      onDown: () => {
-        if (sessionStorage.getItem('heroAnimated') === 'true') return;
-        
-        // Intercept scroll
-        observer.disable(); 
-        document.body.style.overflow = 'hidden'; 
-        tl.play();
-      },
-    });
-
-    return () => {
-      if (observer) observer.kill();
-      document.body.style.overflow = 'auto';
-    };
-  }, { scope: heroRef });
-
   return (
     <main className="min-h-screen bg-white text-black">
 
       {/* ── IMMERSIVE HERO SECTION ─────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-[90vh] md:min-h-[100vh] flex items-center bg-[#050505] overflow-hidden pt-20 md:pt-0">
+      <section className="relative min-h-[90vh] md:min-h-[100vh] flex items-center bg-[#050505] overflow-hidden pt-20 md:pt-0">
         
         {/* Z-0: Base Background (Already #050505) */}
 
@@ -156,15 +86,13 @@ export default function Home() {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="w-full h-full relative"
             >
-              <div className="w-full h-full relative origin-bottom-right" ref={bikeRef}>
-                <Image
-                  src="/premium-bike-transparent.png"
-                  alt="Premium Superbike"
-                  fill
-                  className="object-contain object-center md:object-right"
-                  priority
-                />
-              </div>
+              <Image
+                src="/bike-bg.png"
+                alt="Premium Superbike"
+                fill
+                className="object-contain object-center md:object-right"
+                priority
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -245,7 +173,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-max hidden md:flex items-center justify-center gap-6 lg:gap-12 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 lg:px-12 py-5 z-40 shadow-2xl"
+          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
         >
           <div className="flex items-center gap-4 group">
             <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
