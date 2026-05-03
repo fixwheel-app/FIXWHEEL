@@ -168,40 +168,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom Feature Bar (Desktop/Tablet) - Z-40 */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
-        >
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <CheckCircle2 className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">500+ Repairs</p>
-            </div>
-          </div>
-          <div className="w-px h-12 bg-white/10" />
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <span className="text-accent font-bold text-xl group-hover:scale-110 transition-transform">₹</span>
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">Transparent Pricing</p>
-            </div>
-          </div>
-          <div className="w-px h-12 bg-white/10" />
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <Clock className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">30-Min Response</p>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div 
