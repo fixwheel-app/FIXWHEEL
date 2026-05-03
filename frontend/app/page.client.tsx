@@ -60,156 +60,65 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
 
-      {/* ── IMMERSIVE HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] md:min-h-[100vh] flex items-center bg-[#050505] overflow-hidden pt-20 md:pt-0">
+      {/* ── FINAL PREMIUM HERO ─────────────────────────────────────────── */}
+      <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black text-white">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-[right_center] bg-cover scale-105"
+          style={{ backgroundImage: "url('/bike-bg.png')" }}
+        />
         
-        {/* Z-0: Base Background (Already #050505) */}
-
-        {/* Z-10: Cinematic Lighting (Pulsing Glow) */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-[70%] md:left-[60%] -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[60vw] md:h-[60vw] bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-accent/40 via-accent/5 to-transparent blur-[80px] md:blur-[120px] z-10 pointer-events-none"
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.2) 100%)"
+          }}
         />
 
-        {/* Z-20: The Bike Image (Floating & Immersive) */}
-        <div className="absolute top-[45%] md:top-1/2 -translate-y-1/2 right-[-30%] md:right-[-5%] w-[160%] md:w-[75%] h-[60%] md:h-[90%] z-20 pointer-events-none">
+        {/* Container */}
+        <div className="relative z-10 w-full px-5 lg:px-20 mx-auto">
+          {/* Content */}
           <motion.div 
-            initial={{ opacity: 0, scale: 1.15, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1.8, ease: "easeOut" }}
-            className="w-full h-full relative will-change-transform"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-[600px] mt-10"
           >
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full h-full relative"
-            >
-              <Image
-                src="/bike-bg.png"
-                alt="Premium Superbike"
-                fill
-                className="object-contain object-center md:object-right"
-                priority
-              />
-            </motion.div>
+            {/* Badge */}
+            <div className="inline-block px-3.5 py-1.5 rounded-[30px] bg-white/10 backdrop-blur-[10px] text-[14px] mb-5">
+              📍 Delhi’s #1 Doorstep Bike Repair
+            </div>
+
+            {/* Title */}
+            <h1 className="text-[56px] lg:text-[72px] leading-[1.1] font-[800] m-0">
+              <span className="text-[#ff2d2d] drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]">MECHANIC</span><br/>
+              AT YOUR DOOR
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-[20px] lg:text-[22px] text-[#aaa] mt-2.5 mb-0 font-semibold">
+              No garage. No waiting.
+            </p>
+
+            {/* Desc */}
+            <p className="text-[16px] text-[#ccc] mt-[15px] mb-[25px]">
+              Expert bike repairs at your doorstep. No hassle, no waiting, no hidden charges.
+            </p>
+
+            {/* CTA Button */}
+            <Link href="/booking">
+              <button className="bg-gradient-to-br from-[#ff2d2d] to-[#ff0000] text-white border-none py-4 px-7 text-[16px] rounded-[10px] cursor-pointer shadow-[0_10px_30px_rgba(255,0,0,0.4)] transition-all duration-300 hover:-translate-y-[3px] hover:scale-[1.02] font-bold">
+                📅 BOOK BIKE SERVICE →
+              </button>
+            </Link>
+
+            {/* Trust */}
+            <div className="mt-[15px] text-[14px] text-[#bbb] bg-white/5 py-2 px-3.5 rounded-[30px] block w-fit">
+              ⭐ 4.8/5 Trusted by 1200+ riders
+            </div>
           </motion.div>
         </div>
-
-        {/* Z-30: The Fade Mask (Ensures text readability over the bike) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/90 to-transparent w-full md:w-[70%] z-30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent h-full md:hidden z-30 pointer-events-none" />
-
-        {/* Z-40: The Content */}
-        <div className="relative z-40 container mx-auto px-4 md:px-8 lg:px-12 w-full h-full flex flex-col justify-center">
-          <div className="max-w-[100%] md:max-w-[65%] lg:max-w-[60%] pt-10 md:pt-0">
-            {/* Top Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 md:mb-8"
-            >
-              <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-gray-300 text-xs md:text-sm font-bold tracking-widest uppercase">Delhi's #1 Doorstep Bike Repair</span>
-            </motion.div>
-
-            {/* Headlines */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="text-[3.5rem] sm:text-6xl md:text-[5.5rem] lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-4 md:mb-6 flex flex-col"
-            >
-              <span className="text-accent drop-shadow-[0_0_30px_rgba(230,43,43,0.5)] relative z-10">Mechanic</span>
-              <span className="text-white relative z-10">At Your Door</span>
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">No Garage. No Waiting.</span>
-            </motion.h1>
-
-            {/* Subtext */}
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-gray-400 text-sm sm:text-base md:text-xl max-w-lg font-medium leading-relaxed mb-8 md:mb-12"
-            >
-              Expert bike repairs at your doorstep. No hassle, no waiting, no hidden charges.
-            </motion.p>
-
-            {/* CTA & Trust Group */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="flex flex-col items-start gap-5 md:gap-6"
-            >
-              <Link
-                href="/booking"
-                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-accent hover:bg-[#ff1a1a] text-white px-8 py-4 md:py-5 rounded-md font-black tracking-widest uppercase text-sm md:text-lg transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)] hover:scale-[1.03]"
-              >
-                <Calendar className="w-5 h-5 md:w-6 md:h-6" />
-                Book Bike Service
-                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-2" />
-              </Link>
-
-              {/* Trust Indicators */}
-              <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
-                <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-gray-300">
-                  <Star className="w-4 h-4 text-accent fill-accent" />
-                  <span className="text-white">4.8/5</span>
-                  <span className="inline">Trusted by 1200+ riders</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Bottom Feature Bar (Desktop/Tablet) - Z-40 */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
-        >
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <CheckCircle2 className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">500+ Repairs</p>
-            </div>
-          </div>
-          <div className="w-px h-12 bg-white/10" />
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <span className="text-accent font-bold text-xl group-hover:scale-110 transition-transform">₹</span>
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">Transparent Pricing</p>
-            </div>
-          </div>
-          <div className="w-px h-12 bg-white/10" />
-          <div className="flex items-center gap-4 group">
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
-              <Clock className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </div>
-            <div>
-              <p className="text-white font-bold tracking-wider uppercase text-sm">30-Min Response</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-6 md:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-40 opacity-60 cursor-pointer hover:opacity-100 transition-opacity"
-          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-        >
-          <span className="text-[10px] uppercase tracking-widest text-white font-semibold hidden md:block">Scroll to explore</span>
-          <ChevronDown className="w-5 h-5 text-white" />
-        </motion.div>
       </section>
 
 
