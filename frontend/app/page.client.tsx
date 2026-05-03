@@ -173,7 +173,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
+          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-max hidden md:flex items-center justify-center gap-6 lg:gap-12 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 lg:px-12 py-5 z-40 shadow-2xl"
         >
           <div className="flex items-center gap-4 group">
             <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">
