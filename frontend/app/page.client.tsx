@@ -262,7 +262,7 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  CUSTOMER REVIEWS
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24 bg-[#050505] overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#0F172A] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12 md:mb-16">
             <span className="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Real Feedback</span>
