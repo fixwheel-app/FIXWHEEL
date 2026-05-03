@@ -64,7 +64,7 @@ export default function Home() {
       <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black text-white">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-no-repeat bg-[right_center] bg-cover scale-105"
+          className="absolute inset-0 bg-no-repeat bg-[right_bottom_30%] md:bg-right bg-[length:180%] sm:bg-[length:120%] md:bg-[length:65%] lg:bg-[length:60%] xl:bg-[length:55%]"
           style={{ backgroundImage: "url('/bike-bg.png')" }}
         />
         
