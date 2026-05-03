@@ -42,7 +42,7 @@ export default function BrandsMarquee() {
           "relative flex-shrink-0 w-48 md:w-64 h-24 md:h-28 rounded-xl flex items-center justify-center gap-3 md:gap-4 border-2 bg-white transition-all duration-300 group cursor-pointer overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 px-4",
           isSelected 
             ? "border-accent text-accent shadow-md scale-[1.02]" 
-            : `border-gray-100 text-gray-400 grayscale hover:grayscale-0 ${brand.border} ${brand.color}`
+            : `border-gray-100 text-gray-400 ${brand.border} ${brand.color}`
         )}
       >
         <img 
