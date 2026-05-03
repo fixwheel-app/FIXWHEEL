@@ -158,7 +158,7 @@ export default function Home() {
             >
               <div className="w-full h-full relative origin-bottom-right" ref={bikeRef}>
                 <Image
-                  src="/premium-bike.png"
+                  src="/premium-bike-transparent.png"
                   alt="Premium Superbike"
                   fill
                   className="object-contain object-center md:object-right"
