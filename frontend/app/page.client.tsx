@@ -112,7 +112,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 md:mb-8"
             >
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-gray-300 text-xs md:text-sm font-bold tracking-widest uppercase">Delhi's #1 Doorstep Bike Repair</span>
+              <span className="text-gray-300 text-xs md:text-sm font-bold tracking-widest uppercase">⭐ Top-Rated Doorstep Repair in Delhi</span>
             </motion.div>
 
             {/* Headlines */}
@@ -122,7 +122,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
               className="text-[3.5rem] sm:text-6xl md:text-[5.5rem] lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-4 md:mb-6 flex flex-col"
             >
-              <span className="text-accent drop-shadow-[0_0_30px_rgba(230,43,43,0.5)] relative z-10">Mechanic</span>
+              <span className="bg-gradient-to-b from-[#ff4d4d] to-[#e40521] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(230,43,43,0.3)] relative z-10">Mechanic</span>
               <span className="text-white relative z-10">At Your Door</span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">No Garage. No Waiting.</span>
             </motion.h1>
@@ -134,7 +134,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               className="text-gray-400 text-sm sm:text-base md:text-xl max-w-lg font-medium leading-relaxed mb-8 md:mb-12"
             >
-              Expert bike repairs at your doorstep. No hassle, no waiting, no hidden charges.
+              Premium bike servicing at your location. We fix it while you relax—with zero hidden fees.
             </motion.p>
 
             {/* CTA & Trust Group */}
@@ -146,19 +146,22 @@ export default function Home() {
             >
               <Link
                 href="/booking"
-                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-accent hover:bg-[#ff1a1a] text-white px-8 py-4 md:py-5 rounded-md font-black tracking-widest uppercase text-sm md:text-lg transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)] hover:scale-[1.03]"
+                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-3 bg-accent hover:bg-[#ff1a1a] text-white px-8 py-4 md:py-5 rounded-md font-black tracking-widest uppercase text-sm md:text-lg transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)] hover:scale-[1.03]"
               >
-                <Calendar className="w-5 h-5 md:w-6 md:h-6" />
-                Book Bike Service
-                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-2" />
+                {/* Shimmer sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+                
+                <Calendar className="relative z-10 w-5 h-5 md:w-6 md:h-6" />
+                <span className="relative z-10">Get Instant Estimate</span>
+                <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-2" />
               </Link>
 
               {/* Trust Indicators */}
               <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
                 <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-gray-300">
                   <Star className="w-4 h-4 text-accent fill-accent" />
-                  <span className="text-white">4.8/5</span>
-                  <span className="inline">Trusted by 1200+ riders</span>
+                  <span className="font-bold text-white">4.8/5</span>
+                  <span className="inline">Trusted by <span className="font-bold text-white">1,200+</span> riders</span>
                 </div>
               </div>
             </motion.div>
@@ -170,7 +173,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
+          className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl hidden md:flex items-center justify-between bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-5 z-40 shadow-2xl"
         >
           <div className="flex items-center gap-4 group">
             <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors shrink-0 shadow-inner">

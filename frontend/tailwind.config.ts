@@ -39,11 +39,16 @@ const config: Config = {
         "float": "float 6s ease-in-out infinite",
         "marquee-left": "marquee-left 35s linear infinite",
         "marquee-right": "marquee-right 35s linear infinite",
+        "shimmer": "shimmer 2s linear infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        shimmer: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
         },
         "marquee-left": {
           from: { transform: "translateX(0)" },
