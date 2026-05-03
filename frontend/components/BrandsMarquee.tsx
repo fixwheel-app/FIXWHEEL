@@ -7,21 +7,21 @@ import { ChevronRight, Wrench } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const brandsRow1 = [
-  { id: 'royal-enfield', name: 'Royal Enfield', price: '₹999', color: 'group-hover:text-[#D92B27]', border: 'group-hover:border-[#D92B27]' },
-  { id: 'honda', name: 'Honda', price: '₹699', color: 'group-hover:text-[#E40521]', border: 'group-hover:border-[#E40521]' },
-  { id: 'yamaha', name: 'Yamaha', price: '₹799', color: 'group-hover:text-[#003399]', border: 'group-hover:border-[#003399]' },
-  { id: 'suzuki', name: 'Suzuki', price: '₹699', color: 'group-hover:text-[#002C6A]', border: 'group-hover:border-[#002C6A]' },
-  { id: 'ktm', name: 'KTM', price: '₹1299', color: 'group-hover:text-[#FF6600]', border: 'group-hover:border-[#FF6600]' },
-  { id: 'bajaj', name: 'Bajaj', price: '₹599', color: 'group-hover:text-[#0055A5]', border: 'group-hover:border-[#0055A5]' },
+  { id: 'royal-enfield', name: 'Royal Enfield', logo: 'https://logo.clearbit.com/royalenfield.com', price: '₹999', color: 'group-hover:text-[#D92B27]', border: 'group-hover:border-[#D92B27]' },
+  { id: 'honda', name: 'Honda', logo: 'https://logo.clearbit.com/honda.com', price: '₹699', color: 'group-hover:text-[#E40521]', border: 'group-hover:border-[#E40521]' },
+  { id: 'yamaha', name: 'Yamaha', logo: 'https://logo.clearbit.com/yamaha-motor.com', price: '₹799', color: 'group-hover:text-[#003399]', border: 'group-hover:border-[#003399]' },
+  { id: 'suzuki', name: 'Suzuki', logo: 'https://logo.clearbit.com/suzuki.com', price: '₹699', color: 'group-hover:text-[#002C6A]', border: 'group-hover:border-[#002C6A]' },
+  { id: 'ktm', name: 'KTM', logo: 'https://logo.clearbit.com/ktm.com', price: '₹1299', color: 'group-hover:text-[#FF6600]', border: 'group-hover:border-[#FF6600]' },
+  { id: 'bajaj', name: 'Bajaj', logo: 'https://logo.clearbit.com/bajajauto.com', price: '₹599', color: 'group-hover:text-[#0055A5]', border: 'group-hover:border-[#0055A5]' },
 ];
 
 const brandsRow2 = [
-  { id: 'tvs', name: 'TVS', price: '₹599', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
-  { id: 'hero', name: 'Hero', price: '₹499', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
-  { id: 'vespa', name: 'Vespa', price: '₹1499', color: 'group-hover:text-[#008A5E]', border: 'group-hover:border-[#008A5E]' },
-  { id: 'aprilia', name: 'Aprilia', price: '₹1499', color: 'group-hover:text-[#E31837]', border: 'group-hover:border-[#E31837]' },
-  { id: 'bmw', name: 'BMW Motorrad', price: '₹2499', color: 'group-hover:text-[#0066B1]', border: 'group-hover:border-[#0066B1]' },
-  { id: 'ducati', name: 'Ducati', price: '₹2999', color: 'group-hover:text-[#CC0000]', border: 'group-hover:border-[#CC0000]' },
+  { id: 'tvs', name: 'TVS', logo: 'https://logo.clearbit.com/tvsmotor.com', price: '₹599', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
+  { id: 'hero', name: 'Hero', logo: 'https://logo.clearbit.com/heromotocorp.com', price: '₹499', color: 'group-hover:text-[#ED1C24]', border: 'group-hover:border-[#ED1C24]' },
+  { id: 'vespa', name: 'Vespa', logo: 'https://logo.clearbit.com/vespa.com', price: '₹1499', color: 'group-hover:text-[#008A5E]', border: 'group-hover:border-[#008A5E]' },
+  { id: 'aprilia', name: 'Aprilia', logo: 'https://logo.clearbit.com/aprilia.com', price: '₹1499', color: 'group-hover:text-[#E31837]', border: 'group-hover:border-[#E31837]' },
+  { id: 'bmw', name: 'BMW Motorrad', logo: 'https://logo.clearbit.com/bmw-motorrad.com', price: '₹2499', color: 'group-hover:text-[#0066B1]', border: 'group-hover:border-[#0066B1]' },
+  { id: 'ducati', name: 'Ducati', logo: 'https://logo.clearbit.com/ducati.com', price: '₹2999', color: 'group-hover:text-[#CC0000]', border: 'group-hover:border-[#CC0000]' },
 ];
 
 export default function BrandsMarquee() {
@@ -39,13 +39,21 @@ export default function BrandsMarquee() {
       <button
         onClick={() => handleBrandClick(brand.id)}
         className={cn(
-          "relative flex-shrink-0 w-48 md:w-56 h-24 md:h-28 rounded-xl flex items-center justify-center border-2 bg-white transition-all duration-300 group cursor-pointer overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1",
+          "relative flex-shrink-0 w-48 md:w-64 h-24 md:h-28 rounded-xl flex items-center justify-center gap-3 md:gap-4 border-2 bg-white transition-all duration-300 group cursor-pointer overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 px-4",
           isSelected 
             ? "border-accent text-accent shadow-md scale-[1.02]" 
             : `border-gray-100 text-gray-400 grayscale hover:grayscale-0 ${brand.border} ${brand.color}`
         )}
       >
-        <span className="font-black uppercase tracking-wider text-lg md:text-xl transition-all duration-300">
+        <img 
+          src={brand.logo} 
+          alt={brand.name} 
+          className="w-8 h-8 md:w-10 md:h-10 object-contain transition-all duration-300 shrink-0"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+        <span className="font-black uppercase tracking-wider text-sm md:text-lg transition-all duration-300 text-left leading-tight">
           {brand.name}
         </span>
       </button>
