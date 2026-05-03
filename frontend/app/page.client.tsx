@@ -14,7 +14,7 @@ import BrandsMarquee from '@/components/BrandsMarquee';
 export default function Home() {
   const features = [
     { icon: <Award className="w-8 h-8" />, label: "Trained Technicians" },
-    { icon: <ShieldCheck className="w-8 h-8" />, label: "Work Guranted" },
+    { icon: <ShieldCheck className="w-8 h-8" />, label: "Work Guaranteed" },
     { icon: <CheckCircle2 className="w-8 h-8" />, label: "Experienced" },
   ];
 
