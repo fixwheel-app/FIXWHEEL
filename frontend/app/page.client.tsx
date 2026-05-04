@@ -58,7 +58,7 @@ export default function Home() {
   // ── Contact form state removed ─────────────────────────────────────────────
 
   const reviews = [
-    { name: "Rahul Sharma", rating: 5, text: "Bike broke down near Cyber Hub. Mechanic arrived in 40 mins. Very professional and didn't overcharge for emergency. Highly recommended.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-2" },
+    { name: "Rahul Sharma", rating: 5, text: "Bike broke down near Cyber Hub. Mechanic arrived in 15 mins. Very professional and didn't overcharge for emergency. Highly recommended.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-2" },
     { name: "Anjali Verma", rating: 4.5, text: "First time using a doorstep service. The mechanic was polite and did a full servicing right in front of me. Saved me a trip to the local garage.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-2" },
     { name: "Vikram Singh", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels much smoother now. A bit premium but totally worth it for the convenience.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-1" },
     { name: "Priya Das", rating: 4, text: "Good service but the mechanic was 15 mins late due to traffic. The actual repair was fast and the pricing was very transparent though.", style: "bg-[#1E293B] text-gray-200 border-l-[3px] border-[#0F172A]", tilt: "md:rotate-1" },
