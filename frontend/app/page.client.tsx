@@ -125,8 +125,8 @@ export default function Home() {
               className="text-[3.5rem] sm:text-6xl md:text-[5.5rem] lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-4 md:mb-6 flex flex-col"
             >
               <span className="bg-gradient-to-b from-[#ff4d4d] to-[#e40521] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(230,43,43,0.3)] relative z-10">Mechanic</span>
-              <span className="text-white relative z-10">At Your Door</span>
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">No Garage. No Waiting.</span>
+              <span className="text-white relative z-10">At Your Doorstep</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">In 30 Minutes.</span>
             </motion.h1>
 
             {/* Subtext */}
