@@ -279,7 +279,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`min-w-[280px] sm:min-w-[320px] md:min-w-0 snap-center shrink-0 p-6 rounded-[12px] shadow-xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-pointer flex flex-col justify-between h-full ${review.style} ${review.tilt}`}
+                className={`w-[280px] sm:w-[320px] md:w-auto snap-center shrink-0 p-6 rounded-[12px] shadow-xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] hover:z-10 cursor-pointer flex flex-col justify-between h-full whitespace-normal ${review.style} ${review.tilt}`}
               >
                 <div>
                   <div className="flex justify-between items-start mb-4">
