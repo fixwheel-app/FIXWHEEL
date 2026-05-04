@@ -314,7 +314,7 @@ export default function Home() {
                 Join the FixWheel mechanic network and connect with customers in your area. Work on your own schedule, earn more, and grow your business with us.
               </p>
               <ul className="space-y-2.5">
-                {["Flexible working hours", "Be your own boss", "Easy booking management", "Grow your local reach"].map((b, i) => (
+                {["Flexible working hours", "Easy booking management", "Grow your local reach"].map((b, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
                     <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />{b}
                   </li>
