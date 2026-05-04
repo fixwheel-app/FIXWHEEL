@@ -66,27 +66,29 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
       },
     });
 
-    // Send email notification
-    try {
-      console.log('[Partner Email] Attempting to send notification for:', newPartner.partnerRef);
-      console.log('[Partner Email] SMTP_USER:', process.env.SMTP_USER ? 'SET' : 'MISSING');
-      console.log('[Partner Email] SMTP_PASS:', process.env.SMTP_PASS ? 'SET' : 'MISSING');
-      console.log('[Partner Email] OWNER_EMAIL:', process.env.OWNER_EMAIL || 'MISSING');
-      await sendPartnerNotification({
-        partnerRef: newPartner.partnerRef,
-        garageName: newPartner.garageName,
-        ownerName: newPartner.ownerName,
-        phone: newPartner.phone,
-        mapsLocation: newPartner.mapsLocation,
-        vehicleType: newPartner.vehicleType,
-        servicesOffered: newPartner.servicesOffered,
-        garagePhotos: newPartner.garagePhotos,
-        licensePhoto: newPartner.licensePhoto || undefined,
-      });
-      console.log('[Partner Email] Notification sent successfully.');
-    } catch (emailError) {
-      console.error('[Partner Email] Failed to send notification:', emailError);
-    }
+    // Send email notification (non-blocking — respond to user instantly)
+    (async () => {
+      try {
+        console.log('[Partner Email] Attempting to send notification for:', newPartner.partnerRef);
+        console.log('[Partner Email] SMTP_USER:', process.env.SMTP_USER ? 'SET' : 'MISSING');
+        console.log('[Partner Email] SMTP_PASS:', process.env.SMTP_PASS ? 'SET' : 'MISSING');
+        console.log('[Partner Email] OWNER_EMAIL:', process.env.OWNER_EMAIL || 'MISSING');
+        await sendPartnerNotification({
+          partnerRef: newPartner.partnerRef,
+          garageName: newPartner.garageName,
+          ownerName: newPartner.ownerName,
+          phone: newPartner.phone,
+          mapsLocation: newPartner.mapsLocation,
+          vehicleType: newPartner.vehicleType,
+          servicesOffered: newPartner.servicesOffered,
+          garagePhotos: newPartner.garagePhotos,
+          licensePhoto: newPartner.licensePhoto || undefined,
+        });
+        console.log('[Partner Email] Notification sent successfully.');
+      } catch (emailError) {
+        console.error('[Partner Email] Failed to send notification:', emailError);
+      }
+    })();
 
     res.status(201).json({
       success: true,
