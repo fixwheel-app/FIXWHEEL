@@ -310,11 +310,11 @@ export default function Home() {
             <div className="flex-1">
               <span className="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">🔧 Join Our Network</span>
               <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-4">Are You a Bike Mechanic?</h2>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-lg">
-                Join the FixWheel mechanic network and get a steady stream of customers at your doorstep. Work on your own schedule, earn more, and grow your business with us.
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Join the FixWheel mechanic network and connect with customers in your area. Work on your own schedule, earn more, and grow your business with us.
               </p>
               <ul className="space-y-2.5">
-                {["Flexible working hours", "Guaranteed customer flow", "Weekly payments", "Free training and support"].map((b, i) => (
+                {["Flexible working hours", "Be your own boss", "Easy booking management", "Grow your local reach"].map((b, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
                     <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />{b}
                   </li>
