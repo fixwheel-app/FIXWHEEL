@@ -52,19 +52,29 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
       }
     });
 
-    // Send email notification (non-blocking)
-    sendBookingNotification({
-      bookingRef: newBooking.bookingRef,
-      customerName: newBooking.customerName,
-      phone: newBooking.phone,
-      address: newBooking.address,
-      bikeType: newBooking.bikeType,
-      bikeModel: newBooking.bikeModel,
-      issueDescription: newBooking.issueDescription,
-      package: newBooking.package,
-      price: newBooking.price,
-      preferredSlot: newBooking.preferredSlot,
-    });
+    // Send email notification (non-blocking — respond to user instantly)
+    (async () => {
+      try {
+        console.log('[Booking Email] Attempting to send for:', newBooking.bookingRef);
+        console.log('[Booking Email] RESEND_API_KEY:', process.env.RESEND_API_KEY ? 'SET' : 'MISSING');
+        console.log('[Booking Email] OWNER_EMAIL:', process.env.OWNER_EMAIL || 'MISSING');
+        await sendBookingNotification({
+          bookingRef: newBooking.bookingRef,
+          customerName: newBooking.customerName,
+          phone: newBooking.phone,
+          address: newBooking.address,
+          bikeType: newBooking.bikeType,
+          bikeModel: newBooking.bikeModel,
+          issueDescription: newBooking.issueDescription,
+          package: newBooking.package,
+          price: newBooking.price,
+          preferredSlot: newBooking.preferredSlot,
+        });
+        console.log('[Booking Email] Sent successfully.');
+      } catch (emailError) {
+        console.error('[Booking Email] Failed:', emailError);
+      }
+    })();
 
     res.status(201).json({
       success: true,
