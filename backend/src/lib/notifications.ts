@@ -30,11 +30,15 @@ export interface PartnerDetails {
 // Create reusable transporter object using Hostinger SMTP
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.hostinger.com',
-  port: Number(process.env.SMTP_PORT) || 465,
-  secure: true, // true for 465, false for other ports
+  port: Number(process.env.SMTP_PORT) || 587,
+  secure: false,       // false for port 587 (STARTTLS)
+  requireTLS: true,    // force STARTTLS upgrade
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false, // avoid cert issues on Render
   },
 });
 
