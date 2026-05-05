@@ -46,7 +46,7 @@ export const sendBookingNotification = async (details: BookingDetails) => {
   try {
     const resend = getResend();
     const { data, error } = await resend.emails.send({
-      from: 'FixWheel <onboarding@resend.dev>',
+      from: 'FixWheel <support@fixwheel.app>',
       to: ownerEmail,
       subject: `New Booking — ${details.bookingRef}`,
       html: `
@@ -83,7 +83,7 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
   try {
     const resend = getResend();
     const { data, error } = await resend.emails.send({
-      from: 'FixWheel <onboarding@resend.dev>',
+      from: 'FixWheel <support@fixwheel.app>',
       to: ownerEmail,
       subject: `New Partner Application — ${details.partnerRef}`,
       html: `
