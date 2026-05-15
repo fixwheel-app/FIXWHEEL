@@ -236,6 +236,7 @@ export default function ServicesWizard() {
                             const query = new URLSearchParams({
                               package: srv.id,
                               bike: bikeStr,
+                              type: fuelType,
                               price: price.toString()
                             }).toString();
                             router.push(`/booking?${query}`);

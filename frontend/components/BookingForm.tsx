@@ -67,19 +67,19 @@ function BookingFormInner() {
       const stored = localStorage.getItem("selectedPackage");
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (parsed.packageName) {
+        if (parsed.packageName && !searchParams.get('package')) {
           setSelectedPackageId(parsed.packageName);
           setValue("package", parsed.packageName as PackageType);
         }
-        if (parsed.bikeType) {
+        if (parsed.bikeType && !searchParams.get('type')) {
           setValue("bikeType", parsed.bikeType);
         }
-        if (parsed.bikeModel) {
+        if (parsed.bikeModel && !searchParams.get('bike') && !searchParams.get('model')) {
           setValue("bikeModel", parsed.bikeModel);
         }
       }
     } catch(e) {}
-  }, [setValue]);
+  }, [setValue, searchParams]);
 
   const onSubmit = async (data: BookingSchemaType) => {
     setIsSubmitting(true);
