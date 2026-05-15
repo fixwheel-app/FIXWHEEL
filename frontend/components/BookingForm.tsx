@@ -8,7 +8,7 @@ import * as z from 'zod';
 import { useRouter } from 'next/navigation';
 import { Lock, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { submitBooking } from '@/lib/api';
-import { REPAIR_PACKAGES } from '@/lib/constants';
+import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES } from '@/lib/constants';
 import LoadingSpinner from './LoadingSpinner';
 import { PackageType } from '@/types';
 import { cn } from '@/lib/utils';
@@ -22,7 +22,7 @@ const bookingSchema = z.object({
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
   preferredSlot: z.enum(["Morning (8AM – 12PM)", "Afternoon (12PM – 4PM)", "Evening (4PM – 8PM)"]),
-  package: z.enum(["Regular", "Classic", "Premium", "Royal", "Sports"])
+  package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;
@@ -32,21 +32,28 @@ function BookingFormInner() {
   const router = useRouter();
   
   // Initialize defaults from query params
-  const initialPackage = (searchParams.get('package') as PackageType) || "Premium";
+  const initialPackage = (searchParams.get('package') as PackageType) || "Service";
   const initialType = searchParams.get('type') || "Non-Electric Motorbike";
-  const initialModel = searchParams.get('model') || "";
+  const initialModel = searchParams.get('bike') || searchParams.get('model') || "";
+  const initialPrice = searchParams.get('price') || "0";
   
   const [selectedPackageId, setSelectedPackageId] = useState<string>(initialPackage);
+  const [price, setPrice] = useState<string>(initialPrice);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorToast, setErrorToast] = useState<string | null>(null);
 
-  const selectedPkgData = REPAIR_PACKAGES.find(p => p.id === selectedPackageId) || REPAIR_PACKAGES[2];
+  const pkgData = [...NON_ELECTRIC_SERVICES, ...ELECTRIC_SERVICES].find(p => p.id === selectedPackageId);
+  const includesList = pkgData?.includes || [
+    "Full service specific to selected category.",
+    "Transparent pricing.",
+    "Doorstep assistance."
+  ];
 
   const { register, handleSubmit, formState: { errors, isValid }, watch, setValue } = useForm<BookingSchemaType>({
     resolver: zodResolver(bookingSchema),
     mode: 'onChange',
     defaultValues: {
-      package: selectedPkgData.id as PackageType,
+      package: selectedPackageId as PackageType,
       bikeType: initialType as BookingSchemaType["bikeType"],
       bikeModel: initialModel,
       preferredSlot: "Morning (8AM – 12PM)"
@@ -56,19 +63,13 @@ function BookingFormInner() {
   const issueDescVal = watch("issueDescription") || "";
 
   useEffect(() => {
-    // Sync React Hook Form when state changes
-    setValue("package", selectedPkgData.id as PackageType);
-  }, [selectedPkgData, setValue]);
-
-  useEffect(() => {
     try {
       const stored = localStorage.getItem("selectedPackage");
       if (stored) {
         const parsed = JSON.parse(stored);
-        const match = REPAIR_PACKAGES.find(p => p.name === parsed.packageName);
-        if (match) {
-          setSelectedPackageId(match.id);
-          setValue("package", match.id as PackageType);
+        if (parsed.packageName) {
+          setSelectedPackageId(parsed.packageName);
+          setValue("package", parsed.packageName as PackageType);
         }
         if (parsed.bikeType) {
           setValue("bikeType", parsed.bikeType);
@@ -91,7 +92,7 @@ function BookingFormInner() {
       localStorage.setItem('latestBooking', JSON.stringify({
         ...data,
         bookingRef: response.bookingId,
-        price: selectedPkgData.price
+        price: price
       }));
       router.push('/confirmation');
     } else {
@@ -107,28 +108,15 @@ function BookingFormInner() {
       <div className="flex-1 min-w-0 bg-gray-50 border border-black/5 rounded-2xl p-6 md:p-8">
         
         {/* Selected Package Badge */}
-        <div 
-          className="flex justify-between items-center bg-white rounded-xl p-4 mb-8 border-2 shadow-sm transition-colors"
-          style={{ borderColor: selectedPkgData.accentColor ? `${selectedPkgData.accentColor}40` : '#e5e7eb' }}
-        >
+        <div className="flex justify-between items-center bg-white rounded-xl p-4 mb-8 border-2 border-gray-200 shadow-sm transition-colors">
           <div>
-            <p className="text-gray-600 text-sm">Selected Package</p>
-            <p className="font-semibold text-black">{selectedPkgData.name}  — ₹{selectedPkgData.price}</p>
+            <p className="text-gray-600 text-sm">Selected Service</p>
+            <p className="font-semibold text-black text-lg">{selectedPackageId}</p>
           </div>
-          <select 
-            value={selectedPkgData.id}
-            onChange={(e) => setSelectedPackageId(e.target.value)}
-            style={{ 
-              backgroundColor: selectedPkgData.accentColor ? `${selectedPkgData.accentColor}15` : '#f3f4f6', 
-              color: selectedPkgData.accentColor || '#000',
-              borderColor: selectedPkgData.accentColor ? `${selectedPkgData.accentColor}30` : '#d1d5db'
-            }}
-            className="font-medium text-sm rounded-lg px-3 py-1.5 border focus:outline-none cursor-pointer"
-          >
-            {REPAIR_PACKAGES.map(p => (
-              <option key={p.id} value={p.id} className="bg-white text-black">{p.name}</option>
-            ))}
-          </select>
+          <div className="text-right">
+            <p className="text-gray-500 text-sm">Estimated Price</p>
+            <p className="font-bold text-accent text-xl">₹{price}</p>
+          </div>
         </div>
 
         {errorToast && (
@@ -277,16 +265,16 @@ function BookingFormInner() {
           
           <div className="flex justify-between items-start mb-4 md:mb-6 pb-4 md:pb-6 border-b border-gray-200 gap-3">
             <div className="min-w-0">
-              <p className="text-gray-600 text-sm mb-1 break-words">{selectedPkgData.name}</p>
-              <p className="text-accent text-sm">Est. {selectedPkgData.estimatedTime}</p>
+              <p className="text-gray-600 text-sm mb-1 break-words">{selectedPackageId}</p>
+              <p className="text-accent text-sm">Estimated Price</p>
             </div>
-            <p className="text-2xl md:text-3xl font-bold text-black shrink-0">₹{selectedPkgData.price}</p>
+            <p className="text-2xl md:text-3xl font-bold text-black shrink-0">₹{price}</p>
           </div>
 
           <p className="font-semibold text-black mb-3 md:mb-4 text-sm md:text-base">What's included:</p>
           <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
-            {selectedPkgData.includes.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 md:gap-3 text-gray-700 text-sm">
+            {includesList.map((item, index) => (
+              <li key={index} className="flex items-start gap-2 md:gap-3 text-gray-700 text-sm">
                 <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-status-success shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>

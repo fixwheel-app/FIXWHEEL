@@ -1,4 +1,4 @@
-export type PackageType = "Regular" | "Classic" | "Premium" | "Royal" | "Sports";
+export type PackageType = "Service" | "Service with engine oil" | "Puncture" | "Running Repair" | "Engine Half" | "Engine full" | "Jump start";
 
 export interface BookingFormData {
   customerName: string;

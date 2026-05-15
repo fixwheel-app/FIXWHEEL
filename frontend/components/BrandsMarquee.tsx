@@ -124,7 +124,7 @@ export default function BrandsMarquee() {
                   🔥 420+ Serviced
                 </p>
                 <Link
-                  href={`/booking`}
+                  href={`/services`}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white px-6 md:px-8 py-3 md:py-4 font-black uppercase tracking-widest text-xs md:text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_30px_rgba(230,43,43,0.5)]"
                 >
                   Book Now

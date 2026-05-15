@@ -30,7 +30,7 @@ export default function ServiceCard({ packageData, bikeType, bikeBrand, bikeMode
       bikeType: bikeType,
       bikeModel: bikeModel ? `${bikeBrand} ${bikeModel}` : undefined
     }));
-    router.push('/booking');
+    router.push('/services');
   };
 
   return (

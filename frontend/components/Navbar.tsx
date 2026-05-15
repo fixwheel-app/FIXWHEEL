@@ -119,7 +119,7 @@ export default function Navbar() {
 
             <div className="hidden lg:flex shrink-0">
               <Link
-                href="/booking"
+                href="/services"
                 className="bg-accent hover:bg-accent-hover text-white px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap"
               >
                 BOOK NOW
@@ -129,7 +129,7 @@ export default function Navbar() {
             {/* Mobile Right: Book Now + Hamburger */}
             <div className="lg:hidden flex items-center gap-3">
               <Link
-                href="/booking"
+                href="/services"
                 className="bg-accent text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap"
               >
                 Book Now

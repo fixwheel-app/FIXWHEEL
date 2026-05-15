@@ -9,7 +9,7 @@ export const bookingSchema = z.object({
   bikeModel: z.string().min(3, "Bike model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Description must be under 300 characters").optional(),
   preferredSlot: z.enum(["Morning (8AM – 12PM)", "Afternoon (12PM – 4PM)", "Evening (4PM – 8PM)"]),
-  package: z.enum(["Regular", "Classic", "Premium", "Royal", "Sports"])
+  package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
 export type BookingInput = z.infer<typeof bookingSchema>;

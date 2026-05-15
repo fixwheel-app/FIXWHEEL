@@ -2,238 +2,278 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ChevronRight, ArrowLeft, Zap, Wrench } from 'lucide-react';
-import { BIKE_DATA, BikeBrand, BikeModel } from '@/lib/bikes';
-import { REPAIR_PACKAGES } from '@/lib/constants';
+import { ChevronDown, ArrowRight, Check, Wrench } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
+import { BIKE_DATA } from '@/lib/bikes';
 import { cn } from '@/lib/utils';
-import ServiceCard from '@/components/ServiceCard';
+import { PackageType } from '@/types';
 
 export default function ServicesWizard() {
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
-  const [selectedType, setSelectedType] = useState<string>('');
-  const [selectedBrand, setSelectedBrand] = useState<string>('');
-  const [selectedModel, setSelectedModel] = useState<BikeModel | null>(null);
+  const router = useRouter();
 
-  const resetFromStep = (newStep: 1 | 2 | 3 | 4) => {
-    setStep(newStep);
-    if (newStep <= 1) setSelectedType('');
-    if (newStep <= 2) setSelectedBrand('');
-    if (newStep <= 3) setSelectedModel(null);
-  };
-
-  const handleTypeSelect = (type: string) => {
-    setSelectedType(type);
-    setStep(2);
-  };
-
-  const handleBrandSelect = (brandName: string) => {
-    setSelectedBrand(brandName);
-    setStep(3);
-  };
-
-  const handleModelSelect = (model: BikeModel) => {
-    setSelectedModel(model);
-    setStep(4);
-  };
-
-  // Get current brands based on type
-  const availableBrands = selectedType ? BIKE_DATA[selectedType as keyof typeof BIKE_DATA] : [];
+  // Selections
+  const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>('Non-Electric Motorbike');
+  const [brand, setBrand] = useState<string>('');
+  const [model, setModel] = useState<string>('');
   
-  // Get current models based on brand
-  const currentBrandObj = availableBrands?.find((b: BikeBrand) => b.name === selectedBrand);
-  const availableModels = currentBrandObj ? currentBrandObj.models : [];
+  // Non-Electric specific
+  const [ccRange, setCcRange] = useState<CCRange | null>(null);
+  
+  // UI States
+  const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false);
+  const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
+
+  const currentBrands = BIKE_DATA[fuelType] || [];
+  const selectedBrandObj = currentBrands.find(b => b.name === brand);
+  const currentModels = selectedBrandObj ? selectedBrandObj.models.map(m => m.name) : [];
 
   return (
-    <div className="min-h-screen bg-white pt-20 md:pt-24 pb-8 md:pb-16 text-black font-sans overflow-x-hidden">
-      <div className="container mx-auto px-4 max-w-[1800px]">
-        
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-accent font-bold tracking-widest uppercase mb-2 text-xs md:text-sm">Service Selection</h2>
-          <h1 className="text-2xl md:text-5xl font-black uppercase mb-3 md:mb-4">
-            Find The <span className="text-accent">Right Package</span>
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-lg pt-1 md:pt-2">
-            Tell us what you ride, and we'll show you exactly how we can keep it running like new.
-          </p>
-        </div>
+    <div className="min-h-screen bg-[#111111] pt-24 pb-16 text-white font-sans">
+      <div className="container mx-auto px-4 max-w-2xl">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">
+          Choose Your Vehicle
+        </h1>
 
-        {/* Progress Bar */}
-        <div className="flex items-center justify-between mb-10 md:mb-20 max-w-3xl mx-auto relative px-2 md:px-4">
-          {/* Background track */}
-          <div className="absolute left-4 right-4 top-5 h-1 bg-gray-200 -z-10"></div>
-          {/* Active fill */}
-          <div 
-            className="absolute left-4 top-5 h-1 bg-accent -z-10 transition-all duration-500"
-            style={{ width: `calc(${((step - 1) / 3) * 100}%)` }}
-          ></div>
+        <div className="flex flex-col gap-6 md:gap-8 w-full">
           
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="flex flex-col items-center gap-2">
-              <div className={cn(
-                "w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all duration-300 bg-white",
-                step >= i ? "border-accent text-accent shadow-[0_0_15px_rgba(230,43,43,0.4)]" : "border-gray-300 text-gray-400",
-                step > i && "bg-accent text-white"
-              )}>
-                {step > i ? <CheckCircle2 className="w-5 h-5" /> : i}
-              </div>
-              <span className={cn(
-                "text-[10px] sm:text-xs font-bold uppercase tracking-wider text-center w-14 sm:w-20 leading-tight",
-                step >= i ? "text-black" : "text-gray-400"
-              )}>
-                {i === 1 ? 'Type' : i === 2 ? 'Brand' : i === 3 ? 'Model' : 'Package'}
+          {/* Fuel Type */}
+          <div className="flex gap-4">
+            <button
+              onClick={() => {
+                setFuelType('Non-Electric Motorbike');
+                setBrand('');
+                setModel('');
+              }}
+              className={cn(
+                "flex-1 py-3 px-6 rounded-full font-bold tracking-widest uppercase transition-all",
+                fuelType === 'Non-Electric Motorbike'
+                  ? "bg-accent text-white shadow-[0_0_20px_rgba(230,43,43,0.4)]"
+                  : "border border-white/20 text-white opacity-60 hover:bg-white/5"
+              )}
+            >
+              NON-ELECTRIC
+            </button>
+            <button
+              onClick={() => {
+                setFuelType('Electric Motorbike');
+                setBrand('');
+                setModel('');
+                setCcRange(null);
+              }}
+              className={cn(
+                "flex-1 py-3 px-6 rounded-full font-bold tracking-widest uppercase transition-all",
+                fuelType === 'Electric Motorbike'
+                  ? "bg-accent text-white shadow-[0_0_20px_rgba(230,43,43,0.4)]"
+                  : "border border-white/20 text-white opacity-60 hover:bg-white/5"
+              )}
+            >
+              ELECTRIC
+            </button>
+          </div>
+
+          {/* Brand Dropdown */}
+          <div className="relative z-30">
+            <button
+              onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
+              className="w-full bg-transparent border border-white/30 hover:border-white/60 text-white px-6 py-4 rounded-full flex items-center justify-between font-bold tracking-widest uppercase transition-colors"
+            >
+              <span className={brand ? "text-white" : "text-gray-400"}>
+                {brand || "BRAND"}
               </span>
-            </div>
-          ))}
-        </div>
+              <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform", isBrandDropdownOpen && "rotate-180")} />
+            </button>
 
-        {/* Main Content Area */}
-        <div className={cn(
-          "bg-gray-50 border border-black/5 rounded-3xl min-h-[400px] relative backdrop-blur-sm transition-all overflow-hidden",
-          step === 4 ? "p-0 md:p-8 border-none bg-transparent md:bg-gray-50 md:border-black/5" : "p-8"
-        )}>
-          
-          <AnimatePresence mode="wait">
-            
-            {/* STEP 1: Bike Type */}
-            {step === 1 && (
-              <motion.div
-                key="step1"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-8"
-              >
-                <button
-                  onClick={() => handleTypeSelect('Electric Motorbike')}
-                  className="bg-white border-2 border-black/5 hover:border-accent p-6 md:p-10 flex flex-col items-center justify-center gap-4 md:gap-6 group transition-all duration-300 shadow-md hover:shadow-xl rounded-2xl"
+            <AnimatePresence>
+              {isBrandDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute top-full left-0 right-0 mt-2 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-60 overflow-y-auto custom-scrollbar"
                 >
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-accent transition-colors">
-                    <Zap className="w-7 h-7 md:w-10 md:h-10 text-accent group-hover:text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-2xl font-black uppercase text-center tracking-wide">Electric Motorbike</h3>
-                </button>
-
-                <button
-                  onClick={() => handleTypeSelect('Non-Electric Motorbike')}
-                  className="bg-white border-2 border-black/5 hover:border-accent p-6 md:p-10 flex flex-col items-center justify-center gap-4 md:gap-6 group transition-all duration-300 shadow-md hover:shadow-xl rounded-2xl"
-                >
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-accent transition-colors">
-                    <Wrench className="w-7 h-7 md:w-10 md:h-10 text-accent group-hover:text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-2xl font-black uppercase text-center tracking-wide">Petrol / Combust Motorbike</h3>
-                </button>
-              </motion.div>
-            )}
-
-            {/* STEP 2: Brand Selection */}
-            {step === 2 && (
-              <motion.div
-                key="step2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="max-w-5xl mx-auto"
-              >
-                <div className="flex items-center gap-4 mb-8">
-                  <button onClick={() => resetFromStep(1)} className="text-gray-500 hover:text-black flex items-center gap-1 font-bold text-sm tracking-wider uppercase">
-                    <ArrowLeft className="w-4 h-4" /> Back
-                  </button>
-                  <h3 className="text-xl font-bold uppercase">Select Brand</h3>
-                </div>
-                
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                  {availableBrands?.map((brand) => (
+                  {currentBrands.map((b) => (
                     <button
-                      key={brand.id}
-                      onClick={() => handleBrandSelect(brand.name)}
-                      className="bg-white border border-black/5 hover:border-accent rounded-xl p-4 md:p-6 text-center font-bold uppercase tracking-wider text-sm transition-colors shadow-sm cursor-pointer"
-                     >
-                      {brand.name}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-
-            {/* STEP 3: Model Selection */}
-            {step === 3 && (
-              <motion.div
-                key="step3"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="max-w-5xl mx-auto"
-              >
-                <div className="flex items-center gap-4 mb-8">
-                  <button onClick={() => resetFromStep(2)} className="text-gray-500 hover:text-black flex items-center gap-1 font-bold text-sm tracking-wider uppercase">
-                    <ArrowLeft className="w-4 h-4" /> Back
-                  </button>
-                  <h3 className="text-xl font-bold uppercase">{selectedBrand} <span className="text-gray-400">/ Select Model</span></h3>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                  {availableModels?.map((model) => (
-                    <button
-                      key={model.id}
-                      onClick={() => handleModelSelect(model)}
-                      className="flex items-center justify-between rounded-xl bg-white border-l-4 border-transparent hover:border-accent border-y border-r border-black/5 p-4 md:p-6 text-left font-bold uppercase tracking-wider text-sm transition-all group shadow-sm cursor-pointer"
+                      key={b.id}
+                      onClick={() => {
+                        setBrand(b.name);
+                        setModel('');
+                        setIsBrandDropdownOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-6 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0 uppercase tracking-wider font-bold text-sm",
+                        brand === b.name ? "text-accent" : "text-gray-300"
+                      )}
                     >
-                      {model.name}
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
+                      {b.name}
                     </button>
                   ))}
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
-            {/* STEP 4: Repair Packages */}
-            {step === 4 && (
-              <motion.div
-                key="step4"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="w-full"
-              >
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-4 border-b border-gray-200 gap-4">
-                  <div className="flex items-center gap-4">
-                    <button onClick={() => resetFromStep(3)} className="text-gray-500 hover:text-black flex items-center gap-1 font-bold text-sm tracking-wider uppercase bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors">
-                      <ArrowLeft className="w-4 h-4" /> Back
+          {/* Model Dropdown */}
+          <div className="relative z-20">
+            <button
+              onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
+              disabled={!brand}
+              className="w-full bg-transparent border border-white/30 hover:border-white/60 disabled:opacity-50 disabled:hover:border-white/30 text-white px-6 py-4 rounded-full flex items-center justify-between font-bold tracking-widest uppercase transition-colors"
+            >
+              <span className={model ? "text-white" : "text-gray-400"}>
+                {model || "MODEL"}
+              </span>
+              <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform", isModelDropdownOpen && "rotate-180")} />
+            </button>
+
+            <AnimatePresence>
+              {isModelDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute top-full left-0 right-0 mt-2 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-60 overflow-y-auto custom-scrollbar"
+                >
+                  {currentModels.map((m) => (
+                    <button
+                      key={m}
+                      onClick={() => {
+                        setModel(m);
+                        setIsModelDropdownOpen(false);
+                      }}
+                      className={cn(
+                        "w-full text-left px-6 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0 uppercase tracking-wider font-bold text-sm",
+                        model === m ? "text-accent" : "text-gray-300"
+                      )}
+                    >
+                      {m}
                     </button>
-                    <div>
-                      <h3 className="text-xl font-bold uppercase">Select Package</h3>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 bg-white border border-gray-200 px-4 py-2 rounded-xl shadow-sm w-full md:w-auto">
-                    <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                      {selectedType === 'Electric Motorbike' ? <Zap className="w-4 h-4 text-accent" /> : <Wrench className="w-4 h-4 text-accent" />}
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold">Your Bike</p>
-                      <p className="font-bold text-black text-sm">{selectedBrand} {selectedModel?.name}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 w-full pb-4">
-                  {REPAIR_PACKAGES.map((pkg) => (
-                    <div key={pkg.id} className="flex">
-                      <ServiceCard 
-                        packageData={pkg} 
-                        bikeType={selectedType}
-                        bikeBrand={selectedBrand}
-                        bikeModel={selectedModel?.name}
-                      />
-                    </div>
                   ))}
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
-          </AnimatePresence>
+          {/* CC Range Selection for Non-Electric */}
+          {fuelType === 'Non-Electric Motorbike' && (
+            <div className="mt-4">
+              <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mb-4 text-center md:text-left">Select CC Range</p>
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                {CCRANGES.map((range) => (
+                  <button
+                    key={range.value}
+                    onClick={() => {
+                      setCcRange(range.value);
+                    }}
+                    className={cn(
+                      "py-4 px-2 rounded-full border text-center font-bold tracking-widest uppercase transition-all text-xs",
+                      ccRange === range.value
+                        ? "bg-accent/10 border-accent text-white shadow-[0_0_15px_rgba(230,43,43,0.3)]"
+                        : "border-white/20 text-gray-400 hover:border-white/40 hover:text-gray-200 bg-transparent"
+                    )}
+                  >
+                    {range.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Services Selection */}
+          {(fuelType === 'Electric Motorbike' || ccRange) && (
+            <div className="mt-8 flex flex-col gap-8 pb-8">
+              <p className="text-gray-400 text-sm font-bold uppercase tracking-widest text-center md:text-left">Available Services</p>
+              
+              {(fuelType === 'Electric Motorbike' 
+                ? ELECTRIC_SERVICES 
+                : NON_ELECTRIC_SERVICES.filter(srv => ccRange && srv.prices[ccRange] !== null)
+              ).map((srv) => {
+                const price = fuelType === 'Electric Motorbike' ? (srv as any).price : (ccRange ? (srv as any).prices[ccRange] : null);
+                const includesList = srv.includes || ["Doorstep assistance", "Transparent Pricing"];
+                
+                return (
+                  <div key={srv.id} className="bg-white rounded-[2rem] p-6 md:p-8 text-black shadow-2xl relative overflow-hidden">
+                    {/* Decorative Background */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+
+                    <div className="relative z-10 flex flex-col md:flex-row gap-6 mb-8">
+                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center shadow-inner p-2 text-center">
+                         <Wrench className="w-8 h-8 text-accent mb-1 transform -rotate-12" />
+                         <span className="font-black text-[10px] md:text-[11px] tracking-tighter text-black uppercase leading-tight">
+                           <span className="text-accent">Fix</span>Wheel
+                         </span>
+                      </div>
+                      <div className="flex-1">
+                        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-3">{srv.name}</h2>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
+                          <span>• Available at Doorstep</span>
+                          <span>• 1 Month Warranty</span>
+                        </div>
+                        <div className="inline-block bg-gray-100 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200">
+                          ⏱ 2 HRS TAKEN
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 mb-8 bg-gray-50/50 p-6 rounded-2xl border border-gray-100">
+                      {includesList.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-status-success flex-shrink-0 mt-0.5" />
+                          <span className="text-sm font-semibold text-gray-700">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
+                      </div>
+                      <div className="w-full md:w-auto flex flex-col items-end gap-2">
+                        <button
+                          onClick={() => {
+                            if (!brand || !model || price === null) return;
+                            const bikeStr = `${brand} ${model}`.trim();
+                            const query = new URLSearchParams({
+                              package: srv.id,
+                              bike: bikeStr,
+                              price: price.toString()
+                            }).toString();
+                            router.push(`/booking?${query}`);
+                          }}
+                          disabled={!brand || !model}
+                          className="w-full md:w-auto px-12 py-4 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white rounded-full font-black tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
+                        >
+                          CHECKOUT
+                        </button>
+                        {(!brand || !model) && (
+                          <p className="text-xs text-status-error font-bold uppercase tracking-wider text-center md:text-right w-full">Select Brand & Model first</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
         </div>
       </div>
+
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      `}</style>
     </div>
   );
 }

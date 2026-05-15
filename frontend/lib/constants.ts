@@ -1,159 +1,92 @@
-import { RepairPackage } from '@/types';
+import { PackageType } from '@/types';
 
-export const REPAIR_PACKAGES: RepairPackage[] = [
-  {
-    id: "Regular",
-    name: "At-Home Regular Service",
-    ccRange: "Below 125 CC",
-    tagline: "Perfect for daily commuter bikes",
-    accentColor: "#3B82F6",
-    price: 699,
+export type CCRange = "0-249" | "250-399" | "400-599" | "600+";
+
+export interface NonElectricService {
+  id: PackageType;
+  name: PackageType;
+  prices: Record<CCRange, number | null>;
+  includes?: string[];
+}
+
+export interface ElectricService {
+  id: PackageType;
+  name: PackageType;
+  price: number;
+  includes?: string[];
+}
+
+export const CCRANGES: { label: string, value: CCRange }[] = [
+  { label: "0 to 249 CC", value: "0-249" },
+  { label: "250 to 399 CC", value: "250-399" },
+  { label: "400 to 599 CC", value: "400-599" },
+  { label: "600 CC & Above", value: "600+" }
+];
+
+export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
+  { 
+    id: "Service", 
+    name: "Service", 
+    prices: { "0-249": 550, "250-399": 850, "400-599": 1100, "600+": 1500 },
     includes: [
-      "Suspension System Inspection",
-      "Exterior Hand Wash & Clean",
-      "Engine Health Check",
-      "Electrical System Check",
-      "Battery Performance Check",
-      "Chain Cleaning & Lubrication",
-      "Carburetor Inspection",
-      "Brake Adjustment (Front & Rear)",
-      "Nuts, Bolts & Fastener Tightening",
-      "Mileage & Performance Assessment",
-      "Tyre Pressure Check (Tubeless Only)",
-      "Free Pick-Up & Drop (If Required)"
-    ],
-    additionalCost: [
-      "Engine Oil Replacement",
-      "Oil Filter Cleaning / Replacement",
-      "Air Filter Cleaning / Replacement",
-      "Spark Plug Cleaning / Replacement"
+      "Air Filter Cleaning",
+      "Cables & Levers Adjustment",
+      "Dry Wash",
+      "Greasing & Lubrication",
+      "Battery Voltage Check",
+      "Chain Tension Check",
+      "Electrical Check-up",
+      "Oil Leakage Check",
+      "Brakes Service",
+      "Clutch Greasing",
+      "Engine Oil Check",
+      "Spark Plug Cleaning"
     ]
   },
-  {
-    id: "Classic",
-    name: "At-Home Classic Service",
-    ccRange: "125 CC – 199 CC",
-    tagline: "Ideal for mid-range commuter bikes",
-    accentColor: "#22C55E",
-    price: 899,
+  { 
+    id: "Service with engine oil", 
+    name: "Service with engine oil", 
+    prices: { "0-249": 999, "250-399": 1999, "400-599": 2990, "600+": 3999 },
     includes: [
-      "Exterior Hand Wash & Clean",
-      "Engine Health Check",
-      "Coolant Level Check",
-      "Battery Performance Check",
-      "Suspension System Inspection",
-      "Carburetor Inspection",
-      "Electrical System Check",
-      "Brake Adjustment (Front & Rear)",
-      "Chain Cleaning & Lubrication",
-      "Full Lubrication & Greasing",
-      "Nuts, Bolts & Fastener Tightening",
-      "Mileage & Performance Assessment",
-      "Tyre Pressure Check (Tubeless Only)",
-      "Free Pick-Up & Drop (If Required)"
-    ],
-    additionalCost: [
-      "Engine Oil Replacement",
-      "Oil Filter Cleaning / Replacement",
-      "Air Filter Cleaning / Replacement",
-      "Spark Plug Cleaning / Replacement"
+      "Air Filter Cleaning",
+      "Cables & Levers Adjustment",
+      "Dry Wash",
+      "Greasing & Lubrication",
+      "Battery Voltage Check",
+      "Chain Tension Check",
+      "Electrical Check-up",
+      "Oil Leakage Check",
+      "Brakes Service",
+      "Clutch Greasing",
+      "Engine Oil Change",
+      "Spark Plug Cleaning"
     ]
   },
-  {
-    id: "Premium",
-    name: "At-Home Premium Service",
-    ccRange: "200 CC – 299 CC",
-    tagline: "Built for performance-focused riders",
-    accentColor: "#F97316",
-    isPopular: true,
-    price: 1199,
-    includes: [
-      "Exterior Hand Wash & Clean",
-      "Engine Health Check",
-      "Coolant Level Check",
-      "Fuel Injector Inspection",
-      "Fuel Pump Inspection",
-      "Battery Performance Check",
-      "Suspension System Inspection",
-      "Carburetor Inspection",
-      "Electrical System Check",
-      "Brake Adjustment (Front & Rear)",
-      "Chain Cleaning & Lubrication",
-      "Full Lubrication & Greasing",
-      "Nuts, Bolts & Fastener Tightening",
-      "Mileage & Performance Assessment",
-      "Tyre Pressure Check (Tubeless Only)",
-      "Free Pick-Up & Drop (If Required)"
-    ],
-    additionalCost: [
-      "Engine Oil Replacement",
-      "Oil Filter Cleaning / Replacement",
-      "Air Filter Cleaning / Replacement",
-      "Spark Plug Cleaning / Replacement"
-    ]
+  { 
+    id: "Puncture", 
+    name: "Puncture", 
+    prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 } 
   },
-  {
-    id: "Royal",
-    name: "At-Home Royal Service",
-    ccRange: "300 CC – 349 CC",
-    tagline: "For powerful mid-segment bikes",
-    accentColor: "#8B5CF6",
-    price: 1499,
-    includes: [
-      "Exterior Hand Wash & Clean",
-      "Engine Health Check",
-      "Coolant Level Check",
-      "Fuel Injector Inspection",
-      "Fuel Pump Inspection",
-      "Battery Performance Check",
-      "Suspension System Inspection",
-      "Carburetor Inspection",
-      "Electrical System Check",
-      "Brake Adjustment (Front & Rear)",
-      "Chain Cleaning & Lubrication",
-      "Full Lubrication & Greasing",
-      "Nuts, Bolts & Fastener Tightening",
-      "Mileage & Performance Assessment",
-      "Tyre Pressure Check (Tubeless Only)",
-      "Free Pick-Up & Drop (If Required)"
-    ],
-    additionalCost: [
-      "Engine Oil Replacement",
-      "Oil Filter Cleaning / Replacement",
-      "Air Filter Cleaning / Replacement",
-      "Spark Plug Cleaning / Replacement"
-    ]
+  { 
+    id: "Running Repair", 
+    name: "Running Repair", 
+    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 } 
   },
-  {
-    id: "Sports",
-    name: "At-Home Sports Service",
-    ccRange: "350 CC and Above",
-    tagline: "For high-performance and premium bikes",
-    accentColor: "#EF4444",
-    price: 1999,
-    includes: [
-      "Exterior Hand Wash & Clean",
-      "Engine Health Check",
-      "Coolant Level Check",
-      "Fuel Injector Inspection",
-      "Fuel Pump Inspection",
-      "Battery Performance Check",
-      "Suspension System Inspection",
-      "Carburetor Inspection",
-      "Electrical System Check",
-      "Brake Adjustment (Front & Rear)",
-      "Chain Cleaning & Lubrication",
-      "Full Lubrication & Greasing",
-      "Nuts, Bolts & Fastener Tightening",
-      "Mileage & Performance Assessment",
-      "Tyre Pressure Check (Tubeless Only)",
-      "Free Pick-Up & Drop (If Required)"
-    ],
-    additionalCost: [
-      "Engine Oil Replacement",
-      "Oil Filter Cleaning / Replacement",
-      "Air Filter Cleaning / Replacement",
-      "Spark Plug Cleaning / Replacement"
-    ]
+  { 
+    id: "Engine Half", 
+    name: "Engine Half", 
+    prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null } 
+  },
+  { 
+    id: "Engine full", 
+    name: "Engine full", 
+    prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null } 
   }
+];
+
+export const ELECTRIC_SERVICES: ElectricService[] = [
+  { id: "Service", name: "Service", price: 799 },
+  { id: "Jump start", name: "Jump start", price: 399 },
+  { id: "Puncture", name: "Puncture", price: 399 },
+  { id: "Running Repair", name: "Running Repair", price: 399 },
 ];
