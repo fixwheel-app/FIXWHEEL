@@ -83,11 +83,8 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16 md:h-20">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
-              <Wrench className="w-6 h-6 md:w-8 md:h-8 text-accent transform group-hover:rotate-12 transition-transform duration-300" />
-              <span className="font-black text-lg md:text-2xl tracking-tighter text-white uppercase">
-                <span className="text-accent">Fix</span>Wheel
-              </span>
+            <Link href="/" className="flex items-center flex-shrink-0">
+              <img src="/logo.png" alt="FixWheel Logo" className="h-10 md:h-12 w-auto object-contain hover:opacity-90 transition-opacity" />
             </Link>
 
             {/* Desktop Menu */}

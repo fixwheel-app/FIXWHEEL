@@ -197,11 +197,8 @@ export default function ServicesWizard() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
                     <div className="relative z-10 flex flex-col md:flex-row gap-6 mb-8">
-                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center shadow-inner p-2 text-center">
-                         <Wrench className="w-8 h-8 text-accent mb-1 transform -rotate-12" />
-                         <span className="font-black text-[10px] md:text-[11px] tracking-tighter text-black uppercase leading-tight">
-                           <span className="text-accent">Fix</span>Wheel
-                         </span>
+                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex items-center justify-center shadow-inner overflow-hidden">
+                         <img src="/logo.png" alt="FixWheel Logo" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-3">{srv.name}</h2>
