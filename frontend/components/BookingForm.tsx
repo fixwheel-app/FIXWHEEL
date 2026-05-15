@@ -126,125 +126,135 @@ function BookingFormInner() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Name */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-              <div className="relative">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+          
+          {/* Section: Vehicle Details */}
+          <div className="space-y-5">
+            <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-2 text-lg">Vehicle Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Bike Type */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Bike Type *</label>
+                <select 
+                  {...register("bikeType")}
+                  className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
+                >
+                  <option value="Non-Electric Motorbike">Non-Electric Motorbike</option>
+                  <option value="Electric Motorbike">Electric Motorbike</option>
+                  <option value="Scooter">Scooter</option>
+                </select>
+              </div>
+
+              {/* Bike Model */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Bike Model *</label>
                 <input 
-                  {...register("customerName")}
-                  placeholder="Rahul Sharma"
+                  {...register("bikeModel")}
+                  placeholder="Hero Sprint 26T"
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
-                    errors.customerName ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                    errors.bikeModel ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
                   )}
                 />
-                {!errors.customerName && watch("customerName")?.length >= 2 && (
-                  <CheckCircle2 className="w-5 h-5 text-status-success absolute right-3 top-3.5" />
-                )}
+                {errors.bikeModel && <p className="text-status-error text-xs mt-1">{errors.bikeModel.message}</p>}
               </div>
-              {errors.customerName && <p className="text-status-error text-xs mt-1">{errors.customerName.message}</p>}
             </div>
+          </div>
 
-            {/* Phone */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-              <div className="relative flex">
-                <span className="inline-flex items-center px-3 border border-r-0 border-gray-200 bg-gray-50 text-gray-600 rounded-l-xl">
-                  +91
-                </span>
-                <input 
-                  {...register("phone")}
-                  placeholder="9876543210"
-                  maxLength={10}
-                  className={cn(
-                    "w-full bg-white border text-black rounded-r-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
-                    errors.phone ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+          {/* Section: Contact Details */}
+          <div className="space-y-5">
+            <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-2 text-lg">Contact Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                <div className="relative">
+                  <input 
+                    {...register("customerName")}
+                    placeholder="Rahul Sharma"
+                    className={cn(
+                      "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
+                      errors.customerName ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                    )}
+                  />
+                  {!errors.customerName && watch("customerName")?.length >= 2 && (
+                    <CheckCircle2 className="w-5 h-5 text-status-success absolute right-3 top-3.5" />
                   )}
-                />
+                </div>
+                {errors.customerName && <p className="text-status-error text-xs mt-1">{errors.customerName.message}</p>}
               </div>
-              {errors.phone && <p className="text-status-error text-xs mt-1">{errors.phone.message}</p>}
+
+              {/* Phone */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                <div className="relative flex">
+                  <span className="inline-flex items-center px-3 border border-r-0 border-gray-200 bg-gray-50 text-gray-600 rounded-l-xl">
+                    +91
+                  </span>
+                  <input 
+                    {...register("phone")}
+                    placeholder="9876543210"
+                    maxLength={10}
+                    className={cn(
+                      "w-full bg-white border text-black rounded-r-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
+                      errors.phone ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                    )}
+                  />
+                </div>
+                {errors.phone && <p className="text-status-error text-xs mt-1">{errors.phone.message}</p>}
+              </div>
             </div>
 
-          </div>
-
-          {/* Address */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
-            <textarea 
-              {...register("address")}
-              placeholder="House No, Street, Area, Delhi"
-              rows={3}
-              className={cn(
-                "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all resize-none",
-                errors.address ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
-              )}
-            />
-            {errors.address && <p className="text-status-error text-xs mt-1">{errors.address.message}</p>}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Bike Type */}
+            {/* Address */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Bike Type *</label>
-              <select 
-                {...register("bikeType")}
-                className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
-              >
-                <option value="Non-Electric Motorbike">Non-Electric Motorbike</option>
-                <option value="Electric Motorbike">Electric Motorbike</option>
-                <option value="Scooter">Scooter</option>
-              </select>
-            </div>
-
-            {/* Bike Model */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Bike Model *</label>
-              <input 
-                {...register("bikeModel")}
-                placeholder="Hero Sprint 26T"
+              <label className="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
+              <textarea 
+                {...register("address")}
+                placeholder="House No, Street, Area, Delhi"
+                rows={3}
                 className={cn(
-                  "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
-                  errors.bikeModel ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                  "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all resize-none",
+                  errors.address ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
                 )}
               />
-              {errors.bikeModel && <p className="text-status-error text-xs mt-1">{errors.bikeModel.message}</p>}
+              {errors.address && <p className="text-status-error text-xs mt-1">{errors.address.message}</p>}
             </div>
-
           </div>
 
-          {/* Issue Description */}
-          <div>
-            <div className="flex justify-between items-end mb-2">
-              <label className="block text-sm font-medium text-gray-700">Issue Description (Optional)</label>
-              <span className="text-xs text-gray-500">{issueDescVal.length}/300</span>
+          {/* Section: Service Preferences */}
+          <div className="space-y-5">
+            <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-2 text-lg">Service Preferences</h3>
+            
+            {/* Issue Description */}
+            <div>
+              <div className="flex justify-between items-end mb-2">
+                <label className="block text-sm font-medium text-gray-700">Issue Description (Optional)</label>
+                <span className="text-xs text-gray-500">{issueDescVal.length}/300</span>
+              </div>
+              <textarea 
+                {...register("issueDescription")}
+                placeholder="Describe what's wrong with your bike... e.g. gears slipping, brakes squeaking"
+                rows={3}
+                maxLength={300}
+                className={cn(
+                  "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all resize-none",
+                  errors.issueDescription ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                )}
+              />
             </div>
-            <textarea 
-              {...register("issueDescription")}
-              placeholder="Describe what's wrong with your bike... e.g. gears slipping, brakes squeaking"
-              rows={3}
-              maxLength={300}
-              className={cn(
-                "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all resize-none",
-                errors.issueDescription ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
-              )}
-            />
-          </div>
 
-          {/* Preferred Slot */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
-            <select 
-              {...register("preferredSlot")}
-              className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
-            >
-              <option value="Morning (8AM – 12PM)">Morning (8AM – 12PM)</option>
-              <option value="Afternoon (12PM – 4PM)">Afternoon (12PM – 4PM)</option>
-              <option value="Evening (4PM – 8PM)">Evening (4PM – 8PM)</option>
-            </select>
+            {/* Preferred Slot */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
+              <select 
+                {...register("preferredSlot")}
+                className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
+              >
+                <option value="Morning (8AM – 12PM)">Morning (8AM – 12PM)</option>
+                <option value="Afternoon (12PM – 4PM)">Afternoon (12PM – 4PM)</option>
+                <option value="Evening (4PM – 8PM)">Evening (4PM – 8PM)</option>
+              </select>
+            </div>
           </div>
 
           <button 
