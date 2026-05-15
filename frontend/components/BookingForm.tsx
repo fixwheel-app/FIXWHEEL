@@ -21,7 +21,7 @@ const bookingSchema = z.object({
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
-  preferredSlot: z.enum(["Morning (8AM – 12PM)", "Afternoon (12PM – 4PM)", "Evening (4PM – 8PM)"]),
+  preferredSlot: z.enum(["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "12:00 PM - 2:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM"]),
   package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
@@ -56,7 +56,7 @@ function BookingFormInner() {
       package: selectedPackageId as PackageType,
       bikeType: initialType as BookingSchemaType["bikeType"],
       bikeModel: initialModel,
-      preferredSlot: "Morning (8AM – 12PM)"
+      preferredSlot: "8:00 AM - 10:00 AM"
     }
   });
 
@@ -250,9 +250,12 @@ function BookingFormInner() {
                 {...register("preferredSlot")}
                 className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
               >
-                <option value="Morning (8AM – 12PM)">Morning (8AM – 12PM)</option>
-                <option value="Afternoon (12PM – 4PM)">Afternoon (12PM – 4PM)</option>
-                <option value="Evening (4PM – 8PM)">Evening (4PM – 8PM)</option>
+                <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
               </select>
             </div>
           </div>
