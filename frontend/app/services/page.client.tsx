@@ -207,10 +207,10 @@ export default function ServicesWizard() {
                         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-3">{srv.name}</h2>
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
                           <span>• Available at Doorstep</span>
-                          <span>• 1 Month Warranty</span>
+                          <span>• 15 Days Warranty</span>
                         </div>
                         <div className="inline-block bg-gray-100 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200">
-                          ⏱ 2 HRS TAKEN
+                          ⏱ 30 MINS
                         </div>
                       </div>
                     </div>
