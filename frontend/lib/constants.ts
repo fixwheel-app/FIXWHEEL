@@ -7,6 +7,7 @@ export interface NonElectricService {
   name: PackageType;
   prices: Record<CCRange, number | null>;
   includes?: string[];
+  estimatedTime: string;
 }
 
 export interface ElectricService {
@@ -14,6 +15,7 @@ export interface ElectricService {
   name: PackageType;
   price: number;
   includes?: string[];
+  estimatedTime: string;
 }
 
 export const CCRANGES: { label: string, value: CCRange }[] = [
@@ -28,6 +30,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
     id: "Service", 
     name: "Service", 
     prices: { "0-249": 550, "250-399": 850, "400-599": 1100, "600+": 1500 },
+    estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
       "Cables & Levers Adjustment",
@@ -47,6 +50,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
     id: "Service with engine oil", 
     name: "Service with engine oil", 
     prices: { "0-249": 999, "250-399": 1999, "400-599": 2990, "600+": 3999 },
+    estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
       "Cables & Levers Adjustment",
@@ -65,28 +69,32 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Puncture", 
     name: "Puncture", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 } 
+    prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 },
+    estimatedTime: "30 MINS"
   },
   { 
     id: "Running Repair", 
     name: "Running Repair", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 } 
+    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 },
+    estimatedTime: "30 MINS"
   },
   { 
     id: "Engine Half", 
     name: "Engine Half", 
-    prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null } 
+    prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null },
+    estimatedTime: "24 HOURS"
   },
   { 
     id: "Engine full", 
     name: "Engine full", 
-    prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null } 
+    prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null },
+    estimatedTime: "24 HOURS"
   }
 ];
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
-  { id: "Service", name: "Service", price: 799 },
-  { id: "Jump start", name: "Jump start", price: 399 },
-  { id: "Puncture", name: "Puncture", price: 399 },
-  { id: "Running Repair", name: "Running Repair", price: 399 },
+  { id: "Service", name: "Service", price: 799, estimatedTime: "2 HOURS" },
+  { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS" },
+  { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS" },
+  { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS" },
 ];

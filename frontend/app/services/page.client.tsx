@@ -210,7 +210,7 @@ export default function ServicesWizard() {
                           <span>• 15 Days Warranty</span>
                         </div>
                         <div className="inline-block bg-gray-100 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200">
-                          ⏱ 24 HOURS
+                          ⏱ {srv.estimatedTime}
                         </div>
                       </div>
                     </div>
