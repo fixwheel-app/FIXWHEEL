@@ -82,13 +82,42 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
     id: "Engine Half", 
     name: "Engine Half", 
     prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null },
-    estimatedTime: "24 HOURS"
+    estimatedTime: "24 HOURS",
+    includes: [
+      "Piston",
+      "Valve",
+      "Valve Seal",
+      "Bore",
+      "Head Repair",
+      "Spark Plug",
+      "DC Kit",
+      "Engine Oil"
+    ]
   },
   { 
     id: "Engine full", 
     name: "Engine full", 
     prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null },
-    estimatedTime: "24 HOURS"
+    estimatedTime: "24 HOURS",
+    includes: [
+      "Crank assembly",
+      "Main Bearing",
+      "Piston Set",
+      "Valve",
+      "Valve seal",
+      "Valve guide",
+      "Valve seat",
+      "Timing Chain kit",
+      "Chain guard",
+      "Packing kit",
+      "Oil seal kit",
+      "Oil ring kit",
+      "Engine Oil",
+      "Diesel washing",
+      "Lathe work (Kharad)",
+      "Spark plug",
+      "Mechanic charges"
+    ]
   }
 ];
 
