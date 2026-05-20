@@ -51,7 +51,7 @@ function BookingFormInner() {
     "Doorstep assistance."
   ];
 
-  const { register, handleSubmit, formState: { errors, isValid }, watch, setValue } = useForm<BookingSchemaType>({
+  const { register, handleSubmit, formState: { errors, isValid }, watch, setValue, getValues } = useForm<BookingSchemaType>({
     resolver: zodResolver(bookingSchema),
     mode: 'onChange',
     defaultValues: {
@@ -65,6 +65,37 @@ function BookingFormInner() {
   });
 
   const issueDescVal = watch("issueDescription") || "";
+  const bookingDate = watch("bookingDate");
+  const [availableSlots, setAvailableSlots] = useState<string[]>([]);
+
+  useEffect(() => {
+    const today = new Date().toISOString().split('T')[0];
+    const ALL_SLOTS = [
+      { label: "8:00 AM - 10:00 AM", startHour: 8 },
+      { label: "10:00 AM - 12:00 PM", startHour: 10 },
+      { label: "12:00 PM - 2:00 PM", startHour: 12 },
+      { label: "2:00 PM - 4:00 PM", startHour: 14 },
+      { label: "4:00 PM - 6:00 PM", startHour: 16 },
+      { label: "6:00 PM - 8:00 PM", startHour: 18 }
+    ];
+
+    let filteredSlots = [];
+    if (bookingDate === today) {
+      const currentHour = new Date().getHours();
+      filteredSlots = ALL_SLOTS.filter(slot => slot.startHour > currentHour).map(s => s.label);
+    } else {
+      filteredSlots = ALL_SLOTS.map(s => s.label);
+    }
+    
+    setAvailableSlots(filteredSlots);
+    
+    const currentSlot = getValues("preferredSlot");
+    if (filteredSlots.length > 0 && !filteredSlots.includes(currentSlot)) {
+      setValue("preferredSlot", filteredSlots[0] as any, { shouldValidate: true });
+    } else if (filteredSlots.length === 0) {
+      setValue("preferredSlot", "" as any, { shouldValidate: true });
+    }
+  }, [bookingDate, setValue, getValues]);
 
   useEffect(() => {
     try {
@@ -282,17 +313,24 @@ function BookingFormInner() {
               {/* Preferred Slot */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
-                <select 
-                  {...register("preferredSlot")}
-                  className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
-                >
-                  <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
-                  <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
-                  <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
-                  <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
-                  <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
-                  <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
-                </select>
+                {availableSlots.length > 0 ? (
+                  <select 
+                    {...register("preferredSlot")}
+                    className={cn(
+                      "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all cursor-pointer appearance-none",
+                      errors.preferredSlot ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                    )}
+                  >
+                    {availableSlots.map(slot => (
+                      <option key={slot} value={slot}>{slot}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <div className="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-xl px-4 py-3 text-sm">
+                    No slots available for today. Please select a different date.
+                  </div>
+                )}
+                {errors.preferredSlot && <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>}
               </div>
             </div>
           </div>
