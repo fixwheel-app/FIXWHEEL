@@ -17,6 +17,7 @@ model Booking {
   phone             String
   address           String
   city              String   @default("Delhi")
+  bookingDate       String   @default("2026-05-20")
   bikeType          String
   bikeModel         String
   issueDescription  String?

@@ -19,6 +19,7 @@ const bookingSchema = z.object({
   phone: z.string().length(10, "10 digit number required").regex(/^\d+$/, "Numbers only"),
   address: z.string().min(15, "Address must be at least 15 characters"),
   city: z.enum(["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"]),
+  bookingDate: z.string().min(1, "Booking date is required"),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
@@ -58,7 +59,8 @@ function BookingFormInner() {
       bikeType: initialType as BookingSchemaType["bikeType"],
       bikeModel: initialModel,
       preferredSlot: "8:00 AM - 10:00 AM",
-      city: "Delhi"
+      city: "Delhi",
+      bookingDate: new Date().toISOString().split('T')[0]
     }
   });
 
@@ -261,20 +263,37 @@ function BookingFormInner() {
               />
             </div>
 
-            {/* Preferred Slot */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
-              <select 
-                {...register("preferredSlot")}
-                className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
-              >
-                <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
-                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
-                <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
-                <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
-                <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
-                <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
-              </select>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Booking Date */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Booking Date *</label>
+                <input 
+                  type="date"
+                  min={new Date().toISOString().split('T')[0]}
+                  {...register("bookingDate")}
+                  className={cn(
+                    "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
+                    errors.bookingDate ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                  )}
+                />
+                {errors.bookingDate && <p className="text-status-error text-xs mt-1">{errors.bookingDate.message}</p>}
+              </div>
+
+              {/* Preferred Slot */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
+                <select 
+                  {...register("preferredSlot")}
+                  className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
+                >
+                  <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                  <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                  <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                  <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                  <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                  <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
+                </select>
+              </div>
             </div>
           </div>
 

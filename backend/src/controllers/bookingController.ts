@@ -43,6 +43,7 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
         phone: "+91" + bookingData.phone, // Prepend India country code as per requirements (exact 10 digits provided)
         address: bookingData.address,
         city: bookingData.city,
+        bookingDate: bookingData.bookingDate,
         bikeType: bookingData.bikeType,
         bikeModel: bookingData.bikeModel,
         issueDescription: bookingData.issueDescription || null,
@@ -65,6 +66,7 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
           phone: newBooking.phone,
           address: newBooking.address,
           city: newBooking.city,
+          bookingDate: newBooking.bookingDate,
           bikeType: newBooking.bikeType,
           bikeModel: newBooking.bikeModel,
           issueDescription: newBooking.issueDescription,
