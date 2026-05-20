@@ -330,7 +330,7 @@ function BookingFormInner() {
                     No slots available for today. Please select a different date.
                   </div>
                 )}
-                {errors.preferredSlot && <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>}
+                {availableSlots.length > 0 && errors.preferredSlot && <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>}
               </div>
             </div>
           </div>
