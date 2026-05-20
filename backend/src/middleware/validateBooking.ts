@@ -5,6 +5,7 @@ export const bookingSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must not exceed 50 characters"),
   phone: z.string().length(10, "Phone number must be exactly 10 digits").regex(/^\d+$/, "Phone must contain only numbers"),
   address: z.string().min(15, "Address must be at least 15 characters"),
+  city: z.enum(["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"]),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Bike model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Description must be under 300 characters").optional(),

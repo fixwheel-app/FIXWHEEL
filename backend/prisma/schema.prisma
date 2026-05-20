@@ -16,6 +16,7 @@ model Booking {
   customerName      String
   phone             String
   address           String
+  city              String   @default("Delhi")
   bikeType          String
   bikeModel         String
   issueDescription  String?

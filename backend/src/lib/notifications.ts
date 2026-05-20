@@ -5,6 +5,7 @@ export interface BookingDetails {
   customerName: string;
   phone: string;
   address: string;
+  city: string;
   bikeType: string;
   bikeModel: string;
   issueDescription: string | null;
@@ -55,6 +56,7 @@ export const sendBookingNotification = async (details: BookingDetails) => {
         <p><b>Name:</b> ${details.customerName}</p>
         <p><b>Phone:</b> ${details.phone}</p>
         <p><b>Address:</b> ${details.address}</p>
+        <p><b>City:</b> ${details.city}</p>
         <p><b>Bike:</b> ${details.bikeModel}</p>
         <p><b>Package:</b> ${details.package}</p>
         <p><b>Price:</b> ₹${details.price}</p>

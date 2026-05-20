@@ -18,6 +18,7 @@ const bookingSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must not exceed 50 characters"),
   phone: z.string().length(10, "10 digit number required").regex(/^\d+$/, "Numbers only"),
   address: z.string().min(15, "Address must be at least 15 characters"),
+  city: z.enum(["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"]),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
@@ -56,7 +57,8 @@ function BookingFormInner() {
       package: selectedPackageId as PackageType,
       bikeType: initialType as BookingSchemaType["bikeType"],
       bikeModel: initialModel,
-      preferredSlot: "8:00 AM - 10:00 AM"
+      preferredSlot: "8:00 AM - 10:00 AM",
+      city: "Delhi"
     }
   });
 
@@ -205,12 +207,28 @@ function BookingFormInner() {
               </div>
             </div>
 
+            {/* City */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
+              <select 
+                {...register("city")}
+                className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
+              >
+                <option value="Delhi">Delhi</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Noida">Noida</option>
+                <option value="Faridabad">Faridabad</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+              </select>
+              {errors.city && <p className="text-status-error text-xs mt-1">{errors.city.message}</p>}
+            </div>
+
             {/* Address */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
               <textarea 
                 {...register("address")}
-                placeholder="House No, Street, Area, Delhi"
+                placeholder="House No, Street, Area"
                 rows={3}
                 className={cn(
                   "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all resize-none",
