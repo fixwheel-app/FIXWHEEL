@@ -13,8 +13,8 @@ const getPriceForPackage = (pkg: string): number => {
 };
 
 const generateBookingRef = (): string => {
-  const randomDigits = Math.floor(1000 + Math.random() * 9000); // 4 random digits
-  return `SPX-${randomDigits}`;
+  const randomDigits = Math.floor(10000 + Math.random() * 90000); // 5 random digits
+  return `FX-${randomDigits}`;
 };
 
 export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Response): Promise<void> => {
