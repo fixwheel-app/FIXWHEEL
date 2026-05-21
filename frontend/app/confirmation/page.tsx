@@ -53,6 +53,9 @@ export default function ConfirmationPage() {
           <p className="text-gray-600 text-sm md:text-lg">
             Our Mechanic will contact you
           </p>
+          <p className="text-gray-850 font-bold mt-2 text-sm md:text-base tracking-wide">
+            CONTACT: <a href="tel:8745945682" className="text-accent hover:underline font-extrabold">8745945682</a>
+          </p>
         </div>
 
         {/* Booking Summary Card */}
