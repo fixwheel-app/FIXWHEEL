@@ -10,7 +10,20 @@ export const bookingSchema = z.object({
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Bike model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Description must be under 300 characters").optional(),
-  preferredSlot: z.enum(["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "12:00 PM - 2:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM"]),
+  preferredSlot: z.enum([
+    "8:00 AM - 9:00 AM", 
+    "9:00 AM - 10:00 AM", 
+    "10:00 AM - 11:00 AM", 
+    "11:00 AM - 12:00 PM", 
+    "12:00 PM - 1:00 PM", 
+    "1:00 PM - 2:00 PM", 
+    "2:00 PM - 3:00 PM", 
+    "3:00 PM - 4:00 PM", 
+    "4:00 PM - 5:00 PM", 
+    "5:00 PM - 6:00 PM", 
+    "6:00 PM - 7:00 PM", 
+    "7:00 PM - 8:00 PM"
+  ]),
   package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 

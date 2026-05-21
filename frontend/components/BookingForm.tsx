@@ -23,7 +23,20 @@ const bookingSchema = z.object({
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
-  preferredSlot: z.enum(["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "12:00 PM - 2:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM"]),
+  preferredSlot: z.enum([
+    "8:00 AM - 9:00 AM", 
+    "9:00 AM - 10:00 AM", 
+    "10:00 AM - 11:00 AM", 
+    "11:00 AM - 12:00 PM", 
+    "12:00 PM - 1:00 PM", 
+    "1:00 PM - 2:00 PM", 
+    "2:00 PM - 3:00 PM", 
+    "3:00 PM - 4:00 PM", 
+    "4:00 PM - 5:00 PM", 
+    "5:00 PM - 6:00 PM", 
+    "6:00 PM - 7:00 PM", 
+    "7:00 PM - 8:00 PM"
+  ]),
   package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
@@ -58,7 +71,7 @@ function BookingFormInner() {
       package: selectedPackageId as PackageType,
       bikeType: initialType as BookingSchemaType["bikeType"],
       bikeModel: initialModel,
-      preferredSlot: "8:00 AM - 10:00 AM",
+      preferredSlot: "8:00 AM - 9:00 AM",
       city: "Delhi",
       bookingDate: new Date().toISOString().split('T')[0]
     }
@@ -71,12 +84,18 @@ function BookingFormInner() {
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0];
     const ALL_SLOTS = [
-      { label: "8:00 AM - 10:00 AM", startHour: 8 },
-      { label: "10:00 AM - 12:00 PM", startHour: 10 },
-      { label: "12:00 PM - 2:00 PM", startHour: 12 },
-      { label: "2:00 PM - 4:00 PM", startHour: 14 },
-      { label: "4:00 PM - 6:00 PM", startHour: 16 },
-      { label: "6:00 PM - 8:00 PM", startHour: 18 }
+      { label: "8:00 AM - 9:00 AM", startHour: 8 },
+      { label: "9:00 AM - 10:00 AM", startHour: 9 },
+      { label: "10:00 AM - 11:00 AM", startHour: 10 },
+      { label: "11:00 AM - 12:00 PM", startHour: 11 },
+      { label: "12:00 PM - 1:00 PM", startHour: 12 },
+      { label: "1:00 PM - 2:00 PM", startHour: 13 },
+      { label: "2:00 PM - 3:00 PM", startHour: 14 },
+      { label: "3:00 PM - 4:00 PM", startHour: 15 },
+      { label: "4:00 PM - 5:00 PM", startHour: 16 },
+      { label: "5:00 PM - 6:00 PM", startHour: 17 },
+      { label: "6:00 PM - 7:00 PM", startHour: 18 },
+      { label: "7:00 PM - 8:00 PM", startHour: 19 }
     ];
 
     let filteredSlots = [];
