@@ -345,7 +345,7 @@ function BookingFormInner() {
                   );
                 })}
               </div>
-              <input type="hidden" {...register("city")} />
+              <input type="hidden" {...register("city")} value={selectedCity} />
               {errors.city && <p className="text-status-error text-xs mt-1">{errors.city.message}</p>}
             </div>
 
@@ -496,7 +496,7 @@ function BookingFormInner() {
                   </div>
                 )}
                 
-                <input type="hidden" {...register("preferredSlot")} />
+                <input type="hidden" {...register("preferredSlot")} value={selectedSlot} />
                 {availableSlots.length > 0 && errors.preferredSlot && (
                   <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>
                 )}

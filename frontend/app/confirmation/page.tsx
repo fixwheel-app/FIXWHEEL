@@ -49,10 +49,7 @@ export default function ConfirmationPage() {
           transition={{ delay: 0.2 }}
           className="bg-gray-50 border border-black/5 rounded-3xl p-6 md:p-8 shadow-md mb-10 relative overflow-hidden"
         >
-          {/* Status Badge */}
-          <div className="absolute top-6 right-6 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-500/20 text-yellow-500 border border-yellow-500/30">
-            Pending Confirmation
-          </div>
+
 
           <div className="mb-6 md:mb-8 border-b border-gray-200 pb-4 md:pb-6">
             <p className="text-gray-600 text-sm mb-1">Booking Reference ID</p>
@@ -100,7 +97,9 @@ export default function ConfirmationPage() {
                   <Bike className="w-4 h-4 text-gray-500" />
                   <span>{bookingData.bikeType} - {bookingData.bikeModel}</span>
                 </div>
-                {bookingData.issueDescription && (
+                {bookingData.issueDescription && 
+                 bookingData.issueDescription.trim().toLowerCase() !== "for testing purpose" && 
+                 bookingData.issueDescription.trim().toLowerCase() !== "testing" && (
                   <p className="text-sm text-gray-700 bg-gray-100 p-3 rounded-lg mt-2 italic">
                     "{bookingData.issueDescription}"
                   </p>
