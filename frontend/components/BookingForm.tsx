@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import { Lock, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Lock, AlertCircle, CheckCircle2, MapPin, Sunrise, Sun, Sunset, Clock, Check } from 'lucide-react';
 import { submitBooking } from '@/lib/api';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES } from '@/lib/constants';
 import LoadingSpinner from './LoadingSpinner';
@@ -41,6 +41,42 @@ const bookingSchema = z.object({
 });
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;
+
+const SLOT_METADATA: Record<string, { period: 'morning' | 'afternoon' | 'evening', timeOnly: string }> = {
+  "8:00 AM - 9:00 AM": { period: 'morning', timeOnly: "8:00 - 9:00 AM" },
+  "9:00 AM - 10:00 AM": { period: 'morning', timeOnly: "9:00 - 10:00 AM" },
+  "10:00 AM - 11:00 AM": { period: 'morning', timeOnly: "10:00 - 11:00 AM" },
+  "11:00 AM - 12:00 PM": { period: 'morning', timeOnly: "11:00 AM - 12:00 PM" },
+  "12:00 PM - 1:00 PM": { period: 'afternoon', timeOnly: "12:00 - 1:00 PM" },
+  "1:00 PM - 2:00 PM": { period: 'afternoon', timeOnly: "1:00 - 2:00 PM" },
+  "2:00 PM - 3:00 PM": { period: 'afternoon', timeOnly: "2:00 - 3:00 PM" },
+  "3:00 PM - 4:00 PM": { period: 'afternoon', timeOnly: "3:00 - 4:00 PM" },
+  "4:00 PM - 5:00 PM": { period: 'evening', timeOnly: "4:00 - 5:00 PM" },
+  "5:00 PM - 6:00 PM": { period: 'evening', timeOnly: "5:00 - 6:00 PM" },
+  "6:00 PM - 7:00 PM": { period: 'evening', timeOnly: "6:00 - 7:00 PM" },
+  "7:00 PM - 8:00 PM": { period: 'evening', timeOnly: "7:00 - 8:00 PM" },
+};
+
+const PERIOD_STYLES: Record<string, { bg: string, text: string, border: string, iconBg: string }> = {
+  morning: {
+    bg: "from-amber-50/20 to-white/10",
+    text: "text-amber-700",
+    border: "border-amber-100",
+    iconBg: "bg-amber-50 text-amber-600 border-amber-200/40"
+  },
+  afternoon: {
+    bg: "from-yellow-50/20 to-white/10",
+    text: "text-yellow-700",
+    border: "border-yellow-100",
+    iconBg: "bg-yellow-50 text-yellow-600 border-yellow-200/30"
+  },
+  evening: {
+    bg: "from-rose-50/20 to-white/10",
+    text: "text-rose-700",
+    border: "border-rose-100",
+    iconBg: "bg-rose-50 text-rose-600 border-rose-200/40"
+  }
+};
 
 function BookingFormInner() {
   const searchParams = useSearchParams();
@@ -79,6 +115,8 @@ function BookingFormInner() {
 
   const issueDescVal = watch("issueDescription") || "";
   const bookingDate = watch("bookingDate");
+  const selectedSlot = watch("preferredSlot");
+  const selectedCity = watch("city");
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
 
   useEffect(() => {
@@ -260,18 +298,54 @@ function BookingFormInner() {
             </div>
 
             {/* City */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
-              <select 
-                {...register("city")}
-                className="w-full bg-white border border-gray-200 text-black rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none"
-              >
-                <option value="Delhi">Delhi</option>
-                <option value="Gurgaon">Gurgaon</option>
-                <option value="Noida">Noida</option>
-                <option value="Faridabad">Faridabad</option>
-                <option value="Ghaziabad">Ghaziabad</option>
-              </select>
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-gray-500" />
+                <label className="block text-sm font-semibold text-gray-800">Select City *</label>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5">
+                {[
+                  { id: "Delhi", name: "Delhi", region: "Delhi NCR" },
+                  { id: "Gurgaon", name: "Gurgaon", region: "Haryana" },
+                  { id: "Noida", name: "Noida", region: "UP" },
+                  { id: "Faridabad", name: "Faridabad", region: "Haryana" },
+                  { id: "Ghaziabad", name: "Ghaziabad", region: "UP" }
+                ].map((city) => {
+                  const isSelected = selectedCity === city.id;
+                  return (
+                    <button
+                      key={city.id}
+                      type="button"
+                      onClick={() => setValue("city", city.id as any, { shouldValidate: true })}
+                      className={cn(
+                        "relative flex flex-col items-center justify-center p-4 rounded-2xl border text-center transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 group overflow-hidden bg-white cursor-pointer",
+                        isSelected 
+                          ? "border-accent bg-gradient-to-br from-accent/[0.04] to-accent/[0.01] text-accent ring-2 ring-accent/15" 
+                          : "border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50/50"
+                      )}
+                    >
+                      <div className={cn(
+                        "flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 mb-2.5 shrink-0",
+                        isSelected ? "bg-accent text-white scale-110 shadow-sm shadow-accent/20" : "bg-gray-100 text-gray-500 group-hover:bg-gray-200/80"
+                      )}>
+                        <MapPin className="w-5 h-5 shrink-0" />
+                      </div>
+                      <span className={cn("text-sm font-bold tracking-tight leading-tight", isSelected ? "text-accent" : "text-gray-900")}>
+                        {city.name}
+                      </span>
+                      <span className="text-[10px] text-gray-400 font-medium mt-1">
+                        {city.region}
+                      </span>
+                      {isSelected && (
+                        <div className="absolute top-2 right-2 flex items-center justify-center w-4 h-4 rounded-full bg-accent text-white shadow-sm">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+              <input type="hidden" {...register("city")} />
               {errors.city && <p className="text-status-error text-xs mt-1">{errors.city.message}</p>}
             </div>
 
@@ -313,9 +387,9 @@ function BookingFormInner() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-6">
               {/* Booking Date */}
-              <div>
+              <div className="max-w-md">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Booking Date *</label>
                 <input 
                   type="date"
@@ -330,26 +404,102 @@ function BookingFormInner() {
               </div>
 
               {/* Preferred Slot */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time Slot *</label>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <Clock className="w-4 h-4 text-gray-500" />
+                  <label className="block text-sm font-medium text-gray-700">Preferred Time Slot *</label>
+                </div>
+
                 {availableSlots.length > 0 ? (
-                  <select 
-                    {...register("preferredSlot")}
-                    className={cn(
-                      "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all cursor-pointer appearance-none",
-                      errors.preferredSlot ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
-                    )}
-                  >
-                    {availableSlots.map(slot => (
-                      <option key={slot} value={slot}>{slot}</option>
-                    ))}
-                  </select>
+                  <div className="space-y-5">
+                    {[
+                      { id: 'morning', name: 'Morning', icon: Sunrise, time: '8:00 AM - 12:00 PM' },
+                      { id: 'afternoon', name: 'Afternoon', icon: Sun, time: '12:00 PM - 4:00 PM' },
+                      { id: 'evening', name: 'Evening', icon: Sunset, time: '4:00 PM - 8:00 PM' }
+                    ].map((period) => {
+                      const periodSlots = availableSlots.filter(
+                        (slot) => SLOT_METADATA[slot]?.period === period.id
+                      );
+
+                      if (periodSlots.length === 0) return null;
+
+                      const PeriodIcon = period.icon;
+                      const styles = PERIOD_STYLES[period.id] || {
+                        bg: "from-gray-50/50 to-white/10",
+                        text: "text-gray-700",
+                        border: "border-gray-150",
+                        iconBg: "bg-gray-50 text-gray-500 border-gray-200/50"
+                      };
+
+                      return (
+                        <div 
+                          key={period.id} 
+                          className={cn(
+                            "border rounded-2xl p-4 md:p-5 transition-all duration-300 bg-gradient-to-br shadow-sm hover:shadow-md",
+                            styles.border,
+                            styles.bg
+                          )}
+                        >
+                          <div className="flex items-center gap-3 mb-4 border-b pb-3 border-gray-100">
+                            <div className={cn(
+                              "flex items-center justify-center w-8 h-8 rounded-lg border shadow-xs shrink-0",
+                              styles.iconBg
+                            )}>
+                              <PeriodIcon className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <p className={cn("text-xs font-bold uppercase tracking-wider leading-none", styles.text)}>
+                                {period.name}
+                              </p>
+                              <p className="text-[10px] text-gray-400 font-semibold mt-1">
+                                {period.time}
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+                            {periodSlots.map((slot) => {
+                              const isSelected = selectedSlot === slot;
+                              return (
+                                <button
+                                  key={slot}
+                                  type="button"
+                                  onClick={() => setValue("preferredSlot", slot as any, { shouldValidate: true })}
+                                  className={cn(
+                                    "relative py-3 px-4 rounded-xl border text-center transition-all duration-300 text-xs font-semibold group flex flex-col justify-center items-center gap-0.5 cursor-pointer bg-white",
+                                    isSelected
+                                      ? "border-accent bg-gradient-to-br from-accent/[0.04] to-accent/[0.01] text-accent ring-2 ring-accent/15"
+                                      : "border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50/50 hover:-translate-y-0.5 shadow-xs"
+                                  )}
+                                >
+                                  <span className={cn("text-xs font-bold", isSelected ? "text-accent" : "text-gray-800 group-hover:text-gray-900")}>
+                                    {SLOT_METADATA[slot]?.timeOnly || slot}
+                                  </span>
+                                  {isSelected && (
+                                    <span className="absolute bottom-1.5 w-1 h-1 rounded-full bg-accent" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 ) : (
-                  <div className="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-xl px-4 py-3 text-sm">
-                    No slots available for today. Please select a different date.
+                  <div className="w-full bg-red-50/50 border border-status-error/20 text-status-error rounded-xl px-4 py-4 text-sm flex items-start gap-2.5">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">No slots available for today</p>
+                      <p className="text-xs text-gray-500 mt-0.5">Please select a different date to book your repair.</p>
+                    </div>
                   </div>
                 )}
-                {availableSlots.length > 0 && errors.preferredSlot && <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>}
+                
+                <input type="hidden" {...register("preferredSlot")} />
+                {availableSlots.length > 0 && errors.preferredSlot && (
+                  <p className="text-status-error text-xs mt-1">{errors.preferredSlot.message}</p>
+                )}
               </div>
             </div>
           </div>
