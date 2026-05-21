@@ -6,6 +6,19 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, Phone, Calendar, MapPin, Bike, Check } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  if (parts.length === 3) {
+    const year = parts[0];
+    const monthIndex = parseInt(parts[1], 10) - 1;
+    const day = parseInt(parts[2], 10);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${day} ${months[monthIndex]} ${year}`;
+  }
+  return dateStr;
+};
+
 export default function ConfirmationPage() {
   const [bookingData, setBookingData] = useState<any>(null);
   const router = useRouter();
@@ -38,7 +51,7 @@ export default function ConfirmationPage() {
           
           <h1 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">Booking Confirmed! 🎉</h1>
           <p className="text-gray-600 text-sm md:text-lg">
-            Our mechanic will contact you within 30 minutes to confirm the slot.
+            Our Mechanic will contact you
           </p>
         </div>
 
@@ -79,7 +92,10 @@ export default function ConfirmationPage() {
                 <p className="text-gray-600 text-xs mb-1 uppercase tracking-wider">Time Slot</p>
                 <div className="flex items-center gap-2 text-black">
                   <Calendar className="w-4 h-4 text-accent shrink-0" />
-                  <span className="font-medium">{bookingData.preferredSlot}</span>
+                  <span className="font-medium">
+                    {bookingData.bookingDate ? `${formatDate(bookingData.bookingDate)} | ` : ''}
+                    {bookingData.preferredSlot}
+                  </span>
                 </div>
               </div>
             </div>
@@ -117,7 +133,7 @@ export default function ConfirmationPage() {
               
               {[
                 { title: "Booking received" },
-                { title: "We call you in 30 mins" },
+                { title: "Confirmation Call" },
                 { title: "Mechanic arrives" }
               ].map((step, idx) => (
                 <div key={idx} className="flex flex-row md:flex-col items-center gap-3">
