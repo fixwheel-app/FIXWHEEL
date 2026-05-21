@@ -53,9 +53,6 @@ export default function ConfirmationPage() {
           <p className="text-gray-600 text-sm md:text-lg">
             Our Mechanic will contact you
           </p>
-          <p className="text-black font-bold mt-2 text-sm md:text-base tracking-wide">
-            CONTACT: <a href="tel:8745945682" className="text-accent hover:underline font-extrabold">8745945682</a>
-          </p>
         </div>
 
         {/* Booking Summary Card */}
@@ -67,9 +64,17 @@ export default function ConfirmationPage() {
         >
 
 
-          <div className="mb-6 md:mb-8 border-b border-gray-200 pb-4 md:pb-6">
-            <p className="text-gray-600 text-sm mb-1">Booking Reference ID</p>
-            <p className="text-xl md:text-3xl font-mono font-bold text-black">{bookingData.bookingRef}</p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 md:mb-8 border-b border-gray-200 pb-4 md:pb-6 gap-4">
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Booking Reference ID</p>
+              <p className="text-xl md:text-3xl font-mono font-bold text-black">{bookingData.bookingRef}</p>
+            </div>
+            <div className="text-left sm:text-right">
+              <p className="text-gray-600 text-sm mb-1">Mechanic no-</p>
+              <p className="text-xl md:text-3xl font-mono font-bold text-accent">
+                <a href="tel:8745945682" className="hover:underline">8745945682</a>
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 border-b border-gray-200 pb-8">
