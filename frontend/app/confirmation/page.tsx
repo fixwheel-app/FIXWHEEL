@@ -51,7 +51,7 @@ export default function ConfirmationPage() {
           
           <h1 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">Booking Confirmed! 🎉</h1>
           <p className="text-gray-600 text-sm md:text-lg">
-            Our Mechanic will contact you
+            Our mechanic will contact you shortly
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function ConfirmationPage() {
               <p className="text-xl md:text-3xl font-mono font-bold text-black">{bookingData.bookingRef}</p>
             </div>
             <div className="text-left sm:text-right">
-              <p className="text-gray-600 text-sm mb-1">Mechanic no-</p>
+              <p className="text-gray-600 text-sm mb-1">Mechanic No.</p>
               <p className="text-xl md:text-3xl font-mono font-bold text-accent">
                 <a href="tel:8745945682" className="hover:underline">8745945682</a>
               </p>
