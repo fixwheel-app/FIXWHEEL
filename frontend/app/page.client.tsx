@@ -299,11 +299,14 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  BECOME A PARTNER BANNER
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 md:py-16 bg-white border-t border-gray-100">
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="border-l-4 border-accent pl-6 md:pl-10 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
+          <div className="bg-gray-50 border border-gray-100 rounded-[24px] md:rounded-[32px] p-8 md:p-12 shadow-sm flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16 relative overflow-hidden">
+            {/* Left accent strip inside the card */}
+            <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-accent" />
+            
             {/* Text */}
-            <div className="flex-1">
+            <div className="flex-1 pl-2 md:pl-4">
               <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">🔧 Join Our Network</span>
               <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-4">Are You a Bike Mechanic?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
@@ -318,11 +321,11 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* CTA */}
-            <div className="shrink-0">
+            {/* CTA Button */}
+            <div className="shrink-0 pl-2 lg:pl-0">
               <Link
                 href="/partner"
-                className="inline-flex items-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-8 py-4 text-sm md:text-base transition-all shadow-[0_0_30px_rgba(230,43,43,0.4)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)]"
+                className="inline-flex items-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-8 py-4 rounded-xl text-sm md:text-base transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] hover:scale-[1.02] active:scale-[0.98]"
               >
                 Become a Partner
                 <ArrowRight className="w-5 h-5" />
