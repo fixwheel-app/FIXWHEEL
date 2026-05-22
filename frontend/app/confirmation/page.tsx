@@ -70,8 +70,8 @@ export default function ConfirmationPage() {
               <p className="text-xl md:text-3xl font-mono font-bold text-black">{bookingData.bookingRef}</p>
             </div>
             <div className="text-left sm:text-right">
-              <p className="text-gray-600 text-sm mb-1">Support Executive</p>
-              <p className="text-lg md:text-2xl font-mono font-bold text-accent">
+              <p className="text-gray-600 text-sm mb-1">Call Support</p>
+              <p className="text-lg md:text-2xl font-mono font-bold text-black">
                 <a href="tel:8745945682" className="hover:underline">8745945682</a>
               </p>
             </div>
