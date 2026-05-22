@@ -299,19 +299,19 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  BECOME A PARTNER BANNER
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 md:py-16 bg-[#0F172A]">
+      <section className="py-10 md:py-16 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <div className="border-l-4 border-accent pl-6 md:pl-10 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
             {/* Text */}
             <div className="flex-1">
-              <span className="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">🔧 Join Our Network</span>
-              <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-4">Are You a Bike Mechanic?</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
+              <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">🔧 Join Our Network</span>
+              <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-4">Are You a Bike Mechanic?</h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
                 Join the FixWheel mechanic network and connect with customers in your area. Work on your own schedule, earn more, and grow your business with us.
               </p>
               <ul className="space-y-2.5">
                 {["Flexible working hours", "Easy booking management", "Grow your local reach"].map((b, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
+                  <li key={i} className="flex items-center gap-3 text-sm text-gray-700">
                     <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />{b}
                   </li>
                 ))}
