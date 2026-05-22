@@ -64,12 +64,12 @@ export default function ConfirmationPage() {
         >
 
 
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 md:mb-8 border-b border-gray-200 pb-4 md:pb-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-8 border-b border-gray-200 pb-4 md:pb-6">
             <div>
               <p className="text-gray-600 text-sm mb-1">Booking Reference ID</p>
               <p className="text-xl md:text-3xl font-mono font-bold text-black">{bookingData.bookingRef}</p>
             </div>
-            <div className="text-left sm:text-right">
+            <div>
               <p className="text-gray-600 text-sm mb-1">Call Support</p>
               <p className="text-lg md:text-2xl font-mono font-bold text-black">
                 <a href="tel:8745945682" className="hover:underline">8745945682</a>
