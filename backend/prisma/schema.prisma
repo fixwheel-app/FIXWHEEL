@@ -35,6 +35,7 @@ model Partner {
   ownerName       String
   phone           String
   mapsLocation    String
+  city            String   @default("Delhi")
   vehicleType     String
   servicesOffered String[]
   garagePhotos    String[]

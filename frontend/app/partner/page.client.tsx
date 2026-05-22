@@ -16,6 +16,7 @@ interface PartnerFormData {
   garageName: string;
   ownerName: string;
   mobileNumber: string;
+  city: string;
   mapsLocation: string;
   vehicleType: VehicleType | '';
   servicesOffered: string[];
@@ -194,6 +195,7 @@ export default function PartnerPage() {
     garageName: '',
     ownerName: '',
     mobileNumber: '',
+    city: '',
     mapsLocation: '',
     vehicleType: '',
     servicesOffered: [],
@@ -221,6 +223,7 @@ export default function PartnerPage() {
       if (!formData.garageName.trim()) newErrors.garageName = 'Garage name is required';
       if (!formData.ownerName.trim()) newErrors.ownerName = 'Owner name is required';
       if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) newErrors.mobileNumber = 'Enter a valid 10-digit mobile number';
+      if (!formData.city.trim()) newErrors.city = 'City is required';
       if (!formData.mapsLocation.trim()) newErrors.mapsLocation = 'Google Maps link is required';
       if (!formData.vehicleType) newErrors.vehicleType = 'Please select a vehicle type';
     }
@@ -290,6 +293,7 @@ export default function PartnerPage() {
         garageName: formData.garageName,
         ownerName: formData.ownerName,
         phone: formData.mobileNumber,
+        city: formData.city,
         mapsLocation: formData.mapsLocation,
         vehicleType: formData.vehicleType as any,
         servicesOffered: formData.servicesOffered,
@@ -483,23 +487,38 @@ export default function PartnerPage() {
                 </InputField>
               </div>
 
-              <InputField label="Mobile Number" icon={Phone} error={errors.mobileNumber} required>
-                <div className="flex">
-                  <span className="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-gray-200 bg-gray-100 text-gray-600 text-sm font-semibold">
-                    +91
-                  </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <InputField label="City" icon={MapPin} error={errors.city} required>
                   <input
-                    id="mobile-number"
-                    value={formData.mobileNumber}
-                    onChange={e => set('mobileNumber', e.target.value.replace(/\D/g, '').slice(0, 10))}
-                    placeholder="9876543210"
+                    id="city"
+                    value={formData.city}
+                    onChange={e => set('city', e.target.value)}
+                    placeholder="e.g. New Delhi"
                     className={cn(
-                      "w-full bg-white border rounded-r-xl px-4 py-3.5 text-black placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm",
-                      errors.mobileNumber ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
+                      "w-full bg-white border text-black rounded-xl px-4 py-3.5 placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm",
+                      errors.city ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
                     )}
                   />
-                </div>
-              </InputField>
+                </InputField>
+
+                <InputField label="Mobile Number" icon={Phone} error={errors.mobileNumber} required>
+                  <div className="flex">
+                    <span className="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-gray-200 bg-gray-100 text-gray-600 text-sm font-semibold">
+                      +91
+                    </span>
+                    <input
+                      id="mobile-number"
+                      value={formData.mobileNumber}
+                      onChange={e => set('mobileNumber', e.target.value.replace(/\D/g, '').slice(0, 10))}
+                      placeholder="9876543210"
+                      className={cn(
+                        "w-full bg-white border rounded-r-xl px-4 py-3.5 text-black placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm",
+                        errors.mobileNumber ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
+                      )}
+                    />
+                  </div>
+                </InputField>
+              </div>
 
               <InputField label="Google Maps Location" icon={MapPin} error={errors.mapsLocation} required>
                 <input
@@ -652,6 +671,7 @@ export default function PartnerPage() {
                     ['Garage', formData.garageName],
                     ['Owner', formData.ownerName],
                     ['WhatsApp', `+91 ${formData.mobileNumber}`],
+                    ['City', formData.city],
                     ['Vehicles', formData.vehicleType],
                     ['Services', `${formData.servicesOffered.length} selected`],
                   ].map(([key, val]) => (

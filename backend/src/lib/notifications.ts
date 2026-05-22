@@ -21,6 +21,7 @@ export interface PartnerDetails {
   ownerName: string;
   phone: string;
   mapsLocation: string;
+  city: string;
   vehicleType: string;
   servicesOffered: string[];
   garagePhotos?: string[];
@@ -96,6 +97,7 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
         <p><b>Garage:</b> ${details.garageName}</p>
         <p><b>Owner:</b> ${details.ownerName}</p>
         <p><b>Phone:</b> ${details.phone}</p>
+        <p><b>City:</b> ${details.city}</p>
         <p><b>Location:</b> ${details.mapsLocation}</p>
         <p><b>Vehicles:</b> ${details.vehicleType}</p>
         <p><b>Services:</b> ${details.servicesOffered.join(', ')}</p>
