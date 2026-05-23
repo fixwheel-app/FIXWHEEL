@@ -45,6 +45,4 @@ model Partner {
   partner_status  String?
   city            String   @default("Delhi")
   address         String   @default("")
-  latitude        Float    @default(0.0)
-  longitude       Float    @default(0.0)
 }

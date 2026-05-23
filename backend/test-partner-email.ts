@@ -12,8 +12,6 @@ async function testEmail() {
     phone: "+919998887776",
     mapsLocation: "https://maps.google.com/?q=Test",
     address: "123 Main Street, Sector 5",
-    latitude: 28.6139,
-    longitude: 77.2090,
     city: "Delhi",
     vehicleType: "Both",
     servicesOffered: ["General Service", "Engine Work"],
