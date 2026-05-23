@@ -258,7 +258,8 @@ export default function PartnerPage() {
       // 1. Upload Garage Photos
       const garagePhotoUrls: string[] = [];
       for (const file of formData.garagePhotos) {
-        const fileName = `${Date.now()}-${file.name}`;
+        const cleanName = file.name.replace(/[^a-zA-Z0-9.]/g, '_');
+        const fileName = `${Date.now()}-${cleanName}`;
         const { data, error } = await supabase.storage
           .from('partner-uploads')
           .upload(`garages/${fileName}`, file);
@@ -275,7 +276,8 @@ export default function PartnerPage() {
       // 2. Upload License Photo
       let licensePhotoUrl = '';
       if (formData.licensePhoto) {
-        const fileName = `${Date.now()}-${formData.licensePhoto.name}`;
+        const cleanName = formData.licensePhoto.name.replace(/[^a-zA-Z0-9.]/g, '_');
+        const fileName = `${Date.now()}-${cleanName}`;
         const { data, error } = await supabase.storage
           .from('partner-uploads')
           .upload(`licenses/${fileName}`, formData.licensePhoto);
