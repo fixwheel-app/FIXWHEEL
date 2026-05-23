@@ -16,39 +16,60 @@ const partnerSchema = z.object({
   licensePhoto: z.string().optional(),
 });
 
-// Geocode address using Nominatim (OpenStreetMap) API
+// Geocode address using Nominatim (OpenStreetMap) API with progressive fallback
 const geocodeAddress = async (address: string, city: string): Promise<{ latitude: number; longitude: number } | null> => {
-  try {
-    const query = encodeURIComponent(`${address}, ${city}`);
-    const url = `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`;
-    
-    console.log(`[Geocoding] Querying Nominatim for address: "${address}" in city: "${city}"`);
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'FixWheel-Partner-Registration-Agent/1.0 (support@fixwheel.app)'
-      }
-    });
+  const queryParts = address.split(',').map(p => p.trim()).filter(Boolean);
+  
+  // Try progressive geocoding by dropping detailed segments (e.g. Shop numbers, landmarks)
+  for (let i = 0; i < queryParts.length; i++) {
+    const subAddress = queryParts.slice(i).join(', ');
+    if (!subAddress.trim()) continue;
 
-    if (!response.ok) {
-      console.error(`[Geocoding] Nominatim HTTP error: ${response.status}`);
-      return null;
-    }
+    try {
+      const query = encodeURIComponent(`${subAddress}, ${city}`);
+      const url = `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`;
+      
+      console.log(`[Geocoding] Attempt ${i + 1}: Querying Nominatim for: "${subAddress}, ${city}"`);
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'FixWheel-Partner-Registration-Agent/1.0 (support@fixwheel.app)'
+        }
+      });
 
-    const data = await response.json() as any[];
-    if (data && data.length > 0) {
-      const lat = parseFloat(data[0].lat);
-      const lon = parseFloat(data[0].lon);
-      if (!isNaN(lat) && !isNaN(lon)) {
-        console.log(`[Geocoding] Successfully resolved coordinates: lat=${lat}, lon=${lon}`);
-        return { latitude: lat, longitude: lon };
+      if (response.ok) {
+        const data = await response.json() as any[];
+        if (data && data.length > 0) {
+          const lat = parseFloat(data[0].lat);
+          const lon = parseFloat(data[0].lon);
+          if (!isNaN(lat) && !isNaN(lon)) {
+            console.log(`[Geocoding] Successfully resolved coordinates at attempt ${i + 1}: lat=${lat}, lon=${lon}`);
+            return { latitude: lat, longitude: lon };
+          }
+        }
       }
+    } catch (error) {
+      console.error(`[Geocoding] Attempt ${i + 1} failed with error:`, error);
     }
-    console.warn('[Geocoding] No matching coordinates found for the query.');
-    return null;
-  } catch (error) {
-    console.error('[Geocoding] Network or JSON parsing error:', error);
-    return null;
   }
+
+  // Final fallback to city level coordinates if all progressive matches fail
+  const CITY_COORDINATES: Record<string, { latitude: number; longitude: number }> = {
+    'delhi': { latitude: 28.6139, longitude: 77.2090 },
+    'gurgaon': { latitude: 28.4595, longitude: 77.0266 },
+    'noida': { latitude: 28.5355, longitude: 77.3910 },
+    'faridabad': { latitude: 28.4089, longitude: 77.3178 },
+    'ghaziabad': { latitude: 28.6692, longitude: 77.4538 }
+  };
+
+  const cityKey = city.toLowerCase().trim();
+  if (CITY_COORDINATES[cityKey]) {
+    console.log(`[Geocoding] Progressive geocoding failed. Falling back to coordinates of city "${city}":`, CITY_COORDINATES[cityKey]);
+    return CITY_COORDINATES[cityKey];
+  }
+
+  // Global default (Delhi NCR center)
+  console.log('[Geocoding] Both progressive and city fallbacks failed. Using Delhi NCR center coordinates.');
+  return { latitude: 28.6139, longitude: 77.2090 };
 };
 
 const generatePartnerRef = (): string => {
