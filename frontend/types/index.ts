@@ -37,7 +37,7 @@ export interface PartnerFormData {
   garageName: string;
   ownerName: string;
   phone: string;
-  mapsLocation: string;
+  address: string;
   city: string;
   vehicleType: "Bike" | "Car" | "Both";
   servicesOffered: string[];

@@ -17,7 +17,7 @@ interface PartnerFormData {
   ownerName: string;
   mobileNumber: string;
   city: string;
-  mapsLocation: string;
+  address: string;
   vehicleType: VehicleType | '';
   servicesOffered: string[];
   garagePhotos: File[];
@@ -196,7 +196,7 @@ export default function PartnerPage() {
     ownerName: '',
     mobileNumber: '',
     city: '',
-    mapsLocation: '',
+    address: '',
     vehicleType: '',
     servicesOffered: [],
     garagePhotos: [],
@@ -224,7 +224,8 @@ export default function PartnerPage() {
       if (!formData.ownerName.trim()) newErrors.ownerName = 'Owner name is required';
       if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) newErrors.mobileNumber = 'Enter a valid 10-digit mobile number';
       if (!formData.city.trim()) newErrors.city = 'City is required';
-      if (!formData.mapsLocation.trim()) newErrors.mapsLocation = 'Google Maps link is required';
+      if (!formData.address.trim()) newErrors.address = 'Address is required';
+      else if (formData.address.trim().length < 10) newErrors.address = 'Address must be at least 10 characters long';
       if (!formData.vehicleType) newErrors.vehicleType = 'Please select a vehicle type';
     }
     if (step === 2) {
@@ -294,7 +295,7 @@ export default function PartnerPage() {
         ownerName: formData.ownerName,
         phone: formData.mobileNumber,
         city: formData.city,
-        mapsLocation: formData.mapsLocation,
+        address: formData.address,
         vehicleType: formData.vehicleType as any,
         servicesOffered: formData.servicesOffered,
         garagePhotos: garagePhotoUrls,
@@ -520,19 +521,20 @@ export default function PartnerPage() {
                 </InputField>
               </div>
 
-              <InputField label="Google Maps Location" icon={MapPin} error={errors.mapsLocation} required>
-                <input
-                  id="maps-location"
-                  value={formData.mapsLocation}
-                  onChange={e => set('mapsLocation', e.target.value)}
-                  placeholder="Paste your Google Maps link here"
+              <InputField label="Garage Address" icon={MapPin} error={errors.address} required>
+                <textarea
+                  id="address"
+                  value={formData.address}
+                  onChange={e => set('address', e.target.value)}
+                  placeholder="Enter your complete garage address (e.g. Shop 12, Main Market, Sector 15)"
+                  rows={2}
                   className={cn(
-                    "w-full bg-white border text-black rounded-xl px-4 py-3.5 placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm",
-                    errors.mapsLocation ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
+                    "w-full bg-white border text-black rounded-xl px-4 py-3.5 placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm resize-none",
+                    errors.address ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
                   )}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  Open Google Maps → Your garage → Share → Copy link
+                  Provide a complete, accurate address for customers to locate your garage easily.
                 </p>
               </InputField>
 
@@ -672,6 +674,7 @@ export default function PartnerPage() {
                     ['Owner', formData.ownerName],
                     ['WhatsApp', `+91 ${formData.mobileNumber}`],
                     ['City', formData.city],
+                    ['Address', formData.address],
                     ['Vehicles', formData.vehicleType],
                     ['Services', `${formData.servicesOffered.length} selected`],
                   ].map(([key, val]) => (

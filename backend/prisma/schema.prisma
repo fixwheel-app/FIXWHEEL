@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,21 +8,24 @@ datasource db {
 }
 
 model Booking {
-  id                String   @id @default(cuid())
-  bookingRef        String   @unique
-  customerName      String
-  phone             String
-  address           String
-  city              String   @default("Delhi")
-  bookingDate       String   @default("2026-05-20")
-  bikeType          String
-  bikeModel         String
-  issueDescription  String?
-  preferredSlot     String
-  package           String // "Basic", "Standard", "Premium"
-  price             Int
-  status            String   @default("pending") // "pending", "confirmed", "completed", "cancelled"
-  createdAt         DateTime @default(now())
+  id               String   @default(cuid())
+  bookingRef       String   @id @unique
+  customerName     String
+  phone            String
+  address          String
+  bikeType         String
+  bikeModel        String
+  issueDescription String?
+  preferredSlot    String
+  package          String
+  price            Int
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
+  order_status     String?
+  Final_Amount     BigInt?
+  city             String   @default("Delhi")
+  bookingDate      String   @default("2026-05-20")
+  Remarks          String?
 }
 
 model Partner {
@@ -35,12 +35,16 @@ model Partner {
   ownerName       String
   phone           String
   mapsLocation    String
-  city            String   @default("Delhi")
   vehicleType     String
   servicesOffered String[]
-  garagePhotos    String[]
-  licensePhoto    String?
   status          String   @default("pending")
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  garagePhotos    String[]
+  licensePhoto    String?
+  partner_status  String?
+  city            String   @default("Delhi")
+  address         String   @default("")
+  latitude        Float    @default(0.0)
+  longitude       Float    @default(0.0)
 }
