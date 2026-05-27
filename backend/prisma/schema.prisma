@@ -26,6 +26,7 @@ model Booking {
   city             String   @default("Delhi")
   bookingDate      String   @default("2026-05-20")
   Remarks          String?
+  source           String?
 }
 
 model Partner {

@@ -54,7 +54,8 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
         preferredSlot: bookingData.preferredSlot,
         package: bookingData.package,
         price,
-        status: "pending"
+        status: "pending",
+        source: "website"
       }
     });
 
