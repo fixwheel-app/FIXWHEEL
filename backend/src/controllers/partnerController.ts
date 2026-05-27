@@ -39,6 +39,20 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
 
     const data = parsed.data;
 
+    // Check if partner with the same phone number already exists
+    const targetPhone = '+91' + data.phone;
+    const existingPartner = await db.partner.findFirst({
+      where: { phone: targetPhone }
+    });
+
+    if (existingPartner) {
+      res.status(400).json({
+        success: false,
+        error: 'You have already filled the partner form.'
+      });
+      return;
+    }
+
     // Generate unique partner reference
     let partnerRef = generatePartnerRef();
     let isUnique = false;
