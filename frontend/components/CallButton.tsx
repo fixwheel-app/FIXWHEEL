@@ -8,12 +8,12 @@ const CallButton = () => {
   if (pathname?.startsWith('/admin')) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 z-[9999] flex flex-col items-start group">
+    <div className="fixed bottom-24 right-6 z-[9999] flex flex-col items-end group">
       {/* Tooltip */}
-      <div className="absolute -top-12 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white text-gray-800 text-sm py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap pointer-events-none font-medium">
+      <div className="absolute -top-12 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white text-gray-800 text-sm py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap pointer-events-none font-medium">
         Call us
         {/* Tooltip Triangle */}
-        <div className="absolute -bottom-1 left-5 w-2 h-2 bg-white transform rotate-45"></div>
+        <div className="absolute -bottom-1 right-5 w-2 h-2 bg-white transform rotate-45"></div>
       </div>
       
       <a 
