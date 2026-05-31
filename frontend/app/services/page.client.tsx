@@ -226,6 +226,9 @@ export default function ServicesWizard() {
                     
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
                       <div className="flex items-baseline gap-3">
+                        {srv.id === 'Service' && price === 550 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹650</span>
+                        )}
                         <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
                       </div>
                       <div className="w-full md:w-auto flex flex-col items-end gap-2">
