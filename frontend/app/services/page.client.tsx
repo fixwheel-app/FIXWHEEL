@@ -229,6 +229,24 @@ export default function ServicesWizard() {
                         {srv.id === 'Service' && price === 550 && (
                           <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹650</span>
                         )}
+                        {srv.id === 'Service with engine oil' && price === 849 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹999</span>
+                        )}
+                        {srv.id === 'Puncture' && price === 299 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹399</span>
+                        )}
+                        {srv.id === 'Engine Half' && price === 3500 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹4500</span>
+                        )}
+                        {srv.id === 'Engine Half' && price === 9000 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹10000</span>
+                        )}
+                        {srv.id === 'Engine full' && price === 5999 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹7999</span>
+                        )}
+                        {srv.id === 'Engine full' && price === 16000 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹18000</span>
+                        )}
                         <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
                       </div>
                       <div className="w-full md:w-auto flex flex-col items-end gap-2">

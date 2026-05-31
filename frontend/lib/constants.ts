@@ -49,7 +49,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Service with engine oil", 
     name: "Service with engine oil", 
-    prices: { "0-249": 999, "250-399": 1999, "400-599": 2990, "600+": 3999 },
+    prices: { "0-249": 849, "250-399": 1999, "400-599": 2990, "600+": 3999 },
     estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
@@ -69,7 +69,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Puncture", 
     name: "Puncture", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 },
+    prices: { "0-249": 299, "250-399": 299, "400-599": 550, "600+": 550 },
     estimatedTime: "30 MINS"
   },
   { 
@@ -81,7 +81,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Engine Half", 
     name: "Engine Half", 
-    prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null },
+    prices: { "0-249": 3500, "250-399": 9000, "400-599": null, "600+": null },
     estimatedTime: "24 HOURS",
     includes: [
       "Piston",
@@ -97,7 +97,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Engine full", 
     name: "Engine full", 
-    prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null },
+    prices: { "0-249": 5999, "250-399": 16000, "400-599": null, "600+": null },
     estimatedTime: "24 HOURS",
     includes: [
       "Crank assembly",
@@ -124,6 +124,6 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
 export const ELECTRIC_SERVICES: ElectricService[] = [
   { id: "Service", name: "Service", price: 799, estimatedTime: "2 HOURS" },
   { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS" },
-  { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS" },
+  { id: "Puncture", name: "Puncture", price: 299, estimatedTime: "30 MINS" },
   { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS" },
 ];
