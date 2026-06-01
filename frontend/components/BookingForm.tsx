@@ -37,7 +37,7 @@ const bookingSchema = z.object({
     "6:00 PM - 7:00 PM", 
     "7:00 PM - 8:00 PM"
   ]),
-  package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
+  package: z.enum(["General Service", "General Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;
@@ -83,7 +83,7 @@ function BookingFormInner() {
   const router = useRouter();
   
   // Initialize defaults from query params
-  const initialPackage = (searchParams.get('package') as PackageType) || "Service";
+  const initialPackage = (searchParams.get('package') as PackageType) || "General Service";
   const initialType = searchParams.get('type') || "Non-Electric Motorbike";
   const initialModel = searchParams.get('bike') || searchParams.get('model') || "";
   const initialPrice = searchParams.get('price') || "0";

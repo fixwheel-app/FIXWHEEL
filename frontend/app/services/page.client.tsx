@@ -228,11 +228,13 @@ export default function ServicesWizard() {
                       <div className="flex items-baseline gap-3">
                         {price !== null && (() => {
                           let originalPrice = null;
-                          if (srv.id === 'Service') {
+                          if (srv.id === 'General Service') {
                             originalPrice = price + 100;
-                          } else if (srv.id === 'Service with engine oil') {
+                          } else if (srv.id === 'General Service with engine oil') {
                             originalPrice = price + 150;
                           } else if (srv.id === 'Puncture') {
+                            originalPrice = price + 100;
+                          } else if (srv.id === 'Running Repair') {
                             originalPrice = price + 100;
                           } else if (srv.id === 'Engine Half') {
                             originalPrice = price + 1000;

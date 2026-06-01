@@ -27,8 +27,8 @@ export const CCRANGES: { label: string, value: CCRange }[] = [
 
 export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
-    id: "Service", 
-    name: "Service", 
+    id: "General Service", 
+    name: "General Service", 
     prices: { "0-249": 650, "250-399": 850, "400-599": 1100, "600+": 1500 },
     estimatedTime: "2 HOURS",
     includes: [
@@ -47,8 +47,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
     ]
   },
   { 
-    id: "Service with engine oil", 
-    name: "Service with engine oil", 
+    id: "General Service with engine oil", 
+    name: "General Service with engine oil", 
     prices: { "0-249": 999, "250-399": 1999, "400-599": 2990, "600+": 3999 },
     estimatedTime: "2 HOURS",
     includes: [
@@ -122,7 +122,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
 ];
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
-  { id: "Service", name: "Service", price: 799, estimatedTime: "2 HOURS" },
+  { id: "General Service", name: "General Service", price: 799, estimatedTime: "2 HOURS" },
   { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS" },
   { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS" },
   { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS" },

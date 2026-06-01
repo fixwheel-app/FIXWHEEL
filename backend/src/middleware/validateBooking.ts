@@ -24,7 +24,7 @@ export const bookingSchema = z.object({
     "6:00 PM - 7:00 PM", 
     "7:00 PM - 8:00 PM"
   ]),
-  package: z.enum(["Service", "Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
+  package: z.enum(["General Service", "General Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
 });
 
 export type BookingInput = z.infer<typeof bookingSchema>;
