@@ -226,26 +226,26 @@ export default function ServicesWizard() {
                     
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
                       <div className="flex items-baseline gap-3">
-                        {srv.id === 'Service' && price === 550 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹650</span>
+                        {srv.id === 'Service' && price === 650 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹750</span>
                         )}
-                        {srv.id === 'Service with engine oil' && price === 849 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹999</span>
+                        {srv.id === 'Service with engine oil' && price === 999 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹1149</span>
                         )}
-                        {srv.id === 'Puncture' && price === 299 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹399</span>
+                        {srv.id === 'Puncture' && price === 399 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹499</span>
                         )}
-                        {srv.id === 'Engine Half' && price === 3500 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹4500</span>
+                        {srv.id === 'Engine Half' && price === 4500 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹5500</span>
                         )}
-                        {srv.id === 'Engine Half' && price === 9000 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹10000</span>
+                        {srv.id === 'Engine Half' && price === 10000 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹11000</span>
                         )}
-                        {srv.id === 'Engine full' && price === 5999 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹7999</span>
+                        {srv.id === 'Engine full' && price === 7999 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹9999</span>
                         )}
-                        {srv.id === 'Engine full' && price === 16000 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹18000</span>
+                        {srv.id === 'Engine full' && price === 18000 && (
+                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹20000</span>
                         )}
                         <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
                       </div>
