@@ -226,27 +226,27 @@ export default function ServicesWizard() {
                     
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
                       <div className="flex items-baseline gap-3">
-                        {srv.id === 'Service' && price === 650 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹750</span>
-                        )}
-                        {srv.id === 'Service with engine oil' && price === 999 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹1149</span>
-                        )}
-                        {srv.id === 'Puncture' && price === 399 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹499</span>
-                        )}
-                        {srv.id === 'Engine Half' && price === 4500 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹5500</span>
-                        )}
-                        {srv.id === 'Engine Half' && price === 10000 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹11000</span>
-                        )}
-                        {srv.id === 'Engine full' && price === 7999 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹9999</span>
-                        )}
-                        {srv.id === 'Engine full' && price === 18000 && (
-                          <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹20000</span>
-                        )}
+                        {price !== null && (() => {
+                          let originalPrice = null;
+                          if (srv.id === 'Service') {
+                            originalPrice = price + 100;
+                          } else if (srv.id === 'Service with engine oil') {
+                            originalPrice = price + 150;
+                          } else if (srv.id === 'Puncture') {
+                            originalPrice = price + 100;
+                          } else if (srv.id === 'Engine Half') {
+                            originalPrice = price + 1000;
+                          } else if (srv.id === 'Engine full') {
+                            originalPrice = price + 2000;
+                          }
+                          
+                          if (originalPrice !== null) {
+                            return (
+                              <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹{originalPrice}</span>
+                            );
+                          }
+                          return null;
+                        })()}
                         <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
                       </div>
                       <div className="w-full md:w-auto flex flex-col items-end gap-2">
