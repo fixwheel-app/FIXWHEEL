@@ -29,7 +29,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "General Service", 
     name: "General Service", 
-    prices: { "0-249": 650, "250-399": 850, "400-599": 1100, "600+": 1500 },
+    prices: { "0-249": 550, "250-399": 850, "400-599": 1100, "600+": 1500 },
     estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
