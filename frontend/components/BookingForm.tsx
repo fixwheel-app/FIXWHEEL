@@ -177,7 +177,10 @@ function BookingFormInner() {
     setIsSubmitting(true);
     setErrorToast(null);
 
-    const response = await submitBooking(data);
+    const response = await submitBooking({
+      ...data,
+      price: Number(price)
+    });
     
     if (response.success && response.bookingId) {
       // Store in localStorage for confirmation page

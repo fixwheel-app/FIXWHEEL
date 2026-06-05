@@ -9,6 +9,7 @@ export interface BookingFormData {
   issueDescription?: string;
   preferredSlot: string;
   package: PackageType;
+  price: number;
 }
 
 export interface BookingResponse {

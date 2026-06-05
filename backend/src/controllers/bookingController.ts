@@ -24,7 +24,7 @@ const generateBookingRef = (): string => {
 export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Response): Promise<void> => {
   try {
     const bookingData = req.body;
-    const price = getPriceForPackage(bookingData.package);
+    const price = bookingData.price;
     
     // Ensure unique booking ref
     let bookingRef = generateBookingRef();
