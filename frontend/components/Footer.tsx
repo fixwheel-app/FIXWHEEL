@@ -6,7 +6,7 @@ import { Wrench } from 'lucide-react';
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname?.startsWith('/admin')) return null;
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/route-analysis')) return null;
 
   return (
     <footer className="bg-surface border-t border-white/5 pt-10 pb-8 mt-auto">
@@ -66,6 +66,11 @@ export default function Footer() {
           <p className="text-text-secondary text-xs text-center md:text-left">
             © {new Date().getFullYear()} FixWheel. All rights reserved.
           </p>
+          <div className="flex gap-4">
+            <Link href="/terms" className="text-text-secondary hover:text-white text-xs transition-colors">
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

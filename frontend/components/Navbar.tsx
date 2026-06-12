@@ -68,7 +68,7 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, [activePath, navLinks]);
 
-  if (pathname?.startsWith('/admin')) {
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/route-analysis')) {
     return null;
   }
 

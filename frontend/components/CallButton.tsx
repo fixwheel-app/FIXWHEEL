@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const CallButton = () => {
   const pathname = usePathname();
-  if (pathname?.startsWith('/admin')) return null;
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/route-analysis')) return null;
 
   return (
     <div className="fixed bottom-24 right-6 z-[9999] flex flex-col items-end group">
