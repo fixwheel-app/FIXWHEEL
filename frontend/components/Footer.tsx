@@ -66,9 +66,13 @@ export default function Footer() {
           <p className="text-text-secondary text-xs text-center md:text-left">
             © {new Date().getFullYear()} FixWheel. All rights reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <Link href="/terms" className="text-text-secondary hover:text-white text-xs transition-colors">
               Terms & Conditions
+            </Link>
+            <span className="text-white/20 text-xs">|</span>
+            <Link href="/privacy-policy" className="text-text-secondary hover:text-white text-xs transition-colors">
+              Privacy Policy
             </Link>
           </div>
         </div>
