@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BookingFormData, BookingResponse, PartnerFormData, PartnerResponse } from '../types';
+import { BookingFormData, BookingResponse, PartnerFormData, PartnerResponse, QueryFormData, QueryResponse } from '../types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -40,3 +40,23 @@ export const submitPartner = async (data: PartnerFormData): Promise<PartnerRespo
     };
   }
 };
+
+export const submitQuery = async (data: QueryFormData): Promise<QueryResponse> => {
+  try {
+    const response = await axios.post(`${API_URL}/queries`, data);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      return {
+        success: false,
+        error: error.response.data.error || 'Something went wrong. Please try again or call us.',
+        details: error.response.data.details
+      };
+    }
+    return {
+      success: false,
+      error: 'Network error. Please make sure you are connected to the internet.'
+    };
+  }
+};
+

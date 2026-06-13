@@ -53,3 +53,18 @@ export interface PartnerResponse {
   error?: string;
   details?: any[];
 }
+
+export interface QueryFormData {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
+export interface QueryResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  details?: any[];
+}
+

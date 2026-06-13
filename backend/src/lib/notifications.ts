@@ -121,3 +121,44 @@ export const sendPartnerNotification = async (details: PartnerDetails) => {
   }
 };
 
+export interface QueryDetails {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
+export const sendQueryNotification = async (details: QueryDetails) => {
+  const ownerEmail = process.env.OWNER_EMAIL;
+
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('[Query Email] RESEND_API_KEY missing. Skipping email.');
+    return;
+  }
+  if (!ownerEmail || ownerEmail === 'your-email-here') {
+    console.warn('[Query Email] OWNER_EMAIL missing. Skipping email.');
+    return;
+  }
+
+  try {
+    const resend = getResend();
+    const { data, error } = await resend.emails.send({
+      from: 'FixWheel Support <support@fixwheel.app>',
+      to: ownerEmail,
+      subject: `New Customer Query from ${details.name}`,
+      html: `
+        <h2>New Customer Query/Report</h2>
+        <p><b>Name:</b> ${details.name}</p>
+        <p><b>Phone:</b> ${details.phone}</p>
+        <p><b>Email:</b> ${details.email}</p>
+        <p><b>Problem / Query:</b></p>
+        <p style="white-space: pre-wrap; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">${details.message}</p>
+      `,
+    });
+    if (error) throw error;
+    console.log('[Query Email] Sent successfully:', data?.id);
+  } catch (error) {
+    console.error('[Query Email] Failed:', error);
+    throw error;
+  }
+};

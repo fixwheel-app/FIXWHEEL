@@ -10,6 +10,7 @@ import {
   Calendar, Star
 } from 'lucide-react';
 import BrandsMarquee from '@/components/BrandsMarquee';
+import { submitQuery } from '@/lib/api';
 
 export default function Home() {
   const features = [
@@ -29,6 +30,94 @@ export default function Home() {
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  // Query Form State
+  const [queryForm, setQueryForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmittingQuery, setIsSubmittingQuery] = useState(false);
+  const [queryError, setQueryError] = useState<string | null>(null);
+  const [querySuccess, setQuerySuccess] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setQueryForm(prev => ({ ...prev, [name]: value }));
+    // Clear validation error when typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const copy = { ...prev };
+        delete copy[name];
+        return copy;
+      });
+    }
+  };
+
+  const handleQuerySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmittingQuery(true);
+    setQueryError(null);
+    setQuerySuccess(false);
+    setValidationErrors({});
+
+    // Client-side validation
+    const errors: Record<string, string> = {};
+    if (!queryForm.name.trim()) {
+      errors.name = 'Name is required';
+    } else if (queryForm.name.length < 2) {
+      errors.name = 'Name must be at least 2 characters';
+    }
+
+    if (!queryForm.phone.trim()) {
+      errors.phone = 'Phone number is required';
+    } else if (!/^\d{10}$/.test(queryForm.phone)) {
+      errors.phone = 'Phone number must be exactly 10 digits';
+    }
+
+    if (!queryForm.email.trim()) {
+      errors.email = 'Email address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(queryForm.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+
+    if (!queryForm.message.trim()) {
+      errors.message = 'Problem or query is required';
+    } else if (queryForm.message.length < 10) {
+      errors.message = 'Problem or query must be at least 10 characters';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setIsSubmittingQuery(false);
+      return;
+    }
+
+    try {
+      const response = await submitQuery(queryForm);
+      if (response.success) {
+        setQuerySuccess(true);
+        setQueryForm({ name: '', phone: '', email: '', message: '' });
+      } else {
+        setQueryError(response.error || 'Failed to submit query. Please try again.');
+        if (response.details && Array.isArray(response.details)) {
+          const apiErrors: Record<string, string> = {};
+          response.details.forEach((err: any) => {
+            if (err.path && err.path[0]) {
+              apiErrors[err.path[0]] = err.message;
+            }
+          });
+          setValidationErrors(apiErrors);
+        }
+      }
+    } catch (err) {
+      setQueryError('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmittingQuery(false);
+    }
+  };
 
   const faqs = [
     { q: "What services does FixWheel provide?",
@@ -380,6 +469,165 @@ export default function Home() {
                 </AnimatePresence>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          🟠  QUERY / REPORT FORM
+      ════════════════════════════════════════════════════════════════════ */}
+      <section id="query-form" className="py-12 md:py-20 bg-[#F8FAFC]">
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-10 md:mb-14">
+            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">💬 Support</span>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Report a Problem / Query</h2>
+            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Have an issue with a booking, repair, or want to ask something? Let us know below.</p>
+          </div>
+
+          <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-10 shadow-sm relative overflow-hidden">
+            {/* Left accent strip */}
+            <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-accent" />
+
+            {querySuccess ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-8 md:py-12"
+              >
+                <div className="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="w-10 h-10" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-slate-900 mb-3">Query Submitted!</h3>
+                <p className="text-gray-600 max-w-md mx-auto mb-8">
+                  Thank you for reaching out. Your message has been sent to our support team at <span className="font-bold text-slate-800">support@fixwheel.app</span>. We will review and respond to you as soon as possible.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setQuerySuccess(false)}
+                  className="bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-6 py-3 rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(230,43,43,0.2)]"
+                >
+                  Send Another Query
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleQuerySubmit} className="space-y-6">
+                {queryError && (
+                  <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium">
+                    {queryError}
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Name field */}
+                  <div>
+                    <label htmlFor="query-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="query-name"
+                      name="name"
+                      value={queryForm.name}
+                      onChange={handleQueryChange}
+                      placeholder="Your name"
+                      disabled={isSubmittingQuery}
+                      className={`w-full bg-gray-50 border ${validationErrors.name ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                    />
+                    {validationErrors.name && (
+                      <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.name}</p>
+                    )}
+                  </div>
+
+                  {/* Phone number field */}
+                  <div>
+                    <label htmlFor="query-phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                      Phone Number
+                    </label>
+                    <div className="relative">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 font-bold">+91</span>
+                      <input
+                        type="tel"
+                        id="query-phone"
+                        name="phone"
+                        value={queryForm.phone}
+                        onChange={handleQueryChange}
+                        placeholder="10-digit number"
+                        disabled={isSubmittingQuery}
+                        maxLength={10}
+                        className={`w-full bg-gray-50 border ${validationErrors.phone ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl pl-12 pr-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                      />
+                    </div>
+                    {validationErrors.phone && (
+                      <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.phone}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Email field */}
+                <div>
+                  <label htmlFor="query-email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="query-email"
+                    name="email"
+                    value={queryForm.email}
+                    onChange={handleQueryChange}
+                    placeholder="example@gmail.com"
+                    disabled={isSubmittingQuery}
+                    className={`w-full bg-gray-50 border ${validationErrors.email ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                  />
+                  {validationErrors.email && (
+                    <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.email}</p>
+                  )}
+                </div>
+
+                {/* Query message field */}
+                <div>
+                  <label htmlFor="query-message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Problem or Query
+                  </label>
+                  <textarea
+                    id="query-message"
+                    name="message"
+                    value={queryForm.message}
+                    onChange={handleQueryChange}
+                    placeholder="Please describe the issue or your question in detail..."
+                    disabled={isSubmittingQuery}
+                    rows={4}
+                    className={`w-full bg-gray-50 border ${validationErrors.message ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all resize-none`}
+                  />
+                  {validationErrors.message && (
+                    <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.message}</p>
+                  )}
+                </div>
+
+                {/* Submit button */}
+                <div className="flex justify-end pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmittingQuery}
+                    className={`inline-flex items-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-8 py-4 rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    {isSubmittingQuery ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Submit Query
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>
