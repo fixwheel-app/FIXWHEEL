@@ -35,6 +35,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} font-sans`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.fixwheel.app/#organization",
+                  "name": "FixWheel",
+                  "url": "https://www.fixwheel.app/",
+                  "telephone": "+91-8745945682",
+                  "email": "support@fixwheel.app",
+                  "sameAs": [
+                    "https://www.instagram.com/fixwheel11",
+                    "https://www.facebook.com/profile.php?id=61573309963156",
+                    "https://www.linkedin.com/company/fixwheel-app/"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.fixwheel.app/#website",
+                  "url": "https://www.fixwheel.app/",
+                  "name": "FixWheel",
+                  "publisher": {
+                    "@id": "https://www.fixwheel.app/#organization"
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      </head>
       <body className="flex flex-col min-h-screen bg-primary text-text-primary">
         <Navbar />
         <main className="flex-grow pt-16">
