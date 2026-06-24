@@ -61,21 +61,23 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="services-page-wrapper bg-[#111111] text-white min-h-screen pt-24 pb-8 font-sans">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <span className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-4">
-            🛠 Our Offerings
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
+    <div className="services-page-wrapper bg-[#111111] text-white min-h-screen font-sans">
+      {/* 1. Choose Your Vehicle Booking Wizard on Top */}
+      <ServicesClient />
+
+      {/* 2. Static Services List below */}
+      <div className="container mx-auto px-4 max-w-6xl pb-24">
+        {/* Divider */}
+        <div className="relative flex py-5 items-center mb-12">
+          <div className="flex-grow border-t border-white/10"></div>
+          <span className="flex-shrink mx-4 text-gray-500 font-bold text-xs uppercase tracking-widest">
             Our Services
-          </h1>
-          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto font-medium">
-            Explore our specialized doorstep repair and maintenance services tailored for your two-wheeler.
-          </p>
+          </span>
+          <div className="flex-grow border-t border-white/10"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* Offerings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {staticServices.map((service, index) => (
             <div 
               key={index}
@@ -108,27 +110,7 @@ export default function ServicesPage() {
             </div>
           ))}
         </div>
-
-        {/* Divider / Visual Anchor for booking wizard */}
-        <div className="relative flex py-5 items-center mb-4">
-          <div className="flex-grow border-t border-white/10"></div>
-          <span className="flex-shrink mx-4 text-gray-500 font-bold text-xs uppercase tracking-widest">
-            OR BOOK VIA WIZARD BELOW
-          </span>
-          <div className="flex-grow border-t border-white/10"></div>
-        </div>
-
       </div>
-
-      <ServicesClient />
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        .services-page-wrapper > div:last-of-type {
-          padding-top: 2rem !important;
-          min-height: auto !important;
-          background: transparent !important;
-        }
-      ` }} />
     </div>
   );
 }
