@@ -30,6 +30,13 @@ async function getDynamicServices(): Promise<ServiceRoute[]> {
       { slug: "battery-replacement", updatedAt: new Date().toISOString() },
       { slug: "general-washing", updatedAt: new Date().toISOString() },
       { slug: "comprehensive-service", updatedAt: new Date().toISOString() },
+      { slug: "electric-scooter-repair", updatedAt: new Date().toISOString() },
+      { slug: "scooty-repair", updatedAt: new Date().toISOString() },
+      { slug: "sports-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "royal-enfield-service", updatedAt: new Date().toISOString() },
+      { slug: "commuter-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "premium-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "book", updatedAt: new Date().toISOString() },
     ];
   }
 }
@@ -81,12 +88,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = dynamicServices.map((service) => ({
-    url: `${BASE_URL}/services/${service.slug}`,
-    lastModified: service.updatedAt,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  const serviceRoutes: MetadataRoute.Sitemap = dynamicServices.map((service) => {
+    if (service.slug === "book") {
+      return {
+        url: `${BASE_URL}/book`,
+        lastModified: service.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.9,
+      };
+    }
+    return {
+      url: `${BASE_URL}/services/${service.slug}`,
+      lastModified: service.updatedAt,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    };
+  });
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,

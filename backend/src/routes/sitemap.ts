@@ -13,6 +13,13 @@ router.get("/services", async (req: Request, res: Response) => {
       { slug: "battery-replacement", updatedAt: new Date().toISOString() },
       { slug: "general-washing", updatedAt: new Date().toISOString() },
       { slug: "comprehensive-service", updatedAt: new Date().toISOString() },
+      { slug: "electric-scooter-repair", updatedAt: new Date().toISOString() },
+      { slug: "scooty-repair", updatedAt: new Date().toISOString() },
+      { slug: "sports-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "royal-enfield-service", updatedAt: new Date().toISOString() },
+      { slug: "commuter-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "premium-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "book", updatedAt: new Date().toISOString() },
     ];
     res.json(services);
   } catch (error) {
