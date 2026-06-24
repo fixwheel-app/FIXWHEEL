@@ -5,17 +5,17 @@ export const metadata: Metadata = {
   title: "Bike Service Packages — FixWheel Delhi NCR",
   description: "Choose from 5 doorstep bike service packages based on your bike's CC. Engine check, brakes, chain, wash and more included.",
   alternates: {
-    canonical: "https://fixwheel.app/services",
+    canonical: "https://www.fixwheel.app/services",
   },
   openGraph: {
     title: "Bike Service Packages — FixWheel Delhi NCR",
     description: "Choose from 5 doorstep bike service packages based on your bike's CC. Engine check, brakes, chain, wash and more included.",
-    url: "https://fixwheel.app/services",
+    url: "https://www.fixwheel.app/services",
     siteName: "FixWheel",
     type: "website",
     images: [
       {
-        url: "https://fixwheel.app/og-image.jpg",
+        url: "https://www.fixwheel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },

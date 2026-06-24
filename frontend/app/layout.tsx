@@ -9,7 +9,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fixwheel.app"),
+  metadataBase: new URL("https://www.fixwheel.app"),
   title: {
     default: "FixWheel — Doorstep Bike Service Delhi NCR",
     template: "%s | FixWheel",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FixWheel — Doorstep Bike Repairs",
     description: "Expert repairs. Your doorstep. 60-second booking.",
-    url: "https://fixwheel.app",
+    url: "https://www.fixwheel.app",
     type: "website",
     siteName: "FixWheel"
   },

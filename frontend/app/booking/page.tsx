@@ -5,17 +5,17 @@ export const metadata: Metadata = {
   title: "Book a Mechanic — FixWheel Doorstep Bike Service",
   description: "Book your doorstep bike service in minutes. Pick a time slot and a verified mechanic comes to you. Serving Delhi NCR.",
   alternates: {
-    canonical: "https://fixwheel.app/booking",
+    canonical: "https://www.fixwheel.app/booking",
   },
   openGraph: {
     title: "Book a Mechanic — FixWheel Doorstep Bike Service",
     description: "Book your doorstep bike service in minutes. Pick a time slot and a verified mechanic comes to you. Serving Delhi NCR.",
-    url: "https://fixwheel.app/booking",
+    url: "https://www.fixwheel.app/booking",
     siteName: "FixWheel",
     type: "website",
     images: [
       {
-        url: "https://fixwheel.app/og-image.jpg",
+        url: "https://www.fixwheel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },
