@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ServicesClient from './page.client';
 
 import Link from 'next/link';
-import { ArrowRight, Wrench } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Bike Service Packages — FixWheel Delhi NCR",
@@ -87,8 +87,11 @@ export default function ServicesPage() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
               
               <div>
-                <div className="w-12 h-12 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6 shadow-inner">
-                  <Wrench className="w-6 h-6" />
+                <div className="w-16 h-16 bg-gray-50 border border-gray-100 rounded-2xl flex flex-col items-center justify-center shadow-inner p-2 text-center mb-6">
+                  <img src="/logo.png" alt="FixWheel Logo" className="w-6 h-6 object-contain mb-0.5 transform -rotate-12" />
+                  <span className="font-black text-[8px] tracking-tighter text-black uppercase leading-tight">
+                    <span className="text-accent">Fix</span>Wheel
+                  </span>
                 </div>
                 <h3 className="text-xl md:text-2xl font-black uppercase tracking-wide mb-3 leading-tight">
                   {service.name}
