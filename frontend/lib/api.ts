@@ -60,3 +60,34 @@ export const submitQuery = async (data: QueryFormData): Promise<QueryResponse> =
   }
 };
 
+export interface AccountDeleteFormData {
+  email: string;
+  reason: string;
+}
+
+export interface AccountDeleteResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  details?: any;
+}
+
+export const submitAccountDeletion = async (data: AccountDeleteFormData): Promise<AccountDeleteResponse> => {
+  try {
+    const response = await axios.post(`${API_URL}/account-deletion`, data);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      return {
+        success: false,
+        error: error.response.data.error || 'Something went wrong. Please try again.',
+        details: error.response.data.details
+      };
+    }
+    return {
+      success: false,
+      error: 'Network error. Please make sure you are connected to the internet.'
+    };
+  }
+};
+

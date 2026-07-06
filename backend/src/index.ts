@@ -5,6 +5,7 @@ import { db } from './lib/db';
 import bookingRoutes from './routes/bookings';
 import partnerRoutes from './routes/partners';
 import queryRoutes from './routes/queries';
+import accountDeletionRoutes from './routes/accountDeletion';
 
 import adminRoutes from './routes/admin';
 import sitemapRoutes from './routes/sitemap';
@@ -72,6 +73,7 @@ app.get('/ping-db', async (req: Request, res: Response) => {
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/partners', partnerRoutes);
 app.use('/api/queries', queryRoutes);
+app.use('/api/account-deletion', accountDeletionRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/sitemap', sitemapRoutes);
 
