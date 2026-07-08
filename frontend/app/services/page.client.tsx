@@ -804,14 +804,14 @@ export default function ServicesClientPage() {
         </section>
 
         {/* ORIGINAL SERVICE CATEGORIES (Kept as requested) */}
-        <section className="bg-black/95 text-white py-16">
+        <section className="bg-[var(--paper-dim)] text-[var(--ink)] py-16">
           <div className="max-w-6xl mx-auto px-4">
             <div className="relative flex py-5 items-center mb-12">
-              <div className="flex-grow border-t border-white/10"></div>
-              <span className="flex-shrink mx-4 text-gray-400 font-bold text-xs uppercase tracking-widest font-mono">
+              <div className="flex-grow border-t border-[var(--line-dark)]"></div>
+              <span className="flex-shrink mx-4 text-[var(--grey)] font-bold text-xs uppercase tracking-widest font-mono">
                 Service Categories
               </span>
-              <div className="flex-grow border-t border-white/10"></div>
+              <div className="flex-grow border-t border-[var(--line-dark)]"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
