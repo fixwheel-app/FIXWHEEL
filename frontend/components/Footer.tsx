@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8">
 
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-3 md:mb-4 group">
               <img src="/logo.png" alt="FixWheel Logo" className="h-6 md:h-8 w-auto object-contain group-hover:rotate-12 transition-transform duration-300" />
               <span className="font-black text-base md:text-xl text-white uppercase tracking-tighter">
@@ -23,6 +23,17 @@ export default function Footer() {
             <p className="text-text-secondary text-xs md:text-sm max-w-sm">
               Doorstep bike repairs across Delhi. Fast, reliable, and transparent pricing.
             </p>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Locations</h4>
+            <ul className="space-y-2 text-xs md:text-sm">
+              <li><Link href="/services/delhi" className="text-text-secondary hover:text-white transition-colors">Delhi</Link></li>
+              <li><Link href="/services/gurgaon" className="text-text-secondary hover:text-white transition-colors">Gurgaon</Link></li>
+              <li><Link href="/services/noida" className="text-text-secondary hover:text-white transition-colors">Noida</Link></li>
+              <li><Link href="/services/faridabad" className="text-text-secondary hover:text-white transition-colors">Faridabad</Link></li>
+              <li><Link href="/services/ghaziabad" className="text-text-secondary hover:text-white transition-colors">Ghaziabad</Link></li>
+            </ul>
           </div>
 
           <div>
