@@ -36,6 +36,11 @@ async function getDynamicServices(): Promise<ServiceRoute[]> {
       { slug: "royal-enfield-service", updatedAt: new Date().toISOString() },
       { slug: "commuter-bike-service", updatedAt: new Date().toISOString() },
       { slug: "premium-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "delhi", updatedAt: new Date().toISOString() },
+      { slug: "gurgaon", updatedAt: new Date().toISOString() },
+      { slug: "noida", updatedAt: new Date().toISOString() },
+      { slug: "faridabad", updatedAt: new Date().toISOString() },
+      { slug: "ghaziabad", updatedAt: new Date().toISOString() },
       { slug: "book", updatedAt: new Date().toISOString() },
     ];
   }
@@ -97,11 +102,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9,
       };
     }
+    const isCityRoute = ["delhi", "gurgaon", "noida", "faridabad", "ghaziabad"].includes(service.slug);
     return {
       url: `${BASE_URL}/services/${service.slug}`,
       lastModified: service.updatedAt,
       changeFrequency: "weekly" as const,
-      priority: 0.8,
+      priority: isCityRoute ? 0.9 : 0.8,
     };
   });
 

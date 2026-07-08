@@ -19,6 +19,11 @@ router.get("/services", async (req: Request, res: Response) => {
       { slug: "royal-enfield-service", updatedAt: new Date().toISOString() },
       { slug: "commuter-bike-service", updatedAt: new Date().toISOString() },
       { slug: "premium-bike-service", updatedAt: new Date().toISOString() },
+      { slug: "delhi", updatedAt: new Date().toISOString() },
+      { slug: "gurgaon", updatedAt: new Date().toISOString() },
+      { slug: "noida", updatedAt: new Date().toISOString() },
+      { slug: "faridabad", updatedAt: new Date().toISOString() },
+      { slug: "ghaziabad", updatedAt: new Date().toISOString() },
       { slug: "book", updatedAt: new Date().toISOString() },
     ];
     res.json(services);
