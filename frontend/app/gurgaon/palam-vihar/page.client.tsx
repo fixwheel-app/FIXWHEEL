@@ -102,12 +102,12 @@ export default function PalamViharClientPage() {
         .palam-vihar-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* breadcrumb */
-        .palam-vihar-scope .crumb { background: var(--bg-soft); border-bottom: 1px solid var(--line); }
-        .palam-vihar-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-dim); }
-        .palam-vihar-scope .crumb a { color: var(--ink-dim); }
+        .palam-vihar-scope .crumb { background: var(--bg-soft); border-bottom: 1px solid var(--line); padding-top: 16px; }
+        .palam-vihar-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: var(--paper-dim); }
+        .palam-vihar-scope .crumb a { color: var(--paper-dim); font-weight: 500; }
         .palam-vihar-scope .crumb a:hover { color: var(--accent); }
-        .palam-vihar-scope .crumb .sep { opacity: .4; }
-        .palam-vihar-scope .crumb .current { color: var(--paper); }
+        .palam-vihar-scope .crumb .sep { opacity: .6; color: var(--ink-dim); }
+        .palam-vihar-scope .crumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
         .palam-vihar-scope .hero { position: relative; padding: 64px 0 56px; border-bottom: 1px solid var(--line); overflow: hidden; }
@@ -306,7 +306,7 @@ export default function PalamViharClientPage() {
           <div className="section-head">
             <div className="eyebrow">Palam Vihar</div>
             <h2>Verified doorstep bike repair, at our standard service level</h2>
-            <p>The same numbers we stand behind across Gurgaon — applied to Palam Vihar too.</p>
+            <p>We provide doorstep bike repair and servicing across all blocks of Palam Vihar.</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
