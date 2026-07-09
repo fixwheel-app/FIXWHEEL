@@ -274,8 +274,8 @@ export default function PalamViharClientPage() {
         <div className="wrap hero-grid">
           <div>
             <div className="eyebrow">Bike repair service · Palam Vihar</div>
-            <h1>Doorstep bike repair,<br />right in <em>Palam Vihar</em>.</h1>
-            <p className="lead">A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an average arrival time of 45 minutes.</p>
+            <h1>Doorstep Repair<br />in <em>Palam Vihar</em></h1>
+            <p className="lead">Quick bike repair in Palam Vihar at home. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an average arrival time of 45 minutes.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
@@ -305,8 +305,8 @@ export default function PalamViharClientPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Palam Vihar</div>
-            <h2>Verified doorstep bike repair, at our standard service level</h2>
-            <p>We provide doorstep bike repair and servicing across all blocks of Palam Vihar.</p>
+            <h2>Doorstep Repair in Palam Vihar</h2>
+            <p>We offer reliable bike repair in Palam Vihar at home with flat pricing, verified mechanics, and a 15-day warranty.</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
@@ -344,6 +344,37 @@ export default function PalamViharClientPage() {
               <span className="num">04</span>
               <h3>Same standard, every visit</h3>
               <p>45-minute average arrival and a 15-day service warranty, applied consistently across Palam Vihar.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-alt">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">How it works</div>
+            <h2>Doorstep bike repair in Palam Vihar — 4 steps, no garage visit</h2>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <span className="n">01</span>
+              <h3>Book</h3>
+              <p>Pick your service and time slot on the app or by phone — takes under a minute.</p>
+            </div>
+            <div className="step">
+              <span className="n">02</span>
+              <h3>Get matched</h3>
+              <p>A verified mechanic covering Palam Vihar is assigned and dispatched to you.</p>
+            </div>
+            <div className="step">
+              <span className="n">03</span>
+              <h3>Service done</h3>
+              <p>Repair happens right at your location while you carry on with your day.</p>
+            </div>
+            <div className="step">
+              <span className="n">04</span>
+              <h3>Pay & rate</h3>
+              <p>Pay only the quoted price, then rate the mechanic who serviced your bike.</p>
             </div>
           </div>
         </div>
@@ -425,40 +456,18 @@ export default function PalamViharClientPage() {
             <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64" alt="TVS bike repair Palam Vihar" />TVS</div>
             <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" alt="Hero bike repair Palam Vihar" />Hero</div>
             <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=vespa.com&sz=64" alt="Vespa bike repair Palam Vihar" />Vespa</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" alt="Ola Electric bike repair Palam Vihar" />Ola Electric</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" alt="Ather bike repair Palam Vihar" />Ather</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=jawa.in&sz=64" alt="Jawa bike repair Palam Vihar" />Jawa</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=aprilia.com&sz=64" alt="Aprilia bike repair Palam Vihar" />Aprilia</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" alt="Harley-Davidson bike repair Palam Vihar" />Harley-Davidson</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=kawasakimotorcycle.com&sz=64" alt="Kawasaki bike repair Palam Vihar" />Kawasaki</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=benelli.com&sz=64" alt="Benelli bike repair Palam Vihar" />Benelli</div>
           </div>
         </div>
       </section>
 
-      <section className="section-alt">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">How it works</div>
-            <h2>Doorstep bike repair in Palam Vihar — 4 steps, no garage visit</h2>
-          </div>
-          <div className="steps">
-            <div className="step">
-              <span className="n">01</span>
-              <h3>Book</h3>
-              <p>Pick your service and time slot on the app or by phone — takes under a minute.</p>
-            </div>
-            <div className="step">
-              <span className="n">02</span>
-              <h3>Get matched</h3>
-              <p>A verified mechanic covering Palam Vihar is assigned and dispatched to you.</p>
-            </div>
-            <div className="step">
-              <span className="n">03</span>
-              <h3>Service done</h3>
-              <p>Repair happens right at your location while you carry on with your day.</p>
-            </div>
-            <div className="step">
-              <span className="n">04</span>
-              <h3>Pay & rate</h3>
-              <p>Pay only the quoted price, then rate the mechanic who serviced your bike.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <section className="wrap partner">
         <div>
