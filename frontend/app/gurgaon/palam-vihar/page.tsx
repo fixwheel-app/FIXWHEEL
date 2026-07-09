@@ -1,0 +1,108 @@
+import type { Metadata } from "next";
+import PalamViharClientPage from "./page.client";
+
+export const metadata: Metadata = {
+  title: "Bike Repair Service in Palam Vihar, Gurgaon | Doorstep Mechanic Near You – FixWheel",
+  description: "Verified doorstep bike repair service in Palam Vihar, Gurgaon. Background-checked mechanics reach Block A–J, the Market, Club Road & Extension — average arrival 45 minutes.",
+  alternates: {
+    canonical: "https://www.fixwheel.app/gurgaon/palam-vihar",
+  },
+  openGraph: {
+    type: "website",
+    title: "Bike Repair Service in Palam Vihar, Gurgaon – FixWheel",
+    description: "Verified doorstep bike repair service in Palam Vihar, Gurgaon. Average arrival 45 minutes, 500+ bikes serviced, 4.7★ rated.",
+    url: "https://www.fixwheel.app/gurgaon/palam-vihar",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fixwheel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Gurgaon", "item": "https://www.fixwheel.app/gurgaon" },
+    { "@type": "ListItem", "position": 3, "name": "Palam Vihar", "item": "https://www.fixwheel.app/gurgaon/palam-vihar" }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Doorstep Bike Repair Service",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "FixWheel",
+    "url": "https://www.fixwheel.app/",
+    "telephone": "+91-87459-45682"
+  },
+  "areaServed": { "@type": "Place", "name": "Palam Vihar, Gurugram, Haryana" },
+  "description": "Doorstep bike repair service in Palam Vihar, Gurgaon — covering Block A–J, Palam Vihar Market, Club Road and Palam Vihar Extension, with verified, background-checked mechanics.",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "500" }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I book a service on FixWheel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can call us on the contact number provided, or book directly using the Book Now option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the mechanic come inside my society in Palam Vihar, or do I need to bring the bike to the gate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The mechanic comes to wherever your bike is parked — inside your society, at the gate, or on the road — as long as the RWA allows visitor entry. Most Palam Vihar societies do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you cover Palam Vihar Extension and the stretch near the Dwarka border?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Palam Vihar Extension and the Dwarka-border stretch are within the regular coverage area, with the same response time as the main blocks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can a mechanic reach me in Palam Vihar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Average arrival time in Palam Vihar is around 45 minutes, the same standard we maintain across Gurgaon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my street or block in Palam Vihar isn't listed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We still cover it. The listed streets are simply the most requested ones — message us your location and a mechanic will be dispatched."
+      }
+    }
+  ]
+};
+
+export default function PalamViharPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <PalamViharClientPage />
+    </>
+  );
+}
