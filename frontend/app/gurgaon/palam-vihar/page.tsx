@@ -28,7 +28,9 @@ const breadcrumbSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "name": "Doorstep Repair and Bike Repair in Palam Vihar at Home",
   "serviceType": "Doorstep Bike Repair Service",
+  "url": "https://www.fixwheel.app/gurgaon/palam-vihar",
   "provider": {
     "@type": "LocalBusiness",
     "name": "FixWheel",
@@ -37,7 +39,14 @@ const serviceSchema = {
   },
   "areaServed": { "@type": "Place", "name": "Palam Vihar, Gurugram, Haryana" },
   "description": "Doorstep bike repair service in Palam Vihar, Gurgaon — covering Block A–J, Palam Vihar Market, Club Road and Palam Vihar Extension, with verified, background-checked mechanics.",
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "500" }
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "124",
+    "reviewCount": "124"
+  }
 };
 
 const faqSchema = {
