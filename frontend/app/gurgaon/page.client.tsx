@@ -394,41 +394,41 @@ export default function GurgaonClientPage() {
             <p>We dispatch mechanics across Gurgaon. No matter where you are, a mechanic can reach you quickly.</p>
           </div>
           <div className="area-grid">
-            <Link href="/services/gurgaon/dlf-phase-1" className="area-tag">📍 DLF Phase 1</Link>
-            <Link href="/services/gurgaon/dlf-phase-2" className="area-tag">📍 DLF Phase 2</Link>
-            <Link href="/services/gurgaon/dlf-phase-3" className="area-tag">📍 DLF Phase 3</Link>
-            <Link href="/services/gurgaon/dlf-phase-4" className="area-tag">📍 DLF Phase 4</Link>
-            <Link href="/services/gurgaon/dlf-phase-5" className="area-tag">📍 DLF Phase 5</Link>
-            <Link href="/services/gurgaon/sushant-lok" className="area-tag">📍 Sushant Lok</Link>
-            <Link href="/services/gurgaon/golf-course-road" className="area-tag">📍 Golf Course Road</Link>
-            <Link href="/services/gurgaon/sohna-road" className="area-tag">📍 Sohna Road</Link>
-            <Link href="/services/gurgaon/palam-vihar" className="area-tag">📍 Palam Vihar</Link>
-            <Link href="/services/gurgaon/udyog-vihar" className="area-tag">📍 Udyog Vihar</Link>
-            <Link href="/services/gurgaon/dwarka-expressway" className="area-tag">📍 Dwarka Expressway</Link>
-            <Link href="/services/gurgaon/mg-road" className="area-tag">📍 MG Road</Link>
-            <Link href="/services/gurgaon/cyber-city" className="area-tag">📍 Cyber City</Link>
-            <Link href="/services/gurgaon/south-city-1" className="area-tag">📍 South City 1</Link>
-            <Link href="/services/gurgaon/south-city-2" className="area-tag">📍 South City 2</Link>
-            <Link href="/services/gurgaon/nirvana-country" className="area-tag">📍 Nirvana Country</Link>
-            <Link href="/services/gurgaon/sector-14" className="area-tag">📍 Sector 14</Link>
-            <Link href="/services/gurgaon/sector-15" className="area-tag">📍 Sector 15</Link>
-            <Link href="/services/gurgaon/sector-17" className="area-tag">📍 Sector 17</Link>
-            <Link href="/services/gurgaon/sector-23" className="area-tag">📍 Sector 23</Link>
-            <Link href="/services/gurgaon/sector-31" className="area-tag">📍 Sector 31</Link>
-            <Link href="/services/gurgaon/sector-40" className="area-tag">📍 Sector 40</Link>
-            <Link href="/services/gurgaon/sector-45" className="area-tag">📍 Sector 45</Link>
-            <Link href="/services/gurgaon/sector-46" className="area-tag">📍 Sector 46</Link>
-            <Link href="/services/gurgaon/sector-47" className="area-tag">📍 Sector 47</Link>
-            <Link href="/services/gurgaon/sector-49" className="area-tag">📍 Sector 49</Link>
-            <Link href="/services/gurgaon/sector-50" className="area-tag">📍 Sector 50</Link>
-            <Link href="/services/gurgaon/sector-56" className="area-tag">📍 Sector 56</Link>
-            <Link href="/services/gurgaon/sector-57" className="area-tag">📍 Sector 57</Link>
-            <Link href="/services/gurgaon/sector-58" className="area-tag">📍 Sector 58</Link>
-            <Link href="/services/gurgaon/ashok-vihar-phase-3" className="area-tag">📍 Ashok Vihar Phase 3</Link>
-            <Link href="/services/gurgaon/huda-city-centre" className="area-tag">📍 Huda City Centre</Link>
-            <Link href="/services/gurgaon/manesar" className="area-tag">📍 Manesar</Link>
-            <Link href="/services/gurgaon/bhondsi" className="area-tag">📍 Bhondsi</Link>
-            <Link href="/services/gurgaon/badshahpur" className="area-tag">📍 Badshahpur</Link>
+            <Link href="/gurgaon/dlf-phase-1" className="area-tag">📍 DLF Phase 1</Link>
+            <Link href="/gurgaon/dlf-phase-2" className="area-tag">📍 DLF Phase 2</Link>
+            <Link href="/gurgaon/dlf-phase-3" className="area-tag">📍 DLF Phase 3</Link>
+            <Link href="/gurgaon/dlf-phase-4" className="area-tag">📍 DLF Phase 4</Link>
+            <Link href="/gurgaon/dlf-phase-5" className="area-tag">📍 DLF Phase 5</Link>
+            <Link href="/gurgaon/sushant-lok" className="area-tag">📍 Sushant Lok</Link>
+            <Link href="/gurgaon/golf-course-road" className="area-tag">📍 Golf Course Road</Link>
+            <Link href="/gurgaon/sohna-road" className="area-tag">📍 Sohna Road</Link>
+            <Link href="/gurgaon/palam-vihar" className="area-tag">📍 Palam Vihar</Link>
+            <Link href="/gurgaon/udyog-vihar" className="area-tag">📍 Udyog Vihar</Link>
+            <Link href="/gurgaon/dwarka-expressway" className="area-tag">📍 Dwarka Expressway</Link>
+            <Link href="/gurgaon/mg-road" className="area-tag">📍 MG Road</Link>
+            <Link href="/gurgaon/cyber-city" className="area-tag">📍 Cyber City</Link>
+            <Link href="/gurgaon/south-city-1" className="area-tag">📍 South City 1</Link>
+            <Link href="/gurgaon/south-city-2" className="area-tag">📍 South City 2</Link>
+            <Link href="/gurgaon/nirvana-country" className="area-tag">📍 Nirvana Country</Link>
+            <Link href="/gurgaon/sector-14" className="area-tag">📍 Sector 14</Link>
+            <Link href="/gurgaon/sector-15" className="area-tag">📍 Sector 15</Link>
+            <Link href="/gurgaon/sector-17" className="area-tag">📍 Sector 17</Link>
+            <Link href="/gurgaon/sector-23" className="area-tag">📍 Sector 23</Link>
+            <Link href="/gurgaon/sector-31" className="area-tag">📍 Sector 31</Link>
+            <Link href="/gurgaon/sector-40" className="area-tag">📍 Sector 40</Link>
+            <Link href="/gurgaon/sector-45" className="area-tag">📍 Sector 45</Link>
+            <Link href="/gurgaon/sector-46" className="area-tag">📍 Sector 46</Link>
+            <Link href="/gurgaon/sector-47" className="area-tag">📍 Sector 47</Link>
+            <Link href="/gurgaon/sector-49" className="area-tag">📍 Sector 49</Link>
+            <Link href="/gurgaon/sector-50" className="area-tag">📍 Sector 50</Link>
+            <Link href="/gurgaon/sector-56" className="area-tag">📍 Sector 56</Link>
+            <Link href="/gurgaon/sector-57" className="area-tag">📍 Sector 57</Link>
+            <Link href="/gurgaon/sector-58" className="area-tag">📍 Sector 58</Link>
+            <Link href="/gurgaon/ashok-vihar-phase-3" className="area-tag">📍 Ashok Vihar Phase 3</Link>
+            <Link href="/gurgaon/huda-city-centre" className="area-tag">📍 Huda City Centre</Link>
+            <Link href="/gurgaon/manesar" className="area-tag">📍 Manesar</Link>
+            <Link href="/gurgaon/bhondsi" className="area-tag">📍 Bhondsi</Link>
+            <Link href="/gurgaon/badshahpur" className="area-tag">📍 Badshahpur</Link>
             <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + Cover all Gurgaon</span>
           </div>
         </div>

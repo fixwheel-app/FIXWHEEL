@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Doorstep Bike Repair Service in Gurgaon | Two Wheeler Repair | FixWheel",
   description: "Book a verified mechanic for doorstep bike repair service in Gurgaon. Fast two wheeler repair in Gurgaon at your home, office, or roadside starting ₹550.",
   alternates: {
-    canonical: "https://www.fixwheel.app/services/gurgaon",
+    canonical: "https://www.fixwheel.app/gurgaon",
   },
 };
 
@@ -14,7 +14,7 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Doorstep Bike Repair Service in Gurgaon",
   "description": "Professional doorstep bike and two-wheeler repair service in Gurgaon. Verified mechanics come to your home, office, or roadside location to service and repair your bike or scooter.",
-  "url": "https://www.fixwheel.app/services/gurgaon",
+  "url": "https://www.fixwheel.app/gurgaon",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
     "@type": "City",

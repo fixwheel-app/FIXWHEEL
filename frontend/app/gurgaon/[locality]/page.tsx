@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
     title: `Bike Repair at Home in ${localityName}, Gurgaon | FixWheel`,
     description: `Doorstep bike repair in ${localityName}, Gurgaon. Verified mechanics at your home or office in ${localityName} & surrounding sectors. Starting ₹499.`,
     alternates: {
-      canonical: `https://www.fixwheel.app/services/gurgaon/${params.locality}`,
+      canonical: `https://www.fixwheel.app/gurgaon/${params.locality}`,
     },
   };
 }
@@ -253,7 +253,7 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
             {otherLocalities.map((item, idx) => (
               <Link
                 key={idx} 
-                href={`/services/gurgaon/${item.slug}`}
+                href={`/gurgaon/${item.slug}`}
                 className="bg-[#1f2631]/80 hover:bg-accent/10 border border-white/5 hover:border-accent/30 text-text-secondary hover:text-accent font-bold uppercase tracking-wider text-[11px] px-3.5 py-2 rounded-lg transition-all"
               >
                 📍 {item.name}
