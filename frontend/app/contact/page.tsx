@@ -39,7 +39,7 @@ export default function ContactPage() {
       title: "Email Support",
       value: "support@fixwheel.app",
       href: "mailto:support@fixwheel.app",
-      description: "Response within 24 hours"
+      description: "Response within 2 hours"
     },
     {
       icon: MapPin,
@@ -82,7 +82,7 @@ export default function ContactPage() {
               transition={{ delay: 0.1 }}
               className="text-sm md:text-lg text-gray-600 font-medium max-w-2xl mx-auto"
             >
-              Have questions about your vehicle or our services? Our team is here to help you 24/7.
+              Have questions about your bike or our services? Our team is here to help.
             </motion.p>
           </div>
         </div>

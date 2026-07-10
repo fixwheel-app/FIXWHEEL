@@ -359,7 +359,7 @@ export default function GurgaonClientPage() {
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">
-              <div className="stat"><b>45 min</b><span>Average arrival time</span></div>
+              <div className="stat"><b>30 min</b><span>Average arrival time</span></div>
               <div className="stat"><b>500+</b><span>Bikes repaired</span></div>
               <div className="stat"><b>4.7★</b><span>Customer rating</span></div>
               <div className="stat"><b>All sectors</b><span>Service area</span></div>
@@ -391,7 +391,7 @@ export default function GurgaonClientPage() {
           <div className="section-head">
             <div className="eyebrow">Coverage</div>
             <h2>We cover all areas of Gurgaon</h2>
-            <p>We dispatch mechanics across Gurgaon. No matter where you are, a mechanic can reach you quickly.</p>
+            <p>We dispatch mechanics across all Gurgaon sectors. A mechanic can usually reach you within 30 minutes.</p>
           </div>
           <div className="area-grid">
             <Link href="/gurgaon/dlf-phase-1" className="area-tag">📍 DLF Phase 1</Link>
@@ -429,7 +429,7 @@ export default function GurgaonClientPage() {
             <Link href="/gurgaon/manesar" className="area-tag">📍 Manesar</Link>
             <Link href="/gurgaon/bhondsi" className="area-tag">📍 Bhondsi</Link>
             <Link href="/gurgaon/badshahpur" className="area-tag">📍 Badshahpur</Link>
-            <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + Cover all Gurgaon</span>
+            <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + All of Gurgaon covered</span>
           </div>
         </div>
       </section>
@@ -438,7 +438,7 @@ export default function GurgaonClientPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Why FixWheel Gurgaon</div>
-            <h2>Made for Gurgaon riders</h2>
+            <h2>How we work in Gurgaon</h2>
             <p>Avoid traffic and long waits. Get your bike serviced at home or office without pushing it to a shop.</p>
           </div>
           <div className="why-grid">
@@ -450,7 +450,7 @@ export default function GurgaonClientPage() {
             <div className="why-card">
               <span className="num">02</span>
               <h3>Trained mechanics</h3>
-              <p>All our mechanics are fully trained, verified, and background-checked so your bike is in safe hands.</p>
+              <p>All our mechanics are trained, verified, and background-checked before joining the platform.</p>
             </div>
             <div className="why-card">
               <span className="num">03</span>
@@ -460,7 +460,7 @@ export default function GurgaonClientPage() {
             <div className="why-card">
               <span className="num">04</span>
               <h3>Fast arrival</h3>
-              <p>Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 45 minutes.</p>
+              <p>Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 30 minutes.</p>
             </div>
           </div>
         </div>
@@ -492,7 +492,7 @@ export default function GurgaonClientPage() {
               <span className="svc-tag mono">[ENGINE]</span>
               <h3>Engine Repair</h3>
               <p>Full engine diagnosis, fault repair and component inspection, done at your doorstep by a verified mechanic.</p>
-              <div className="svc-price">₹4,500 <span>starting from (half)</span></div>
+              <div className="svc-price">₹4,500 <span>starting from (half engine)</span></div>
               <Link href="/services/engine-repair" className="go">View pricing →</Link>
             </div>
             <div className="svc-card">
@@ -504,7 +504,7 @@ export default function GurgaonClientPage() {
             </div>
             <div className="svc-card">
               <span className="svc-tag mono">[BRAKE]</span>
-              <h3>Disc Replacement</h3>
+              <h3>Brake Disc Replacement</h3>
               <p>Brake disc replacement, pad or shoe replacement, cable adjustment, handled right at your doorstep.</p>
               <div className="svc-price">₹199 <span>starting from</span></div>
               <Link href="/services/brake-repair" className="go">View pricing →</Link>
@@ -512,7 +512,7 @@ export default function GurgaonClientPage() {
             <div className="svc-card">
               <span className="svc-tag mono">[BATTERY]</span>
               <h3>Battery Replacement</h3>
-              <p>Battery testing, jump-start assistance, and full replacement using quality-grade batteries.</p>
+              <p>Battery testing, jump-start assistance, and full replacement using standard-spec batteries.</p>
               <div className="svc-price">₹99 <span>starting from</span></div>
               <Link href="/services/battery-replacement" className="go">View pricing →</Link>
             </div>
@@ -526,35 +526,35 @@ export default function GurgaonClientPage() {
             <div className="svc-card">
               <span className="svc-tag mono">[RUNNING]</span>
               <h3>Running Repair</h3>
-              <p>Quick on-the-spot fixes for common breakdown issues to get you back on the road fast.</p>
+              <p>On-the-spot fixes for common breakdown issues so you can get moving again.</p>
               <div className="svc-price">₹399 <span>starting from</span></div>
               <Link href="/book" className="go">Book now →</Link>
             </div>
             <div className="svc-card">
               <span className="svc-tag mono">[CARB]</span>
-              <h3>Carbureter Cleaning</h3>
-              <p>Complete carbureter cleaning and tuning to improve fuel efficiency and engine performance.</p>
+              <h3>Carburetor Cleaning</h3>
+              <p>Complete carburetor cleaning and tuning to improve fuel efficiency and engine performance.</p>
               <div className="svc-price">₹199 <span>starting from</span></div>
               <Link href="/book" className="go">Book now →</Link>
             </div>
             <div className="svc-card">
               <span className="svc-tag mono">[OBD]</span>
               <h3>Inspection with OBD Scanner</h3>
-              <p>Digital diagnostics using an OBD scanner to find hidden engine and electrical faults.</p>
+              <p>We connect a diagnostic scanner to your bike's system to read fault codes and find engine or electrical issues early.</p>
               <div className="svc-price">₹199 <span>starting from</span></div>
               <Link href="/book" className="go">Book now →</Link>
             </div>
             <div className="svc-card">
               <span className="svc-tag mono">[CHAIN]</span>
               <h3>Chain Sprocket Replacement</h3>
-              <p>Worn chain and sprocket replaced with quality parts for smooth and safe riding.</p>
+              <p>Worn chain and sprocket replaced with standard-spec parts for smooth and safe riding.</p>
               <div className="svc-price">₹299 <span>starting from</span></div>
               <Link href="/book" className="go">Book now →</Link>
             </div>
             <div className="svc-card">
               <span className="svc-tag mono">[PICKUP]</span>
               <h3>Pick and Drop</h3>
-              <p>We pick up your bike, get it serviced, and drop it back at your location.</p>
+              <p>We pick up your bike, service it at a certified facility, and return it to you.</p>
               <div className="svc-price">₹199 <span>starting from</span></div>
               <Link href="/book" className="go">Book now →</Link>
             </div>
@@ -581,7 +581,7 @@ export default function GurgaonClientPage() {
           </div>
           <div style={{ height: "44px" }}></div>
           <div className="section-head" style={{ marginBottom: "24px" }}>
-            <div className="eyebrow">Trusted by every major brand</div>
+            <div className="eyebrow">We service all major brands</div>
             <h2 style={{ fontSize: "26px" }}>Serviced in Gurgaon, whatever you ride</h2>
           </div>
           <div className="brand-row">
@@ -609,7 +609,7 @@ export default function GurgaonClientPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">How it works</div>
-            <h2>How it works</h2>
+            <h2>4 steps from booking to a fixed bike</h2>
           </div>
           <div className="steps">
             <div className="step">
@@ -620,7 +620,7 @@ export default function GurgaonClientPage() {
             <div className="step">
               <span className="n">02</span>
               <h3>2. Mechanic assigned</h3>
-              <p>We assign a professional mechanic near you.</p>
+              <p>We assign a verified mechanic near you.</p>
             </div>
             <div className="step">
               <span className="n">03</span>
@@ -672,7 +672,7 @@ export default function GurgaonClientPage() {
             <ul>
               <li>Flexible working hours</li>
               <li>Easy booking management</li>
-              <li>Grow your local reach in Gurugram</li>
+              <li>Receive service requests from customers in your area</li>
             </ul>
           </div>
           <div className="partner-box">
@@ -767,14 +767,14 @@ export default function GurgaonClientPage() {
             </div>
             <h3 style={{ fontSize: "22px", color: "var(--paper)", marginTop: "10px" }}>Gurgaon Roadside Assistance</h3>
             <p style={{ color: "var(--ink-dim)", fontSize: "14px" }}>
-              Stranded on the road or have a breakdown in Gurgaon? We offer quick two wheeler repair in Gurgaon. A mechanic will come to your spot with tools to fix your bike or scooter immediately.
+              Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot. Average arrival: 30 minutes.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
-                Request SOS Service →
+                Request Roadside Assistance →
               </Link>
               <a href="tel:+918745945682" className="btn btn-ghost" style={{ padding: "10px 20px", fontSize: "12px" }}>
-                Call Emergency Desk
+                Call Us Now
               </a>
             </div>
           </div>
@@ -783,9 +783,9 @@ export default function GurgaonClientPage() {
 
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
-          <h2>Book doorstep bike repair in Gurgaon today.</h2>
-          <p>Verified mechanic at your home or office, anywhere in Gurugram. Starting ₹499. No garage visit needed.</p>
-          <Link href="/book" className="btn btn-dark">Book Your Bike Service Now →</Link>
+          <h2>Book doorstep bike repair in Gurgaon.</h2>
+          <p>Verified mechanic at your home or office, anywhere in Gurugram. Starting ₹550. No garage visit needed.</p>
+          <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
         </div>
       </section>
     </div>

@@ -76,11 +76,11 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
     },
     {
       title: "Transparent Upfront Pricing",
-      desc: "Receive exact price quotes before work begins. No hidden margins, no surprise fees, and absolute honesty."
+      desc: "Get an exact price quote before any work starts. No hidden margins, zero hidden fees, and absolute transparency."
     },
     {
-      title: "45-Minute Rapid Response",
-      desc: `Once booked, our nearest mobile mechanic is dispatched to reach your location in ${localityName} within 45 minutes.`
+      title: "30-Minute Fast Response",
+      desc: `Once booked, our nearest mobile mechanic is dispatched to reach your location in ${localityName} within 30 minutes.`
     },
     {
       title: "Convenient Doorstep Service",
@@ -143,7 +143,7 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
     },
     {
       q: `How quickly can a mechanic reach me in ${localityName}?`,
-      a: `Our mobile mechanics are stationed locally and can reach most parts of ${localityName} within 45 minutes of booking confirmation.`
+      a: `Our mobile mechanics are stationed locally and can reach most parts of ${localityName} within 30 minutes of booking confirmation.`
     },
     {
       q: `What does doorstep bike service cost in ${localityName}?`,

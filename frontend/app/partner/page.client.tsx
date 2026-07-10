@@ -29,7 +29,7 @@ const BIKE_SERVICES = [
   'General Service',
   'Engine Work',
   'Wiring',
-  'Punchure',
+  'Puncture',
   'Sport Bike',
   'EV Specialist'
 ];
@@ -329,10 +329,9 @@ export default function PartnerPage() {
           <div className="w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8 ring-4 ring-accent/30">
             <CheckCircle2 className="w-12 h-12 text-accent" />
           </div>
-          <h2 className="text-4xl font-black text-black uppercase mb-4">You're In!</h2>
+          <h2 className="text-4xl font-black text-black uppercase mb-4">Application Received</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            Welcome to the <span className="text-accent font-bold">FixWheel</span> partner network, <span className="text-black font-semibold">{formData.ownerName}</span>!
-            Our team will review your application for <span className="text-black font-semibold">{formData.garageName}</span> and get back to you within <span className="text-accent font-bold">24–48 hours</span> on WhatsApp.
+            Thanks, <span className="text-black font-semibold">{formData.ownerName}</span>. We've received your application for <span className="text-black font-semibold">{formData.garageName}</span> and will review it within <span className="text-accent font-bold">24–48 hours</span>. We'll reach out on WhatsApp once it's processed.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             {[`${formData.garagePhotos.length} Photos Uploaded`, `${formData.servicesOffered.length} Services`, formData.vehicleType + ' Specialist'].map((tag, i) => (
@@ -375,7 +374,7 @@ export default function PartnerPage() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-2xl sm:text-4xl md:text-6xl font-black text-black uppercase leading-tight mb-4 tracking-tighter"
           >
-            Grow Your Garage with <span className="text-accent">FixWheel</span>
+            Get More Bookings with <span className="text-accent">FixWheel</span>
           </motion.h1>
 
           <motion.p
@@ -384,7 +383,7 @@ export default function PartnerPage() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-gray-600 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 md:mb-10"
           >
-            Join our trusted network of garages. Get more customers, manage bookings effortlessly, and grow your business with zero upfront cost.
+            Join our network of verified mechanics. Get more bookings, manage jobs from your phone, and earn more — with no joining fee.
           </motion.p>
 
           {/* Trust Badges */}
@@ -394,7 +393,7 @@ export default function PartnerPage() {
             transition={{ delay: 0.35 }}
             className="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
           >
-            {['Free to Join', 'More Customers', 'Instant Payouts', '24/7 Support'].map((badge, i) => (
+            {['Free to Join', 'More Local Bookings', 'Weekly Payouts', '24/7 Partner Support'].map((badge, i) => (
               <div key={i} className="flex items-center gap-2 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 {badge}
@@ -630,7 +629,7 @@ export default function PartnerPage() {
             <div className="space-y-8">
               <div className="mb-2">
                 <h2 className="text-2xl font-black text-black uppercase">Documents &amp; Photos</h2>
-                <p className="text-gray-500 text-sm mt-1">Upload clear photos so customers can trust your garage</p>
+                <p className="text-gray-500 text-sm mt-1">Upload clear photos for identity and garage verification</p>
               </div>
 
               <FileUploadZone
@@ -755,9 +754,9 @@ export default function PartnerPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {[
-              { icon: '📈', title: '3x More Bookings', desc: 'Reach customers actively searching for your services nearby.' },
-              { icon: '📲', title: 'WhatsApp Integration', desc: 'Manage bookings and updates right from WhatsApp.' },
-              { icon: '🛡️', title: 'Verified Badge', desc: 'Get a FixWheel Verified badge that builds instant trust.' },
+              { icon: '📈', title: 'More Local Bookings', desc: 'Connect with riders in your area who need doorstep servicing.' },
+              { icon: '📲', title: 'WhatsApp Integration', desc: 'Confirm new bookings and send service updates directly through WhatsApp.' },
+              { icon: '🛡️', title: 'Verified Badge', desc: 'Receive a FixWheel Certified badge to build trust with local customers.' },
             ].map((card, i) => (
               <motion.div
                 key={i}

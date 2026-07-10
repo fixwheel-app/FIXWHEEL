@@ -12,48 +12,48 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "1. What services does FixWheel provide?",
-    answer: "FixWheel provides complete bike and car repair, maintenance, and servicing. This includes oil change, general service, engine repair, washing, and doorstep pickup & delivery."
+    question: "What services does FixWheel provide?",
+    answer: "FixWheel provides doorstep bike repair, maintenance, and servicing. Our services include routine servicing, oil changes, engine repairs, tyre replacements, brake repairs, battery replacements, washing, and emergency roadside assistance."
   },
   {
-    question: "2. How does FixWheel work?",
-    answer: "You simply book a service online or via WhatsApp. Our team picks up your vehicle, gets it serviced from verified garages, and delivers it back to you."
+    question: "How does FixWheel work?",
+    answer: "Book a service online or via WhatsApp. We assign a certified mechanic near you who arrives at your doorstep with the right tools and genuine parts to service your bike on the spot."
   },
   {
-    question: "3. Are the prices fixed or negotiable?",
-    answer: "We provide transparent and competitive pricing. You will be informed about the cost before the service starts—no hidden charges."
+    question: "Are the prices fixed or negotiable?",
+    answer: "Our prices are transparent and fixed. We inform you of the cost before the service starts, so you pay zero hidden fees."
   },
   {
-    question: "4. Do you provide doorstep service?",
-    answer: "Yes, low-cost pickup and drop service so you don’t have to visit the garage."
+    question: "Do you provide doorstep service?",
+    answer: "Yes. We perform all repairs and servicing at your location, home, or office, so you save time and avoid garage visits."
   },
   {
-    question: "5. How long does the service take?",
-    answer: "Most services are completed within the same day. For major repairs, it may take longer, and we will keep you updated."
+    question: "How long does the service take?",
+    answer: "Most routine servicing and repairs take 30 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront."
   },
   {
-    question: "6. Are your mechanics trusted?",
-    answer: "Yes, we work only with verified and experienced mechanics to ensure high-quality service."
+    question: "How do I know the mechanic is verified?",
+    answer: "Yes. Every FixWheel mechanic is background-checked and trained on two-wheeler repair. You can rate your mechanic after every service, and we follow up on any complaint."
   },
   {
-    question: "7. What if I am not satisfied with the service?",
-    answer: "Customer satisfaction is our priority. If you face any issue, we will resolve it or arrange a re-service if required."
+    question: "What if I am not satisfied with the service?",
+    answer: "If you have an issue with the service, contact us within 15 days. We'll send a mechanic back at no extra charge to fix it."
   },
   {
-    question: "8. How can I book a service?",
-    answer: "You can book directly on our website or contact us on WhatsApp for quick booking."
+    question: "How can I book a service?",
+    answer: "Book online through our website or send us a message on WhatsApp. The booking process takes under a minute."
   },
   {
-    question: "9. What payment methods are available?",
-    answer: "We accept UPI, cash, and online payments for your convenience."
+    question: "What payment methods are available?",
+    answer: "We accept UPI, cards, net banking, and cash. Payment is collected after the service is completed."
   },
   {
-    question: "10. Do you provide emergency/breakdown service?",
-    answer: "Yes, we provide emergency support in selected areas. Contact us for immediate assistance."
+    question: "Do you provide emergency/breakdown service?",
+    answer: "Yes. We provide 24/7 emergency roadside assistance and breakdown support across Delhi and Gurugram."
   },
   {
-    question: "12. Do you use genuine spare parts?",
-    answer: "Yes, we use genuine and high-quality spare parts to ensure safety and performance."
+    question: "Do you use genuine spare parts?",
+    answer: "Yes. We use genuine or OEM-grade manufacturer parts. If a part needs replacing, we confirm the cost with you before proceeding."
   }
 ];
 
@@ -113,7 +113,7 @@ export default function FAQPage() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent font-bold uppercase tracking-widest text-xs mb-6"
             >
               <HelpCircle className="w-4 h-4" />
-              <span>Customer Support</span>
+              <span>FAQ</span>
             </motion.div>
             
             <motion.h1 
@@ -131,7 +131,7 @@ export default function FAQPage() {
               transition={{ delay: 0.2 }}
               className="text-sm md:text-xl text-gray-600 font-medium"
             >
-              Everything you need to know about FixWheel services and how we handle your vehicles.
+              Common questions about our services, pricing, coverage, and how a booking works.
             </motion.p>
           </div>
         </div>

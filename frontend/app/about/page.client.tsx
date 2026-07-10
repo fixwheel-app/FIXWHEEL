@@ -23,7 +23,7 @@ export default function AboutClient() {
     {
       num: "03",
       title: "Fast response",
-      desc: "Our agent reaches your location within 45 minutes."
+      desc: "Our mechanic reaches your location within 30 minutes."
     }
   ];
 
@@ -31,17 +31,17 @@ export default function AboutClient() {
     {
       icon: "🔍",
       title: "Verified ID",
-      desc: "Background and document checks before onboarding."
+      desc: "We perform background and document checks before onboarding any mechanic."
     },
     {
       icon: "🧰",
       title: "Standard kit",
-      desc: "Carries the tools needed to finish most jobs in one visit."
+      desc: "Mechanics carry the tools needed to complete most repairs in a single visit."
     },
     {
       icon: "⭐",
       title: "Rated after every job",
-      desc: "You rate the mechanic once the work is done — low ratings get flagged and reviewed, so quality stays consistent."
+      desc: "You rate your mechanic once the work is done. We review feedback to keep our service quality high."
     }
   ];
 
@@ -87,7 +87,7 @@ export default function AboutClient() {
               transition={{ delay: 0.1 }}
               className="text-sm md:text-xl text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed"
             >
-              FixWheel started with one idea — fixing a bike shouldn't mean losing half your day to it. Today, verified mechanics reach doorsteps across Delhi NCR, with the same tools and care you'd expect from a trusted local garage.
+              FixWheel started with one idea — fixing a bike shouldn't mean losing half your day to it. Today, verified mechanics reach doorsteps across Delhi NCR — equipped for most repairs in a single visit.
             </motion.p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function AboutClient() {
               
               <div className="space-y-4 text-gray-600 leading-relaxed text-sm md:text-lg">
                 <p>
-                  FixWheel began the way most useful things do — from a problem nobody wanted to deal with. Pushing a broken-down bike to the nearest mechanic, waiting around a garage, and hoping the bill matched what was actually wrong.
+                  FixWheel started with a problem most riders know: pushing a broken-down bike to the nearest mechanic, waiting around a garage, and hoping the bill matched what was actually wrong.
                 </p>
                 <p>
                   We built FixWheel to flip that: instead of you going to the mechanic, the mechanic comes to you — fully equipped, transparent on pricing, and fast.
@@ -262,10 +262,10 @@ export default function AboutClient() {
 
               <ul className="space-y-3.5">
                 {[
-                  "Identity verified before onboarding",
-                  "Skills-tested on real repair scenarios",
-                  "Carries standard tools + genuine-grade parts",
-                  "Every job tracked and rated"
+                  "We verify identity before onboarding",
+                  "We test mechanical skills on real repair scenarios",
+                  "Mechanics carry standard tools and genuine parts",
+                  "We track and rate every job to ensure quality"
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3 text-sm md:text-base font-semibold text-gray-700">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
@@ -321,7 +321,7 @@ export default function AboutClient() {
                 From bikes to every two-wheeler need across NCR
               </h2>
               <p className="text-text-secondary text-sm md:text-lg leading-relaxed">
-                We're expanding coverage across more localities and adding EV-specific servicing as more riders switch to electric scooters. The goal stays the same: whatever's wrong with your ride, fix it without making you go anywhere.
+                We're expanding coverage across more localities and adding EV-specific servicing. The goal stays the same: fix whatever's wrong with your bike, without you going anywhere.
               </p>
             </div>
           </motion.div>
@@ -335,13 +335,13 @@ export default function AboutClient() {
             Got a bike that needs fixing?
           </h2>
           <p className="text-gray-600 text-sm md:text-lg font-medium mb-8">
-            Skip the garage. Book a verified mechanic to your doorstep today.
+             Skip the garage. Book a verified mechanic to your doorstep.
           </p>
           <Link 
             href="/book" 
             className="inline-flex items-center gap-3 bg-accent hover:bg-black text-white px-8 py-4 md:px-10 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm transition-all shadow-[0_15px_30px_rgba(230,43,43,0.25)] hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.2)] active:scale-98"
           >
-            <span>Book Your Service Now</span>
+             <span>Book Your Service</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

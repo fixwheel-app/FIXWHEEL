@@ -21,7 +21,7 @@ export default function ServicesClientPage() {
     },
     {
       name: "Sports Bike Service",
-      desc: "Performance tuning, premium oil changes, and diagnostics for sports motorcycles.",
+      desc: "Performance tuning, full-synthetic oil changes, and diagnostics for sports motorcycles.",
       link: "/services/sports-bike-service"
     },
     {
@@ -36,7 +36,7 @@ export default function ServicesClientPage() {
     },
     {
       name: "Premium Bike Service",
-      desc: "Advanced diagnostics, brake service, and detailing for high-end superbikes.",
+      desc: "Advanced diagnostics, brake service, and detailing for high-performance and large-displacement motorcycles.",
       link: "/services/premium-bike-service"
     }
   ];
@@ -44,35 +44,35 @@ export default function ServicesClientPage() {
   const faqs = [
     {
       q: "How long does doorstep bike service take in Delhi NCR?",
-      a: "Most bike repairs and routine servicing are completed in 30–50 minutes at your location in Delhi or Gurugram. Complex engine repairs may take longer — your mechanic will inform you upfront."
+      a: "Most routine servicing and repairs take 30 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront."
     },
     {
       q: "How much does bike service at home cost in Delhi?",
-      a: "Doorstep bike service starts from ₹499 depending on your bike model and the type of service. Pricing is always confirmed before any work begins — no hidden charges."
+      a: "Our doorstep bike service starts at ₹499. The exact price depends on your bike model and service type. We confirm the price before any work begins, so you pay zero hidden fees."
     },
     {
       q: "Do you use genuine parts for bike repair?",
-      a: "Yes. We use genuine or OEM-grade parts only. If any part needs replacing, we confirm with you before ordering or fitting it."
+      a: "Yes. We use only genuine or OEM-grade parts. We always confirm the cost with you before replacing any parts."
     },
     {
       q: "Which areas do you cover for doorstep bike repair in Delhi NCR?",
-      a: "We currently serve Delhi (Kapasera, Dwarka, Vasant Kunj, Mahipalpur, Bijwasan, MG Road and nearby areas) and all of Gurugram including DLF, Sushant Lok, Golf Course Road, Palam Vihar, Udyog Vihar and Sohna Road."
+      a: "We serve Delhi (Kapasera, Dwarka, Vasant Kunj, Mahipalpur, Bijwasan, MG Road and nearby areas) and all of Gurugram including DLF, Sushant Lok, Golf Course Road, Palam Vihar, Udyog Vihar and Sohna Road."
     },
     {
       q: "Can I book a Honda Activa service at home in Delhi?",
-      a: "Yes — Honda Activa is one of our most-booked scooters. We handle basic service, oil change, tyre repair, battery replacement and more for Activa at your doorstep across Delhi and Gurugram."
+      a: "Yes. Honda Activa is our most-booked scooter. We handle routine servicing, oil changes, tyre repairs, and battery replacements at your doorstep."
     },
     {
       q: "Is there a warranty on the bike repair?",
-      a: "Yes. We offer a 15-day labour warranty on all completed services. Parts warranty depends on the part supplier."
+      a: "Yes. We guarantee our work with a 15-day labor warranty. Any replacement parts carry the manufacturer's warranty."
     },
     {
       q: "Can I book emergency roadside bike repair in Delhi NCR?",
-      a: "Yes — emergency roadside assistance is available 24/7 for bikes stranded anywhere across Delhi and Gurugram. Book via the FixWheel app or call us directly."
+      a: "Yes. We provide 24/7 emergency roadside assistance and breakdown support across Delhi and Gurugram."
     },
     {
       q: "Do you service Royal Enfield bikes at home?",
-      a: "Yes. Our mechanics are trained to service Royal Enfield motorcycles including Classic, Bullet, Meteor and Himalayan — at your doorstep in Delhi and Gurugram."
+      a: "Yes. Our certified mechanics service Royal Enfield motorcycles, including the Classic, Bullet, Meteor, and Himalayan, at your doorstep."
     }
   ];
 
@@ -638,13 +638,13 @@ export default function ServicesClientPage() {
             <div>
               <div className="eyebrow"><span className="dot"></span> Bike mechanic at home — Delhi & Gurugram</div>
               <h1>Doorstep Bike Repair Service in <em>Delhi NCR</em></h1>
-              <p className="lead">Verified bike mechanics arrive at your home or office and fix your bike on the spot. No pushing it to a garage, no waiting in queues. Bike service at home, done right.</p>
+              <p className="lead">Verified bike mechanics arrive at your home or office and fix your bike on the spot. No pushing it to a garage, no waiting in queues.</p>
               <div className="btn-row">
                 <Link href="/book" className="btn btn-primary font-sans">Book a Mechanic →</Link>
                 <a href="#how" className="btn btn-ghost font-sans">See how it works</a>
               </div>
               <div className="trust-row">
-                <span><b>45 min</b> avg. response</span>
+                <span><b>30 min</b> avg. response</span>
                 <span><b>500+</b> bikes serviced</span>
                 <span><b>4.7★</b> customer rating</span>
               </div>
@@ -710,9 +710,9 @@ export default function ServicesClientPage() {
             </div>
             <div className="why-grid font-sans">
               <div className="why-card"><span className="num">01</span><h3>True doorstep service</h3><p>Mechanic comes to your home, office, or wherever your bike's parked — no pushing it anywhere.</p></div>
-              <div className="why-card"><span className="num">02</span><h3>Verified mechanics</h3><p>Background-checked and trained, not random gig workers.</p></div>
-              <div className="why-card"><span className="num">03</span><h3>Transparent pricing</h3><p>Quoted before work starts — no inflated "found more issues" bills.</p></div>
-              <div className="why-card"><span className="num">04</span><h3>Fast response</h3><p>Our agent reaches your location within 45 minutes.</p></div>
+              <div className="why-card"><span className="num">02</span><h3>Verified mechanics</h3><p>Background-checked and trained before joining the platform.</p></div>
+              <div className="why-card"><span className="num">03</span><h3>Transparent pricing</h3><p>Price confirmed before work starts. You pay exactly what was quoted.</p></div>
+              <div className="why-card"><span className="num">04</span><h3>Fast response</h3><p>Our mechanic reaches your location within 30 minutes.</p></div>
             </div>
           </div>
         </section>
@@ -777,7 +777,7 @@ export default function ServicesClientPage() {
               <Link href="/services/battery-replacement" className="related-card">
                 <span className="icon-mono">[BATTERY]</span>
                 <h3>Battery Replacement</h3>
-                <p>Battery testing, jump-start assistance, and full replacement using quality-grade batteries.</p>
+                <p>Battery testing, jump-start assistance, and full replacement using standard-spec batteries.</p>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
               </Link>
               <Link href="/services/general-washing" className="related-card">
@@ -789,7 +789,7 @@ export default function ServicesClientPage() {
               <Link href="/services/comprehensive-service" className="related-card">
                 <span className="icon-mono">[FULL]</span>
                 <h3>Comprehensive Service</h3>
-                <p>Complete top-to-bottom service package — engine, brakes, tyres, electricals, wash and more in one visit.</p>
+                <p>Full-bike service in one visit — engine, brakes, tyres, electricals, and wash covered.</p>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
               </Link>
               <Link href="/booking" className="related-card" style={{ borderColor: 'var(--orange)', background: 'rgba(255,90,31,0.04)' }}>
@@ -1018,9 +1018,9 @@ export default function ServicesClientPage() {
         {/* FINAL CTA */}
         <section className="final-cta" id="book">
           <div className="wrap">
-            <h2>Book doorstep bike repair in Delhi NCR today.</h2>
+            <h2>Book doorstep bike repair in Delhi NCR.</h2>
             <p>Verified mechanic at your home or office. Starting ₹499. No garage visit needed.</p>
-            <Link href="/book" className="btn btn-primary font-sans">Book Your Bike Service Now →</Link>
+            <Link href="/book" className="btn btn-primary font-sans">Book Your Bike Service →</Link>
           </div>
         </section>
       </div>
