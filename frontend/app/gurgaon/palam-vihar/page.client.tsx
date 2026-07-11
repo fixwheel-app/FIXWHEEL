@@ -310,7 +310,7 @@ export default function PalamViharClientPage() {
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
-            <div className="trust-cell"><b>500+</b><span>Bikes serviced</span></div>
+            <div className="trust-cell"><b>473+</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>4.7★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Coverage across Palam Vihar</span></div>
           </div>

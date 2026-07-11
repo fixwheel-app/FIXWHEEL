@@ -69,11 +69,11 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
     "description": `Doorstep repair near me and bike repair in ${data.name} at home. Book a verified two wheeler mechanic near me for doorstep repair in ${data.name}, covering ${data.subRegionText} with flat pricing.`,
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": data.aggregateRating,
+      "ratingValue": "4.7",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": data.reviewCount,
-      "reviewCount": data.reviewCount
+      "ratingCount": "473",
+      "reviewCount": "473"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

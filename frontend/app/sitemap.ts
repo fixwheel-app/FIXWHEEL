@@ -260,10 +260,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9,
       };
     }
-    const isGurgaonRoute = service.slug === "gurgaon" || service.slug.startsWith("gurgaon/");
+    const isRootLevelRoute = service.slug === "gurgaon" || service.slug.startsWith("gurgaon/") || service.slug === "noida" || service.slug.startsWith("noida/");
     const isCityRoute = ["delhi", "gurgaon", "noida", "faridabad", "ghaziabad"].includes(service.slug) || service.slug.startsWith("delhi/") || service.slug.startsWith("gurgaon/") || service.slug.startsWith("noida/") || service.slug.startsWith("faridabad/") || service.slug.startsWith("ghaziabad/");
     return {
-      url: isGurgaonRoute ? `${BASE_URL}/${service.slug}` : `${BASE_URL}/services/${service.slug}`,
+      url: isRootLevelRoute ? `${BASE_URL}/${service.slug}` : `${BASE_URL}/services/${service.slug}`,
       lastModified: service.updatedAt,
       changeFrequency: "weekly" as const,
       priority: isCityRoute ? 0.9 : 0.8,

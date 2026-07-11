@@ -644,8 +644,8 @@ export default function ServicesClientPage() {
                 <a href="#how" className="btn btn-ghost font-sans">See how it works</a>
               </div>
               <div className="trust-row">
-                <span><b>30 min</b> avg. response</span>
-                <span><b>500+</b> bikes serviced</span>
+                <span><b>45 min</b> avg. response</span>
+                <span><b>473+</b> total vehicles serviced</span>
                 <span><b>4.7★</b> customer rating</span>
               </div>
             </div>
@@ -712,7 +712,7 @@ export default function ServicesClientPage() {
               <div className="why-card"><span className="num">01</span><h3>True doorstep service</h3><p>Mechanic comes to your home, office, or wherever your bike's parked — no pushing it anywhere.</p></div>
               <div className="why-card"><span className="num">02</span><h3>Verified mechanics</h3><p>Background-checked and trained before joining the platform.</p></div>
               <div className="why-card"><span className="num">03</span><h3>Transparent pricing</h3><p>Price confirmed before work starts. You pay exactly what was quoted.</p></div>
-              <div className="why-card"><span className="num">04</span><h3>Fast response</h3><p>Our mechanic reaches your location within 30 minutes.</p></div>
+              <div className="why-card"><span className="num">04</span><h3>Fast response</h3><p>Our mechanic reaches your location within 45 minutes.</p></div>
             </div>
           </div>
         </section>

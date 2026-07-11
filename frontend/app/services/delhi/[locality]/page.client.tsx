@@ -21,7 +21,7 @@ interface LocalityClientProps {
   slug: string;
 }
 
-export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps) {
+export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
   const data = LOCALITY_DB[slug];
   
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
@@ -39,12 +39,12 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
     return (
       <div style={{ padding: "80px 24px", textAlign: "center", color: "#EDEAE2", background: "#17181A", minHeight: "100vh" }}>
         <h2>Locality not found</h2>
-        <p style={{ marginTop: "12px" }}><Link href="/gurgaon" style={{ color: "#E62B2B" }}>Return to Gurgaon All Coverage →</Link></p>
+        <p style={{ marginTop: "12px" }}><Link href="/services/delhi" style={{ color: "#E62B2B" }}>Return to Delhi All Coverage →</Link></p>
       </div>
     );
   }
 
-  // Interlinking: List other key localities in Gurgaon
+  // Interlinking: List other key localities in Delhi
   const otherSlugs = Object.keys(LOCALITY_DB).filter((k) => k !== slug).slice(0, 5);
 
   return (
@@ -275,7 +275,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         <div className="wrap">
           <Link href="/">Home</Link>
           <span className="sep">/</span>
-          <Link href="/gurgaon">Gurgaon</Link>
+          <Link href="/services/delhi">Delhi</Link>
           <span className="sep">/</span>
           <span className="current">{data.name}</span>
         </div>
@@ -397,7 +397,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           <div className="section-head">
             <div className="eyebrow">Coverage</div>
             <h2>Every block and stretch of {data.name}</h2>
-            <p>This is the street-level detail we don't repeat on the main Gurgaon page — because it only matters if you actually live or ride here.</p>
+            <p>This is the street-level detail we don't repeat on the main Delhi page — because it only matters if you actually live or ride here.</p>
           </div>
           <div className="street-board">
             {data.coveragePoints.map((pt, idx) => (
@@ -413,7 +413,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           <div className="section-head">
             <div className="eyebrow">Most booked in {data.name}</div>
             <h2>What riders here actually book</h2>
-            <p>The four services {data.name} riders request most. Looking for the full catalog and pricing? It lives on our Gurgaon page.</p>
+            <p>The four services {data.name} riders request most. Looking for the full catalog and pricing? It lives on our Delhi services page.</p>
           </div>
           <div className="top-svc">
             {data.topServices.map((svc, idx) => (
@@ -425,7 +425,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               </div>
             ))}
           </div>
-          <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/gurgaon#services">See the full Gurgaon service catalog →</Link></p>
+          <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/services/delhi#services">See the full Delhi service catalog →</Link></p>
         </div>
       </section>
 
@@ -520,9 +520,9 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           <p>Verified, background-checked mechanics. Average arrival {data.eta}.</p>
           <Link href="/book" className="btn btn-dark">Book Bike Repair in {data.name} →</Link>
           <div className="silo">
-            <Link href="/gurgaon" className="hub">← All of Gurgaon</Link>
+            <Link href="/services/delhi" className="hub">← All of Delhi</Link>
             {otherSlugs.map((s) => (
-              <Link key={s} href={`/gurgaon/${s}`}>{LOCALITY_DB[s]?.name}</Link>
+              <Link key={s} href={`/services/delhi/${s}`}>{LOCALITY_DB[s]?.name}</Link>
             ))}
           </div>
         </div>

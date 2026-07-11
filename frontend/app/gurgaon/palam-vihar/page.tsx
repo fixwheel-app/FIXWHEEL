@@ -53,8 +53,8 @@ const serviceSchema = {
     "ratingValue": "4.7",
     "bestRating": "5",
     "worstRating": "1",
-    "ratingCount": "124",
-    "reviewCount": "124"
+    "ratingCount": "473",
+    "reviewCount": "473"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",

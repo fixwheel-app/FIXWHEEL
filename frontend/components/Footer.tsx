@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs md:text-sm">
               <li><Link href="/services/delhi" className="text-text-secondary hover:text-white transition-colors">Delhi</Link></li>
               <li><Link href="/gurgaon" className="text-text-secondary hover:text-white transition-colors">Gurgaon</Link></li>
-              <li><Link href="/services/noida" className="text-text-secondary hover:text-white transition-colors">Noida</Link></li>
+              <li><Link href="/noida" className="text-text-secondary hover:text-white transition-colors">Noida</Link></li>
               <li><Link href="/services/faridabad" className="text-text-secondary hover:text-white transition-colors">Faridabad</Link></li>
               <li><Link href="/services/ghaziabad" className="text-text-secondary hover:text-white transition-colors">Ghaziabad</Link></li>
             </ul>

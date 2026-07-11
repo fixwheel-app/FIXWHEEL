@@ -23,7 +23,7 @@ export default function AboutClient() {
     {
       num: "03",
       title: "Fast response",
-      desc: "Our mechanic reaches your location within 30 minutes."
+      desc: "Our mechanic reaches your location within 45 minutes."
     }
   ];
 
@@ -217,7 +217,7 @@ export default function AboutClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-b border-white/10 pb-10">
             {[
-              { val: "500+", lbl: "Bikes serviced" },
+              { val: "473+", lbl: "Total vehicles serviced" },
               { val: "40+", lbl: "Verified mechanics" },
               { val: "4.7★", lbl: "Avg. rating" }
             ].map((stat, idx) => (

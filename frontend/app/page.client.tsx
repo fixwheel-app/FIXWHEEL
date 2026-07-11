@@ -251,8 +251,8 @@ export default function Home() {
               <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
                 <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-gray-300">
                   <Star className="w-4 h-4 text-accent fill-accent" />
-                  <span className="font-bold text-white">4.8/5</span>
-                  <span className="inline"><span className="font-bold text-white">1,200+</span> riders served</span>
+                  <span className="font-bold text-white">4.7/5</span>
+                  <span className="inline"><span className="font-bold text-white">473+</span> total vehicles serviced</span>
                 </div>
               </div>
             </motion.div>

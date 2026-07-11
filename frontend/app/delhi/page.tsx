@@ -178,11 +178,11 @@ const serviceSchema = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.6",
+    "ratingValue": "4.7",
     "bestRating": "5",
     "worstRating": "1",
-    "ratingCount": "89",
-    "reviewCount": "89"
+    "ratingCount": "473",
+    "reviewCount": "473"
   }
 };
 

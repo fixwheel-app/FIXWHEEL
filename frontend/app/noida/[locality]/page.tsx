@@ -1,19 +1,76 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 // Imported as required by the specifications, root layout handles global rendering.
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: "Bike Repair at Home in Delhi | FixWheel",
-  description: "Doorstep bike repair in Delhi. Verified mechanics at your home across Dwarka, Vasant Kunj, Kapashera, Mahipalpur & all Delhi areas. Starting ₹499.",
-  alternates: {
-    canonical: "https://www.fixwheel.app/services/delhi",
-  },
+const LOCALITIES: Record<string, string> = {
+  "sector-18": "Sector 18",
+  "sector-22": "Sector 22",
+  "sector-27": "Sector 27",
+  "sector-29": "Sector 29",
+  "sector-37": "Sector 37",
+  "sector-44": "Sector 44",
+  "sector-50": "Sector 50",
+  "sector-51": "Sector 51",
+  "sector-52": "Sector 52",
+  "sector-55": "Sector 55",
+  "sector-56": "Sector 56",
+  "sector-62": "Sector 62",
+  "sector-63": "Sector 63",
+  "sector-75": "Sector 75",
+  "sector-76": "Sector 76",
+  "sector-77": "Sector 77",
+  "sector-78": "Sector 78",
+  "sector-100": "Sector 100",
+  "sector-104": "Sector 104",
+  "sector-110": "Sector 110",
+  "sector-120": "Sector 120",
+  "sector-125": "Sector 125",
+  "sector-126": "Sector 126",
+  "sector-128": "Sector 128",
+  "sector-132": "Sector 132",
+  "sector-135": "Sector 135",
+  "sector-137": "Sector 137",
+  "sector-143": "Sector 143",
+  "sector-150": "Sector 150",
+  "greater-noida-west": "Greater Noida West",
+  "knowledge-park": "Knowledge Park",
+  "alpha-1": "Alpha 1",
+  "alpha-2": "Alpha 2",
+  "omega": "Omega",
+  "chi-phi": "Chi Phi",
+  "techzone-4": "Techzone 4",
+  "noida-extension": "Noida Extension"
 };
 
-export default function DelhiServicesPage() {
+export async function generateStaticParams() {
+  return Object.keys(LOCALITIES).map((locality) => ({
+    locality,
+  }));
+}
+
+export async function generateMetadata({ params }: { params: { locality: string } }): Promise<Metadata> {
+  const localityName = LOCALITIES[params.locality];
+  if (!localityName) return {};
+
+  return {
+    title: `Bike Repair at Home in ${localityName}, Noida | FixWheel`,
+    description: `Doorstep bike repair in ${localityName}, Noida. Verified mechanics at your home or office in ${localityName} & surrounding sectors. Starting ₹499.`,
+    alternates: {
+      canonical: `https://www.fixwheel.app/noida/${params.locality}`,
+    },
+  };
+}
+
+export default function NoidaLocalityPage({ params }: { params: { locality: string } }) {
+  const localityName = LOCALITIES[params.locality];
+  if (!localityName) {
+    notFound();
+  }
+
   const whyChoosePoints = [
     {
       title: "Verified Mechanics",
@@ -25,7 +82,7 @@ export default function DelhiServicesPage() {
     },
     {
       title: "45-Minute Rapid Response",
-      desc: "Once booked, our nearest mobile mechanic is dispatched to reach your home or office location within 45 minutes."
+      desc: `Once booked, our nearest mobile mechanic is dispatched to reach your location in ${localityName} within 45 minutes.`
     },
     {
       title: "Convenient Doorstep Service",
@@ -76,52 +133,27 @@ export default function DelhiServicesPage() {
     }
   ];
 
-  const areas = [
-    { name: "Dwarka", slug: "dwarka" },
-    { name: "Vasant Kunj", slug: "vasant-kunj" },
-    { name: "Kapashera", slug: "kapashera" },
-    { name: "Mahipalpur", slug: "mahipalpur" },
-    { name: "Bijwasan", slug: "bijwasan" },
-    { name: "Rangpuri", slug: "rangpuri" },
-    { name: "Samalka", slug: "samalka" },
-    { name: "Hari Nagar", slug: "hari-nagar" },
-    { name: "Najafgarh Road", slug: "najafgarh-road" },
-    { name: "Palam", slug: "palam" },
-    { name: "Uttam Nagar", slug: "uttam-nagar" },
-    { name: "Janakpuri", slug: "janakpuri" },
-    { name: "Vikaspuri", slug: "vikaspuri" },
-    { name: "Dabri", slug: "dabri" },
-    { name: "Bindapur", slug: "bindapur" },
-    { name: "Nawada", slug: "nawada" },
-    { name: "Nihal Vihar", slug: "nihal-vihar" },
-    { name: "Subhash Nagar", slug: "subhash-nagar" },
-    { name: "Tilak Nagar", slug: "tilak-nagar" },
-    { name: "Rajouri Garden", slug: "rajouri-garden" },
-    { name: "Punjabi Bagh", slug: "punjabi-bagh" },
-    { name: "Ashok Vihar", slug: "ashok-vihar" },
-    { name: "Pitampura", slug: "pitampura" },
-    { name: "Rohini", slug: "rohini" },
-    { name: "Shalimar Bagh", slug: "shalimar-bagh" },
-    { name: "Paschim Vihar", slug: "paschim-vihar" },
-    { name: "Kirti Nagar", slug: "kirti-nagar" }
-  ];
+  // Interlinking: List other localities in Noida
+  const otherLocalities = Object.entries(LOCALITIES)
+    .filter(([key]) => key !== params.locality)
+    .map(([key, value]) => ({ slug: key, name: value }));
 
   const faqs = [
     {
-      q: "Do you offer bike repair at home in Dwarka Delhi?",
-      a: "Yes, we cover all Dwarka sectors for doorstep bike repair including Sector 1 through 23."
+      q: `Do you offer bike repair at home in ${localityName} Noida?`,
+      a: `Yes, we cover all blocks and sectors of ${localityName} for doorstep bike repair and servicing.`
     },
     {
-      q: "How quickly can a mechanic reach me in Delhi?",
-      a: "Our mechanics reach most Delhi locations within 45 minutes of booking."
+      q: `How quickly can a mechanic reach me in ${localityName}?`,
+      a: `Our mobile mechanics are stationed locally and can reach most parts of ${localityName} within 45 minutes of booking confirmation.`
     },
     {
-      q: "Is doorstep bike service available in South Delhi?",
-      a: "Yes, we cover Vasant Kunj, Mahipalpur, Kapashera, Bijwasan and all nearby South Delhi areas."
+      q: `What does doorstep bike service cost in ${localityName}?`,
+      a: `Doorstep bike service in ${localityName} starts from ₹499 based on your two-wheeler model and the service package selected.`
     },
     {
-      q: "What is the cost of bike service at home in Delhi?",
-      a: "Bike service at home in Delhi starts from ₹499 depending on your bike model and service type."
+      q: `Do you use genuine parts for repairs in ${localityName}?`,
+      a: `Yes, we only use genuine OEM-grade replacement parts, and all replacement work comes with our quality assurance.`
     }
   ];
 
@@ -132,21 +164,21 @@ export default function DelhiServicesPage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full -mr-48 -mt-48 blur-3xl" />
         <div className="container mx-auto px-4 relative z-10 max-w-5xl">
           <div className="text-center md:text-left space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-bold uppercase tracking-widest text-[10px]">
-              <span>Delhi NCR Doorstep Repair</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e62b2b]/10 border border-[#e62b2b]/20 text-[#e62b2b] font-bold uppercase tracking-widest text-[10px]">
+              <span>Noida Locality Service</span>
             </div>
             <h1 className="text-3xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight">
-              Doorstep Bike Repair Service in <span className="text-accent">Delhi</span>
+              Doorstep Bike Repair Service in <span className="text-accent">{localityName}</span>
             </h1>
             <div className="text-text-secondary text-sm md:text-base leading-relaxed space-y-4 max-w-3xl">
               <p>
-                Finding a reliable bike mechanic in the bustling streets of Delhi can be a stressful chore. FixWheel is here to transform your bike maintenance experience by bringing professional doorstep bike repair services directly to your home, office, or roadside location in Delhi. Our certified mechanics come fully equipped with standard tools and genuine-grade parts, ensuring your two-wheeler gets first-class treatment without you having to push it to a local garage.
+                Keeping your two-wheeler in prime condition shouldn't require long drives to crowded garages. FixWheel provides specialized doorstep bike repair services across Noida and Greater Noida. We bring verified, professional mechanics directly to your home or office space in {localityName}, armed with genuine spare parts and high-end tools to handle any servicing or breakdown issue on site.
               </p>
               <p>
-                Whether you ride a daily commuter scooter like a Honda Activa, a classic Royal Enfield Bullet, or a premium sports motorcycle, we provide complete servicing and repairs tailored to your model. We operate across all major South, West, and North Delhi localities, providing transparent upfront quotes before any work begins so that you face zero surprise charges.
+                Whether you reside in Sector 18, Sector 62, Sector 150, or are located in Greater Noida West, our mechanics cover all Noida sectors. We work on a wide variety of models, from high-mileage commuter scooters to premium sports bikes, providing absolute transparency with upfront quotes and a 15-day labour warranty.
               </p>
               <p>
-                By opting for doorstep bike service in Delhi, you save hours of waiting in queues. Simply select your service package, choose a convenient time slot, and let our verified experts keep your vehicle running in optimal condition.
+                Say goodbye to weekend garage trips and get your bike serviced in {localityName} while you relax at home. Simply book online or call us, and our mechanic will reach you in under an hour to resolve all your two-wheeler issues.
               </p>
             </div>
             <div className="pt-4">
@@ -167,7 +199,7 @@ export default function DelhiServicesPage() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center md:text-left mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-accent">Why FixWheel</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mt-1">Why Choose Us in Delhi</h2>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mt-1">Why Choose Us in {localityName}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {whyChoosePoints.map((item, idx) => (
@@ -212,21 +244,21 @@ export default function DelhiServicesPage() {
         </div>
       </section>
 
-      {/* Areas We Cover Section */}
+      {/* Other Areas We Cover in Noida Section */}
       <section className="py-16 bg-[#151b24] border-b border-white/5">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center md:text-left mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent">Coverage Map</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mt-1">Areas We Cover in Delhi</h2>
+            <span className="text-xs font-bold uppercase tracking-widest text-accent">Other Localities</span>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mt-1">Other Areas We Cover in Noida</h2>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            {areas.map((area, idx) => (
-              <Link 
+            {otherLocalities.map((item, idx) => (
+              <Link
                 key={idx} 
-                href={`/services/delhi/${area.slug}`}
+                href={`/noida/${item.slug}`}
                 className="bg-[#1f2631]/80 hover:bg-accent/10 border border-white/5 hover:border-accent/30 text-text-secondary hover:text-accent font-bold uppercase tracking-wider text-[11px] px-3.5 py-2 rounded-lg transition-all"
               >
-                📍 {area.name}
+                📍 {item.name}
               </Link>
             ))}
           </div>

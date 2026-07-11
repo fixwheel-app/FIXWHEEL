@@ -359,8 +359,8 @@ export default function GurgaonClientPage() {
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">
-              <div className="stat"><b>30 min</b><span>Average arrival time</span></div>
-              <div className="stat"><b>500+</b><span>Bikes repaired</span></div>
+              <div className="stat"><b>45 min</b><span>Average arrival time</span></div>
+              <div className="stat"><b>473+</b><span>Total vehicles serviced</span></div>
               <div className="stat"><b>4.7★</b><span>Customer rating</span></div>
               <div className="stat"><b>All sectors</b><span>Service area</span></div>
             </div>
@@ -376,7 +376,7 @@ export default function GurgaonClientPage() {
               <div className="r"><label>Location</label><div>Gurgaon</div></div>
               <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
               <div className="r"><label>Warranty</label><div>15 days</div></div>
-              <div className="r"><label>Response</label><div>38 min</div></div>
+              <div className="r"><label>Response</label><div>45 min</div></div>
             </div>
             <div className="ticket-foot">
               <div className="total"><span>Total paid</span><b>₹550</b></div>
@@ -391,7 +391,7 @@ export default function GurgaonClientPage() {
           <div className="section-head">
             <div className="eyebrow">Coverage</div>
             <h2>We cover all areas of Gurgaon</h2>
-            <p>We dispatch mechanics across all Gurgaon sectors. A mechanic can usually reach you within 30 minutes.</p>
+            <p>We dispatch mechanics across all Gurgaon sectors. A mechanic can usually reach you within 45 minutes.</p>
           </div>
           <div className="area-grid">
             <Link href="/gurgaon/dlf-phase-1" className="area-tag">📍 DLF Phase 1</Link>
@@ -641,7 +641,7 @@ export default function GurgaonClientPage() {
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
             <h2>What our customers say</h2>
-            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--paper)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--paper)' }}>124 reviews</b></p>
+            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--paper)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--paper)' }}>473+ reviews</b></p>
           </div>
           <div className="review-grid">
             <div className="review">
