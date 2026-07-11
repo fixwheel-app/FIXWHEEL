@@ -414,7 +414,7 @@ export default function GhaziabadClientPage() {
           </div>
           <div className="area-grid">
             {areas.map((area, idx) => (
-              <span key={idx} className="area-tag">📍 {area.name}</span>
+              <Link key={idx} href={`/ghaziabad/${area.slug}`} className="area-tag">📍 {area.name}</Link>
             ))}
             <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + Expanding across Ghaziabad</span>
           </div>
