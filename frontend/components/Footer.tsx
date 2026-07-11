@@ -32,7 +32,7 @@ export default function Footer() {
               <li><Link href="/gurgaon" className="text-text-secondary hover:text-white transition-colors">Gurgaon</Link></li>
               <li><Link href="/noida" className="text-text-secondary hover:text-white transition-colors">Noida</Link></li>
               <li><Link href="/faridabad" className="text-text-secondary hover:text-white transition-colors">Faridabad</Link></li>
-              <li><Link href="/services/ghaziabad" className="text-text-secondary hover:text-white transition-colors">Ghaziabad</Link></li>
+              <li><Link href="/ghaziabad" className="text-text-secondary hover:text-white transition-colors">Ghaziabad</Link></li>
             </ul>
           </div>
 
