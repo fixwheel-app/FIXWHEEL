@@ -4,6 +4,15 @@ import PalamViharClientPage from "./page.client";
 export const metadata: Metadata = {
   title: "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home – FixWheel",
   description: "Get doorstep repair in Palam Vihar for scooters & motorcycles. Vetted mechanics offer bike repair in Palam Vihar at home — Block A–J & Extension in 45 mins.",
+  keywords: [
+    "doorstep repair near me",
+    "doorstep repair in Palam Vihar",
+    "bike repair in Palam Vihar at home",
+    "two wheeler mechanic near me",
+    "bike mechanic near me",
+    "scooter service at home in Palam Vihar",
+    "doorstep motorcycle repair Palam Vihar"
+  ],
   alternates: {
     canonical: "https://www.fixwheel.app/gurgaon/palam-vihar",
   },
@@ -28,7 +37,7 @@ const breadcrumbSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Doorstep Repair and Bike Repair in Palam Vihar at Home",
+  "name": "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home",
   "serviceType": "Doorstep Bike Repair Service",
   "url": "https://www.fixwheel.app/gurgaon/palam-vihar",
   "provider": {
@@ -38,7 +47,7 @@ const serviceSchema = {
     "telephone": "+91-87459-45682"
   },
   "areaServed": { "@type": "Place", "name": "Palam Vihar, Gurugram, Haryana" },
-  "description": "Doorstep bike repair service in Palam Vihar, Gurgaon — covering Block A–J, Palam Vihar Market, Club Road and Palam Vihar Extension, with verified, background-checked mechanics.",
+  "description": "Doorstep repair near me and bike repair in Palam Vihar at home. Book a verified two wheeler mechanic near me for doorstep repair in Palam Vihar, covering all Blocks A–J, Palam Vihar Market, Club Road and Extension.",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",
@@ -46,6 +55,52 @@ const serviceSchema = {
     "worstRating": "1",
     "ratingCount": "124",
     "reviewCount": "124"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Bike Repair Services in Palam Vihar",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Basic Service",
+          "description": "Brake adjustment, chain lube, spark plug clean, air filter check, electrical check."
+        },
+        "price": "550",
+        "priceCurrency": "INR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Engine Oil Change",
+          "description": "Draining old oil, engine flushing, refilling with fresh OEM-grade oil, and chain lubrication."
+        },
+        "price": "999",
+        "priceCurrency": "INR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Battery Replacement",
+          "description": "On-site battery health diagnostics, jump-starts, and replacement with warranty batteries."
+        },
+        "price": "99",
+        "priceCurrency": "INR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brake Repair",
+          "description": "Replacing worn-out brake pads/shoes, cable adjustments, and clutch tuning."
+        },
+        "price": "199",
+        "priceCurrency": "INR"
+      }
+    ]
   }
 };
 

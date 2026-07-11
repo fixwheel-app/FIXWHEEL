@@ -286,7 +286,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           <div>
             <div className="eyebrow">Bike repair service · {data.name}</div>
             <h1>Doorstep Repair<br />in <em>{data.name}</em></h1>
-            <p className="lead">{data.heroText}</p>
+            <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong>. {data.heroText}</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
@@ -318,7 +318,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           <div className="section-head">
             <div className="eyebrow">{data.name}</div>
             <h2>Doorstep Repair in {data.name}</h2>
-            <p>We offer reliable bike repair in {data.name} at home with flat pricing, verified mechanics, and a 15-day warranty.</p>
+            <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong> with flat pricing, verified mechanics, and a 15-day labor warranty.</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>{data.eta}</b><span>Average arrival time</span></div>

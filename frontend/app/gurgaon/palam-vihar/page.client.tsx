@@ -275,7 +275,7 @@ export default function PalamViharClientPage() {
           <div>
             <div className="eyebrow">Bike repair service · Palam Vihar</div>
             <h1>Doorstep Repair<br />in <em>Palam Vihar</em></h1>
-            <p className="lead">Quick bike repair in Palam Vihar at home. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an average arrival time of 45 minutes.</p>
+            <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong>. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an average arrival time of 45 minutes.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
@@ -306,7 +306,7 @@ export default function PalamViharClientPage() {
           <div className="section-head">
             <div className="eyebrow">Palam Vihar</div>
             <h2>Doorstep Repair in Palam Vihar</h2>
-            <p>We offer reliable bike repair in Palam Vihar at home with flat pricing, verified mechanics, and a 15-day warranty.</p>
+            <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong> with flat pricing, verified mechanics, and a 15-day labor warranty.</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>

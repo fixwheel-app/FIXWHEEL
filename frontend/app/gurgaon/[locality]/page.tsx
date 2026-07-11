@@ -16,6 +16,15 @@ export async function generateMetadata({ params }: { params: { locality: string 
   return {
     title: `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home – FixWheel`,
     description: `Get doorstep repair in ${data.name} for scooters & motorcycles. Verified mechanics offer bike repair in ${data.name} at home — average arrival ${data.eta}.`,
+    keywords: [
+      "doorstep repair near me",
+      `doorstep repair in ${data.name}`,
+      `bike repair in ${data.name} at home`,
+      "two wheeler mechanic near me",
+      "bike mechanic near me",
+      `scooter service at home in ${data.name}`,
+      `doorstep motorcycle repair ${data.name}`
+    ],
     alternates: {
       canonical: `https://www.fixwheel.app/gurgaon/${params.locality}`,
     },
@@ -47,7 +56,7 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `Doorstep Repair and Bike Repair in ${data.name} at Home`,
+    "name": `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home`,
     "serviceType": "Doorstep Bike Repair Service",
     "url": `https://www.fixwheel.app/gurgaon/${params.locality}`,
     "provider": {
@@ -57,7 +66,7 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
       "telephone": "+91-87459-45682"
     },
     "areaServed": { "@type": "Place", "name": `${data.name}, Gurugram, Haryana` },
-    "description": `Doorstep bike repair service in ${data.name}, Gurgaon — covering ${data.subRegionText} with verified, background-checked mechanics.`,
+    "description": `Doorstep repair near me and bike repair in ${data.name} at home. Book a verified two wheeler mechanic near me for doorstep repair in ${data.name}, covering ${data.subRegionText} with flat pricing.`,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": data.aggregateRating,
@@ -65,6 +74,52 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
       "worstRating": "1",
       "ratingCount": data.reviewCount,
       "reviewCount": data.reviewCount
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `Bike Repair Services in ${data.name}`,
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Service",
+            "description": "Brake adjustment, chain lube, spark plug clean, air filter check, electrical check."
+          },
+          "price": "550",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Engine Oil Change",
+            "description": "Draining old oil, engine flushing, refilling with fresh OEM-grade oil, and chain lubrication."
+          },
+          "price": "999",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Battery Replacement",
+            "description": "On-site battery health diagnostics, jump-starts, and replacement with warranty batteries."
+          },
+          "price": "99",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Brake Repair",
+            "description": "Replacing worn-out brake pads/shoes, cable adjustments, and clutch tuning."
+          },
+          "price": "199",
+          "priceCurrency": "INR"
+        }
+      ]
     }
   };
 
