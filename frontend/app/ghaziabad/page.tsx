@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
+  "@type": "LocalBusiness",
+  "additionalType": "https://schema.org/Service",
   "name": "Doorstep Bike Repair Service in Ghaziabad",
   "description": "Verified mechanics come to your home, office, or roadside in Ghaziabad to repair your bike or scooter. Covering Indirapuram, Vaishali, Kaushambi, Raj Nagar and all Ghaziabad areas.",
   "url": "https://www.fixwheel.app/ghaziabad",

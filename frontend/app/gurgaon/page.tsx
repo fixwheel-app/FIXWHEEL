@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
+  "@type": "LocalBusiness",
+  "additionalType": "https://schema.org/Service",
   "name": "Doorstep Bike Repair Service in Gurgaon",
   "description": "Professional doorstep bike and two-wheeler repair service in Gurgaon. Verified mechanics come to your home, office, or roadside location to service and repair your bike or scooter.",
   "url": "https://www.fixwheel.app/gurgaon",

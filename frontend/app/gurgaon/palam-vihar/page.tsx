@@ -36,7 +36,8 @@ const breadcrumbSchema = {
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
+  "@type": "LocalBusiness",
+  "additionalType": "https://schema.org/Service",
   "name": "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home",
   "serviceType": "Doorstep Bike Repair Service",
   "url": "https://www.fixwheel.app/gurgaon/palam-vihar",

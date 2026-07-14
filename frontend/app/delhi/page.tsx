@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
+  "@type": "LocalBusiness",
+  "additionalType": "https://schema.org/Service",
   "name": "Doorstep Bike Repair Service in Delhi",
   "description": "Verified mechanics come to your home, office, or roadside in Delhi to repair your bike or scooter. Covering Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, and all South & South-West Delhi localities.",
   "url": "https://www.fixwheel.app/delhi",

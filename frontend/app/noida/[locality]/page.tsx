@@ -55,7 +55,8 @@ export default function NoidaLocalityPage({ params }: { params: { locality: stri
 
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "LocalBusiness",
+    "additionalType": "https://schema.org/Service",
     "name": `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home`,
     "serviceType": "Doorstep Bike Repair Service",
     "url": `https://www.fixwheel.app/noida/${params.locality}`,

@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
+  "@type": "LocalBusiness",
+  "additionalType": "https://schema.org/Service",
   "name": "Doorstep Bike Repair Service in Noida",
   "description": "Verified mechanics come to your home, office, or roadside in Noida to repair your bike or scooter. Covering Sector 18, 62, 137, 150, Greater Noida West, and all Noida sectors.",
   "url": "https://www.fixwheel.app/noida",
