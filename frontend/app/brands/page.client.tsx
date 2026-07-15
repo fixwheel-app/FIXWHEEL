@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 
@@ -147,6 +148,19 @@ const brands = [
 ];
 
 export default function BrandsClientPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredBrands = brands.filter((brand) => {
+    const query = searchQuery.toLowerCase().trim();
+    if (!query) return true;
+    return (
+      brand.name.toLowerCase().includes(query) ||
+      brand.tag.toLowerCase().includes(query) ||
+      brand.description.toLowerCase().includes(query) ||
+      brand.models.some((model) => model.toLowerCase().includes(query))
+    );
+  });
+
   return (
     <div className={`brands-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
@@ -436,6 +450,76 @@ export default function BrandsClientPage() {
         }
         .brands-scope .count-strip b { color: var(--paper); }
 
+        /* ===== SEARCH BAR ===== */
+        .brands-scope .search-container {
+          margin-bottom: 40px;
+          position: relative;
+          max-width: 500px;
+        }
+        .brands-scope .search-input {
+          width: 100%;
+          background: var(--bg);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          padding: 14px 18px 14px 44px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 14px;
+          color: var(--paper);
+          transition: border-color .15s ease, box-shadow .15s ease;
+        }
+        .brands-scope .search-input:focus {
+          border-color: var(--accent);
+          outline: none;
+          box-shadow: 0 0 12px rgba(230, 43, 43, 0.15);
+        }
+        .brands-scope .search-icon {
+          position: absolute;
+          left: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--ink-dim);
+          pointer-events: none;
+          width: 16px;
+          height: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .brands-scope .search-clear {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--ink-dim);
+          cursor: pointer;
+          background: none;
+          border: none;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          padding: 4px;
+        }
+        .brands-scope .search-clear:hover {
+          color: var(--accent);
+        }
+        .brands-scope .no-results {
+          text-align: center;
+          padding: 60px 20px;
+          border: 1px dashed var(--line);
+          border-radius: 4px;
+          background: var(--bg-soft);
+          margin-bottom: 40px;
+        }
+        .brands-scope .no-results h3 {
+          font-size: 22px;
+          color: var(--paper);
+          margin-bottom: 12px;
+        }
+        .brands-scope .no-results p {
+          color: var(--ink-dim);
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+
         /* ===== FINAL CTA ===== */
         .brands-scope .final-cta {
           text-align: center; padding: 90px 0;
@@ -517,33 +601,66 @@ export default function BrandsClientPage() {
           <div className="section-head">
             <div className="eyebrow">All Brands</div>
             <h2>Two-Wheeler Brands We Service</h2>
-            <p>Our mechanics are trained across every major Indian and international two-wheeler brand. Select any brand below to explore models we cover.</p>
+            <p>Our mechanics are trained across every major Indian and international two-wheeler brand. Select any brand below to explore models we cover. Find doorstep bike repair service and scooter mechanics for any model.</p>
           </div>
-          <div className="brand-grid">
-            {brands.map((brand, idx) => (
-              <div className="brand-card" key={idx}>
-                <div className="brand-card-top">
-                  <div className="brand-card-logo">
-                    <img src={brand.icon} alt={`${brand.name} logo`} />
-                    <h3>{brand.name}</h3>
+
+          {/* ===== SEARCH BAR ===== */}
+          <div className="search-container">
+            <span className="search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input
+              type="text"
+              placeholder="Search by brand or model (e.g. Activa, Pulsar, Ola)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
+            {searchQuery && (
+              <button onClick={() => setSearchQuery("")} className="search-clear">
+                Clear
+              </button>
+            )}
+          </div>
+
+          {filteredBrands.length === 0 ? (
+            <div className="no-results">
+              <h3>No Brands Found</h3>
+              <p>We couldn't find any brands or models matching "{searchQuery}". Try searching for something else like "Honda", "Pulsar", "EV", etc.</p>
+              <button onClick={() => setSearchQuery("")} className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "11px" }}>
+                Clear Search
+              </button>
+            </div>
+          ) : (
+            <div className="brand-grid">
+              {filteredBrands.map((brand, idx) => (
+                <div className="brand-card" key={idx}>
+                  <div className="brand-card-top">
+                    <div className="brand-card-logo">
+                      <img src={brand.icon} alt={`${brand.name} logo`} />
+                      <h3>{brand.name}</h3>
+                    </div>
+                    <span className="brand-tag">{brand.tag}</span>
                   </div>
-                  <span className="brand-tag">{brand.tag}</span>
+                  <p className="brand-desc">{brand.description}</p>
+                  <span className="brand-models-label">Popular Models</span>
+                  <div className="brand-models">
+                    {brand.models.map((model, mIdx) => (
+                      <span className="brand-model-pill" key={mIdx}>{model}</span>
+                    ))}
+                  </div>
+                  <div className="brand-card-cta">
+                    <Link href="/book">Book {brand.name} Service →</Link>
+                  </div>
                 </div>
-                <p className="brand-desc">{brand.description}</p>
-                <span className="brand-models-label">Popular Models</span>
-                <div className="brand-models">
-                  {brand.models.map((model, mIdx) => (
-                    <span className="brand-model-pill" key={mIdx}>{model}</span>
-                  ))}
-                </div>
-                <div className="brand-card-cta">
-                  <Link href="/book">Book {brand.name} Service →</Link>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
           <div className="count-strip">
-            <p><b>16 brands</b> · <b>80+ models</b> — all serviced at your doorstep</p>
+            <p>Showing <b>{filteredBrands.length}</b> of <b>{brands.length} brands</b> · <b>80+ models</b> — all serviced at your doorstep</p>
             <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "11px" }}>Book Now →</Link>
           </div>
         </div>
