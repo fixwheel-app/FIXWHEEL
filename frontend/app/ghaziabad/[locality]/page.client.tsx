@@ -4,6 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
+import {
+  getIntroParagraph,
+  getWhyChooseTitle,
+  getWhyChooseCards,
+  getHowItWorksTitle,
+  getHowItWorksSteps,
+  getCoverageTitle,
+  getFinalCTAText
+} from "@/lib/contentVariations";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -46,6 +55,10 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
 
   // Interlinking: List other key localities in Ghaziabad
   const otherSlugs = Object.keys(LOCALITY_DB).filter((k) => k !== slug).slice(0, 5);
+
+  const whyCards = getWhyChooseCards(data.name);
+  const howSteps = getHowItWorksSteps(data.name);
+  const finalCta = getFinalCTAText(data.name);
 
   return (
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -317,7 +330,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           <div className="section-head">
             <div className="eyebrow">{data.name}</div>
             <h2>Doorstep Repair in {data.name}</h2>
-            <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong> with flat pricing, verified mechanics, and a 15-day labor warranty.</p>
+            <p>{getIntroParagraph(data.name, "Ghaziabad")}</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
@@ -332,30 +345,17 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Why FixWheel {data.name}</div>
-            <h2>Built for how {data.name} actually rides</h2>
+            <h2>{getWhyChooseTitle(data.name)}</h2>
             <p>{data.whyChooseText}</p>
           </div>
           <div className="why-grid">
-            <div className="why-card">
-              <span className="num">01</span>
-              <h3>True doorstep, not drop-off</h3>
-              <p>Mechanic comes directly to your home, society parking, or office complex anywhere in {data.name} — you stay put.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">02</span>
-              <h3>Verified, background-checked</h3>
-              <p>Every mechanic is trained and vetted before being assigned to a job — not a random gig worker showing up at your door.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">03</span>
-              <h3>Price quoted before work starts</h3>
-              <p>No &quot;found more issues&quot; surprise bills. You see and approve the price before a single tool comes out.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">04</span>
-              <h3>Same standard, every visit</h3>
-              <p>45 min average response time and a 15-day service warranty, applied consistently across {data.name}.</p>
-            </div>
+            {whyCards.map((card, idx) => (
+              <div className="why-card" key={idx}>
+                <span className="num">0{idx + 1}</span>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -364,28 +364,28 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">How it works</div>
-            <h2>Doorstep bike repair in {data.name} — 4 steps, no garage visit</h2>
+            <h2>{getHowItWorksTitle(data.name)}</h2>
           </div>
           <div className="steps">
             <div className="step">
               <span className="n">01</span>
               <h3>Book</h3>
-              <p>Pick your service and time slot on the app or by phone — takes under a minute.</p>
+              <p>{howSteps[0]}</p>
             </div>
             <div className="step">
               <span className="n">02</span>
               <h3>Get matched</h3>
-              <p>A verified mechanic covering {data.name} is assigned and dispatched to you.</p>
+              <p>{howSteps[1]}</p>
             </div>
             <div className="step">
               <span className="n">03</span>
               <h3>Service done</h3>
-              <p>Repair happens right at your location while you carry on with your day.</p>
+              <p>{howSteps[2]}</p>
             </div>
             <div className="step">
               <span className="n">04</span>
               <h3>Pay & rate</h3>
-              <p>Pay only the quoted price, then rate the mechanic who serviced your bike.</p>
+              <p>{howSteps[3]}</p>
             </div>
           </div>
         </div>
@@ -395,7 +395,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Coverage</div>
-            <h2>Every block and stretch of {data.name}</h2>
+            <h2>{getCoverageTitle(data.name)}</h2>
             <p>This is the street-level detail we don&apos;t repeat on the main Ghaziabad page — because it only matters if you actually live or ride here.</p>
           </div>
           <div className="street-board">
@@ -483,8 +483,8 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
 
       <section className="final-cta">
         <div className="wrap">
-          <h2>Get your bike serviced today in {data.name}.</h2>
-          <p>Book a verified mobile mechanic to service your motorcycle or scooter at your doorstep. Starting ₹499.</p>
+          <h2>{finalCta.h2}</h2>
+          <p>{finalCta.p}</p>
           <Link href="/book" className="btn btn-primary">Book Your Doorstep Service Now →</Link>
         </div>
       </section>
