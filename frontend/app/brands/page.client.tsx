@@ -653,7 +653,7 @@ export default function BrandsClientPage() {
                     ))}
                   </div>
                   <div className="brand-card-cta">
-                    <Link href="/book">Book {brand.name} Service →</Link>
+                    <Link href={`/book/${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
                   </div>
                 </div>
               ))}

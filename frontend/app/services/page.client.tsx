@@ -792,7 +792,7 @@ export default function ServicesClientPage() {
                 <p>Full-bike service in one visit — engine, brakes, tyres, electricals, and wash covered.</p>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
               </Link>
-              <Link href="/booking" className="related-card" style={{ borderColor: 'var(--orange)', background: 'rgba(255,90,31,0.04)' }}>
+              <Link href="/book/checkout" className="related-card" style={{ borderColor: 'var(--orange)', background: 'rgba(255,90,31,0.04)' }}>
                 <span className="icon-mono">[SOS]</span>
                 <h3>Emergency Roadside Assistance</h3>
                 <p>Stuck on the road? We dispatch a mechanic to your exact location across Delhi & Gurugram — available 24/7.</p>

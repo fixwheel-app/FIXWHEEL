@@ -61,7 +61,7 @@ export default function RepairCard({ pkg, index }: RepairCardProps) {
         </div>
         
         <Link 
-          href={`/booking?package=${pkg.name}`}
+          href={`/book/checkout?package=${pkg.name}`}
           className={cn(
             "w-full block text-center py-4 rounded-xl font-semibold transition-all",
             pkg.isPopular

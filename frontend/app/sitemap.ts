@@ -238,7 +238,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/booking`,
+      url: `${BASE_URL}/book/checkout`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
@@ -256,6 +256,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
   ];
+
+  const brandBookSlugs = [
+    "honda", "hero", "bajaj", "tvs", "royal-enfield", "yamaha", "suzuki", "ktm",
+    "ola-electric", "ather", "vespa", "jawa", "aprilia", "harley-davidson",
+    "kawasaki", "benelli"
+  ];
+  
+  const brandBookRoutes: MetadataRoute.Sitemap = brandBookSlugs.map(slug => ({
+    url: `${BASE_URL}/book/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   const serviceRoutes: MetadataRoute.Sitemap = dynamicServices.map((service) => {
     if (service.slug === "book") {
@@ -283,5 +296,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...staticRoutes, ...brandBookRoutes, ...serviceRoutes, ...blogRoutes];
 }

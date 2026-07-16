@@ -182,7 +182,7 @@ export default function HowItWorks() {
               </p>
             </div>
             <Link
-              href="/booking"
+              href="/book"
               className="group flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all duration-300 shadow-[0_10px_20px_rgba(255,107,0,0.2)] hover:shadow-[0_10px_30px_rgba(255,107,0,0.4)] hover:-translate-y-1 whitespace-nowrap w-full md:w-auto"
             >
               Book Your Service Now

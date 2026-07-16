@@ -9,12 +9,36 @@ import { BIKE_DATA } from '@/lib/bikes';
 import { cn } from '@/lib/utils';
 import { PackageType } from '@/types';
 
-export default function BookClient() {
+const BRAND_SLUG_MAP: Record<string, string> = {
+  "honda": "Honda",
+  "hero": "Hero",
+  "bajaj": "Bajaj",
+  "tvs": "TVS",
+  "royal-enfield": "Royal Enfield",
+  "yamaha": "Yamaha",
+  "suzuki": "Suzuki",
+  "ktm": "KTM",
+  "ola-electric": "Ola Electric",
+  "ather": "Ather",
+  "vespa": "Vespa",
+  "jawa": "Jawa",
+  "aprilia": "Aprilia",
+  "harley-davidson": "Harley-Davidson",
+  "kawasaki": "Kawasaki",
+  "benelli": "Benelli",
+};
+
+export default function BookClient({ initialBrand }: { initialBrand?: string }) {
   const router = useRouter();
 
+  const brandName = initialBrand ? BRAND_SLUG_MAP[initialBrand.toLowerCase()] : undefined;
+  const initialFuel = (brandName === 'Ola Electric' || brandName === 'Ather') 
+    ? 'Electric Motorbike' 
+    : 'Non-Electric Motorbike';
+
   // Selections
-  const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>('Non-Electric Motorbike');
-  const [brand, setBrand] = useState<string>('');
+  const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>(initialFuel);
+  const [brand, setBrand] = useState<string>(brandName || '');
   const [model, setModel] = useState<string>('');
   
   // Non-Electric specific
@@ -262,7 +286,7 @@ export default function BookClient() {
                               type: fuelType,
                               price: price.toString()
                             }).toString();
-                            router.push(`/booking?${query}`);
+                            router.push(`/book/checkout?${query}`);
                           }}
                           disabled={!brand || !model}
                           className="w-full md:w-auto px-12 py-4 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white rounded-full font-black tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
