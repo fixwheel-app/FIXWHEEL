@@ -24,6 +24,14 @@ const brandLinks = [
   { name: 'Yamaha',         href: '/brands#yamaha' },
 ];
 
+const locationLinks = [
+  { name: 'Delhi',      href: '/delhi' },
+  { name: 'Gurgaon',    href: '/gurgaon' },
+  { name: 'Noida',      href: '/noida' },
+  { name: 'Ghaziabad',  href: '/ghaziabad' },
+  { name: 'Faridabad',  href: '/faridabad' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -49,8 +57,24 @@ export default function Navbar() {
     }, 200); // small delay so cursor can travel into the panel
   }, []);
 
+  /* ─── Locations dropdown state (desktop) ─────────────────── */
+  const [showLocationsDropdown, setShowLocationsDropdown] = useState(false);
+  const locationsTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const openLocationsDropdown = useCallback(() => {
+    if (locationsTimeout.current) clearTimeout(locationsTimeout.current);
+    setShowLocationsDropdown(true);
+  }, []);
+
+  const closeLocationsDropdown = useCallback(() => {
+    locationsTimeout.current = setTimeout(() => {
+      setShowLocationsDropdown(false);
+    }, 200);
+  }, []);
+
   /* ─── Mobile services expand state ───────────────────────── */
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
 
   /* ─── Sync active path ───────────────────────────────────── */
   useEffect(() => {
@@ -77,8 +101,9 @@ export default function Navbar() {
   /* ─── Nav links (OUR PROCESS & FAQ removed) ──────────────── */
   const navLinks = [
     { name: 'HOME',           href: '/' },
-    { name: 'ABOUT',          href: '/about' },
     { name: 'SERVICES',       href: '/services' },
+    { name: 'LOCATIONS',      href: '/delhi' },
+    { name: 'ABOUT',          href: '/about' },
     { name: 'BECOME PARTNER', href: '/partner' },
     { name: 'CONTACT',        href: '/#contact' },
   ];
@@ -136,14 +161,20 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center h-full relative">
               {navLinks.map((link, idx) => {
                 const isServices = link.name === 'SERVICES';
+                const isLocations = link.name === 'LOCATIONS';
+                const hasDropdown = isServices || isLocations;
+
+                const mouseHandlers = isServices
+                  ? { onMouseEnter: openDropdown, onMouseLeave: closeDropdown }
+                  : isLocations
+                  ? { onMouseEnter: openLocationsDropdown, onMouseLeave: closeLocationsDropdown }
+                  : {};
 
                 return (
                   <div
                     key={link.name}
                     className="relative h-full flex items-center"
-                    {...(isServices
-                      ? { onMouseEnter: openDropdown, onMouseLeave: closeDropdown }
-                      : {})}
+                    {...mouseHandlers}
                   >
                     <Link
                       href={link.href}
@@ -155,17 +186,17 @@ export default function Navbar() {
                       )}
                     >
                       {link.name}
-                      {isServices && (
+                      {hasDropdown && (
                         <ChevronDown
                           className={cn(
                             "w-3 h-3 transition-transform duration-200",
-                            showServicesDropdown && "rotate-180"
+                            ((isServices && showServicesDropdown) || (isLocations && showLocationsDropdown)) && "rotate-180"
                           )}
                         />
                       )}
                     </Link>
 
-                    {/* ── Mega Dropdown (desktop) ──────────────── */}
+                    {/* ── Services Dropdown (desktop) ──────────────── */}
                     {isServices && (
                       <AnimatePresence>
                         {showServicesDropdown && (
@@ -245,6 +276,42 @@ export default function Navbar() {
                         )}
                       </AnimatePresence>
                     )}
+
+                    {/* ── Locations Dropdown (desktop) ──────────────── */}
+                    {isLocations && (
+                      <AnimatePresence>
+                        {showLocationsDropdown && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 w-[220px] border-t-2 border-accent bg-[#151b24] border border-t-0 border-white/10 shadow-2xl z-[100]"
+                            onMouseEnter={openLocationsDropdown}
+                            onMouseLeave={closeLocationsDropdown}
+                          >
+                            <div className="p-5 flex flex-col gap-1">
+                              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-3">
+                                Cities We Serve
+                              </span>
+                              {locationLinks.map((loc) => (
+                                <Link
+                                  key={loc.href}
+                                  href={loc.href}
+                                  onClick={() => {
+                                    setActivePath(loc.href);
+                                    setShowLocationsDropdown(false);
+                                  }}
+                                  className={dropdownLinkClass}
+                                >
+                                  {loc.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
                   </div>
                 );
               })}
@@ -299,6 +366,7 @@ export default function Navbar() {
               <div className="px-4 pt-2 pb-6 space-y-1">
                 {navLinks.map((link) => {
                   const isServices = link.name === 'SERVICES';
+                  const isLocations = link.name === 'LOCATIONS';
 
                   if (isServices) {
                     return (
@@ -402,6 +470,75 @@ export default function Navbar() {
                                 >
                                   View All Brands →
                                 </Link>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (isLocations) {
+                    return (
+                      <div key={link.name}>
+                        {/* Locations toggle row */}
+                        <div className="flex items-center justify-between border-b border-white/5">
+                          <Link
+                            href={link.href}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActivePath(link.href);
+                            }}
+                            className={cn(
+                              "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
+                              activePath === link.href
+                                ? "text-accent bg-white/5"
+                                : "text-white hover:text-accent"
+                            )}
+                          >
+                            {link.name}
+                          </Link>
+                          <button
+                            onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
+                            className="px-3 py-3 text-white/60 hover:text-accent transition-colors"
+                            aria-label="Expand locations"
+                          >
+                            <ChevronDown
+                              className={cn(
+                                "w-4 h-4 transition-transform duration-200",
+                                mobileLocationsOpen && "rotate-180"
+                              )}
+                            />
+                          </button>
+                        </div>
+
+                        {/* Expandable locations section */}
+                        <AnimatePresence>
+                          {mobileLocationsOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden bg-[#151b24] border-b border-white/5"
+                            >
+                              <div className="px-4 py-3">
+                                <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-2">
+                                  Cities We Serve
+                                </span>
+                                {locationLinks.map((loc) => (
+                                  <Link
+                                    key={loc.href}
+                                    href={loc.href}
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                      setActivePath(loc.href);
+                                    }}
+                                    className="block py-1.5 pl-2 text-sm text-white/80 hover:text-accent transition-colors"
+                                  >
+                                    {loc.name}
+                                  </Link>
+                                ))}
                               </div>
                             </motion.div>
                           )}
