@@ -18,7 +18,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dlf-phase-1": {
     name: "DLF Phase 1",
     slug: "dlf-phase-1",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "84",
@@ -35,7 +35,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Qutub Plaza Boundary"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Mechanic arrived at Block C within 25 minutes. Chain clean and brake adjustment done perfectly.", who: "Arjun Mehta — Block C, DLF Phase 1" },
+      { stars: "★★★★★", text: "Mechanic arrived at Block C within 45 minutes. Chain clean and brake adjustment done perfectly.", who: "Arjun Mehta — Block C, DLF Phase 1" },
       { stars: "★★★★★", text: "Very professional service near Arjun Marg. Clear pricing upfront, no hidden charges.", who: "Nisha Sen — Arjun Marg, DLF Phase 1" }
     ],
     faqs: [
@@ -52,7 +52,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dlf-phase-2": {
     name: "DLF Phase 2",
     slug: "dlf-phase-2",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "92",
@@ -86,7 +86,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dlf-phase-3": {
     name: "DLF Phase 3",
     slug: "dlf-phase-3",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "115",
@@ -120,7 +120,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dlf-phase-4": {
     name: "DLF Phase 4",
     slug: "dlf-phase-4",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "78",
@@ -137,7 +137,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Windsor Court Area"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Had a flat tyre near Galleria. Mechanic arrived within 20 minutes and fixed it.", who: "Siddharth Ray — Galleria Road, DLF Phase 4" },
+      { stars: "★★★★★", text: "Had a flat tyre near Galleria. Mechanic arrived within 45 minutes and fixed it.", who: "Siddharth Ray — Galleria Road, DLF Phase 4" },
       { stars: "★★★★★", text: "Got my Avenger serviced in my apartment lot. Zero hassle, fixed pricing.", who: "Monica Shah — Ridgewood Estate, DLF Phase 4" }
     ],
     faqs: [
@@ -154,7 +154,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dlf-phase-5": {
     name: "DLF Phase 5",
     slug: "dlf-phase-5",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "86",
@@ -176,7 +176,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Can you service high-performance bikes in DLF Phase 5?", a: "Yes, we have specialized mechanics trained for sports bikes and premium motorcycles." },
-      { q: "How long does it take for a mechanic to arrive?", a: "On average, a verified mechanic arrives within 30 minutes of booking confirmation." }
+      { q: "How long does it take for a mechanic to arrive?", a: "On average, a verified mechanic arrives within 45 minutes of booking confirmation." }
     ],
     topServices: [
       { rank: "#1 IN DLF PHASE 5", title: "Basic Service", desc: "Essential checklist check, lube and tuning for daily riders.", link: "/services/basic-service" },
@@ -188,7 +188,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sushant-lok": {
     name: "Sushant Lok",
     slug: "sushant-lok",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "112",
@@ -222,7 +222,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "golf-course-road": {
     name: "Golf Course Road",
     slug: "golf-course-road",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "132",
@@ -256,7 +256,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sohna-road": {
     name: "Sohna Road",
     slug: "sohna-road",
-    eta: "35 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "145",
@@ -273,12 +273,12 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Spaze Privy Block"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Bike stopped starting near Subhash Chowk. Mechanic was there in 30 mins and fixed a wiring fault.", who: "Dinesh Kumar — Subhash Chowk, Sohna Road" },
+      { stars: "★★★★★", text: "Bike stopped starting near Subhash Chowk. Mechanic was there in 45 min and fixed a wiring fault.", who: "Dinesh Kumar — Subhash Chowk, Sohna Road" },
       { stars: "★★★★★", text: "Very prompt service in Vatika City. Clean, transparent, and polite mechanic.", who: "Shreya Sen — Vatika City, Sohna Road" }
     ],
     faqs: [
       { q: "Do you service Sohna Road sectors up to Badshahpur?", a: "Yes, we cover all sectors along Sohna Road, including Sector 47, 48, 49, 50, and Badshahpur." },
-      { q: "What is your average arrival time on Sohna Road?", a: "A mechanic typically reaches Sohna Road locations within 35 minutes." }
+      { q: "What is your average arrival time on Sohna Road?", a: "A mechanic typically reaches Sohna Road locations within 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN SOHNA ROAD", title: "Basic Service", desc: "General tuning, brake checks, and filter cleans for daily commuters.", link: "/services/basic-service" },
@@ -290,7 +290,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "udyog-vihar": {
     name: "Udyog Vihar",
     slug: "udyog-vihar",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "98",
@@ -324,7 +324,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "dwarka-expressway": {
     name: "Dwarka Expressway",
     slug: "dwarka-expressway",
-    eta: "40 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.6",
     reviewCount: "67",
@@ -346,7 +346,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover all new sectors along Dwarka Expressway?", a: "Yes, we cover Sectors 81 through 115 along the expressway corridor." },
-      { q: "What is the average arrival time here?", a: "As it is an expanding corridor, arrival averages 40 minutes." }
+      { q: "What is the average arrival time here?", a: "As it is an expanding corridor, arrival averages 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN DWARKA EXPRESSWAY", title: "Basic Service", desc: "Spark plug, chain lubrication, and brake alignment check.", link: "/services/basic-service" },
@@ -358,7 +358,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "mg-road": {
     name: "MG Road",
     slug: "mg-road",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "82",
@@ -375,7 +375,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Maruti Vihar Block"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Scooter broke down near Sahara Mall. Mechanic arrived in 25 mins and fixed the fuse issue.", who: "Vijay Thapa — Sahara Mall Area, MG Road" },
+      { stars: "★★★★★", text: "Scooter broke down near Sahara Mall. Mechanic arrived in 45 min and fixed the fuse issue.", who: "Vijay Thapa — Sahara Mall Area, MG Road" },
       { stars: "★★★★★", text: "Got my Royal Enfield general checkup done. Efficient and clean work.", who: "Sanjay Dutta — Heritage City, MG Road" }
     ],
     faqs: [
@@ -392,7 +392,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "cyber-city": {
     name: "Cyber City",
     slug: "cyber-city",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "105",
@@ -426,7 +426,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "south-city-1": {
     name: "South City 1",
     slug: "south-city-1",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "81",
@@ -460,7 +460,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "south-city-2": {
     name: "South City 2",
     slug: "south-city-2",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "76",
@@ -477,7 +477,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "South City 2 Club Road"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Very detailed work. Service done in under 50 minutes at Block D. Smooth throttle now.", who: "Nikhil Taneja — Block D, South City 2" },
+      { stars: "★★★★★", text: "Very detailed work. Service done in under 45 minutes at Block D. Smooth throttle now.", who: "Nikhil Taneja — Block D, South City 2" },
       { stars: "★★★★★", text: "Mechanic arrived with new disc pads and replaced them in Wembley Estate. Highly convenient.", who: "Sonia Kapoor — Wembley Estate, South City 2" }
     ],
     faqs: [
@@ -494,7 +494,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "nirvana-country": {
     name: "Nirvana Country",
     slug: "nirvana-country",
-    eta: "35 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "94",
@@ -528,7 +528,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-14": {
     name: "Sector 14",
     slug: "sector-14",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "118",
@@ -546,10 +546,10 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     reviews: [
       { stars: "★★★★★", text: "Very neat work. Serviced my Jupiter in the driveway. Pre-confirmed prices on WhatsApp.", who: "Rajeev Saxena — Sector 14, Gurgaon" },
-      { stars: "★★★★★", text: "Saved me from towing. Bike broke down near Delhi road border, mechanic fixed it in 30 mins.", who: "Pawan Tyagi — Delhi Road Border, Sector 14" }
+      { stars: "★★★★★", text: "Saved me from towing. Bike broke down near Delhi road border, mechanic fixed it in 45 min.", who: "Pawan Tyagi — Delhi Road Border, Sector 14" }
     ],
     faqs: [
-      { q: "How long does a basic service take in Sector 14?", a: "It takes about 40 minutes. You can watch the process or carry on with your day." },
+      { q: "How long does a basic service take in Sector 14?", a: "It takes about 45 minutes. You can watch the process or carry on with your day." },
       { q: "What parts do you use?", a: "We use genuine or high-quality OEM parts. The cost is pre-approved by you." }
     ],
     topServices: [
@@ -562,7 +562,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-15": {
     name: "Sector 15",
     slug: "sector-15",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "89",
@@ -580,7 +580,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     reviews: [
       { stars: "★★★★★", text: "Got a basic service done in Part 2. Mechanic arrived on time and did a very clean job.", who: "Sunil Dutt — Part 2, Sector 15" },
-      { stars: "★★★★★", text: "Engine oil change done in 30 minutes in my office parking. Highly satisfied.", who: "Neha Kapur — Part 1, Sector 15" }
+      { stars: "★★★★★", text: "Engine oil change done in 45 minutes in my office parking. Highly satisfied.", who: "Neha Kapur — Part 1, Sector 15" }
     ],
     faqs: [
       { q: "Do you cover both Sector 15 Part 1 and Part 2?", a: "Yes, our mechanics cover all blocks in both parts of Sector 15." },
@@ -596,7 +596,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-17": {
     name: "Sector 17",
     slug: "sector-17",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.6",
     reviewCount: "74",
@@ -613,7 +613,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "NH-8 Service Lane"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Quick response near Sukhrali border. Mechanic fixed a minor spark plug issue in 15 mins.", who: "Gaurav Joshi — Sukhrali Border, Sector 17" },
+      { stars: "★★★★★", text: "Quick response near Sukhrali border. Mechanic fixed a minor spark plug issue in 45 min.", who: "Gaurav Joshi — Sukhrali Border, Sector 17" },
       { stars: "★★★★★", text: "Got my scooter battery replaced at home. Zero hassle, warranty card handed over.", who: "Suman Lata — Block A, Sector 17" }
     ],
     faqs: [
@@ -630,7 +630,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-23": {
     name: "Sector 23",
     slug: "sector-23",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "94",
@@ -664,7 +664,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-31": {
     name: "Sector 31",
     slug: "sector-31",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "86",
@@ -698,7 +698,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-40": {
     name: "Sector 40",
     slug: "sector-40",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.6",
     reviewCount: "72",
@@ -732,7 +732,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-45": {
     name: "Sector 45",
     slug: "sector-45",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "82",
@@ -766,7 +766,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-46": {
     name: "Sector 46",
     slug: "sector-46",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "92",
@@ -800,7 +800,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-47": {
     name: "Sector 47",
     slug: "sector-47",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.6",
     reviewCount: "68",
@@ -817,7 +817,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Sohna Road Crossing"
     ],
     reviews: [
-      { stars: "★★★★★", text: "Very prompt near Subhash Chowk. Replaced my bike clutch cable in 20 minutes.", who: "Tushar Dev — Sector 47, Gurgaon" },
+      { stars: "★★★★★", text: "Very prompt near Subhash Chowk. Replaced my bike clutch cable in 45 minutes.", who: "Tushar Dev — Sector 47, Gurgaon" },
       { stars: "★★★★★", text: "Got a basic service done for my scooter. Professional, clean, and quick.", who: "Meenakshi Dey — Block B, Sector 47" }
     ],
     faqs: [
@@ -834,7 +834,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-49": {
     name: "Sector 49",
     slug: "sector-49",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "83",
@@ -868,7 +868,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-50": {
     name: "Sector 50",
     slug: "sector-50",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "90",
@@ -902,7 +902,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-56": {
     name: "Sector 56",
     slug: "sector-56",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "96",
@@ -936,7 +936,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-57": {
     name: "Sector 57",
     slug: "sector-57",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "88",
@@ -970,7 +970,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "sector-58": {
     name: "Sector 58",
     slug: "sector-58",
-    eta: "35 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.6",
     reviewCount: "54",
@@ -992,7 +992,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you service Sector 59 and 61?", a: "Yes, our Sector 58 mobile mechanics cover Sector 57 through Sector 62." },
-      { q: "What is your average response time?", a: "Average arrival time is around 35 minutes." }
+      { q: "What is your average response time?", a: "Average arrival time is around 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN SECTOR 58", title: "Basic Service", desc: "Regular mechanical checks and minor adjustments.", link: "/services/basic-service" },
@@ -1004,7 +1004,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "ashok-vihar-phase-3": {
     name: "Ashok Vihar Phase 3",
     slug: "ashok-vihar-phase-3",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "73",
@@ -1038,7 +1038,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "huda-city-centre": {
     name: "Huda City Centre",
     slug: "huda-city-centre",
-    eta: "30 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.8",
     reviewCount: "94",
@@ -1055,7 +1055,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       "Sector 30 Crossing"
     ],
     reviews: [
-      { stars: "★★★★★", text: "My bike had a flat tire near the metro station. Mechanic arrived in 15 mins. Lifesaver.", who: "Rajat Chhabra — Metro Area, Huda City Centre" },
+      { stars: "★★★★★", text: "My bike had a flat tire near the metro station. Mechanic arrived in 45 min. Lifesaver.", who: "Rajat Chhabra — Metro Area, Huda City Centre" },
       { stars: "★★★★★", text: "Got a general service done during office hours. Very convenient.", who: "Priyansh Goel — Sector 29 Area, Huda City Centre" }
     ],
     faqs: [
@@ -1124,7 +1124,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     reviews: [
       { stars: "★★★★★", text: "Got my Splendor serviced at home in Maruti Kunj. Very prompt and professional mechanic.", who: "Hari Prakash — Maruti Kunj, Bhondsi" },
-      { stars: "★★★★★", text: "My bike broke down on Sohna road. Mechanic arrived in 40 mins and replaced the broken clutch cable.", who: "Sunil Yadav — Sohna Road, Bhondsi" }
+      { stars: "★★★★★", text: "My bike broke down on Sohna road. Mechanic arrived in 45 min and replaced the broken clutch cable.", who: "Sunil Yadav — Sohna Road, Bhondsi" }
     ],
     faqs: [
       { q: "Do you cover Maruti Kunj and BSF Camp?", a: "Yes, our Bhondsi unit covers Maruti Kunj, DHBVN colony, BSF Camp, and Naya Gaon." },
@@ -1140,7 +1140,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
   "badshahpur": {
     name: "Badshahpur",
     slug: "badshahpur",
-    eta: "35 min",
+    eta: "45 min",
     servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "79",

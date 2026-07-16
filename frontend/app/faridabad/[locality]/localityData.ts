@@ -34,7 +34,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["NIT Block 1", "NIT Block 2", "NIT Block 3", "NIT Block 5", "Near Town Park Road", "BK Chowk Stretch"],
     reviewers: [
       { name: "Varun Sharma", detail: "NIT Block 3", comment: "The mechanic changed the spark plug and tuned the carburetor of my Activa right outside my house. Very convenient." },
-      { name: "Amit Goel", detail: "Near Town Park", comment: "Fast and clear pricing. Replaced the brake shoes under 30 minutes." }
+      { name: "Amit Goel", detail: "Near Town Park", comment: "Fast and clear pricing. Replaced the brake shoes under 45 minutes." }
     ]
   },
   "sector-7": {
@@ -55,7 +55,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We offer quick doorstep repairs, bringing genuine OEM parts and diagnostic tools directly to your location.",
     societies: ["ESI Hospital Road", "Sector 8 Market Area", "Block B Residential Pockets", "Block C Gate", "Main Sector Road", "ESI Staff Quarters stretch"],
     reviewers: [
-      { name: "Pankaj Kumar", detail: "Near ESI Hospital", comment: "My bike had starting trouble in the hospital parking. FixWheel mechanic came in 25 minutes and fixed the battery cable." },
+      { name: "Pankaj Kumar", detail: "Near ESI Hospital", comment: "My bike had starting trouble in the hospital parking. FixWheel mechanic came in 45 minutes and fixed the battery cable." },
       { name: "Meena Joshi", detail: "Block B", comment: "Convenient service at my residence. Upfront billing and clean cleanup." }
     ]
   },
@@ -78,7 +78,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Block A Residential Road", "Block B Gate", "Sector 10 Market area", "Sector 10 Main Road", "Pocket C pockets", "Sector 11 Border line"],
     reviewers: [
       { name: "Tushar Gupta", detail: "Block A", comment: "Very fast service. The mechanic was well-equipped and polite." },
-      { name: "Pooja Hegde", detail: "Sector 10 Market", comment: "Clean work on my Scooty. Replaced the battery under 30 minutes." }
+      { name: "Pooja Hegde", detail: "Sector 10 Market", comment: "Clean work on my Scooty. Replaced the battery under 45 minutes." }
     ]
   },
   "sector-11": {
@@ -99,7 +99,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our rapid-response mechanics are stationed near the Court Complex to dispatch immediately to any roadside or office call.",
     societies: ["Court Complex Road", "Sector 12 Park Lane", "Town Park boundary", "Sector 12 Commercial block", "Main Bypass road stretch", "Near HUDA Office"],
     reviewers: [
-      { name: "Karan Johar", detail: "Court Complex area", comment: "Broke down near the court. Mechanic arrived in 20 minutes, repaired the accelerator cable, and got me moving." },
+      { name: "Karan Johar", detail: "Court Complex area", comment: "Broke down near the court. Mechanic arrived in 45 minutes, repaired the accelerator cable, and got me moving." },
       { name: "Anjali Gupta", detail: "Sector 12 Park", comment: "Prompt booking and good response from the technician. Highly convenient." }
     ]
   },
@@ -132,7 +132,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Get a verified mobile mechanic to service your motorcycle or scooter right in your apartment parking.",
     societies: ["Metro Hospital stretch", "QRG Hospital Road", "Sector 16 Market lane", "Block A residential pockets", "Pocket E Gate", "Sector 16 Main Avenue"],
     reviewers: [
-      { name: "Sudhir Pandey", detail: "Near Metro Hospital", comment: "Fast service during a medical emergency. The mechanic jump-started my scooter in 15 minutes." },
+      { name: "Sudhir Pandey", detail: "Near Metro Hospital", comment: "Fast service during a medical emergency. The mechanic jump-started my scooter in 45 minutes." },
       { name: "Suman Lata", detail: "Block A", comment: "Routine servicing done perfectly at home. Clean work and honest advice." }
     ]
   },
@@ -198,7 +198,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We dispatch mobile mechanics directly to your society basement, offering flat-rate pricing and standard labor guarantees.",
     societies: ["Sector 28 Metro Exit", "Sector 28 Market Lane", "Block A Residential Road", "Block B Gate", "Main Sector Road", "Near Metro Station"],
     reviewers: [
-      { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 30 minutes in the basement." },
+      { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
       { name: "Swati Roy", detail: "Sector 28 Market", comment: "Affordable service. Saved me a trip to the busy local market garages." }
     ]
   },
@@ -232,7 +232,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Sector 37 Metro Exit", "Ashoka Enclave Gate", "Sarai Border Road", "Block A Residential Road", "Block B Gate", "Main Sector Road"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   },
   "sector-46": {
@@ -308,7 +308,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We dispatch mobile mechanics directly to your location, offering flat-rate pricing and standard labor guarantees.",
     societies: ["Old Faridabad Metro Exit", "Old Faridabad Market Lane", "Block A Residential Road", "Block B Gate", "Main Sector Road", "Near Metro Station"],
     reviewers: [
-      { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 30 minutes in the basement." },
+      { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
       { name: "Swati Roy", detail: "Old Faridabad Market", comment: "Affordable service. Saved me a trip to the busy local market garages." }
     ]
   },
@@ -320,7 +320,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Ballabhgarh Bus Stand Road", "Ballabhgarh Metro Exit", "Raja Nahar Singh Palace Road", "Block A Residential Road", "Block B Gate", "Main Sector Road"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   },
   "tigaon-road": {
@@ -364,7 +364,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["BK Hospital Road", "BK Chowk Crossing Road", "Block A Residential Road", "Block B Gate", "Main Sector Road", "Near Metro Station"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   },
   "bata-chowk": {
@@ -375,7 +375,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Bata Chowk Metro Exit", "Bata Factory Road", "Bata Flyover Road", "Block A Residential Road", "Block B Gate", "Main Sector Road"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   },
   "ymca-chowk": {
@@ -386,7 +386,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["YMCA University Road", "Escorts Mujesar Metro Exit", "YMCA Crossing Road", "Block A Residential Road", "Block B Gate", "Main Sector Road"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   }
 };

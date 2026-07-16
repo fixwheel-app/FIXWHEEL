@@ -25,8 +25,8 @@ export default function HowItWorks() {
       num: "02",
       icon: <ShieldCheck className="w-8 h-8 text-[#FF6B00]" />,
       title: "Instant Confirmation",
-      desc: "We confirm your booking within 30 minutes and lock in your preferred time slot.",
-      tag: "Within 30 min",
+      desc: "We confirm your booking within 45 minutes and lock in your preferred time slot.",
+      tag: "Within 45 min",
       tagIcon: <Clock className="w-3.5 h-3.5" />,
       bgImage: null,
       bgIcon: <Clock className="w-48 h-48 text-gray-100 absolute -right-10 -bottom-10 opacity-50 pointer-events-none" />

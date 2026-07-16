@@ -54,7 +54,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our doorstep mechanics navigate the dense Kaushambi layout efficiently, arriving at your apartment or commercial unit within 45 minutes.",
     societies: ["Kaushambi Apartments", "Near Opulent Mall", "Kaushambi Metro Road", "Anand Vihar Border stretch", "Block A Residential", "Block B Residential"],
     reviewers: [
-      { name: "Manish Tiwari", detail: "Kaushambi Apartments", comment: "My scooter had a dead battery. FixWheel mechanic came in 30 minutes and replaced it with a warranty-backed battery." },
+      { name: "Manish Tiwari", detail: "Kaushambi Apartments", comment: "My scooter had a dead battery. FixWheel mechanic came in 45 minutes and replaced it with a warranty-backed battery." },
       { name: "Anita Sharma", detail: "Near Metro Station", comment: "Very clean and professional work. Got my engine oil changed without leaving home." }
     ]
   },
@@ -120,7 +120,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We service all Nyay Khand blocks with mechanics who understand the residential layout and can navigate to your exact parking spot.",
     societies: ["Nyay Khand-I", "Nyay Khand-II", "Nyay Khand-III", "Near Nyay Khand Park", "Nyay Khand Market Lane", "Nyay Khand Main Road"],
     reviewers: [
-      { name: "Saurabh Mishra", detail: "Nyay Khand-II", comment: "Battery replacement done in 20 minutes. The mechanic was already carrying the right battery size for my Honda Activa." },
+      { name: "Saurabh Mishra", detail: "Nyay Khand-II", comment: "Battery replacement done in 45 minutes. The mechanic was already carrying the right battery size for my Honda Activa." },
       { name: "Meenakshi Rao", detail: "Nyay Khand-I", comment: "Quick puncture repair during rain. Appreciated the mechanic's dedication." }
     ]
   },
@@ -131,7 +131,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our mechanics provide emergency roadside repair on the NH-24 stretch and doorstep service within Shakti Khand residential blocks.",
     societies: ["Shakti Khand-I", "Shakti Khand-II", "Shakti Khand-III", "Shakti Khand-IV", "Near NH-24 Exit", "Shakti Khand Market Area"],
     reviewers: [
-      { name: "Karan Malhotra", detail: "Shakti Khand-III", comment: "Emergency clutch cable replacement near NH-24. The mechanic reached in 25 minutes despite heavy traffic." },
+      { name: "Karan Malhotra", detail: "Shakti Khand-III", comment: "Emergency clutch cable replacement near NH-24. The mechanic reached in 45 minutes despite heavy traffic." },
       { name: "Sunita Devi", detail: "Shakti Khand-I", comment: "Regular servicing at home for my Scooty Zest. Very reliable and consistent service quality." }
     ]
   },
@@ -208,7 +208,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We offer doorstep repairs that eliminate the need to navigate GT Road traffic just to get your bike serviced.",
     societies: ["Vijay Nagar Colony Block A", "Block B Residential", "Near Vijay Nagar Market", "GT Road Adjacent Lane", "Colony Park Area", "Back Lane Stretch"],
     reviewers: [
-      { name: "Arvind Gupta", detail: "Block A", comment: "Saved me from GT Road traffic hell. The mechanic did a complete engine oil change at my home in 30 minutes." },
+      { name: "Arvind Gupta", detail: "Block A", comment: "Saved me from GT Road traffic hell. The mechanic did a complete engine oil change at my home in 45 minutes." },
       { name: "Preeti Saxena", detail: "Block B", comment: "Quick brake adjustment and chain lube. Very efficient and polite mechanic." }
     ]
   },
@@ -274,7 +274,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We specialize in highway breakdown recovery along the NH-24 corridor with rapid-response mechanics stationed at key exits.",
     societies: ["NH-24 Service Road", "Indirapuram NH-24 Exit", "Vaishali NH-24 Exit", "Crossing Republik NH-24 Exit", "Near Toll Plaza", "Hindon Elevated Road Junction"],
     reviewers: [
-      { name: "Prashant Kumar", detail: "Near Toll Plaza", comment: "Flat tyre on NH-24 during rush hour. FixWheel mechanic reached in 20 minutes from the nearest exit. Lifesaver." },
+      { name: "Prashant Kumar", detail: "Near Toll Plaza", comment: "Flat tyre on NH-24 during rush hour. FixWheel mechanic reached in 45 minutes from the nearest exit. Lifesaver." },
       { name: "Kavya Srivastava", detail: "Service Road", comment: "Engine stalled on the highway. Professional rescue and repair on the spot." }
     ]
   },

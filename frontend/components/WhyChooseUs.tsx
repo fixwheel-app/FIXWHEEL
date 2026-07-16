@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
     {
       icon: <Zap className="w-5 h-5 md:w-6 md:h-6 text-accent" />,
       title: "30-Min Response",
-      desc: "We prioritize your time and ensure we call and confirm your booking slot within 30 minutes guaranteed."
+      desc: "We prioritize your time and ensure we call and confirm your booking slot within 45 minutes guaranteed."
     }
   ];
 

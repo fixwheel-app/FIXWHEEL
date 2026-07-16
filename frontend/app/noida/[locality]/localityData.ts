@@ -33,7 +33,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our mechanics coordinate directly with your office parking or commercial block. We handle minor adjustments, battery jumps, and standard oil service on the spot while you attend to your work or shopping.",
     societies: ["Atta Market Lane", "Radisson Hotel Area", "Sector 18 Metro Exit", "Wave Mall Parking Side", "Block E Commercial Area", "Multi-level Parking Stretch"],
     reviewers: [
-      { name: "Varun Malhotra", detail: "Wave Mall area", comment: "My Duke wouldn't start in the basement parking. The mechanic arrived within 30 minutes, diagnosed a loose spark plug cap, and fixed it instantly." },
+      { name: "Varun Malhotra", detail: "Wave Mall area", comment: "My Duke wouldn't start in the basement parking. The mechanic arrived within 45 minutes, diagnosed a loose spark plug cap, and fixed it instantly." },
       { name: "Amit Kumar", detail: "Atta Market parking", comment: "Fast brake cable tightening service during my office hours. Very affordable." }
     ]
   },
@@ -55,7 +55,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our doorstep mechanics are locally stationed to navigate Sector 27 easily, bringing full service kits to your residence.",
     societies: ["Kailash Hospital road", "Block B Residential Pockets", "Cambridge School stretch", "Pocket E Gate", "Sector 27 Main Avenue", "Near Indira Gandhi Eye Care"],
     reviewers: [
-      { name: "Siddharth Goel", detail: "Near Kailash Hospital", comment: "My bike broke down right outside the hospital. FixWheel technician was there in 25 minutes and fixed the wiring issue on the spot." },
+      { name: "Siddharth Goel", detail: "Near Kailash Hospital", comment: "My bike broke down right outside the hospital. FixWheel technician was there in 45 minutes and fixed the wiring issue on the spot." },
       { name: "Neeta Singh", detail: "Block B", comment: "Got my Jupiter serviced at home. No mess, clean work, and prompt response." }
     ]
   },
@@ -78,7 +78,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Army Public School road", "Sector 37 Bus Stand stretch", "Golf Course Metro Exit", "Block A residential pockets", "Amrapali Road junction", "Subhash Park lane"],
     reviewers: [
       { name: "Tushar Anand", detail: "Near Metro Station", comment: "Got a flat tyre fixed near the metro station. The service was fast and the pricing was very transparent." },
-      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 30 minutes." }
+      { name: "Ritu Sharma", detail: "Block A", comment: "Clean work on my Scooty. Replaced the battery at home under 45 minutes." }
     ]
   },
   "sector-44": {
@@ -100,7 +100,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Ramagya School road", "Meghdoolam Park Lane", "Sector 50 Market stretch", "Block A Villa Pockets", "Block F Residential Gate", "Omaxe Twin Towers side"],
     reviewers: [
       { name: "Karan Johar", detail: "Omaxe Twin Towers", comment: "The mechanic did a great job in the basement. Brought all tools and cleaned the workspace afterward." },
-      { name: "Anjali Gupta", detail: "Block A", comment: "Very convenient. I booked online and they came within 40 minutes to fix my Activa's brakes." }
+      { name: "Anjali Gupta", detail: "Block A", comment: "Very convenient. I booked online and they came within 45 minutes to fix my Activa's brakes." }
     ]
   },
   "sector-51": {
@@ -110,7 +110,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Get your two-wheeler serviced at your convenience in the society parking lot while you focus on your day.",
     societies: ["Kendriya Vihar Gate", "Sector 51 Metro Area", "Block F Pockets", "Block B Residential Avenue", "Noida Authority office stretch", "Shiva Temple lane"],
     reviewers: [
-      { name: "Pankaj Tripathi", detail: "Kendriya Vihar", comment: "Excellent home service. The mechanic changed the spark plug and cleaned the carburetor in under 40 minutes." },
+      { name: "Pankaj Tripathi", detail: "Kendriya Vihar", comment: "Excellent home service. The mechanic changed the spark plug and cleaned the carburetor in under 45 minutes." },
       { name: "Jyoti Rai", detail: "Block F", comment: "Fair pricing and prompt delivery. Recommended for everyone in Sector 51." }
     ]
   },
@@ -122,7 +122,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Shatabdi Vihar pockets", "Sector 52 Metro Station area", "Aravali Apartments gate", "Block D Residential", "Gijhore border stretch", "Sector 52 Main Road"],
     reviewers: [
       { name: "Manish Mishra", detail: "Shatabdi Vihar", comment: "Got my Pulsar serviced. Engine oil change and drum brake adjustment were done quickly. Great value." },
-      { name: "Rajesh K.", detail: "Aravali Apartments", comment: "The mechanic was very skilled and resolved the self-start issue in 20 minutes." }
+      { name: "Rajesh K.", detail: "Aravali Apartments", comment: "The mechanic was very skilled and resolved the self-start issue in 45 minutes." }
     ]
   },
   "sector-55": {
@@ -143,7 +143,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
     societies: ["DAV School road", "Metro Hospital stretch", "Sector 56 Market area", "Block B residential gate", "Block F pockets", "Devi Mandir road"],
     reviewers: [
-      { name: "Sudhir Pandey", detail: "Near Metro Hospital", comment: "Fast service during a medical emergency. The mechanic jump-started my scooter in 15 minutes." },
+      { name: "Sudhir Pandey", detail: "Near Metro Hospital", comment: "Fast service during a medical emergency. The mechanic jump-started my scooter in 45 minutes." },
       { name: "Suman Lata", detail: "Block B", comment: "Routine servicing done perfectly at home. Clean work and honest advice." }
     ]
   },
@@ -187,7 +187,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We provide verified, fully trained technicians to handle repairs right inside your society premises.",
     societies: ["Amrapali Princely Estate basement", "Aditya Celebrity Homes parking", "Skytech Matrott gate", "Block A Residential Road", "Sethis Max Royal entrance", "Sector 76 Market road"],
     reviewers: [
-      { name: "Rishabh Pant", detail: "Amrapali Princely", comment: "My scooter wouldn't start on Monday morning. FixWheel mechanic arrived in 25 minutes and changed the spark plug. Lifesaver!" },
+      { name: "Rishabh Pant", detail: "Amrapali Princely", comment: "My scooter wouldn't start on Monday morning. FixWheel mechanic arrived in 45 minutes and changed the spark plug. Lifesaver!" },
       { name: "Divya Teja", detail: "Aditya Celebrity Homes", comment: "Polite mechanics, genuine engine oil, and transparent pricing." }
     ]
   },
@@ -209,7 +209,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We dispatch mobile mechanics directly to your society basement, offering flat-rate pricing and standard labor guarantees.",
     societies: ["Mahagun Moderne basement", "Hyde Park gate", "Sector 78 Metro Exit", "The IITL Nimbus Hyde Park", "Mahagun Mezzaria entrance", "Sector 78 Commercial Zone"],
     reviewers: [
-      { name: "Alok Nath", detail: "Mahagun Moderne", comment: "Quick brake pad replacement and checkup. Done in under 30 minutes in the basement." },
+      { name: "Alok Nath", detail: "Mahagun Moderne", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
       { name: "Swati Roy", detail: "Hyde Park", comment: "Affordable service. Saved me a trip to the busy Sector 110 market." }
     ]
   },
@@ -239,7 +239,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 110",
     landmarks: ["Lotus Panache", "Sector 110 Market", "Kendriya Vihar II"],
     description: "Sector 110 is a major residential hub with a crowded local commercial market. Waiting at local workshops here is highly exhausting.",
-    whyChoose: "Our mobile mechanics are stationed locally to reach Sector 110 societies under 30 minutes, delivering high-standard servicing.",
+    whyChoose: "Our mobile mechanics are stationed locally to reach Sector 110 societies under 45 minutes, delivering high-standard servicing.",
     societies: ["Lotus Panache Gate", "Sector 110 Main Market", "Kendriya Vihar II entry", "Block A Residential", "Sector 110 Green Park Lane", "Near Noida Expressway Exit"],
     reviewers: [
       { name: "Suresh Raina", detail: "Lotus Panache", comment: "My bike had a self-start issue. The mechanic solved it quickly by replacing a fuse. Honest charging." },
@@ -264,7 +264,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We service your vehicle in the institutional parking or corporate basement, getting you back on track without downtime.",
     societies: ["Amity University Gate 1 & 2", "HCL Campus Area", "DND Expressway exit", "Sector 125 Commercial Pockets", "Advant Navis border", "Near Yamuna River belt"],
     reviewers: [
-      { name: "Shubham Gill", detail: "Amity Campus", comment: "Broke down near the campus. Mechanic arrived in 20 minutes, repaired the accelerator cable, and got me moving." },
+      { name: "Shubham Gill", detail: "Amity Campus", comment: "Broke down near the campus. Mechanic arrived in 45 minutes, repaired the accelerator cable, and got me moving." },
       { name: "Kirti Roy", detail: "HCL Tech Park", comment: "Convenient service while I was working. Fully recommended." }
     ]
   },
@@ -297,7 +297,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We provide quick doorstep repairs in school and corporate parking slots, keeping your commute hassle-free.",
     societies: ["Genesis Global School road", "Step by Step School Lane", "Express Trade Towers parking", "Sector 132 institutional block", "Noida Expressway stretch", "Logix Technova area"],
     reviewers: [
-      { name: "Ajinkya Rahane", detail: "Express Trade Towers", comment: "Excellent quick repair. The mechanic arrived within 30 minutes to replace my bike's battery." },
+      { name: "Ajinkya Rahane", detail: "Express Trade Towers", comment: "Excellent quick repair. The mechanic arrived within 45 minutes to replace my bike's battery." },
       { name: "Preeti Verma", detail: "Genesis School Area", comment: "Highly professional service, clear billing, and very reliable." }
     ]
   },
@@ -363,7 +363,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "We offer budget-friendly, transparent doorstep repairs directly in university hosteling areas or college parking lots.",
     societies: ["Galgotias University parking", "Sharda University campus", "Knowledge Park II Metro exit", "G L Bajaj campus stretch", "ITS College area", "Knowledge Park III enclaves"],
     reviewers: [
-      { name: "Aryan Khan", detail: "Galgotias Hostel", comment: "My bike had a starting trouble in the hostel parking. FixWheel mechanic came in 30 mins and fixed the battery terminal. Cheap and fast!" },
+      { name: "Aryan Khan", detail: "Galgotias Hostel", comment: "My bike had a starting trouble in the hostel parking. FixWheel mechanic came in 45 min and fixed the battery terminal. Cheap and fast!" },
       { name: "Ananya Sen", detail: "Sharda University", comment: "Clean work on my Scooty Pep. Replaced the brake cable in the campus parking." }
     ]
   },
@@ -385,7 +385,7 @@ const RAW_LOCALITY_META: Record<
     whyChoose: "Our doorstep mechanics are dispatched to your precise location, carrying all tools and genuine parts to fix your vehicle on-site.",
     societies: ["Alpha 2 Main Market lane", "Ryan International road", "Block G Residential Gate", "Block I pockets", "Greater Noida Authority office area", "Sector Delta border"],
     reviewers: [
-      { name: "Devendra Singh", detail: "Block G", comment: "Excellent local service. The mechanic cleaned the spark plug and tuned the carburetor in 30 minutes." },
+      { name: "Devendra Singh", detail: "Block G", comment: "Excellent local service. The mechanic cleaned the spark plug and tuned the carburetor in 45 minutes." },
       { name: "Sunita Verma", detail: "Alpha 2 Market", comment: "No hidden charges. Replaced my scooter's clutch cable directly at the parking spot." }
     ]
   },
@@ -419,7 +419,7 @@ const RAW_LOCALITY_META: Record<
     societies: ["Amrapali Centurian Park basement", "Gaur City 2 blocks", "Techzone 4 Commercial stretch", "Supertech Eco Valley side", "Cherry County border", "Techzone IV main avenue"],
     reviewers: [
       { name: "Krunal Pandya", detail: "Centurian Park", comment: "Quick brake shoe replacement in the basement. The mechanic was well-behaved and efficient." },
-      { name: "Neha Kakkar", detail: "Gaur City 2", comment: "Excellent response. Fixed the starting trouble of my scooty within 35 minutes." }
+      { name: "Neha Kakkar", detail: "Gaur City 2", comment: "Excellent response. Fixed the starting trouble of my scooty within 45 minutes." }
     ]
   },
   "noida-extension": {

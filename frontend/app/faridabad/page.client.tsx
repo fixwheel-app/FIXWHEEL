@@ -646,12 +646,12 @@ export default function FaridabadClientPage() {
           <div className="review-grid">
             <div className="review">
               <div className="stars">★★★★★</div>
-              <p>"Excellent experience in Sector 15. The mechanic coordinate with my society guard and finished the basic service in the driveway under 40 minutes. Clean and hassle-free."</p>
+              <p>"Excellent experience in Sector 15. The mechanic coordinate with my society guard and finished the basic service in the driveway under 45 minutes. Clean and hassle-free."</p>
               <div className="who">Abhishek M. — Sector 15</div>
             </div>
             <div className="review">
               <div className="stars">★★★★★</div>
-              <p>"My Pulsar broke down near Bata Chowk during the rush hour. The emergency roadside assistance mechanic was there in 30 minutes, changed the clutch cable, and got me moving."</p>
+              <p>"My Pulsar broke down near Bata Chowk during the rush hour. The emergency roadside assistance mechanic was there in 45 minutes, changed the clutch cable, and got me moving."</p>
               <div className="who">Rohit S. — Bata Chowk</div>
             </div>
             <div className="review">

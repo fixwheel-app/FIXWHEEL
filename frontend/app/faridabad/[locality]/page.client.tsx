@@ -30,8 +30,54 @@ interface LocalityClientProps {
   slug: string;
 }
 
+function getDeterministicTicketDetails(localityName: string, slug: string, servicePrice: string, eta: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = slug.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  hash = Math.abs(hash);
+
+  const bookingIdNum = 1000 + (hash % 150);
+  const bookingId = `FW-FBD-${bookingIdNum}`;
+
+  const services = [
+    "Basic Service",
+    "Engine Oil Change",
+    "Brake Replacement",
+    "Comprehensive Service",
+    "Battery Replacement"
+  ];
+  const service = services[hash % services.length];
+
+  const models = [
+    "Honda Activa",
+    "Royal Enfield Classic 350",
+    "TVS Jupiter",
+    "Hero Splendor Plus",
+    "Bajaj Pulsar 150",
+    "Yamaha FZ",
+    "Suzuki Access 125"
+  ];
+  const model = models[hash % models.length];
+
+  let price = parseInt(servicePrice) || 499;
+  if (service === "Engine Oil Change") price = 999;
+  if (service === "Battery Replacement") price = 99;
+  if (service === "Comprehensive Service") price = 1499;
+
+  return {
+    bookingId,
+    service,
+    model,
+    price: `₹${price}`,
+    location: localityName,
+    eta
+  };
+}
+
 export default function FaridabadLocalityClientPage({ slug }: LocalityClientProps) {
   const data = LOCALITY_DB[slug];
+  const ticket = data ? getDeterministicTicketDetails(data.name, slug, data.servicePrice, data.eta) : null;
 
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
     0: true, // First one open by default
@@ -150,29 +196,46 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         .${slug}-scope .hero p.lead { font-size: 16.5px; color: var(--ink-dim); max-width: 500px; margin-bottom: 28px; }
         .${slug}-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
-        /* live dispatch card */
-        .${slug}-scope .live-card { background: var(--paper); color: var(--ink-dark); border-radius: 6px; padding: 24px 26px 22px; position: relative; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
-        .${slug}-scope .live-card::before, .${slug}-scope .live-card::after { content: ""; position: absolute; width: 22px; height: 22px; background: var(--bg); border-radius: 50%; top: 50%; transform: translateY(-50%); }
-        .${slug}-scope .live-card::before { left: -11px; }
-        .${slug}-scope .live-card::after { right: -11px; }
-        .${slug}-scope .live-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--line-paper); padding-bottom: 14px; margin-bottom: 16px; }
-        .${slug}-scope .live-top .lt-label { font-family: var(--font-jetbrains); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6455; }
-        .${slug}-scope .live-dot { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-jetbrains); font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--live); }
-        .${slug}-scope .live-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 0 rgba(56,178,106,.6); animation: ${slug}-pulse 1.8s infinite; }
-        
-        @keyframes ${slug}-pulse {
-          0% { box-shadow: 0 0 0 0 rgba(56,178,106,.5); }
-          70% { box-shadow: 0 0 0 8px rgba(56,178,106,0); }
-          100% { box-shadow: 0 0 0 0 rgba(56,178,106,0); }
+        /* ticket mock */
+        .${slug}-scope .ticket {
+          background: var(--paper);
+          color: var(--ink-dark);
+          border-radius: 6px;
+          padding: 26px 28px 22px;
+          position: relative;
+          box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
         }
-
-        .${slug}-scope .mech-row { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line-paper); }
-        .${slug}-scope .mech-row:last-of-type { border-bottom: none; }
-        .${slug}-scope .mech-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--ink-dark); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--font-oswald); font-weight: 600; font-size: 14px; flex-shrink: 0; }
-        .${slug}-scope .mech-info b { display: block; font-size: 14px; }
-        .${slug}-scope .mech-info span { font-size: 11.5px; color: #8a836f; font-family: var(--font-jetbrains); }
-        .${slug}-scope .mech-eta { margin-left: auto; text-align: right; font-family: var(--font-jetbrains); font-size: 12px; font-weight: 700; color: var(--accent-dim); }
-        .${slug}-scope .mech-eta span { display: block; font-size: 10px; color: #8a836f; font-weight: 400; text-transform: uppercase; }
+        .${slug}-scope .ticket::before, .${slug}-scope .ticket::after {
+          content: "";
+          position: absolute;
+          width: 22px; height: 22px;
+          background: var(--bg);
+          border-radius: 50%;
+          top: 50%; transform: translateY(-50%);
+        }
+        .${slug}-scope .ticket::before { left: -11px; }
+        .${slug}-scope .ticket::after { right: -11px; }
+        .${slug}-scope .ticket-top {
+          display: flex; justify-content: space-between; align-items: flex-start;
+          border-bottom: 1px dashed var(--line-paper);
+          padding-bottom: 14px; margin-bottom: 14px;
+        }
+        .${slug}-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
+        .${slug}-scope .ticket-id span { display: block; font-size: 10px; color: #7a7364; letter-spacing: 0.1em; margin-top: 2px; font-weight: 400;}
+        .${slug}-scope .ticket-status {
+          font-family: var(--font-jetbrains); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+          background: var(--stamp); color: #3a2c00; padding: 5px 10px; border-radius: 20px; font-weight: 700;
+          transform: rotate(2deg);
+        }
+        .${slug}-scope .ticket-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-bottom: 16px;}
+        .${slug}-scope .ticket-rows .r label { display: block; font-family: var(--font-jetbrains); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8a836f; margin-bottom: 3px;}
+        .${slug}-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
+        .${slug}-scope .ticket-foot {
+          display: flex; justify-content: space-between; align-items: center;
+          border-top: 1px dashed var(--line-paper); padding-top: 14px;
+        }
+        .${slug}-scope .ticket-foot .total b { font-size: 20px; }
+        .${slug}-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line); }
         .${slug}-scope .section-head { max-width: 640px; margin-bottom: 40px; }
@@ -304,24 +367,26 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          <div className="live-card">
-            <div className="live-top">
-              <span className="lt-label">Service Snapshot · {data.name}</span>
-              <span className="live-dot">Live Dispatch</span>
+          {ticket && (
+            <div className="ticket">
+              <div className="ticket-top">
+                <div className="ticket-id">{ticket.bookingId}<span>SERVICE DETAILS</span></div>
+                <div className="ticket-status">Completed ✓</div>
+              </div>
+              <div className="ticket-rows">
+                <div className="r"><label>Service</label><div>{ticket.service}</div></div>
+                <div className="r"><label>Model</label><div>{ticket.model}</div></div>
+                <div className="r"><label>Location</label><div>{ticket.location}</div></div>
+                <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
+                <div className="r"><label>Warranty</label><div>15 days</div></div>
+                <div className="r"><label>Response</label><div>{ticket.eta}</div></div>
+              </div>
+              <div className="ticket-foot">
+                <div className="total"><span>Total paid</span><b>{ticket.price}</b></div>
+                <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>FARIDABAD · NCR</div>
+              </div>
             </div>
-            <div className="mech-row">
-              <div className="mech-info"><b>Avg. arrival time</b><span>Global average</span></div>
-              <div className="mech-eta">45 min</div>
-            </div>
-            <div className="mech-row">
-              <div className="mech-info"><b>Mechanics</b><span>Verified & background-checked</span></div>
-              <div className="mech-eta">✓</div>
-            </div>
-            <div className="mech-row">
-              <div className="mech-info"><b>Rider rating</b><span>Overall rating</span></div>
-              <div className="mech-eta">4.7★</div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 

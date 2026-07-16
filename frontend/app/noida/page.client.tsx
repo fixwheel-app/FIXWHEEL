@@ -655,7 +655,7 @@ export default function NoidaClientPage() {
             </div>
             <div className="review">
               <div className="stars">★★★★★</div>
-              <p>"My Royal Enfield Bullet broke down near Noida Sector 62. The roadside assistance mechanic was there in 35 minutes, cleaned the carburetor on the spot, and got it started. Highly recommended!"</p>
+              <p>"My Royal Enfield Bullet broke down near Noida Sector 62. The roadside assistance mechanic was there in 45 minutes, cleaned the carburetor on the spot, and got it started. Highly recommended!"</p>
               <div className="who">Vikram S. — Sector 62</div>
             </div>
             <div className="review">

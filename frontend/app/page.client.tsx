@@ -21,7 +21,7 @@ export default function Home() {
 
   const steps = [
     { num: 1, icon: <Step1Icon />, title: "Book Online",           desc: "Choose your service package and enter your details in under 60 seconds." },
-    { num: 2, icon: <Step2Icon />, title: "Booking Confirmed",  desc: "We confirm your booking within 30 minutes and secure your preferred time slot." },
+    { num: 2, icon: <Step2Icon />, title: "Booking Confirmed",  desc: "We confirm your booking within 45 minutes and secure your preferred time slot." },
     { num: 3, icon: <Step3Icon />, title: "Mechanic Assigned",    desc: "We assign a certified mechanic near your location to your booking." },
     { num: 4, icon: <Step4Icon />, title: "Mechanic Arrives",      desc: "Your mechanic arrives at your doorstep with the right tools and equipment." },
     { num: 5, icon: <Step5Icon />, title: "Repair Done",           desc: "We service your bike on the spot. Watch the process or step away — your call." },
@@ -215,7 +215,7 @@ export default function Home() {
             >
               <span className="bg-gradient-to-b from-[#ff4d4d] to-[#e40521] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(230,43,43,0.3)] relative z-10">Mechanic</span>
               <span className="text-white relative z-10">At Your Doorstep</span>
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">In 30 Minutes.</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">In 45 minutes.</span>
             </motion.h1>
 
             {/* Subtext */}

@@ -384,33 +384,33 @@ export default function DelhiClientPage() {
             <p>We currently serve South and South-West Delhi. Our mechanics are stationed across these localities and can usually reach you within 45 minutes.</p>
           </div>
           <div className="area-grid">
-            <Link href="/services/delhi/dwarka" className="area-tag">📍 Dwarka</Link>
-            <Link href="/services/delhi/kapashera" className="area-tag">📍 Kapashera</Link>
-            <Link href="/services/delhi/vasant-kunj" className="area-tag">📍 Vasant Kunj</Link>
-            <Link href="/services/delhi/janakpuri" className="area-tag">📍 Janakpuri</Link>
-            <Link href="/services/delhi/bijwasan" className="area-tag">📍 Bijwasan</Link>
-            <Link href="/services/delhi/mahipalpur" className="area-tag">📍 Mahipalpur</Link>
-            <Link href="/services/delhi/palam" className="area-tag">📍 Palam</Link>
-            <Link href="/services/delhi/hari-nagar" className="area-tag">📍 Hari Nagar</Link>
-            <Link href="/services/delhi/najafgarh-road" className="area-tag">📍 Najafgarh Road</Link>
-            <Link href="/services/delhi/rangpuri" className="area-tag">📍 Rangpuri</Link>
-            <Link href="/services/delhi/samalka" className="area-tag">📍 Samalka</Link>
-            <Link href="/services/delhi/uttam-nagar" className="area-tag">📍 Uttam Nagar</Link>
-            <Link href="/services/delhi/rajouri-garden" className="area-tag">📍 Rajouri Garden</Link>
-            <Link href="/services/delhi/tilak-nagar" className="area-tag">📍 Tilak Nagar</Link>
-            <Link href="/services/delhi/vikaspuri" className="area-tag">📍 Vikaspuri</Link>
-            <Link href="/services/delhi/paschim-vihar" className="area-tag">📍 Paschim Vihar</Link>
-            <Link href="/services/delhi/punjabi-bagh" className="area-tag">📍 Punjabi Bagh</Link>
-            <Link href="/services/delhi/dabri" className="area-tag">📍 Dabri</Link>
-            <Link href="/services/delhi/bindapur" className="area-tag">📍 Bindapur</Link>
-            <Link href="/services/delhi/nawada" className="area-tag">📍 Nawada</Link>
-            <Link href="/services/delhi/nihal-vihar" className="area-tag">📍 Nihal Vihar</Link>
-            <Link href="/services/delhi/subhash-nagar" className="area-tag">📍 Subhash Nagar</Link>
-            <Link href="/services/delhi/ashok-vihar" className="area-tag">📍 Ashok Vihar</Link>
-            <Link href="/services/delhi/pitampura" className="area-tag">📍 Pitampura</Link>
-            <Link href="/services/delhi/rohini" className="area-tag">📍 Rohini</Link>
-            <Link href="/services/delhi/shalimar-bagh" className="area-tag">📍 Shalimar Bagh</Link>
-            <Link href="/services/delhi/kirti-nagar" className="area-tag">📍 Kirti Nagar</Link>
+            <Link href="/delhi/dwarka" className="area-tag">📍 Dwarka</Link>
+            <Link href="/delhi/kapashera" className="area-tag">📍 Kapashera</Link>
+            <Link href="/delhi/vasant-kunj" className="area-tag">📍 Vasant Kunj</Link>
+            <Link href="/delhi/janakpuri" className="area-tag">📍 Janakpuri</Link>
+            <Link href="/delhi/bijwasan" className="area-tag">📍 Bijwasan</Link>
+            <Link href="/delhi/mahipalpur" className="area-tag">📍 Mahipalpur</Link>
+            <Link href="/delhi/palam" className="area-tag">📍 Palam</Link>
+            <Link href="/delhi/hari-nagar" className="area-tag">📍 Hari Nagar</Link>
+            <Link href="/delhi/najafgarh-road" className="area-tag">📍 Najafgarh Road</Link>
+            <Link href="/delhi/rangpuri" className="area-tag">📍 Rangpuri</Link>
+            <Link href="/delhi/samalka" className="area-tag">📍 Samalka</Link>
+            <Link href="/delhi/uttam-nagar" className="area-tag">📍 Uttam Nagar</Link>
+            <Link href="/delhi/rajouri-garden" className="area-tag">📍 Rajouri Garden</Link>
+            <Link href="/delhi/tilak-nagar" className="area-tag">📍 Tilak Nagar</Link>
+            <Link href="/delhi/vikaspuri" className="area-tag">📍 Vikaspuri</Link>
+            <Link href="/delhi/paschim-vihar" className="area-tag">📍 Paschim Vihar</Link>
+            <Link href="/delhi/punjabi-bagh" className="area-tag">📍 Punjabi Bagh</Link>
+            <Link href="/delhi/dabri" className="area-tag">📍 Dabri</Link>
+            <Link href="/delhi/bindapur" className="area-tag">📍 Bindapur</Link>
+            <Link href="/delhi/nawada" className="area-tag">📍 Nawada</Link>
+            <Link href="/delhi/nihal-vihar" className="area-tag">📍 Nihal Vihar</Link>
+            <Link href="/delhi/subhash-nagar" className="area-tag">📍 Subhash Nagar</Link>
+            <Link href="/delhi/ashok-vihar" className="area-tag">📍 Ashok Vihar</Link>
+            <Link href="/delhi/pitampura" className="area-tag">📍 Pitampura</Link>
+            <Link href="/delhi/rohini" className="area-tag">📍 Rohini</Link>
+            <Link href="/delhi/shalimar-bagh" className="area-tag">📍 Shalimar Bagh</Link>
+            <Link href="/delhi/kirti-nagar" className="area-tag">📍 Kirti Nagar</Link>
             <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + Expanding across Delhi</span>
           </div>
         </div>
@@ -634,12 +634,12 @@ export default function DelhiClientPage() {
           <div className="review-grid">
             <div className="review">
               <div className="stars">★★★★★</div>
-              <p>"Puncture at 10 PM near Dwarka Mor. Called FixWheel, mechanic was there in 30 minutes. Sorted and back on the road."</p>
+              <p>"Puncture at 10 PM near Dwarka Mor. Called FixWheel, mechanic was there in 45 minutes. Sorted and back on the road."</p>
               <div className="who">Ankit R. — Dwarka</div>
             </div>
             <div className="review">
               <div className="stars">★★★★★</div>
-              <p>"Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 40 minutes. Price was exactly what they quoted."</p>
+              <p>"Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted."</p>
               <div className="who">Deepak M. — Janakpuri</div>
             </div>
             <div className="review">

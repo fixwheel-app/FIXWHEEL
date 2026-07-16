@@ -38,7 +38,7 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
   hash = Math.abs(hash);
 
   const bookingIdNum = 1000 + (hash % 150);
-  const bookingId = `FW-GZB-${bookingIdNum}`;
+  const bookingId = `FW-DL-${bookingIdNum}`;
 
   const services = [
     "Basic Service",
@@ -75,10 +75,10 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
   };
 }
 
-export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProps) {
+export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
   const data = LOCALITY_DB[slug];
   const ticket = data ? getDeterministicTicketDetails(data.name, slug, data.servicePrice, data.eta) : null;
-
+  
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
     0: true, // First one open by default
   });
@@ -94,12 +94,12 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
     return (
       <div style={{ padding: "80px 24px", textAlign: "center", color: "#EDEAE2", background: "#17181A", minHeight: "100vh" }}>
         <h2>Locality not found</h2>
-        <p style={{ marginTop: "12px" }}><Link href="/ghaziabad" style={{ color: "#E62B2B" }}>Return to Ghaziabad All Coverage →</Link></p>
+        <p style={{ marginTop: "12px" }}><Link href="/services/delhi" style={{ color: "#E62B2B" }}>Return to Delhi All Coverage →</Link></p>
       </div>
     );
   }
 
-  // Interlinking: List other key localities in Ghaziabad
+  // Interlinking: List other key localities in Delhi
   const otherSlugs = Object.keys(LOCALITY_DB).filter((k) => k !== slug).slice(0, 5);
 
   const whyCards = getWhyChooseCards(data.name);
@@ -326,6 +326,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           .${slug}-scope .why-grid { grid-template-columns: repeat(2, 1fr); }
           .${slug}-scope .steps { grid-template-columns: repeat(2, 1fr); }
           .${slug}-scope .partner { grid-template-columns: 1fr; }
+          .${slug}-scope .mech-grid { grid-template-columns: 1fr; }
           .${slug}-scope .review-grid { grid-template-columns: 1fr; }
         }
 
@@ -350,7 +351,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         <div className="wrap">
           <Link href="/">Home</Link>
           <span className="sep">/</span>
-          <Link href="/ghaziabad">Ghaziabad</Link>
+          <Link href="/services/delhi">Delhi</Link>
           <span className="sep">/</span>
           <span className="current">{data.name}</span>
         </div>
@@ -383,7 +384,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
               </div>
               <div className="ticket-foot">
                 <div className="total"><span>Total paid</span><b>{ticket.price}</b></div>
-                <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>GHAZIABAD · NCR</div>
+                <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>DELHI · NCR</div>
               </div>
             </div>
           )}
@@ -395,7 +396,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           <div className="section-head">
             <div className="eyebrow">{data.name}</div>
             <h2>Doorstep Repair in {data.name}</h2>
-            <p>{getIntroParagraph(data.name, "Ghaziabad")}</p>
+            <p>{getIntroParagraph(data.name, "Delhi")}</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
@@ -461,52 +462,95 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           <div className="section-head">
             <div className="eyebrow">Coverage</div>
             <h2>{getCoverageTitle(data.name)}</h2>
-            <p>This is the street-level detail we don&apos;t repeat on the main Ghaziabad page — because it only matters if you actually live or ride here.</p>
+            <p>This is the street-level detail we don't repeat on the main Delhi page — because it only matters if you actually live or ride here.</p>
           </div>
           <div className="street-board">
-            {data.coveragePoints.map((point, idx) => (
-              <div key={idx} className="street-cell">
-                <span className="pin">📍</span>{point}
-              </div>
+            {data.coveragePoints.map((pt, idx) => (
+              <div key={idx} className="street-cell"><span className="pin">📍</span>{pt}</div>
             ))}
           </div>
+          <p className="street-note">Don't see your exact street? We still reach it — <Link href="/book">book anyway</Link> and share your location.</p>
         </div>
       </section>
 
       <section className="section-alt">
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">Services</div>
-            <h2>Top doorstep service packages in {data.name}</h2>
-            <p>Flat-rate mechanical services handled directly at your residence.</p>
+            <div className="eyebrow">Most booked in {data.name}</div>
+            <h2>What riders here actually book</h2>
+            <p>The four services {data.name} riders request most. Looking for the full catalog and pricing? It lives on our Delhi services page.</p>
           </div>
           <div className="top-svc">
             {data.topServices.map((svc, idx) => (
               <div key={idx} className="top-svc-card">
-                <span className="rank">{svc.rank}</span>
+                <span className="rank mono">{svc.rank}</span>
                 <h3>{svc.title}</h3>
                 <p>{svc.desc}</p>
-                <Link href={svc.link} className="go">View Service →</Link>
+                <Link href={svc.link} className="go">View pricing →</Link>
               </div>
             ))}
           </div>
-          <div className="catalog-link">
-            Looking for something else? <Link href="/services">Explore our full repair catalog →</Link>
-          </div>
+          <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/services/delhi#services">See the full Delhi service catalog →</Link></p>
         </div>
       </section>
 
       <section>
         <div className="wrap">
           <div className="section-head">
+            <div className="eyebrow">Trusted by every major brand</div>
+            <h2>Serviced in {data.name}, whatever you ride</h2>
+            <p>From daily commuter scooters to Royal Enfields, our mechanics work across every major brand.</p>
+          </div>
+          <div className="brand-row">
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64" alt={`Royal Enfield bike repair ${data.name}`} />Royal Enfield</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=honda.com&sz=64" alt={`Honda bike repair ${data.name}`} />Honda</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=yamahamotorsports.com&sz=64" alt={`Yamaha bike repair ${data.name}`} />Yamaha</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=suzukicycles.com&sz=64" alt={`Suzuki bike repair ${data.name}`} />Suzuki</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=ktm.com&sz=64" alt={`KTM bike repair ${data.name}`} />KTM</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=bajajauto.com&sz=64" alt={`Bajaj bike repair ${data.name}`} />Bajaj</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64" alt={`TVS bike repair ${data.name}`} />TVS</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" alt={`Hero bike repair ${data.name}`} />Hero</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=vespa.com&sz=64" alt={`Vespa bike repair ${data.name}`} />Vespa</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" alt={`Ola Electric bike repair ${data.name}`} />Ola Electric</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" alt={`Ather bike repair ${data.name}`} />Ather</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=jawa.in&sz=64" alt={`Jawa bike repair ${data.name}`} />Jawa</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=aprilia.com&sz=64" alt={`Aprilia bike repair ${data.name}`} />Aprilia</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" alt={`Harley-Davidson bike repair ${data.name}`} />Harley-Davidson</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=kawasakimotorcycle.com&sz=64" alt={`Kawasaki bike repair ${data.name}`} />Kawasaki</div>
+            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=benelli.com&sz=64" alt={`Benelli bike repair ${data.name}`} />Benelli</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="wrap partner">
+        <div>
+          <div className="eyebrow">Join our network</div>
+          <h2>Are you a bike mechanic in {data.name}?</h2>
+          <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>We're building out our mechanic network in {data.name} — join early to get priority dispatch on job requests coming from {data.subRegionText}</p>
+          <ul>
+            <li>Be assigned to bookings in {data.name}</li>
+            <li>Flexible working hours</li>
+            <li>Easy booking management from the app</li>
+          </ul>
+        </div>
+        <div className="partner-box">
+          <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "var(--paper)", marginBottom: "12px" }}>Become a partner</h3>
+          <p style={{ color: "var(--ink-dim)", fontSize: "14px", marginBottom: "22px" }}>Sign up in a few minutes and start receiving job requests from riders in {data.name}.</p>
+          <Link href="/partner" className="btn btn-primary">Become a Partner →</Link>
+        </div>
+      </section>
+
+      <section className="section-alt">
+        <div className="wrap">
+          <div className="section-head">
             <div className="eyebrow">Reviews</div>
-            <h2>What riders in {data.name} say</h2>
+            <h2>What {data.name} riders say</h2>
           </div>
           <div className="review-grid">
             {data.reviews.map((rev, idx) => (
               <div key={idx} className="review">
                 <div className="stars">{rev.stars}</div>
-                <p>&quot;{rev.text}&quot;</p>
+                <p>"{rev.text}"</p>
                 <div className="who">{rev.who}</div>
               </div>
             ))}
@@ -514,43 +558,38 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         </div>
       </section>
 
-      <section className="section-alt" id="faq">
+      <section id="faq">
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">FAQs</div>
-            <h2>Frequently asked questions about doorstep service in {data.name}</h2>
+            <div className="eyebrow">FAQs — {data.name}</div>
+            <h2>Questions specific to this locality</h2>
           </div>
           <div className="faq-list">
             {data.faqs.map((faq, idx) => (
               <div key={idx} className={`faq-item ${openFaqs[idx] ? "open" : ""}`}>
-                <div className="faq-q" onClick={() => toggleFaq(idx)}>
-                  {faq.q}
-                  <span className="plus">+</span>
-                </div>
-                <div className="faq-a">
-                  <p>{faq.a}</p>
-                </div>
+                <div className="faq-q" onClick={() => toggleFaq(idx)}>{faq.q}<span className="plus">+</span></div>
+                <div className="faq-a"><p>{faq.a}</p></div>
               </div>
             ))}
-          </div>
-          <div className="silo">
-            <span style={{ fontSize: "13px", color: "var(--ink-dim)", marginRight: "10px", alignSelf: "center" }}>Other localities in Ghaziabad:</span>
-            <Link href="/ghaziabad" className="hub">Ghaziabad City Hub</Link>
-            {otherSlugs.map((s, idx) => {
-              const otherLoc = LOCALITY_DB[s];
-              return (
-                <Link key={idx} href={`/ghaziabad/${s}`}>{otherLoc.name}</Link>
-              );
-            })}
+            <div className={`faq-item ${openFaqs[4] ? "open" : ""}`}>
+              <div className="faq-q" onClick={() => toggleFaq(4)}>My exact street isn't on the coverage list — am I still covered?<span className="plus">+</span></div>
+              <div className="faq-a"><p>Yes. The listed streets are just the most requested ones. Book anyway and share your location — a mechanic will be dispatched.</p></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="final-cta">
+      <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
           <h2>{finalCta.h2}</h2>
           <p>{finalCta.p}</p>
-          <Link href="/book" className="btn btn-primary">Book Your Doorstep Service Now →</Link>
+          <Link href="/book" className="btn btn-dark">Book Bike Repair in {data.name} →</Link>
+          <div className="silo">
+            <Link href="/services/delhi" className="hub">← All of Delhi</Link>
+            {otherSlugs.map((s) => (
+              <Link key={s} href={`/services/delhi/${s}`}>{LOCALITY_DB[s]?.name}</Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

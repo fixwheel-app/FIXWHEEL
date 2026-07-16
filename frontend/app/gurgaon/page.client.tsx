@@ -460,7 +460,7 @@ export default function GurgaonClientPage() {
             <div className="why-card">
               <span className="num">04</span>
               <h3>Fast arrival</h3>
-              <p>Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 30 minutes.</p>
+              <p>Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 45 minutes.</p>
             </div>
           </div>
         </div>
@@ -767,7 +767,7 @@ export default function GurgaonClientPage() {
             </div>
             <h3 style={{ fontSize: "22px", color: "var(--paper)", marginTop: "10px" }}>Gurgaon Roadside Assistance</h3>
             <p style={{ color: "var(--ink-dim)", fontSize: "14px" }}>
-              Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot. Average arrival: 30 minutes.
+              Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot. Average arrival: 45 minutes.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
