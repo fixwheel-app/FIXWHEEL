@@ -147,6 +147,7 @@ const brands = [
   },
 ];
 
+
 export default function BrandsClientPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -238,6 +239,11 @@ export default function BrandsClientPage() {
         .brands-scope .btn-ghost:hover { border-color: var(--ink-dim); }
         .brands-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .brands-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
+        .brands-scope .hover-white:hover {
+          color: var(--paper) !important;
+        }
+
+
 
         /* ===== BREADCRUMB ===== */
         .brands-scope .breadcrumb {
@@ -652,8 +658,9 @@ export default function BrandsClientPage() {
                       <span className="brand-model-pill" key={mIdx}>{model}</span>
                     ))}
                   </div>
-                  <div className="brand-card-cta">
+                  <div className="brand-card-cta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                     <Link href={`/book/${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
+                    <Link href={`/brands/${brand.name.toLowerCase().replace(/ /g, "-")}`} style={{ color: 'var(--ink-dim)', fontSize: '11px', transition: 'color 0.15s' }} className="hover-white">Models & Info →</Link>
                   </div>
                 </div>
               ))}

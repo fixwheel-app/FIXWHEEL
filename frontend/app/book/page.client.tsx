@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight, Check, Wrench } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -40,6 +40,16 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
   const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>(initialFuel);
   const [brand, setBrand] = useState<string>(brandName || '');
   const [model, setModel] = useState<string>('');
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const queryModel = searchParams.get('model');
+      if (queryModel) {
+        setModel(queryModel);
+      }
+    }
+  }, []);
   
   // Non-Electric specific
   const [ccRange, setCcRange] = useState<CCRange | null>(null);

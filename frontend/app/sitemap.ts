@@ -270,6 +270,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const brandDetailRoutes: MetadataRoute.Sitemap = brandBookSlugs.map(slug => ({
+    url: `${BASE_URL}/brands/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const serviceRoutes: MetadataRoute.Sitemap = dynamicServices.map((service) => {
     if (service.slug === "book") {
       return {
@@ -296,5 +303,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...brandBookRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...staticRoutes, ...brandBookRoutes, ...brandDetailRoutes, ...serviceRoutes, ...blogRoutes];
 }
