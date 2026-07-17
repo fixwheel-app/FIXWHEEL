@@ -1,0 +1,510 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Oswald, JetBrains_Mono } from "next/font/google";
+import { BLOG_POSTS } from "@/lib/blogData";
+import { cn } from "@/lib/utils";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-oswald",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
+});
+
+export default function BlogHubClient() {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const categories = ["All", "Maintenance", "Tips & Tricks", "EV Corner"];
+
+  // Filter posts based on active category and search query
+  const filteredPosts = BLOG_POSTS.filter((post) => {
+    const matchesCategory = activeCategory === "All" || post.category === activeCategory;
+    const matchesSearch = 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.keywords.some((kw) => kw.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  const featuredPost = BLOG_POSTS[0]; // First post as featured post
+
+  return (
+    <div className={`blog-scope ${oswald.variable} ${jetbrains.variable}`}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .blog-scope {
+          --bg:#17181A;
+          --bg-soft:#1E2022;
+          --paper:#F3EEE3;
+          --paper-dim:#E7E0D0;
+          --ink:#EDEAE2;
+          --ink-dim:#A7A9AC;
+          --ink-dark:#17181A;
+          --accent:#E62B2B;
+          --accent-dim:#b01d1d;
+          --stamp:#FFC145;
+          --steel:#5C7A93;
+          --line:#34373A;
+          --line-paper:#D8CFB8;
+          --radius:2px;
+
+          background: var(--bg);
+          color: var(--ink);
+          font-family: 'Inter', sans-serif;
+          line-height: 1.55;
+          -webkit-font-smoothing: antialiased;
+          min-height: 100vh;
+          position: relative;
+          z-index: 10;
+        }
+        .blog-scope * { box-sizing: border-box; margin: 0; padding: 0; }
+        .blog-scope img { max-width: 100%; display: block; object-fit: cover; }
+        .blog-scope a { color: inherit; text-decoration: none; }
+        .blog-scope ul { list-style: none; }
+        .blog-scope .mono { font-family: var(--font-jetbrains), monospace; }
+        .blog-scope h1, .blog-scope h2, .blog-scope h3, .blog-scope h4 {
+          font-family: var(--font-oswald), sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 0.01em;
+          line-height: 1.08;
+          font-weight: 600;
+        }
+        .blog-scope .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        .blog-scope .eyebrow {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--accent);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 16px;
+        }
+        .blog-scope .eyebrow::before {
+          content: "";
+          width: 24px; height: 1px; background: var(--accent);
+        }
+        .blog-scope .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 26px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          border-radius: var(--radius);
+          border: 1px solid transparent;
+          cursor: pointer;
+          transition: transform .15s ease, background .15s ease, border-color .15s ease;
+        }
+        .blog-scope .btn-primary { background: var(--accent); color: #17181A; }
+        .blog-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
+        .blog-scope .btn-dark { background: var(--ink-dark); border: 1px solid var(--line); color: var(--paper); }
+        .blog-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
+
+        /* ===== BREADCRUMB ===== */
+        .blog-scope .breadcrumb {
+          padding: 20px 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .blog-scope .breadcrumb nav {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          letter-spacing: 0.04em;
+          color: var(--ink-dim);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .blog-scope .breadcrumb a {
+          color: var(--ink-dim);
+          transition: color .15s ease;
+        }
+        .blog-scope .breadcrumb a:hover { color: var(--accent); }
+        .blog-scope .breadcrumb .sep { color: var(--line); }
+        .blog-scope .breadcrumb .current { color: var(--paper); }
+
+        /* ===== HERO ===== */
+        .blog-scope .hero {
+          position: relative;
+          padding: 72px 0 48px;
+          border-bottom: 1px solid var(--line);
+          overflow: hidden;
+        }
+        .blog-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--paper); }
+        .blog-scope .hero p.lead { font-size: 16px; color: var(--ink-dim); max-width: 580px; }
+
+        /* ===== FEATURED CARD ===== */
+        .blog-scope .featured-section {
+          padding: 48px 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .blog-scope .featured-card {
+          background: var(--bg-soft);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          overflow: hidden;
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 0;
+          transition: border-color 0.2s;
+        }
+        .blog-scope .featured-card:hover {
+          border-color: var(--accent);
+        }
+        .blog-scope .featured-image-wrapper {
+          height: 100%;
+          min-height: 380px;
+          overflow: hidden;
+          border-right: 1px solid var(--line);
+        }
+        .blog-scope .featured-image-wrapper img {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.3s;
+        }
+        .blog-scope .featured-card:hover .featured-image-wrapper img {
+          transform: scale(1.02);
+        }
+        .blog-scope .featured-info {
+          padding: 48px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .blog-scope .post-meta-row {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 20px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: var(--ink-dim);
+          text-transform: uppercase;
+        }
+        .blog-scope .post-category-tag {
+          color: var(--accent);
+          border: 1px solid var(--accent);
+          padding: 2px 10px;
+          border-radius: 20px;
+          font-size: 10px;
+          font-weight: 700;
+        }
+        .blog-scope .featured-info h2 {
+          font-size: 32px;
+          color: var(--paper);
+          margin-bottom: 16px;
+        }
+        .blog-scope .featured-info p {
+          font-size: 14.5px;
+          color: var(--ink-dim);
+          line-height: 1.6;
+          margin-bottom: 28px;
+        }
+        .blog-scope .read-btn {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          font-weight: 700;
+          color: var(--accent);
+          letter-spacing: 0.04em;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          align-self: flex-start;
+          transition: color 0.15s;
+        }
+        .blog-scope .read-btn:hover {
+          color: #eb4d4d;
+        }
+
+        /* ===== CONTROLS STRIP ===== */
+        .blog-scope .controls-strip {
+          padding: 30px 0;
+          border-bottom: 1px solid var(--line);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+        .blog-scope .category-tabs {
+          display: flex;
+          gap: 6px;
+        }
+        .blog-scope .category-tab-btn {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--ink-dim);
+          background: transparent;
+          border: 1px solid var(--line);
+          padding: 8px 16px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: border-color 0.15s, color 0.15s, background 0.15s;
+        }
+        .blog-scope .category-tab-btn:hover,
+        .blog-scope .category-tab-btn.active {
+          border-color: var(--accent);
+          color: var(--accent);
+        }
+        .blog-scope .category-tab-btn.active {
+          background: rgba(230, 43, 43, 0.05);
+        }
+
+        .blog-scope .search-container {
+          position: relative;
+          width: 320px;
+        }
+        .blog-scope .search-container input {
+          width: 100%;
+          background: var(--bg-soft);
+          border: 1px solid var(--line);
+          color: var(--paper);
+          padding: 10px 16px 10px 38px;
+          border-radius: 4px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          transition: border-color 0.15s;
+        }
+        .blog-scope .search-container input:focus {
+          outline: none;
+          border-color: var(--accent);
+        }
+        .blog-scope .search-container .search-icon {
+          position: absolute;
+          left: 14px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--ink-dim);
+          pointer-events: none;
+        }
+
+        /* ===== BLOG GRID ===== */
+        .blog-scope .blog-grid-section {
+          padding: 60px 0 100px;
+        }
+        .blog-scope .blog-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+        .blog-scope .post-card {
+          background: var(--bg-soft);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          transition: border-color 0.15s, transform 0.15s;
+        }
+        .blog-scope .post-card:hover {
+          border-color: var(--accent);
+          transform: translateY(-4px);
+        }
+        .blog-scope .post-card-image {
+          height: 200px;
+          overflow: hidden;
+          border-bottom: 1px solid var(--line);
+        }
+        .blog-scope .post-card-image img {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.3s;
+        }
+        .blog-scope .post-card:hover .post-card-image img {
+          transform: scale(1.02);
+        }
+        .blog-scope .post-card-body {
+          padding: 28px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+        .blog-scope .post-card h3 {
+          font-size: 22px;
+          color: var(--paper);
+          margin-bottom: 12px;
+          line-height: 1.25;
+        }
+        .blog-scope .post-card p {
+          font-size: 13.5px;
+          color: var(--ink-dim);
+          line-height: 1.6;
+          margin-bottom: 24px;
+          flex-grow: 1;
+        }
+
+        .blog-scope .no-posts {
+          text-align: center;
+          padding: 80px 24px;
+          border: 1px dashed var(--line);
+          border-radius: 4px;
+          background: var(--bg-soft);
+        }
+        .blog-scope .no-posts h3 {
+          font-size: 20px;
+          color: var(--paper);
+          margin-bottom: 8px;
+        }
+        .blog-scope .no-posts p {
+          color: var(--ink-dim);
+          font-size: 13.5px;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .blog-scope .final-cta {
+          text-align: center;
+          padding: 90px 0;
+          background: linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
+          border-top: 1px solid var(--line);
+        }
+        .blog-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px;}
+        .blog-scope .final-cta p { color: var(--ink-dim); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto;}
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 990px) {
+          .blog-scope .featured-card { grid-template-columns: 1fr; }
+          .blog-scope .featured-image-wrapper { border-right: none; border-bottom: 1px solid var(--line); min-height: 280px; }
+          .blog-scope .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 650px) {
+          .blog-scope .hero h1 { font-size: 40px; }
+          .blog-scope .blog-grid { grid-template-columns: 1fr; }
+          .blog-scope .controls-strip { flex-direction: column; align-items: flex-start; }
+          .blog-scope .search-container { width: 100%; }
+          .blog-scope .featured-info { padding: 28px; }
+        }
+      ` }} />
+
+      {/* ===== BREADCRUMB ===== */}
+      <div className="breadcrumb">
+        <div className="wrap">
+          <nav>
+            <Link href="/">Home</Link>
+            <span className="sep">/</span>
+            <span className="current">Blog</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* ===== HERO ===== */}
+      <section className="hero">
+        <div className="wrap">
+          <div className="eyebrow">Fixwheel Gazette · Mechanics & Riders</div>
+          <h1>Knowledge Center</h1>
+          <p className="lead">Expert tips, maintenance walkthroughs, EV battery hacks, and two-wheeler news curated by the automotive mechanics at FixWheel.</p>
+        </div>
+      </section>
+
+      {/* ===== FEATURED ARTICLE ===== */}
+      <section className="featured-section">
+        <div className="wrap">
+          <div className="featured-card">
+            <div className="featured-image-wrapper">
+              <img src={featuredPost.image} alt={featuredPost.title} />
+            </div>
+            <div className="featured-info">
+              <div className="post-meta-row">
+                <span className="post-category-tag">{featuredPost.category}</span>
+                <span>{featuredPost.date}</span>
+                <span>·</span>
+                <span>{featuredPost.readTime}</span>
+              </div>
+              <h2><Link href={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link></h2>
+              <p>{featuredPost.excerpt}</p>
+              <Link href={`/blog/${featuredPost.slug}`} className="read-btn">
+                Read Featured Article <span className="mono">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CONTROLS STRIP ===== */}
+      <div className="controls-strip">
+        <div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="category-tabs">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className={cn("category-tab-btn", activeCategory === cat && "active")}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="search-container">
+            <span className="search-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input
+              type="text"
+              placeholder="Search articles & keywords..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ===== BLOG GRID ===== */}
+      <section className="blog-grid-section">
+        <div className="wrap">
+          {filteredPosts.length === 0 ? (
+            <div className="no-posts">
+              <h3>No articles found</h3>
+              <p>Try refining your search keyword or switching categories.</p>
+            </div>
+          ) : (
+            <div className="blog-grid">
+              {filteredPosts.map((post) => (
+                <div className="post-card" key={post.slug}>
+                  <div className="post-card-image">
+                    <img src={post.image} alt={post.title} />
+                  </div>
+                  <div className="post-card-body">
+                    <div className="post-meta-row" style={{ marginBottom: '14px' }}>
+                      <span className="post-category-tag">{post.category}</span>
+                      <span>{post.date}</span>
+                    </div>
+                    <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
+                    <p>{post.excerpt}</p>
+                    <Link href={`/blog/${post.slug}`} className="read-btn">
+                      Read Article <span className="mono">→</span>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ===== FINAL CTA ===== */}
+      <section className="final-cta">
+        <div className="wrap">
+          <h2>Tired of doing it yourself?</h2>
+          <p>Skip the grease. Book a verified doorstep mechanic from FixWheel for flat rates, transparent inspection, and a 15-day warranty.</p>
+          <Link href="/book" className="btn btn-primary">Book Doorstep Service Now →</Link>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,5 +1,6 @@
 // app/sitemap.ts
 import { MetadataRoute } from "next";
+import { BLOG_POSTS } from "@/lib/blogData";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixwheel.app";
 
@@ -204,16 +205,11 @@ async function getDynamicServices(): Promise<ServiceRoute[]> {
   }
 }
 
-async function getBlogPosts(): Promise<BlogPost[]> {
-  try {
-    const res = await fetch(`${process.env.INTERNAL_API_URL}/api/sitemap/blog`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
-    return [];
-  }
+async function getBlogPosts(): Promise<any[]> {
+  return BLOG_POSTS.map(post => ({
+    slug: post.slug,
+    updatedAt: new Date().toISOString()
+  }));
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
