@@ -22,7 +22,7 @@ export default function BlogHubClient() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const categories = ["All", "Maintenance", "Tips & Tricks", "EV Corner"];
+  const categories = ["All", "Maintenance", "Tips & Tricks", "EV Corner", "Buying Guide"];
 
   // Filter posts based on active category and search query
   const filteredPosts = BLOG_POSTS.filter((post) => {
