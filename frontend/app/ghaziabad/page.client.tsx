@@ -502,7 +502,7 @@ export default function GhaziabadClientPage() {
               <span className="svc-tag mono">[BATTERY]</span>
               <h3>Battery Replacement</h3>
               <p>Battery testing, jump-start, and full replacement using standard-spec batteries at your doorstep.</p>
-              <div className="svc-price">₹99 <span>starting from</span></div>
+              <div className="svc-price">₹199 <span>starting from</span></div>
               <Link href="/services/battery-replacement" className="go">View pricing →</Link>
             </div>
             <div className="svc-card">

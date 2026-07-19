@@ -62,7 +62,7 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
 
   let price = parseInt(servicePrice) || 499;
   if (service === "Engine Oil Change") price = 999;
-  if (service === "Battery Replacement") price = 99;
+  if (service === "Battery Replacement") price = 199;
   if (service === "Comprehensive Service") price = 1499;
 
   return {

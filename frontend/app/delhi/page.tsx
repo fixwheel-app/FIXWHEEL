@@ -37,7 +37,7 @@ const serviceSchema = {
     "telephone": "+918745945682",
     "email": "support@fixwheel.app",
     "image": "https://www.fixwheel.app/icon.png",
-    "priceRange": "₹99 - ₹18000",
+    "priceRange": "₹199 - ₹18000",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Delhi",
@@ -112,7 +112,7 @@ const serviceSchema = {
           "name": "Battery Replacement",
           "description": "Battery testing, jump-start, and full battery replacement."
         },
-        "price": "99",
+        "price": "199",
         "priceCurrency": "INR"
       },
       {

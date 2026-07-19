@@ -57,7 +57,7 @@ const brandsSchema = {
     telephone: "+918745945682",
     email: "support@fixwheel.app",
     image: "https://www.fixwheel.app/icon.png",
-    priceRange: "₹99 - ₹18000",
+    priceRange: "₹199 - ₹18000",
   },
   brand: [
     { "@type": "Brand", name: "Honda" },
