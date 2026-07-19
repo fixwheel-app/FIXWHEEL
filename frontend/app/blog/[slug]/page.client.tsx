@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BLOG_POSTS } from "@/lib/blogData";
+import { supabase } from "@/lib/supabase";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -20,8 +22,125 @@ interface ClientProps {
   slug: string;
 }
 
+interface CommentItem {
+  id: string;
+  blog_slug: string;
+  name: string;
+  email: string;
+  comment: string;
+  created_at: string;
+}
+
+function getInitials(name: string): string {
+  if (!name) return "U";
+  const parts = name.trim().split(" ");
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.substring(0, 2).toUpperCase();
+}
+
+function formatDate(dateString: string): string {
+  try {
+    const d = new Date(dateString);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+  } catch {
+    return "Recently";
+  }
+}
+
 export default function BlogPostClient({ slug }: ClientProps) {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+  const [comments, setComments] = useState<CommentItem[]>([]);
+  const [loadingComments, setLoadingComments] = useState<boolean>(true);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; msg: string } | null>(null);
+
+  // Fetch comments from Supabase on mount
+  useEffect(() => {
+    async function fetchComments() {
+      try {
+        setLoadingComments(true);
+        const { data, error } = await supabase
+          .from("comments")
+          .select("*")
+          .eq("blog_slug", slug)
+          .order("created_at", { ascending: false });
+
+        if (error) {
+          console.error("Error fetching comments from Supabase:", error);
+        } else if (data) {
+          setComments(data as CommentItem[]);
+        }
+      } catch (err) {
+        console.error("Failed to load comments:", err);
+      } finally {
+        setLoadingComments(false);
+      }
+    }
+
+    if (slug) {
+      fetchComments();
+    }
+  }, [slug]);
+
+  // Handle comment submit
+  const handleCommentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFeedback(null);
+
+    if (!name.trim() || !email.trim() || !commentText.trim()) {
+      setFeedback({ type: "error", msg: "Please fill in all fields (Name, Email, and Comment)." });
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      const newCommentData = {
+        blog_slug: slug,
+        name: name.trim(),
+        email: email.trim(),
+        comment: commentText.trim(),
+      };
+
+      const { data, error } = await supabase
+        .from("comments")
+        .insert([newCommentData])
+        .select();
+
+      if (error) {
+        console.error("Supabase insert error:", error);
+        setFeedback({ type: "error", msg: "Failed to post comment. Please try again." });
+      } else {
+        const createdComment = data && data[0] ? data[0] : {
+          id: Date.now().toString(),
+          ...newCommentData,
+          created_at: new Date().toISOString()
+        };
+
+        setComments((prev) => [createdComment as CommentItem, ...prev]);
+        setName("");
+        setEmail("");
+        setCommentText("");
+        setFeedback({ type: "success", msg: "Your comment has been posted successfully!" });
+      }
+    } catch (err) {
+      console.error("Comment submit error:", err);
+      setFeedback({ type: "error", msg: "An unexpected error occurred." });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   if (!post) return null;
 
   // Filter out the current post to show other recommendations
@@ -166,7 +285,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
           font-size: 16px;
           color: var(--paper-dim);
           line-height: 1.75;
-          margin-bottom: 80px;
+          margin-bottom: 40px;
         }
         .post-scope .post-body p {
           margin-bottom: 24px;
@@ -186,6 +305,183 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .post-body li {
           margin-bottom: 12px;
           color: var(--paper-dim);
+        }
+
+        /* ===== COMMENTS SECTION ===== */
+        .post-scope .comments-section {
+          padding: 50px 0;
+          border-top: 1px solid var(--line);
+          margin-top: 20px;
+        }
+        .post-scope .comments-section h3.comments-title {
+          font-size: 26px;
+          color: var(--paper);
+          margin-bottom: 24px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .post-scope .comment-badge {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          background: var(--accent);
+          color: #17181A;
+          padding: 2px 10px;
+          border-radius: 12px;
+          font-weight: 700;
+        }
+        .post-scope .comment-form {
+          background: var(--bg-soft);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          padding: 28px;
+          margin-bottom: 40px;
+        }
+        .post-scope .comment-form h4 {
+          font-size: 18px;
+          color: var(--paper);
+          margin-bottom: 20px;
+        }
+        .post-scope .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin-bottom: 16px;
+        }
+        .post-scope .input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          margin-bottom: 16px;
+        }
+        .post-scope .input-group label {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: var(--ink-dim);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        .post-scope .input-group input,
+        .post-scope .input-group textarea {
+          background: var(--bg);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          padding: 12px 14px;
+          color: var(--paper);
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          transition: border-color 0.15s;
+        }
+        .post-scope .input-group input:focus,
+        .post-scope .input-group textarea:focus {
+          outline: none;
+          border-color: var(--accent);
+        }
+        .post-scope .submit-btn {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          background: var(--accent);
+          color: #17181A;
+          border: none;
+          padding: 14px 26px;
+          border-radius: 2px;
+          cursor: pointer;
+          transition: background 0.15s, transform 0.15s;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .post-scope .submit-btn:hover {
+          background: #eb4d4d;
+          transform: translateY(-2px);
+        }
+        .post-scope .submit-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
+        .post-scope .feedback-msg {
+          padding: 12px 16px;
+          border-radius: 4px;
+          font-size: 13px;
+          font-family: var(--font-jetbrains), monospace;
+          margin-bottom: 16px;
+        }
+        .post-scope .feedback-msg.success {
+          background: rgba(46, 204, 113, 0.15);
+          border: 1px solid rgba(46, 204, 113, 0.4);
+          color: #2ecc71;
+        }
+        .post-scope .feedback-msg.error {
+          background: rgba(230, 43, 43, 0.15);
+          border: 1px solid rgba(230, 43, 43, 0.4);
+          color: #e62b2b;
+        }
+
+        .post-scope .comments-list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .post-scope .comment-card {
+          background: var(--bg-soft);
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          padding: 20px;
+        }
+        .post-scope .comment-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 12px;
+        }
+        .post-scope .comment-author {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .post-scope .comment-avatar {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          background: var(--accent);
+          color: #17181A;
+          font-family: var(--font-oswald), sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+        }
+        .post-scope .comment-name {
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 16px;
+          color: var(--paper);
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
+        .post-scope .comment-date {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: var(--ink-dim);
+        }
+        .post-scope .comment-text {
+          font-size: 14.5px;
+          color: var(--paper-dim);
+          line-height: 1.6;
+        }
+        .post-scope .no-comments {
+          padding: 36px 20px;
+          text-align: center;
+          background: var(--bg-soft);
+          border: 1px dashed var(--line);
+          border-radius: 4px;
+          color: var(--ink-dim);
+          font-size: 14px;
         }
 
         /* ===== RECOMMENDED SECTION ===== */
@@ -274,6 +570,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
           .post-scope .post-header h1 { font-size: 30px; }
           .post-scope .post-banner { height: 280px; margin-bottom: 30px; }
           .post-scope .recommended-grid { grid-template-columns: 1fr; }
+          .post-scope .form-row { grid-template-columns: 1fr; gap: 0; }
         }
       ` }} />
 
@@ -335,6 +632,95 @@ export default function BlogPostClient({ slug }: ClientProps) {
             }
             return null;
           })}
+        </section>
+
+        {/* ===== COMMENTS SECTION ===== */}
+        <section className="comments-section">
+          <h3 className="comments-title">
+            Comments
+            <span className="comment-badge">{comments.length}</span>
+          </h3>
+
+          {/* Comment Form */}
+          <form className="comment-form" onSubmit={handleCommentSubmit}>
+            <h4>Leave a Reply</h4>
+            <p style={{ color: 'var(--ink-dim)', fontSize: '13px', marginBottom: '20px' }}>
+              Your email address will not be published. Required fields are marked *
+            </p>
+
+            {feedback && (
+              <div className={`feedback-msg ${feedback.type}`}>
+                {feedback.msg}
+              </div>
+            )}
+
+            <div className="form-row">
+              <div className="input-group">
+                <label htmlFor="name">Name *</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your Full Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="email">Email *</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="comment">Comment *</label>
+              <textarea
+                id="comment"
+                rows={4}
+                placeholder="Share your thoughts or questions about this article..."
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                required
+              />
+            </div>
+
+            <button type="submit" className="submit-btn" disabled={submitting}>
+              {submitting ? "Posting..." : "Post Comment →"}
+            </button>
+          </form>
+
+          {/* Comments List */}
+          <div className="comments-list">
+            {loadingComments ? (
+              <div className="no-comments">Loading discussion...</div>
+            ) : comments.length === 0 ? (
+              <div className="no-comments">
+                No comments yet. Be the first to share your thoughts on this guide!
+              </div>
+            ) : (
+              comments.map((item) => (
+                <div className="comment-card" key={item.id}>
+                  <div className="comment-header">
+                    <div className="comment-author">
+                      <div className="comment-avatar">{getInitials(item.name)}</div>
+                      <div>
+                        <div className="comment-name">{item.name}</div>
+                        <div className="comment-date">{formatDate(item.created_at)}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="comment-text">{item.comment}</div>
+                </div>
+              ))
+            )}
+          </div>
         </section>
 
       </article>
