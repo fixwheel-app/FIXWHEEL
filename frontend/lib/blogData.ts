@@ -2,6 +2,7 @@ export interface BlogAuthor {
   name: string;
   role: string;
   avatar: string;
+  slug?: string;
 }
 
 export interface BlogContentSection {
@@ -33,9 +34,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "8 min read",
     image: "/blog_oil.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["bike engine oil grade", "honda activa engine oil", "royal enfield engine oil", "synthetic vs mineral oil", "bike engine heating solution"],
     content: [
@@ -123,9 +125,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "7 min read",
     image: "/blog_chain.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["motorcycle chain cleaning", "how to lube bike chain", "chain sprocket price", "loose chain sound adjustment", "doorstep chain cleaning"],
     content: [
@@ -197,9 +200,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "8 min read",
     image: "/blog_electric.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["electric scooter battery health", "how to increase ev range", "ola s1 battery care", "ather battery lifespan", "ev doorstep inspection"],
     content: [
@@ -291,9 +295,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "9 min read",
     image: "/blog_brakes.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["bike brake pad replacement", "disc brake fluid bleeding", "drum brake shoe cleaning", "motorcycle stopping distance", "doorstep brake repair"],
     content: [
@@ -378,9 +383,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "9 min read",
     image: "/blog_monsoon.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["monsoon bike care tips", "water entering bike exhaust", "prevent bike rust rain", "bike starting problem in rain", "doorstep monsoon checkup"],
     content: [
@@ -487,9 +493,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "9 min read",
     image: "/blog_engine.jpg",
     author: {
-      name: "Sanjay Kumar",
-      role: "Lead Master Mechanic, FixWheel NCR",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100"
+      name: "Zakir Hussain",
+      role: "Senior Master Mechanic & Automotive Lead",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      slug: "zakir-hussain"
     },
     keywords: ["carburetor vs fi bike", "bs6 bike starting problem", "fuel injector cleaning", "bike mileage tuning tips", "doorstep engine diagnosis"],
     content: [

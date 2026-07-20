@@ -498,20 +498,27 @@ export default function BlogHubClient() {
           ) : (
             <div className="blog-grid">
               {filteredPosts.map((post) => (
-                <div className="post-card" key={post.slug}>
+                <div className="post-card" key={post.slug} style={{ display: 'flex', flexDirection: 'column' }}>
                   <div className="post-card-image">
                     <img src={post.image} alt={post.title} />
                   </div>
-                  <div className="post-card-body">
+                  <div className="post-card-body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <div className="post-meta-row" style={{ marginBottom: '14px' }}>
                       <span className="post-category-tag">{post.category}</span>
                       <span>{post.date}</span>
                     </div>
                     <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
-                    <p>{post.excerpt}</p>
-                    <Link href={`/blog/${post.slug}`} className="read-btn">
-                      Read Article <span className="mono">→</span>
-                    </Link>
+                    <p style={{ flex: 1 }}>{post.excerpt}</p>
+                    
+                    <div style={{ marginTop: '16px', paddingTop: '14px', borderTop: '1px dashed var(--line-paper)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11.5px', fontFamily: 'var(--font-jetbrains), monospace', color: 'var(--ink-dark)' }}>
+                        <img src={post.author.avatar} alt={post.author.name} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '1px solid var(--accent)' }} />
+                        <span>{post.author.name}</span>
+                      </Link>
+                      <Link href={`/blog/${post.slug}`} className="read-btn" style={{ margin: 0 }}>
+                        Read <span className="mono">→</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

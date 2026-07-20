@@ -276,27 +276,155 @@ export default function BlogPostClient({ slug }: ClientProps) {
           color: var(--ink-dim);
         }
 
-        /* ===== BANNER IMAGE ===== */
-        .post-scope .post-banner {
-          width: 100%;
-          height: 420px;
-          border-radius: 4px;
-          border: 1px solid var(--line);
-          overflow: hidden;
-          margin-bottom: 50px;
+        /* ===== LAYOUT GRID & TOC ===== */
+        .post-scope .post-layout {
+          display: grid;
+          grid-template-columns: 1fr 310px;
+          gap: 48px;
+          align-items: start;
+          padding: 48px 0 80px;
         }
-        .post-scope .post-banner img {
-          width: 100%;
-          height: 100%;
+        .post-scope .post-main-col {
+          min-width: 0;
+        }
+        .post-scope .post-sidebar {
+          position: sticky;
+          top: 100px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .post-scope .toc-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          padding: 24px;
+        }
+        .post-scope .toc-card h4 {
+          font-size: 16px;
+          color: var(--ink-dark);
+          margin-bottom: 16px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid var(--line-paper);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .post-scope .toc-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .post-scope .toc-link {
+          font-size: 13.5px;
+          color: #5A5D62;
+          line-height: 1.4;
+          display: block;
+          padding: 4px 0 4px 12px;
+          border-left: 2px solid transparent;
+          transition: all 0.15s ease;
+          cursor: pointer;
+        }
+        .post-scope .toc-link:hover {
+          color: var(--accent);
+          border-left-color: var(--accent);
+          padding-left: 16px;
+        }
+
+        .post-scope .sidebar-author-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          padding: 24px;
+        }
+        .post-scope .sidebar-author-card h5 {
+          font-size: 11px;
+          font-family: var(--font-jetbrains), monospace;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin-bottom: 14px;
+        }
+        .post-scope .sidebar-author-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 14px;
+        }
+        .post-scope .sidebar-author-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid var(--accent);
+        }
+        .post-scope .sidebar-author-name {
+          font-size: 16px;
+          color: var(--ink-dark);
+          text-transform: uppercase;
+          line-height: 1.2;
+        }
+        .post-scope .sidebar-author-role {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: #6B6E72;
+        }
+        .post-scope .sidebar-author-bio {
+          font-size: 13px;
+          color: #5A5D62;
+          line-height: 1.5;
+          margin-bottom: 16px;
+        }
+        .post-scope .sidebar-author-link {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11.5px;
+          font-weight: 700;
+          color: var(--accent);
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          transition: transform 0.15s;
+        }
+        .post-scope .sidebar-author-link:hover {
+          transform: translateX(4px);
+        }
+
+        .post-scope .author-bio-box {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-left: 4px solid var(--accent);
+          border-radius: 4px;
+          padding: 28px;
+          margin: 40px 0;
+          display: flex;
+          gap: 20px;
+          align-items: start;
+        }
+        .post-scope .author-bio-box img {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          border: 2px solid var(--accent);
+          flex-shrink: 0;
+        }
+        .post-scope .author-bio-box h4 {
+          font-size: 18px;
+          color: var(--ink-dark);
+          margin-bottom: 4px;
+        }
+        .post-scope .author-bio-box p {
+          font-size: 14px;
+          color: #5A5D62;
+          line-height: 1.55;
+          margin-bottom: 14px;
         }
 
         /* ===== CONTENT BODY ===== */
         .post-scope .post-body {
-          font-size: 16px;
-          color: #4A4D52;
-          line-height: 1.75;
+          font-size: 16.5px;
+          color: #3A3D42;
+          line-height: 1.8;
           margin-bottom: 40px;
-          padding-top: 40px;
         }
         .post-scope .post-body p {
           margin-bottom: 24px;
@@ -306,7 +434,8 @@ export default function BlogPostClient({ slug }: ClientProps) {
           color: var(--ink-dark);
           margin: 44px 0 18px;
           border-bottom: 1px solid var(--line-paper);
-          padding-bottom: 8px;
+          padding-bottom: 10px;
+          scroll-margin-top: 110px;
         }
         .post-scope .post-body ul {
           margin-bottom: 28px;
@@ -624,147 +753,230 @@ export default function BlogPostClient({ slug }: ClientProps) {
         </div>
       </div>
 
-      {/* ===== ARTICLE BODY CONTAINER ===== */}
-      <article className="wrap" style={{ maxWidth: '720px' }}>
-        
-        {/* Header */}
-        <header className="post-header">
-          <div className="post-meta-row">
-            <span className="post-category-tag">{post.category}</span>
-            <span>{post.date}</span>
-            <span>·</span>
-            <span>{post.readTime}</span>
-          </div>
-          <h1>{post.title}</h1>
+      {/* ===== ARTICLE BODY & SIDEBAR CONTAINER ===== */}
+      <div className="wrap">
+        <div className="post-layout">
           
-          <div className="author-row">
-            <img src={post.author.avatar} alt={post.author.name} className="author-avatar" />
-            <div className="author-info">
-              <h4>{post.author.name}</h4>
-              <span>{post.author.role}</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Banner */}
-        <div className="post-banner">
-          <img src={post.image} alt={post.title} />
-        </div>
-
-        {/* Dynamic content */}
-        <section className="post-body">
-          {post.content.map((sec, idx) => {
-            if (sec.type === "paragraph") {
-              return <p key={idx}>{sec.text}</p>;
-            } else if (sec.type === "heading") {
-              return <h3 key={idx}>{sec.text}</h3>;
-            } else if (sec.type === "list" && sec.items) {
-              return (
-                <ul key={idx}>
-                  {sec.items.map((item, lIdx) => (
-                    <li key={lIdx}>{item}</li>
-                  ))}
-                </ul>
-              );
-            }
-            return null;
-          })}
-        </section>
-
-        {/* ===== COMMENTS SECTION ===== */}
-        <section className="comments-section">
-          <h3 className="comments-title">
-            Comments
-            <span className="comment-badge">{comments.length}</span>
-          </h3>
-
-          {/* Comment Form */}
-          <form className="comment-form" onSubmit={handleCommentSubmit}>
-            <h4>Leave a Reply</h4>
-            <p style={{ color: 'var(--ink-dim)', fontSize: '13px', marginBottom: '20px' }}>
-              Your email address will not be published. Required fields are marked *
-            </p>
-
-            {feedback && (
-              <div className={`feedback-msg ${feedback.type}`}>
-                {feedback.msg}
+          {/* LEFT MAIN COLUMN */}
+          <article className="post-main-col">
+            
+            {/* Header */}
+            <header className="post-header">
+              <div className="post-meta-row">
+                <span className="post-category-tag">{post.category}</span>
+                <span>{post.date}</span>
+                <span>·</span>
+                <span>{post.readTime}</span>
               </div>
-            )}
-
-            <div className="form-row">
-              <div className="input-group">
-                <label htmlFor="name">Name *</label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Your Full Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="input-group">
-                <label htmlFor="email">Email *</label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="name@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="input-group">
-              <label htmlFor="comment">Comment *</label>
-              <textarea
-                id="comment"
-                rows={4}
-                placeholder="Share your thoughts or questions about this article..."
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                required
-              />
-            </div>
-
-            <button type="submit" className="submit-btn" disabled={submitting}>
-              {submitting ? "Posting..." : "Post Comment →"}
-            </button>
-          </form>
-
-          {/* Comments List */}
-          <div className="comments-list">
-            {loadingComments ? (
-              <div className="no-comments">Loading discussion...</div>
-            ) : comments.length === 0 ? (
-              <div className="no-comments">
-                No comments yet. Be the first to share your thoughts on this guide!
-              </div>
-            ) : (
-              comments.map((item) => (
-                <div className="comment-card" key={item.id}>
-                  <div className="comment-header">
-                    <div className="comment-author">
-                      <div className="comment-avatar">{getInitials(item.name)}</div>
-                      <div>
-                        <div className="comment-name">{item.name}</div>
-                        <div className="comment-date">{formatDate(item.created_at)}</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="comment-text">{item.comment}</div>
+              <h1>{post.title}</h1>
+              
+              <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} className="author-row" style={{ display: 'inline-flex', cursor: 'pointer' }}>
+                <img src={post.author.avatar} alt={post.author.name} className="author-avatar" />
+                <div className="author-info">
+                  <h4>{post.author.name} <span style={{ fontSize: '11px', color: 'var(--accent)', marginLeft: '6px' }}>✓ Author Profile</span></h4>
+                  <span>{post.author.role}</span>
                 </div>
-              ))
-            )}
-          </div>
-        </section>
+              </Link>
+            </header>
 
-      </article>
+            {/* Banner */}
+            <div className="post-banner" style={{ width: '100%', height: '420px', borderRadius: '4px', border: '1px solid var(--line-paper)', overflow: 'hidden', margin: '30px 0 40px' }}>
+              <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%' }} />
+            </div>
+
+            {/* Dynamic content */}
+            <section className="post-body">
+              {(() => {
+                let hIdx = 0;
+                return post.content.map((sec, idx) => {
+                  if (sec.type === "paragraph") {
+                    return <p key={idx}>{sec.text}</p>;
+                  } else if (sec.type === "heading") {
+                    const headingId = `heading-${hIdx}`;
+                    hIdx++;
+                    return <h3 key={idx} id={headingId}>{sec.text}</h3>;
+                  } else if (sec.type === "list" && sec.items) {
+                    return (
+                      <ul key={idx}>
+                        {sec.items.map((item, lIdx) => (
+                          <li key={lIdx}>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return null;
+                });
+              })()}
+            </section>
+
+            {/* AUTHOR BIO BOX */}
+            <div className="author-bio-box">
+              <img src={post.author.avatar} alt={post.author.name} />
+              <div>
+                <h4>Written & Technical Review by <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{post.author.name}</Link></h4>
+                <p>Zakir Hussain is FixWheel&apos;s Senior Master Mechanic with over 14 years of hands-on experience diagnosing multi-brand two-wheelers across Delhi-NCR. He leads technical field training and writes authentic maintenance guides for Indian riders.</p>
+                <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} className="sidebar-author-link">
+                  View Author Profile & All Technical Guides by {post.author.name} →
+                </Link>
+              </div>
+            </div>
+
+            {/* ===== COMMENTS SECTION ===== */}
+            <section className="comments-section">
+              <h3 className="comments-title">
+                Comments
+                <span className="comment-badge">{comments.length}</span>
+              </h3>
+
+              {/* Comment Form */}
+              <form className="comment-form" onSubmit={handleCommentSubmit}>
+                <h4>Leave a Reply</h4>
+                <p style={{ color: 'var(--ink-dim)', fontSize: '13px', marginBottom: '20px' }}>
+                  Your email address will not be published. Required fields are marked *
+                </p>
+
+                {feedback && (
+                  <div className={`feedback-msg ${feedback.type}`}>
+                    {feedback.msg}
+                  </div>
+                )}
+
+                <div className="form-row">
+                  <div className="input-group">
+                    <label htmlFor="name">Name *</label>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Your Full Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label htmlFor="email">Email *</label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="name@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <label htmlFor="comment">Comment *</label>
+                  <textarea
+                    id="comment"
+                    rows={4}
+                    placeholder="Share your thoughts or questions about this article..."
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <button type="submit" className="submit-btn" disabled={submitting}>
+                  {submitting ? "Posting..." : "Post Comment →"}
+                </button>
+              </form>
+
+              {/* Comments List */}
+              <div className="comments-list">
+                {loadingComments ? (
+                  <div className="no-comments">Loading discussion...</div>
+                ) : comments.length === 0 ? (
+                  <div className="no-comments">
+                    No comments yet. Be the first to share your thoughts on this guide!
+                  </div>
+                ) : (
+                  comments.map((item) => (
+                    <div className="comment-card" key={item.id}>
+                      <div className="comment-header">
+                        <div className="comment-author">
+                          <div className="comment-avatar">{getInitials(item.name)}</div>
+                          <div>
+                            <div className="comment-name">{item.name}</div>
+                            <div className="comment-date">{formatDate(item.created_at)}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="comment-text">{item.comment}</div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </section>
+
+          </article>
+
+          {/* RIGHT SIDEBAR (TOC & AUTHOR CARD) */}
+          <aside className="post-sidebar">
+            {/* Table of Contents Card */}
+            {(() => {
+              const tocList = post.content
+                .filter((sec) => sec.type === "heading" && sec.text)
+                .map((sec, idx) => ({
+                  id: `heading-${idx}`,
+                  text: sec.text as string
+                }));
+
+              if (tocList.length === 0) return null;
+
+              return (
+                <div className="toc-card">
+                  <h4>
+                    <span style={{ color: 'var(--accent)' }}>📌</span> On This Page
+                  </h4>
+                  <ul className="toc-list">
+                    {tocList.map((item) => (
+                      <li key={item.id}>
+                        <a
+                          className="toc-link"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById(item.id);
+                            if (el) {
+                              el.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
+
+            {/* Author Quick Info Card */}
+            <div className="sidebar-author-card">
+              <h5>About The Author</h5>
+              <div className="sidebar-author-info">
+                <img src={post.author.avatar} alt={post.author.name} className="sidebar-author-avatar" />
+                <div>
+                  <div className="sidebar-author-name">{post.author.name}</div>
+                  <div className="sidebar-author-role">Lead Automotive Specialist</div>
+                </div>
+              </div>
+              <p className="sidebar-author-bio">
+                14+ years field experience in motorcycle engine overhauls, BS6 FI diagnostics, and EV battery care across NCR.
+              </p>
+              <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} className="sidebar-author-link">
+                View Full Profile & Articles →
+              </Link>
+            </div>
+          </aside>
+
+        </div>
+      </div>
 
       {/* ===== RECOMMENDED ARTICLES ===== */}
       <section className="recommended-section">
-        <div className="wrap" style={{ maxWidth: '800px' }}>
+        <div className="wrap" style={{ maxWidth: '900px' }}>
           <h3 className="section-title">Keep Reading</h3>
           <div className="recommended-grid">
             {recommendedPosts.map((rec) => (
