@@ -186,7 +186,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
           line-height: 1.1;
           font-weight: 600;
         }
-        .post-scope .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .post-scope .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
         
         /* ===== BREADCRUMB ===== */
         .post-scope .breadcrumb {
@@ -213,25 +213,19 @@ export default function BlogPostClient({ slug }: ClientProps) {
 
         /* ===== POST HEADER ===== */
         .post-scope .post-header {
-          padding: 60px 0 40px;
-          background: var(--bg);
-          color: var(--paper);
-          border-bottom: 1px solid var(--line);
+          padding: 20px 0 30px;
+          background: transparent;
+          color: var(--ink-dark);
           position: relative;
-        }
-        .post-scope .post-header::before {
-          content: ""; position: absolute; inset: 0;
-          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
-          pointer-events: none;
         }
         .post-scope .post-meta-row {
           display: flex;
           align-items: center;
           gap: 16px;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          color: #A7A9AC;
+          color: #6B6E72;
           text-transform: uppercase;
         }
         .post-scope .post-category-tag {
@@ -243,10 +237,10 @@ export default function BlogPostClient({ slug }: ClientProps) {
           font-weight: 700;
         }
         .post-scope .post-header h1 {
-          font-size: 42px;
-          color: var(--paper);
-          margin-bottom: 30px;
-          line-height: 1.15;
+          font-size: 38px;
+          color: var(--ink-dark);
+          margin-bottom: 24px;
+          line-height: 1.18;
         }
         
         /* Author info */
@@ -254,35 +248,35 @@ export default function BlogPostClient({ slug }: ClientProps) {
           display: flex;
           align-items: center;
           gap: 14px;
-          border-top: 1px solid var(--line);
-          border-bottom: 1px solid var(--line);
-          padding: 16px 0;
+          border-top: 1px solid var(--line-paper);
+          border-bottom: 1px solid var(--line-paper);
+          padding: 14px 0;
         }
         .post-scope .author-avatar {
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          border: 1px solid var(--line);
+          border: 1.5px solid var(--accent);
         }
         .post-scope .author-info h4 {
           font-size: 14px;
-          color: var(--paper);
+          color: var(--ink-dark);
           text-transform: none;
           letter-spacing: 0;
         }
         .post-scope .author-info span {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          color: var(--ink-dim);
+          color: #6B6E72;
         }
 
         /* ===== LAYOUT GRID & TOC ===== */
         .post-scope .post-layout {
           display: grid;
-          grid-template-columns: 1fr 310px;
-          gap: 48px;
+          grid-template-columns: minmax(0, 1fr) 300px;
+          gap: 52px;
           align-items: start;
-          padding: 48px 0 80px;
+          padding: 40px 0 80px;
         }
         .post-scope .post-main-col {
           min-width: 0;
