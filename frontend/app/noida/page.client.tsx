@@ -77,18 +77,18 @@ export default function NoidaClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -141,8 +141,8 @@ export default function NoidaClientPage() {
         }
         .noida-scope .btn-primary { background: var(--accent); color: #17181A; }
         .noida-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .noida-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .noida-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .noida-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .noida-scope .btn-ghost:hover { border-color: var(--paper); }
         .noida-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .noida-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -150,6 +150,8 @@ export default function NoidaClientPage() {
         .noida-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -157,6 +159,7 @@ export default function NoidaClientPage() {
           content: "";
           position: absolute; inset: 0;
           background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
@@ -166,12 +169,12 @@ export default function NoidaClientPage() {
         }
         .noida-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .noida-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .noida-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 520px; margin-bottom: 32px; }
+        .noida-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .noida-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .noida-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .noida-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .noida-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
-        .noida-scope .stat span { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+        .noida-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .noida-scope .ticket {
@@ -211,15 +214,15 @@ export default function NoidaClientPage() {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .noida-scope .ticket-foot .total b { font-size: 20px; }
+        .noida-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .noida-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .noida-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+        .noida-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .noida-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .noida-scope .section-head h2 { font-size: 34px; color: var(--paper); }
-        .noida-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .noida-scope .section-alt { background: var(--bg-soft); }
+        .noida-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
+        .noida-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
+        .noida-scope .section-alt { background: var(--paper-dim); }
 
         /* ===== AREAS COVERED ===== */
         .noida-scope .area-info-box {

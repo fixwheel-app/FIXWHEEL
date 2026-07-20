@@ -37,18 +37,18 @@ export default function DelhiClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -101,8 +101,8 @@ export default function DelhiClientPage() {
         }
         .delhi-scope .btn-primary { background: var(--accent); color: #17181A; }
         .delhi-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .delhi-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .delhi-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .delhi-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .delhi-scope .btn-ghost:hover { border-color: var(--paper); }
         .delhi-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .delhi-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -110,6 +110,8 @@ export default function DelhiClientPage() {
         .delhi-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -117,6 +119,7 @@ export default function DelhiClientPage() {
           content: "";
           position: absolute; inset: 0;
           background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
@@ -126,12 +129,12 @@ export default function DelhiClientPage() {
         }
         .delhi-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .delhi-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .delhi-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 520px; margin-bottom: 32px; }
+        .delhi-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .delhi-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .delhi-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .delhi-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .delhi-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
-        .delhi-scope .stat span { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+        .delhi-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .delhi-scope .ticket {
@@ -171,15 +174,213 @@ export default function DelhiClientPage() {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .delhi-scope .ticket-foot .total b { font-size: 20px; }
+        .delhi-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .delhi-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .delhi-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+        .delhi-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .delhi-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .delhi-scope .section-head h2 { font-size: 34px; color: var(--paper); }
-        .delhi-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .delhi-scope .section-alt { background: var(--bg-soft); }
+        .delhi-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
+        .delhi-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
+        .delhi-scope .section-alt { background: var(--paper-dim); }
+
+        /* ===== AREAS COVERED ===== */
+        .delhi-scope .area-info-box {
+          background: var(--bg);
+          color: var(--paper);
+          border: 1px solid var(--line);
+          padding: 40px;
+          border-radius: 4px;
+          text-align: center;
+        }
+        .delhi-scope .area-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 32px;
+        }
+        .delhi-scope .area-tag {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          background: #FFFFFF;
+          color: var(--ink-dark);
+          border: 1px solid var(--line-paper);
+          padding: 8px 16px;
+          border-radius: 4px;
+          transition: border-color 0.15s, transform 0.15s;
+        }
+        .delhi-scope .area-tag:hover {
+          border-color: var(--accent);
+          transform: translateY(-1px);
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .delhi-scope .why-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 24px;
+        }
+        .delhi-scope .why-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-left: 4px solid var(--accent);
+          padding: 28px;
+          border-radius: 4px;
+        }
+        .delhi-scope .why-card .num {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          color: var(--accent);
+          display: block;
+          margin-bottom: 12px;
+          font-weight: 700;
+        }
+        .delhi-scope .why-card h3 {
+          font-size: 20px;
+          color: var(--ink-dark);
+          margin-bottom: 10px;
+        }
+        .delhi-scope .why-card p {
+          font-size: 14px;
+          color: #5A5D62;
+          line-height: 1.6;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .delhi-scope .steps {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          overflow: hidden;
+        }
+        .delhi-scope .step {
+          padding: 32px 24px;
+          border-right: 1px solid var(--line-paper);
+        }
+        .delhi-scope .step:last-child {
+          border-right: none;
+        }
+        .delhi-scope .step .n {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 13px;
+          color: var(--accent);
+          font-weight: 700;
+          display: block;
+          margin-bottom: 14px;
+        }
+        .delhi-scope .step h3 {
+          font-size: 18px;
+          color: var(--ink-dark);
+          margin-bottom: 10px;
+        }
+        .delhi-scope .step p {
+          font-size: 13.5px;
+          color: #5A5D62;
+          line-height: 1.55;
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .delhi-scope .svc-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 24px;
+        }
+        .delhi-scope .svc-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          padding: 28px;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          transition: border-color 0.2s, transform 0.2s;
+        }
+        .delhi-scope .svc-card:hover {
+          border-color: var(--accent);
+          transform: translateY(-3px);
+        }
+        .delhi-scope .svc-tag {
+          font-size: 11px;
+          color: var(--accent);
+          letter-spacing: 0.08em;
+          margin-bottom: 12px;
+          display: block;
+          font-weight: 700;
+        }
+        .delhi-scope .svc-card h3 {
+          font-size: 22px;
+          color: var(--ink-dark);
+          margin-bottom: 10px;
+        }
+        .delhi-scope .svc-card p {
+          font-size: 14px;
+          color: #5A5D62;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          flex-grow: 1;
+        }
+        .delhi-scope .svc-price {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--accent);
+          margin-bottom: 16px;
+        }
+        .delhi-scope .svc-price span {
+          font-size: 11px;
+          color: #8A8D91;
+          font-weight: 400;
+          margin-left: 6px;
+        }
+        .delhi-scope .svc-card .go {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          font-weight: 700;
+          color: var(--ink-dark);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          transition: color 0.15s;
+        }
+        .delhi-scope .svc-card .go:hover {
+          color: var(--accent);
+        }
+
+        /* ===== FAQS ===== */
+        .delhi-scope .faq-list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          max-width: 800px;
+        }
+        .delhi-scope .faq-item {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          padding: 24px;
+        }
+        .delhi-scope .faq-q {
+          font-size: 18px;
+          color: var(--ink-dark);
+          margin-bottom: 10px;
+          font-weight: 600;
+        }
+        .delhi-scope .faq-a p {
+          font-size: 14.5px;
+          color: #4A4D52;
+          line-height: 1.65;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .delhi-scope .final-cta {
+          text-align: center;
+          padding: 96px 0;
+          background: var(--bg);
+          color: var(--paper);
+          border-top: 1px solid var(--line);
+        }
+        .delhi-scope .final-cta h2 { font-size: 40px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
+        .delhi-scope .final-cta p { color: #A7A9AC; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
         /* ===== AREAS COVERED ===== */
         .delhi-scope .area-info-box {

@@ -66,18 +66,18 @@ export default function GhaziabadClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -130,8 +130,8 @@ export default function GhaziabadClientPage() {
         }
         .ghaziabad-scope .btn-primary { background: var(--accent); color: #17181A; }
         .ghaziabad-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .ghaziabad-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .ghaziabad-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .ghaziabad-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .ghaziabad-scope .btn-ghost:hover { border-color: var(--paper); }
         .ghaziabad-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .ghaziabad-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -139,6 +139,8 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -146,6 +148,7 @@ export default function GhaziabadClientPage() {
           content: "";
           position: absolute; inset: 0;
           background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
@@ -155,12 +158,12 @@ export default function GhaziabadClientPage() {
         }
         .ghaziabad-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .ghaziabad-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .ghaziabad-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 520px; margin-bottom: 32px; }
+        .ghaziabad-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .ghaziabad-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .ghaziabad-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .ghaziabad-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .ghaziabad-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
-        .ghaziabad-scope .stat span { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+        .ghaziabad-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .ghaziabad-scope .ticket {
@@ -200,15 +203,15 @@ export default function GhaziabadClientPage() {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .ghaziabad-scope .ticket-foot .total b { font-size: 20px; }
+        .ghaziabad-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .ghaziabad-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .ghaziabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+        .ghaziabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .ghaziabad-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .ghaziabad-scope .section-head h2 { font-size: 34px; color: var(--paper); }
-        .ghaziabad-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .ghaziabad-scope .section-alt { background: var(--bg-soft); }
+        .ghaziabad-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
+        .ghaziabad-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
+        .ghaziabad-scope .section-alt { background: var(--paper-dim); }
 
         /* ===== AREAS COVERED ===== */
         .ghaziabad-scope .area-info-box {

@@ -73,18 +73,18 @@ export default function FaridabadClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -137,8 +137,8 @@ export default function FaridabadClientPage() {
         }
         .faridabad-scope .btn-primary { background: var(--accent); color: #17181A; }
         .faridabad-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .faridabad-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .faridabad-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .faridabad-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .faridabad-scope .btn-ghost:hover { border-color: var(--paper); }
         .faridabad-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .faridabad-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -146,6 +146,8 @@ export default function FaridabadClientPage() {
         .faridabad-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -153,6 +155,7 @@ export default function FaridabadClientPage() {
           content: "";
           position: absolute; inset: 0;
           background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
@@ -162,12 +165,12 @@ export default function FaridabadClientPage() {
         }
         .faridabad-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .faridabad-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .faridabad-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 520px; margin-bottom: 32px; }
+        .faridabad-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .faridabad-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .faridabad-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .faridabad-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .faridabad-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
-        .faridabad-scope .stat span { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+        .faridabad-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .faridabad-scope .ticket {
@@ -207,15 +210,15 @@ export default function FaridabadClientPage() {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .faridabad-scope .ticket-foot .total b { font-size: 20px; }
+        .faridabad-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .faridabad-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .faridabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+        .faridabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .faridabad-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .faridabad-scope .section-head h2 { font-size: 34px; color: var(--paper); }
-        .faridabad-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .faridabad-scope .section-alt { background: var(--bg-soft); }
+        .faridabad-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
+        .faridabad-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
+        .faridabad-scope .section-alt { background: var(--paper-dim); }
 
         /* ===== AREAS COVERED ===== */
         .faridabad-scope .area-info-box {

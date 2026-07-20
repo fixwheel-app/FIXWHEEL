@@ -171,18 +171,18 @@ export default function BrandsClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -235,19 +235,51 @@ export default function BrandsClientPage() {
         }
         .brands-scope .btn-primary { background: var(--accent); color: #17181A; }
         .brands-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .brands-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .brands-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .brands-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .brands-scope .btn-ghost:hover { border-color: var(--paper); }
         .brands-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .brands-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
         .brands-scope .hover-white:hover {
           color: var(--paper) !important;
         }
 
-
-
         /* ===== BREADCRUMB ===== */
         .brands-scope .breadcrumb {
           padding: 20px 0;
+          background: #111214;
+          border-bottom: 1px solid var(--line);
+        }
+        .brands-scope .breadcrumb nav {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          letter-spacing: 0.04em;
+          color: #A7A9AC;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .brands-scope .breadcrumb a {
+          color: #A7A9AC;
+          transition: color .15s ease;
+        }
+        .brands-scope .breadcrumb a:hover { color: var(--accent); }
+        .brands-scope .breadcrumb .sep { color: #5C6066; }
+        .brands-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
+
+        /* ===== HERO ===== */
+        .brands-scope .hero {
+          position: relative;
+          padding: 72px 0 48px;
+          background: var(--bg);
+          color: var(--paper);
+          border-bottom: 1px solid var(--line);
+          overflow: hidden;
+        }
+        .brands-scope .hero::before {
+          content: ""; position: absolute; inset: 0;
+          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
+          pointer-events: none;
+        }
           border-bottom: 1px solid var(--line);
         }
         .brands-scope .breadcrumb nav {
@@ -285,41 +317,18 @@ export default function BrandsClientPage() {
           position: relative; z-index: 1;
           max-width: 800px;
         }
-        .brands-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
-        .brands-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .brands-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 620px; margin-bottom: 32px; }
-        .brands-scope .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+        .brands-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--paper); }
+        .brands-scope .hero p.lead { font-size: 16px; color: #A7A9AC; max-width: 580px; }
 
         /* ===== TRUST STRIP ===== */
-        .brands-scope .trust-strip {
-          border-bottom: 1px solid var(--line);
-          background: var(--bg-soft);
+        .brands-scope .trust-strip-section {
+          padding: 40px 0;
+          border-bottom: 1px solid var(--line-paper);
+          background: var(--paper-dim);
         }
-        .brands-scope .trust-inner {
+        .brands-scope .trust-strip {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 1px;
-          background: var(--line);
-        }
-        .brands-scope .trust-item {
-          background: var(--bg-soft);
-          padding: 28px 24px;
-          text-align: center;
-        }
-        .brands-scope .trust-item b {
-          display: block;
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 22px;
-          color: var(--paper);
-          margin-bottom: 6px;
-        }
-        .brands-scope .trust-item span {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 11px;
-          color: var(--ink-dim);
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-        }
 
         /* ===== SECTION GENERIC ===== */
         .brands-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }

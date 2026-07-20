@@ -155,18 +155,18 @@ export default function BlogPostClient({ slug }: ClientProps) {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.65;
           -webkit-font-smoothing: antialiased;
@@ -191,28 +191,38 @@ export default function BlogPostClient({ slug }: ClientProps) {
         /* ===== BREADCRUMB ===== */
         .post-scope .breadcrumb {
           padding: 20px 0;
+          background: #111214;
           border-bottom: 1px solid var(--line);
         }
         .post-scope .breadcrumb nav {
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           letter-spacing: 0.04em;
-          color: var(--ink-dim);
+          color: #A7A9AC;
           display: flex;
           align-items: center;
           gap: 8px;
         }
         .post-scope .breadcrumb a {
-          color: var(--ink-dim);
+          color: #A7A9AC;
           transition: color .15s ease;
         }
         .post-scope .breadcrumb a:hover { color: var(--accent); }
-        .post-scope .breadcrumb .sep { color: var(--line); }
-        .post-scope .breadcrumb .current { color: var(--paper); }
+        .post-scope .breadcrumb .sep { color: #5C6066; }
+        .post-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== POST HEADER ===== */
         .post-scope .post-header {
           padding: 60px 0 40px;
+          background: var(--bg);
+          color: var(--paper);
+          border-bottom: 1px solid var(--line);
+          position: relative;
+        }
+        .post-scope .post-header::before {
+          content: ""; position: absolute; inset: 0;
+          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
+          pointer-events: none;
         }
         .post-scope .post-meta-row {
           display: flex;
@@ -221,7 +231,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
           margin-bottom: 24px;
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          color: var(--ink-dim);
+          color: #A7A9AC;
           text-transform: uppercase;
         }
         .post-scope .post-category-tag {
@@ -283,18 +293,19 @@ export default function BlogPostClient({ slug }: ClientProps) {
         /* ===== CONTENT BODY ===== */
         .post-scope .post-body {
           font-size: 16px;
-          color: var(--paper-dim);
+          color: #4A4D52;
           line-height: 1.75;
           margin-bottom: 40px;
+          padding-top: 40px;
         }
         .post-scope .post-body p {
           margin-bottom: 24px;
         }
         .post-scope .post-body h3 {
           font-size: 26px;
-          color: var(--paper);
+          color: var(--ink-dark);
           margin: 44px 0 18px;
-          border-bottom: 1px solid var(--line);
+          border-bottom: 1px solid var(--line-paper);
           padding-bottom: 8px;
         }
         .post-scope .post-body ul {
@@ -304,18 +315,18 @@ export default function BlogPostClient({ slug }: ClientProps) {
         }
         .post-scope .post-body li {
           margin-bottom: 12px;
-          color: var(--paper-dim);
+          color: #4A4D52;
         }
 
         /* ===== COMMENTS SECTION ===== */
         .post-scope .comments-section {
           padding: 50px 0;
-          border-top: 1px solid var(--line);
+          border-top: 1px solid var(--line-paper);
           margin-top: 20px;
         }
         .post-scope .comments-section h3.comments-title {
           font-size: 26px;
-          color: var(--paper);
+          color: var(--ink-dark);
           margin-bottom: 24px;
           display: flex;
           align-items: center;
@@ -331,15 +342,15 @@ export default function BlogPostClient({ slug }: ClientProps) {
           font-weight: 700;
         }
         .post-scope .comment-form {
-          background: var(--bg-soft);
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
           border-radius: 4px;
           padding: 28px;
           margin-bottom: 40px;
         }
         .post-scope .comment-form h4 {
           font-size: 18px;
-          color: var(--paper);
+          color: var(--ink-dark);
           margin-bottom: 20px;
         }
         .post-scope .form-row {
@@ -357,7 +368,33 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .input-group label {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          color: var(--ink-dim);
+          color: #5A5D62;
+          text-transform: uppercase;
+        }
+        .post-scope .input-group input,
+        .post-scope .input-group textarea {
+          background: var(--paper);
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          padding: 12px 14px;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          color: var(--ink-dark);
+          outline: none;
+          transition: border-color 0.15s;
+        }
+        .post-scope .input-group input:focus,
+        .post-scope .input-group textarea:focus {
+          border-color: var(--accent);
+        }
+
+        .post-scope .comment-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 4px;
+          padding: 20px 24px;
+          margin-bottom: 16px;
+        }
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }

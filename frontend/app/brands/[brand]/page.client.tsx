@@ -52,18 +52,18 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -116,42 +116,45 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         }
         .brand-detail-scope .btn-primary { background: var(--accent); color: #17181A; }
         .brand-detail-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .brand-detail-scope .btn-dark { background: var(--ink-dark); border: 1px solid var(--line); color: var(--paper); }
+        .brand-detail-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .brand-detail-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
         .brand-detail-scope .breadcrumb {
           padding: 20px 0;
+          background: #111214;
           border-bottom: 1px solid var(--line);
         }
         .brand-detail-scope .breadcrumb nav {
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           letter-spacing: 0.04em;
-          color: var(--ink-dim);
+          color: #A7A9AC;
           display: flex;
           align-items: center;
           gap: 8px;
         }
         .brand-detail-scope .breadcrumb a {
-          color: var(--ink-dim);
+          color: #A7A9AC;
           transition: color .15s ease;
         }
         .brand-detail-scope .breadcrumb a:hover { color: var(--accent); }
-        .brand-detail-scope .breadcrumb .sep { color: var(--line); }
-        .brand-detail-scope .breadcrumb .current { color: var(--paper); }
+        .brand-detail-scope .breadcrumb .sep { color: #5C6066; }
+        .brand-detail-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
         .brand-detail-scope .hero {
           position: relative;
-          padding: 96px 0 60px;
+          padding: 80px 0 56px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
         .brand-detail-scope .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
+          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
         .brand-detail-scope .hero-inner {
@@ -160,22 +163,22 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         }
         .brand-detail-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .brand-detail-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .brand-detail-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 620px; margin-bottom: 32px; }
+        .brand-detail-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 620px; margin-bottom: 32px; }
         .brand-detail-scope .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
         /* ===== TRUST STRIP ===== */
         .brand-detail-scope .trust-strip {
-          border-bottom: 1px solid var(--line);
-          background: var(--bg-soft);
+          border-bottom: 1px solid var(--line-paper);
+          background: var(--paper-dim);
         }
         .brand-detail-scope .trust-inner {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 1px;
-          background: var(--line);
+          background: var(--line-paper);
         }
         .brand-detail-scope .trust-item {
-          background: var(--bg-soft);
+          background: #FFFFFF;
           padding: 28px 24px;
           text-align: center;
         }
@@ -183,13 +186,13 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           display: block;
           font-family: var(--font-jetbrains), monospace;
           font-size: 22px;
-          color: var(--paper);
+          color: var(--ink-dark);
           margin-bottom: 6px;
         }
         .brand-detail-scope .trust-item span {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          color: var(--ink-dim);
+          color: #6B6E72;
           letter-spacing: 0.06em;
           text-transform: uppercase;
         }
@@ -197,11 +200,11 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         /* ===== TABS COMPONENT ===== */
         .brand-detail-scope .tabs-section {
           padding: 80px 0;
-          background: var(--bg);
+          background: var(--paper);
         }
         .brand-detail-scope .tab-container {
-          background: var(--bg-soft);
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
           border-radius: 4px;
           overflow: hidden;
         }
@@ -209,8 +212,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         /* The header container mirrors the custom shape from the user's attachment */
         .brand-detail-scope .tab-headers {
           display: flex;
-          background: #17181A;
-          border-bottom: 1px solid var(--line);
+          background: var(--paper-dim);
+          border-bottom: 1px solid var(--line-paper);
           padding-top: 10px;
           padding-left: 10px;
           gap: 6px;
@@ -219,9 +222,9 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           font-family: var(--font-jetbrains), monospace;
           font-size: 13px;
           font-weight: 700;
-          color: var(--ink-dim);
-          background: #1E2022;
-          border: 1px solid var(--line);
+          color: #5A5D62;
+          background: #E0D8C6;
+          border: 1px solid var(--line-paper);
           border-bottom: none;
           padding: 14px 28px;
           border-top-left-radius: 6px;
@@ -232,26 +235,55 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           position: relative;
         }
         .brand-detail-scope .tab-header-btn:hover {
-          color: var(--paper);
-          background: #25282a;
+          color: var(--ink-dark);
+          background: #FFFFFF;
         }
         .brand-detail-scope .tab-header-btn.active {
           color: var(--accent);
-          background: var(--bg-soft);
-          border-color: var(--line) var(--line) var(--bg-soft) var(--line);
+          background: #FFFFFF;
+          border-color: var(--line-paper) var(--line-paper) #FFFFFF var(--line-paper);
           z-index: 2;
         }
         
         .brand-detail-scope .tab-content {
           padding: 40px;
+          background: #FFFFFF;
+          color: var(--ink-dark);
         }
 
         /* Tab Content: Description View */
         .brand-detail-scope .info-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 32px;
-          margin-bottom: 48px;
+          grid-template-columns: 2fr 1fr;
+          gap: 40px;
+        }
+        .brand-detail-scope .brand-desc p {
+          font-size: 15.5px;
+          line-height: 1.7;
+          color: #4A4D52;
+          margin-bottom: 24px;
+        }
+        .brand-detail-scope .brand-features {
+          margin-top: 32px;
+        }
+        .brand-detail-scope .brand-features h3 {
+          font-size: 22px;
+          color: var(--ink-dark);
+          margin-bottom: 16px;
+        }
+        .brand-detail-scope .feature-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .brand-detail-scope .feature-item {
+          background: var(--paper);
+          border: 1px solid var(--line-paper);
+          padding: 16px;
+          border-radius: 4px;
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
         }
         .brand-detail-scope .info-card {
           background: var(--bg);

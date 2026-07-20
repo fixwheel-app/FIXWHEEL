@@ -76,45 +76,45 @@ export default function PalamViharClientPage() {
   };
 
   return (
-    <div className={`palam-vihar-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`palamvihar-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
-        .palam-vihar-scope {
+        .palamvihar-scope {
           --bg:#17181A;
           --bg-soft:#1E2022;
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
           min-height: 100vh;
         }
 
-        .palam-vihar-scope img { max-width: 100%; display: block; }
-        .palam-vihar-scope a { color: inherit; text-decoration: none; }
-        .palam-vihar-scope ul { list-style: none; }
-        .palam-vihar-scope .mono { font-family: var(--font-jetbrains), monospace; }
-        .palam-vihar-scope h1, .palam-vihar-scope h2, .palam-vihar-scope h3, .palam-vihar-scope h4 {
+        .palamvihar-scope img { max-width: 100%; display: block; }
+        .palamvihar-scope a { color: inherit; text-decoration: none; }
+        .palamvihar-scope ul { list-style: none; }
+        .palamvihar-scope .mono { font-family: var(--font-jetbrains), monospace; }
+        .palamvihar-scope h1, .palamvihar-scope h2, .palamvihar-scope h3, .palamvihar-scope h4 {
           font-family: var(--font-oswald), sans-serif;
           text-transform: uppercase;
           letter-spacing: 0.01em;
           line-height: 1.08;
           font-weight: 600;
         }
-        .palam-vihar-scope .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-        .palam-vihar-scope .eyebrow {
+        .palamvihar-scope .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        .palamvihar-scope .eyebrow {
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           letter-spacing: 0.14em;
@@ -125,8 +125,8 @@ export default function PalamViharClientPage() {
           gap: 10px;
           margin-bottom: 16px;
         }
-        .palam-vihar-scope .eyebrow::before { content:""; width:24px; height:1px; background:var(--accent); }
-        .palam-vihar-scope .btn {
+        .palamvihar-scope .eyebrow::before { content:""; width:24px; height:1px; background:var(--accent); }
+        .palamvihar-scope .btn {
           display: inline-flex;
           align-items: center;
           gap: 8px;
@@ -141,32 +141,32 @@ export default function PalamViharClientPage() {
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .palam-vihar-scope .btn-primary { background: var(--accent); color: #fff; }
-        .palam-vihar-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
-        .palam-vihar-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .palam-vihar-scope .btn-ghost:hover { border-color: var(--ink-dim); }
-        .palam-vihar-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
-        .palam-vihar-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
+        .palamvihar-scope .btn-primary { background: var(--accent); color: #17181A; }
+        .palamvihar-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
+        .palamvihar-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .palamvihar-scope .btn-ghost:hover { border-color: var(--paper); }
+        .palamvihar-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
+        .palamvihar-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* breadcrumb */
-        .palam-vihar-scope .crumb { background: var(--bg-soft); border-bottom: 1px solid var(--line); padding-top: 16px; }
-        .palam-vihar-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: var(--paper-dim); }
-        .palam-vihar-scope .crumb a { color: var(--paper-dim); font-weight: 500; }
-        .palam-vihar-scope .crumb a:hover { color: var(--accent); }
-        .palam-vihar-scope .crumb .sep { opacity: .6; color: var(--ink-dim); }
-        .palam-vihar-scope .crumb .current { color: var(--accent); font-weight: 700; }
+        .palamvihar-scope .crumb { background: #111214; color: var(--paper); border-bottom: 1px solid var(--line); padding-top: 16px; }
+        .palamvihar-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: #A7A9AC; }
+        .palamvihar-scope .crumb a { color: #A7A9AC; font-weight: 500; }
+        .palamvihar-scope .crumb a:hover { color: var(--accent); }
+        .palamvihar-scope .crumb .sep { opacity: .6; color: #5C6066; }
+        .palamvihar-scope .crumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
-        .palam-vihar-scope .hero { position: relative; padding: 64px 0 56px; border-bottom: 1px solid var(--line); overflow: hidden; }
-        .palam-vihar-scope .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
-        .palam-vihar-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-        .palam-vihar-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: var(--paper); }
-        .palam-vihar-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .palam-vihar-scope .hero p.lead { font-size: 16.5px; color: var(--ink-dim); max-width: 500px; margin-bottom: 28px; }
-        .palam-vihar-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
+        .palamvihar-scope .hero { position: relative; padding: 64px 0 56px; background: var(--bg); color: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+        .palamvihar-scope .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
+        .palamvihar-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+        .palamvihar-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: var(--paper); }
+        .palamvihar-scope .hero h1 em { font-style: normal; color: var(--accent); }
+        .palamvihar-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
+        .palamvihar-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
         /* ticket mock */
-        .palam-vihar-scope .ticket {
+        .palamvihar-scope .ticket {
           background: var(--paper);
           color: var(--ink-dark);
           border-radius: 6px;
@@ -174,7 +174,7 @@ export default function PalamViharClientPage() {
           position: relative;
           box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
         }
-        .palam-vihar-scope .ticket::before, .palam-vihar-scope .ticket::after {
+        .palamvihar-scope .ticket::before, .palamvihar-scope .ticket::after {
           content: "";
           position: absolute;
           width: 22px; height: 22px;
@@ -182,35 +182,35 @@ export default function PalamViharClientPage() {
           border-radius: 50%;
           top: 50%; transform: translateY(-50%);
         }
-        .palam-vihar-scope .ticket::before { left: -11px; }
-        .palam-vihar-scope .ticket::after { right: -11px; }
-        .palam-vihar-scope .ticket-top {
+        .palamvihar-scope .ticket::before { left: -11px; }
+        .palamvihar-scope .ticket::after { right: -11px; }
+        .palamvihar-scope .ticket-top {
           display: flex; justify-content: space-between; align-items: flex-start;
           border-bottom: 1px dashed var(--line-paper);
           padding-bottom: 14px; margin-bottom: 14px;
         }
-        .palam-vihar-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
-        .palam-vihar-scope .ticket-id span { display: block; font-size: 10px; color: #7a7364; letter-spacing: 0.1em; margin-top: 2px; font-weight: 400;}
-        .palam-vihar-scope .ticket-status {
+        .palamvihar-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
+        .palamvihar-scope .ticket-id span { display: block; font-size: 10px; color: #7a7364; letter-spacing: 0.1em; margin-top: 2px; font-weight: 400;}
+        .palamvihar-scope .ticket-status {
           font-family: var(--font-jetbrains); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
           background: var(--stamp); color: #3a2c00; padding: 5px 10px; border-radius: 20px; font-weight: 700;
           transform: rotate(2deg);
         }
-        .palam-vihar-scope .ticket-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-bottom: 16px;}
-        .palam-vihar-scope .ticket-rows .r label { display: block; font-family: var(--font-jetbrains); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8a836f; margin-bottom: 3px;}
-        .palam-vihar-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
-        .palam-vihar-scope .ticket-foot {
+        .palamvihar-scope .ticket-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-bottom: 16px;}
+        .palamvihar-scope .ticket-rows .r label { display: block; font-family: var(--font-jetbrains); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8a836f; margin-bottom: 3px;}
+        .palamvihar-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
+        .palamvihar-scope .ticket-foot {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .palam-vihar-scope .ticket-foot .total b { font-size: 20px; }
-        .palam-vihar-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
+        .palamvihar-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
+        .palamvihar-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
-        .palam-vihar-scope section { padding: 76px 0; border-bottom: 1px solid var(--line); }
-        .palam-vihar-scope .section-head { max-width: 640px; margin-bottom: 40px; }
-        .palam-vihar-scope .section-head h2 { font-size: 30px; color: var(--paper); }
-        .palam-vihar-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15px; }
-        .palam-vihar-scope .section-alt { background: var(--bg-soft); }
+        .palamvihar-scope section { padding: 76px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
+        .palamvihar-scope .section-head { max-width: 640px; margin-bottom: 40px; }
+        .palamvihar-scope .section-head h2 { font-size: 30px; color: var(--ink-dark); }
+        .palamvihar-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15px; }
+        .palamvihar-scope .section-alt { background: var(--paper-dim); }
 
         /* local trust strip */
         .palam-vihar-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }

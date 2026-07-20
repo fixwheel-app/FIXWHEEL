@@ -115,18 +115,18 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -172,28 +172,28 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .${slug}-scope .btn-primary { background: var(--accent); color: #fff; }
+        .${slug}-scope .btn-primary { background: var(--accent); color: #17181A; }
         .${slug}-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
-        .${slug}-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .${slug}-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .${slug}-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .${slug}-scope .btn-ghost:hover { border-color: var(--paper); }
         .${slug}-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .${slug}-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* breadcrumb */
-        .${slug}-scope .crumb { background: var(--bg-soft); border-bottom: 1px solid var(--line); padding-top: 16px; }
-        .${slug}-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: var(--paper-dim); }
-        .${slug}-scope .crumb a { color: var(--paper-dim); font-weight: 500; }
+        .${slug}-scope .crumb { background: #111214; color: var(--paper); border-bottom: 1px solid var(--line); padding-top: 16px; }
+        .${slug}-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: #A7A9AC; }
+        .${slug}-scope .crumb a { color: #A7A9AC; font-weight: 500; }
         .${slug}-scope .crumb a:hover { color: var(--accent); }
-        .${slug}-scope .crumb .sep { opacity: .6; color: var(--ink-dim); }
+        .${slug}-scope .crumb .sep { opacity: .6; color: #5C6066; }
         .${slug}-scope .crumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
-        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; border-bottom: 1px solid var(--line); overflow: hidden; }
-        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
+        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; background: var(--bg); color: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
         .${slug}-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
         .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: var(--paper); }
         .${slug}-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .${slug}-scope .hero p.lead { font-size: 16.5px; color: var(--ink-dim); max-width: 500px; margin-bottom: 28px; }
+        .${slug}-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
         .${slug}-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
         /* ticket mock */
@@ -234,70 +234,78 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .${slug}-scope .ticket-foot .total b { font-size: 20px; }
+        .${slug}-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .${slug}-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
-        .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+        .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .${slug}-scope .section-head { max-width: 640px; margin-bottom: 40px; }
-        .${slug}-scope .section-head h2 { font-size: 30px; color: var(--paper); }
-        .${slug}-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15px; }
-        .${slug}-scope .section-alt { background: var(--bg-soft); }
+        .${slug}-scope .section-head h2 { font-size: 30px; color: var(--ink-dark); }
+        .${slug}-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15px; }
+        .${slug}-scope .section-alt { background: var(--paper-dim); }
 
         /* local trust strip */
-        .${slug}-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .trust-cell { background: var(--bg); padding: 26px 22px; }
-        .${slug}-scope .trust-cell b { display: block; font-family: var(--font-jetbrains); font-size: 26px; color: var(--paper); margin-bottom: 4px; }
-        .${slug}-scope .trust-cell span { font-size: 11.5px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-jetbrains); }
+        .${slug}-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-paper); border: 1px solid var(--line-paper); }
+        .${slug}-scope .trust-cell { background: #FFFFFF; padding: 26px 22px; }
+        .${slug}-scope .trust-cell b { display: block; font-family: var(--font-jetbrains); font-size: 26px; color: var(--ink-dark); margin-bottom: 4px; }
+        .${slug}-scope .trust-cell span { font-size: 11.5px; color: #6B6E72; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-jetbrains); }
 
         /* streets/societies list */
-        .${slug}-scope .street-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .street-cell { background: var(--bg); padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; display: flex; align-items: center; gap: 10px; }
+        .${slug}-scope .street-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-paper); border: 1px solid var(--line-paper); }
+        .${slug}-scope .street-cell { background: #FFFFFF; color: var(--ink-dark); padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; display: flex; align-items: center; gap: 10px; }
         .${slug}-scope .street-cell .pin { color: var(--accent); font-size: 11px; }
-        .${slug}-scope .street-note { margin-top: 20px; font-size: 13.5px; color: var(--ink-dim); }
+        .${slug}-scope .street-note { margin-top: 20px; font-size: 13.5px; color: #5A5D62; }
         .${slug}-scope .street-note a { color: var(--accent); font-weight: 600; }
 
         /* top services */
         .${slug}-scope .top-svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .${slug}-scope .top-svc-card { background: var(--bg-soft); border: 1px solid var(--line); padding: 22px; border-radius: 4px; transition: border-color .15s ease, transform .15s ease; }
+        .${slug}-scope .top-svc-card { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 22px; border-radius: 4px; transition: border-color .15s ease, transform .15s ease; }
         .${slug}-scope .top-svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .${slug}-scope .top-svc-card .rank { font-family: var(--font-jetbrains); font-size: 10.5px; color: var(--stamp); letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
-        .${slug}-scope .top-svc-card h3 { font-size: 15.5px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 8px; }
-        .${slug}-scope .top-svc-card p { font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; min-height: 40px; }
+        .${slug}-scope .top-svc-card .rank { font-family: var(--font-jetbrains); font-size: 10.5px; color: var(--accent); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
+        .${slug}-scope .top-svc-card h3 { font-size: 15.5px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px; }
+        .${slug}-scope .top-svc-card p { font-size: 13px; color: #5A5D62; margin-bottom: 14px; min-height: 40px; }
         .${slug}-scope .top-svc-card .go { font-family: var(--font-jetbrains); font-size: 11.5px; color: var(--accent); font-weight: 700; }
-        .${slug}-scope .catalog-link { margin-top: 24px; font-size: 14px; color: var(--ink-dim); }
+        .${slug}-scope .catalog-link { margin-top: 24px; font-size: 14px; color: #5A5D62; }
         .${slug}-scope .catalog-link a { color: var(--accent); font-weight: 600; }
 
         /* ===== WHY CARDS ===== */
-        .${slug}-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .why-card { background: var(--bg); padding: 28px 24px; }
-        .${slug}-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 16px; display: block; }
-        .${slug}-scope .why-card h3 { font-size: 16.5px; color: var(--paper); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
-        .${slug}-scope .why-card p { font-size: 13.5px; color: var(--ink-dim); }
+        .${slug}-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .${slug}-scope .why-card { background: #FFFFFF; border: 1px solid var(--line-paper); border-left: 4px solid var(--accent); padding: 28px 24px; border-radius: 4px; }
+        .${slug}-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 16px; display: block; font-weight: 700; }
+        .${slug}-scope .why-card h3 { font-size: 16.5px; color: var(--ink-dark); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
+        .${slug}-scope .why-card p { font-size: 13.5px; color: #5A5D62; }
 
         /* ===== HOW IT WORKS ===== */
         .${slug}-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .${slug}-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line); }
+        .${slug}-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper); }
         .${slug}-scope .step .n { font-family: var(--font-jetbrains); font-size: 34px; color: var(--accent); display: block; margin-bottom: 12px; font-weight: 700; }
-        .${slug}-scope .step h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 6px; }
-        .${slug}-scope .step p { font-size: 13px; color: var(--ink-dim); }
+        .${slug}-scope .step h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 6px; }
+        .${slug}-scope .step p { font-size: 13px; color: #5A5D62; }
 
         /* ===== BRANDS ===== */
         .${slug}-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
-        .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: var(--bg-soft); border: 1px solid var(--line); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; }
+        .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; color: var(--ink-dark); }
         .${slug}-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%; }
 
         /* ===== PARTNER ===== */
         .${slug}-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
         .${slug}-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-        .${slug}-scope .partner li { font-size: 14.5px; color: var(--ink-dim); display: flex; gap: 10px; }
+        .${slug}-scope .partner li { font-size: 14.5px; color: #5A5D62; display: flex; gap: 10px; }
         .${slug}-scope .partner li::before { content: "—"; color: var(--accent); }
-        .${slug}-scope .partner-box { background: var(--bg-soft); border: 1px solid var(--line); padding: 34px; border-radius: 4px; }
+        .${slug}-scope .partner-box { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 34px; border-radius: 4px; color: var(--ink-dark); }
 
         .${slug}-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .${slug}-scope .review { background: var(--paper); color: var(--ink-dark); padding: 24px; border-radius: 4px; }
-        .${slug}-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
-        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; }
+        .${slug}-scope .review { background: #FFFFFF; border: 1px solid var(--line-paper); color: var(--ink-dark); padding: 24px; border-radius: 4px; }
+        .${slug}-scope .review .stars { color: var(--accent); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #4A4D52; }
         .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455; }
+
+        .${slug}-scope .faq-item { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 4px; padding: 20px 24px; margin-bottom: 14px; }
+        .${slug}-scope .faq-q { color: var(--ink-dark); font-size: 16.5px; }
+        .${slug}-scope .faq-a p { color: #4A4D52; font-size: 14px; margin-top: 10px; }
+
+        .${slug}-scope .final-cta { text-align: center; padding: 90px 0; background: var(--bg); color: var(--paper); border-top: 1px solid var(--line); }
+        .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
+        .${slug}-scope .final-cta p { color: #A7A9AC; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
         .${slug}-scope .faq-item { border-bottom: 1px solid var(--line); }
         .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--paper); font-weight: 500; }

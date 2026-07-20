@@ -37,18 +37,18 @@ export default function GurgaonClientPage() {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#b01d1d;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -101,8 +101,8 @@ export default function GurgaonClientPage() {
         }
         .gurgaon-scope .btn-primary { background: var(--accent); color: #17181A; }
         .gurgaon-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
-        .gurgaon-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .gurgaon-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .gurgaon-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .gurgaon-scope .btn-ghost:hover { border-color: var(--paper); }
         .gurgaon-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .gurgaon-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -110,6 +110,8 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -117,6 +119,7 @@ export default function GurgaonClientPage() {
           content: "";
           position: absolute; inset: 0;
           background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
@@ -126,12 +129,12 @@ export default function GurgaonClientPage() {
         }
         .gurgaon-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
         .gurgaon-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .gurgaon-scope .hero p.lead { font-size: 17px; color: var(--ink-dim); max-width: 520px; margin-bottom: 32px; }
+        .gurgaon-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .gurgaon-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .gurgaon-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
-        .gurgaon-scope .stat span { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+        .gurgaon-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .gurgaon-scope .ticket {
@@ -171,15 +174,15 @@ export default function GurgaonClientPage() {
           display: flex; justify-content: space-between; align-items: center;
           border-top: 1px dashed var(--line-paper); padding-top: 14px;
         }
-        .gurgaon-scope .ticket-foot .total b { font-size: 20px; }
+        .gurgaon-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .gurgaon-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .gurgaon-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+        .gurgaon-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
         .gurgaon-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .gurgaon-scope .section-head h2 { font-size: 34px; color: var(--paper); }
-        .gurgaon-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .gurgaon-scope .section-alt { background: var(--bg-soft); }
+        .gurgaon-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
+        .gurgaon-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
+        .gurgaon-scope .section-alt { background: var(--paper-dim); }
 
         /* ===== AREAS COVERED ===== */
         .gurgaon-scope .area-info-box {

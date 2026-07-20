@@ -69,18 +69,18 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
           --paper:#F3EEE3;
           --paper-dim:#E7E0D0;
           --ink:#EDEAE2;
-          --ink-dim:#A7A9AC;
+          --ink-dim:#6B6E72;
           --ink-dark:#17181A;
           --accent:#E62B2B;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
-          --line:#34373A;
+          --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
           --radius:2px;
 
-          background: var(--bg);
-          color: var(--ink);
+          background: var(--paper);
+          color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -126,37 +126,77 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .${slug}-scope .btn-primary { background: var(--accent); color: #fff; }
+        .${slug}-scope .btn-primary { background: var(--accent); color: #17181A; }
         .${slug}-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
-        .${slug}-scope .btn-ghost { border-color: var(--line); color: var(--ink); }
-        .${slug}-scope .btn-ghost:hover { border-color: var(--ink-dim); }
+        .${slug}-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .${slug}-scope .btn-ghost:hover { border-color: var(--paper); }
         .${slug}-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
         .${slug}-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* breadcrumb */
-        .${slug}-scope .crumb { background: var(--bg-soft); border-bottom: 1px solid var(--line); padding-top: 16px; }
-        .${slug}-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: var(--paper-dim); }
-        .${slug}-scope .crumb a { color: var(--paper-dim); font-weight: 500; }
+        .${slug}-scope .crumb { background: #111214; color: var(--paper); border-bottom: 1px solid var(--line); padding-top: 16px; }
+        .${slug}-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: #A7A9AC; }
+        .${slug}-scope .crumb a { color: #A7A9AC; font-weight: 500; }
         .${slug}-scope .crumb a:hover { color: var(--accent); }
-        .${slug}-scope .crumb .sep { opacity: .6; color: var(--ink-dim); }
+        .${slug}-scope .crumb .sep { opacity: .6; color: #5C6066; }
         .${slug}-scope .crumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
-        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; border-bottom: 1px solid var(--line); overflow: hidden; }
-        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
+        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; background: var(--bg); color: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
         .${slug}-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
         .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: var(--paper); }
         .${slug}-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .${slug}-scope .hero p.lead { font-size: 16.5px; color: var(--ink-dim); max-width: 500px; margin-bottom: 28px; }
+        .${slug}-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
         .${slug}-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
-        /* live dispatch card */
-        .${slug}-scope .live-card { background: var(--paper); color: var(--ink-dark); border-radius: 6px; padding: 24px 26px 22px; position: relative; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
-        .${slug}-scope .live-card::before, .${slug}-scope .live-card::after { content: ""; position: absolute; width: 22px; height: 22px; background: var(--bg); border-radius: 50%; top: 50%; transform: translateY(-50%); }
-        .${slug}-scope .live-card::before { left: -11px; }
-        .${slug}-scope .live-card::after { right: -11px; }
-        .${slug}-scope .live-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--line-paper); padding-bottom: 14px; margin-bottom: 16px; }
-        .${slug}-scope .live-top .lt-label { font-family: var(--font-jetbrains); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6455; }
+        /* ticket mock */
+        .${slug}-scope .ticket {
+          background: var(--paper);
+          color: var(--ink-dark);
+          border-radius: 6px;
+          padding: 26px 28px 22px;
+          position: relative;
+          box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+        }
+        .${slug}-scope .ticket::before, .${slug}-scope .ticket::after {
+          content: "";
+          position: absolute;
+          width: 22px; height: 22px;
+          background: var(--bg);
+          border-radius: 50%;
+          top: 50%; transform: translateY(-50%);
+        }
+        .${slug}-scope .ticket::before { left: -11px; }
+        .${slug}-scope .ticket::after { right: -11px; }
+        .${slug}-scope .ticket-top {
+          display: flex; justify-content: space-between; align-items: flex-start;
+          border-bottom: 1px dashed var(--line-paper);
+          padding-bottom: 14px; margin-bottom: 14px;
+        }
+        .${slug}-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
+        .${slug}-scope .ticket-id span { display: block; font-size: 10px; color: #7a7364; letter-spacing: 0.1em; margin-top: 2px; font-weight: 400;}
+        .${slug}-scope .ticket-status {
+          font-family: var(--font-jetbrains); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+          background: var(--stamp); color: #3a2c00; padding: 5px 10px; border-radius: 20px; font-weight: 700;
+          transform: rotate(2deg);
+        }
+        .${slug}-scope .ticket-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-bottom: 16px;}
+        .${slug}-scope .ticket-rows .r label { display: block; font-family: var(--font-jetbrains); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8a836f; margin-bottom: 3px;}
+        .${slug}-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
+        .${slug}-scope .ticket-foot {
+          display: flex; justify-content: space-between; align-items: center;
+          border-top: 1px dashed var(--line-paper); padding-top: 14px;
+        }
+        .${slug}-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
+        .${slug}-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
+
+        .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
+        .${slug}-scope .section-head { max-width: 640px; margin-bottom: 40px; }
+        .${slug}-scope .section-head h2 { font-size: 30px; color: var(--ink-dark); }
+        .${slug}-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15px; }
+        .${slug}-scope .section-alt { background: var(--paper-dim); }
+
         .${slug}-scope .live-dot { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-jetbrains); font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--live); }
         .${slug}-scope .live-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 0 rgba(56,178,106,.6); animation: ${slug}-pulse 1.8s infinite; }
         
