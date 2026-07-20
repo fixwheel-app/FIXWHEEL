@@ -98,10 +98,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  /* ─── Nav links (OUR PROCESS & FAQ removed) ──────────────── */
+  /* ─── Nav links (PRICING added) ─────────────────────────── */
   const navLinks = [
     { name: 'HOME',           href: '/' },
     { name: 'SERVICES',       href: '/services' },
+    { name: 'PRICING',        href: '/pricing' },
     { name: 'LOCATIONS',      href: '/delhi' },
     { name: 'BLOG',           href: '/blog' },
     { name: 'ABOUT',          href: '/about' },
