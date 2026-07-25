@@ -86,7 +86,7 @@ export default function PalamViharClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#E62B2B;
+          --accent:#ff3b30;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
@@ -141,7 +141,7 @@ export default function PalamViharClientPage() {
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .palamvihar-scope .btn-primary { background: var(--accent); color: #17181A; }
+        .palamvihar-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .palamvihar-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
         .palamvihar-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .palamvihar-scope .btn-ghost:hover { border-color: var(--paper); }

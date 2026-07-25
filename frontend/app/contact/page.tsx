@@ -251,8 +251,8 @@ export default function ContactPage() {
             {/* Minimal stylized map placeholder */}
             <div className="absolute inset-0 bg-[#f8f9fa] flex items-center justify-center overflow-hidden grayscale">
               <svg className="w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="#e62b2b" strokeWidth="0.5" />
-                <path d="M50,0 Q30,25 50,50 T50,100" fill="none" stroke="#e62b2b" strokeWidth="0.5" />
+                <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="#ff3b30" strokeWidth="0.5" />
+                <path d="M50,0 Q30,25 50,50 T50,100" fill="none" stroke="#ff3b30" strokeWidth="0.5" />
               </svg>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
                 <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">

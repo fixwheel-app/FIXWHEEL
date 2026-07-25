@@ -79,8 +79,8 @@ export default function NoidaClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#E62B2B;
-          --accent-dim:#b01d1d;
+          --accent:#ff3b30;
+          --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -139,8 +139,8 @@ export default function NoidaClientPage() {
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .noida-scope .btn-primary { background: var(--accent); color: #17181A; }
-        .noida-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
+        .noida-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
+        .noida-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
         .noida-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .noida-scope .btn-ghost:hover { border-color: var(--paper); }
         .noida-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }

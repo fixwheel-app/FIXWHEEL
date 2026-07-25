@@ -157,8 +157,8 @@ export default function BlogPostClient({ slug }: ClientProps) {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#E62B2B;
-          --accent-dim:#b01d1d;
+          --accent:#ff3b30;
+          --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -555,7 +555,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
           gap: 8px;
         }
         .post-scope .submit-btn:hover {
-          background: #eb4d4d;
+          background: #ff5252;
           transform: translateY(-2px);
         }
         .post-scope .submit-btn:disabled {
@@ -578,7 +578,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .feedback-msg.error {
           background: rgba(230, 43, 43, 0.15);
           border: 1px solid rgba(230, 43, 43, 0.4);
-          color: #e62b2b;
+          color: #ff3b30;
         }
 
         .post-scope .comments-list {
@@ -722,8 +722,8 @@ export default function BlogPostClient({ slug }: ClientProps) {
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .post-scope .btn-primary { background: var(--accent); color: #17181A; }
-        .post-scope .btn-primary:hover { background: #eb4d4d; transform: translateY(-2px); }
+        .post-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
+        .post-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 750px) {

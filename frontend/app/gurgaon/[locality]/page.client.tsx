@@ -96,7 +96,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
     return (
       <div style={{ padding: "80px 24px", textAlign: "center", color: "#EDEAE2", background: "#17181A", minHeight: "100vh" }}>
         <h2>Locality not found</h2>
-        <p style={{ marginTop: "12px" }}><Link href="/gurgaon" style={{ color: "#E62B2B" }}>Return to Gurgaon All Coverage →</Link></p>
+        <p style={{ marginTop: "12px" }}><Link href="/gurgaon" style={{ color: "#ff3b30" }}>Return to Gurgaon All Coverage →</Link></p>
       </div>
     );
   }
@@ -119,7 +119,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#E62B2B;
+          --accent:#ff3b30;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
@@ -174,7 +174,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           cursor: pointer;
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
-        .${slug}-scope .btn-primary { background: var(--accent); color: #17181A; }
+        .${slug}-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .${slug}-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
         .${slug}-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .${slug}-scope .btn-ghost:hover { border-color: var(--paper); }
