@@ -224,11 +224,12 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
         .${slug}-scope .trust-cell { background: var(--bg); padding: 26px 22px; }
         .${slug}-scope .trust-cell b { display: block; font-family: var(--font-jetbrains); font-size: 26px; color: var(--paper); margin-bottom: 4px; }
+        .trust-cell span { color: rgba(255, 255, 255, 0.6); }
         .${slug}-scope .trust-cell span { font-size: 11.5px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-jetbrains); }
 
         /* streets/societies list */
         .${slug}-scope .street-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .street-cell { background: var(--bg); padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; display: flex; align-items: center; gap: 10px; }
+        .${slug}-scope .street-cell { background: var(--bg); padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; color: var(--paper); border: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; gap: 10px; }
         .${slug}-scope .street-cell .pin { color: var(--accent); font-size: 11px; }
         .${slug}-scope .street-note { margin-top: 20px; font-size: 13.5px; color: var(--ink-dim); }
         .${slug}-scope .street-note a { color: var(--accent); font-weight: 600; }
@@ -239,9 +240,9 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .top-svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
         .${slug}-scope .top-svc-card .rank { font-family: var(--font-jetbrains); font-size: 10.5px; color: var(--stamp); letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
         .${slug}-scope .top-svc-card h3 { font-size: 15.5px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 8px; }
-        .${slug}-scope .top-svc-card p { font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; min-height: 40px; }
+        .${slug}-scope .top-svc-card p { font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 14px; min-height: 40px; }
         .${slug}-scope .top-svc-card .go { font-family: var(--font-jetbrains); font-size: 11.5px; color: var(--accent); font-weight: 700; }
-        .${slug}-scope .catalog-link { margin-top: 24px; font-size: 14px; color: var(--ink-dim); }
+        .${slug}-scope .catalog-link { margin-top: 24px; font-size: 14px; color: var(--ink-dark); }
         .${slug}-scope .catalog-link a { color: var(--accent); font-weight: 600; }
 
         /* ===== WHY CARDS ===== */
@@ -249,50 +250,50 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .why-card { background: var(--bg); padding: 28px 24px; }
         .${slug}-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 16px; display: block; }
         .${slug}-scope .why-card h3 { font-size: 16.5px; color: var(--paper); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
-        .${slug}-scope .why-card p { font-size: 13.5px; color: var(--ink-dim); }
+        .${slug}-scope .why-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); }
 
         /* ===== HOW IT WORKS ===== */
         .${slug}-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .${slug}-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line); }
+        .${slug}-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper); }
         .${slug}-scope .step .n { font-family: var(--font-jetbrains); font-size: 34px; color: var(--accent); display: block; margin-bottom: 12px; font-weight: 700; }
-        .${slug}-scope .step h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 6px; }
-        .${slug}-scope .step p { font-size: 13px; color: var(--ink-dim); }
+        .${slug}-scope .step h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 6px; }
+        .${slug}-scope .step p { font-size: 13px; color: #3C3D40; }
 
         /* ===== BRANDS ===== */
         .${slug}-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
-        .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: var(--bg-soft); border: 1px solid var(--line); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; }
+        .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; color: var(--ink-dark); }
         .${slug}-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%; }
 
         /* ===== PARTNER ===== */
         .${slug}-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
         .${slug}-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-        .${slug}-scope .partner li { font-size: 14.5px; color: var(--ink-dim); display: flex; gap: 10px; }
+        .${slug}-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px; }
         .${slug}-scope .partner li::before { content: "—"; color: var(--accent); }
-        .${slug}-scope .partner-box { background: var(--bg-soft); border: 1px solid var(--line); padding: 34px; border-radius: 4px; }
+        .${slug}-scope .partner-box { background: var(--bg-soft); border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 4px; }
 
         .${slug}-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .${slug}-scope .review { background: var(--paper); color: var(--ink-dark); padding: 24px; border-radius: 4px; }
+        .${slug}-scope .review { background: #FFFFFF; color: var(--ink-dark); padding: 24px; border-radius: 4px; border: 1px solid var(--line-paper); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); }
         .${slug}-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
-        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; }
+        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #3C3D40; }
         .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455; }
 
-        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line); }
-        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--paper); font-weight: 500; }
+        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
+        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--ink-dark); font-weight: 500; }
         .${slug}-scope .faq-q .plus { font-family: var(--font-jetbrains); color: var(--accent); font-size: 18px; transition: transform .2s ease; }
         .${slug}-scope .faq-item.open .plus { transform: rotate(45deg); }
         .${slug}-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .${slug}-scope .faq-item.open .faq-a { max-height: 200px; }
-        .${slug}-scope .faq-a p { padding-bottom: 20px; color: var(--ink-dim); font-size: 14px; max-width: 760px; }
+        .${slug}-scope .faq-a p { padding-bottom: 20px; color: #3C3D40; font-size: 14px; max-width: 760px; }
 
         /* silo links */
         .${slug}-scope .silo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line); padding: 9px 16px; border-radius: 30px; color: var(--ink-dim); transition: border-color .15s ease, color .15s ease; }
+        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
         .${slug}-scope .silo a:hover { border-color: var(--accent); color: var(--paper); }
         .${slug}-scope .silo a.hub { border-color: var(--accent); color: var(--accent); }
 
         .${slug}-scope .final-cta { text-align: center; padding: 80px 0; background: linear-gradient(180deg, transparent, rgba(230,43,43,0.06)); }
-        .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
-        .${slug}-scope .final-cta p { color: var(--ink-dim); margin-bottom: 28px; }
+        .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
+        .${slug}-scope .final-cta p { color: #3C3D40; margin-bottom: 28px; }
 
         @media (max-width: 900px) {
           .${slug}-scope .hero-grid { grid-template-columns: 1fr; }

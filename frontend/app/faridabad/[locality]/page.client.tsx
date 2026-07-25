@@ -307,23 +307,23 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
         .${slug}-scope .final-cta p { color: #A7A9AC; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
-        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line); }
-        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--paper); font-weight: 500; }
+        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
+        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--ink-dark); font-weight: 500; }
         .${slug}-scope .faq-q .plus { font-family: var(--font-jetbrains); color: var(--accent); font-size: 18px; transition: transform .2s ease; }
         .${slug}-scope .faq-item.open .plus { transform: rotate(45deg); }
         .${slug}-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .${slug}-scope .faq-item.open .faq-a { max-height: 200px; }
-        .${slug}-scope .faq-a p { padding-bottom: 20px; color: var(--ink-dim); font-size: 14px; max-width: 760px; }
+        .${slug}-scope .faq-a p { padding-bottom: 20px; color: #3C3D40; font-size: 14px; max-width: 760px; }
 
         /* silo links */
         .${slug}-scope .silo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line); padding: 9px 16px; border-radius: 30px; color: var(--ink-dim); transition: border-color .15s ease, color .15s ease; }
+        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
         .${slug}-scope .silo a:hover { border-color: var(--accent); color: var(--paper); }
         .${slug}-scope .silo a.hub { border-color: var(--accent); color: var(--accent); }
 
         .${slug}-scope .final-cta { text-align: center; padding: 80px 0; background: linear-gradient(180deg, transparent, rgba(230,43,43,0.06)); }
-        .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
-        .${slug}-scope .final-cta p { color: var(--ink-dim); margin-bottom: 28px; }
+        .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
+        .${slug}-scope .final-cta p { color: #3C3D40; margin-bottom: 28px; }
 
         @media (max-width: 900px) {
           .${slug}-scope .hero-grid { grid-template-columns: 1fr; }

@@ -401,9 +401,9 @@ export default function DelhiClientPage() {
           font-size: 12px;
           letter-spacing: 0.04em;
           padding: 8px 16px;
-          border: 1px solid var(--line);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 30px;
-          color: var(--ink-dim);
+          color: var(--paper);
           background: var(--bg);
           transition: border-color .15s ease, color .15s ease;
           display: inline-flex;
@@ -413,6 +413,7 @@ export default function DelhiClientPage() {
         .delhi-scope .area-tag:hover {
           border-color: var(--accent);
           color: var(--accent);
+          background: var(--bg-soft);
         }
 
         /* ===== WHY CARDS ===== */
@@ -420,7 +421,7 @@ export default function DelhiClientPage() {
         .delhi-scope .why-card { background: var(--bg); padding: 32px 26px; }
         .delhi-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 18px; display: block;}
         .delhi-scope .why-card h3 { font-size: 18px; color: var(--paper); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
-        .delhi-scope .why-card p { font-size: 14px; color: var(--ink-dim); }
+        .delhi-scope .why-card p { font-size: 14px; color: rgba(255, 255, 255, 0.7); }
 
         /* ===== SERVICES ===== */
         .delhi-scope .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -435,44 +436,46 @@ export default function DelhiClientPage() {
         .delhi-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
         .delhi-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--stamp); margin-bottom: 12px; display: inline-block;}
         .delhi-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 10px;}
-        .delhi-scope .svc-card p { font-size: 13.5px; color: var(--ink-dim); margin-bottom: 16px; min-height: 58px;}
+        .delhi-scope .svc-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); margin-bottom: 16px; min-height: 58px;}
         .delhi-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
         .delhi-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--paper); margin-bottom: 12px; }
-        .delhi-scope .svc-price span { font-size: 11px; font-weight: 400; color: var(--ink-dim); letter-spacing: 0.04em; }
-        .delhi-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dim);}
+        .delhi-scope .svc-price span { font-size: 11px; font-weight: 400; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.04em; }
+        .delhi-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dark);}
         .delhi-scope .svc-note a { color: var(--accent); font-weight: 600; }
 
         /* vehicle pills */
         .delhi-scope .pill-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;}
         .delhi-scope .pill {
           font-family: var(--font-jetbrains); font-size: 13px;
-          border: 1px solid var(--line); padding: 9px 16px; border-radius: 30px; color: var(--ink-dim);
+          border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark);
+          background: #FFFFFF;
         }
 
         /* brands */
         .delhi-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
         .delhi-scope .brand-chip {
           display: flex; align-items: center; gap: 10px;
-          background: var(--bg-soft); border: 1px solid var(--line); padding: 10px 16px; border-radius: 30px;
-          font-size: 13.5px;
+          background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px;
+          font-size: 13.5px; color: var(--ink-dark);
         }
         .delhi-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%;}
 
         /* ===== HOW IT WORKS ===== */
         .delhi-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step;}
-        .delhi-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line);}
+        .delhi-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper);}
         .delhi-scope .step .n { font-family: var(--font-jetbrains); font-size: 38px; color: var(--accent); display: block; margin-bottom: 14px; font-weight: 700;}
-        .delhi-scope .step h3 { font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 8px;}
-        .delhi-scope .step p { font-size: 13.5px; color: var(--ink-dim); }
+        .delhi-scope .step h3 { font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px;}
+        .delhi-scope .step p { font-size: 13.5px; color: #3C3D40; }
 
         /* ===== TESTIMONIALS ===== */
         .delhi-scope .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
         .delhi-scope .review {
-          background: var(--paper); color: var(--ink-dark);
-          padding: 26px; border-radius: 4px;
+          background: #FFFFFF; color: var(--ink-dark);
+          padding: 26px; border-radius: 4px; border: 1px solid var(--line-paper);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
         .delhi-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px;}
-        .delhi-scope .review p { font-size: 14.5px; margin-bottom: 18px; }
+        .delhi-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #3C3D40; }
         .delhi-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455;}
 
         /* ===== PARTNER CTA ===== */
@@ -480,31 +483,31 @@ export default function DelhiClientPage() {
           display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center;
         }
         .delhi-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px;}
-        .delhi-scope .partner li { font-size: 14.5px; color: var(--ink-dim); display: flex; gap: 10px;}
+        .delhi-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px;}
         .delhi-scope .partner li::before { content: "—"; color: var(--accent); }
         .delhi-scope .partner-box {
           background: var(--bg-soft); border: 1px solid var(--line); padding: 34px; border-radius: 4px;
         }
 
         /* ===== FAQ ===== */
-        .delhi-scope .faq-item { border-bottom: 1px solid var(--line); }
+        .delhi-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
         .delhi-scope .faq-q {
           display: flex; justify-content: space-between; align-items: center;
-          padding: 22px 0; cursor: pointer; font-size: 16px; color: var(--paper); font-weight: 500;
+          padding: 22px 0; cursor: pointer; font-size: 16px; color: var(--ink-dark); font-weight: 500;
         }
         .delhi-scope .faq-q .plus { font-family: var(--font-jetbrains); color: var(--accent); font-size: 18px; transition: transform .2s ease;}
         .delhi-scope .faq-item.open .plus { transform: rotate(45deg); }
         .delhi-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .delhi-scope .faq-item.open .faq-a { max-height: 200px; }
-        .delhi-scope .faq-a p { padding-bottom: 22px; color: var(--ink-dim); font-size: 14.5px; max-width: 760px; }
+        .delhi-scope .faq-a p { padding-bottom: 22px; color: #3C3D40; font-size: 14.5px; max-width: 760px; }
 
         /* ===== CONTACT ===== */
         .delhi-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .delhi-scope .contact-list { display: flex; flex-direction: column; gap: 22px; margin-top: 20px;}
         .delhi-scope .contact-item { display: flex; gap: 16px; align-items: flex-start;}
-        .delhi-scope .contact-item .ic { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accent); flex-shrink: 0;}
-        .delhi-scope .contact-item b { display: block; color: var(--paper); font-size: 15px; margin-bottom: 2px;}
-        .delhi-scope .contact-item span { color: var(--ink-dim); font-size: 13.5px;}
+        .delhi-scope .contact-item .ic { width: 38px; height: 38px; border: 1px solid var(--line-paper); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accent); flex-shrink: 0;}
+        .delhi-scope .contact-item b { display: block; color: var(--ink-dark); font-size: 15px; margin-bottom: 2px;}
+        .delhi-scope .contact-item span { color: #5C5E62; font-size: 13.5px;}
 
         /* ===== FINAL CTA ===== */
         .delhi-scope .final-cta {
@@ -512,8 +515,8 @@ export default function DelhiClientPage() {
           background:
             linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
         }
-        .delhi-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px;}
-        .delhi-scope .final-cta p { color: var(--ink-dim); margin-bottom: 32px;}
+        .delhi-scope .final-cta h2 { font-size: 38px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px;}
+        .delhi-scope .final-cta p { color: #3C3D40; margin-bottom: 32px;}
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px){
@@ -830,7 +833,7 @@ export default function DelhiClientPage() {
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
             <h2>From riders across Delhi</h2>
-            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--paper)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--paper)' }}>473+ reviews</b></p>
+            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--accent)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--ink-dark)' }}>473+ reviews</b></p>
           </div>
           <div className="review-grid">
             <div className="review">

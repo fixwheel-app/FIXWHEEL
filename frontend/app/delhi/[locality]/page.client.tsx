@@ -299,15 +299,15 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #4A4D52; }
         .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455; }
 
-        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line); }
-        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--paper); font-weight: 500; }
+        .${slug}-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
+        .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--ink-dark); font-weight: 500; }
         .${slug}-scope .faq-q .plus { font-family: var(--font-jetbrains); color: var(--accent); font-size: 18px; transition: transform .2s ease; }
         .${slug}-scope .faq-item.open .plus { transform: rotate(45deg); }
         .${slug}-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .${slug}-scope .faq-item.open .faq-a { max-height: 200px; }
         /* silo links */
         .${slug}-scope .silo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line); padding: 9px 16px; border-radius: 30px; color: var(--ink-dim); transition: border-color .15s ease, color .15s ease; }
+        .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
         .${slug}-scope .faq-item { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 4px; padding: 20px 24px; margin-bottom: 14px; }
         .${slug}-scope .faq-q { color: var(--ink-dark); font-size: 16.5px; }
         .${slug}-scope .faq-a p { color: #4A4D52; font-size: 14px; margin-top: 10px; }

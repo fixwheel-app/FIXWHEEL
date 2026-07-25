@@ -215,11 +215,11 @@ export default function GurgaonClientPage() {
           font-size: 12px;
           letter-spacing: 0.04em;
           padding: 8px 16px;
-          border: 1px solid var(--line);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 30px;
-          color: var(--ink-dim);
+          color: var(--paper);
           background: var(--bg);
-          transition: border-color .15s ease, color .15s ease;
+          transition: border-color .15s ease, color .15s ease, background-color .15s ease;
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -227,6 +227,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .area-tag:hover {
           border-color: var(--accent);
           color: var(--accent);
+          background: var(--bg-soft);
         }
 
         /* ===== WHY CARDS ===== */
@@ -234,7 +235,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .why-card { background: var(--bg); padding: 32px 26px; }
         .gurgaon-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 18px; display: block;}
         .gurgaon-scope .why-card h3 { font-size: 18px; color: var(--paper); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
-        .gurgaon-scope .why-card p { font-size: 14px; color: var(--ink-dim); }
+        .gurgaon-scope .why-card p { font-size: 14px; color: rgba(255, 255, 255, 0.7); }
 
         /* ===== SERVICES ===== */
         .gurgaon-scope .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -249,44 +250,46 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
         .gurgaon-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--stamp); margin-bottom: 12px; display: inline-block;}
         .gurgaon-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 10px;}
-        .gurgaon-scope .svc-card p { font-size: 13.5px; color: var(--ink-dim); margin-bottom: 16px; min-height: 58px;}
+        .gurgaon-scope .svc-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); margin-bottom: 16px; min-height: 58px;}
         .gurgaon-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
         .gurgaon-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--paper); margin-bottom: 12px; }
-        .gurgaon-scope .svc-price span { font-size: 11px; font-weight: 400; color: var(--ink-dim); letter-spacing: 0.04em; }
-        .gurgaon-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dim);}
+        .gurgaon-scope .svc-price span { font-size: 11px; font-weight: 400; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.04em; }
+        .gurgaon-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dark);}
         .gurgaon-scope .svc-note a { color: var(--accent); font-weight: 600; }
 
         /* vehicle pills */
         .gurgaon-scope .pill-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;}
         .gurgaon-scope .pill {
           font-family: var(--font-jetbrains); font-size: 13px;
-          border: 1px solid var(--line); padding: 9px 16px; border-radius: 30px; color: var(--ink-dim);
+          border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark);
+          background: #FFFFFF;
         }
 
         /* brands */
         .gurgaon-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
         .gurgaon-scope .brand-chip {
           display: flex; align-items: center; gap: 10px;
-          background: var(--bg-soft); border: 1px solid var(--line); padding: 10px 16px; border-radius: 30px;
-          font-size: 13.5px;
+          background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px;
+          font-size: 13.5px; color: var(--ink-dark);
         }
         .gurgaon-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%;}
 
         /* ===== HOW IT WORKS ===== */
         .gurgaon-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step;}
-        .gurgaon-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line);}
+        .gurgaon-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper);}
         .gurgaon-scope .step .n { font-family: var(--font-jetbrains); font-size: 38px; color: var(--accent); display: block; margin-bottom: 14px; font-weight: 700;}
-        .gurgaon-scope .step h3 { font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 8px;}
-        .gurgaon-scope .step p { font-size: 13.5px; color: var(--ink-dim); }
+        .gurgaon-scope .step h3 { font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px;}
+        .gurgaon-scope .step p { font-size: 13.5px; color: #3C3D40; }
 
         /* ===== TESTIMONIALS ===== */
         .gurgaon-scope .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
         .gurgaon-scope .review {
-          background: var(--paper); color: var(--ink-dark);
-          padding: 26px; border-radius: 4px;
+          background: #FFFFFF; color: var(--ink-dark);
+          padding: 26px; border-radius: 4px; border: 1px solid var(--line-paper);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
         .gurgaon-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px;}
-        .gurgaon-scope .review p { font-size: 14.5px; margin-bottom: 18px; }
+        .gurgaon-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #3C3D40; }
         .gurgaon-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455;}
 
         /* ===== PARTNER CTA ===== */
@@ -294,31 +297,31 @@ export default function GurgaonClientPage() {
           display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center;
         }
         .gurgaon-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px;}
-        .gurgaon-scope .partner li { font-size: 14.5px; color: var(--ink-dim); display: flex; gap: 10px;}
+        .gurgaon-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px;}
         .gurgaon-scope .partner li::before { content: "—"; color: var(--accent); }
         .gurgaon-scope .partner-box {
-          background: var(--bg-soft); border: 1px solid var(--line); padding: 34px; border-radius: 4px;
+          background: var(--bg-soft); border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 4px;
         }
 
         /* ===== FAQ ===== */
-        .gurgaon-scope .faq-item { border-bottom: 1px solid var(--line); }
+        .gurgaon-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
         .gurgaon-scope .faq-q {
           display: flex; justify-content: space-between; align-items: center;
-          padding: 22px 0; cursor: pointer; font-size: 16px; color: var(--paper); font-weight: 500;
+          padding: 22px 0; cursor: pointer; font-size: 16px; color: var(--ink-dark); font-weight: 500;
         }
         .gurgaon-scope .faq-q .plus { font-family: var(--font-jetbrains); color: var(--accent); font-size: 18px; transition: transform .2s ease;}
         .gurgaon-scope .faq-item.open .plus { transform: rotate(45deg); }
         .gurgaon-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .gurgaon-scope .faq-item.open .faq-a { max-height: 200px; }
-        .gurgaon-scope .faq-a p { padding-bottom: 22px; color: var(--ink-dim); font-size: 14.5px; max-width: 760px; }
+        .gurgaon-scope .faq-a p { padding-bottom: 22px; color: #3C3D40; font-size: 14.5px; max-width: 760px; }
 
         /* ===== CONTACT ===== */
         .gurgaon-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .gurgaon-scope .contact-list { display: flex; flex-direction: column; gap: 22px; margin-top: 20px;}
         .gurgaon-scope .contact-item { display: flex; gap: 16px; align-items: flex-start;}
-        .gurgaon-scope .contact-item .ic { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accent); flex-shrink: 0;}
-        .gurgaon-scope .contact-item b { display: block; color: var(--paper); font-size: 15px; margin-bottom: 2px;}
-        .gurgaon-scope .contact-item span { color: var(--ink-dim); font-size: 13.5px;}
+        .gurgaon-scope .contact-item .ic { width: 38px; height: 38px; border: 1px solid var(--line-paper); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accent); flex-shrink: 0;}
+        .gurgaon-scope .contact-item b { display: block; color: var(--ink-dark); font-size: 15px; margin-bottom: 2px;}
+        .gurgaon-scope .contact-item span { color: #5C5E62; font-size: 13.5px;}
 
         /* ===== FINAL CTA ===== */
         .gurgaon-scope .final-cta {
@@ -326,8 +329,8 @@ export default function GurgaonClientPage() {
           background:
             linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
         }
-        .gurgaon-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px;}
-        .gurgaon-scope .final-cta p { color: var(--ink-dim); margin-bottom: 32px;}
+        .gurgaon-scope .final-cta h2 { font-size: 38px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px;}
+        .gurgaon-scope .final-cta p { color: #3C3D40; margin-bottom: 32px;}
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px){
@@ -432,7 +435,7 @@ export default function GurgaonClientPage() {
             <Link href="/gurgaon/manesar" className="area-tag">📍 Manesar</Link>
             <Link href="/gurgaon/bhondsi" className="area-tag">📍 Bhondsi</Link>
             <Link href="/gurgaon/badshahpur" className="area-tag">📍 Badshahpur</Link>
-            <span className="area-tag" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>📍 + All of Gurgaon covered</span>
+            <span className="area-tag" style={{ backgroundColor: 'var(--accent)', color: '#FFFFFF', borderColor: 'var(--accent)' }}>📍 + All of Gurgaon covered</span>
           </div>
         </div>
       </section>
@@ -644,7 +647,7 @@ export default function GurgaonClientPage() {
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
             <h2>What our customers say</h2>
-            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--paper)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--paper)' }}>473+ reviews</b></p>
+            <p style={{ marginTop: '10px' }}><b style={{ color: 'var(--accent)', fontSize: '18px' }}>4.7★</b> average rating from <b style={{ color: 'var(--ink-dark)' }}>473+ reviews</b></p>
           </div>
           <div className="review-grid">
             <div className="review">
