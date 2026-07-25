@@ -50,9 +50,9 @@ export default function PricingClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#ff3b30;
-          --accent-dim:#d32f2f;
-          --stamp:#FFC145;
+          --accent:#2563eb;
+          --accent-dim:#1d4ed8;
+          --stamp:#dbeafe;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
@@ -112,7 +112,7 @@ export default function PricingClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .pricing-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .pricing-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
+        .pricing-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
         .pricing-scope .breadcrumb {
@@ -315,8 +315,8 @@ export default function PricingClientPage() {
           font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
-          background: var(--stamp);
-          color: #3a2c00;
+          background: #dbeafe;
+          color: #1e40af;
           padding: 3px 10px;
           border-radius: 12px;
         }

@@ -71,7 +71,7 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
     model,
     price: `₹${price}`,
     location: localityName,
-    eta
+    eta: `${25 + (hash % 21)} min`
   };
 }
 
@@ -94,7 +94,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
     return (
       <div style={{ padding: "80px 24px", textAlign: "center", color: "#EDEAE2", background: "#17181A", minHeight: "100vh" }}>
         <h2>Locality not found</h2>
-        <p style={{ marginTop: "12px" }}><Link href="/ghaziabad" style={{ color: "#ff3b30" }}>Return to Ghaziabad All Coverage →</Link></p>
+        <p style={{ marginTop: "12px" }}><Link href="/ghaziabad" style={{ color: "#2563eb" }}>Return to Ghaziabad All Coverage →</Link></p>
       </div>
     );
   }
@@ -117,7 +117,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#ff3b30;
+          --accent:#2563eb;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;

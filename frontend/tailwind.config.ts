@@ -13,8 +13,8 @@ const config: Config = {
           DEFAULT: "#151b24", // Gogrin dark background
         },
         accent: {
-          DEFAULT: "#ff3b30", // Gogrin red
-          hover: "#d32f2f",
+          DEFAULT: "#2563eb", // Gogrin red
+          hover: "#1d4ed8",
         },
         surface: {
           DEFAULT: "#1f2631", // Gogrin lighter dark card

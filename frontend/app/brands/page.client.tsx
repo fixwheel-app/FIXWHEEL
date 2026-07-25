@@ -173,8 +173,8 @@ export default function BrandsClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#ff3b30;
-          --accent-dim:#d32f2f;
+          --accent:#2563eb;
+          --accent-dim:#1d4ed8;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -234,7 +234,7 @@ export default function BrandsClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .brands-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .brands-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
+        .brands-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
         .brands-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .brands-scope .btn-ghost:hover { border-color: var(--paper); }
         .brands-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
@@ -443,7 +443,7 @@ export default function BrandsClientPage() {
           letter-spacing: 0.04em;
           transition: color .15s ease;
         }
-        .brands-scope .brand-card-cta a:hover { color: #eb4d4d; }
+        .brands-scope .brand-card-cta a:hover { color: #3b82f6; }
 
         /* ===== COUNT STRIP ===== */
         .brands-scope .count-strip {

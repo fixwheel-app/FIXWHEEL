@@ -39,8 +39,8 @@ export default function DelhiClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#ff3b30;
-          --accent-dim:#d32f2f;
+          --accent:#2563eb;
+          --accent-dim:#1d4ed8;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -100,7 +100,7 @@ export default function DelhiClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .delhi-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .delhi-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
+        .delhi-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
         .delhi-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .delhi-scope .btn-ghost:hover { border-color: var(--paper); }
         .delhi-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
@@ -569,7 +569,7 @@ export default function DelhiClientPage() {
               <div className="r"><label>Location</label><div>Dwarka, Delhi</div></div>
               <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
               <div className="r"><label>Warranty</label><div>15 days</div></div>
-              <div className="r"><label>Response</label><div>45 min</div></div>
+              <div className="r"><label>Response</label><div>32 min</div></div>
             </div>
             <div className="ticket-foot">
               <div className="total"><span>Total paid</span><b>₹999</b></div>

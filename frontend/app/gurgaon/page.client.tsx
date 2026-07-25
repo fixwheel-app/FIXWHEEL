@@ -39,8 +39,8 @@ export default function GurgaonClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#ff3b30;
-          --accent-dim:#d32f2f;
+          --accent:#2563eb;
+          --accent-dim:#1d4ed8;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -100,7 +100,7 @@ export default function GurgaonClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .gurgaon-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .gurgaon-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
+        .gurgaon-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
         .gurgaon-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .gurgaon-scope .btn-ghost:hover { border-color: var(--paper); }
         .gurgaon-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
@@ -382,7 +382,7 @@ export default function GurgaonClientPage() {
               <div className="r"><label>Location</label><div>Gurgaon</div></div>
               <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
               <div className="r"><label>Warranty</label><div>15 days</div></div>
-              <div className="r"><label>Response</label><div>45 min</div></div>
+              <div className="r"><label>Response</label><div>29 min</div></div>
             </div>
             <div className="ticket-foot">
               <div className="total"><span>Total paid</span><b>₹550</b></div>
