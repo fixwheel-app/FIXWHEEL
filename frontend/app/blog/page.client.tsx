@@ -47,8 +47,8 @@ export default function BlogHubClient() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#2563eb;
-          --accent-dim:#1d4ed8;
+          --accent:#ff3b30;
+          --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -108,7 +108,7 @@ export default function BlogHubClient() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .blog-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .blog-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
+        .blog-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
         .blog-scope .btn-dark { background: var(--ink-dark); border: 1px solid var(--line); color: var(--paper); }
         .blog-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
@@ -234,7 +234,7 @@ export default function BlogHubClient() {
           transition: color 0.15s;
         }
         .blog-scope .read-btn:hover {
-          color: #3b82f6;
+          color: #ff5252;
         }
 
         /* ===== CONTROLS STRIP ===== */

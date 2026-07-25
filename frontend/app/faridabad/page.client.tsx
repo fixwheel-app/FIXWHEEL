@@ -75,8 +75,8 @@ export default function FaridabadClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#2563eb;
-          --accent-dim:#1d4ed8;
+          --accent:#ff3b30;
+          --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
@@ -136,7 +136,7 @@ export default function FaridabadClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .faridabad-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .faridabad-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
+        .faridabad-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
         .faridabad-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
         .faridabad-scope .btn-ghost:hover { border-color: var(--paper); }
         .faridabad-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }

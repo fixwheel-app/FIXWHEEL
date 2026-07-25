@@ -86,7 +86,7 @@ export default function PalamViharClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#2563eb;
+          --accent:#ff3b30;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
