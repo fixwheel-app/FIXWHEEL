@@ -106,7 +106,7 @@ export default function Navbar() {
     { name: 'BLOG',           href: '/blog' },
     { name: 'ABOUT',          href: '/about' },
     { name: 'BECOME PARTNER', href: '/partner' },
-    { name: 'CONTACT',        href: '/#contact' },
+    { name: 'CONTACT',        href: '/contact' },
   ];
 
   /* ─── Active tab indicator ───────────────────────────────── */
