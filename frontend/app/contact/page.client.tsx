@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, MessageSquare, Globe } from 'lucide-react';
 import Link from 'next/link';
+import { submitQuery } from '@/lib/api';
 
 export default function ContactClientPage() {
   const [formState, setFormState] = useState({
@@ -16,14 +17,72 @@ export default function ContactClientPage() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormState(prev => ({ ...prev, [name]: value }));
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const copy = { ...prev };
+        delete copy[name];
+        return copy;
+      });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(r => setTimeout(r, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    setErrorMsg(null);
+    setValidationErrors({});
+
+    // Simple validations
+    const errors: Record<string, string> = {};
+    if (!formState.name.trim()) errors.name = "Name is required";
+    if (!formState.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) {
+      errors.email = "Invalid email format";
+    }
+    if (!formState.phone.trim()) {
+      errors.phone = "Phone is required";
+    } else if (!/^\d{10}$/.test(formState.phone.replace(/[^0-9]/g, ""))) {
+      errors.phone = "Phone must be a 10-digit number";
+    }
+    if (!formState.message.trim()) errors.message = "Message is required";
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const formattedPhone = formState.phone.replace(/[^0-9]/g, "");
+      const fullMessage = formState.subject 
+        ? `[Subject: ${formState.subject}] ${formState.message}` 
+        : formState.message;
+
+      const response = await submitQuery({
+        name: formState.name,
+        email: formState.email,
+        phone: formattedPhone,
+        message: fullMessage
+      });
+
+      if (response.success) {
+        setSubmitted(true);
+        setFormState({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        setErrorMsg(response.error || "Failed to send query. Please try again.");
+      }
+    } catch (err) {
+      setErrorMsg("A network error occurred. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactDetails = [
@@ -159,28 +218,38 @@ export default function ContactClientPage() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {errorMsg && (
+                        <div className="p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm font-semibold">
+                          {errorMsg}
+                        </div>
+                      )}
+                      
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name *</label>
                           <input 
                             required
+                            name="name"
                             type="text" 
                             placeholder="John Doe"
                             className="w-full bg-gray-50 border border-transparent focus:border-accent/30 focus:bg-white px-6 py-4 rounded-xl text-black outline-none transition-all duration-300 font-medium"
                             value={formState.name}
-                            onChange={(e) => setFormState({...formState, name: e.target.value})}
+                            onChange={handleInputChange}
                           />
+                          {validationErrors.name && <p className="text-red-500 text-xs ml-1 font-semibold">{validationErrors.name}</p>}
                         </div>
                         <div className="space-y-2">
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address *</label>
                           <input 
                             required
+                            name="email"
                             type="email" 
                             placeholder="name@example.com"
                             className="w-full bg-gray-50 border border-transparent focus:border-accent/30 focus:bg-white px-6 py-4 rounded-xl text-black outline-none transition-all duration-300 font-medium"
                             value={formState.email}
-                            onChange={(e) => setFormState({...formState, email: e.target.value})}
+                            onChange={handleInputChange}
                           />
+                          {validationErrors.email && <p className="text-red-500 text-xs ml-1 font-semibold">{validationErrors.email}</p>}
                         </div>
                       </div>
 
@@ -189,21 +258,24 @@ export default function ContactClientPage() {
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Phone Number *</label>
                           <input 
                             required
+                            name="phone"
                             type="tel" 
-                            placeholder="+91 00000 00000"
+                            placeholder="9876543210"
                             className="w-full bg-gray-50 border border-transparent focus:border-accent/30 focus:bg-white px-6 py-4 rounded-xl text-black outline-none transition-all duration-300 font-medium"
                             value={formState.phone}
-                            onChange={(e) => setFormState({...formState, phone: e.target.value})}
+                            onChange={handleInputChange}
                           />
+                          {validationErrors.phone && <p className="text-red-500 text-xs ml-1 font-semibold">{validationErrors.phone}</p>}
                         </div>
                         <div className="space-y-2">
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Subject</label>
                           <input 
+                            name="subject"
                             type="text" 
                             placeholder="Service Inquiry"
                             className="w-full bg-gray-50 border border-transparent focus:border-accent/30 focus:bg-white px-6 py-4 rounded-xl text-black outline-none transition-all duration-300 font-medium"
                             value={formState.subject}
-                            onChange={(e) => setFormState({...formState, subject: e.target.value})}
+                            onChange={handleInputChange}
                           />
                         </div>
                       </div>
@@ -212,12 +284,14 @@ export default function ContactClientPage() {
                         <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Message *</label>
                         <textarea 
                           required
+                          name="message"
                           rows={5}
                           placeholder="Tell us what you need help with..."
                           className="w-full bg-gray-50 border border-transparent focus:border-accent/30 focus:bg-white px-6 py-4 rounded-xl text-black outline-none transition-all duration-300 font-medium resize-none"
                           value={formState.message}
-                          onChange={(e) => setFormState({...formState, message: e.target.value})}
+                          onChange={handleInputChange}
                         ></textarea>
+                        {validationErrors.message && <p className="text-red-500 text-xs ml-1 font-semibold">{validationErrors.message}</p>}
                       </div>
 
                       <button 
@@ -243,39 +317,8 @@ export default function ContactClientPage() {
         </div>
       </section>
 
-      {/* 🔴 MAP SECTION PLACEHOLDER */}
-      <section className="py-12 md:py-24 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto rounded-2xl md:rounded-[3rem] overflow-hidden bg-white border border-gray-200 shadow-2xl h-[280px] md:h-[500px] relative">
-            <div className="absolute inset-0 bg-[#f8f9fa] flex items-center justify-center overflow-hidden grayscale">
-              <svg className="w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="#ff3b30" strokeWidth="0.5" />
-                <path d="M50,0 Q30,25 50,50 T50,100" fill="none" stroke="#ff3b30" strokeWidth="0.5" />
-              </svg>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
-                <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-                  <MapPin className="w-10 h-10 text-accent" />
-                </div>
-                <h3 className="text-2xl font-black text-black uppercase tracking-tight mb-2">Our Presence in Delhi</h3>
-                <p className="text-gray-500 font-bold uppercase tracking-widest text-xs leading-relaxed">Serving South, North, East & West Delhi NCR</p>
-              </div>
-            </div>
-            
-            <div className="absolute bottom-4 right-4 md:bottom-12 md:right-12 z-20">
-              <Link 
-                href="https://maps.google.com/?q=Delhi"
-                target="_blank"
-                className="bg-white border-2 border-black text-black font-black uppercase text-xs tracking-widest px-4 py-2 md:px-8 md:py-4 rounded-xl hover:bg-black hover:text-white transition-all shadow-xl"
-              >
-                View on Google Maps
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 🔴 WHATSAPP CTA */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-green-500 rounded-2xl md:rounded-[2.5rem] p-6 md:p-16 text-center text-white relative overflow-hidden shadow-[0_30px_60px_-12px_rgba(34,197,94,0.4)]">
              <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -ml-32 -mt-32 blur-3xl"></div>
