@@ -77,6 +77,17 @@ export default function Navbar() {
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
 
   /* ─── Sync active path ───────────────────────────────────── */
+  const isLinkActive = useCallback((linkHref: string) => {
+    if (linkHref === '/') {
+      return pathname === '/';
+    }
+    if (linkHref === '/delhi') {
+      const locs = ['/delhi', '/gurgaon', '/noida', '/faridabad', '/ghaziabad'];
+      return locs.some(loc => pathname?.startsWith(loc));
+    }
+    return pathname?.startsWith(linkHref);
+  }, [pathname]);
+
   useEffect(() => {
     setActivePath(window.location.pathname + window.location.hash);
   }, [pathname]);
@@ -111,25 +122,27 @@ export default function Navbar() {
 
   /* ─── Active tab indicator ───────────────────────────────── */
   useEffect(() => {
-    const activeIndex = navLinks.findIndex(link => link.href === activePath);
-    const activeElement = navRefs.current[activeIndex];
-    
-    if (activeElement) {
-      setTabWidth(activeElement.offsetWidth);
-      setTabOffset(activeElement.offsetLeft);
-    } else {
-      setTabWidth(0);
-    }
-    
-    const handleResize = () => {
+    const updateTabPosition = () => {
+      const activeIndex = navLinks.findIndex(link => isLinkActive(link.href));
+      const activeElement = navRefs.current[activeIndex];
+      
       if (activeElement) {
         setTabWidth(activeElement.offsetWidth);
         setTabOffset(activeElement.offsetLeft);
+      } else {
+        setTabWidth(0);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [activePath, navLinks]);
+
+    updateTabPosition();
+    const rafId = requestAnimationFrame(updateTabPosition);
+
+    window.addEventListener('resize', updateTabPosition);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', updateTabPosition);
+    };
+  }, [pathname, isLinkActive]);
 
   /* ─── Hide on admin / route-analysis pages ───────────────── */
   if (pathname?.startsWith('/admin') || pathname?.startsWith('/route-analysis')) {
@@ -183,7 +196,7 @@ export default function Navbar() {
                       onClick={() => setActivePath(link.href)}
                       className={cn(
                         "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1",
-                        activePath === link.href ? "text-accent" : "text-white"
+                        isLinkActive(link.href) ? "text-accent" : "text-white"
                       )}
                     >
                       {link.name}
@@ -382,7 +395,7 @@ export default function Navbar() {
                             }}
                             className={cn(
                               "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
-                              activePath === link.href
+                              isLinkActive(link.href)
                                 ? "text-accent bg-white/5"
                                 : "text-white hover:text-accent"
                             )}
@@ -492,7 +505,7 @@ export default function Navbar() {
                             }}
                             className={cn(
                               "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
-                              activePath === link.href
+                              isLinkActive(link.href)
                                 ? "text-accent bg-white/5"
                                 : "text-white hover:text-accent"
                             )}
@@ -558,7 +571,7 @@ export default function Navbar() {
                       }}
                       className={cn(
                         "block px-3 py-3 font-bold uppercase tracking-wider text-sm border-b border-white/5",
-                        activePath === link.href ? "text-accent bg-white/5" : "text-white hover:text-accent"
+                        isLinkActive(link.href) ? "text-accent bg-white/5" : "text-white hover:text-accent"
                       )}
                     >
                       {link.name}

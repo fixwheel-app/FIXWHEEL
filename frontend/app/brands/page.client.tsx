@@ -253,39 +253,6 @@ export default function BrandsClientPage() {
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .brands-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .brands-scope .breadcrumb a:hover { color: var(--accent); }
-        .brands-scope .breadcrumb .sep { color: #5C6066; }
-        .brands-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
-
-        /* ===== HERO ===== */
-        .brands-scope .hero {
-          position: relative;
-          padding: 72px 0 48px;
-          background: var(--bg);
-          color: var(--paper);
-          border-bottom: 1px solid var(--line);
-          overflow: hidden;
-        }
-        .brands-scope .hero::before {
-          content: ""; position: absolute; inset: 0;
-          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
-          pointer-events: none;
-        }
-          border-bottom: 1px solid var(--line);
-        }
-        .brands-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
           color: var(--ink-dim);
           display: flex;
           align-items: center;
@@ -303,6 +270,8 @@ export default function BrandsClientPage() {
         .brands-scope .hero {
           position: relative;
           padding: 96px 0 60px;
+          background: var(--bg);
+          color: var(--paper);
           border-bottom: 1px solid var(--line);
           overflow: hidden;
         }
@@ -318,17 +287,39 @@ export default function BrandsClientPage() {
           max-width: 800px;
         }
         .brands-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--paper); }
+        .brands-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brands-scope .hero p.lead { font-size: 16px; color: #A7A9AC; max-width: 580px; }
 
         /* ===== TRUST STRIP ===== */
-        .brands-scope .trust-strip-section {
-          padding: 40px 0;
-          border-bottom: 1px solid var(--line-paper);
-          background: var(--paper-dim);
-        }
         .brands-scope .trust-strip {
+          border-bottom: 1px solid var(--line);
+          background: var(--bg-soft);
+        }
+        .brands-scope .trust-inner {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
+          gap: 1px;
+          background: var(--line);
+        }
+        .brands-scope .trust-item {
+          background: var(--bg-soft);
+          padding: 28px 24px;
+          text-align: center;
+        }
+        .brands-scope .trust-item b {
+          display: block;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 22px;
+          color: var(--paper);
+          margin-bottom: 6px;
+        }
+        .brands-scope .trust-item span {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: var(--ink-dim);
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
 
         /* ===== SECTION GENERIC ===== */
         .brands-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
@@ -578,7 +569,7 @@ export default function BrandsClientPage() {
         <div className="wrap">
           <div className="hero-inner">
             <div className="eyebrow">All Two-Wheeler Brands · Doorstep Service</div>
-            <h1>Every Brand, Serviced<br /><em>at Your Doorstep</em></h1>
+            <h1>Doorstep Bike Repair &<br />Scooter Service <em>For All Brands</em></h1>
             <p className="lead">From Honda Activas to Royal Enfield Bullets, Ola scooters to Kawasaki Ninjas — FixWheel's verified mechanics service all major two-wheeler brands at your home, office, or roadside. One booking, any brand, guaranteed quality.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
