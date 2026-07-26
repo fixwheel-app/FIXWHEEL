@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BrandsClientPage from "./page.client";
 
+// SEO configuration for FixWheel brands page - trigger rebuild v2
 export const metadata: Metadata = {
   title: "Doorstep Two Wheeler Service for All Brands | FixWheel",
   description:
