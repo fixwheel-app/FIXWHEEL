@@ -17,12 +17,6 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://www.fixwheel.app/route-analysis</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 </urlset>`, {
     headers: {
       'Content-Type': 'application/xml',
