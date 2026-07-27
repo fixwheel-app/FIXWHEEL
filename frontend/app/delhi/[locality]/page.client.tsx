@@ -489,9 +489,45 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
               </div>
             ))}
           </div>
-          <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/services/delhi#services">See the full Delhi service catalog →</Link></p>
+          <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/delhi#services">See the full Delhi service catalog →</Link></p>
         </div>
       </section>
+
+      <section className="section-alt">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">Services Available in {data.name}</div>
+            <h2>Bike Repair Services We Offer in {data.name}, Delhi</h2>
+            <p>Our mobile mechanics cover all common two-wheeler repairs and routine maintenance in {data.name}. Here are the most searched bike repair services available at your doorstep:</p>
+          </div>
+          <div className="why-grid">
+            <div className="why-card">
+              <span className="num">🔧</span>
+              <h3>Engine Oil Change in {data.name}</h3>
+              <p>Drain old oil, flush engine, and refill with OEM-grade synthetic or mineral oil. Most searched service for bike owners in {data.name} and across Delhi. Starting ₹999.</p>
+            </div>
+            <div className="why-card">
+              <span className="num">🛑</span>
+              <h3>Brake Repair in {data.name}</h3>
+              <p>Replace worn brake pads and shoes, adjust brake cables, and tune clutch plates. Safe, tested, on-site brake repair for all bikes and scooters in {data.name}. Starting ₹199.</p>
+            </div>
+            <div className="why-card">
+              <span className="num">🔋</span>
+              <h3>Battery Replacement in {data.name}</h3>
+              <p>On-site battery diagnostics, jump-start, and guaranteed battery swap for bikes, Activas, and scooties in {data.name}. We carry warranty batteries. Starting ₹99.</p>
+            </div>
+            <div className="why-card">
+              <span className="num">🛞</span>
+              <h3>Tyre Puncture Repair in {data.name}</h3>
+              <p>Instant tubeless and tube tyre puncture fix at your home, office, or roadside in {data.name}, Delhi. No need to push your bike anywhere. Available 7 days a week.</p>
+            </div>
+          </div>
+          <p style={{ marginTop: "24px", fontSize: "14px", color: "var(--ink-dim)" }}>
+            Also available: Comprehensive bike service, spark plug replacement, chain & sprocket replacement, air filter cleaning, scooty repair, Royal Enfield servicing, Activa service, and full bike washing in {data.name}, Delhi.
+          </p>
+        </div>
+      </section>
+
 
       <section>
         <div className="wrap">

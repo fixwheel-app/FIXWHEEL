@@ -14,24 +14,37 @@ export async function generateMetadata({ params }: { params: { locality: string 
   if (!data) return {};
 
   return {
-    title: `Doorstep Bike Repair in ${data.name}, Delhi | Two Wheeler Mechanic – FixWheel`,
-    description: `Get doorstep bike repair in ${data.name}, Delhi for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
+    title: `Bike Mechanic in ${data.name}, Delhi – Doorstep Two Wheeler Repair | FixWheel`,
+    description: `Book a verified bike mechanic in ${data.name}, Delhi for engine oil change, brake repair, battery replacement, tyre puncture & more. Doorstep two-wheeler service at home — arrives in ${data.eta}. Flat rates, 15-day warranty. FixWheel.`,
     keywords: [
-      "doorstep repair near me",
-      `doorstep repair in ${data.name}`,
-      `bike repair in ${data.name} at home`,
-      "two wheeler mechanic near me",
-      "bike mechanic near me",
-      `scooter service at home in ${data.name}`,
-      `doorstep motorcycle repair ${data.name}`
+      `bike mechanic in ${data.name} Delhi`,
+      `bike mechanic near me ${data.name}`,
+      `two wheeler mechanic in ${data.name}`,
+      `doorstep bike repair ${data.name} Delhi`,
+      `motorcycle repair at home ${data.name}`,
+      `scooter mechanic ${data.name}`,
+      `bike service at home in ${data.name} Delhi`,
+      `engine oil change ${data.name}`,
+      `bike repair near me ${data.name} Delhi`,
+      `Activa service ${data.name}`,
+      `Royal Enfield mechanic ${data.name} Delhi`,
+      `scooty repair ${data.name}`,
+      `tyre puncture repair ${data.name}`,
+      `battery replacement bike ${data.name}`,
+      `brake repair bike ${data.name}`,
+      "doorstep two wheeler service Delhi",
+      "mobile bike mechanic Delhi",
+      "two wheeler repair at home Delhi NCR",
+      `home bike service ${data.name}`,
+      "bike mechanic near me Delhi"
     ],
     alternates: {
       canonical: `https://www.fixwheel.app/delhi/${params.locality}`,
     },
     openGraph: {
       type: "website",
-      title: `Doorstep Bike Repair in ${data.name}, Delhi | Two Wheeler Mechanic – FixWheel`,
-      description: `Get doorstep bike repair in ${data.name}, Delhi for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
+      title: `Bike Mechanic in ${data.name}, Delhi – Doorstep Two Wheeler Repair | FixWheel`,
+      description: `Book a verified bike mechanic in ${data.name}, Delhi for engine oil change, brake repair, battery replacement & more. Doorstep service, arrives in ${data.eta}. Flat rates, 15-day warranty.`,
       url: `https://www.fixwheel.app/delhi/${params.locality}`,
     },
   };
@@ -56,69 +69,71 @@ export default function LocalityPage({ params }: { params: { locality: string } 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "additionalType": "https://schema.org/Service",
-    "name": `Doorstep Bike Repair in ${data.name}, Delhi | Two Wheeler Mechanic`,
-    "serviceType": "Doorstep Bike Repair Service",
+    "name": "FixWheel",
+    "description": `Doorstep bike mechanic in ${data.name}, Delhi. Book engine oil change, brake repair, battery replacement, tyre puncture, and full two-wheeler servicing at home. Covers ${data.subRegionText} with flat pricing and 15-day warranty.`,
     "url": `https://www.fixwheel.app/delhi/${params.locality}`,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "FixWheel",
-      "url": "https://www.fixwheel.app/",
-      "telephone": "+91-87459-45682"
+    "telephone": "+91-87459-45682",
+    "image": "https://www.fixwheel.app/icon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122006",
+      "addressCountry": "IN"
     },
-    "areaServed": { "@type": "Place", "name": `${data.name}, New Delhi, Delhi` },
-    "description": `Doorstep repair near me and bike repair in ${data.name} at home. Book a verified two wheeler mechanic near me for doorstep repair in ${data.name}, covering ${data.subRegionText} with flat pricing.`,
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.4595,
+      "longitude": 77.0266
+    },
+    "areaServed": [
+      { "@type": "Place", "name": `${data.name}, New Delhi, Delhi` },
+      { "@type": "Place", "name": "New Delhi" },
+      { "@type": "Place", "name": "Delhi" }
+    ],
+    "serviceType": "Doorstep Bike Repair and Two Wheeler Servicing",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.7",
+      "ratingValue": data.aggregateRating,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "473",
-      "reviewCount": "473"
+      "ratingCount": data.reviewCount,
+      "reviewCount": data.reviewCount
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": `Bike Repair Services in ${data.name}`,
+      "name": `Bike Repair Services in ${data.name}, Delhi`,
       "itemListElement": [
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Basic Service",
-            "description": "Brake adjustment, chain lube, spark plug clean, air filter check, electrical check."
-          },
-          "price": "499",
-          "priceCurrency": "INR"
+          "itemOffered": { "@type": "Service", "name": "Basic Bike Service", "description": "Brake adjustment, chain lube, spark plug clean, air filter check, 21-point safety inspection." },
+          "price": "499", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Engine Oil Change",
-            "description": "Draining old oil, engine flushing, refilling with fresh OEM-grade oil, and chain lubrication."
-          },
-          "price": "999",
-          "priceCurrency": "INR"
+          "itemOffered": { "@type": "Service", "name": "Engine Oil Change", "description": "Draining old oil, engine flushing, refilling with OEM-grade oil, chain lubrication." },
+          "price": "999", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Battery Replacement",
-            "description": "On-site battery health diagnostics, jump-starts, and replacement with warranty batteries."
-          },
-          "price": "99",
-          "priceCurrency": "INR"
+          "itemOffered": { "@type": "Service", "name": "Battery Replacement", "description": "On-site battery diagnostics, jump-start, and warranty battery replacement." },
+          "price": "99", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Brake Repair",
-            "description": "Replacing worn-out brake pads/shoes, cable adjustments, and clutch tuning."
-          },
-          "price": "199",
-          "priceCurrency": "INR"
+          "itemOffered": { "@type": "Service", "name": "Brake Repair", "description": "Brake pad and shoe replacement, cable adjustment, clutch tuning." },
+          "price": "199", "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Tyre Puncture Repair", "description": "On-site tubeless and tube tyre puncture repair at your doorstep." },
+          "price": "99", "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Comprehensive Bike Service", "description": "Full 21-point service including oil change, brake check, chain, spark plug, and electrical inspection." },
+          "price": "1499", "priceCurrency": "INR"
         }
       ]
     }

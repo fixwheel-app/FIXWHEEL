@@ -19,10 +19,13 @@ export function getIntroParagraph(localityName: string, cityName: string): strin
     `Searching for a prompt, verified two-wheeler mechanic near me in ${localityName}? We deliver direct, on-demand bike repair and scooter servicing at your home, office parking, or roadside across ${localityName} with clear flat rates, seasoned technicians, and our signature 15-day service guarantee.`,
     `Skip the ride to congested local garages. Get professional motorcycle mechanics and doorstep scooter maintenance in ${localityName} today. We send certified mechanics to service your two-wheeler right in your driveway, housing society basement, or office block with honest, transparent pricing.`,
     `Keep your bike or scooty running perfectly without leaving your house. We provide trusted doorstep two-wheeler service inside ${localityName}, offering rapid-response roadside assistance, emergency battery swaps, brake repairs, and routine checkups backed by genuine OEM spares.`,
-    `If you're located in ${localityName} and need a reliable bike mechanic near me, FixWheel brings the workshop to your doorstep. Our verified experts handle full engine servicing, brake tuning, oil replacements, and diagnostics directly at your villa or apartment block.`
+    `If you're located in ${localityName} and need a reliable bike mechanic near me, FixWheel brings the workshop to your doorstep. Our verified experts handle full engine servicing, brake tuning, oil replacements, and diagnostics directly at your villa or apartment block.`,
+    `Need an engine oil change, tyre puncture fix, or battery replacement in ${localityName}? FixWheel sends a verified mobile mechanic directly to your home, office, or parking spot in ${localityName} — no garage visit needed. We service Activa, Royal Enfield, Pulsar, Splendor, Jupiter, and all two-wheelers.`,
+    `FixWheel is ${localityName}'s trusted doorstep bike repair service. Whether it's a Honda Activa service, Royal Enfield oil change, brake pad replacement, or emergency tyre puncture — our mechanics reach your location in ${localityName} with all tools and spare parts, ready to fix it on the spot.`
   ];
   return selectVariation(localityName, variations);
 }
+
 
 export function getWhyChooseTitle(localityName: string): string {
   const variations = [
