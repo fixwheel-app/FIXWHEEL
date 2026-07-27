@@ -42,13 +42,30 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
   const [model, setModel] = useState<string>('');
   
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const searchParams = new URLSearchParams(window.location.search);
-      const queryModel = searchParams.get('model');
-      if (queryModel) {
-        setModel(queryModel);
+    const handleHashAndParams = () => {
+      if (typeof window !== 'undefined') {
+        // Handle hash pre-selection
+        const hash = window.location.hash.replace('#', '').toLowerCase();
+        if (hash && BRAND_SLUG_MAP[hash]) {
+          const preselectedBrand = BRAND_SLUG_MAP[hash];
+          setBrand(preselectedBrand);
+          
+          const isElectric = (preselectedBrand === 'Ola Electric' || preselectedBrand === 'Ather');
+          setFuelType(isElectric ? 'Electric Motorbike' : 'Non-Electric Motorbike');
+        }
+        
+        // Handle search params model selection
+        const searchParams = new URLSearchParams(window.location.search);
+        const queryModel = searchParams.get('model');
+        if (queryModel) {
+          setModel(queryModel);
+        }
       }
-    }
+    };
+    
+    handleHashAndParams();
+    window.addEventListener('hashchange', handleHashAndParams);
+    return () => window.removeEventListener('hashchange', handleHashAndParams);
   }, []);
   
   // Non-Electric specific

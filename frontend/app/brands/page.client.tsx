@@ -664,7 +664,7 @@ export default function BrandsClientPage() {
                     ))}
                   </div>
                   <div className="brand-card-cta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                    <Link href={`/book/${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
+                    <Link href={`/book#${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
                     <Link href={`/brands/${brand.name.toLowerCase().replace(/ /g, "-")}`} style={{ color: 'var(--ink-dim)', fontSize: '11px', transition: 'color 0.15s' }} className="hover-white">Models & Info →</Link>
                   </div>
                 </div>
