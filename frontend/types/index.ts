@@ -35,7 +35,7 @@ export interface RepairPackage {
   accentColor: string;
 }
 export interface PartnerFormData {
-  garageName: string;
+  garageName?: string;
   ownerName: string;
   phone: string;
   address: string;

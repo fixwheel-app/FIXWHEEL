@@ -186,6 +186,7 @@ function InputField({
 // ----- Main Page -----
 export default function PartnerPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [partnerType, setPartnerType] = useState<'garage' | 'independent'>('garage');
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -220,7 +221,9 @@ export default function PartnerPage() {
   const validateStep = (step: number): boolean => {
     const newErrors: typeof errors = {};
     if (step === 1) {
-      if (!formData.garageName.trim()) newErrors.garageName = 'Garage name is required';
+      if (partnerType === 'garage' && !formData.garageName.trim()) {
+        newErrors.garageName = 'Garage name is required';
+      }
       if (!formData.ownerName.trim()) newErrors.ownerName = 'Owner name is required';
       if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) newErrors.mobileNumber = 'Enter a valid 10-digit mobile number';
       if (!formData.city.trim()) newErrors.city = 'City is required';
@@ -232,7 +235,9 @@ export default function PartnerPage() {
       if (formData.servicesOffered.length === 0) newErrors.servicesOffered = 'Select at least one service';
     }
     if (step === 3) {
-      if (formData.garagePhotos.length < 2) newErrors.garagePhotos = 'Upload at least 2 garage photos';
+      if (partnerType === 'garage' && formData.garagePhotos.length < 2) {
+        newErrors.garagePhotos = 'Upload at least 2 garage photos';
+      }
       if (!formData.licensePhoto) newErrors.licensePhoto = 'Driving license photo is required';
     }
     setErrors(newErrors);
@@ -331,10 +336,14 @@ export default function PartnerPage() {
           </div>
           <h2 className="text-4xl font-black text-black uppercase mb-4">Application Received</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            Thanks, <span className="text-black font-semibold">{formData.ownerName}</span>. We've received your application for <span className="text-black font-semibold">{formData.garageName}</span> and will review it within <span className="text-accent font-bold">24–48 hours</span>. We'll reach out on WhatsApp once it's processed.
+            Thanks, <span className="text-black font-semibold">{formData.ownerName}</span>. We've received your application for <span className="text-black font-semibold">{partnerType === 'garage' ? formData.garageName : (formData.garageName || 'Independent Mechanic')}</span> and will review it within <span className="text-accent font-bold">24–48 hours</span>. We'll reach out on WhatsApp once it's processed.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            {[`${formData.garagePhotos.length} Photos Uploaded`, `${formData.servicesOffered.length} Services`, formData.vehicleType + ' Specialist'].map((tag, i) => (
+            {[
+              ...(formData.garagePhotos.length > 0 ? [`${formData.garagePhotos.length} Photos Uploaded`] : []),
+              `${formData.servicesOffered.length} Services`,
+              formData.vehicleType + ' Specialist'
+            ].map((tag, i) => (
               <span key={i} className="px-4 py-2 bg-gray-100 text-black text-sm rounded-full font-medium border border-gray-200">
                 ✓ {tag}
               </span>
@@ -443,6 +452,38 @@ export default function PartnerPage() {
           })}
         </div>
 
+        {/* Partner Type Selector */}
+        {currentStep === 1 && (
+          <div className="flex gap-4 justify-center mb-6 max-w-md mx-auto">
+            <button
+              type="button"
+              id="partner-type-garage"
+              onClick={() => setPartnerType('garage')}
+              className={cn(
+                "flex-1 py-3 px-5 rounded-xl border-2 font-bold text-sm uppercase tracking-wider transition-all duration-200",
+                partnerType === 'garage'
+                  ? "bg-accent border-accent text-white shadow-[0_4px_12px_rgba(230,43,43,0.2)]"
+                  : "bg-white border-gray-200 text-gray-600 hover:border-accent/40"
+              )}
+            >
+              🏬 I have a Garage
+            </button>
+            <button
+              type="button"
+              id="partner-type-independent"
+              onClick={() => setPartnerType('independent')}
+              className={cn(
+                "flex-1 py-3 px-5 rounded-xl border-2 font-bold text-sm uppercase tracking-wider transition-all duration-200",
+                partnerType === 'independent'
+                  ? "bg-accent border-accent text-white shadow-[0_4px_12px_rgba(230,43,43,0.2)]"
+                  : "bg-white border-gray-200 text-gray-600 hover:border-accent/40"
+              )}
+            >
+              🔧 Independent Mechanic
+            </button>
+          </div>
+        )}
+
         {/* Form Card */}
         <motion.div
           key={currentStep}
@@ -457,17 +498,26 @@ export default function PartnerPage() {
           {currentStep === 1 && (
             <div className="space-y-6">
               <div className="mb-2">
-                <h2 className="text-2xl font-black text-black uppercase">Garage Information</h2>
-                <p className="text-gray-500 text-sm mt-1">Tell us about your workshop</p>
+                <h2 className="text-2xl font-black text-black uppercase">
+                  {partnerType === 'garage' ? 'Garage Information' : 'Mechanic Information'}
+                </h2>
+                <p className="text-gray-500 text-sm mt-1">
+                  {partnerType === 'garage' ? 'Tell us about your workshop' : 'Tell us about yourself'}
+                </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <InputField label="Garage Name" icon={Building2} error={errors.garageName} required>
+                <InputField
+                  label={partnerType === 'garage' ? 'Garage Name' : 'Garage/Shop Name (Optional)'}
+                  icon={Building2}
+                  error={errors.garageName}
+                  required={partnerType === 'garage'}
+                >
                   <input
                     id="garage-name"
                     value={formData.garageName}
                     onChange={e => set('garageName', e.target.value)}
-                    placeholder="e.g. Kumar Auto Works"
+                    placeholder={partnerType === 'garage' ? "e.g. Kumar Auto Works" : "e.g. Self Employed (Optional)"}
                     className={cn(
                       "w-full bg-white border text-black rounded-xl px-4 py-3.5 placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm",
                       errors.garageName ? "border-red-400 focus:ring-red-200" : "border-gray-200 focus:border-accent focus:ring-accent/20"
@@ -522,12 +572,17 @@ export default function PartnerPage() {
                 </InputField>
               </div>
 
-              <InputField label="Garage Address" icon={MapPin} error={errors.address} required>
+              <InputField
+                label={partnerType === 'garage' ? 'Garage Address' : 'Mechanic Address'}
+                icon={MapPin}
+                error={errors.address}
+                required
+              >
                 <textarea
                   id="address"
                   value={formData.address}
                   onChange={e => set('address', e.target.value)}
-                  placeholder="Enter your complete garage address (e.g. Shop 12, Main Market, Sector 15)"
+                  placeholder={partnerType === 'garage' ? "Enter your complete garage address (e.g. Shop 12, Main Market, Sector 15)" : "Enter your home or workshop address"}
                   rows={2}
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3.5 placeholder-gray-400 focus:outline-none focus:ring-2 transition-all text-sm resize-none",
@@ -535,7 +590,7 @@ export default function PartnerPage() {
                   )}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  Provide a complete, accurate address for customers to locate your garage easily.
+                  Provide a complete, accurate address for verification.
                 </p>
               </InputField>
 
@@ -633,14 +688,14 @@ export default function PartnerPage() {
               </div>
 
               <FileUploadZone
-                label="Garage Photos (min. 2, max. 5)"
+                label={partnerType === 'garage' ? "Garage Photos (min. 2, max. 5)" : "Work/Garage Photos (Optional, max. 5)"}
                 accept="image/*"
                 multiple
                 files={formData.garagePhotos}
                 onFilesChange={files => set('garagePhotos', files.slice(0, 5))}
                 maxFiles={5}
                 icon={Camera}
-                hint="JPG, PNG or WEBP · Up to 5MB each · Min. 2 required"
+                hint={partnerType === 'garage' ? "JPG, PNG or WEBP · Up to 5MB each · Min. 2 required" : "JPG, PNG or WEBP · Up to 5MB each"}
               />
               {errors.garagePhotos && (
                 <p className="flex items-center gap-1 text-xs text-red-400 -mt-4">
@@ -671,7 +726,7 @@ export default function PartnerPage() {
                 <p className="text-black font-bold text-sm uppercase tracking-wide">Application Summary</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   {[
-                    ['Garage', formData.garageName],
+                    [partnerType === 'garage' ? 'Garage' : 'Garage/Shop', formData.garageName || 'Independent Mechanic'],
                     ['Owner', formData.ownerName],
                     ['WhatsApp', `+91 ${formData.mobileNumber}`],
                     ['City', formData.city],

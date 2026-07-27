@@ -5,7 +5,7 @@ import { sendPartnerNotification } from '../lib/notifications';
 
 // Zod validation schema
 const partnerSchema = z.object({
-  garageName: z.string().min(2, 'Garage name must be at least 2 characters'),
+  garageName: z.string().optional().or(z.literal('')),
   ownerName: z.string().min(2, 'Owner name must be at least 2 characters'),
   phone: z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit Indian mobile number'),
   address: z.string().min(10, 'Address must be at least 10 characters long'),
@@ -69,7 +69,7 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
     const newPartner = await db.partner.create({
       data: {
         partnerRef,
-        garageName: data.garageName,
+        garageName: data.garageName || 'Independent Mechanic',
         ownerName: data.ownerName,
         phone: '+91' + data.phone,
         mapsLocation: '', // Empty for new partners, keeping column to protect historical data
