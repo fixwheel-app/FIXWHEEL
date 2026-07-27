@@ -530,7 +530,7 @@ export default function PricingClientPage() {
 
                   <div className="price-box">
                     <div className="price-val">{formattedPrice}</div>
-                    {isNumeric && <span className="price-unit">/ flat rate</span>}
+
                   </div>
 
                   <div className="feature-list">
