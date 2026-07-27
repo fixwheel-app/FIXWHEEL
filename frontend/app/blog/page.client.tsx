@@ -211,13 +211,19 @@ export default function BlogHubClient() {
           font-weight: 700;
         }
         .blog-scope .featured-info h2 {
+          font-family: 'Inter', sans-serif;
           font-size: 32px;
+          font-weight: 800;
           color: var(--ink-dark);
           margin-bottom: 16px;
+          line-height: 1.25;
+          text-transform: none;
+          letter-spacing: -0.02em;
         }
         .blog-scope .featured-info p {
-          font-size: 14.5px;
-          color: #5A5D62;
+          font-family: 'Inter', sans-serif;
+          font-size: 15px;
+          color: #5C6066;
           line-height: 1.6;
           margin-bottom: 28px;
         }
@@ -239,7 +245,7 @@ export default function BlogHubClient() {
 
         /* ===== CONTROLS STRIP ===== */
         .blog-scope .controls-strip {
-          padding: 30px 0;
+          padding: 24px 0;
           border-bottom: 1px solid var(--line-paper);
           background: var(--paper-dim);
           display: flex;
@@ -272,7 +278,7 @@ export default function BlogHubClient() {
         .blog-scope .category-tab-btn.active {
           background: var(--accent);
           border-color: var(--accent);
-          color: #17181A;
+          color: #FFFFFF;
         }
         .blog-scope .search-box {
           position: relative;
@@ -310,7 +316,7 @@ export default function BlogHubClient() {
         .blog-scope .blog-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          gap: 40px 32px;
         }
         .blog-scope .blog-card {
           background: #FFFFFF;
@@ -346,16 +352,24 @@ export default function BlogHubClient() {
           flex-direction: column;
           flex: 1;
         }
+        .blog-scope .blog-card-content .post-meta-row {
+          margin-bottom: 14px;
+        }
         .blog-scope .blog-card-title {
-          font-size: 18px;
+          font-family: 'Inter', sans-serif;
+          font-size: 19px;
+          font-weight: 700;
           color: var(--ink-dark);
           margin-bottom: 12px;
-          line-height: 1.25;
+          line-height: 1.35;
+          text-transform: none;
+          letter-spacing: -0.01em;
         }
         .blog-scope .blog-card-excerpt {
-          font-size: 13.5px;
-          color: #5A5D62;
-          line-height: 1.55;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          color: #5C6066;
+          line-height: 1.6;
           margin-bottom: 20px;
           flex: 1;
         }
@@ -363,11 +377,26 @@ export default function BlogHubClient() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          margin-top: 16px;
           padding-top: 14px;
           border-top: 1px dashed var(--line-paper);
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
           color: #6B6E72;
+        }
+        .blog-scope .blog-card-footer a.author-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 11.5px;
+          font-family: var(--font-jetbrains), monospace;
+          color: var(--ink-dark);
+        }
+        .blog-scope .blog-card-footer a.author-link img {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 1px solid var(--accent);
         }
         .blog-scope .no-posts {
           text-align: center;
@@ -426,7 +455,7 @@ export default function BlogHubClient() {
       <section className="hero">
         <div className="wrap">
           <div className="eyebrow">Fixwheel Gazette · Mechanics & Riders</div>
-          <h1>Knowledge Center</h1>
+          <h1>FixWheel Blog</h1>
           <p className="lead">Expert tips, maintenance walkthroughs, EV battery hacks, and two-wheeler news curated by the automotive mechanics at FixWheel.</p>
         </div>
       </section>
@@ -498,24 +527,26 @@ export default function BlogHubClient() {
           ) : (
             <div className="blog-grid">
               {filteredPosts.map((post) => (
-                <div className="post-card" key={post.slug} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div className="post-card-image">
+                <div className="blog-card" key={post.slug}>
+                  <div className="blog-card-image">
                     <img src={post.image} alt={post.title} />
                   </div>
-                  <div className="post-card-body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div className="post-meta-row" style={{ marginBottom: '14px' }}>
+                  <div className="blog-card-content">
+                    <div className="post-meta-row">
                       <span className="post-category-tag">{post.category}</span>
                       <span>{post.date}</span>
                     </div>
-                    <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
-                    <p style={{ flex: 1 }}>{post.excerpt}</p>
+                    <h3 className="blog-card-title">
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+                    <p className="blog-card-excerpt">{post.excerpt}</p>
                     
-                    <div style={{ marginTop: '16px', paddingTop: '14px', borderTop: '1px dashed var(--line-paper)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11.5px', fontFamily: 'var(--font-jetbrains), monospace', color: 'var(--ink-dark)' }}>
-                        <img src={post.author.avatar} alt={post.author.name} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '1px solid var(--accent)' }} />
+                    <div className="blog-card-footer">
+                      <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} className="author-link">
+                        <img src={post.author.avatar} alt={post.author.name} />
                         <span>{post.author.name}</span>
                       </Link>
-                      <Link href={`/blog/${post.slug}`} className="read-btn" style={{ margin: 0 }}>
+                      <Link href={`/blog/${post.slug}`} className="read-btn">
                         Read <span className="mono">→</span>
                       </Link>
                     </div>
