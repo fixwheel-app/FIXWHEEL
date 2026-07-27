@@ -26,6 +26,7 @@ export const createPartner = async (req: Request, res: Response): Promise<void> 
     // Validate request body
     const parsed = partnerSchema.safeParse(req.body);
     if (!parsed.success) {
+      console.log('[Partner Validation Failed]:', JSON.stringify(parsed.error.format(), null, 2));
       res.status(400).json({
         success: false,
         error: 'Validation failed',

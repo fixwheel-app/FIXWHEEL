@@ -40,7 +40,7 @@ export default function Navbar() {
 
   const [tabWidth, setTabWidth] = useState(0);
   const [tabOffset, setTabOffset] = useState(0);
-  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const navRefs = useRef<(HTMLElement | null)[]>([]);
 
   /* ─── Services mega-dropdown state (desktop) ─────────────── */
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
@@ -187,12 +187,12 @@ export default function Navbar() {
                 return (
                   <div
                     key={link.name}
+                    ref={(el) => { navRefs.current[idx] = el; }}
                     className="relative h-full flex items-center"
                     {...mouseHandlers}
                   >
                     <Link
                       href={link.href}
-                      ref={(el) => { navRefs.current[idx] = el; }}
                       onClick={() => setActivePath(link.href)}
                       className={cn(
                         "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1",
