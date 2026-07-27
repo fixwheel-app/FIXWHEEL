@@ -166,23 +166,28 @@ export default function BrandsClientPage() {
     <div className={`brands-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .brands-scope {
-          --bg:#17181A;
-          --bg-soft:#1E2022;
-          --paper:#F3EEE3;
-          --paper-dim:#E7E0D0;
-          --ink:#EDEAE2;
+          --bg:#F4F1EA;
+          --bg-soft:#E7E2D6;
+          --paper:#FFFFFF;
+          --paper-dim:#F4F1EA;
+          --ink:#16181B;
           --ink-dim:#6B6E72;
-          --ink-dark:#17181A;
+          --ink-dark:#16181B;
           --accent:#ff3b30;
           --accent-dim:#d32f2f;
-          --stamp:#FFC145;
+          --stamp:#D8430F;
           --steel:#5C7A93;
-          --line:rgba(255,255,255,0.12);
-          --line-paper:#D8CFB8;
+          --line:rgba(22,24,27,0.12);
+          --line-paper:rgba(22,24,27,0.08);
           --radius:2px;
 
-          background: var(--paper);
-          color: var(--ink-dark);
+          /* Hero specific dark variables to keep hero dark like services page */
+          --hero-bg:#23262B;
+          --hero-text:#F4F1EA;
+          --hero-ink-dim:#9DA1A7;
+
+          background: var(--bg);
+          color: var(--ink);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
@@ -235,44 +240,44 @@ export default function BrandsClientPage() {
         }
         .brands-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .brands-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
-        .brands-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
-        .brands-scope .btn-ghost:hover { border-color: var(--paper); }
-        .brands-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
+        .brands-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--hero-text); }
+        .brands-scope .btn-ghost:hover { border-color: var(--hero-text); }
+        .brands-scope .btn-dark { background: var(--ink-dark); color: #FFFFFF; }
         .brands-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
         .brands-scope .hover-white:hover {
-          color: var(--paper) !important;
+          color: var(--ink) !important;
         }
 
         /* ===== BREADCRUMB ===== */
         .brands-scope .breadcrumb {
           padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid var(--line);
+          background: var(--hero-bg);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .brands-scope .breadcrumb nav {
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           letter-spacing: 0.04em;
-          color: var(--ink-dim);
+          color: var(--hero-ink-dim);
           display: flex;
           align-items: center;
           gap: 8px;
         }
         .brands-scope .breadcrumb a {
-          color: var(--ink-dim);
+          color: var(--hero-ink-dim);
           transition: color .15s ease;
         }
         .brands-scope .breadcrumb a:hover { color: var(--accent); }
-        .brands-scope .breadcrumb .sep { color: var(--line); }
-        .brands-scope .breadcrumb .current { color: var(--paper); }
+        .brands-scope .breadcrumb .sep { color: rgba(255,255,255,0.2); }
+        .brands-scope .breadcrumb .current { color: var(--hero-text); }
 
         /* ===== HERO ===== */
         .brands-scope .hero {
           position: relative;
           padding: 96px 0 60px;
-          background: var(--bg);
-          color: var(--paper);
-          border-bottom: 1px solid var(--line);
+          background: var(--hero-bg);
+          color: var(--hero-text);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
           overflow: hidden;
         }
         .brands-scope .hero::before {
@@ -286,9 +291,9 @@ export default function BrandsClientPage() {
           position: relative; z-index: 1;
           max-width: 800px;
         }
-        .brands-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--paper); }
+        .brands-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--hero-text); }
         .brands-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .brands-scope .hero p.lead { font-size: 16px; color: #A7A9AC; max-width: 580px; }
+        .brands-scope .hero p.lead { font-size: 16px; color: var(--hero-ink-dim); max-width: 580px; }
 
         /* ===== TRUST STRIP ===== */
         .brands-scope .trust-strip {
@@ -310,7 +315,7 @@ export default function BrandsClientPage() {
           display: block;
           font-family: var(--font-jetbrains), monospace;
           font-size: 22px;
-          color: var(--paper);
+          color: var(--ink);
           margin-bottom: 6px;
         }
         .brands-scope .trust-item span {
@@ -324,9 +329,9 @@ export default function BrandsClientPage() {
         /* ===== SECTION GENERIC ===== */
         .brands-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
         .brands-scope .section-head { max-width: 640px; margin-bottom: 48px; }
-        .brands-scope .section-head h2 { font-size: 34px; color: var(--paper); }
+        .brands-scope .section-head h2 { font-size: 34px; color: var(--ink); }
         .brands-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
-        .brands-scope .section-alt { background: var(--bg-soft); }
+        .brands-scope .section-alt { background: var(--bg); }
 
         /* ===== BRAND GRID ===== */
         .brands-scope .brand-grid {
@@ -335,7 +340,7 @@ export default function BrandsClientPage() {
           gap: 16px;
         }
         .brands-scope .brand-card {
-          background: var(--bg-soft);
+          background: var(--paper);
           border: 1px solid var(--line);
           padding: 28px 26px 24px;
           border-radius: 4px;
@@ -347,7 +352,7 @@ export default function BrandsClientPage() {
         .brands-scope .brand-card:hover {
           border-color: var(--accent);
           transform: translateY(-4px);
-          box-shadow: 0 20px 50px -15px rgba(230, 43, 43, 0.15);
+          box-shadow: 0 20px 50px -15px rgba(230, 43, 43, 0.08);
         }
         .brands-scope .brand-card-top {
           display: flex;
@@ -368,7 +373,7 @@ export default function BrandsClientPage() {
         }
         .brands-scope .brand-card-logo h3 {
           font-size: 20px;
-          color: var(--paper);
+          color: var(--ink);
           text-transform: none;
           letter-spacing: 0;
         }
@@ -378,7 +383,7 @@ export default function BrandsClientPage() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--stamp);
-          background: rgba(255, 193, 69, 0.08);
+          background: rgba(216, 67, 15, 0.08);
           padding: 4px 10px;
           border-radius: 20px;
           font-weight: 700;
@@ -414,12 +419,12 @@ export default function BrandsClientPage() {
           padding: 6px 12px;
           border: 1px solid var(--line);
           border-radius: 30px;
-          color: var(--ink-dim);
-          background: var(--bg);
+          color: var(--ink);
+          background: var(--bg-soft);
           transition: border-color .15s ease, color .15s ease;
         }
         .brands-scope .brand-card:hover .brand-model-pill {
-          border-color: #4a4d50;
+          border-color: rgba(22, 24, 27, 0.3);
         }
         .brands-scope .brand-card-cta {
           margin-top: 20px;
@@ -440,7 +445,7 @@ export default function BrandsClientPage() {
         .brands-scope .count-strip {
           margin-top: 36px;
           padding: 20px 28px;
-          background: var(--bg);
+          background: var(--bg-soft);
           border: 1px solid var(--line);
           border-radius: 4px;
           display: flex;
@@ -454,7 +459,7 @@ export default function BrandsClientPage() {
           font-size: 13px;
           color: var(--ink-dim);
         }
-        .brands-scope .count-strip b { color: var(--paper); }
+        .brands-scope .count-strip b { color: var(--ink); }
 
         /* ===== SEARCH BAR ===== */
         .brands-scope .search-container {
@@ -464,13 +469,13 @@ export default function BrandsClientPage() {
         }
         .brands-scope .search-input {
           width: 100%;
-          background: var(--bg);
+          background: #FFFFFF;
           border: 1px solid var(--line);
           border-radius: 4px;
           padding: 14px 18px 14px 44px;
           font-family: var(--font-jetbrains), monospace;
           font-size: 14px;
-          color: var(--paper);
+          color: var(--ink);
           transition: border-color .15s ease, box-shadow .15s ease;
         }
         .brands-scope .search-input:focus {
@@ -517,7 +522,7 @@ export default function BrandsClientPage() {
         }
         .brands-scope .no-results h3 {
           font-size: 22px;
-          color: var(--paper);
+          color: var(--ink);
           margin-bottom: 12px;
         }
         .brands-scope .no-results p {
@@ -532,7 +537,7 @@ export default function BrandsClientPage() {
           background:
             linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
         }
-        .brands-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px;}
+        .brands-scope .final-cta h2 { font-size: 38px; color: var(--ink); max-width: 700px; margin: 0 auto 16px;}
         .brands-scope .final-cta p { color: var(--ink-dim); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto;}
 
         /* ===== RESPONSIVE ===== */
