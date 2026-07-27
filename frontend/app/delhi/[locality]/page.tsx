@@ -29,9 +29,15 @@ export async function generateMetadata({ params }: { params: { locality: string 
       `Activa service ${data.name}`,
       `Royal Enfield mechanic ${data.name} Delhi`,
       `scooty repair ${data.name}`,
+      `scooty mechanic at home ${data.name}`,
+      `scooter repair at home ${data.name} Delhi`,
       `tyre puncture repair ${data.name}`,
       `battery replacement bike ${data.name}`,
       `brake repair bike ${data.name}`,
+      `24/7 bike mechanic near me ${data.name}`,
+      `bike mechanic on call ${data.name}`,
+      `bike mechanic near me open now ${data.name}`,
+      `two wheeler mechanic in ${data.name} Delhi with phone number`,
       "doorstep two wheeler service Delhi",
       "mobile bike mechanic Delhi",
       "two wheeler repair at home Delhi NCR",
@@ -145,6 +151,22 @@ export default function LocalityPage({ params }: { params: { locality: string } 
     "mainEntity": [
       {
         "@type": "Question",
+        "name": `Is there a 24/7 bike mechanic on call near me in ${data.name}, Delhi?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Yes. FixWheel provides 24/7 bike mechanic service in ${data.name}, Delhi. Call +91-87459-45682 or book on fixwheel.app to get a verified mechanic on call at your doorstep any time — day or night.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Do you offer scooty mechanic at home service in ${data.name}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Yes. Our mechanics come to your home or parking spot in ${data.name} for complete scooty repair and servicing. We handle Activa, Jupiter, Dio, Access 125, and all scooter models — oil change, brake repair, puncture fix, and battery replacement.`
+        }
+      },
+      {
+        "@type": "Question",
         "name": `Does the mechanic come inside my society or apartment in ${data.name}?`,
         "acceptedAnswer": {
           "@type": "Answer",
@@ -161,7 +183,7 @@ export default function LocalityPage({ params }: { params: { locality: string } 
       },
       {
         "@type": "Question",
-        "name": `How fast can a mechanic reach me in ${data.name}?`,
+        "name": `How fast can a mechanic reach me in ${data.name}, Delhi?`,
         "acceptedAnswer": {
           "@type": "Answer",
           "text": `On average, our mobile mechanics stationed across Delhi reach ${data.name} locations within ${data.eta}.`

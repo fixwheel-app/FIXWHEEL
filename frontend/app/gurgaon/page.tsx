@@ -2,8 +2,31 @@ import type { Metadata } from "next";
 import GurgaonClientPage from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Doorstep Bike Repair Service in Gurgaon | Two Wheeler Repair | FixWheel",
-  description: "Book a verified mechanic for doorstep bike repair service in Gurgaon. Fast two wheeler repair in Gurgaon at your home, office, or roadside starting ₹550.",
+  title: "Bike Mechanic Near Me in Gurgaon – Doorstep Bike Repair Service | FixWheel",
+  description: "Looking for a bike mechanic near me in Gurgaon? FixWheel sends a verified mechanic on call to your home, office, or roadside 24/7. Doorstep bike repair, scooty repair & scooter service in Gurugram. Call +91-87459-45682. Starting ₹550.",
+  keywords: [
+    "bike mechanic near me Gurgaon",
+    "bike mechanic near me Gurugram",
+    "bike repair near me Gurgaon",
+    "bike service near me Gurgaon",
+    "bike repair at home Gurgaon",
+    "doorstep bike service Gurgaon",
+    "scooty mechanic at home Gurgaon",
+    "scooty repair Gurgaon",
+    "scooter repair at home Gurgaon",
+    "scooter mechanic near me Gurgaon",
+    "24/7 bike mechanic near me Gurgaon",
+    "bike mechanic on call Gurgaon",
+    "two wheeler mechanic near me Gurgaon",
+    "two wheeler mechanic in Gurgaon with phone number",
+    "bike repair at doorstep Gurgaon",
+    "bike mechanic near me open now Gurgaon",
+    "doorstep bike service near me Gurgaon",
+    "mobile bike mechanic Gurugram",
+    "bike electrician near me Gurgaon",
+    "online bike mechanic Gurgaon",
+    "bike repair shops near me Gurgaon"
+  ],
   alternates: {
     canonical: "https://www.fixwheel.app/gurgaon",
   },
@@ -208,18 +231,58 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How long does doorstep bike service take in Gurgaon?",
+      "name": "Is there a 24/7 bike mechanic near me in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most repairs take 30 to 50 minutes. We tell you the time needed before we start."
+        "text": "Yes. FixWheel provides 24/7 bike mechanic service in Gurgaon. You can book a mechanic on call any time of day or night for emergency roadside assistance or doorstep repair. Call +91-87459-45682 or book online."
       }
     },
     {
       "@type": "Question",
-      "name": "How much does doorstep bike service cost in Gurgaon?",
+      "name": "Do you offer scooty mechanic at home service in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Service starts from ₹550 depending on your bike model. We give you a clear price before starting."
+        "text": "Yes. We provide scooty mechanic at home service across all Gurgaon sectors. Whether it's an Activa, Jupiter, Dio, Access 125, or any other scooty — our mechanics come to your doorstep for servicing, oil change, brake repair, or puncture repair."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get scooter repair at home in Gurgaon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. FixWheel offers complete scooter repair at home in Gurgaon including engine servicing, brake repair, battery replacement, tyre puncture, and electrical work — all done at your doorstep with flat pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find a bike mechanic on call near me in Gurgaon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Book on fixwheel.app or call +91-87459-45682. Our on-call bike mechanics are stationed across Gurgaon and will reach you in under 45 minutes. No garage visit needed — the mechanic comes to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the phone number for bike mechanic in Gurgaon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can reach FixWheel's Gurgaon bike mechanic team at +91-87459-45682. We cover all sectors in Gurgaon and Gurugram for doorstep two-wheeler repair and servicing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FixWheel open now for bike repair in Gurgaon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, FixWheel is available for bike repair in Gurgaon right now. We operate 7 days a week with extended hours. For late-night emergencies, our 24/7 roadside assistance line is always active."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does doorstep bike service take in Gurgaon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most repairs take 30 to 50 minutes. Engine oil changes take about 30 minutes, and full services take 45 to 60 minutes. We confirm the time needed before we start."
       }
     },
     {
@@ -227,23 +290,15 @@ const faqSchema = {
       "name": "Which areas do you cover in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We cover all areas and sectors in Gurgaon including DLF Phase 1-5, Sushant Lok, Golf Course Road, Sohna Road, Palam Vihar, Udyog Vihar, Dwarka Expressway, MG Road, Cyber City, South City, Nirvana Country, Huda City Centre, Manesar, Badshahpur, and all other sectors."
+        "text": "We cover all sectors and areas in Gurgaon including DLF Phase 1-5, Sushant Lok, Golf Course Road, Sector 14, Sector 20, Sector 45, Sector 49, Sohna Road, Palam Vihar, Udyog Vihar, Dwarka Expressway, MG Road, Cyber City, South City, Nirvana Country, Huda City Centre, Manesar, Badshahpur, and more."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I book emergency roadside assistance in Gurgaon?",
+      "name": "Do you service Royal Enfield and superbikes at home in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, our roadside assistance is available 24/7 in Gurgaon."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you service Royal Enfield bikes at home in Gurgaon?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we repair and service all Royal Enfield models at your home."
+        "text": "Yes, we repair and service all Royal Enfield models, superbikes, and premium motorcycles at your home or office in Gurgaon. Our mechanics are trained for all two-wheeler brands."
       }
     },
     {
@@ -251,7 +306,7 @@ const faqSchema = {
       "name": "Is there a warranty on the repair?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we provide a 15-day warranty on our service."
+        "text": "Yes, we provide a 15-day labor warranty on all repairs. If the same issue reappears, we send a mechanic back at no extra charge."
       }
     }
   ]

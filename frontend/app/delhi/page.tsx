@@ -2,8 +2,31 @@ import type { Metadata } from "next";
 import DelhiClientPage from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Doorstep Bike Repair Service in Delhi | Two Wheeler Mechanic at Home | FixWheel",
-  description: "Book a verified mechanic for doorstep bike repair in Delhi. Two wheeler service at your home, office, or roadside across South, West & South-West Delhi. Starting ₹499.",
+  title: "Bike Mechanic Near Me in Delhi – Doorstep Bike Repair & Scooty Service | FixWheel",
+  description: "Looking for a bike mechanic near me in Delhi? FixWheel sends a verified mechanic on call 24/7 to your home, office, or roadside. Doorstep bike repair, scooty mechanic at home & scooter repair in South & West Delhi. Call +91-87459-45682. Starting ₹499.",
+  keywords: [
+    "bike mechanic near me Delhi",
+    "bike repair near me Delhi",
+    "bike service near me Delhi",
+    "bike repair at home Delhi",
+    "doorstep bike service Delhi",
+    "scooty mechanic at home Delhi",
+    "scooty repair Delhi",
+    "scooter repair at home Delhi",
+    "scooter mechanic near me Delhi",
+    "24/7 bike mechanic near me Delhi",
+    "bike mechanic on call Delhi",
+    "two wheeler mechanic near me Delhi",
+    "two wheeler mechanic in Delhi with phone number",
+    "bike repair at doorstep Delhi",
+    "bike mechanic near me open now Delhi",
+    "doorstep bike service near me Delhi",
+    "mobile bike mechanic Delhi",
+    "bike electrician near me Delhi",
+    "online bike mechanic Delhi",
+    "bike repair shops near me Delhi",
+    "bike service Delhi"
+  ],
   alternates: {
     canonical: "https://www.fixwheel.app/delhi",
   },
@@ -193,6 +216,62 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Is there a 24/7 bike mechanic near me in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FixWheel provides 24/7 bike mechanic service in Delhi. You can book a mechanic on call any time for emergency roadside assistance or doorstep repair. Call +91-87459-45682 or book on fixwheel.app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer scooty mechanic at home service in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We provide scooty mechanic at home service across South and West Delhi. Whether it's an Activa, Jupiter, Dio, Access 125, or any scooty — our mechanics come to your doorstep for oil change, brake repair, or puncture repair."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get scooter repair at home in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FixWheel provides complete scooter repair at home in Delhi including engine servicing, brake repair, battery replacement, tyre puncture, and electrical work — all at your doorstep with transparent pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the phone number for bike mechanic in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can reach FixWheel's Delhi bike mechanic team at +91-87459-45682. We cover South Delhi, West Delhi, and South-West Delhi areas for doorstep two-wheeler repair and servicing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get a bike mechanic on call near me in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call +91-87459-45682 or book on fixwheel.app. Our on-call bike mechanics reach your location in Dwarka, Kapashera, Vasant Kunj, Janakpuri, and all Delhi areas within 45 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FixWheel open now for bike repair in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, FixWheel is available for bike repair in Delhi right now. We operate 7 days a week. For late-night emergencies, our 24/7 roadside assistance is always active."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do bike repair on road in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If your bike breaks down on the road in Delhi, call +91-87459-45682. We dispatch a mechanic to your exact location for roadside repair — puncture fix, battery jump-start, running repair, or emergency assistance."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How quickly can a mechanic reach me in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -201,34 +280,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What does doorstep bike repair cost in Delhi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Basic service starts from ₹499 depending on your bike model and cc. We confirm the exact price before starting any work."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Which areas in Delhi does FixWheel cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We currently cover South and South-West Delhi including Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, Mahipalpur, Hari Nagar, Najafgarh, Palam, and surrounding areas."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer emergency roadside help in Delhi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we dispatch mechanics for roadside breakdowns across our Delhi service area. Available 24/7."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you service my EV scooter in Delhi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Delhi."
+        "text": "We cover South and South-West Delhi including Dwarka (Sectors 1-23), Kapashera, Vasant Kunj, Janakpuri, Bijwasan, Mahipalpur, Hari Nagar, Najafgarh, Palam, Uttam Nagar, and surrounding areas."
       }
     },
     {
@@ -236,7 +291,7 @@ const faqSchema = {
       "name": "Is there a warranty on the repair?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge."
+        "text": "Yes, all repairs come with a 15-day labor warranty. If the same issue reappears within 15 days, we send a mechanic back at no extra charge."
       }
     }
   ]
