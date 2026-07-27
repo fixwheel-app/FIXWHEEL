@@ -17,6 +17,19 @@ const serviceSchema = {
   "description": "Professional doorstep bike and two-wheeler repair service in Gurgaon. Verified mechanics come to your home, office, or roadside location to service and repair your bike or scooter.",
   "url": "https://www.fixwheel.app/gurgaon",
   "serviceType": "Two Wheeler Repair and Maintenance",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122006",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.4870,
+    "longitude": 77.0190
+  },
   "areaServed": {
     "@type": "City",
     "name": "Gurgaon",
@@ -40,8 +53,10 @@ const serviceSchema = {
     "priceRange": "₹199 - ₹18000",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Gurgaon",
+      "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",
+      "addressLocality": "Gurugram",
       "addressRegion": "Haryana",
+      "postalCode": "122006",
       "addressCountry": "IN"
     }
   },

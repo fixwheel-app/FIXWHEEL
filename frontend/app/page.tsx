@@ -35,16 +35,16 @@ export default function Home() {
     "priceRange": "₹499 - ₹4999",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Dwarka",
-      "addressLocality": "New Delhi",
-      "addressRegion": "Delhi",
-      "postalCode": "110075",
+      "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122006",
       "addressCountry": "IN"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 28.5823,
-      "longitude": 77.0500
+      "latitude": 28.4870,
+      "longitude": 77.0190
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
