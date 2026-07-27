@@ -364,7 +364,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         <div className="wrap hero-grid">
           <div>
             <div className="eyebrow">Bike repair service · {data.name}</div>
-            <h1>Doorstep Repair<br />in <em>{data.name}</em></h1>
+            <h1>Doorstep Bike Repair<br />in <em>{data.name}, Gurgaon</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong>. {data.heroText}</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
@@ -398,7 +398,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">{data.name}</div>
-            <h2>Doorstep Repair in {data.name}</h2>
+            <h2>Two Wheeler Mechanic in {data.name}, Gurgaon</h2>
             <p>{getIntroParagraph(data.name, "Gurgaon")}</p>
           </div>
           <div className="trust-strip">

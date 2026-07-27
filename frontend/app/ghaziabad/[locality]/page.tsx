@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: { locality: string 
   if (!data) return {};
 
   return {
-    title: `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home – FixWheel`,
-    description: `Get doorstep repair in ${data.name} for scooters & motorcycles. Verified mechanics offer bike repair in ${data.name} at home — average arrival ${data.eta}.`,
+    title: `Doorstep Bike Repair in ${data.name}, Ghaziabad | Two Wheeler Mechanic – FixWheel`,
+    description: `Get doorstep bike repair in ${data.name}, Ghaziabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
     keywords: [
       "doorstep repair near me",
       `doorstep repair in ${data.name}`,
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: { params: { locality: string 
     },
     openGraph: {
       type: "website",
-      title: `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home – FixWheel`,
-      description: `Get doorstep repair in ${data.name} for scooters & motorcycles. Verified mechanics offer bike repair in ${data.name} at home — average arrival ${data.eta}.`,
+      title: `Doorstep Bike Repair in ${data.name}, Ghaziabad | Two Wheeler Mechanic – FixWheel`,
+      description: `Get doorstep bike repair in ${data.name}, Ghaziabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
       url: `https://www.fixwheel.app/ghaziabad/${params.locality}`,
     },
   };
@@ -59,7 +59,7 @@ export default function GhaziabadLocalityPage({ params }: { params: { locality: 
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "additionalType": "https://schema.org/Service",
-    "name": `Doorstep Repair in ${data.name} | Bike Repair in ${data.name} at Home`,
+    "name": `Doorstep Bike Repair in ${data.name}, Ghaziabad | Two Wheeler Mechanic`,
     "serviceType": "Doorstep Bike Repair Service",
     "url": `https://www.fixwheel.app/ghaziabad/${params.locality}`,
     "provider": {

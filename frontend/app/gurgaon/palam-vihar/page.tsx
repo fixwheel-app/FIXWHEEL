@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PalamViharClientPage from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home – FixWheel",
-  description: "Get doorstep repair in Palam Vihar for scooters & motorcycles. Vetted mechanics offer bike repair in Palam Vihar at home — Block A–J & Extension in 45 mins.",
+  title: "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic – FixWheel",
+  description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival 45 mins.",
   keywords: [
     "doorstep repair near me",
     "doorstep repair in Palam Vihar",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home – FixWheel",
-    description: "Get doorstep repair in Palam Vihar for scooters & motorcycles. Vetted mechanics offer bike repair in Palam Vihar at home — Block A–J & Extension in 45 mins.",
+    title: "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic – FixWheel",
+    description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival 45 mins.",
     url: "https://www.fixwheel.app/gurgaon/palam-vihar",
   },
 };
@@ -38,7 +38,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Repair in Palam Vihar | Bike Repair in Palam Vihar at Home",
+  "name": "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic",
   "serviceType": "Doorstep Bike Repair Service",
   "url": "https://www.fixwheel.app/gurgaon/palam-vihar",
   "provider": {
