@@ -346,30 +346,7 @@ export default function DelhiClientPage() {
           color: var(--accent);
         }
 
-        /* ===== FAQS ===== */
-        .delhi-scope .faq-list {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          max-width: 800px;
-        }
-        .delhi-scope .faq-item {
-          background: #FFFFFF;
-          border: 1px solid var(--line-paper);
-          border-radius: 4px;
-          padding: 24px;
-        }
-        .delhi-scope .faq-q {
-          font-size: 18px;
-          color: var(--ink-dark);
-          margin-bottom: 10px;
-          font-weight: 600;
-        }
-        .delhi-scope .faq-a p {
-          font-size: 14.5px;
-          color: #4A4D52;
-          line-height: 1.65;
-        }
+
 
         /* ===== FINAL CTA ===== */
         .delhi-scope .final-cta {

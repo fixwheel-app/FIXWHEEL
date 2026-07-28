@@ -308,9 +308,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         /* silo links */
         .${slug}-scope .silo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
         .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
-        .${slug}-scope .faq-item { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 4px; padding: 20px 24px; margin-bottom: 14px; }
-        .${slug}-scope .faq-q { color: var(--ink-dark); font-size: 16.5px; }
-        .${slug}-scope .faq-a p { color: #4A4D52; font-size: 14px; margin-top: 10px; }
+
 
         .${slug}-scope .final-cta { text-align: center; padding: 90px 0; background: var(--bg); color: var(--paper); border-top: 1px solid var(--line); }
         .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }

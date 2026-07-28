@@ -299,9 +299,7 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #4A4D52; }
         .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455; }
 
-        .${slug}-scope .faq-item { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 4px; padding: 20px 24px; margin-bottom: 14px; }
-        .${slug}-scope .faq-q { color: var(--ink-dark); font-size: 16.5px; }
-        .${slug}-scope .faq-a p { color: #4A4D52; font-size: 14px; margin-top: 10px; }
+
 
         .${slug}-scope .final-cta { text-align: center; padding: 90px 0; background: var(--bg); color: var(--paper); border-top: 1px solid var(--line); }
         .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--paper); max-width: 700px; margin: 0 auto 16px; }
