@@ -326,50 +326,113 @@ export default function BlogPostClient({ slug }: ClientProps) {
           padding-left: 16px;
         }
 
-        .post-scope .sidebar-author-card {
+        .post-scope .recent-blogs-card {
           background: #FFFFFF;
           border: 1px solid var(--line-paper);
           border-radius: 4px;
-          padding: 24px;
+          padding: 22px 20px;
         }
-        .post-scope .sidebar-author-card h5 {
-          font-size: 11px;
-          font-family: var(--font-jetbrains), monospace;
-          color: var(--accent);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          margin-bottom: 14px;
-        }
-        .post-scope .sidebar-author-info {
+        .post-scope .recent-blogs-header {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-bottom: 14px;
+          gap: 8px;
+          margin-bottom: 16px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid var(--line-paper);
         }
-        .post-scope .sidebar-author-avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 2px solid var(--accent);
-        }
-        .post-scope .sidebar-author-name {
-          font-size: 16px;
+        .post-scope .recent-blogs-header h4 {
+          font-size: 15px;
           color: var(--ink-dark);
           text-transform: uppercase;
-          line-height: 1.2;
+          letter-spacing: 0.04em;
         }
-        .post-scope .sidebar-author-role {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 11px;
-          color: #6B6E72;
-        }
-        .post-scope .sidebar-author-bio {
-          font-size: 13px;
-          color: #5A5D62;
-          line-height: 1.5;
+        .post-scope .latest-blog-badge-box {
+          background: rgba(230, 43, 43, 0.05);
+          border: 1px solid rgba(230, 43, 43, 0.2);
+          border-radius: 6px;
+          padding: 14px;
           margin-bottom: 16px;
         }
-        .post-scope .sidebar-author-link {
+        .post-scope .latest-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 9.5px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: #FFFFFF;
+          background: var(--accent);
+          padding: 3px 8px;
+          border-radius: 12px;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .post-scope .latest-blog-title {
+          font-size: 13.5px;
+          font-weight: 700;
+          color: var(--ink-dark);
+          line-height: 1.4;
+          display: block;
+          margin-bottom: 6px;
+          transition: color 0.15s ease;
+        }
+        .post-scope .latest-blog-title:hover {
+          color: var(--accent);
+        }
+        .post-scope .latest-blog-meta {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 10.5px;
+          color: #6B6E72;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .post-scope .recent-blogs-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .post-scope .recent-blog-item {
+          display: block;
+          padding-bottom: 12px;
+          border-bottom: 1px dashed var(--line-paper);
+          transition: transform 0.15s ease;
+        }
+        .post-scope .recent-blog-item:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        .post-scope .recent-blog-item:hover {
+          transform: translateX(3px);
+        }
+        .post-scope .recent-blog-cat {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 9.5px;
+          font-weight: 700;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          display: block;
+          margin-bottom: 3px;
+        }
+        .post-scope .recent-blog-item-title {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--ink-dark);
+          line-height: 1.35;
+          margin-bottom: 4px;
+          transition: color 0.15s ease;
+        }
+        .post-scope .recent-blog-item:hover .recent-blog-item-title {
+          color: var(--accent);
+        }
+        .post-scope .recent-blog-time {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 10px;
+          color: #8A8D93;
+        }
+        .post-scope .view-all-blogs-link {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11.5px;
           font-weight: 700;
@@ -377,9 +440,13 @@ export default function BlogPostClient({ slug }: ClientProps) {
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          transition: transform 0.15s;
+          margin-top: 16px;
+          padding-top: 12px;
+          border-top: 1px solid var(--line-paper);
+          width: 100%;
+          transition: transform 0.15s ease;
         }
-        .post-scope .sidebar-author-link:hover {
+        .post-scope .view-all-blogs-link:hover {
           transform: translateX(4px);
         }
 
@@ -946,23 +1013,52 @@ export default function BlogPostClient({ slug }: ClientProps) {
               );
             })()}
 
-            {/* Author Quick Info Card */}
-            <div className="sidebar-author-card">
-              <h5>About The Author</h5>
-              <div className="sidebar-author-info">
-                <img src={post.author.avatar} alt={post.author.name} className="sidebar-author-avatar" />
-                <div>
-                  <div className="sidebar-author-name">{post.author.name}</div>
-                  <div className="sidebar-author-role">Lead Automotive Specialist</div>
+            {/* Recent Blogs Sidebar Card with Latest Article Suggestion */}
+            {(() => {
+              const latestPost = BLOG_POSTS[0];
+              const recentPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 4);
+
+              return (
+                <div className="recent-blogs-card">
+                  <div className="recent-blogs-header">
+                    <span style={{ fontSize: "16px" }}>📰</span>
+                    <h4>Recent Articles</h4>
+                  </div>
+
+                  {/* LATEST/SUGGESTED ARTICLE BOX */}
+                  {latestPost && latestPost.slug !== post.slug && (
+                    <div className="latest-blog-badge-box">
+                      <div className="latest-badge">
+                        <span>✨</span> LATEST READ
+                      </div>
+                      <Link href={`/blog/${latestPost.slug}`} className="latest-blog-title">
+                        {latestPost.title}
+                      </Link>
+                      <div className="latest-blog-meta">
+                        <span>{latestPost.category}</span>
+                        <span>•</span>
+                        <span>{latestPost.readTime}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* RECENT ARTICLES LIST */}
+                  <div className="recent-blogs-list">
+                    {recentPosts.map((item) => (
+                      <Link key={item.slug} href={`/blog/${item.slug}`} className="recent-blog-item">
+                        <span className="recent-blog-cat">{item.category}</span>
+                        <div className="recent-blog-item-title">{item.title}</div>
+                        <span className="recent-blog-time">{item.readTime}</span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <Link href="/blog" className="view-all-blogs-link">
+                    Explore All Articles & Guides →
+                  </Link>
                 </div>
-              </div>
-              <p className="sidebar-author-bio">
-                14+ years field experience in motorcycle engine overhauls, BS6 FI diagnostics, and EV battery care across NCR.
-              </p>
-              <Link href={`/author/${post.author.slug || 'zakir-hussain'}`} className="sidebar-author-link">
-                View Full Profile & Articles →
-              </Link>
-            </div>
+              );
+            })()}
           </aside>
 
         </div>
