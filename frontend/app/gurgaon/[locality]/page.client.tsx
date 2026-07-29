@@ -112,22 +112,22 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .${slug}-scope {
-          --bg:#17181A;
-          --bg-soft:#1E2022;
-          --paper:#F3EEE3;
-          --paper-dim:#E7E0D0;
-          --ink:#EDEAE2;
-          --ink-dim:#6B6E72;
-          --ink-dark:#17181A;
-          --accent:#ff3b30;
+          --bg:#0F172A;
+          --bg-soft:#1E293B;
+          --paper:#FFFFFF;
+          --paper-dim:#F8FAFC;
+          --ink:#1E293B;
+          --ink-dim:#64748B;
+          --ink-dark:#0F172A;
+          --accent:#e62b2b;
           --accent-dim:#a81f1f;
           --stamp:#FFC145;
           --live:#38B26A;
-          --line:rgba(255,255,255,0.12);
-          --line-paper:#D8CFB8;
-          --radius:2px;
+          --line:rgba(0,0,0,0.08);
+          --line-paper:#E2E8F0;
+          --radius:4px;
 
-          background: var(--paper);
+          background: #FFFFFF;
           color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
@@ -176,13 +176,13 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         }
         .${slug}-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .${slug}-scope .btn-primary:hover { background: #ff3d3d; transform: translateY(-2px); }
-        .${slug}-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
-        .${slug}-scope .btn-ghost:hover { border-color: var(--paper); }
-        .${slug}-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
+        .${slug}-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: #FFFFFF; }
+        .${slug}-scope .btn-ghost:hover { border-color: #FFFFFF; }
+        .${slug}-scope .btn-dark { background: var(--ink-dark); color: #FFFFFF; }
         .${slug}-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* breadcrumb */
-        .${slug}-scope .crumb { background: #111214; color: var(--paper); border-bottom: 1px solid var(--line); padding-top: 16px; }
+        .${slug}-scope .crumb { background: #111214; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.12); padding-top: 16px; }
         .${slug}-scope .crumb .wrap { display: flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-jetbrains); font-size: 11.5px; letter-spacing: 0.04em; color: #A7A9AC; }
         .${slug}-scope .crumb a { color: #A7A9AC; font-weight: 500; }
         .${slug}-scope .crumb a:hover { color: var(--accent); }
@@ -190,18 +190,18 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         .${slug}-scope .crumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
-        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; background: var(--bg); color: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+        .${slug}-scope .hero { position: relative; padding: 64px 0 56px; background: #17181A; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.12); overflow: hidden; }
         .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
         .${slug}-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-        .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: var(--paper); }
+        .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: #FFFFFF; }
         .${slug}-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .${slug}-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
         .${slug}-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
         /* ticket mock */
         .${slug}-scope .ticket {
-          background: var(--paper);
-          color: var(--ink-dark);
+          background: #F3EEE3;
+          color: #17181A;
           border-radius: 6px;
           padding: 26px 28px 22px;
           position: relative;
@@ -211,7 +211,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
           content: "";
           position: absolute;
           width: 22px; height: 22px;
-          background: var(--bg);
+          background: #17181A;
           border-radius: 50%;
           top: 50%; transform: translateY(-50%);
         }
@@ -219,7 +219,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         .${slug}-scope .ticket::after { right: -11px; }
         .${slug}-scope .ticket-top {
           display: flex; justify-content: space-between; align-items: flex-start;
-          border-bottom: 1px dashed var(--line-paper);
+          border-bottom: 1px dashed #D8CFB8;
           padding-bottom: 14px; margin-bottom: 14px;
         }
         .${slug}-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
@@ -234,55 +234,54 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         .${slug}-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
         .${slug}-scope .ticket-foot {
           display: flex; justify-content: space-between; align-items: center;
-          border-top: 1px dashed var(--line-paper); padding-top: 14px;
+          border-top: 1px dashed #D8CFB8; padding-top: 14px;
         }
         .${slug}-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .${slug}-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
-        .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
+        .${slug}-scope section { padding: 76px 0; border-bottom: 1px solid var(--line-paper); background: #FFFFFF; color: var(--ink-dark); }
         .${slug}-scope .section-head { max-width: 640px; margin-bottom: 40px; }
         .${slug}-scope .section-head h2 { font-size: 30px; color: var(--ink-dark); }
-        .${slug}-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15px; }
-        .${slug}-scope .section-alt { background: var(--paper-dim); }
+        .${slug}-scope .section-head p { color: #475569; margin-top: 14px; font-size: 15px; }
+        .${slug}-scope .section-alt { background: #F8FAFC; }
 
         /* local trust strip */
-        .${slug}-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .trust-cell { background: var(--bg); padding: 26px 22px; }
-        .${slug}-scope .trust-cell b { display: block; font-family: var(--font-jetbrains); font-size: 26px; color: var(--paper); margin-bottom: 4px; }
-        .trust-cell span { color: rgba(255, 255, 255, 0.6); }
-        .${slug}-scope .trust-cell span { font-size: 11.5px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-jetbrains); }
+        .${slug}-scope .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .${slug}-scope .trust-cell { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 6px; padding: 26px 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+        .${slug}-scope .trust-cell b { display: block; font-family: var(--font-jetbrains); font-size: 26px; color: var(--ink-dark); margin-bottom: 4px; }
+        .${slug}-scope .trust-cell span { font-size: 11.5px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-jetbrains); }
 
         /* streets/societies list */
-        .${slug}-scope .street-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .street-cell { background: var(--bg); padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; color: var(--paper); border: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; gap: 10px; }
+        .${slug}-scope .street-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .${slug}-scope .street-cell { background: #FFFFFF; padding: 18px 18px; font-family: var(--font-jetbrains); font-size: 13px; color: var(--ink-dark); border: 1px solid var(--line-paper); border-radius: 30px; display: flex; align-items: center; gap: 10px; }
         .${slug}-scope .street-cell .pin { color: var(--accent); font-size: 11px; }
-        .${slug}-scope .street-note { margin-top: 20px; font-size: 13.5px; color: var(--ink-dim); }
+        .${slug}-scope .street-note { margin-top: 20px; font-size: 13.5px; color: #64748B; }
         .${slug}-scope .street-note a { color: var(--accent); font-weight: 600; }
 
         /* top services */
         .${slug}-scope .top-svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .${slug}-scope .top-svc-card { background: var(--bg-soft); border: 1px solid var(--line); padding: 22px; border-radius: 4px; transition: border-color .15s ease, transform .15s ease; }
+        .${slug}-scope .top-svc-card { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 22px; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); transition: border-color .15s ease, transform .15s ease; }
         .${slug}-scope .top-svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .${slug}-scope .top-svc-card .rank { font-family: var(--font-jetbrains); font-size: 10.5px; color: var(--stamp); letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
-        .${slug}-scope .top-svc-card h3 { font-size: 15.5px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 8px; }
-        .${slug}-scope .top-svc-card p { font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 14px; min-height: 40px; }
+        .${slug}-scope .top-svc-card .rank { font-family: var(--font-jetbrains); font-size: 10.5px; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 10px; display: block; }
+        .${slug}-scope .top-svc-card h3 { font-size: 15.5px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px; }
+        .${slug}-scope .top-svc-card p { font-size: 13px; color: #475569; margin-bottom: 14px; min-height: 40px; }
         .${slug}-scope .top-svc-card .go { font-family: var(--font-jetbrains); font-size: 11.5px; color: var(--accent); font-weight: 700; }
         .${slug}-scope .catalog-link { margin-top: 24px; font-size: 14px; color: var(--ink-dark); }
         .${slug}-scope .catalog-link a { color: var(--accent); font-weight: 600; }
 
         /* ===== WHY CARDS ===== */
-        .${slug}-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-        .${slug}-scope .why-card { background: var(--bg); padding: 28px 24px; }
+        .${slug}-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .${slug}-scope .why-card { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 28px 24px; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
         .${slug}-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 16px; display: block; }
-        .${slug}-scope .why-card h3 { font-size: 16.5px; color: var(--paper); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
-        .${slug}-scope .why-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); }
+        .${slug}-scope .why-card h3 { font-size: 16.5px; color: var(--ink-dark); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
+        .${slug}-scope .why-card p { font-size: 13.5px; color: #475569; }
 
         /* ===== HOW IT WORKS ===== */
         .${slug}-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
         .${slug}-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper); }
         .${slug}-scope .step .n { font-family: var(--font-jetbrains); font-size: 34px; color: var(--accent); display: block; margin-bottom: 12px; font-weight: 700; }
         .${slug}-scope .step h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 6px; }
-        .${slug}-scope .step p { font-size: 13px; color: #3C3D40; }
+        .${slug}-scope .step p { font-size: 13px; color: #475569; }
 
         /* ===== BRANDS ===== */
         .${slug}-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -294,13 +293,13 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         .${slug}-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
         .${slug}-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px; }
         .${slug}-scope .partner li::before { content: "—"; color: var(--accent); }
-        .${slug}-scope .partner-box { background: var(--bg-soft); border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 4px; }
+        .${slug}-scope .partner-box { background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 6px; }
 
         .${slug}-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .${slug}-scope .review { background: #FFFFFF; color: var(--ink-dark); padding: 24px; border-radius: 4px; border: 1px solid var(--line-paper); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); }
+        .${slug}-scope .review { background: #FFFFFF; color: var(--ink-dark); padding: 24px; border-radius: 6px; border: 1px solid var(--line-paper); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
         .${slug}-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
-        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #3C3D40; }
-        .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455; }
+        .${slug}-scope .review p { font-size: 14px; margin-bottom: 16px; color: #475569; }
+        .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; }
 
         .${slug}-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
         .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--ink-dark); font-weight: 500; }
@@ -308,17 +307,17 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         .${slug}-scope .faq-item.open .plus { transform: rotate(45deg); }
         .${slug}-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .${slug}-scope .faq-item.open .faq-a { max-height: 200px; }
-        .${slug}-scope .faq-a p { padding-bottom: 20px; color: #3C3D40; font-size: 14px; max-width: 760px; }
+        .${slug}-scope .faq-a p { padding-bottom: 20px; color: #475569; font-size: 14px; max-width: 760px; }
 
         /* silo links */
         .${slug}-scope .silo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
         .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
-        .${slug}-scope .silo a:hover { border-color: var(--accent); color: var(--paper); }
+        .${slug}-scope .silo a:hover { border-color: var(--accent); color: var(--accent); }
         .${slug}-scope .silo a.hub { border-color: var(--accent); color: var(--accent); }
 
         .${slug}-scope .final-cta { text-align: center; padding: 80px 0; background: linear-gradient(180deg, transparent, rgba(230,43,43,0.06)); }
         .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
-        .${slug}-scope .final-cta p { color: #3C3D40; margin-bottom: 28px; }
+        .${slug}-scope .final-cta p { color: #475569; margin-bottom: 28px; }
 
         @media (max-width: 900px) {
           .${slug}-scope .hero-grid { grid-template-columns: 1fr; }

@@ -32,22 +32,22 @@ export default function GurgaonClientPage() {
     <div className={`gurgaon-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .gurgaon-scope {
-          --bg:#17181A;
-          --bg-soft:#1E2022;
-          --paper:#F3EEE3;
-          --paper-dim:#E7E0D0;
-          --ink:#EDEAE2;
-          --ink-dim:#6B6E72;
-          --ink-dark:#17181A;
-          --accent:#ff3b30;
+          --bg:#0F172A;
+          --bg-soft:#1E293B;
+          --paper:#FFFFFF;
+          --paper-dim:#F8FAFC;
+          --ink:#1E293B;
+          --ink-dim:#64748B;
+          --ink-dark:#0F172A;
+          --accent:#e62b2b;
           --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:rgba(255,255,255,0.12);
-          --line-paper:#D8CFB8;
-          --radius:2px;
+          --line:rgba(0,0,0,0.08);
+          --line-paper:#E2E8F0;
+          --radius:4px;
 
-          background: var(--paper);
+          background: #FFFFFF;
           color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
@@ -101,18 +101,18 @@ export default function GurgaonClientPage() {
         }
         .gurgaon-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .gurgaon-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
-        .gurgaon-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
-        .gurgaon-scope .btn-ghost:hover { border-color: var(--paper); }
-        .gurgaon-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
+        .gurgaon-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: #FFFFFF; }
+        .gurgaon-scope .btn-ghost:hover { border-color: #FFFFFF; }
+        .gurgaon-scope .btn-dark { background: var(--ink-dark); color: #FFFFFF; }
         .gurgaon-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* ===== HERO ===== */
         .gurgaon-scope .hero {
           position: relative;
           padding: 96px 0 60px;
-          background: var(--bg);
-          color: var(--paper);
-          border-bottom: 1px solid var(--line);
+          background: #17181A;
+          color: #FFFFFF;
+          border-bottom: 1px solid rgba(255,255,255,0.12);
           overflow: hidden;
         }
         .gurgaon-scope .hero::before {
@@ -127,19 +127,19 @@ export default function GurgaonClientPage() {
           display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
           position: relative; z-index: 1;
         }
-        .gurgaon-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
+        .gurgaon-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: #FFFFFF; }
         .gurgaon-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .gurgaon-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .gurgaon-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row .stat { font-family: var(--font-jetbrains); }
-        .gurgaon-scope .stat b { display: block; font-size: 22px; color: var(--paper); }
+        .gurgaon-scope .stat b { display: block; font-size: 22px; color: #FFFFFF; }
         .gurgaon-scope .stat span { font-size: 11px; color: #A7A9AC; letter-spacing: 0.06em; text-transform: uppercase; }
 
         /* ticket mock */
         .gurgaon-scope .ticket {
-          background: var(--paper);
-          color: var(--ink-dark);
+          background: #F3EEE3;
+          color: #17181A;
           border-radius: 6px;
           padding: 26px 28px 22px;
           position: relative;
@@ -149,7 +149,7 @@ export default function GurgaonClientPage() {
           content: "";
           position: absolute;
           width: 22px; height: 22px;
-          background: var(--bg);
+          background: #17181A;
           border-radius: 50%;
           top: 50%; transform: translateY(-50%);
         }
@@ -157,7 +157,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .ticket::after { right: -11px; }
         .gurgaon-scope .ticket-top {
           display: flex; justify-content: space-between; align-items: flex-start;
-          border-bottom: 1px dashed var(--line-paper);
+          border-bottom: 1px dashed #D8CFB8;
           padding-bottom: 14px; margin-bottom: 14px;
         }
         .gurgaon-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
@@ -172,24 +172,24 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
         .gurgaon-scope .ticket-foot {
           display: flex; justify-content: space-between; align-items: center;
-          border-top: 1px dashed var(--line-paper); padding-top: 14px;
+          border-top: 1px dashed #D8CFB8; padding-top: 14px;
         }
         .gurgaon-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .gurgaon-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .gurgaon-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
+        .gurgaon-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: #FFFFFF; color: var(--ink-dark); }
         .gurgaon-scope .section-head { max-width: 640px; margin-bottom: 48px; }
         .gurgaon-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
-        .gurgaon-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
-        .gurgaon-scope .section-alt { background: var(--paper-dim); }
+        .gurgaon-scope .section-head p { color: #475569; margin-top: 14px; font-size: 15.5px; }
+        .gurgaon-scope .section-alt { background: #F8FAFC; }
 
         /* ===== AREAS COVERED ===== */
         .gurgaon-scope .area-info-box {
-          background: var(--bg);
-          border: 1px solid var(--line);
+          background: #0F172A;
+          border: 1px solid rgba(255,255,255,0.1);
           padding: 40px;
-          border-radius: 4px;
+          border-radius: 6px;
           text-align: center;
         }
         .gurgaon-scope .area-info-box h3 {
@@ -198,7 +198,7 @@ export default function GurgaonClientPage() {
           margin-bottom: 16px;
         }
         .gurgaon-scope .area-info-box p {
-          color: var(--ink-dim);
+          color: #94A3B8;
           font-size: 16px;
           max-width: 700px;
           margin: 0 auto;
@@ -215,10 +215,10 @@ export default function GurgaonClientPage() {
           font-size: 12px;
           letter-spacing: 0.04em;
           padding: 8px 16px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 1px solid var(--line-paper);
           border-radius: 30px;
-          color: var(--paper);
-          background: var(--bg);
+          color: var(--ink-dark);
+          background: #FFFFFF;
           transition: border-color .15s ease, color .15s ease, background-color .15s ease;
           display: inline-flex;
           align-items: center;
@@ -227,33 +227,34 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .area-tag:hover {
           border-color: var(--accent);
           color: var(--accent);
-          background: var(--bg-soft);
+          background: #F8FAFC;
         }
 
         /* ===== WHY CARDS ===== */
-        .gurgaon-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);}
-        .gurgaon-scope .why-card { background: var(--bg); padding: 32px 26px; }
+        .gurgaon-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .gurgaon-scope .why-card { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 32px 26px; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
         .gurgaon-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 18px; display: block;}
-        .gurgaon-scope .why-card h3 { font-size: 18px; color: var(--paper); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
-        .gurgaon-scope .why-card p { font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+        .gurgaon-scope .why-card h3 { font-size: 18px; color: var(--ink-dark); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
+        .gurgaon-scope .why-card p { font-size: 14px; color: #475569; }
 
         /* ===== SERVICES ===== */
         .gurgaon-scope .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .gurgaon-scope .svc-card {
-          background: var(--bg-soft);
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
           padding: 26px;
-          border-radius: 4px;
+          border-radius: 6px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.02);
           transition: border-color .15s ease, transform .15s ease;
           position: relative;
         }
         .gurgaon-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .gurgaon-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--stamp); margin-bottom: 12px; display: inline-block;}
-        .gurgaon-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 10px;}
-        .gurgaon-scope .svc-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); margin-bottom: 16px; min-height: 58px;}
+        .gurgaon-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
+        .gurgaon-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 10px;}
+        .gurgaon-scope .svc-card p { font-size: 13.5px; color: #475569; margin-bottom: 16px; min-height: 58px;}
         .gurgaon-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
-        .gurgaon-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--paper); margin-bottom: 12px; }
-        .gurgaon-scope .svc-price span { font-size: 11px; font-weight: 400; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.04em; }
+        .gurgaon-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--ink-dark); margin-bottom: 12px; }
+        .gurgaon-scope .svc-price span { font-size: 11px; font-weight: 400; color: #64748B; letter-spacing: 0.04em; }
         .gurgaon-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dark);}
         .gurgaon-scope .svc-note a { color: var(--accent); font-weight: 600; }
 
@@ -279,18 +280,18 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .step { position: relative; padding-top: 20px; border-top: 2px solid var(--line-paper);}
         .gurgaon-scope .step .n { font-family: var(--font-jetbrains); font-size: 38px; color: var(--accent); display: block; margin-bottom: 14px; font-weight: 700;}
         .gurgaon-scope .step h3 { font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px;}
-        .gurgaon-scope .step p { font-size: 13.5px; color: #3C3D40; }
+        .gurgaon-scope .step p { font-size: 13.5px; color: #475569; }
 
         /* ===== TESTIMONIALS ===== */
         .gurgaon-scope .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
         .gurgaon-scope .review {
           background: #FFFFFF; color: var(--ink-dark);
-          padding: 26px; border-radius: 4px; border: 1px solid var(--line-paper);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+          padding: 26px; border-radius: 6px; border: 1px solid var(--line-paper);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
         .gurgaon-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px;}
-        .gurgaon-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #3C3D40; }
-        .gurgaon-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455;}
+        .gurgaon-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #475569; }
+        .gurgaon-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B;}
 
         /* ===== PARTNER CTA ===== */
         .gurgaon-scope .partner {
@@ -300,7 +301,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px;}
         .gurgaon-scope .partner li::before { content: "—"; color: var(--accent); }
         .gurgaon-scope .partner-box {
-          background: var(--bg-soft); border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 4px;
+          background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 6px;
         }
 
         /* ===== FAQ ===== */
@@ -313,7 +314,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .faq-item.open .plus { transform: rotate(45deg); }
         .gurgaon-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .gurgaon-scope .faq-item.open .faq-a { max-height: 200px; }
-        .gurgaon-scope .faq-a p { padding-bottom: 22px; color: #3C3D40; font-size: 14.5px; max-width: 760px; }
+        .gurgaon-scope .faq-a p { padding-bottom: 22px; color: #475569; font-size: 14.5px; max-width: 760px; }
 
         /* ===== CONTACT ===== */
         .gurgaon-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
@@ -321,7 +322,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .contact-item { display: flex; gap: 16px; align-items: flex-start;}
         .gurgaon-scope .contact-item .ic { width: 38px; height: 38px; border: 1px solid var(--line-paper); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accent); flex-shrink: 0;}
         .gurgaon-scope .contact-item b { display: block; color: var(--ink-dark); font-size: 15px; margin-bottom: 2px;}
-        .gurgaon-scope .contact-item span { color: #5C5E62; font-size: 13.5px;}
+        .gurgaon-scope .contact-item span { color: #64748B; font-size: 13.5px;}
 
         /* ===== FINAL CTA ===== */
         .gurgaon-scope .final-cta {
