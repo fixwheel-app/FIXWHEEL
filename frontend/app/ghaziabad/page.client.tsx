@@ -61,22 +61,22 @@ export default function GhaziabadClientPage() {
     <div className={`ghaziabad-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .ghaziabad-scope {
-          --bg:#17181A;
-          --bg-soft:#1E2022;
-          --paper:#F3EEE3;
-          --paper-dim:#E7E0D0;
-          --ink:#EDEAE2;
-          --ink-dim:#6B6E72;
-          --ink-dark:#17181A;
-          --accent:#ff3b30;
+          --bg:#0F172A;
+          --bg-soft:#1E293B;
+          --paper:#FFFFFF;
+          --paper-dim:#F8FAFC;
+          --ink:#1E293B;
+          --ink-dim:#64748B;
+          --ink-dark:#0F172A;
+          --accent:#e62b2b;
           --accent-dim:#d32f2f;
           --stamp:#FFC145;
           --steel:#5C7A93;
-          --line:rgba(255,255,255,0.12);
-          --line-paper:#D8CFB8;
-          --radius:2px;
+          --line:rgba(0,0,0,0.08);
+          --line-paper:#E2E8F0;
+          --radius:4px;
 
-          background: var(--paper);
+          background: #FFFFFF;
           color: var(--ink-dark);
           font-family: 'Inter', sans-serif;
           line-height: 1.55;
@@ -130,18 +130,17 @@ export default function GhaziabadClientPage() {
         }
         .ghaziabad-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
         .ghaziabad-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
-        .ghaziabad-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+        .ghaziabad-scope .btn-ghost { border-color: rgba(255,255,255,0.2); color: #FFFFFF; }
         .ghaziabad-scope .btn-ghost:hover { border-color: var(--paper); }
-        .ghaziabad-scope .btn-dark { background: var(--ink-dark); color: var(--paper); }
+        .ghaziabad-scope .btn-dark { background: var(--ink-dark); color: #FFFFFF; }
         .ghaziabad-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* ===== HERO ===== */
         .ghaziabad-scope .hero {
           position: relative;
           padding: 96px 0 60px;
-          background: var(--bg);
-          color: var(--paper);
-          border-bottom: 1px solid var(--line);
+          background: #17181A; color: #FFFFFF;
+          border-bottom: 1px solid rgba(255,255,255,0.12);
           overflow: hidden;
         }
         .ghaziabad-scope .hero::before {
@@ -156,7 +155,7 @@ export default function GhaziabadClientPage() {
           display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
           position: relative; z-index: 1;
         }
-        .ghaziabad-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: var(--paper); }
+        .ghaziabad-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: #FFFFFF; }
         .ghaziabad-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .ghaziabad-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
         .ghaziabad-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
@@ -167,7 +166,7 @@ export default function GhaziabadClientPage() {
 
         /* ticket mock */
         .ghaziabad-scope .ticket {
-          background: var(--paper);
+          background: #FFFFFF;
           color: var(--ink-dark);
           border-radius: 6px;
           padding: 26px 28px 22px;
@@ -178,7 +177,7 @@ export default function GhaziabadClientPage() {
           content: "";
           position: absolute;
           width: 22px; height: 22px;
-          background: var(--bg);
+          background: #17181A;
           border-radius: 50%;
           top: 50%; transform: translateY(-50%);
         }
@@ -186,7 +185,7 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .ticket::after { right: -11px; }
         .ghaziabad-scope .ticket-top {
           display: flex; justify-content: space-between; align-items: flex-start;
-          border-bottom: 1px dashed var(--line-paper);
+          border-bottom: 1px dashed #D8CFB8;
           padding-bottom: 14px; margin-bottom: 14px;
         }
         .ghaziabad-scope .ticket-id { font-family: var(--font-jetbrains); font-size: 13px; letter-spacing: 0.04em; font-weight: 700; }
@@ -201,17 +200,17 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .ticket-rows .r div { font-size: 14px; font-weight: 600; }
         .ghaziabad-scope .ticket-foot {
           display: flex; justify-content: space-between; align-items: center;
-          border-top: 1px dashed var(--line-paper); padding-top: 14px;
+          border-top: 1px dashed #D8CFB8; padding-top: 14px;
         }
         .ghaziabad-scope .ticket-foot .total b { font-size: 20px; color: var(--accent); }
         .ghaziabad-scope .ticket-foot .total span { display: block; font-size: 10px; color: #8a836f; letter-spacing: 0.06em; text-transform: uppercase;}
 
         /* ===== SECTION GENERIC ===== */
-        .ghaziabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: var(--paper); color: var(--ink-dark); }
+        .ghaziabad-scope section { padding: 88px 0; border-bottom: 1px solid var(--line-paper); background: #FFFFFF; color: var(--ink-dark); }
         .ghaziabad-scope .section-head { max-width: 640px; margin-bottom: 48px; }
         .ghaziabad-scope .section-head h2 { font-size: 34px; color: var(--ink-dark); }
-        .ghaziabad-scope .section-head p { color: #5A5D62; margin-top: 14px; font-size: 15.5px; }
-        .ghaziabad-scope .section-alt { background: var(--paper-dim); }
+        .ghaziabad-scope .section-head p { color: #475569; margin-top: 14px; font-size: 15.5px; }
+        .ghaziabad-scope .section-alt { background: #F8FAFC; }
 
         /* ===== AREAS COVERED ===== */
         .ghaziabad-scope .area-info-box {
@@ -248,29 +247,28 @@ export default function GhaziabadClientPage() {
         }
 
         /* ===== WHY CARDS ===== */
-        .ghaziabad-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);}
-        .ghaziabad-scope .why-card { background: var(--bg); padding: 32px 26px; }
+        .ghaziabad-scope .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;}
+        .ghaziabad-scope .why-card { background: #FFFFFF; border: 1px solid var(--line-paper); border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); padding: 32px 26px; }
         .ghaziabad-scope .why-card .num { font-family: var(--font-jetbrains); color: var(--accent); font-size: 13px; margin-bottom: 18px; display: block;}
-        .ghaziabad-scope .why-card h3 { font-size: 18px; color: var(--paper); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
-        .ghaziabad-scope .why-card p { font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+        .ghaziabad-scope .why-card h3 { font-size: 18px; color: var(--ink-dark); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
+        .ghaziabad-scope .why-card p { font-size: 14px; color: #475569; }
 
         /* ===== SERVICES ===== */
         .ghaziabad-scope .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .ghaziabad-scope .svc-card {
-          background: var(--bg-soft);
-          border: 1px solid var(--line);
+          background: #FFFFFF; border: 1px solid var(--line-paper); box-shadow: 0 4px 16px rgba(0,0,0,0.02);
           padding: 26px;
           border-radius: 4px;
           transition: border-color .15s ease, transform .15s ease;
           position: relative;
         }
         .ghaziabad-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .ghaziabad-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--stamp); margin-bottom: 12px; display: inline-block;}
-        .ghaziabad-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--paper); margin-bottom: 10px;}
-        .ghaziabad-scope .svc-card p { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); margin-bottom: 16px; min-height: 58px;}
+        .ghaziabad-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
+        .ghaziabad-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 10px;}
+        .ghaziabad-scope .svc-card p { font-size: 13.5px; color: #475569; margin-bottom: 16px; min-height: 58px;}
         .ghaziabad-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
-        .ghaziabad-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--paper); margin-bottom: 12px; }
-        .ghaziabad-scope .svc-price span { font-size: 11px; font-weight: 400; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.04em; }
+        .ghaziabad-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+        .ghaziabad-scope .svc-price span { font-size: 11px; font-weight: 400; color: #64748B; letter-spacing: 0.04em; }
         .ghaziabad-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dark);}
         .ghaziabad-scope .svc-note a { color: var(--accent); font-weight: 600; }
 
@@ -306,8 +304,8 @@ export default function GhaziabadClientPage() {
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
         .ghaziabad-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px;}
-        .ghaziabad-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #3C3D40; }
-        .ghaziabad-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b6455;}
+        .ghaziabad-scope .review p { font-size: 14.5px; margin-bottom: 18px; color: #475569; }
+        .ghaziabad-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B;}
 
         /* ===== PARTNER CTA ===== */
         .ghaziabad-scope .partner {
@@ -317,7 +315,7 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px;}
         .ghaziabad-scope .partner li::before { content: "—"; color: var(--accent); }
         .ghaziabad-scope .partner-box {
-          background: var(--bg-soft); border: 1px solid var(--line); padding: 34px; border-radius: 4px;
+          background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 4px;
         }
 
         /* ===== FAQ ===== */
@@ -330,7 +328,7 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .faq-item.open .plus { transform: rotate(45deg); }
         .ghaziabad-scope .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
         .ghaziabad-scope .faq-item.open .faq-a { max-height: 200px; }
-        .ghaziabad-scope .faq-a p { padding-bottom: 22px; color: #3C3D40; font-size: 14.5px; max-width: 760px; }
+        .ghaziabad-scope .faq-a p { padding-bottom: 22px; color: #475569; font-size: 14.5px; max-width: 760px; }
 
         /* ===== CONTACT ===== */
         .ghaziabad-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
@@ -347,7 +345,7 @@ export default function GhaziabadClientPage() {
             linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
         }
         .ghaziabad-scope .final-cta h2 { font-size: 38px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px;}
-        .ghaziabad-scope .final-cta p { color: #3C3D40; margin-bottom: 32px;}
+        .ghaziabad-scope .final-cta p { color: #475569; margin-bottom: 32px;}
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px){
@@ -763,15 +761,15 @@ export default function GhaziabadClientPage() {
             }}>
               24/7 EMERGENCY
             </div>
-            <h3 style={{ fontSize: "22px", color: "var(--paper)", marginTop: "10px" }}>Ghaziabad Roadside Assistance</h3>
-            <p style={{ color: "var(--ink-dim)", fontSize: "14px" }}>
+            <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>Ghaziabad Roadside Assistance</h3>
+            <p style={{ color: "#475569", fontSize: "14px" }}>
               Stranded on NH-24, GT Road, or near Hindon River? A mechanic will come to your exact location with tools to fix the issue on the spot. Average arrival: 45 minutes.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →
               </Link>
-              <a href="tel:+918745945682" className="btn btn-ghost" style={{ padding: "10px 20px", fontSize: "12px" }}>
+              <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
                 Call Us Now
               </a>
             </div>

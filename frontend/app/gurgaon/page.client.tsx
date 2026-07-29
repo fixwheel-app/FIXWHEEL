@@ -761,7 +761,7 @@ export default function GurgaonClientPage() {
               top: "-12px",
               right: "20px",
               background: "var(--accent)",
-              color: "#17181A",
+              color: "#FFFFFF",
               fontSize: "10px",
               fontFamily: "var(--font-jetbrains)",
               fontWeight: 700,
@@ -772,15 +772,15 @@ export default function GurgaonClientPage() {
             }}>
               24/7 EMERGENCY
             </div>
-            <h3 style={{ fontSize: "22px", color: "var(--paper)", marginTop: "10px" }}>Gurgaon Roadside Assistance</h3>
-            <p style={{ color: "var(--ink-dim)", fontSize: "14px" }}>
+            <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>Gurgaon Roadside Assistance</h3>
+            <p style={{ color: "#475569", fontSize: "14px" }}>
               Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot. Average arrival: 45 minutes.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →
               </Link>
-              <a href="tel:+918745945682" className="btn btn-ghost" style={{ padding: "10px 20px", fontSize: "12px" }}>
+              <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
                 Call Us Now
               </a>
             </div>
