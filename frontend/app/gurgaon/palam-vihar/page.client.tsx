@@ -307,16 +307,32 @@ export default function PalamViharClientPage() {
           .palam-vihar-scope .review-grid { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 560px) {
-          .palam-vihar-scope .trust-strip,
-          .palam-vihar-scope .street-board,
-          .palam-vihar-scope .top-svc,
-          .palam-vihar-scope .why-grid,
-          .palam-vihar-scope .steps {
+                @media (max-width: 560px) {
+          .palamvihar-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+          .palamvihar-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
+          .palamvihar-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
+          .palamvihar-scope .trust-cell span { font-size: 10px !important; letter-spacing: 0.03em !important; color: #64748B !important; }
+
+          .palamvihar-scope .stat-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+          .palamvihar-scope .stat { padding: 10px !important; background: rgba(255,255,255,0.05) !important; border-radius: 4px !important; text-align: center !important; }
+          .palamvihar-scope .stat b { font-size: 18px !important; }
+          .palamvihar-scope .stat span { font-size: 9.5px !important; }
+
+          .palamvihar-scope .street-board { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; background: transparent !important; border: none !important; margin-top: 16px !important; }
+          .palamvihar-scope .street-cell { padding: 6px 12px !important; font-size: 11.5px !important; border-radius: 20px !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; flex: 0 0 auto !important; color: var(--ink-dark) !important; }
+
+          .palamvihar-scope .area-grid { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 16px !important; }
+          .palamvihar-scope .area-tag { padding: 6px 10px !important; font-size: 11px !important; border-radius: 20px !important; flex: 0 0 auto !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; color: var(--ink-dark) !important; }
+
+          .palamvihar-scope .top-svc,
+          .palamvihar-scope .why-grid,
+          .palamvihar-scope .svc-grid,
+          .palamvihar-scope .steps {
             grid-template-columns: 1fr;
           }
-          .palam-vihar-scope .hero { padding-top: 48px; }
+          .palamvihar-scope .hero { padding-top: 48px; }
         }
+          
 
         @media (prefers-reduced-motion: reduce) {
           .palam-vihar-scope * { transition: none !important; scroll-behavior: auto !important; }

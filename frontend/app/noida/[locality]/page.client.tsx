@@ -330,14 +330,31 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
           .${slug}-scope .review-grid { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 560px) {
-          .${slug}-scope .trust-strip,
-          .${slug}-scope .street-board,
+                @media (max-width: 560px) {
+          .${slug}-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+          .${slug}-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
+          .${slug}-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
+          .${slug}-scope .trust-cell span { font-size: 10px !important; letter-spacing: 0.03em !important; color: #64748B !important; }
+
+          .${slug}-scope .stat-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+          .${slug}-scope .stat { padding: 10px !important; background: rgba(255,255,255,0.05) !important; border-radius: 4px !important; text-align: center !important; }
+          .${slug}-scope .stat b { font-size: 18px !important; }
+          .${slug}-scope .stat span { font-size: 9.5px !important; }
+
+          .${slug}-scope .street-board { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; background: transparent !important; border: none !important; margin-top: 16px !important; }
+          .${slug}-scope .street-cell { padding: 6px 12px !important; font-size: 11.5px !important; border-radius: 20px !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; flex: 0 0 auto !important; color: var(--ink-dark) !important; }
+
+          .${slug}-scope .area-grid { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 16px !important; }
+          .${slug}-scope .area-tag { padding: 6px 10px !important; font-size: 11px !important; border-radius: 20px !important; flex: 0 0 auto !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; color: var(--ink-dark) !important; }
+
           .${slug}-scope .top-svc,
           .${slug}-scope .why-grid,
+          .${slug}-scope .svc-grid,
           .${slug}-scope .steps {
             grid-template-columns: 1fr;
           }
+          .${slug}-scope .hero { padding-top: 48px; }
+        }
           .${slug}-scope .hero { padding-top: 48px; }
         }
 

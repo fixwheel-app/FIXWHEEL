@@ -358,10 +358,30 @@ export default function GhaziabadClientPage() {
           .ghaziabad-scope .partner { grid-template-columns: 1fr; }
           .ghaziabad-scope .contact-grid { grid-template-columns: 1fr; }
         }
-        @media (max-width:560px){
-          .ghaziabad-scope .why-grid, .ghaziabad-scope .svc-grid, .ghaziabad-scope .steps { grid-template-columns: 1fr; }
-          .ghaziabad-scope .stat-row { gap: 22px; }
-          .ghaziabad-scope .hero { padding-top: 70px; }
+                @media (max-width: 560px) {
+          .ghaziabad-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+          .ghaziabad-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
+          .ghaziabad-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
+          .ghaziabad-scope .trust-cell span { font-size: 10px !important; letter-spacing: 0.03em !important; color: #64748B !important; }
+
+          .ghaziabad-scope .stat-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+          .ghaziabad-scope .stat { padding: 10px !important; background: rgba(255,255,255,0.05) !important; border-radius: 4px !important; text-align: center !important; }
+          .ghaziabad-scope .stat b { font-size: 18px !important; }
+          .ghaziabad-scope .stat span { font-size: 9.5px !important; }
+
+          .ghaziabad-scope .street-board { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; background: transparent !important; border: none !important; margin-top: 16px !important; }
+          .ghaziabad-scope .street-cell { padding: 6px 12px !important; font-size: 11.5px !important; border-radius: 20px !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; flex: 0 0 auto !important; color: var(--ink-dark) !important; }
+
+          .ghaziabad-scope .area-grid { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 16px !important; }
+          .ghaziabad-scope .area-tag { padding: 6px 10px !important; font-size: 11px !important; border-radius: 20px !important; flex: 0 0 auto !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; color: var(--ink-dark) !important; }
+
+          .ghaziabad-scope .top-svc,
+          .ghaziabad-scope .why-grid,
+          .ghaziabad-scope .svc-grid,
+          .ghaziabad-scope .steps {
+            grid-template-columns: 1fr;
+          }
+          .ghaziabad-scope .hero { padding-top: 48px; }
         }
 
         @media (prefers-reduced-motion: reduce){

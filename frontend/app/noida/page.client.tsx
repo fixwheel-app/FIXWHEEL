@@ -369,10 +369,30 @@ export default function NoidaClientPage() {
           .noida-scope .partner { grid-template-columns: 1fr; }
           .noida-scope .contact-grid { grid-template-columns: 1fr; }
         }
-        @media (max-width:560px){
-          .noida-scope .why-grid, .noida-scope .svc-grid, .noida-scope .steps { grid-template-columns: 1fr; }
-          .noida-scope .stat-row { gap: 22px; }
-          .noida-scope .hero { padding-top: 70px; }
+                @media (max-width: 560px) {
+          .noida-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+          .noida-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
+          .noida-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
+          .noida-scope .trust-cell span { font-size: 10px !important; letter-spacing: 0.03em !important; color: #64748B !important; }
+
+          .noida-scope .stat-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+          .noida-scope .stat { padding: 10px !important; background: rgba(255,255,255,0.05) !important; border-radius: 4px !important; text-align: center !important; }
+          .noida-scope .stat b { font-size: 18px !important; }
+          .noida-scope .stat span { font-size: 9.5px !important; }
+
+          .noida-scope .street-board { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; background: transparent !important; border: none !important; margin-top: 16px !important; }
+          .noida-scope .street-cell { padding: 6px 12px !important; font-size: 11.5px !important; border-radius: 20px !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; flex: 0 0 auto !important; color: var(--ink-dark) !important; }
+
+          .noida-scope .area-grid { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 16px !important; }
+          .noida-scope .area-tag { padding: 6px 10px !important; font-size: 11px !important; border-radius: 20px !important; flex: 0 0 auto !important; background: #FFFFFF !important; border: 1px solid var(--line-paper) !important; color: var(--ink-dark) !important; }
+
+          .noida-scope .top-svc,
+          .noida-scope .why-grid,
+          .noida-scope .svc-grid,
+          .noida-scope .steps {
+            grid-template-columns: 1fr;
+          }
+          .noida-scope .hero { padding-top: 48px; }
         }
 
         @media (prefers-reduced-motion: reduce){
