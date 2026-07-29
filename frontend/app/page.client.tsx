@@ -275,8 +275,8 @@ export default function Home() {
 
 
       {/* ── FEATURES + QUOTE ─────────────────────────────────────────────── */}
-      <section className="py-8 md:py-16 container mx-auto px-4">
-        <div className="flex flex-wrap justify-center gap-8 md:gap-24 mb-16 md:mb-32">
+      <section className="pt-10 pb-4 md:pt-14 md:pb-6 container mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-24">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -294,8 +294,6 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-
-
       </section>
 
       <BrandsMarquee />

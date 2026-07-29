@@ -61,8 +61,8 @@ export default function BrandsMarquee() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 text-center">
+    <section className="pt-4 pb-12 md:pt-6 md:pb-20 bg-white overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-8 md:mb-10 text-center">
         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black mb-4">
           Expert Care for <span className="text-accent">Every Brand</span>
         </h2>
