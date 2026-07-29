@@ -385,14 +385,6 @@ export default function AuthorClientPage({ slug }: AuthorClientProps) {
                   <span>Field Experience</span>
                 </div>
                 <div className="stat-box">
-                  <b>{author.bikesServiced}</b>
-                  <span>Bikes Diagnosed</span>
-                </div>
-                <div className="stat-box">
-                  <b>{author.rating}</b>
-                  <span>Rating</span>
-                </div>
-                <div className="stat-box">
                   <b>{authorPosts.length} Guides</b>
                   <span>Articles Written</span>
                 </div>
