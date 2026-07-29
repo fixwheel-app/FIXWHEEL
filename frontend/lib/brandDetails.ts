@@ -31,7 +31,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-30 HMSI Specification Semi-Synthetic/Synthetic",
       warranty: "15-Day Labor & Diagnostics Warranty",
       parts: "100% Genuine HMSI Air Filters, Brakes, and Spark Plugs",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Activa Specialist Care", desc: "Expert cvt gearbox cleaning, clutch roller adjustment, and transmission fluid replacement for all Activa models (3G to 6G/125)." },
@@ -53,7 +53,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-30 Premium Grade Hero Spec Multi-grade Oil",
       warranty: "15-Day Quality Assurance Warranty",
       parts: "Genuine Hero MotoCorp Spares & Cables",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Mileage Optimization", desc: "Precise air-fuel ratio tuning and spark plug gap adjustment to deliver maximum mileage." },
@@ -74,7 +74,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "20W-50 / 10W-50 Fully Synthetic Bajaj DTS-i Spec Oil",
       warranty: "15-Day Labor Warranty",
       parts: "Genuine Bajaj Auto OEM Parts",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "DTS-i Spark Optimization", desc: "Multi-spark plug health inspection and clean-up to ensure seamless power delivery and zero engine knocking." },
@@ -95,7 +95,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-30 TVS TRU4 Premium Synthetic Blend",
       warranty: "15-Day Diagnostics & Labor Warranty",
       parts: "100% Genuine TVS Spares & Brake Linings",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "NTORQ/Jupiter CVT Tuning", desc: "Removal of carbon buildup from variator rollers, drive belt inspection, and clutch shoe cleaning to eliminate scooter vibrations." },
@@ -115,7 +115,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "15W-50 Liquid Gun Semi-Synthetic / Synthetic",
       warranty: "15-Day Post-Service Labor Warranty",
       parts: "Genuine Royal Enfield Spares, Oil Filters, and Cables",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Thump & Valve Adjustment", desc: "Precise tappet gap settings to prevent starting issues and maintain optimal engine compression." },
@@ -136,7 +136,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-40 Yamalube Full Synthetic Sport Grade",
       warranty: "15-Day Service Warranty",
       parts: "Genuine Yamalube Gaskets, Filters & Brake Pads",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Liquid Cooling Maintenance", desc: "Radiator cleaning, coolant flushing, and cooling fan operation diagnostics for R15/MT15." },
@@ -156,7 +156,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-40 Suzuki Genuine Oil (ECSTAR Specification)",
       warranty: "15-Day Labor Warranty",
       parts: "Suzuki Genuine Spares & Air Cleaners",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Access 125 CVT Cleaning", desc: "Thorough cleaning of clutch assembly, belt inspection, and rollers replacement to eliminate startup shudder." },
@@ -176,7 +176,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "15W-50 Motul 7100 Fully Synthetic Premium Ester",
       warranty: "15-Day Diagnostics & Labor Warranty",
       parts: "Genuine KTM OEM Spares and Brembo/Bybre Pads",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Thermal Management Check", desc: "Radiator radiator fins cleaning, coolant level inspection, and thermostat check to handle city heat." },
@@ -196,7 +196,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "Not Applicable (Electric Hub Motor / Reducer Fluid Checked)",
       warranty: "15-Day EV Diagnostic and Labor Warranty",
       parts: "OLA EV OEM Gaskets, Fasteners & Braking Pads",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Electric Powertrain Diagnosis", desc: "Inspecting high-voltage cable insulation, checking motor controller connectors, and cleaning terminal grease." },
@@ -216,7 +216,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "Not Applicable (Belt Drive / Hub Reducer Fluid Checked)",
       warranty: "15-Day Technical Labor Warranty",
       parts: "Ather Energy Genuine Brake Pads & Drive Belts",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Belt Drive Tensioning", desc: "Precision alignment and tension checks of the gates carbon drive belt to prevent squeaking and maximize power transfer." },
@@ -236,7 +236,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "5W-40 Premium Grade Fully Synthetic Scooter Oil",
       warranty: "15-Day Labor & Diagnostics Warranty",
       parts: "100% Genuine Piaggio Spares & Cables",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Scratch-Free Servicing", desc: "Specialized soft rubber work mats and protective covers used to safeguard the steel body paint." },
@@ -256,7 +256,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "15W-50 / 10W-50 Motul Premium Synthetic Oil",
       warranty: "15-Day Post-Service Labor Warranty",
       parts: "Genuine Jawa/Classic Legends Spare Parts",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "DOHC Engine Check", desc: "Monitoring engine sound, DOHC timing chain tension, and coolant circulation for consistent touring reliability." },
@@ -276,7 +276,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "5W-40 Motul Scooter Fully Synthetic Oil",
       warranty: "15-Day Technical Labor Warranty",
       parts: "Genuine Aprilia OEM Spares & Brake Linings",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "High-RPM CVT Balancing", desc: "CVT dry clutch assembly cleaning and variator fan checks to prevent belt slippage during racing acceleration." },
@@ -296,7 +296,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "20W-50 V-Twin Spec Heavy Duty Synthetic Oil",
       warranty: "15-Day Cruiser Labor Warranty",
       parts: "Genuine Harley-Davidson or Premium Aftermarket Filters",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Heavy Cruiser Maintenance", desc: "Servicing massive engine cylinders, primary chain oil changes, and clutch adjustment under high loads." },
@@ -316,7 +316,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "10W-40 Motul 300V Double Ester Fully Synthetic",
       warranty: "15-Day Premium Performance Warranty",
       parts: "Genuine Kawasaki OEM Oil Filters and Spark Plugs",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "High-Flow Coolant Service", desc: "Cooling system inspections, radiator cleanup, and high-performance coolant top-up to prevent overheating." },
@@ -336,7 +336,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       engineOil: "15W-50 Fully Synthetic Motul 7100 / Yamalube",
       warranty: "15-Day Labor Warranty",
       parts: "Genuine Benelli Spares and High-Friction Pads",
-      avgTime: "45 Minutes Average Arrival Time"
+      avgTime: "45 Minutes Doorstep Arrival Time"
     },
     keyBenefits: [
       { title: "Imperiale 400 Specialized Care", desc: "Tappets adjustment, heavy-duty engine oil change, and spoke-wheel alignment check." },

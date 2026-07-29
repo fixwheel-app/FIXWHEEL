@@ -399,7 +399,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
             <p>{getIntroParagraph(data.name, "Ghaziabad")}</p>
           </div>
           <div className="trust-strip">
-            <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
+            <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>
             <div className="trust-cell"><b>473+</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>4.7★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Local Coverage</span></div>

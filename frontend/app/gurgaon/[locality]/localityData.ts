@@ -278,7 +278,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you service Sohna Road sectors up to Badshahpur?", a: "Yes, we cover all sectors along Sohna Road, including Sector 47, 48, 49, 50, and Badshahpur." },
-      { q: "What is your average arrival time on Sohna Road?", a: "A mechanic typically reaches Sohna Road locations within 45 minutes." }
+      { q: "What is your arrival time on Sohna Road?", a: "A mechanic typically reaches Sohna Road locations within 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN SOHNA ROAD", title: "Basic Service", desc: "General tuning, brake checks, and filter cleans for daily commuters.", link: "/services/basic-service" },
@@ -346,7 +346,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover all new sectors along Dwarka Expressway?", a: "Yes, we cover Sectors 81 through 115 along the expressway corridor." },
-      { q: "What is the average arrival time here?", a: "As it is an expanding corridor, arrival averages 45 minutes." }
+      { q: "What is the arrival time here?", a: "As it is an expanding corridor, arrival averages 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN DWARKA EXPRESSWAY", title: "Basic Service", desc: "Spark plug, chain lubrication, and brake alignment check.", link: "/services/basic-service" },
@@ -992,7 +992,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you service Sector 59 and 61?", a: "Yes, our Sector 58 mobile mechanics cover Sector 57 through Sector 62." },
-      { q: "What is your average response time?", a: "Average arrival time is around 45 minutes." }
+      { q: "What is your average response time?", a: "Arrival time is around 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN SECTOR 58", title: "Basic Service", desc: "Regular mechanical checks and minor adjustments.", link: "/services/basic-service" },

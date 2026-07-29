@@ -40,7 +40,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you service bikes inside gated societies in Dwarka?", a: "Yes, our verified mechanics enter all gated societies in Dwarka by registering with MyGate/security at the entrance." },
-      { q: "How fast can you reach me in Dwarka?", a: "Average arrival time in Dwarka is 45 minutes, since we have mechanics stationed near Sector 10 and Dwarka Mor." }
+      { q: "How fast can you reach me in Dwarka?", a: "Arrival time in Dwarka is 45 minutes, since we have mechanics stationed near Sector 10 and Dwarka Mor." }
     ],
     topServices: [
       { rank: "#1 IN DWARKA", title: "Basic Service", desc: "Brake check, chain clean, spark plug clean, and air filter check.", link: "/services/basic-service" },
@@ -533,7 +533,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover all societies in Nawada?", a: "Yes, we cover Nawada Housing Society, Mohan Garden pockets, and all nearby blocks." },
-      { q: "How quickly can a mechanic arrive?", a: "Average arrival time is 45 minutes after booking confirmation." }
+      { q: "How quickly can a mechanic arrive?", a: "Arrival time is 45 minutes after booking confirmation." }
     ],
     topServices: [
       { rank: "#1 IN NAWADA", title: "Basic Service", desc: "Spark plug, air filter, brake and electrical systems check.", link: "/services/basic-service" },
@@ -796,7 +796,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover all sectors in Rohini?", a: "Yes, we cover all sectors (1 through 24) and bordering areas near Pitampura and Rithala." },
-      { q: "What is your typical response time in Rohini?", a: "Average arrival time in Rohini is 45 minutes, since we have local mobile units stationed in Sector 9." }
+      { q: "What is your typical response time in Rohini?", a: "Arrival time in Rohini is 45 minutes, since we have local mobile units stationed in Sector 9." }
     ],
     topServices: [
       { rank: "#1 IN ROHINI", title: "Basic Service", desc: "Spark plug clean, filter check, brake adjustment.", link: "/services/basic-service" },
@@ -829,7 +829,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover the residential blocks near Shalimar Bagh Club Road?", a: "Yes, we cover all blocks (A through U) and surrounding societies." },
-      { q: "What is your average arrival time in Shalimar Bagh?", a: "A mechanic typically reaches Shalimar Bagh locations within 45 minutes." }
+      { q: "What is your arrival time in Shalimar Bagh?", a: "A mechanic typically reaches Shalimar Bagh locations within 45 minutes." }
     ],
     topServices: [
       { rank: "#1 IN SHALIMAR BAGH", title: "Basic Service", desc: "Spark plug check, chain lube, brake adjustments.", link: "/services/basic-service" },

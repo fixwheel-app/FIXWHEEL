@@ -381,7 +381,7 @@ export default function GhaziabadClientPage() {
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">
-              <div className="stat"><b>45 min</b><span>Average arrival time</span></div>
+              <div className="stat"><b>45 min</b><span>Arrival time</span></div>
               <div className="stat"><b>473+</b><span>Total vehicles serviced</span></div>
               <div className="stat"><b>4.7★</b><span>Customer rating</span></div>
               <div className="stat"><b>Ghaziabad NCR</b><span>Service area</span></div>
@@ -763,8 +763,7 @@ export default function GhaziabadClientPage() {
             </div>
             <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>Ghaziabad Roadside Assistance</h3>
             <p style={{ color: "#475569", fontSize: "14px" }}>
-              Stranded on NH-24, GT Road, or near Hindon River? A mechanic will come to your exact location with tools to fix the issue on the spot. Average arrival: 45 minutes.
-            </p>
+              Stranded on NH-24, GT Road, or near Hindon River? A mechanic will come to your exact location with tools to fix the issue on the spot.</p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →

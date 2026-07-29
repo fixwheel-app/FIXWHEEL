@@ -462,7 +462,7 @@ Object.entries(RAW_LOCALITY_META).forEach(([slug, raw]) => {
         a: `Yes. Our mechanics are background-checked and registered. They easily coordinate gate entry at premium societies like those near ${raw.landmarks[0]} to perform repairs directly in your parking slot.`
       },
       {
-        q: `What is the average arrival time in ${raw.name}?`,
+        q: `What is the arrival time in ${raw.name}?`,
         a: `Our mechanics are stationed locally across Noida and usually reach most parts of ${raw.name} within 45 minutes of booking confirmation.`
       },
       {

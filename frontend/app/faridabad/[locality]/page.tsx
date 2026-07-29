@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
 
   return {
     title: `Doorstep Bike Repair in ${data.name}, Faridabad | Two Wheeler Mechanic – FixWheel`,
-    description: `Get doorstep bike repair in ${data.name}, Faridabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
+    description: `Get doorstep bike repair in ${data.name}, Faridabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — arrival ${data.eta}.`,
     keywords: [
       "doorstep repair near me",
       `doorstep repair in ${data.name}`,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
     openGraph: {
       type: "website",
       title: `Doorstep Bike Repair in ${data.name}, Faridabad | Two Wheeler Mechanic – FixWheel`,
-      description: `Get doorstep bike repair in ${data.name}, Faridabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival ${data.eta}.`,
+      description: `Get doorstep bike repair in ${data.name}, Faridabad for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — arrival ${data.eta}.`,
       url: `https://www.fixwheel.app/faridabad/${params.locality}`,
     },
   };

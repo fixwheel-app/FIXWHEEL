@@ -644,7 +644,7 @@ export default function ServicesClientPage() {
                 <a href="#how" className="btn btn-ghost font-sans">See how it works</a>
               </div>
               <div className="trust-row">
-                <span><b>45 min</b> avg. response</span>
+                <span><b>45 min</b> fast response</span>
                 <span><b>473+</b> total vehicles serviced</span>
                 <span><b>4.7★</b> customer rating</span>
               </div>

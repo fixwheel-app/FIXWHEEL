@@ -3,7 +3,7 @@ import PalamViharClientPage from "./page.client";
 
 export const metadata: Metadata = {
   title: "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic – FixWheel",
-  description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival 45 mins.",
+  description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — arrival 45 mins.",
   keywords: [
     "doorstep repair near me",
     "doorstep repair in Palam Vihar",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic – FixWheel",
-    description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — average arrival 45 mins.",
+    description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — arrival 45 mins.",
     url: "https://www.fixwheel.app/gurgaon/palam-vihar",
   },
 };
@@ -138,7 +138,7 @@ const faqSchema = {
       "name": "How fast can a mechanic reach me in Palam Vihar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Average arrival time in Palam Vihar is around 45 minutes, the same standard we maintain across Gurgaon."
+        "text": "Arrival time in Palam Vihar is around 45 minutes, the same standard we maintain across Gurgaon."
       }
     },
     {

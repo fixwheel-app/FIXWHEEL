@@ -525,7 +525,7 @@ export default function DelhiClientPage() {
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">
-              <div className="stat"><b>45 min</b><span>Average arrival time</span></div>
+              <div className="stat"><b>45 min</b><span>Arrival time</span></div>
               <div className="stat"><b>473+</b><span>Total vehicles serviced</span></div>
               <div className="stat"><b>4.7★</b><span>Customer rating</span></div>
               <div className="stat"><b>South & SW Delhi</b><span>Service area</span></div>
@@ -935,8 +935,7 @@ export default function DelhiClientPage() {
             </div>
             <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>Delhi Roadside Assistance</h3>
             <p style={{ color: "#475569", fontSize: "14px" }}>
-              Broken down on a Delhi road? A mechanic will come to your exact location with tools to diagnose and fix the issue on the spot. Average arrival in our service area: 45 minutes.
-            </p>
+              Broken down on a Delhi road? A mechanic will come to your exact location with tools to diagnose and fix the issue on the spot.</p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →

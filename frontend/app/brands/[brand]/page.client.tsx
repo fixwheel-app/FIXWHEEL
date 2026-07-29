@@ -482,7 +482,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           <div className="trust-inner">
             <div className="trust-item">
               <b>45 MIN</b>
-              <span>Avg arrival time</span>
+              <span>Arrival time</span>
             </div>
             <div className="trust-item">
               <b>4.7 ★</b>

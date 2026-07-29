@@ -339,7 +339,7 @@ export default function PalamViharClientPage() {
           <div>
             <div className="eyebrow">Bike repair service · Palam Vihar</div>
             <h1>Doorstep Bike Repair<br />in <em>Palam Vihar, Gurgaon</em></h1>
-            <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong>. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an average arrival time of 45 minutes.</p>
+            <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong>. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an arrival time of 45 minutes.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
@@ -376,7 +376,7 @@ export default function PalamViharClientPage() {
             <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong> with flat pricing, verified mechanics, and a 15-day labor warranty.</p>
           </div>
           <div className="trust-strip">
-            <div className="trust-cell"><b>45 min</b><span>Average arrival time</span></div>
+            <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>
             <div className="trust-cell"><b>473+</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>4.7★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Coverage across Palam Vihar</span></div>
@@ -410,7 +410,7 @@ export default function PalamViharClientPage() {
             <div className="why-card">
               <span className="num">04</span>
               <h3>Same standard, every visit</h3>
-              <p>45-minute average arrival and a 15-day service warranty, applied consistently across Palam Vihar.</p>
+              <p>45-minute arrival and a 15-day service warranty, applied consistently across Palam Vihar.</p>
             </div>
           </div>
         </div>
@@ -606,7 +606,7 @@ export default function PalamViharClientPage() {
             </div>
             <div className={`faq-item ${openFaqs[3] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(3)}>How fast can someone actually reach me here?<span className="plus">+</span></div>
-              <div className="faq-a"><p>Average arrival time in Palam Vihar is around 45 minutes — the same standard we maintain across Gurgaon.</p></div>
+              <div className="faq-a"><p>Arrival time in Palam Vihar is around 45 minutes — the same standard we maintain across Gurgaon.</p></div>
             </div>
             <div className={`faq-item ${openFaqs[4] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(4)}>My exact street isn't on the coverage list — am I still covered?<span className="plus">+</span></div>
@@ -619,7 +619,7 @@ export default function PalamViharClientPage() {
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
           <h2>Bike repair, right where you are in Palam Vihar.</h2>
-          <p>Verified, background-checked mechanics. Average arrival 45 minutes.</p>
+          <p>Verified, background-checked mechanics. Arrival 45 minutes.</p>
           <Link href="/book" className="btn btn-dark">Book Bike Repair in Palam Vihar →</Link>
           <div className="silo">
             <Link href="/gurgaon" className="hub">← All of Gurgaon</Link>
