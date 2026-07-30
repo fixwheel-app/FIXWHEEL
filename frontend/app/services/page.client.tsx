@@ -80,21 +80,21 @@ export default function ServicesClientPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: `
         .services-new-page {
-          --ink:#16181B;
-          --asphalt:#23262B;
-          --steel:#3A3F47;
-          --paper:#F4F1EA;
-          --paper-dim:#E7E2D6;
-          --orange:#FF5A1F;
-          --orange-deep:#D8430F;
-          --grey:#8A8D91;
-          --line: rgba(244,241,234,0.16);
-          --line-dark: rgba(22,24,27,0.12);
-          --radius: 2px;
+          --ink:#1E293B;
+          --asphalt:#17181A;
+          --steel:#5C7A93;
+          --paper:#FFFFFF;
+          --paper-dim:#F8FAFC;
+          --orange:#e62b2b;
+          --orange-deep:#d32f2f;
+          --grey:#64748B;
+          --line: rgba(0,0,0,0.08);
+          --line-dark: #E2E8F0;
+          --radius: 4px;
           
           background: var(--paper);
           color: var(--ink);
-          font-family: 'Work Sans', sans-serif;
+          font-family: 'Inter', sans-serif;
           line-height: 1.55;
           -webkit-font-smoothing: antialiased;
         }

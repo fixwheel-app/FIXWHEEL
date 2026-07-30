@@ -166,25 +166,25 @@ export default function BrandsClientPage() {
     <div className={`brands-scope ${oswald.variable} ${jetbrains.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .brands-scope {
-          --bg:#F4F1EA;
-          --bg-soft:#E7E2D6;
+          --bg:#FFFFFF;
+          --bg-soft:#F8FAFC;
           --paper:#FFFFFF;
-          --paper-dim:#F4F1EA;
-          --ink:#16181B;
-          --ink-dim:#6B6E72;
-          --ink-dark:#16181B;
-          --accent:#ff3b30;
+          --paper-dim:#F8FAFC;
+          --ink:#1E293B;
+          --ink-dim:#64748B;
+          --ink-dark:#0F172A;
+          --accent:#e62b2b;
           --accent-dim:#d32f2f;
           --stamp:#D8430F;
           --steel:#5C7A93;
-          --line:rgba(22,24,27,0.12);
-          --line-paper:rgba(22,24,27,0.08);
-          --radius:2px;
+          --line:rgba(0,0,0,0.08);
+          --line-paper:#E2E8F0;
+          --radius:4px;
 
-          /* Hero specific dark variables to keep hero dark like services page */
-          --hero-bg:#23262B;
-          --hero-text:#F4F1EA;
-          --hero-ink-dim:#9DA1A7;
+          /* Hero specific dark variables to keep hero dark like location/service pages */
+          --hero-bg:#17181A;
+          --hero-text:#FFFFFF;
+          --hero-ink-dim:#A7A9AC;
 
           background: var(--bg);
           color: var(--ink);
