@@ -1,141 +1,76 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Check, ArrowRight, Wrench } from 'lucide-react';
+import type { Metadata } from "next";
+import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Basic Bike Service at Doorstep | FixWheel",
-  description: "Book a professional basic bike service Delhi. Get regular checkups, brake adjustments, chain lubing, and spark plug cleaning at home in Delhi NCR.",
+  title: "Basic Bike Service at Doorstep in Delhi NCR | FixWheel",
+  description:
+    "Book professional basic bike service Delhi NCR. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/basic-service",
   },
   openGraph: {
-    title: "Basic Bike Service at Doorstep | FixWheel",
-    description: "Book a professional basic bike service Delhi. Get regular checkups, brake adjustments, chain lubing, and spark plug cleaning at home in Delhi NCR.",
+    title: "Basic Bike Service at Doorstep in Delhi NCR | FixWheel",
+    description:
+      "Book professional basic bike service Delhi NCR. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
     url: "https://www.fixwheel.app/services/basic-service",
     siteName: "FixWheel",
     type: "website",
-    images: [
-      {
-        url: "https://www.fixwheel.app/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
   },
 };
 
 export default function BasicServicePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
-      {/* Dark Hero Header */}
-      <div className="bg-[#17181A] text-white pt-24 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-6">
-            <Link href="/services" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider text-xs transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" />
-              Back to Services
-            </Link>
-          </div>
-
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 font-mono font-bold uppercase tracking-widest text-xs mb-6">
-            <Wrench className="w-4 h-4" />
-            <span>Regular Maintenance</span>
-          </span>
-
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none mb-6 text-white">
-            Basic Bike Service at Your Doorstep in Delhi NCR
-          </h1>
-          <div className="w-20 h-1.5 bg-[#e62b2b]" />
-        </div>
-      </div>
-
-      {/* Main Content Section */}
-      <div className="py-12 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-2 space-y-5 text-slate-600 text-base md:text-lg leading-relaxed">
-              <p>
-                Keep your daily commuter motorcycle or scooter running smoothly with FixWheel's basic bike service Delhi NCR packages. Skipping regular checkups can lead to unexpected breakdowns; our periodic tune-up ensures that doesn't happen by identifying potential problems early.
-              </p>
-              <p>
-                Our expert mechanic will come straight to your doorstep (home or office) with all necessary tools. We perform a complete, hassle-free adjustment of brakes, electrical components, air filters, and spark plugs, leaving no mess behind.
-              </p>
-              <p>
-                This regular service keeps your two-wheeler fuel-efficient, secure, and ready for your daily commute.
-              </p>
-            </div>
-
-            {/* Quick Info Panel */}
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 h-fit space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-3">Service Details</h3>
-              <div className="space-y-4">
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Availability</span>
-                  <span className="text-sm font-bold text-slate-900">Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Service Location</span>
-                  <span className="text-sm font-bold text-slate-900">Doorstep (Home or Office)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Warranty</span>
-                  <span className="text-sm font-bold text-slate-900">15 Days Warranty on Services</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* What's Included */}
-          <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 md:p-10 text-slate-900 relative overflow-hidden mb-12">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-8 text-slate-900 border-b border-slate-200 pb-4">
-              What's Included
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Full brake inspection and precision adjustment</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Spark plug cleaning, testing, and gap adjustment</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Air filter cleaning and flow check</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Chain cleaning, lubrication, and tension adjustment</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Complete electrical check (lights, horns, battery voltage)</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Lubrication of key joints, pivots, and control cables</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center bg-[#17181A] text-white rounded-2xl p-8 md:p-12 border border-white/10">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-4">
-              Ready to Get Your Two-Wheeler Fixed?
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Book our doorstep service package in Delhi NCR. Get experienced mechanics at your home or office.
-            </p>
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-10 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm md:text-base transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] hover:scale-[1.02]"
-            >
-              BOOK NOW
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServicePageTemplate
+      serviceId="basic-service"
+      category="Regular Maintenance"
+      title="Basic Bike Service at Doorstep in Delhi NCR"
+      lead="Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high."
+      startingPrice="₹499"
+      avgTime="45 Minutes"
+      warranty="15 Days Labor Warranty"
+      descriptionParagraphs={[
+        "Commuting through Delhi NCR traffic subjects your bike's clutch cables, brake shoes, spark plugs, and air filters to extreme dust and friction. Without regular maintenance, carbon deposits accumulate in the engine, resulting in poor fuel efficiency, engine knocking, and starting trouble.",
+        "Our certified doorstep mechanics arrive directly at your home or office parking with specialized diagnostic kits, OEM spare parts, and eco-friendly cleaning supplies. We perform a comprehensive 15-point checkup, adjusting control cables, cleaning spark plugs, inspecting brake liners, and lubricating key chassis pivots.",
+        "With FixWheel, you get 100% transparent pricing, zero hidden charges, and a 15-day quality warranty on every basic service.",
+      ]}
+      includedItems={[
+        "Complete front & rear brake inspection and precision adjustment",
+        "Spark plug cleaning, electrode gap setting & ignition check",
+        "Air filter inspection, dust removal & airflow check",
+        "Drive chain deep cleaning, tensioning & high-tack spray lube",
+        "Full electrical system test (headlights, indicators, horn, battery voltage)",
+        "Lubrication of control cables, center stand pivot & brake levers",
+        "Carburetor / FI idling speed adjustment for maximum mileage",
+        "Tire pressure calibration & tread depth safety check",
+      ]}
+      faqs={[
+        {
+          q: "How long does doorstep basic bike service take?",
+          a: "A basic doorstep bike service typically takes 35 to 45 minutes to complete at your home or office parking.",
+        },
+        {
+          q: "Is engine oil change included in basic service?",
+          a: "Basic service includes engine oil health inspection and top-up if needed. Complete oil replacement with a new sealed bottle can be selected during booking.",
+        },
+        {
+          q: "What bike models are covered under basic service?",
+          a: "We service all 100cc to 160cc commuter bikes and gearless scooters including Honda Activa, Hero Splendor, TVS Jupiter, Suzuki Access, and Bajaj Pulsar.",
+        },
+        {
+          q: "Are there any extra visiting charges for doorstep service in Gurgaon or Noida?",
+          a: "No! FixWheel offers flat, transparent pricing with zero doorstep visit fees across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
+        },
+      ]}
+      keywords={[
+        "basic bike service delhi",
+        "doorstep bike service gurgaon",
+        "bike repair at home noida",
+        "hero splendor service ghaziabad",
+        "honda activa basic service faridabad",
+        "scooter mechanic near me",
+        "doorstep bike tune up delhi ncr",
+        "bike chain lube at home",
+      ]}
+    />
   );
 }

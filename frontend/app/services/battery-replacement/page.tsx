@@ -1,137 +1,68 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Check, ArrowRight, Wrench } from 'lucide-react';
+import type { Metadata } from "next";
+import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Bike Battery Replacement at Home | FixWheel",
-  description: "Get professional bike battery replacement Delhi. Swift doorstep battery health testing and new battery installation in Delhi NCR.",
+  title: "Bike Battery Replacement at Home in Delhi NCR | FixWheel",
+  description:
+    "Instant doorstep bike battery replacement Delhi NCR. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/battery-replacement",
   },
   openGraph: {
-    title: "Bike Battery Replacement at Home | FixWheel",
-    description: "Get professional bike battery replacement Delhi. Swift doorstep battery health testing and new battery installation in Delhi NCR.",
+    title: "Bike Battery Replacement at Home in Delhi NCR | FixWheel",
+    description:
+      "Instant doorstep bike battery replacement Delhi NCR. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
     url: "https://www.fixwheel.app/services/battery-replacement",
     siteName: "FixWheel",
     type: "website",
-    images: [
-      {
-        url: "https://www.fixwheel.app/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
   },
 };
 
 export default function BatteryReplacementPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
-      {/* Dark Hero Header */}
-      <div className="bg-[#17181A] text-white pt-24 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-6">
-            <Link href="/services" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider text-xs transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" />
-              Back to Services
-            </Link>
-          </div>
-
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 font-mono font-bold uppercase tracking-widest text-xs mb-6">
-            <Wrench className="w-4 h-4" />
-            <span>Electrical Systems</span>
-          </span>
-
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none mb-6 text-white">
-            Bike Battery Replacement at Your Doorstep in Delhi NCR
-          </h1>
-          <div className="w-20 h-1.5 bg-[#e62b2b]" />
-        </div>
-      </div>
-
-      {/* Main Content Section */}
-      <div className="py-12 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-2 space-y-5 text-slate-600 text-base md:text-lg leading-relaxed">
-              <p>
-                Having trouble starting your two-wheeler or noticed weak horn signals and dim headlights? FixWheel provides quick bike battery replacement Delhi NCR services, so you are never left stranded on the road.
-              </p>
-              <p>
-                Our technician will visit your location to test your battery's charge and inspect the alternator charging circuit. If a replacement is needed, we install a fresh, genuine battery from top-tier brands, providing the official warranty card on the spot.
-              </p>
-              <p>
-                We ensure old batteries are recycled responsibly in compliance with environmental standards, while keeping your bike's electrical routing safe and secure.
-              </p>
-            </div>
-
-            {/* Quick Info Panel */}
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 h-fit space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-3">Service Details</h3>
-              <div className="space-y-4">
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Availability</span>
-                  <span className="text-sm font-bold text-slate-900">Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Service Location</span>
-                  <span className="text-sm font-bold text-slate-900">Doorstep (Home or Office)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Warranty</span>
-                  <span className="text-sm font-bold text-slate-900">Official Brand Manufacturer Warranty Included</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* What's Included */}
-          <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 md:p-10 text-slate-900 relative overflow-hidden mb-12">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-8 text-slate-900 border-b border-slate-200 pb-4">
-              What's Included
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Thorough battery health and voltage test using load testers</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Inspection of charging coil and voltage regulator rectifiers (RR unit)</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Installation of 100% brand-new battery with manufacturer warranty card</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Terminal cleaning, corrosion treatment, and petroleum jelly application</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Eco-friendly disposal and recycling of old battery unit</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center bg-[#17181A] text-white rounded-2xl p-8 md:p-12 border border-white/10">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-4">
-              Need a New Bike Battery Today?
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Book doorstep battery replacement in Delhi NCR. Instant delivery & expert fitting at your location.
-            </p>
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-10 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm md:text-base transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] hover:scale-[1.02]"
-            >
-              BOOK BATTERY SERVICE
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServicePageTemplate
+      serviceId="battery-replacement"
+      category="Electrical Systems"
+      title="Bike Battery Replacement at Doorstep in Delhi NCR"
+      lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and instant replacement with fresh, zero-maintenance batteries from top brands in under 45 minutes."
+      startingPrice="₹1,299"
+      avgTime="45 Minutes"
+      warranty="Official Brand Warranty Included"
+      descriptionParagraphs={[
+        "Extreme winter cold and hot summer weather in Delhi NCR often accelerate motorcycle battery cell degradation. When your battery fails, getting stuck in traffic or a office parking lot is frustrating.",
+        "FixWheel's mobile battery service brings digital load testers and genuine zero-maintenance batteries directly to your location. Our mechanic checks the alternator charging voltage and RR unit to verify if the issue is a dead battery or a charging circuit fault.",
+        "Every new battery comes with an official printed manufacturer warranty card, terminal corrosion treatment, and eco-friendly recycling of your old battery.",
+      ]}
+      includedItems={[
+        "Digital load testing & battery CCA (Cold Cranking Amps) health diagnosis",
+        "Charging coil voltage & regulator rectifier (RR unit) output test",
+        "Installation of fresh 100% brand-new battery (Exide, Amaron, SF Sonic)",
+        "Official printed manufacturer warranty card delivered on the spot",
+        "Battery terminal cleaning, anti-corrosion grease & petroleum jelly coating",
+        "Safe eco-friendly disposal and trade-in discount on old battery",
+      ]}
+      faqs={[
+        {
+          q: "How do I know if my bike battery needs replacement?",
+          a: "Key symptoms include difficulty self-starting, clicking sounds when pressing the starter button, dim headlights when idling, and a weak horn.",
+        },
+        {
+          q: "Do you provide official manufacturer warranty with the battery?",
+          a: "Yes! Every battery installed by FixWheel includes the manufacturer's original warranty card (typically 36 to 48 months warranty).",
+        },
+        {
+          q: "How long does doorstep battery replacement take?",
+          a: "Our doorstep technician arrives in 45 minutes and completes testing and battery installation in under 20 minutes.",
+        },
+      ]}
+      keywords={[
+        "bike battery replacement delhi",
+        "amaron bike battery home installation gurgaon",
+        "exide scooter battery doorstep noida",
+        "honda activa battery replacement ghaziabad",
+        "royal enfield battery service faridabad",
+        "dead bike battery repair near me",
+      ]}
+    />
   );
 }

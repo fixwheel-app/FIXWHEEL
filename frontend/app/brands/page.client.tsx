@@ -274,7 +274,7 @@ export default function BrandsClientPage() {
         /* ===== HERO ===== */
         .brands-scope .hero {
           position: relative;
-          padding: 96px 0 60px;
+          padding: 110px 0 64px;
           background: var(--hero-bg);
           color: var(--hero-text);
           border-bottom: 1px solid rgba(255,255,255,0.08);

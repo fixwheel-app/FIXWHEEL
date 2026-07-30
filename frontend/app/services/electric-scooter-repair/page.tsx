@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Check, ArrowRight, Wrench } from 'lucide-react';
+import type { Metadata } from "next";
+import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Electric Scooter Repair at Home | FixWheel",
-  description: "Doorstep electric scooter repair Delhi NCR. Battery diagnostics, motor controller checks, belt drive tensioning for Ola, Ather, TVS iQube, Hero Vida.",
+  description:
+    "Doorstep electric scooter repair Delhi NCR. Battery diagnostics, motor controller checks, belt drive tensioning for Ola, Ather, TVS iQube, Hero Vida.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/electric-scooter-repair",
   },
@@ -12,97 +12,49 @@ export const metadata: Metadata = {
 
 export default function ElectricScooterRepairPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
-      <div className="bg-[#17181A] text-white pt-24 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-6">
-            <Link href="/services" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider text-xs transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" />
-              Back to Services
-            </Link>
-          </div>
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 font-mono font-bold uppercase tracking-widest text-xs mb-6">
-            <Wrench className="w-4 h-4" />
-            <span>EV Maintenance</span>
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none mb-6 text-white">
-            Electric Scooter Repair at Doorstep in Delhi NCR
-          </h1>
-          <div className="w-20 h-1.5 bg-[#e62b2b]" />
-        </div>
-      </div>
-
-      <div className="py-12 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-2 space-y-5 text-slate-600 text-base md:text-lg leading-relaxed">
-              <p>
-                Electric scooters like OLA S1 Pro, Ather 450X, TVS iQube, and Chetak require specialized diagnostic tools for high-voltage components and belt-drive alignment.
-              </p>
-              <p>
-                FixWheel's EV-certified mechanics provide doorstep diagnostics, brake pad replacements, belt tensioning, and electronic fault code scans right in your parking lot across Delhi NCR.
-              </p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 h-fit space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-3">Service Details</h3>
-              <div className="space-y-4">
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Availability</span>
-                  <span className="text-sm font-bold text-slate-900">Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Location</span>
-                  <span className="text-sm font-bold text-slate-900">Doorstep (Home or Office)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Warranty</span>
-                  <span className="text-sm font-bold text-slate-900">15 Days EV Technical Warranty</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 md:p-10 text-slate-900 relative overflow-hidden mb-12">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-8 text-slate-900 border-b border-slate-200 pb-4">
-              What's Included
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Battery cell health & charging port voltage test</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Belt drive tensioning & hub reducer fluid check</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Disc brake pad cleaning & regenerative brake sensor test</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Telescopic front fork & steering head cone-set check</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center bg-[#17181A] text-white rounded-2xl p-8 md:p-12 border border-white/10">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-4">
-              Need EV Scooter Repair at Home?
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Book specialized electric scooter service in Delhi NCR with certified technicians.
-            </p>
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-10 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm md:text-base transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] hover:scale-[1.02]"
-            >
-              BOOK EV REPAIR NOW
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServicePageTemplate
+      serviceId="electric-scooter-repair"
+      category="EV Maintenance"
+      title="Electric Scooter Repair at Doorstep in Delhi NCR"
+      lead="Electric scooters like OLA S1 Pro, Ather 450X, TVS iQube, and Bajaj Chetak feature advanced electronics and belt drivetrains. Get doorstep EV diagnostics, battery health scans, and brake servicing in under 45 minutes."
+      startingPrice="₹599"
+      avgTime="45 Minutes"
+      warranty="15 Days EV Technical Warranty"
+      descriptionParagraphs={[
+        "EV scooters require specialized high-voltage diagnostic tools, belt alignment gauges, and electronic sensor scanners. Local roadside mechanics are often untrained in handling EV lithium battery packs or motor controllers.",
+        "FixWheel's EV-certified mechanics visit your home or office parking with multi-meters, EV safety gear, and diagnostic software. We inspect battery cell voltage balances, adjust Gates carbon drive belt tension, service disc brakes, and check regenerative braking sensors.",
+        "Get instant EV doorstep repair across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad with 100% genuine replacement parts.",
+      ]}
+      includedItems={[
+        "Lithium battery pack voltage, state of health (SOH) & BMS diagnostic check",
+        "Belt drive tensioning, alignment & hub reducer gear fluid inspection",
+        "Front & rear disc brake pad cleaning, caliper pin lube & regen sensor test",
+        "High-voltage wiring harness, terminal insulation & controller connector scan",
+        "Telescopic front fork check, head cone-set adjustment & shock absorber play check",
+        "Digital instrument cluster, throttle sensor & side-stand cut-off switch test",
+      ]}
+      faqs={[
+        {
+          q: "Do you service OLA S1 Pro and Ather 450X at home?",
+          a: "Yes! Our EV mechanics are trained specifically for OLA S1 Pro/Air/X, Ather 450X/Rizta, TVS iQube, Hero Vida, and Chetak EV models.",
+        },
+        {
+          q: "Why is my electric scooter belt squeaking?",
+          a: "Squeaking is caused by belt misalignment or accumulated road dust on the carbon belt drive. We clean and align the drive belt at your doorstep.",
+        },
+        {
+          q: "Can you diagnose battery range drop issues at home?",
+          a: "Yes! We run digital diagnostics on your EV battery cells and BMS software to identify voltage drops or unbalanced cells.",
+        },
+      ]}
+      keywords={[
+        "electric scooter repair delhi",
+        "ola s1 pro doorstep service gurgaon",
+        "ather 450x home service noida",
+        "tvs iqube repair ghaziabad",
+        "ev scooter mechanic near me faridabad",
+        "electric scooter belt tensioning delhi ncr",
+      ]}
+    />
   );
 }

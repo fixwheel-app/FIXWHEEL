@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Check, ArrowRight, Wrench } from 'lucide-react';
+import type { Metadata } from "next";
+import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Commuter Bike Service at Doorstep | FixWheel",
-  description: "Doorstep commuter bike service Delhi. Regular tune-ups, oil change, and mileage tuning for Hero, Honda, Bajaj, and TVS commuter bikes.",
+  description:
+    "Doorstep commuter bike service Delhi NCR. Regular tune-ups, oil change, spark plug cleaning, and mileage tuning for Hero, Honda, Bajaj, and TVS commuter bikes.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/commuter-bike-service",
   },
@@ -12,97 +12,51 @@ export const metadata: Metadata = {
 
 export default function CommuterBikeServicePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
-      <div className="bg-[#17181A] text-white pt-24 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-6">
-            <Link href="/services" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-mono font-bold uppercase tracking-wider text-xs transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" />
-              Back to Services
-            </Link>
-          </div>
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 font-mono font-bold uppercase tracking-widest text-xs mb-6">
-            <Wrench className="w-4 h-4" />
-            <span>Commuter Maintenance</span>
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none mb-6 text-white">
-            Commuter Bike Service at Doorstep in Delhi NCR
-          </h1>
-          <div className="w-20 h-1.5 bg-[#e62b2b]" />
-        </div>
-      </div>
-
-      <div className="py-12 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-2 space-y-5 text-slate-600 text-base md:text-lg leading-relaxed">
-              <p>
-                Daily commuter bikes like Hero Splendor, Honda Shine, Bajaj Pulsar, and TVS Raider need consistent care to deliver high mileage and smooth performance.
-              </p>
-              <p>
-                FixWheel provides specialized doorstep commuter bike service across Delhi NCR. Our mechanics arrive at your home or office with genuine oil, air filters, and tools for quick servicing.
-              </p>
-            </div>
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 h-fit space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-3">Service Details</h3>
-              <div className="space-y-4">
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Availability</span>
-                  <span className="text-sm font-bold text-slate-900">Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Location</span>
-                  <span className="text-sm font-bold text-slate-900">Doorstep (Home or Office)</span>
-                </div>
-                <div>
-                  <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">Warranty</span>
-                  <span className="text-sm font-bold text-slate-900">15 Days Labor Warranty</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 md:p-10 text-slate-900 relative overflow-hidden mb-12">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-8 text-slate-900 border-b border-slate-200 pb-4">
-              What's Included
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Engine oil replacement with OEM spec oil</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Spark plug & air filter cleaning</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Chain lubrication & tensioning</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm font-semibold text-slate-700">Front & rear brake adjustment</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center bg-[#17181A] text-white rounded-2xl p-8 md:p-12 border border-white/10">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-4">
-              Book Commuter Bike Service Now
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Get an expert doorstep mechanic at your home or office parking.
-            </p>
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-10 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm md:text-base transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] hover:scale-[1.02]"
-            >
-              BOOK NOW
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServicePageTemplate
+      serviceId="commuter-bike-service"
+      category="Commuter Maintenance"
+      title="Commuter Bike Service at Doorstep in Delhi NCR"
+      lead="Daily commuter bikes like Hero Splendor, Honda Shine, Bajaj Pulsar, and TVS Raider demand consistent care to deliver peak mileage and vibration-free rides across Delhi NCR."
+      startingPrice="₹499"
+      avgTime="45 Minutes"
+      warranty="15 Days Labor Warranty"
+      descriptionParagraphs={[
+        "Commuter bikes are the lifeline of daily travel across Gurgaon, Delhi, Noida, and Ghaziabad. High daily mileage quickly degrades engine oil, clogs air filters, and slackens drive chains.",
+        "FixWheel's doorstep commuter bike service package is tailored specifically for 100cc to 160cc motorcycles. Our mechanics arrive at your home or office parking with genuine OEM oil, spark plugs, filters, and specialized tools.",
+        "We optimize the air-fuel ratio, adjust clutch free-play, and service brakes to ensure your commuter bike stays smooth and extremely fuel-efficient.",
+      ]}
+      includedItems={[
+        "OEM specification engine oil replacement (10W-30 / 20W-50)",
+        "Spark plug electrode cleaning, testing & gap adjustment",
+        "Air filter dust clean-up & intake airflow test",
+        "Drive chain deep cleaning, tensioning & high-tack spray lube",
+        "Front & rear drum/disc brake inspection and adjustment",
+        "Control cable (clutch & accelerator) lubrication & play setting",
+        "Battery terminal cleaning & full electrical circuit check",
+        "Carburetor / FI idling speed adjustment for maximum mileage",
+      ]}
+      faqs={[
+        {
+          q: "How often should I service my commuter bike?",
+          a: "Commuter bikes should be serviced every 3,000 to 4,000 km or every 3 months for optimal mileage and engine life.",
+        },
+        {
+          q: "Do you service Hero Splendor and Honda Shine at home?",
+          a: "Yes! Hero Splendor, Passion, HF Deluxe, and Honda Shine are our most frequently serviced commuter bikes across Delhi NCR.",
+        },
+        {
+          q: "Can I get my bike serviced at my office parking space?",
+          a: "Absoluty! Our mechanics bring portable tools and protective mats so there is zero mess in your office or residential parking.",
+        },
+      ]}
+      keywords={[
+        "commuter bike service delhi",
+        "hero splendor home service gurgaon",
+        "honda shine repair at doorstep noida",
+        "bajaj pulsar commuter service ghaziabad",
+        "tvs raider 125 service faridabad",
+        "daily bike mechanic near me",
+      ]}
+    />
   );
 }

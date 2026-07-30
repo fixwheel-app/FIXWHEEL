@@ -175,7 +175,7 @@ export default function ServicesClientPage() {
         .services-new-page .hero {
           background: var(--asphalt);
           color: var(--paper);
-          padding: 56px 0 64px;
+          padding: 110px 0 72px;
           position: relative;
           overflow: hidden;
         }
