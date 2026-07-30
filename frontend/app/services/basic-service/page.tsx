@@ -25,7 +25,7 @@ export default function BasicServicePage() {
       category="Regular Maintenance"
       title="Basic Bike Service at Doorstep in Delhi NCR"
       lead="Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high."
-      startingPrice="₹499"
+      startingPrice="₹199"
       avgTime="45 Minutes"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[

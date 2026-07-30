@@ -17,7 +17,7 @@ export default function ScootyRepairPage() {
       category="Scooter & CVT Specialist"
       title="Scooty & Gearless Scooter Repair in Delhi NCR"
       lead="Scooters like Honda Activa, TVS Jupiter, Suzuki Access, and TVS Ntorq are Delhi NCR's daily workhorses. Eliminate starting trouble and takeoff vibration with expert doorstep CVT clutch cleaning and tune-ups."
-      startingPrice="₹499"
+      startingPrice="₹199"
       avgTime="45 Minutes"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[

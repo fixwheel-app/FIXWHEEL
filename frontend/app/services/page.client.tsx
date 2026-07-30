@@ -13,7 +13,7 @@ export default function ServicesClientPage() {
       name: "Basic Bike Service",
       desc: "Comprehensive 15-point tune-up, brake adjustment, chain lube, spark plug clean, and air filter check.",
       link: "/services/basic-service",
-      price: "₹499",
+      price: "₹199",
     },
     {
       name: "Engine Oil Change",
@@ -31,7 +31,7 @@ export default function ServicesClientPage() {
       name: "Scooty Repair",
       desc: "Doorstep CVT variator roller cleaning, clutch shoe degreasing, and engine tuning for gearless scooters.",
       link: "/services/scooty-repair",
-      price: "₹499",
+      price: "₹199",
     },
     {
       name: "Sports Bike Service",
@@ -49,7 +49,7 @@ export default function ServicesClientPage() {
       name: "Commuter Bike Service",
       desc: "Reliable general servicing, mileage tuning, and oil change packages for daily 100cc-160cc bikes.",
       link: "/services/commuter-bike-service",
-      price: "₹499",
+      price: "₹199",
     },
     {
       name: "Comprehensive Service",
@@ -90,7 +90,7 @@ export default function ServicesClientPage() {
     },
     {
       q: "How much does bike service at home cost in Delhi NCR?",
-      a: "Our doorstep bike service starts at ₹499. The exact price depends on your bike model and service type. We confirm the price before any work begins, so you pay zero hidden fees.",
+      a: "Our doorstep bike service starts at ₹199. The exact price depends on your bike model and service type. We confirm the price before any work begins, so you pay zero hidden fees.",
     },
     {
       q: "Do you use genuine OEM parts for bike repair?",
@@ -667,7 +667,7 @@ export default function ServicesClientPage() {
                 </div>
                 <div className="ticket-foot">
                   <span className="total-label">STARTING AT</span>
-                  <span className="total-val">₹499</span>
+                  <span className="total-val">₹199</span>
                 </div>
               </div>
             </div>
@@ -718,7 +718,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Starting Rate</span>
-                  <span className="v">₹499</span>
+                  <span className="v">₹199</span>
                 </li>
               </ul>
             </div>
@@ -960,7 +960,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
             <p>
-              Certified mechanics at your home or office parking. Starting at ₹499. Zero visiting fees.
+              Certified mechanics at your home or office parking. Starting at ₹199. Zero visiting fees.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book" className="btn btn-primary font-sans">
