@@ -785,16 +785,19 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                         No matching models found. General doorstep servicing applies to all {brandData.name} vehicles.
                       </p>
                     ) : (
-                      filteredModels.map((model) => (
-                        <Link
-                          key={model}
-                          href={`/book/${brandSlug}?model=${encodeURIComponent(model)}`}
-                          className="model-link-card"
-                        >
-                          <span className="name">{model}</span>
-                          <span className="action">Book →</span>
-                        </Link>
-                      ))
+                      filteredModels.map((model) => {
+                        const mSlug = model.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                        return (
+                          <Link
+                            key={model}
+                            href={`/brands/${brandSlug}/${mSlug}`}
+                            className="model-link-card"
+                          >
+                            <span className="name">{model}</span>
+                            <span className="action">View & Book →</span>
+                          </Link>
+                        );
+                      })
                     )}
                   </div>
                 </div>
