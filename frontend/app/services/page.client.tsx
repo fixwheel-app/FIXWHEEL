@@ -1,88 +1,128 @@
 "use client";
 
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { ArrowRight, Check, Wrench, ShieldCheck, Clock, Award, Phone } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export default function ServicesClientPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const staticServices = [
     {
+      name: "Basic Bike Service",
+      desc: "Comprehensive 15-point tune-up, brake adjustment, chain lube, spark plug clean, and air filter check.",
+      link: "/services/basic-service",
+      price: "₹499",
+    },
+    {
+      name: "Engine Oil Change",
+      desc: "Complete sludge drain, new sealed OEM engine oil refill, oil filter replacement, and spark plug check.",
+      link: "/services/oil-change",
+      price: "₹349",
+    },
+    {
       name: "Electric Scooter Repair",
-      desc: "Doorstep maintenance, battery checkups, and electrical repairs for electric scooters.",
-      link: "/services/electric-scooter-repair"
+      desc: "Doorstep EV maintenance, lithium battery diagnostics, controller checks, and drive belt alignment.",
+      link: "/services/electric-scooter-repair",
+      price: "₹599",
     },
     {
       name: "Scooty Repair",
-      desc: "Doorstep servicing, belt replacements, and engine tuning for gearless scooties.",
-      link: "/services/scooty-repair"
+      desc: "Doorstep CVT variator roller cleaning, clutch shoe degreasing, and engine tuning for gearless scooters.",
+      link: "/services/scooty-repair",
+      price: "₹499",
     },
     {
       name: "Sports Bike Service",
-      desc: "Performance tuning, full-synthetic oil changes, and diagnostics for sports motorcycles.",
-      link: "/services/sports-bike-service"
+      desc: "Full-synthetic oil changes, liquid cooling radiator flushes, and track-grade chain alignment.",
+      link: "/services/sports-bike-service",
+      price: "₹899",
     },
     {
       name: "Royal Enfield / Bullet Service",
-      desc: "Classic bike maintenance, clutch adjustments, and genuine spares for Royal Enfield.",
-      link: "/services/royal-enfield-service"
+      desc: "Classic bike maintenance, tappet valve clearance adjustment, 15W-50 oil swap, and clutch overhauls.",
+      link: "/services/royal-enfield-service",
+      price: "₹699",
     },
     {
       name: "Commuter Bike Service",
-      desc: "Reliable general servicing and oil change packages for daily commuter bikes.",
-      link: "/services/commuter-bike-service"
+      desc: "Reliable general servicing, mileage tuning, and oil change packages for daily 100cc-160cc bikes.",
+      link: "/services/commuter-bike-service",
+      price: "₹499",
     },
     {
-      name: "Premium Bike Service",
-      desc: "Advanced diagnostics, brake service, and detailing for high-performance and large-displacement motorcycles.",
-      link: "/services/premium-bike-service"
-    }
+      name: "Comprehensive Service",
+      desc: "Full 24-point bike overhaul including carburetor/FI nozzle cleaning, brake overhaul, and deep lubrication.",
+      link: "/services/comprehensive-service",
+      price: "₹899",
+    },
+    {
+      name: "Brake Repair & Replacement",
+      desc: "Drum brake shoe replacement, disc pad cleaning, hydraulic line bleeding, and CBS sensor checks.",
+      link: "/services/brake-repair",
+      price: "₹299",
+    },
+    {
+      name: "Battery Replacement",
+      desc: "Instant doorstep battery load testing and replacement with fresh Exide & Amaron batteries with warranty.",
+      link: "/services/battery-replacement",
+      price: "₹1,299",
+    },
+    {
+      name: "General Foam Washing",
+      desc: "High-pressure snow foam wash, alloy wheel degreasing, microfiber drying, and anti-rust gloss polish.",
+      link: "/services/general-washing",
+      price: "₹249",
+    },
+    {
+      name: "Tyre Replacement & Repair",
+      desc: "Doorstep tubeless tyre fitting, air valve pin replacement, and precision pressure calibration.",
+      link: "/services/tyre-replacement",
+      price: "₹1,199",
+    },
   ];
 
   const faqs = [
     {
       q: "How long does doorstep bike service take in Delhi NCR?",
-      a: "Most routine servicing and repairs take 30 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront."
+      a: "Most routine servicing and repairs take 35 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront.",
     },
     {
-      q: "How much does bike service at home cost in Delhi?",
-      a: "Our doorstep bike service starts at ₹499. The exact price depends on your bike model and service type. We confirm the price before any work begins, so you pay zero hidden fees."
+      q: "How much does bike service at home cost in Delhi NCR?",
+      a: "Our doorstep bike service starts at ₹499. The exact price depends on your bike model and service type. We confirm the price before any work begins, so you pay zero hidden fees.",
     },
     {
-      q: "Do you use genuine parts for bike repair?",
-      a: "Yes. We use only genuine or OEM-grade parts. We always confirm the cost with you before replacing any parts."
+      q: "Do you use genuine OEM parts for bike repair?",
+      a: "Yes. We use only 100% genuine or OEM-grade parts. We always unseal new parts right in front of you and confirm costs before installation.",
     },
     {
       q: "Which areas do you cover for doorstep bike repair in Delhi NCR?",
-      a: "We serve Delhi (Kapasera, Dwarka, Vasant Kunj, Mahipalpur, Bijwasan, MG Road and nearby areas) and all of Gurugram including DLF, Sushant Lok, Golf Course Road, Palam Vihar, Udyog Vihar and Sohna Road."
+      a: "We cover all major locations across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad including residential societies, office parks, and roadside breakdown spots.",
     },
     {
-      q: "Can I book a Honda Activa service at home in Delhi?",
-      a: "Yes. Honda Activa is our most-booked scooter. We handle routine servicing, oil changes, tyre repairs, and battery replacements at your doorstep."
+      q: "Can I book a Honda Activa or Royal Enfield service at home?",
+      a: "Yes! Honda Activa and Royal Enfield motorcycles are among our most-booked two-wheelers. We handle routine servicing, oil changes, brake repairs, and battery replacements right at your location.",
     },
     {
-      q: "Is there a warranty on the bike repair?",
-      a: "Yes. We guarantee our work with a 15-day labor warranty. Any replacement parts carry the manufacturer's warranty."
+      q: "Is there a warranty on the bike repair work?",
+      a: "Yes! We guarantee our work with a 15-day labor warranty. Any replacement parts carry the manufacturer's official warranty.",
     },
     {
       q: "Can I book emergency roadside bike repair in Delhi NCR?",
-      a: "Yes. We provide 24/7 emergency roadside assistance and breakdown support across Delhi and Gurugram."
+      a: "Yes! We provide emergency roadside assistance and breakdown support across Delhi NCR. You can book directly online or call our technician helpline.",
     },
-    {
-      q: "Do you service Royal Enfield bikes at home?",
-      a: "Yes. Our certified mechanics service Royal Enfield motorcycles, including the Classic, Bullet, Meteor, and Himalayan, at your doorstep."
-    }
   ];
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .services-new-page {
-          --ink:#1E293B;
+          --ink:#0F172A;
           --asphalt:#17181A;
-          --steel:#5C7A93;
+          --steel:#475569;
           --paper:#FFFFFF;
           --paper-dim:#F8FAFC;
           --orange:#e62b2b;
@@ -90,7 +130,7 @@ export default function ServicesClientPage() {
           --grey:#64748B;
           --line: rgba(0,0,0,0.08);
           --line-dark: #E2E8F0;
-          --radius: 4px;
+          --radius: 8px;
           
           background: var(--paper);
           color: var(--ink);
@@ -102,88 +142,36 @@ export default function ServicesClientPage() {
         .services-new-page h1,
         .services-new-page h2,
         .services-new-page h3 {
-          font-family: 'Archivo Black', sans-serif;
-          line-height: 1.05;
+          font-family: 'Oswald', sans-serif;
+          line-height: 1.1;
           letter-spacing: -0.01em;
+          text-transform: uppercase;
         }
 
         .services-new-page .mono {
           font-family: 'JetBrains Mono', monospace;
         }
 
-        .services-new-page img,
-        .services-new-page svg {
-          display: block;
-        }
-
         .services-new-page .wrap {
           max-width: 1140px;
           margin: 0 auto;
-          padding: 0 28px;
-        }
-
-        @media (max-width: 640px) {
-          .services-new-page .wrap {
-            padding: 0 20px;
-          }
-        }
-
-        .services-new-page :focus-visible {
-          outline: 3px solid var(--orange);
-          outline-offset: 2px;
-        }
-
-        /* ---------- TICKET PERFORATION DIVIDER ---------- */
-        .services-new-page .perf {
-          position: relative;
-          height: 28px;
-          background: var(--paper);
-        }
-
-        .services-new-page .perf::before {
-          content: "";
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 1px;
-          border-top: 2px dashed var(--line-dark);
-        }
-
-        .services-new-page .perf-dark::before {
-          border-top-color: var(--line);
-        }
-
-        .services-new-page .perf-dark {
-          background: var(--asphalt);
-        }
-
-        .services-new-page .perf::after {
-          content: "";
-          position: absolute;
-          left: -14px; right: -14px; top: -14px;
-          height: 28px;
-          background-image: radial-gradient(circle 7px, var(--paper) 99%, transparent 100%);
-          background-size: 28px 28px;
-          background-position: 0 0;
-          background-repeat: repeat-x;
-        }
-
-        .services-new-page .perf-dark::after {
-          background-image: radial-gradient(circle 7px, var(--asphalt) 99%, transparent 100%);
+          padding: 0 24px;
         }
 
         /* ---------- HERO ---------- */
         .services-new-page .hero {
           background: var(--asphalt);
-          color: var(--paper);
+          color: #FFFFFF;
           padding: 110px 0 72px;
           position: relative;
           overflow: hidden;
+          border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .services-new-page .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background-image: repeating-linear-gradient(135deg, rgba(255,90,31,0.05) 0 2px, transparent 2px 14px);
+          background-image: repeating-linear-gradient(135deg, rgba(230,43,43,0.08) 0 2px, transparent 2px 14px);
           pointer-events: none;
         }
 
@@ -192,6 +180,8 @@ export default function ServicesClientPage() {
           grid-template-columns: 1fr;
           gap: 40px;
           align-items: center;
+          position: relative;
+          z-index: 1;
         }
 
         @media (min-width: 880px) {
@@ -207,27 +197,19 @@ export default function ServicesClientPage() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--orange);
-          background: rgba(255,90,31,0.12);
-          border: 1px solid rgba(255,90,31,0.4);
-          padding: 6px 10px;
-          border-radius: var(--radius);
+          background: rgba(230,43,43,0.12);
+          border: 1px solid rgba(230,43,43,0.3);
+          padding: 6px 12px;
+          border-radius: 9999px;
           margin-bottom: 20px;
-        }
-
-        .services-new-page .eyebrow .dot {
-          width: 6px; height: 6px; border-radius: 50%;
-          background: var(--orange);
-          animation: pulse 1.8s infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
+          font-weight: 700;
         }
 
         .services-new-page .hero h1 {
           font-size: clamp(34px, 5.2vw, 56px);
           margin-bottom: 18px;
+          color: #FFFFFF;
+          font-weight: 900;
         }
 
         .services-new-page .hero h1 em {
@@ -237,8 +219,8 @@ export default function ServicesClientPage() {
 
         .services-new-page .hero p.lead {
           font-size: 18px;
-          color: #C9CCD1;
-          max-width: 480px;
+          color: #A7A9AC;
+          max-width: 520px;
           margin-bottom: 30px;
         }
 
@@ -248,80 +230,85 @@ export default function ServicesClientPage() {
 
         .services-new-page .btn {
           display: inline-flex; align-items: center; gap: 8px;
-          padding: 14px 22px;
+          padding: 14px 26px;
           font-weight: 700;
-          font-size: 15px;
-          border-radius: var(--radius);
+          font-size: 14px;
+          border-radius: 6px;
           transition: transform .15s, box-shadow .15s;
+          text-transform: uppercase;
+          font-family: 'JetBrains Mono', monospace;
+          letter-spacing: 0.04em;
         }
 
         .services-new-page .btn-primary {
           background: var(--orange);
-          color: var(--ink);
+          color: #FFFFFF;
+          box-shadow: 0 4px 20px rgba(230,43,43,0.35);
         }
 
         .services-new-page .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 0 var(--orange-deep);
+          background: var(--orange-deep);
         }
 
         .services-new-page .btn-ghost {
-          border: 1px solid var(--line);
-          color: var(--paper);
+          border: 1px solid rgba(255,255,255,0.2);
+          color: #FFFFFF;
+          background: rgba(255,255,255,0.05);
         }
 
         .services-new-page .btn-ghost:hover {
-          border-color: var(--paper);
+          border-color: #FFFFFF;
+          background: rgba(255,255,255,0.15);
         }
 
         .services-new-page .trust-row {
-          display: flex; gap: 22px; margin-top: 34px; flex-wrap: wrap;
-          font-size: 13px; color: #9DA1A7;
+          display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap;
+          font-size: 13px; color: #A7A9AC; font-family: 'JetBrains Mono', monospace;
         }
 
         .services-new-page .trust-row b {
-          color: var(--paper); font-weight: 700;
+          color: #FFFFFF; font-weight: 700; font-size: 15px;
         }
 
-        /* ---------- SERVICE TICKET CARD ---------- */
+        /* ---------- TICKET CARD ---------- */
         .services-new-page .ticket {
-          background: var(--paper);
+          background: #F8FAFC;
           color: var(--ink);
-          border-radius: var(--radius);
+          border-radius: 12px;
+          border: 1px solid var(--line-dark);
           box-shadow: 0 24px 60px rgba(0,0,0,0.35);
           position: relative;
-          transform: rotate(-1.4deg);
+          padding: 24px;
         }
 
         .services-new-page .ticket-top {
           display: flex; justify-content: space-between; align-items: flex-start;
-          padding: 20px 22px 16px;
+          padding-bottom: 16px;
           border-bottom: 2px dashed var(--line-dark);
+          margin-bottom: 16px;
         }
 
         .services-new-page .ticket-top .tnum {
-          font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--grey);
+          font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--grey); font-weight: 700;
         }
 
         .services-new-page .ticket-top .stamp {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 700;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.08em;
           color: #1F7A3D;
-          border: 2px solid #1F7A3D;
-          padding: 4px 8px;
-          border-radius: var(--radius);
-          transform: rotate(8deg);
-        }
-
-        .services-new-page .ticket-body {
-          padding: 18px 22px 22px;
+          background: #DCFCE7;
+          border: 1px solid #86EFAC;
+          padding: 4px 10px;
+          border-radius: 9999px;
+          text-transform: uppercase;
         }
 
         .services-new-page .ticket-row {
           display: flex; justify-content: space-between;
-          font-size: 14px; padding: 9px 0;
+          font-size: 14px; padding: 10px 0;
           border-bottom: 1px solid var(--line-dark);
         }
 
@@ -330,43 +317,51 @@ export default function ServicesClientPage() {
         }
 
         .services-new-page .ticket-row .label {
-          color: var(--grey);
+          color: var(--grey); font-size: 13px; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;
         }
 
         .services-new-page .ticket-row .val {
-          font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px;
+          font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink);
         }
 
         .services-new-page .ticket-foot {
           display: flex; justify-content: space-between; align-items: center;
-          margin-top: 14px; padding-top: 14px; border-top: 2px dashed var(--line-dark);
+          margin-top: 16px; padding-top: 16px; border-top: 2px dashed var(--line-dark);
         }
 
         .services-new-page .ticket-foot .total-label {
-          font-size: 12px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.05em;
+          font-size: 12px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.05em; font-family: 'JetBrains Mono', monospace;
         }
 
         .services-new-page .ticket-foot .total-val {
-          font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 20px; color: var(--orange-deep);
+          font-family: 'JetBrains Mono', monospace; font-weight: 900; font-size: 24px; color: var(--orange);
         }
 
         /* ---------- SECTION SCAFFOLDING ---------- */
         .services-new-page section {
-          padding: 64px 0;
+          padding: 72px 0;
+          border-bottom: 1px solid var(--line-dark);
+          background: #FFFFFF;
+        }
+
+        .services-new-page section.alt-section {
+          background: #F8FAFC;
         }
 
         .services-new-page .section-head {
-          margin-bottom: 36px; max-width: 640px;
+          margin-bottom: 40px; max-width: 640px;
         }
 
         .services-new-page .tag {
           font-family: 'JetBrains Mono', monospace;
           font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-          color: var(--orange-deep); margin-bottom: 10px; display: block;
+          color: var(--orange); margin-bottom: 10px; display: block; font-weight: 700;
         }
 
         .services-new-page .section-head h2 {
-          font-size: clamp(26px, 3.4vw, 38px);
+          font-size: clamp(28px, 3.6vw, 40px);
+          color: var(--ink);
+          font-weight: 900;
         }
 
         .services-new-page .section-head p {
@@ -375,28 +370,26 @@ export default function ServicesClientPage() {
 
         /* OVERVIEW */
         .services-new-page .overview-grid {
-          display: grid; gap: 28px; grid-template-columns: 1fr;
+          display: grid; gap: 32px; grid-template-columns: 1fr;
         }
 
         @media (min-width: 760px) {
           .services-new-page .overview-grid {
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
           }
         }
 
         .services-new-page .overview-grid p {
-          font-size: 16px; color: #3A3F47;
+          font-size: 16px; color: #334155; line-height: 1.7;
         }
 
         .services-new-page .spec-box {
-          background: var(--ink);
-          color: var(--paper);
-          border-radius: var(--radius);
-          padding: 24px;
-        }
-
-        .services-new-page .spec-box .tag {
-          color: var(--orange);
+          background: #F8FAFC;
+          color: var(--ink);
+          border-radius: 12px;
+          padding: 28px;
+          border: 1px solid var(--line-dark);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .services-new-page .spec-list {
@@ -405,8 +398,8 @@ export default function ServicesClientPage() {
 
         .services-new-page .spec-list li {
           display: flex; justify-content: space-between;
-          font-size: 14px; padding: 9px 0;
-          border-bottom: 1px solid var(--line);
+          font-size: 14px; padding: 11px 0;
+          border-bottom: 1px solid var(--line-dark);
         }
 
         .services-new-page .spec-list li:last-child {
@@ -414,92 +407,88 @@ export default function ServicesClientPage() {
         }
 
         .services-new-page .spec-list .v {
-          font-family: 'JetBrains Mono', monospace; color: var(--orange);
+          font-family: 'JetBrains Mono', monospace; color: var(--ink); font-weight: 700;
         }
 
         /* WHY CHOOSE */
         .services-new-page .why-grid {
-          display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
         .services-new-page .why-card {
-          background: var(--paper-dim);
+          background: #FFFFFF;
+          border: 1px solid var(--line-dark);
           border-left: 4px solid var(--orange);
-          padding: 20px 18px;
-          border-radius: var(--radius);
+          padding: 24px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .services-new-page .why-card .num {
-          font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--orange-deep); display: block; margin-bottom: 8px;
+          font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--orange); display: block; margin-bottom: 8px; font-weight: 700;
         }
 
         .services-new-page .why-card h3 {
-          font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px;
+          font-size: 18px; font-weight: 900; margin-bottom: 8px; color: var(--ink);
         }
 
         .services-new-page .why-card p {
-          font-size: 14px; color: var(--grey);
+          font-size: 14px; color: var(--grey); line-height: 1.6;
         }
 
         /* HOW IT WORKS */
         .services-new-page .steps {
-          display: grid; gap: 0; grid-template-columns: 1fr;
-          border: 1px solid var(--line-dark);
-          border-radius: var(--radius);
-          overflow: hidden;
-        }
-
-        @media (min-width: 760px) {
-          .services-new-page .steps {
-            grid-template-columns: repeat(4, 1fr);
-          }
+          display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         }
 
         .services-new-page .step {
-          padding: 26px 22px;
-          border-bottom: 1px solid var(--line-dark);
-          position: relative;
-        }
-
-        @media (min-width: 760px) {
-          .services-new-page .step {
-            border-bottom: none; border-right: 1px solid var(--line-dark);
-          }
-          .services-new-page .step:last-child {
-            border-right: none;
-          }
-        }
-
-        .services-new-page .step:last-child {
-          border-bottom: none;
+          background: #FFFFFF;
+          border: 1px solid var(--line-dark);
+          border-radius: 12px;
+          padding: 24px;
         }
 
         .services-new-page .step .stepnum {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 12px; color: var(--orange-deep); font-weight: 700;
-          display: block; margin-bottom: 10px;
+          font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--orange); display: block; margin-bottom: 8px;
         }
 
         .services-new-page .step h3 {
-          font-family: 'Work Sans'; font-size: 16px; font-weight: 700; margin-bottom: 6px;
+          font-size: 18px; font-weight: 900; color: var(--ink); margin-bottom: 8px;
         }
 
         .services-new-page .step p {
-          font-size: 13.5px; color: var(--grey);
+          font-size: 14px; color: var(--grey); line-height: 1.6;
         }
 
-        /* BRANDS */
-        .services-new-page .brand-tags {
-          display: flex; flex-wrap: wrap; gap: 10px;
+        /* SERVICES GRID */
+        .services-new-page .related-grid {
+          display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
-        .services-new-page .brand-tag {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 13px;
-          border: 1px solid var(--ink);
-          padding: 8px 14px;
-          border-radius: var(--radius);
-          background: var(--paper);
+        .services-new-page .related-card {
+          border: 1px solid var(--line-dark);
+          border-radius: 12px;
+          padding: 28px;
+          transition: border-color .2s, transform .2s, box-shadow .2s;
+          background: #FFFFFF;
+          display: flex; flex-col; justify-between;
+        }
+
+        .services-new-page .related-card:hover {
+          border-color: var(--orange); transform: translateY(-3px);
+          box-shadow: 0 12px 24px -10px rgba(0,0,0,0.08);
+        }
+
+        .services-new-page .related-card .icon-mono {
+          font-family: 'JetBrains Mono', monospace; color: var(--orange); font-size: 12px; font-weight: 700; display: block; margin-bottom: 12px;
+        }
+
+        .services-new-page .related-card h3 {
+          font-size: 20px; font-weight: 900; margin-bottom: 8px; color: var(--ink);
+        }
+
+        .services-new-page .related-card p {
+          font-size: 14px; color: var(--grey); line-height: 1.6; margin-bottom: 16px;
         }
 
         /* AREAS */
@@ -507,25 +496,17 @@ export default function ServicesClientPage() {
           display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); font-size: 14px;
         }
 
-        .services-new-page .area-cities {
-          display: grid; gap: 32px; grid-template-columns: 1fr;
-        }
-
-        @media (min-width: 760px) {
-          .services-new-page .area-cities {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-
         .services-new-page .area-item {
           padding: 10px 14px;
-          background: var(--paper-dim);
-          border-radius: var(--radius);
+          background: #FFFFFF;
+          border: 1px solid var(--line-dark);
+          border-radius: 6px;
           display: flex; align-items: center; gap: 8px;
+          font-size: 13px; font-weight: 600; color: var(--ink);
         }
 
         .services-new-page .area-item::before {
-          content: "●"; color: var(--orange); font-size: 10px;
+          content: "●"; color: var(--orange); font-size: 8px;
         }
 
         /* REVIEWS */
@@ -540,38 +521,48 @@ export default function ServicesClientPage() {
         }
 
         .services-new-page .review-card {
-          background: var(--ink); color: var(--paper);
-          padding: 22px; border-radius: var(--radius);
+          background: #FFFFFF; color: var(--ink);
+          padding: 24px; border-radius: 12px;
+          border: 1px solid var(--line-dark);
         }
 
         .services-new-page .stars {
-          color: var(--orange); font-size: 14px; margin-bottom: 10px; letter-spacing: 2px;
+          color: #F59E0B; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px;
         }
 
         .services-new-page .review-card p {
-          font-size: 14.5px; color: #C9CCD1; margin-bottom: 14px;
+          font-size: 14.5px; color: #334155; margin-bottom: 16px; line-height: 1.6;
         }
 
         .services-new-page .review-meta {
-          display: flex; justify-content: space-between; font-size: 12px; color: var(--grey); font-family: 'JetBrains Mono', monospace;
+          display: flex; justify-content: space-between; font-size: 12px; color: var(--grey); font-family: 'JetBrains Mono', monospace; font-weight: 700;
         }
 
         /* FAQ */
         .services-new-page .faq-item {
-          border-bottom: 1px solid var(--line-dark);
+          border: 1px solid var(--line-dark);
+          border-radius: 8px;
+          margin-bottom: 12px;
+          background: #FFFFFF;
+          overflow: hidden;
         }
 
         .services-new-page .faq-q {
           width: 100%;
           display: flex; justify-content: space-between; align-items: center;
           background: none; border: none; cursor: pointer;
-          padding: 18px 0; text-align: left;
-          font-size: 16px; font-weight: 600; color: var(--ink);
-          font-family: 'Work Sans', sans-serif;
+          padding: 18px 24px; text-align: left;
+          font-size: 17px; font-weight: 900; color: var(--ink);
+          font-family: 'Oswald', sans-serif;
+          text-transform: uppercase;
         }
 
         .services-new-page .faq-q .icon {
-          font-family: 'JetBrains Mono', monospace; color: var(--orange-deep); font-size: 18px; transition: transform .2s;
+          font-family: 'JetBrains Mono', monospace; color: var(--orange); font-size: 20px; transition: transform .2s; font-weight: 700;
+        }
+
+        .services-new-page .faq-item.open {
+          border-color: var(--orange);
         }
 
         .services-new-page .faq-item.open .faq-q .icon {
@@ -580,434 +571,384 @@ export default function ServicesClientPage() {
 
         .services-new-page .faq-a {
           max-height: 0; overflow: hidden; transition: max-height .25s ease;
-          font-size: 14.5px; color: var(--grey);
+          font-size: 14.5px; color: var(--grey); line-height: 1.6;
         }
 
         .services-new-page .faq-item.open .faq-a {
-          padding-bottom: 18px;
-        }
-
-        /* RELATED SERVICES */
-        .services-new-page .related-grid {
-          display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        .services-new-page .related-card {
-          border: 1px solid var(--line-dark);
-          border-radius: var(--radius);
-          padding: 20px;
-          transition: border-color .15s, transform .15s;
-          background: var(--paper);
-        }
-
-        .services-new-page .related-card:hover {
-          border-color: var(--orange); transform: translateY(-2px);
-        }
-
-        .services-new-page .related-card .icon-mono {
-          font-family: 'JetBrains Mono', monospace; color: var(--orange-deep); font-size: 12px; display: block; margin-bottom: 10px;
-        }
-
-        .services-new-page .related-card h3 {
-          font-family: 'Work Sans'; font-size: 15px; font-weight: 700; margin-bottom: 6px;
-        }
-
-        .services-new-page .related-card p {
-          font-size: 13px; color: var(--grey);
+          padding: 0 24px 20px 24px;
         }
 
         /* FINAL CTA */
         .services-new-page .final-cta {
-          background: var(--asphalt); color: var(--paper);
-          text-align: center; padding: 70px 0;
+          background: var(--asphalt); color: #FFFFFF;
+          text-align: center; padding: 80px 0; border-bottom: none;
         }
 
         .services-new-page .final-cta h2 {
-          font-size: clamp(26px, 4vw, 42px); margin-bottom: 14px;
+          font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; color: #FFFFFF; font-weight: 900;
         }
 
         .services-new-page .final-cta p {
-          color: #C9CCD1; margin-bottom: 28px; font-size: 16px;
+          color: #A7A9AC; margin-bottom: 32px; font-size: 17px; max-width: 600px; margin-left: auto; margin-right: auto;
         }
-      ` }} />
+      ` }}
+      />
 
       <div className="services-new-page">
         {/* HERO */}
         <header className="hero">
           <div className="wrap hero-grid">
             <div>
-              <div className="eyebrow"><span className="dot"></span> Bike mechanic at home — Delhi & Gurugram</div>
-              <h1>Doorstep Bike Repair Service in <em>Delhi NCR</em></h1>
-              <p className="lead">Verified bike mechanics arrive at your home or office and fix your bike on the spot. No pushing it to a garage, no waiting in queues.</p>
+              <div className="eyebrow">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span>Bike Mechanic at Home — Delhi NCR</span>
+              </div>
+              <h1>
+                Doorstep Bike Repair Service in <em>Delhi NCR</em>
+              </h1>
+              <p className="lead">
+                Verified bike mechanics arrive at your home or office with genuine parts and diagnostic tools. No towing, no waiting in garage queues.
+              </p>
               <div className="btn-row">
-                <Link href="/book" className="btn btn-primary font-sans">Book a Mechanic →</Link>
-                <a href="#how" className="btn btn-ghost font-sans">See how it works</a>
+                <Link href="/book" className="btn btn-primary font-sans">
+                  Book Doorstep Service →
+                </Link>
+                <a href="#pricing" className="btn btn-ghost font-sans">
+                  View All Services
+                </a>
               </div>
               <div className="trust-row">
-                <span><b>45 min</b> fast response</span>
-                <span><b>473+</b> total vehicles serviced</span>
-                <span><b>4.7★</b> customer rating</span>
+                <span>
+                  <b>45 MIN</b> Arrival
+                </span>
+                <span>
+                  <b>473+</b> Serviced
+                </span>
+                <span>
+                  <b>4.7 ★</b> Rating
+                </span>
+                <span>
+                  <b>15 DAYS</b> Warranty
+                </span>
               </div>
             </div>
 
             <div className="ticket font-sans">
               <div className="ticket-top">
                 <div>
-                  <div className="tnum">JOB #FW-10472</div>
+                  <div className="tnum">TICKET #FW-2026-SRV</div>
+                  <div className="text-[11px] font-mono text-slate-500 font-bold mt-0.5">
+                    FIXWHEEL DOORSTEP PASS
+                  </div>
                 </div>
-                <div className="stamp font-mono">VERIFIED</div>
+                <div className="stamp">VERIFIED MECHANIC</div>
               </div>
               <div className="ticket-body">
-                <div className="ticket-row"><span className="label">Service</span><span className="val">Basic Service</span></div>
-                <div className="ticket-row"><span className="label">Model</span><span className="val">Honda Activa</span></div>
-                <div className="ticket-row"><span className="label">Mechanic</span><span className="val">Verified ✓</span></div>
-                <div className="ticket-row"><span className="label">Location</span><span className="val">At your doorstep</span></div>
-                <div className="ticket-row"><span className="label">Warranty</span><span className="val">15 days</span></div>
-                <div className="ticket-row"><span className="label">Status</span><span className="val" style={{ color: '#1F7A3D' }}>Completed ✓</span></div>
+                <div className="ticket-row">
+                  <span className="label">SERVICE TYPE</span>
+                  <span className="val">Periodic & Repair</span>
+                </div>
+                <div className="ticket-row">
+                  <span className="label">COVERAGE</span>
+                  <span className="val">Delhi NCR</span>
+                </div>
+                <div className="ticket-row">
+                  <span className="label">LOCATION</span>
+                  <span className="val">Home / Office</span>
+                </div>
+                <div className="ticket-row">
+                  <span className="label">WARRANTY</span>
+                  <span className="val">15 Days Labor</span>
+                </div>
+                <div className="ticket-row">
+                  <span className="label">STATUS</span>
+                  <span className="val" style={{ color: "#16A34A" }}>
+                    READY TO DISPATCH ✓
+                  </span>
+                </div>
                 <div className="ticket-foot">
-                  <span className="total-label">Total paid</span>
-                  <span className="total-val font-mono">₹499</span>
+                  <span className="total-label">STARTING AT</span>
+                  <span className="total-val">₹499</span>
                 </div>
               </div>
             </div>
           </div>
         </header>
 
-        <div className="perf perf-dark"></div>
-
-        {/* OVERVIEW */}
-        <section className="bg-[#F4F1EA]">
+        {/* OVERVIEW SECTION */}
+        <section className="bg-white">
           <div className="wrap overview-grid">
             <div>
-              <span className="tag">What's included</span>
-              <h2 style={{ fontSize: '30px', marginBottom: '14px' }}>Home bike service in Delhi NCR — all repairs, one visit</h2>
-              <p>Our mechanics carry the tools and genuine-grade parts needed to handle most two-wheeler repairs in a single visit — engine servicing, oil changes, battery checks, tyre work, and brake adjustments — right outside your home, office, or wherever your bike is parked in Delhi or Gurugram.</p>
-              <p style={{ marginTop: '14px' }}>Doorstep bike repair means exactly that: you don't drive anywhere, you don't wait in a queue, and you don't hand your bike to someone you've never met. Book a slot, share your location, and a verified bike mechanic comes to you — whether that's your home parking, office basement, or the roadside if you've broken down mid-commute.</p>
-              <p style={{ marginTop: '14px' }}>If a part needs replacing, we quote it upfront before any work begins. No hidden charges, no surprise bills.</p>
+              <span className="tag">WHAT'S INCLUDED</span>
+              <h2 className="text-3xl font-black text-slate-900 mb-4">
+                Doorstep Two-Wheeler Repair — All Services at Your Location
+              </h2>
+              <p className="mb-4">
+                FixWheel brings certified motorcycle and scooter mechanics directly to your doorstep across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Our mobile units carry high-grade diagnostic tools, OEM replacement parts, and eco-friendly cleaning supplies.
+              </p>
+              <p className="mb-4">
+                Whether you need a quick engine oil swap for your Honda Activa, tappet valve tuning for your Royal Enfield, or emergency roadside puncture repair, we execute everything on the spot inside your home or office parking.
+              </p>
+              <p>
+                Every service comes with upfront transparent quotes, zero doorstep visit fees, and a 15-day labor guarantee.
+              </p>
             </div>
+
             <div className="spec-box font-sans">
-              <span className="tag">Service snapshot</span>
+              <span className="tag">SERVICE SNAPSHOT</span>
               <ul className="spec-list">
-                <li><span>Avg. visit time</span><span className="v">35–50 min</span></li>
-                <li><span>Mechanics on call</span><span className="v">40+</span></li>
-                <li><span>Coverage</span><span className="v">Delhi & Gurugram</span></li>
-                <li><span>Booking</span><span className="v">App / Call</span></li>
-                <li><span>Warranty on labour</span><span className="v">15 days</span></li>
-                <li><span>Starting price</span><span className="v">₹499</span></li>
+                <li>
+                  <span>Avg. Doorstep Arrival</span>
+                  <span className="v">45 Minutes</span>
+                </li>
+                <li>
+                  <span>Mechanics Network</span>
+                  <span className="v">40+ Certified</span>
+                </li>
+                <li>
+                  <span>Service Area</span>
+                  <span className="v">Entire Delhi NCR</span>
+                </li>
+                <li>
+                  <span>Parts Policy</span>
+                  <span className="v">100% Genuine OEM</span>
+                </li>
+                <li>
+                  <span>Labor Warranty</span>
+                  <span className="v">15 Days</span>
+                </li>
+                <li>
+                  <span>Starting Rate</span>
+                  <span className="v">₹499</span>
+                </li>
               </ul>
             </div>
           </div>
         </section>
 
-        <div className="perf"></div>
-
-        {/* WHY CHOOSE */}
-        <section style={{ backgroundColor: 'var(--paper-dim)' }}>
+        {/* WHY CHOOSE FIXWHEEL */}
+        <section className="alt-section">
           <div className="wrap">
             <div className="section-head">
-              <span className="tag">Why FixWheel</span>
-              <h2>Why choose FixWheel for bike repair at home in Delhi NCR</h2>
+              <span className="tag">WHY FIXWHEEL</span>
+              <h2>Why Riders Choose FixWheel Doorstep Service</h2>
             </div>
             <div className="why-grid font-sans">
-              <div className="why-card"><span className="num">01</span><h3>True doorstep service</h3><p>Mechanic comes to your home, office, or wherever your bike's parked — no pushing it anywhere.</p></div>
-              <div className="why-card"><span className="num">02</span><h3>Verified mechanics</h3><p>Background-checked and trained before joining the platform.</p></div>
-              <div className="why-card"><span className="num">03</span><h3>Transparent pricing</h3><p>Price confirmed before work starts. You pay exactly what was quoted.</p></div>
-              <div className="why-card"><span className="num">04</span><h3>Fast response</h3><p>Our mechanic reaches your location within 45 minutes.</p></div>
+              <div className="why-card">
+                <span className="num">01</span>
+                <h3>True Doorstep Service</h3>
+                <p>
+                  Mechanics come directly to your home parking or office basement. No towing or waiting in garage queues.
+                </p>
+              </div>
+              <div className="why-card">
+                <span className="num">02</span>
+                <h3>Verified Mechanics</h3>
+                <p>
+                  Background-checked and certified technicians trained on Honda, Hero, Royal Enfield, TVS, and EVs.
+                </p>
+              </div>
+              <div className="why-card">
+                <span className="num">03</span>
+                <h3>Transparent Upfront Rates</h3>
+                <p>
+                  Exact prices confirmed before any work begins. Zero hidden visiting fees or surprise bills.
+                </p>
+              </div>
+              <div className="why-card">
+                <span className="num">04</span>
+                <h3>45-Min Fast Dispatch</h3>
+                <p>
+                  Nearest mobile technician assigned and dispatched to your exact GPS location within 45 minutes.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* HOW IT WORKS */}
-        <section id="how" className="bg-[#F4F1EA]">
+        <section id="how" className="bg-white">
           <div className="wrap">
             <div className="section-head">
-              <span className="tag">How it works</span>
-              <h2>How doorstep bike repair works — 4 steps, no garage visit</h2>
+              <span className="tag">HOW IT WORKS</span>
+              <h2>4 Simple Steps to Get Your Bike Serviced</h2>
             </div>
             <div className="steps font-sans">
-              <div className="step"><span className="stepnum font-mono">STEP 1</span><h3>Book</h3><p>Pick your service and time slot on the app or by phone.</p></div>
-              <div className="step"><span className="stepnum font-mono">STEP 2</span><h3>Get matched</h3><p>A verified mechanic near you is assigned and dispatched.</p></div>
-              <div className="step"><span className="stepnum font-mono">STEP 3</span><h3>Service done</h3><p>Repair happens at your location while you carry on with your day.</p></div>
-              <div className="step"><span className="stepnum font-mono">STEP 4</span><h3>Pay & rate</h3><p>Pay only the quoted price, then rate the mechanic.</p></div>
+              <div className="step">
+                <span className="stepnum">STEP 1</span>
+                <h3>Book Service</h3>
+                <p>Select your bike model and preferred time slot in 60 seconds online or by phone.</p>
+              </div>
+              <div className="step">
+                <span className="stepnum">STEP 2</span>
+                <h3>Mechanic Dispatched</h3>
+                <p>A nearby certified technician is assigned and arrives at your location with OEM tools.</p>
+              </div>
+              <div className="step">
+                <span className="stepnum">STEP 3</span>
+                <h3>Doorstep Repair</h3>
+                <p>Watch full servicing done in your parking space with zero mess or hassle.</p>
+              </div>
+              <div className="step">
+                <span className="stepnum">STEP 4</span>
+                <h3>Test Drive & Pay</h3>
+                <p>Take a test ride, inspect replaced parts, and pay digitally with a 15-day warranty.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <div className="perf"></div>
-
-        {/* SERVICES & PRICING */}
-        <section id="pricing" className="bg-[#F4F1EA]">
+        {/* SERVICES CATALOG & PRICING */}
+        <section id="pricing" className="alt-section">
           <div className="wrap">
             <div className="section-head">
-              <span className="tag">Services & pricing</span>
-              <h2>Bike repair & service packages — doorstep, Delhi NCR</h2>
-              <p>All services are performed at your home or office across Delhi & Gurugram. Pricing varies by bike type and model — click any service to see your exact rate.</p>
+              <span className="tag">ALL SERVICES & CATALOG</span>
+              <h2>Two-Wheeler Service Packages in Delhi NCR</h2>
+              <p>
+                Select a service below to view detailed checklist items, FAQs, and transparent doorstep pricing.
+              </p>
             </div>
+
             <div className="related-grid font-sans">
-              <Link href="/services/basic-service" className="related-card">
-                <span className="icon-mono">[BASIC]</span>
-                <h3>Basic Service</h3>
-                <p>Brake adjustment, chain lube, spark plug clean, air filter check, electrical check. Keeps your daily commuter running reliably.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/oil-change" className="related-card">
-                <span className="icon-mono">[OIL]</span>
-                <h3>Engine Oil Change</h3>
-                <p>Old oil drained and disposed, fresh OEM-grade oil refilled, oil filter inspection, spark plug check and chain lubrication.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/engine-repair" className="related-card">
-                <span className="icon-mono">[ENGINE]</span>
-                <h3>Engine Repair</h3>
-                <p>Full engine diagnosis, fault repair and component inspection done at your doorstep by a verified mechanic.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/tyre-replacement" className="related-card">
-                <span className="icon-mono">[TYRE]</span>
-                <h3>Tyre Replacement</h3>
-                <p>Flat tyre repair or full tyre replacement on the spot — wherever you're parked or stranded.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/brake-repair" className="related-card">
-                <span className="icon-mono">[BRAKE]</span>
-                <h3>Brake Repair</h3>
-                <p>Brake pad or shoe replacement, brake cable adjustment, and clutch repair at your doorstep.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/battery-replacement" className="related-card">
-                <span className="icon-mono">[BATTERY]</span>
-                <h3>Battery Replacement</h3>
-                <p>Battery testing, jump-start assistance, and full replacement using standard-spec batteries.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/general-washing" className="related-card">
-                <span className="icon-mono">[WASH]</span>
-                <h3>General Washing</h3>
-                <p>Full bike wash and cleaning at your location — no need to visit a wash station.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/services/comprehensive-service" className="related-card">
-                <span className="icon-mono">[FULL]</span>
-                <h3>Comprehensive Service</h3>
-                <p>Full-bike service in one visit — engine, brakes, tyres, electricals, and wash covered.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>View pricing →</span>
-              </Link>
-              <Link href="/book/checkout" className="related-card" style={{ borderColor: 'var(--orange)', background: 'rgba(255,90,31,0.04)' }}>
-                <span className="icon-mono">[SOS]</span>
-                <h3>Emergency Roadside Assistance</h3>
-                <p>Stuck on the road? We dispatch a mechanic to your exact location across Delhi & Gurugram — available 24/7.</p>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange-deep)', marginTop: '10px', display: 'block' }}>Book emergency help →</span>
-              </Link>
-            </div>
-            <p className="price-note" style={{ marginTop: '22px' }}>Exact pricing depends on your bike type and model — select a service above to see your rate, or <Link href="/book" style={{ color: 'var(--orange-deep)', textDecoration: 'underline' }}>book directly here</Link>.</p>
-          </div>
-        </section>
-
-        {/* ORIGINAL SERVICE CATEGORIES (Kept as requested) */}
-        <section className="bg-[var(--paper-dim)] text-[var(--ink)] py-16">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="relative flex py-5 items-center mb-12">
-              <div className="flex-grow border-t border-[var(--line-dark)]"></div>
-              <span className="flex-shrink mx-4 text-[var(--grey)] font-bold text-xs uppercase tracking-widest font-mono">
-                Service Categories
-              </span>
-              <div className="flex-grow border-t border-[var(--line-dark)]"></div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
               {staticServices.map((service, index) => (
-                <div 
-                  key={index}
-                  className="bg-white rounded-[2rem] p-6 md:p-8 text-black shadow-2xl relative overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
-                >
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
-                  
+                <Link key={index} href={service.link} className="related-card group">
                   <div>
-                    <div className="w-16 h-16 bg-gray-50 border border-gray-100 rounded-2xl flex flex-col items-center justify-center shadow-inner p-2 text-center mb-6">
-                      <img src="/logo.png" alt="FixWheel Logo" className="w-6 h-6 object-contain mb-0.5 transform -rotate-12" />
-                      <span className="font-black text-[8px] tracking-tighter text-black uppercase leading-tight">
-                        <span className="text-accent">Fix</span>Wheel
-                      </span>
-                    </div>
-                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-wide mb-3 leading-tight font-sans">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium font-sans">
-                      {service.desc}
-                    </p>
+                    <span className="icon-mono">[{service.name.toUpperCase().slice(0, 8)}]</span>
+                    <h3>{service.name}</h3>
+                    <p>{service.desc}</p>
                   </div>
-
-                  <div className="border-t border-gray-100 pt-5 mt-auto">
-                    <Link
-                      href={service.link}
-                      className="inline-flex items-center gap-2 text-accent hover:text-red-600 font-bold uppercase tracking-wider text-xs transition-colors"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 mt-auto">
+                    <span className="text-xs font-mono font-bold text-slate-500 uppercase">Starting</span>
+                    <span className="text-base font-mono font-extrabold text-[#e62b2b]">
+                      {service.price} →
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* VEHICLE TYPES */}
-        <section style={{ backgroundColor: 'var(--paper-dim)' }}>
+        {/* SERVICE AREAS */}
+        <section id="areas" className="bg-white">
           <div className="wrap">
             <div className="section-head">
-              <span className="tag">Vehicle types we service</span>
-              <h2>Scooter, bike, EV & sports — we service every two-wheeler type</h2>
-              <p>Pricing and packages are tailored to your specific vehicle type — select yours when booking via the FixWheel app.</p>
-            </div>
-            <div className="brand-tags font-sans">
-              <span className="brand-tag">🛵 Scooter</span>
-              <span className="brand-tag">🏍️ Bike</span>
-              <span className="brand-tag">⚡ EV Scooter</span>
-              <span className="brand-tag">⚡ EV Bike</span>
-              <span className="brand-tag">🏁 Sports Bike</span>
-              <span className="brand-tag">🔵 Royal Enfield</span>
-              <span className="brand-tag">+ all other types</span>
-            </div>
-          </div>
-        </section>
-
-        {/* AREAS */}
-        <section id="areas" className="bg-[#F4F1EA]">
-          <div className="wrap">
-            <div className="section-head">
-              <span className="tag">Service areas</span>
-              <h2>Bike repair at home — Delhi & Gurugram service areas</h2>
-              <p>We cover major localities across both cities. Doorstep bike mechanic dispatched to your exact address — home, office, or roadside.</p>
+              <span className="tag">COVERAGE</span>
+              <h2>Service Areas Across Delhi NCR</h2>
+              <p>Doorstep bike mechanics ready for instant dispatch across major cities.</p>
             </div>
 
-            <div className="area-cities font-sans">
-              {/* GURUGRAM */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
+              {/* GURGAON */}
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', fontWeight: '700', letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--orange-deep)', background: 'var(--paper-dim)', padding: '5px 10px', borderRadius: '2px' }}>Gurugram</span>
-                  <span style={{ fontSize: '13px', color: 'var(--grey)' }}>Entire Gurugram covered</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                    Gurgaon / Gurugram
+                  </span>
+                  <span className="text-xs text-slate-500 font-mono">100% Coverage</span>
                 </div>
                 <div className="area-grid">
-                  <div className="area-item">Palam Vihar</div>
-                  <div className="area-item">Ashok Vihar</div>
+                  <div className="area-item">DLF Phase 1–5</div>
                   <div className="area-item">Golf Course Road</div>
                   <div className="area-item">Sushant Lok</div>
+                  <div className="area-item">Palam Vihar</div>
                   <div className="area-item">Sohna Road</div>
-                  <div className="area-item">Udyog Vihar</div>
-                  <div className="area-item">DLF Phase 1–5</div>
-                  <div className="area-item">Dwarka Expressway</div>
-                  <div className="area-item">South City</div>
-                  <div className="area-item">Sector 14, 15, 17</div>
-                  <div className="area-item">MG Road</div>
                   <div className="area-item">Cyber City</div>
-                  <div className="area-item">Sector 57, 58</div>
-                  <div className="area-item">Nirvana Country</div>
-                  <div className="area-item">+ all Gurugram sectors</div>
+                  <div className="area-item">Udyog Vihar</div>
+                  <div className="area-item">Dwarka Expressway</div>
+                  <div className="area-item">Sector 14, 15, 17, 56</div>
+                  <div className="area-item">+ All Gurgaon Sectors</div>
                 </div>
               </div>
 
               {/* DELHI */}
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', fontWeight: '700', letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--orange-deep)', background: 'var(--paper-dim)', padding: '5px 10px', borderRadius: '2px' }}>Delhi</span>
-                  <span style={{ fontSize: '13px', color: 'var(--grey)' }}>South & South-West Delhi focus</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                    Delhi City
+                  </span>
+                  <span className="text-xs text-slate-500 font-mono">South & West Focus</span>
                 </div>
                 <div className="area-grid">
-                  <div className="area-item">Kapasera</div>
-                  <div className="area-item">Dwarka</div>
+                  <div className="area-item">Kapashera</div>
+                  <div className="area-item">Dwarka (All Sectors)</div>
                   <div className="area-item">Vasant Kunj</div>
-                  <div className="area-item">MG Road</div>
-                  <div className="area-item">Bijwasan</div>
                   <div className="area-item">Mahipalpur</div>
-                  <div className="area-item">Rangpuri</div>
+                  <div className="area-item">Bijwasan</div>
+                  <div className="area-item">Janakpuri</div>
                   <div className="area-item">Samalka</div>
+                  <div className="area-item">Uttam Nagar</div>
                   <div className="area-item">Hari Nagar</div>
-                  <div className="area-item">Najafgarh Road</div>
-                  <div className="area-item">+ nearby areas</div>
-                </div>
-              </div>
-            </div>
-
-            {/* STORE LOCATION */}
-            <div style={{ marginTop: '40px', background: 'var(--ink)', color: 'var(--paper)', borderRadius: '2px', padding: '28px', display: 'grid', gap: '20px', gridTemplateColumns: '1fr' }}>
-              <div>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--orange)', display: 'block', marginBottom: '12px' }}>Our stores</span>
-                <h3 style={{ fontSize: '18px', marginBottom: '18px', color: 'var(--paper)' }}>Walk in or call ahead</h3>
-                <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-                  <div style={{ borderLeft: '3px solid var(--orange)', paddingLeft: '14px' }}>
-                    <div style={{ fontWeight: 700, fontSize: '15px', marginBottom: '4px' }}>Ashok Vihar Phase 3</div>
-                    <div style={{ fontSize: '13px', color: '#9DA1A7', marginBottom: '8px' }}>Ashok Vihar Phase 3, Delhi</div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange)', letterSpacing: '0.05em' }}>Get directions →</a>
-                  </div>
-                  <div style={{ borderLeft: '3px solid var(--orange)', paddingLeft: '14px' }}>
-                    <div style={{ fontWeight: 700, fontSize: '15px', marginBottom: '4px' }}>Kapashera</div>
-                    <div style={{ fontSize: '13px', color: '#9DA1A7', marginBottom: '8px' }}>Kapashera, New Delhi · 110037</div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--orange)', letterSpacing: '0.05em' }}>Get directions →</a>
-                  </div>
+                  <div className="area-item">+ Nearby Localities</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="perf perf-dark"></div>
-
-        {/* REVIEWS */}
-        <section style={{ backgroundColor: 'var(--asphalt)', color: 'var(--paper)' }}>
+        {/* CUSTOMER REVIEWS */}
+        <section className="alt-section">
           <div className="wrap">
             <div className="section-head">
-              <span className="tag" style={{ color: 'var(--orange)' }}>Customer reviews</span>
-              <h2 style={{ color: 'var(--paper)' }}>What Delhi & Gurugram riders say about FixWheel</h2>
+              <span className="tag">REVIEWS</span>
+              <h2>What Delhi NCR Riders Say About FixWheel</h2>
             </div>
             <div className="review-grid font-sans">
               <div className="review-card">
                 <div className="stars">★★★★★</div>
-                <p>"Mechanic came in 20 minutes and fixed my Activa's battery on the spot. Didn't have to go anywhere."</p>
-                <div className="review-meta"><span>RAHUL M.</span><span>DWARKA</span></div>
+                <p>
+                  "Mechanic reached my office parking in Gurgaon in 25 minutes and replaced my Activa battery on the spot. Fantastic service!"
+                </p>
+                <div className="review-meta">
+                  <span>RAHUL M.</span>
+                  <span>GURGAON</span>
+                </div>
               </div>
               <div className="review-card">
                 <div className="stars">★★★★★</div>
-                <p>"Quoted the price before starting, no extra charges added later. Honest service."</p>
-                <div className="review-meta"><span>PRIYA S.</span><span>GURUGRAM</span></div>
+                <p>
+                  "Quoted the price upfront before starting, no extra charges added. Got my Classic 350 oil changed right at home."
+                </p>
+                <div className="review-meta"><span>PRIYA S.</span><span>DELHI</span></div>
               </div>
               <div className="review-card">
-                <div className="stars">★★★★☆</div>
-                <p>"Tyre punctured at 11pm, booked emergency assistance and someone showed up within the hour."</p>
-                <div className="review-meta"><span>AMIT K.</span><span>JANAKPURI</span></div>
+                <div className="stars">★★★★★</div>
+                <p>
+                  "Puncture at night near Dwarka Expressway, booked assistance online and mechanic arrived in 40 minutes with air compressor."
+                </p>
+                <div className="review-meta">
+                  <span>AMIT K.</span>
+                  <span>DWARKA</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="bg-[#F4F1EA]">
-          <div className="wrap" style={{ maxWidth: '760px' }}>
+        {/* FREQUENTLY ASKED QUESTIONS */}
+        <section id="faq" className="bg-white">
+          <div className="wrap max-w-3xl">
             <div className="section-head">
-              <span className="tag">FAQs</span>
-              <h2>Common questions</h2>
+              <span className="tag">FAQS</span>
+              <h2>Common Questions About Doorstep Service</h2>
             </div>
             <div id="faq-list">
               {faqs.map((faq, index) => {
                 const isOpen = openFaqIndex === index;
                 return (
                   <div key={index} className={cn("faq-item font-sans", isOpen && "open")}>
-                    <button 
-                      className="faq-q font-sans font-semibold text-black"
+                    <button
+                      className="faq-q font-sans font-black text-slate-900"
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     >
-                      {faq.q} <span className="icon">{isOpen ? "×" : "+"}</span>
+                      <span>{faq.q}</span>
+                      <span className="icon">{isOpen ? "×" : "+"}</span>
                     </button>
-                    <div 
-                      className="faq-a" 
-                      style={{ 
-                        maxHeight: isOpen ? '250px' : '0px', 
-                        overflow: 'hidden', 
-                        transition: 'max-height 0.25s ease' 
-                      }}
-                    >
-                      <p className="font-sans font-medium text-gray-500 pt-1">{faq.a}</p>
-                    </div>
+                    {isOpen && (
+                      <div className="faq-a">
+                        <p className="font-sans font-medium text-slate-600 pt-1">{faq.a}</p>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -1015,12 +956,22 @@ export default function ServicesClientPage() {
           </div>
         </section>
 
-        {/* FINAL CTA */}
+        {/* FINAL CTA BANNER */}
         <section className="final-cta" id="book">
           <div className="wrap">
-            <h2>Book doorstep bike repair in Delhi NCR.</h2>
-            <p>Verified mechanic at your home or office. Starting ₹499. No garage visit needed.</p>
-            <Link href="/book" className="btn btn-primary font-sans">Book Your Bike Service →</Link>
+            <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
+            <p>
+              Certified mechanics at your home or office parking. Starting at ₹499. Zero visiting fees.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/book" className="btn btn-primary font-sans">
+                Book Now →
+              </Link>
+              <a href="tel:+919999999999" className="btn btn-ghost font-sans">
+                <Phone className="w-4 h-4" />
+                Call Mechanic
+              </a>
+            </div>
           </div>
         </section>
       </div>
