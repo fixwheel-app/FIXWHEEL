@@ -378,7 +378,7 @@ export default function ServicePageTemplate({
                       />
                     </button>
                     {isOpen && (
-                      <div className="px-6 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                      <div className="px-6 pb-5 pt-3 text-base font-medium text-slate-700 leading-relaxed border-t border-slate-200">
                         {faq.a}
                       </div>
                     )}

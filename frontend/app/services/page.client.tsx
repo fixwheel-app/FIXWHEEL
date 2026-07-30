@@ -570,12 +570,11 @@ export default function ServicesClientPage() {
         }
 
         .services-new-page .faq-a {
-          max-height: 0; overflow: hidden; transition: max-height .25s ease;
-          font-size: 14.5px; color: var(--grey); line-height: 1.6;
-        }
-
-        .services-new-page .faq-item.open .faq-a {
-          padding: 0 24px 20px 24px;
+          padding: 14px 24px 20px 24px;
+          font-size: 15px;
+          color: var(--grey);
+          line-height: 1.65;
+          border-top: 1px solid var(--line-dark);
         }
 
         /* FINAL CTA */
