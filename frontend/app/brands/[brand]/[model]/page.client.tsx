@@ -19,19 +19,32 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
   const { brandName, modelName, category } = modelInfo;
 
-  // Custom keywords tailored for this model
+  const bLow = brandName.toLowerCase();
+  const mLow = modelName.toLowerCase();
+
+  // High-converting local & "near me" keywords tailored for this model
   const keywords = [
-    `${brandName.toLowerCase()} ${modelName.toLowerCase()} doorstep service`,
-    `${modelName.toLowerCase()} repair at home gurgaon`,
-    `${modelName.toLowerCase()} mechanic near me delhi`,
-    `${modelName.toLowerCase()} oil change noida`,
-    `${modelName.toLowerCase()} brake repair ghaziabad`,
-    `${modelName.toLowerCase()} battery replacement faridabad`,
-    `doorstep ${brandName.toLowerCase()} mechanic delhi ncr`,
-    `${modelName.toLowerCase()} tune up cost`,
+    `${mLow} service near me`,
+    `${mLow} repair near me`,
+    `${mLow} mechanic near me`,
+    `${bLow} ${mLow} service near me`,
+    `doorstep ${mLow} service near me`,
+    `${mLow} oil change near me`,
+    `${mLow} battery replacement near me`,
+    `${mLow} brake repair near me`,
+    `${mLow} repair at home gurgaon`,
+    `${mLow} mechanic delhi ncr`,
+    `${mLow} doorstep service noida`,
+    `${mLow} service ghaziabad`,
+    `${mLow} repair faridabad`,
+    `bike mechanic near me at home`,
   ];
 
   const faqs = [
+    {
+      q: `Looking for ${brandName} ${modelName} service near me in Delhi NCR?`,
+      a: `FixWheel is the top-rated doorstep ${brandName} ${modelName} service provider near you in Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. Our certified mobile mechanics reach your location within 45 minutes with genuine OEM parts and specialized tools.`,
+    },
     {
       q: `How long does doorstep service for ${brandName} ${modelName} take?`,
       a: `A standard periodic service or tune-up for ${brandName} ${modelName} takes 35 to 50 minutes at your home or office parking in Delhi NCR.`,

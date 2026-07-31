@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const { brandName, modelName } = modelInfo;
-  const title = `${brandName} ${modelName} Service & Repair at Home in Delhi NCR | FixWheel`;
-  const description = `Book doorstep ${brandName} ${modelName} service in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 15-point checkup, engine oil change, brake repair, battery replacement with 100% genuine OEM parts and 15-day warranty.`;
+  const title = `${brandName} ${modelName} Service Near Me | Doorstep Repair Delhi NCR | FixWheel`;
+  const description = `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/brands/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
   return {
