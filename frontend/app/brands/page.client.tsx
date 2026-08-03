@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
+import { ChevronDown } from "lucide-react";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -98,58 +99,85 @@ const brands = [
     tag: "EV PREMIUM",
   },
   {
-    name: "Vespa",
-    models: ["VXL 125", "SXL 150", "ZX 125", "Elegante 150"],
+    name: "Jawa",
+    models: ["Jawa 42", "Perak", "Jawa 350", "42 Bobber"],
     description:
-      "Italian design, global heritage. Vespa scooters deserve careful handling — our mechanics service everything from engine tuning to body panel care, right at your door.",
-    icon: "https://www.google.com/s2/favicons?domain=vespa.com&sz=64",
-    tag: "ITALIAN DESIGN",
+      "Modern retro legends powered by liquid-cooled DOHC engines. We provide specialized doorstep service for Jawa motorcycles using genuine lubricants and parts.",
+    icon: "https://www.google.com/s2/favicons?domain=jawamotorcycles.com&sz=64",
+    tag: "RETRO CLASSIC",
   },
   {
-    name: "Jawa",
-    models: ["Jawa 42", "Perak", "Yezdi Roadster", "Yezdi Adventure"],
+    name: "Yezdi",
+    models: ["Roadster", "Scrambler", "Adventure"],
     description:
-      "Classic motorcycling reborn. Jawa and Yezdi bikes blend retro aesthetics with modern mechanicals — our technicians maintain both the character and the engineering.",
-    icon: "https://www.google.com/s2/favicons?domain=jawamotorcycles.com&sz=64",
-    tag: "RETRO",
+      "Built for rugged roads and off-beat trails. Our mechanics carry dedicated tools for Yezdi's 334cc DOHC platform, handling chain lube, coolant checks, and full servicing.",
+    icon: "https://www.google.com/s2/favicons?domain=yezdi.com&sz=64",
+    tag: "ADVENTURE",
   },
   {
     name: "Aprilia",
-    models: ["SR 160", "SXR 125", "SXR 160", "Storm 125"],
+    models: ["SR 160", "SXR 160", "Storm 125", "RS 457"],
     description:
-      "Sporty Italian scooters built for style and performance. Our mechanics are familiar with Aprilia's CVT systems, disc brake setups, and bodywork maintenance.",
-    icon: "https://www.google.com/s2/favicons?domain=aprilia.com&sz=64",
-    tag: "SPORT SCOOTER",
+      "Italian racing DNA in every throttle twist. From high-RPM CVT scooter tuning to disc brake pad replacements — we keep your Aprilia running sharp.",
+    icon: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64",
+    tag: "RACING DNA",
+  },
+  {
+    name: "Vespa",
+    models: ["VXL 125", "SXL 150", "ZX 125", "Urban Club"],
+    description:
+      "Iconic steel monocoque design and timeless Italian style. We handle your Vespa with white-glove care — CVT variator cleaning, oil change, and full inspection.",
+    icon: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64",
+    tag: "ITALIAN STYLE",
   },
   {
     name: "Harley-Davidson",
-    models: ["X440", "Iron 883", "Forty Eight", "Street 750"],
+    models: ["X440", "Iron 883", "Forty-Eight", "Street 750"],
     description:
-      "The ultimate cruiser brand. From the accessible X440 to the heavyweight Iron 883 — our trained mechanics handle Harley's unique V-twin and single-cylinder powertrains.",
+      "Heavy-duty cruisers demanding high-torque fasteners and premium V-twin synthetic oils. Our mechanics handle periodic service and brake checks right in your driveway.",
     icon: "https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64",
-    tag: "PREMIUM CRUISER",
+    tag: "CRUISER",
   },
   {
     name: "Kawasaki",
-    models: ["Ninja 300", "Z650", "Versys 650", "W175"],
+    models: ["Ninja 300", "Ninja 400", "Z650", "Versys 650"],
     description:
-      "Japanese superbike engineering accessible in India. Kawasaki's parallel-twin and single-cylinder models get expert doorstep servicing from our certified technicians.",
+      "High-revving multi-cylinder sportbikes and streetfighters. We use double-ester synthetic oils, perform laser chain alignments, and radiator cooling checks at doorstep.",
     icon: "https://www.google.com/s2/favicons?domain=kawasaki-india.com&sz=64",
     tag: "SUPERBIKE",
   },
-  {
-    name: "Benelli",
-    models: ["TNT 300", "Leoncino", "TRK 502", "Imperiale 400"],
-    description:
-      "Italian adventure and touring motorcycles. Benelli's multi-cylinder engines and shaft-drive systems are serviced by our mechanics with OEM-grade parts and precision.",
-    icon: "https://www.google.com/s2/favicons?domain=benelli.com&sz=64",
-    tag: "ADVENTURE",
-  },
 ];
-
 
 export default function BrandsClientPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
+
+  const toggleFaq = (idx: number) => {
+    setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  const mainBrandFaqs = [
+    {
+      q: "Which two-wheeler brands do FixWheel doorstep mechanics service in Delhi NCR?",
+      a: "We service all major two-wheeler brands in India including Honda, Hero, Bajaj, TVS, Royal Enfield, Yamaha, Suzuki, KTM, Ola Electric, Ather Energy, Vespa, Jawa, Yezdi, Triumph, Kawasaki, Harley-Davidson, BMW Motorrad, Benelli, and Revolt.",
+    },
+    {
+      q: "Do your mechanics bring genuine OEM spare parts for my specific bike brand?",
+      a: "Yes, 100%! We strictly use factory-genuine OEM spare parts, manufacturer-recommended engine oil grades (e.g. HMSI for Honda, Liquid Gun for Royal Enfield, Yamalube for Yamaha, ECSTAR for Suzuki, Motul 7100 for KTM/Triumph), and genuine filters.",
+    },
+    {
+      q: "How does doorstep bike servicing work for different two-wheeler models?",
+      a: "Select your two-wheeler brand and model during online booking or via phone. A certified mobile technician arrives at your home or office parking within 45 minutes equipped with specialized tools for your exact bike model.",
+    },
+    {
+      q: "Is there any price difference when servicing a premium or electric two-wheeler at home?",
+      a: "Our doorstep service packages start at just ₹199 across all commuter, scooter, and performance models. Standard labor charges and transparent OEM spare parts pricing apply without any hidden fees.",
+    },
+    {
+      q: "What warranty is provided on doorstep brand repairs and component replacements?",
+      a: "FixWheel provides a 15-day labor & diagnostic quality guarantee on all services across every brand, alongside official manufacturer warranties on any replaced components.",
+    },
+  ];
 
   const filteredBrands = brands.filter((brand) => {
     const query = searchQuery.toLowerCase().trim();
@@ -181,7 +209,6 @@ export default function BrandsClientPage() {
           --line-paper:#E2E8F0;
           --radius:4px;
 
-          /* Hero specific dark variables to keep hero dark like location/service pages */
           --hero-bg:#17181A;
           --hero-text:#FFFFFF;
           --hero-ink-dim:#A7A9AC;
@@ -203,10 +230,10 @@ export default function BrandsClientPage() {
         .brands-scope h1, .brands-scope h2, .brands-scope h3, .brands-scope h4 {
           font-family: var(--font-oswald), sans-serif;
           text-transform: uppercase;
-          letter-spacing: 0.01em;
-          line-height: 1.08;
-          font-weight: 600;
+          letter-spacing: -0.01em;
+          line-height: 1.1;
         }
+
         .brands-scope .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
         .brands-scope .eyebrow {
           font-family: var(--font-jetbrains), monospace;
@@ -244,11 +271,9 @@ export default function BrandsClientPage() {
         .brands-scope .btn-ghost:hover { border-color: var(--hero-text); }
         .brands-scope .btn-dark { background: var(--ink-dark); color: #FFFFFF; }
         .brands-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
-        .brands-scope .hover-white:hover {
-          color: var(--ink) !important;
-        }
+        .brands-scope .hover-white:hover { color: var(--ink) !important; }
 
-        /* ===== BREADCRUMB ===== */
+        /* BREADCRUMB */
         .brands-scope .breadcrumb {
           padding: 20px 0;
           background: var(--hero-bg);
@@ -263,15 +288,12 @@ export default function BrandsClientPage() {
           align-items: center;
           gap: 8px;
         }
-        .brands-scope .breadcrumb a {
-          color: var(--hero-ink-dim);
-          transition: color .15s ease;
-        }
+        .brands-scope .breadcrumb a { color: var(--hero-ink-dim); transition: color .15s ease; }
         .brands-scope .breadcrumb a:hover { color: var(--accent); }
         .brands-scope .breadcrumb .sep { color: rgba(255,255,255,0.2); }
         .brands-scope .breadcrumb .current { color: var(--hero-text); }
 
-        /* ===== HERO ===== */
+        /* HERO */
         .brands-scope .hero {
           position: relative;
           padding: 110px 0 64px;
@@ -283,8 +305,7 @@ export default function BrandsClientPage() {
         .brands-scope .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background:
-            radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
+          background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
         .brands-scope .hero-inner {
@@ -295,7 +316,7 @@ export default function BrandsClientPage() {
         .brands-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brands-scope .hero p.lead { font-size: 16px; color: var(--hero-ink-dim); max-width: 580px; }
 
-        /* ===== TRUST STRIP ===== */
+        /* TRUST STRIP */
         .brands-scope .trust-strip {
           border-bottom: 1px solid var(--line);
           background: var(--bg-soft);
@@ -326,14 +347,14 @@ export default function BrandsClientPage() {
           text-transform: uppercase;
         }
 
-        /* ===== SECTION GENERIC ===== */
+        /* SECTION GENERIC */
         .brands-scope section { padding: 88px 0; border-bottom: 1px solid var(--line); }
         .brands-scope .section-head { max-width: 640px; margin-bottom: 48px; }
         .brands-scope .section-head h2 { font-size: 34px; color: var(--ink); }
         .brands-scope .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 15.5px; }
         .brands-scope .section-alt { background: var(--bg); }
 
-        /* ===== BRAND GRID ===== */
+        /* BRAND GRID */
         .brands-scope .brand-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -351,14 +372,14 @@ export default function BrandsClientPage() {
         }
         .brands-scope .brand-card:hover {
           border-color: var(--accent);
-          transform: translateY(-4px);
-          box-shadow: 0 20px 50px -15px rgba(230, 43, 43, 0.08);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px rgba(0,0,0,0.04);
         }
         .brands-scope .brand-card-top {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: space-between;
-          margin-bottom: 16px;
+          margin-bottom: 14px;
         }
         .brands-scope .brand-card-logo {
           display: flex;
@@ -366,122 +387,93 @@ export default function BrandsClientPage() {
           gap: 12px;
         }
         .brands-scope .brand-card-logo img {
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          border: 1px solid var(--line);
+          width: 32px; height: 32px; object-fit: contain; border-radius: 4px;
         }
         .brands-scope .brand-card-logo h3 {
-          font-size: 20px;
-          color: var(--ink);
-          text-transform: none;
-          letter-spacing: 0;
+          font-size: 20px; color: var(--ink-dark); margin: 0;
         }
         .brands-scope .brand-tag {
           font-family: var(--font-jetbrains), monospace;
-          font-size: 9.5px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--stamp);
-          background: rgba(216, 67, 15, 0.08);
-          padding: 4px 10px;
-          border-radius: 20px;
+          font-size: 10px;
           font-weight: 700;
-          white-space: nowrap;
-          flex-shrink: 0;
-          margin-top: 3px;
+          color: var(--accent);
+          background: rgba(230,43,43,0.08);
+          padding: 3px 8px;
+          border-radius: 3px;
+          letter-spacing: 0.05em;
         }
-        .brands-scope .brand-card p.brand-desc {
+        .brands-scope .brand-desc {
           font-size: 13.5px;
           color: var(--ink-dim);
-          margin-bottom: 18px;
-          line-height: 1.6;
+          line-height: 1.5;
+          margin-bottom: 16px;
           flex-grow: 1;
         }
         .brands-scope .brand-models-label {
           font-family: var(--font-jetbrains), monospace;
           font-size: 10px;
-          letter-spacing: 0.1em;
           text-transform: uppercase;
+          letter-spacing: 0.08em;
           color: var(--ink-dim);
-          margin-bottom: 10px;
+          margin-bottom: 8px;
           display: block;
         }
         .brands-scope .brand-models {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
+          margin-bottom: 20px;
         }
         .brands-scope .brand-model-pill {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 11px;
-          letter-spacing: 0.02em;
-          padding: 6px 12px;
-          border: 1px solid var(--line);
-          border-radius: 30px;
-          color: var(--ink);
+          font-size: 11.5px;
           background: var(--bg-soft);
-          transition: border-color .15s ease, color .15s ease;
-        }
-        .brands-scope .brand-card:hover .brand-model-pill {
-          border-color: rgba(22, 24, 27, 0.3);
+          border: 1px solid var(--line);
+          padding: 3px 8px;
+          border-radius: 3px;
+          color: var(--ink);
         }
         .brands-scope .brand-card-cta {
-          margin-top: 20px;
-          padding-top: 16px;
           border-top: 1px solid var(--line);
-        }
-        .brands-scope .brand-card-cta a {
+          padding-top: 14px;
+          margin-top: auto;
           font-family: var(--font-jetbrains), monospace;
           font-size: 12px;
           font-weight: 700;
           color: var(--accent);
-          letter-spacing: 0.04em;
-          transition: color .15s ease;
         }
-        .brands-scope .brand-card-cta a:hover { color: #ff5252; }
+        .brands-scope .brand-card-cta a:hover { text-decoration: underline; }
 
-        /* ===== COUNT STRIP ===== */
         .brands-scope .count-strip {
-          margin-top: 36px;
-          padding: 20px 28px;
+          margin-top: 40px;
+          padding: 16px 24px;
           background: var(--bg-soft);
           border: 1px solid var(--line);
           border-radius: 4px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          flex-wrap: wrap;
           gap: 16px;
-        }
-        .brands-scope .count-strip p {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 13px;
+          font-size: 14px;
           color: var(--ink-dim);
         }
-        .brands-scope .count-strip b { color: var(--ink); }
 
-        /* ===== SEARCH BAR ===== */
         .brands-scope .search-container {
-          margin-bottom: 40px;
           position: relative;
-          max-width: 500px;
+          margin-bottom: 32px;
         }
         .brands-scope .search-input {
           width: 100%;
+          padding: 14px 44px;
           background: #FFFFFF;
           border: 1px solid var(--line);
           border-radius: 4px;
-          padding: 14px 18px 14px 44px;
-          font-family: var(--font-jetbrains), monospace;
           font-size: 14px;
-          color: var(--ink);
-          transition: border-color .15s ease, box-shadow .15s ease;
+          color: var(--ink-dark);
+          transition: border-color 0.15s ease;
         }
         .brands-scope .search-input:focus {
-          border-color: var(--accent);
           outline: none;
-          box-shadow: 0 0 12px rgba(230, 43, 43, 0.15);
+          border-color: var(--accent);
         }
         .brands-scope .search-icon {
           position: absolute;
@@ -490,11 +482,6 @@ export default function BrandsClientPage() {
           transform: translateY(-50%);
           color: var(--ink-dim);
           pointer-events: none;
-          width: 16px;
-          height: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
         .brands-scope .search-clear {
           position: absolute;
@@ -509,38 +496,71 @@ export default function BrandsClientPage() {
           font-size: 12px;
           padding: 4px;
         }
-        .brands-scope .search-clear:hover {
-          color: var(--accent);
-        }
-        .brands-scope .no-results {
-          text-align: center;
-          padding: 60px 20px;
-          border: 1px dashed var(--line);
-          border-radius: 4px;
+        .brands-scope .search-clear:hover { color: var(--accent); }
+
+        /* BRAND FAQS */
+        .brands-scope .faq-section {
+          padding: 80px 0;
           background: var(--bg-soft);
-          margin-bottom: 40px;
+          border-bottom: 1px solid var(--line);
         }
-        .brands-scope .no-results h3 {
-          font-size: 22px;
-          color: var(--ink);
-          margin-bottom: 12px;
+        .brands-scope .faq-wrap {
+          max-width: 860px;
+          margin: 0 auto;
         }
-        .brands-scope .no-results p {
+        .brands-scope .faq-head {
+          text-align: center;
+          margin-bottom: 48px;
+        }
+        .brands-scope .faq-head h2 {
+          font-size: 34px;
+          color: var(--ink-dark);
+        }
+        .brands-scope .faq-head p {
           color: var(--ink-dim);
-          font-size: 14px;
-          margin-bottom: 20px;
+          font-size: 15px;
+          margin-top: 12px;
+        }
+        .brands-scope .faq-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .brands-scope .faq-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line);
+          border-radius: 4px;
+          overflow: hidden;
+        }
+        .brands-scope .faq-btn {
+          padding: 20px 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 18px;
+          color: var(--ink-dark);
+          text-transform: uppercase;
+        }
+        .brands-scope .faq-body {
+          padding: 0 24px 22px;
+          font-size: 14.5px;
+          color: var(--ink-dim);
+          line-height: 1.65;
+          border-top: 1px solid rgba(0,0,0,0.04);
+          padding-top: 16px;
         }
 
-        /* ===== FINAL CTA ===== */
+        /* FINAL CTA */
         .brands-scope .final-cta {
           text-align: center; padding: 90px 0;
-          background:
-            linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
+          background: linear-gradient(180deg, transparent, rgba(230,43,43,0.05));
         }
         .brands-scope .final-cta h2 { font-size: 38px; color: var(--ink); max-width: 700px; margin: 0 auto 16px;}
         .brands-scope .final-cta p { color: var(--ink-dim); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto;}
 
-        /* ===== RESPONSIVE ===== */
+        /* RESPONSIVE */
         @media (max-width: 900px){
           .brands-scope .hero h1 { font-size: 38px; }
           .brands-scope .brand-grid { grid-template-columns: repeat(2, 1fr); }
@@ -558,7 +578,7 @@ export default function BrandsClientPage() {
         }
       ` }} />
 
-      {/* ===== BREADCRUMB ===== */}
+      {/* BREADCRUMB */}
       <div className="breadcrumb">
         <div className="wrap">
           <nav>
@@ -569,7 +589,7 @@ export default function BrandsClientPage() {
         </div>
       </div>
 
-      {/* ===== HERO ===== */}
+      {/* HERO */}
       <section className="hero">
         <div className="wrap">
           <div className="hero-inner">
@@ -584,7 +604,7 @@ export default function BrandsClientPage() {
         </div>
       </section>
 
-      {/* ===== TRUST STRIP ===== */}
+      {/* TRUST STRIP */}
       <div className="trust-strip">
         <div className="trust-inner">
           <div className="trust-item">
@@ -606,7 +626,7 @@ export default function BrandsClientPage() {
         </div>
       </div>
 
-      {/* ===== BRAND GRID ===== */}
+      {/* BRAND GRID */}
       <section id="brands" className="section-alt">
         <div className="wrap">
           <div className="section-head">
@@ -615,7 +635,7 @@ export default function BrandsClientPage() {
             <p>Our mechanics are trained across every major Indian and international two-wheeler brand. Select any brand below to explore models we cover. Find doorstep bike repair service and scooter mechanics for any model.</p>
           </div>
 
-          {/* ===== SEARCH BAR ===== */}
+          {/* SEARCH BAR */}
           <div className="search-container">
             <span className="search-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -678,12 +698,39 @@ export default function BrandsClientPage() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
+      {/* BRAND FAQS */}
+      <section className="faq-section">
+        <div className="wrap faq-wrap">
+          <div className="section-head faq-head">
+            <div className="eyebrow" style={{ justifyContent: "center" }}>FAQ</div>
+            <h2>Frequently Asked Questions — Two-Wheeler Brands</h2>
+            <p>Everything you need to know about our doorstep bike and scooter servicing across all major brands in Delhi NCR.</p>
+          </div>
+
+          <div className="faq-list">
+            {mainBrandFaqs.map((faq, idx) => (
+              <div key={idx} className="faq-card">
+                <div className="faq-btn" onClick={() => toggleFaq(idx)}>
+                  <span>{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${openFaqs[idx] ? "rotate-180" : ""}`} />
+                </div>
+                {openFaqs[idx] && (
+                  <div className="faq-body">
+                    <p>{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
           <div className="eyebrow" style={{ justifyContent: "center" }}>Ready to book?</div>
           <h2>Your Brand, Our Expertise.<br />Serviced at Your Door.</h2>
-          <p>Verified mechanic at your home or office. Any brand, any model. OEM parts. 15-day warranty. Starting ₹499.</p>
+          <p>Verified mechanic at your home or office. Any brand, any model. OEM parts. 15-day warranty. Starting ₹199.</p>
           <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
         </div>
       </section>
