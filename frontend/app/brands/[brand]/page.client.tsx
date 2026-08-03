@@ -59,7 +59,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
-  const brandFaqs = [
+  const defaultFaqs = [
     {
       q: `How long does doorstep ${brandData.name} service take in Delhi NCR?`,
       a: `Routine servicing for ${brandData.name} two-wheelers typically takes 35 to 50 minutes. Our certified mechanics arrive fully equipped at your doorstep with all required OEM spares and tools.`,
@@ -81,6 +81,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       a: `We cover all major locations across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. You can book doorstep service at your home or office parking.`,
     },
   ];
+
+  const brandFaqs = (brandData.faqs && brandData.faqs.length > 0) ? brandData.faqs : defaultFaqs;
 
   return (
     <div className={`brand-detail-scope ${oswald.variable} ${jetbrains.variable}`}>
