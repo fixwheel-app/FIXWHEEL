@@ -83,7 +83,7 @@ export default function RootLayout({
                   "telephone": "+91-8745945682",
                   "email": "support@fixwheel.app",
                   "sameAs": [
-                    "https://www.instagram.com/fixwheel11",
+                    "https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1",
                     "https://www.facebook.com/profile.php?id=61573309963156",
                     "https://www.linkedin.com/company/fixwheel-app/"
                   ]

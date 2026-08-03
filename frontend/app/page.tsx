@@ -62,7 +62,7 @@ export default function Home() {
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61573309963156",
-      "https://www.instagram.com/fixwheel11?igsh=MTRqeHB0dnRhYWZqaQ==",
+      "https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1",
       "https://www.linkedin.com/company/fixwheel-app/"
     ],
     "areaServed": [
