@@ -32,6 +32,15 @@ const locationLinks = [
   { name: 'Faridabad',  href: '/faridabad' },
 ];
 
+const partnerLinks = [
+  { name: 'Become Partner Main', href: '/partner' },
+  { name: 'Gurgaon Partner',     href: '/partner/gurgaon' },
+  { name: 'Delhi Partner',       href: '/partner/delhi' },
+  { name: 'Noida Partner',       href: '/partner/noida' },
+  { name: 'Ghaziabad Partner',   href: '/partner/ghaziabad' },
+  { name: 'Faridabad Partner',   href: '/partner/faridabad' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -72,9 +81,25 @@ export default function Navbar() {
     }, 200);
   }, []);
 
-  /* ─── Mobile services expand state ───────────────────────── */
+  /* ─── Partner dropdown state (desktop) ───────────────────── */
+  const [showPartnerDropdown, setShowPartnerDropdown] = useState(false);
+  const partnerTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const openPartnerDropdown = useCallback(() => {
+    if (partnerTimeout.current) clearTimeout(partnerTimeout.current);
+    setShowPartnerDropdown(true);
+  }, []);
+
+  const closePartnerDropdown = useCallback(() => {
+    partnerTimeout.current = setTimeout(() => {
+      setShowPartnerDropdown(false);
+    }, 200);
+  }, []);
+
+  /* ─── Mobile expand state ───────────────────────── */
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
+  const [mobilePartnerOpen, setMobilePartnerOpen] = useState(false);
 
   /* ─── Sync active path ───────────────────────────────────── */
   const isLinkActive = useCallback((linkHref: string) => {
@@ -176,12 +201,15 @@ export default function Navbar() {
               {navLinks.map((link, idx) => {
                 const isServices = link.name === 'SERVICES';
                 const isLocations = link.name === 'LOCATIONS';
-                const hasDropdown = isServices || isLocations;
+                const isPartner = link.name === 'BECOME PARTNER';
+                const hasDropdown = isServices || isLocations || isPartner;
 
                 const mouseHandlers = isServices
                   ? { onMouseEnter: openDropdown, onMouseLeave: closeDropdown }
                   : isLocations
                   ? { onMouseEnter: openLocationsDropdown, onMouseLeave: closeLocationsDropdown }
+                  : isPartner
+                  ? { onMouseEnter: openPartnerDropdown, onMouseLeave: closePartnerDropdown }
                   : {};
 
                 return (
@@ -204,7 +232,7 @@ export default function Navbar() {
                         <ChevronDown
                           className={cn(
                             "w-3 h-3 transition-transform duration-200",
-                            ((isServices && showServicesDropdown) || (isLocations && showLocationsDropdown)) && "rotate-180"
+                            ((isServices && showServicesDropdown) || (isLocations && showLocationsDropdown) || (isPartner && showPartnerDropdown)) && "rotate-180"
                           )}
                         />
                       )}
@@ -319,6 +347,42 @@ export default function Navbar() {
                                   className={dropdownLinkClass}
                                 >
                                   {loc.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+
+                    {/* ── Partner Dropdown (desktop) ──────────────── */}
+                    {isPartner && (
+                      <AnimatePresence>
+                        {showPartnerDropdown && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 w-[230px] border-t-2 border-accent bg-[#151b24] border border-t-0 border-white/10 shadow-2xl z-[100]"
+                            onMouseEnter={openPartnerDropdown}
+                            onMouseLeave={closePartnerDropdown}
+                          >
+                            <div className="p-5 flex flex-col gap-1">
+                              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-3">
+                                Partner Locations
+                              </span>
+                              {partnerLinks.map((p) => (
+                                <Link
+                                  key={p.href}
+                                  href={p.href}
+                                  onClick={() => {
+                                    setActivePath(p.href);
+                                    setShowPartnerDropdown(false);
+                                  }}
+                                  className={dropdownLinkClass}
+                                >
+                                  {p.name}
                                 </Link>
                               ))}
                             </div>
@@ -551,6 +615,75 @@ export default function Navbar() {
                                     className="block py-1.5 pl-2 text-sm text-white/80 hover:text-accent transition-colors"
                                   >
                                     {loc.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (link.name === 'BECOME PARTNER') {
+                    return (
+                      <div key={link.name}>
+                        {/* Partner toggle row */}
+                        <div className="flex items-center justify-between border-b border-white/5">
+                          <Link
+                            href={link.href}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActivePath(link.href);
+                            }}
+                            className={cn(
+                              "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
+                              isLinkActive(link.href)
+                                ? "text-accent bg-white/5"
+                                : "text-white hover:text-accent"
+                            )}
+                          >
+                            {link.name}
+                          </Link>
+                          <button
+                            onClick={() => setMobilePartnerOpen(!mobilePartnerOpen)}
+                            className="px-3 py-3 text-white/60 hover:text-accent transition-colors"
+                            aria-label="Expand partner locations"
+                          >
+                            <ChevronDown
+                              className={cn(
+                                "w-4 h-4 transition-transform duration-200",
+                                mobilePartnerOpen && "rotate-180"
+                              )}
+                            />
+                          </button>
+                        </div>
+
+                        {/* Expandable partner section */}
+                        <AnimatePresence>
+                          {mobilePartnerOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden bg-[#151b24] border-b border-white/5"
+                            >
+                              <div className="px-4 py-3">
+                                <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-2">
+                                  Partner Locations
+                                </span>
+                                {partnerLinks.map((p) => (
+                                  <Link
+                                    key={p.href}
+                                    href={p.href}
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                      setActivePath(p.href);
+                                    }}
+                                    className="block py-1.5 pl-2 text-sm text-white/80 hover:text-accent transition-colors"
+                                  >
+                                    {p.name}
                                   </Link>
                                 ))}
                               </div>
