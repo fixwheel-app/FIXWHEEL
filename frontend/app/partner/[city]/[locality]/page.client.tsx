@@ -4,9 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Oswald, JetBrains_Mono } from 'next/font/google';
 import { PARTNER_CITY_DATA } from '@/lib/partnerData';
-import { cn } from '@/lib/utils';
 import {
-  ChevronDown, Phone, CheckCircle2, ShieldCheck, DollarSign, Wrench, Clock, MapPin, Sparkles, ArrowRight
+  ChevronDown, Phone, ShieldCheck, Wrench, Sparkles, ArrowRight, CheckCircle2
 } from 'lucide-react';
 
 const oswald = Oswald({
@@ -40,7 +39,7 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
   };
 
   const localityHeading = `Become a Partner Mechanic in ${localityObj.name}, ${cityData.cityName}`;
-  const localityLead = `Are you a two-wheeler mechanic or garage owner in ${localityObj.name}? Partner with FixWheel to get doorstep bike service bookings directly in ${localityObj.name} and surrounding sectors. Earn up to ${cityData.monthlyEarnings}/month with zero joining fees and instant daily bank payouts.`;
+  const localityLead = `Are you a two-wheeler mechanic or garage owner in ${localityObj.name}? Partner with FixWheel to get doorstep bike & scooter service bookings directly in ${localityObj.name} and surrounding sectors. Complete work flexibility, zero joining fee, and full technical support.`;
 
   return (
     <div className={`partner-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -58,13 +57,25 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           --accent-hover: #cc2222;
           background: #FFFFFF;
           color: var(--ink-body);
-          font-family: system-ui, -apple-system, sans-serif;
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          line-height: 1.55;
+        }
+
+        .partner-scope h1, .partner-scope h2, .partner-scope h3, .partner-scope h4 {
+          font-family: var(--font-oswald), sans-serif;
+          text-transform: uppercase;
+          letter-spacing: -0.01em;
+          line-height: 1.1;
+        }
+
+        .partner-scope .mono {
+          font-family: var(--font-jetbrains), monospace;
         }
 
         .partner-scope .hero {
           background-color: #17181A;
           color: #FFFFFF;
-          padding: 120px 0 64px 0;
+          padding: 100px 0 60px 0;
           position: relative;
           overflow: hidden;
           border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -72,7 +83,7 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
 
         @media (min-width: 768px) {
           .partner-scope .hero {
-            padding-top: 150px;
+            padding-top: 120px;
             padding-bottom: 80px;
           }
         }
@@ -81,12 +92,14 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at 80% 20%, rgba(230, 43, 43, 0.15) 0%, transparent 60%);
+          background:
+            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
+            radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
 
         .partner-scope .container {
-          max-width: 1200px;
+          max-width: 1180px;
           margin: 0 auto;
           padding: 0 24px;
           position: relative;
@@ -97,13 +110,14 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 13px;
+          font-size: 12px;
           color: #94A3B8;
           margin-bottom: 24px;
           font-family: var(--font-jetbrains), monospace;
           text-transform: uppercase;
+          letter-spacing: 0.04em;
         }
-        .partner-scope .breadcrumb a { color: #94A3B8; text-decoration: none; }
+        .partner-scope .breadcrumb a { color: #94A3B8; text-decoration: none; transition: color 0.15s; }
         .partner-scope .breadcrumb a:hover { color: var(--accent); }
 
         .partner-scope .hero-grid {
@@ -129,19 +143,16 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           border-radius: 99px;
           font-size: 12px;
           font-weight: 600;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
+          font-family: var(--font-jetbrains), monospace;
           margin-bottom: 16px;
         }
 
         .partner-scope h1 {
-          font-family: var(--font-oswald), sans-serif;
           font-size: 36px;
-          line-height: 1.1;
-          font-weight: 700;
-          text-transform: uppercase;
+          color: #FFFFFF;
           margin-bottom: 20px;
-          letter-spacing: -0.01em;
         }
         @media (min-width: 768px) {
           .partner-scope h1 { font-size: 48px; }
@@ -164,80 +175,98 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           background: var(--accent);
           color: #FFFFFF;
           padding: 14px 28px;
-          border-radius: 6px;
-          font-weight: 600;
+          border-radius: 4px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          transition: background 0.15s;
-          font-size: 15px;
+          transition: background 0.15s, transform 0.15s;
         }
-        .partner-scope .btn-primary:hover { background: var(--accent-hover); }
+        .partner-scope .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
         .partner-scope .btn-phone {
           background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.15);
+          border: 1px solid rgba(255,255,255,0.18);
           color: #FFFFFF;
           padding: 14px 24px;
-          border-radius: 6px;
-          font-weight: 600;
+          border-radius: 4px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-size: 15px;
         }
         .partner-scope .btn-phone:hover { background: rgba(255,255,255,0.12); }
 
         /* Ticket Card */
         .partner-scope .ticket-card {
-          background: #202225;
-          border: 1px solid rgba(255,255,255,0.12);
-          border-radius: 12px;
-          padding: 24px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+          background: #FFFFFF;
+          color: var(--ink-dark);
+          border-radius: 6px;
+          padding: 26px 28px 22px;
           position: relative;
+          box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
         }
-        .partner-scope .ticket-card::before {
+        .partner-scope .ticket-card::before, .partner-scope .ticket-card::after {
           content: "";
           position: absolute;
-          top: -1px; left: 24px; right: 24px;
-          height: 3px;
-          background: var(--accent);
-          border-radius: 3px 3px 0 0;
+          width: 22px; height: 22px;
+          background: #17181A;
+          border-radius: 50%;
+          top: 50%; transform: translateY(-50%);
         }
+        .partner-scope .ticket-card::before { left: -11px; }
+        .partner-scope .ticket-card::after { right: -11px; }
+
         .partner-scope .ticket-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          border-bottom: 1px dashed rgba(255,255,255,0.15);
-          padding-bottom: 16px;
-          margin-bottom: 20px;
+          border-bottom: 1px dashed #E2E8F0;
+          padding-bottom: 14px;
+          margin-bottom: 16px;
         }
         .partner-scope .ticket-id {
           font-family: var(--font-jetbrains), monospace;
           font-size: 13px;
-          color: var(--accent);
+          color: var(--ink-dark);
           font-weight: 700;
+          letter-spacing: 0.04em;
         }
         .partner-scope .ticket-status {
-          background: rgba(34, 197, 94, 0.15);
-          color: #4ADE80;
-          font-size: 11px;
+          background: rgba(34, 197, 94, 0.12);
+          color: #16A34A;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 10px;
           font-weight: 700;
           padding: 4px 10px;
-          border-radius: 99px;
+          border-radius: 20px;
           text-transform: uppercase;
+          letter-spacing: 0.06em;
         }
         .partner-scope .ticket-row {
           display: flex;
           justify-content: space-between;
-          font-size: 14px;
+          font-size: 13.5px;
           margin-bottom: 12px;
         }
-        .partner-scope .ticket-label { color: #94A3B8; }
-        .partner-scope .ticket-val { color: #FFFFFF; font-weight: 600; text-align: right; }
+        .partner-scope .ticket-label {
+          color: var(--ink-dim);
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        .partner-scope .ticket-val { color: var(--ink-dark); font-weight: 600; text-align: right; }
 
         /* Trust Strip */
         .partner-scope .trust-strip {
@@ -248,50 +277,49 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
         .partner-scope .stats-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
+          gap: 16px;
         }
         @media (min-width: 768px) {
           .partner-scope .stats-grid { grid-template-columns: repeat(4, 1fr); }
         }
         .partner-scope .stat-item {
           text-align: center;
-          padding: 12px;
+          padding: 20px 16px;
           background: var(--bg-panel);
           border: 1px solid var(--line-paper);
-          border-radius: 8px;
+          border-radius: 4px;
         }
         .partner-scope .stat-item b {
           display: block;
-          font-family: var(--font-oswald), sans-serif;
-          font-size: 26px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 22px;
           color: var(--ink-dark);
-          line-height: 1.1;
+          margin-bottom: 4px;
         }
         .partner-scope .stat-item span {
-          font-size: 12px;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
           color: var(--ink-dim);
           text-transform: uppercase;
-          letter-spacing: 0.05em;
-          font-weight: 600;
+          letter-spacing: 0.06em;
         }
 
         /* Content Sections */
         .partner-scope .content-section {
-          padding: 64px 0;
+          padding: 80px 0;
           border-bottom: 1px solid var(--line-paper);
+          background: #FFFFFF;
         }
         .partner-scope .section-title {
-          font-family: var(--font-oswald), sans-serif;
-          font-size: 32px;
+          font-size: 34px;
           color: var(--ink-dark);
-          text-transform: uppercase;
           margin-bottom: 12px;
         }
         .partner-scope .section-desc {
-          font-size: 16px;
+          font-size: 15.5px;
           color: var(--ink-dim);
-          margin-bottom: 40px;
-          max-width: 700px;
+          margin-bottom: 44px;
+          max-width: 660px;
         }
         .partner-scope .benefits-grid {
           display: grid;
@@ -304,19 +332,23 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
         .partner-scope .benefit-card {
           background: #FFFFFF;
           border: 1px solid var(--line-paper);
-          border-radius: 8px;
-          padding: 24px;
+          border-radius: 4px;
+          padding: 28px 24px;
+          transition: transform 0.15s, border-color 0.15s;
+        }
+        .partner-scope .benefit-card:hover {
+          border-color: var(--accent);
+          transform: translateY(-2px);
         }
         .partner-scope .benefit-icon {
           width: 44px; height: 44px;
-          border-radius: 8px;
+          border-radius: 4px;
           background: rgba(230, 43, 43, 0.08);
           color: var(--accent);
           display: flex; align-items: center; justify-content: center;
           margin-bottom: 16px;
         }
         .partner-scope .benefit-card h3 {
-          font-family: var(--font-oswald), sans-serif;
           font-size: 20px;
           color: var(--ink-dark);
           margin-bottom: 8px;
@@ -324,19 +356,19 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
         .partner-scope .benefit-card p {
           font-size: 14.5px;
           color: var(--ink-dim);
-          line-height: 1.5;
+          line-height: 1.6;
         }
 
         /* FAQ */
         .partner-scope .faq-item {
           background: #FFFFFF;
           border: 1px solid var(--line-paper);
-          border-radius: 6px;
+          border-radius: 4px;
           margin-bottom: 12px;
           overflow: hidden;
         }
         .partner-scope .faq-question {
-          padding: 18px 24px;
+          padding: 20px 24px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -347,22 +379,21 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           text-transform: uppercase;
         }
         .partner-scope .faq-answer {
-          padding: 0 24px 20px;
+          padding: 0 24px 22px;
           font-size: 14.5px;
           color: var(--ink-dim);
-          line-height: 1.6;
+          line-height: 1.65;
           border-top: 1px solid rgba(0,0,0,0.04);
-          padding-top: 14px;
+          padding-top: 16px;
         }
 
         .partner-scope .cta-banner {
           background: #17181A;
           color: #FFFFFF;
-          padding: 60px 0;
+          padding: 70px 0;
           text-align: center;
         }
         .partner-scope .cta-banner h2 {
-          font-family: var(--font-oswald), sans-serif;
           font-size: 36px;
           margin-bottom: 16px;
         }
@@ -407,19 +438,19 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
               </div>
               <div className="ticket-row">
                 <span className="ticket-label">Locality Radius:</span>
-                <span className="ticket-val" style={{ color: "#4ADE80" }}>{localityObj.name} Sector</span>
-              </div>
-              <div className="ticket-row">
-                <span className="ticket-label">Monthly Income:</span>
-                <span className="ticket-val">{cityData.monthlyEarnings}</span>
+                <span className="ticket-val">{localityObj.name} Sector</span>
               </div>
               <div className="ticket-row">
                 <span className="ticket-label">Registration Fee:</span>
-                <span className="ticket-val">₹0 (FREE)</span>
+                <span className="ticket-val" style={{ color: "#16A34A" }}>₹0 (FREE)</span>
               </div>
               <div className="ticket-row">
-                <span className="ticket-label">Payout Settlement:</span>
-                <span className="ticket-val">Same-Day Bank Transfer</span>
+                <span className="ticket-label">Work Schedule:</span>
+                <span className="ticket-val">100% Flexible Hours</span>
+              </div>
+              <div className="ticket-row">
+                <span className="ticket-label">Labor Warranty:</span>
+                <span className="ticket-val">15-Day Quality Guarantee</span>
               </div>
             </div>
           </div>
@@ -431,20 +462,20 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <b>{cityData.monthlyEarnings}</b>
-              <span>Monthly Income</span>
-            </div>
-            <div className="stat-item">
               <b>₹0</b>
               <span>Joining Fee</span>
             </div>
             <div className="stat-item">
-              <b>DAILY</b>
-              <span>Same-Day Payout</span>
+              <b>{localityObj.name}</b>
+              <span>Active Sector</span>
             </div>
             <div className="stat-item">
-              <b>{localityObj.name}</b>
-              <span>Active Zone</span>
+              <b>45 MIN</b>
+              <span>Doorstep Dispatch</span>
+            </div>
+            <div className="stat-item">
+              <b>15 DAYS</b>
+              <span>Labor Guarantee</span>
             </div>
           </div>
         </div>
@@ -458,9 +489,9 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
           
           <div className="benefits-grid">
             <div className="benefit-card">
-              <div className="benefit-icon"><DollarSign size={22} /></div>
-              <h3>100% Daily Bank Payouts</h3>
-              <p>Receive every rupee earned directly into your UPI/Bank account at the end of each working day in {localityObj.name}.</p>
+              <div className="benefit-icon"><CheckCircle2 size={22} /></div>
+              <h3>Direct Customer Bookings</h3>
+              <p>Receive doorstep service bookings directly on the FixWheel app from residents and commuters in {localityObj.name}.</p>
             </div>
             <div className="benefit-card">
               <div className="benefit-icon"><ShieldCheck size={22} /></div>
@@ -487,7 +518,7 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
               <div key={idx} className="faq-item">
                 <div className="faq-question" onClick={() => toggleFaq(idx)}>
                   <span>{faq.q}</span>
-                  <ChevronDown size={18} style={{ transform: openFaqs[idx] ? "rotate(180deg)" : "rotate(0deg)", transition: "0.2s" }} />
+                  <ChevronDown size={18} style={{ transform: openFaqs[idx] ? "rotate(180deg)" : "rotate(0deg)", transition: "0.2s", color: "var(--accent)" }} />
                 </div>
                 {openFaqs[idx] && (
                   <div className="faq-answer">

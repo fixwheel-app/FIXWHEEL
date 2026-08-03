@@ -402,7 +402,7 @@ export default function PartnerPage() {
             transition={{ delay: 0.35 }}
             className="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
           >
-            {['Free to Join', 'More Local Bookings', 'Weekly Payouts', '24/7 Partner Support'].map((badge, i) => (
+            {['Free to Join', 'More Local Bookings', 'Direct Customer Orders', '24/7 Partner Support'].map((badge, i) => (
               <div key={i} className="flex items-center gap-2 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 {badge}

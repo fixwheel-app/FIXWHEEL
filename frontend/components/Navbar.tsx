@@ -108,7 +108,13 @@ export default function Navbar() {
     }
     if (linkHref === '/delhi') {
       const locs = ['/delhi', '/gurgaon', '/noida', '/faridabad', '/ghaziabad'];
-      return locs.some(loc => pathname?.startsWith(loc));
+      return locs.some(loc => pathname?.startsWith(loc) && !pathname?.startsWith('/partner'));
+    }
+    if (linkHref === '/services') {
+      return pathname?.startsWith('/services');
+    }
+    if (linkHref === '/partner') {
+      return pathname?.startsWith('/partner');
     }
     return pathname?.startsWith(linkHref);
   }, [pathname]);
@@ -182,7 +188,7 @@ export default function Navbar() {
     <>
       {/* Main Navbar */}
       <nav className={cn(
-        "w-full z-50 transition-all duration-300 pointer-events-auto border-b-4 border-accent fixed top-0",
+        "w-full z-50 transition-all duration-300 pointer-events-auto border-b border-white/10 fixed top-0",
         scrolled ? "bg-[#0d1117] shadow-xl" : "bg-[#0d1117]/95 backdrop-blur-md"
       )}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

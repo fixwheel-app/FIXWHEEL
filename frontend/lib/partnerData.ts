@@ -10,9 +10,7 @@ export interface PartnerCityData {
   headingTitle: string;
   subTitle: string;
   leadParagraph: string;
-  monthlyEarnings: string;
   activePartnersCount: string;
-  avgJobsPerDay: string;
   joiningFee: string;
   localities: PartnerLocality[];
   benefits: { title: string; desc: string }[];
@@ -25,12 +23,10 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     slug: "gurgaon",
     cityName: "Gurgaon",
     stateName: "Haryana",
-    headingTitle: "Join Gurgaon's Highest Paying Doorstep Mechanic Network",
+    headingTitle: "Join Gurgaon's Top-Rated Doorstep Mechanic Network",
     subTitle: "Mechanic & Garage Partner Onboarding in Gurugram",
-    leadParagraph: "Are you an experienced two-wheeler mechanic or garage owner in Gurgaon? Partner with FixWheel to get a continuous stream of high-paying doorstep bike & scooter service bookings in DLF Phase 1-5, Sohna Road, Golf Course Road, and all Gurgaon sectors. Zero joining fee, 100% daily bank payouts, and complete working flexibility.",
-    monthlyEarnings: "₹40,000 - ₹65,000",
+    leadParagraph: "Are you an experienced two-wheeler mechanic or garage owner in Gurgaon? Partner with FixWheel to receive direct doorstep bike & scooter service bookings in DLF Phase 1-5, Sohna Road, Golf Course Road, and all Gurgaon sectors. Zero joining fee, flexible working hours, and full technical support.",
     activePartnersCount: "180+ Mechanics",
-    avgJobsPerDay: "5 to 8 Jobs/Day",
     joiningFee: "₹0 (FREE)",
     localities: [
       { slug: "sector-14", name: "Sector 14" },
@@ -48,18 +44,18 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       { slug: "cyber-city", name: "Cyber City" }
     ],
     benefits: [
-      { title: "High Earnings in Corporate Hubs", desc: "Gurgaon's high density of office commuters in Cyber City and Golf Course Road guarantees steady high-margin service orders." },
-      { title: "Instant Daily Payouts", desc: "Every completed doorstep repair payment is transferred directly into your UPI/Bank account on the same day." },
-      { title: "Free Tool Kit & Branded Apparel", desc: "FixWheel provides professional portable tools, uniform t-shirts, caps, and protective floor mats at zero upfront cost." }
+      { title: "Direct Customer Bookings", desc: "Gurgaon's high density of office commuters in Cyber City and Golf Course Road guarantees steady doorstep service requests." },
+      { title: "Complete Work Flexibility", desc: "Choose your preferred working hours and service sectors across Gurgaon with full control over your schedule." },
+      { title: "Free Tool Kit & Branded Gear", desc: "FixWheel provides professional portable tools, uniform t-shirts, caps, and protective floor mats at zero upfront cost." }
     ],
     faqs: [
       {
-        q: "How much can a bike mechanic earn per month with FixWheel in Gurgaon?",
-        a: "A dedicated partner mechanic in Gurgaon servicing 5 to 8 doorstep bookings daily typically earns between ₹40,000 to ₹65,000 per month after spare parts costs."
+        q: "What are the requirements to join FixWheel as a mechanic partner in Gurgaon?",
+        a: "You need a valid Aadhaar Card, PAN Card, Driving License, active two-wheeler, smartphone for booking acceptance, and minimum 1 year of bike repair experience."
       },
       {
         q: "What documents are required to register as a FixWheel partner in Gurgaon?",
-        a: "You need a valid Aadhaar Card, PAN Card, Driving License, active Bank Account / UPI ID for daily payouts, and proof of mechanical experience or garage ownership."
+        a: "You need a valid Aadhaar Card, PAN Card, Driving License, active Bank Account for settlements, and proof of mechanical experience or garage ownership."
       },
       {
         q: "Do I need my own vehicle and mobile phone for doorstep service in Gurgaon?",
@@ -80,7 +76,6 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       "garage partner registration gurgaon",
       "doorstep mechanic onboarding sohna road",
       "dlf phase 3 bike mechanic vacancy",
-      "earn 60000 bike mechanic gurgaon",
       "fixwheel partner application gurgaon",
       "two wheeler repair technician job cyber city"
     ]
@@ -89,12 +84,10 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     slug: "delhi",
     cityName: "Delhi",
     stateName: "Delhi NCR",
-    headingTitle: "Earn High Daily Income as a Certified Delhi Bike Partner",
+    headingTitle: "Become a Certified FixWheel Two-Wheeler Partner in Delhi",
     subTitle: "Two-Wheeler Mechanic & Technician Registration across Delhi NCR",
-    leadParagraph: "Expand your mechanic business across South Delhi, West Delhi, North Delhi, and East Delhi. FixWheel connects skilled two-wheeler mechanics directly with customers needing doorstep oil changes, brake repairs, and breakdown assistance. Enjoy zero commission cuts on tips, 100% daily payouts, and flexible work timings.",
-    monthlyEarnings: "₹45,000 - ₹70,000",
+    leadParagraph: "Expand your mechanic business across South Delhi, West Delhi, North Delhi, and East Delhi. FixWheel connects skilled two-wheeler mechanics directly with customers needing doorstep oil changes, brake repairs, and breakdown assistance with zero joining fees.",
     activePartnersCount: "250+ Mechanics",
-    avgJobsPerDay: "6 to 9 Jobs/Day",
     joiningFee: "₹0 (FREE)",
     localities: [
       { slug: "dwarka", name: "Dwarka" },
@@ -109,14 +102,14 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       { slug: "connaught-place", name: "Connaught Place" }
     ],
     benefits: [
-      { title: "Massive Demand in Delhi", desc: "Delhi's dense commuter population in Dwarka, Rohini, and South Delhi ensures non-stop doorstep booking requests year-round." },
+      { title: "High Demand in Delhi NCR", desc: "Delhi's dense commuter population in Dwarka, Rohini, and South Delhi ensures non-stop doorstep booking requests year-round." },
       { title: "Flexible Zone Selection", desc: "Choose the exact residential clusters or commercial zones in Delhi where you prefer to accept service orders." },
-      { title: "Insurance & Safety Gear", desc: "Receive comprehensive accident insurance coverage and heavy-duty safety gear while performing doorstep jobs." }
+      { title: "Free Safety & Working Gear", desc: "Receive heavy-duty safety gear, branded apparel, and diagnostic tool support while performing doorstep jobs." }
     ],
     faqs: [
       {
-        q: "What is the daily payout cycle for FixWheel mechanics in Delhi?",
-        a: "All job earnings are settled daily. Money is credited directly into your registered bank account or UPI handle every evening."
+        q: "How does FixWheel assign doorstep repair orders to mechanics in Delhi?",
+        a: "The FixWheel Partner App automatically dispatches jobs located within a 3 to 5 km radius of your live GPS location in Delhi."
       },
       {
         q: "Can I work part-time as a FixWheel bike mechanic partner in Delhi?",
@@ -127,8 +120,8 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
         a: "We provide hands-on training for customer interaction, diagnostic software scanning, multi-brand scooter CVT servicing, and app usage."
       },
       {
-        q: "How are customer job locations dispatched to mechanics in Delhi?",
-        a: "The FixWheel Partner App automatically dispatches jobs located within a 3 to 5 km radius of your live GPS location in Delhi."
+        q: "What tools are supplied to FixWheel partner mechanics in Delhi?",
+        a: "FixWheel supplies a compact portable socket set, T-spanners, feeler gauge, multimeter, oil drain tray, battery jumper cables, and branded apron."
       },
       {
         q: "Do I need to carry original spare parts for Delhi doorstep service?",
@@ -140,7 +133,6 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       "become partner mechanic delhi ncr",
       "two wheeler repair technician vacancy dwarka",
       "garage registration south delhi",
-      "earn money bike mechanic rohini",
       "fixwheel delhi partner apply online",
       "doorstep scooter repair job delhi",
       "freelance bike mechanic hiring delhi"
@@ -152,10 +144,8 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     stateName: "Uttar Pradesh",
     headingTitle: "Noida Two-Wheeler Mechanic Partnership & Onboarding",
     subTitle: "Join the Leading Doorstep Bike Service Platform in Noida & Greater Noida",
-    leadParagraph: "Are you based in Sector 62, Sector 18, Expressway, or Noida Extension? Partner with FixWheel and start receiving doorstep repair orders from thousands of residential society residents and office professionals in Noida. Enjoy high per-job payouts, zero joining fee, and full partner support.",
-    monthlyEarnings: "₹38,000 - ₹60,000",
+    leadParagraph: "Are you based in Sector 62, Sector 18, Expressway, or Noida Extension? Partner with FixWheel and start receiving doorstep repair orders from thousands of residential society residents and office professionals in Noida with zero joining fees.",
     activePartnersCount: "140+ Mechanics",
-    avgJobsPerDay: "5 to 7 Jobs/Day",
     joiningFee: "₹0 (FREE)",
     localities: [
       { slug: "sector-18", name: "Sector 18" },
@@ -169,7 +159,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     ],
     benefits: [
       { title: "High Gated Society Orders", desc: "Noida's high-rise apartments in Sector 76, 137, and Noida Extension generate high-volume doorstep service requests." },
-      { title: "Fair Transparent Commissions", desc: "Earn up to 85% of total job charges with zero hidden deductions or penalty fees." },
+      { title: "Transparent Work Terms", desc: "Fair partner terms with zero hidden deductions, penalties, or upfront registration fees." },
       { title: "EV Training & Certification", desc: "Get specialized technical training for servicing electric scooters like OLA, Ather, and TVS iQube in Noida." }
     ],
     faqs: [
@@ -183,7 +173,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       },
       {
         q: "How does FixWheel help Noida garage owners grow their revenue?",
-        a: "Garage owners get access to digital customer bookings during slow afternoon hours, boosting overall monthly garage income."
+        a: "Garage owners get access to digital customer bookings during slow afternoon hours, boosting overall monthly garage business."
       },
       {
         q: "What happens if a customer cancels a booking after I arrive at the location in Noida?",
@@ -200,8 +190,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       "garage partner onboarding sector 62 noida",
       "doorstep mechanic hiring greater noida",
       "fixwheel partner application noida",
-      "two wheeler technician job sector 18 noida",
-      "earn daily payout bike mechanic noida"
+      "two wheeler technician job sector 18 noida"
     ]
   },
   "ghaziabad": {
@@ -209,11 +198,9 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     cityName: "Ghaziabad",
     stateName: "Uttar Pradesh",
     headingTitle: "Ghaziabad Garage & Mechanic Partner Registration",
-    subTitle: "Grow Your Income Servicing Two-Wheelers in Indirapuram, Vaishali & Raj Nagar",
-    leadParagraph: "FixWheel is inviting skilled two-wheeler mechanics and garage technicians across Ghaziabad, Indirapuram, Vaishali, Vasundhara, and Raj Nagar Extension. Get high-demand doorstep bike repair jobs delivered straight to your phone. Zero joining fee, instant payouts, and guaranteed weekly incentive bonuses.",
-    monthlyEarnings: "₹35,000 - ₹55,000",
+    subTitle: "Grow Your Business Servicing Two-Wheelers in Indirapuram, Vaishali & Raj Nagar",
+    leadParagraph: "FixWheel is inviting skilled two-wheeler mechanics and garage technicians across Ghaziabad, Indirapuram, Vaishali, Vasundhara, and Raj Nagar Extension. Get high-demand doorstep bike repair jobs delivered straight to your phone with zero joining fees.",
     activePartnersCount: "120+ Mechanics",
-    avgJobsPerDay: "5 to 7 Jobs/Day",
     joiningFee: "₹0 (FREE)",
     localities: [
       { slug: "indirapuram", name: "Indirapuram" },
@@ -225,7 +212,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     ],
     benefits: [
       { title: "Dense Residential Hubs", desc: "High density of commuters in Indirapuram and Vaishali means short traveling distance between consecutive jobs." },
-      { title: "Weekly Bonus Incentives", desc: "Earn extra cash bonuses on completing 30+ doorstep service orders per week." },
+      { title: "Flexible Operational Radius", desc: "Choose your preferred working radius in Ghaziabad to fit your daily schedule." },
       { title: "Dedicated Partner Support", desc: "24/7 helpline for partner mechanics to assist with customer navigation, technical queries, or spare parts." }
     ],
     faqs: [
@@ -265,11 +252,9 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     cityName: "Faridabad",
     stateName: "Haryana",
     headingTitle: "Faridabad Doorstep Bike Technician Onboarding",
-    subTitle: "Earn High Daily Payouts Servicing Motorcycles & Scooters in Faridabad",
-    leadParagraph: "Calling all two-wheeler mechanics in Faridabad, NIT, Sector 15, Sector 16, and Greater Faridabad! Partner with FixWheel to get direct customer bookings for doorstep oil changes, brake fixes, battery swaps, and breakdown assistance. Enjoy zero registration fee, daily payouts, and free toolkit distribution.",
-    monthlyEarnings: "₹35,000 - ₹55,000",
+    subTitle: "Partner Servicing Motorcycles & Scooters in Faridabad & NIT",
+    leadParagraph: "Calling all two-wheeler mechanics in Faridabad, NIT, Sector 15, Sector 16, and Greater Faridabad! Partner with FixWheel to get direct customer bookings for doorstep oil changes, brake fixes, battery swaps, and breakdown assistance with zero registration fee.",
     activePartnersCount: "110+ Mechanics",
-    avgJobsPerDay: "5 to 7 Jobs/Day",
     joiningFee: "₹0 (FREE)",
     localities: [
       { slug: "nit-faridabad", name: "NIT Faridabad" },
@@ -280,9 +265,9 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       { slug: "greenfield-colony", name: "Greenfield Colony" }
     ],
     benefits: [
-      { title: "Industrial & Industrial Hub Jobs", desc: "High demand from commuters and factory professionals across Faridabad NIT and Greater Faridabad." },
+      { title: "Industrial & Commercial Hub Jobs", desc: "High demand from commuters and factory professionals across Faridabad NIT and Greater Faridabad." },
       { title: "Zero Joining Fee", desc: "No registration fee or upfront security deposit required to join our partner network." },
-      { title: "Transparent Earning Guarantee", desc: "Track every rupee earned with full breakdown of job charges, tips, and daily incentives in the app." }
+      { title: "Branded Kit Distribution", desc: "Receive a professional portable tool kit, uniform apron, and safety gear upon onboarding." }
     ],
     faqs: [
       {
@@ -294,16 +279,16 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
         a: "You will service all major commuter bikes (Splendor, Pulsar, Shine), scooters (Activa, Jupiter, Access), cruisers (Royal Enfield), and electric scooters."
       },
       {
-        q: "Are daily bank payouts guaranteed for partner mechanics in Faridabad?",
-        a: "Yes! Every day's completed job payments are transferred directly to your bank account or UPI every evening."
-      },
-      {
         q: "Can I choose my working sectors in Faridabad?",
         a: "Yes! You can set your preferred working radius (e.g. NIT Faridabad, Sector 15/16, or Greater Faridabad) in your partner profile."
       },
       {
         q: "What customer ratings are needed to stay active on the FixWheel platform?",
         a: "Partners should maintain a minimum 4.2★ customer rating by delivering polite, clean, and honest doorstep repairs."
+      },
+      {
+        q: "Is there any contract lock-in for partner mechanics?",
+        a: "No! You can work whenever you want without any long-term contract lock-in or mandatory shift obligations."
       }
     ],
     seoKeywords: [

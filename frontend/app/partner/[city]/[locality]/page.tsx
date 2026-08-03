@@ -13,13 +13,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Become a Partner Mechanic in ${locName}, ${cityData.cityName} — FixWheel`,
-    description: `Are you a bike mechanic in ${locName}, ${cityData.cityName}? Partner with FixWheel to get doorstep bike service orders. Earn up to ${cityData.monthlyEarnings}/month. Zero joining fee.`,
+    description: `Are you a bike mechanic in ${locName}, ${cityData.cityName}? Partner with FixWheel to get doorstep bike service orders directly in your locality. Zero joining fee, flexible hours.`,
     alternates: {
       canonical: `https://www.fixwheel.app/partner/${city.toLowerCase()}/${locality.toLowerCase()}`,
     },
     openGraph: {
       title: `Become a Partner Mechanic in ${locName}, ${cityData.cityName} — FixWheel`,
-      description: `Are you a bike mechanic in ${locName}, ${cityData.cityName}? Partner with FixWheel to get doorstep bike service orders. Earn up to ${cityData.monthlyEarnings}/month. Zero joining fee.`,
+      description: `Are you a bike mechanic in ${locName}, ${cityData.cityName}? Partner with FixWheel to get doorstep bike service orders directly in your locality. Zero joining fee, flexible hours.`,
       url: `https://www.fixwheel.app/partner/${city.toLowerCase()}/${locality.toLowerCase()}`,
       siteName: 'FixWheel',
       type: 'website',
