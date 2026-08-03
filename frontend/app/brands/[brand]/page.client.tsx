@@ -669,8 +669,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                 <span>{brandData.name} serviced</span>
               </div>
               <div className="hero-stat">
-                <b>100% OEM</b>
-                <span>Genuine spare parts</span>
+                <b>15 DAYS</b>
+                <span>Labor warranty</span>
               </div>
             </div>
           </div>

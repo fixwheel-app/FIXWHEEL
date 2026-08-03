@@ -600,8 +600,8 @@ export default function BrandsClientPage() {
             <span>Customer Rating</span>
           </div>
           <div className="trust-item">
-            <b>OEM</b>
-            <span>Genuine Parts</span>
+            <b>15 Days</b>
+            <span>Labor Warranty</span>
           </div>
         </div>
       </div>

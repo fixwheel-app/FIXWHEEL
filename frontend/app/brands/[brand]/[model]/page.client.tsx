@@ -171,7 +171,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
                 <div className="bg-slate-100 border border-slate-200 rounded-lg p-3 text-xs text-slate-600 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>100% Genuine {brandName} OEM Spares & Verified Mechanics</span>
+                  <span>Verified Mechanics & 15-Day Labor Warranty</span>
                 </div>
               </div>
             </div>
@@ -196,8 +196,8 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               <span className="text-xs text-slate-500 uppercase tracking-wider">Serviced</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">100% OEM</b>
-              <span className="text-xs text-slate-500 uppercase tracking-wider">Genuine Spares</span>
+              <b className="block text-2xl font-bold text-slate-900">15 DAYS</b>
+              <span className="text-xs text-slate-500 uppercase tracking-wider">Labor Warranty</span>
             </div>
           </div>
         </div>

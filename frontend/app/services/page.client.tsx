@@ -710,7 +710,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Parts Policy</span>
-                  <span className="v">100% Genuine OEM</span>
+                  <span className="v">100% Genuine</span>
                 </li>
                 <li>
                   <span>Labor Warranty</span>
