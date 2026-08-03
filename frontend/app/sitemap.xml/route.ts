@@ -18,6 +18,10 @@ export async function GET() {
     <lastmod>2026-07-25T19:39:55+00:00</lastmod>
   </sitemap>
   <sitemap>
+    <loc>https://www.fixwheel.app/becomepartner.xml</loc>
+    <lastmod>2026-08-03T19:15:00+00:00</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://www.fixwheel.app/gurgaon.xml</loc>
     <lastmod>2026-07-25T19:39:55+00:00</lastmod>
   </sitemap>
