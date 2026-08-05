@@ -697,8 +697,8 @@ export default function ServicesClientPage() {
               <span className="tag">SERVICE SNAPSHOT</span>
               <ul className="spec-list">
                 <li>
-                  <span>Avg. Doorstep Arrival</span>
-                  <span className="v">45 Minutes</span>
+                  <span>Doorstep Arrival Time</span>
+                  <span className="v">Within 45 Mins</span>
                 </li>
                 <li>
                   <span>Mechanics Network</span>

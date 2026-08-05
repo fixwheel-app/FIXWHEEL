@@ -219,7 +219,7 @@ export default function AboutClient() {
             {[
               { val: "473+", lbl: "Total vehicles serviced" },
               { val: "40+", lbl: "Verified mechanics" },
-              { val: "4.7★", lbl: "Avg. rating" }
+              { val: "4.7★", lbl: "Customer rating" }
             ].map((stat, idx) => (
               <div key={idx} className="space-y-1">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-black text-accent tracking-tighter block font-mono">

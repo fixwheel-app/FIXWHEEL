@@ -17,11 +17,11 @@ const serviceLinks = [
 ];
 
 const brandLinks = [
-  { name: 'Honda',          href: '/brands#honda' },
-  { name: 'Hero',           href: '/brands#hero' },
-  { name: 'Bajaj',          href: '/brands#bajaj' },
-  { name: 'Royal Enfield',  href: '/brands#royal-enfield' },
-  { name: 'Yamaha',         href: '/brands#yamaha' },
+  { name: 'Honda',          href: '/brands/honda' },
+  { name: 'Hero',           href: '/brands/hero' },
+  { name: 'Bajaj',          href: '/brands/bajaj' },
+  { name: 'Royal Enfield',  href: '/brands/royal-enfield' },
+  { name: 'Yamaha',         href: '/brands/yamaha' },
 ];
 
 const locationLinks = [

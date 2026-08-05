@@ -270,6 +270,17 @@ export default function PalamViharClientPage() {
         .palam-vihar-scope .partner li::before { content: "—"; color: var(--accent); }
         .palam-vihar-scope .partner-box { background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 6px; }
 
+        /* ===== CONTACT & EMERGENCY ===== */
+        .palam-vihar-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .palam-vihar-scope .contact-list { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .palam-vihar-scope .contact-item { display: flex; align-items: center; gap: 16px; }
+        .palam-vihar-scope .contact-item .ic {
+          width: 40px; height: 40px; border-radius: 50%; background: rgba(230, 43, 43, 0.08);
+          color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px;
+        }
+        .palam-vihar-scope .contact-item b { display: block; font-size: 15px; color: var(--ink-dark); }
+        .palam-vihar-scope .contact-item span { font-size: 12px; color: var(--ink-dim); }
+
         .palam-vihar-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .palam-vihar-scope .review { background: #FFFFFF; color: var(--ink-dark); padding: 24px; border-radius: 6px; border: 1px solid var(--line-paper); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
         .palam-vihar-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
@@ -550,27 +561,27 @@ export default function PalamViharClientPage() {
         </div>
       </section>
 
-
-
-      <section className="wrap partner">
-        <div>
-          <div className="eyebrow">Join our network</div>
-          <h2>Are you a bike mechanic in Palam Vihar?</h2>
-          <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>We're building out our mechanic network in Palam Vihar and don't yet have anyone permanently assigned to this locality — which means early partners get first pick of the job requests coming from Block A–J, the Market, Club Road and the Extension.</p>
-          <ul>
-            <li>Be among the first assigned to Palam Vihar</li>
-            <li>Flexible working hours</li>
-            <li>Easy booking management from the app</li>
-          </ul>
-        </div>
-        <div className="partner-box">
-          <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "var(--paper)", marginBottom: "12px" }}>Become a partner</h3>
-          <p style={{ color: "var(--ink-dim)", fontSize: "14px", marginBottom: "22px" }}>Sign up in a few minutes and start receiving job requests from riders in Palam Vihar.</p>
-          <Link href="/partner" className="btn btn-primary">Become a Partner →</Link>
+      <section className="section-alt">
+        <div className="wrap partner">
+          <div>
+            <div className="eyebrow">Join our network</div>
+            <h2>Are you a bike mechanic in Palam Vihar?</h2>
+            <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>We're building out our mechanic network in Palam Vihar and don't yet have anyone permanently assigned to this locality — which means early partners get first pick of the job requests coming from Block A–J, the Market, Club Road and the Extension.</p>
+            <ul>
+              <li>Be among the first assigned to Palam Vihar</li>
+              <li>Flexible working hours</li>
+              <li>Easy booking management from the app</li>
+            </ul>
+          </div>
+          <div className="partner-box">
+            <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "#FFFFFF", marginBottom: "12px" }}>Become a partner</h3>
+            <p style={{ color: "#94A3B8", fontSize: "14px", marginBottom: "22px" }}>Sign up in a few minutes and start receiving job requests from riders in Palam Vihar.</p>
+            <Link href="/partner" className="btn btn-primary">Become a Partner →</Link>
+          </div>
         </div>
       </section>
 
-      <section className="section-alt">
+      <section>
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
@@ -601,7 +612,7 @@ export default function PalamViharClientPage() {
         </div>
       </section>
 
-      <section id="faq">
+      <section id="faq" className="section-alt">
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">FAQs — Palam Vihar</div>
@@ -618,7 +629,7 @@ export default function PalamViharClientPage() {
             </div>
             <div className={`faq-item ${openFaqs[2] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(2)}>Do you cover Palam Vihar Extension and the Dwarka-border stretch?<span className="plus">+</span></div>
-              <div className="faq-a"><p>Yes — Extension and the Dwarka-border stretch are within regular coverage, with the same response time as the main blocks.</p></div>
+              <div className="faq-a"><p>Yes. We cover all blocks in Palam Vihar, the Extension area, Carterpuri, and up to the Delhi/Dwarka border point.</p></div>
             </div>
             <div className={`faq-item ${openFaqs[3] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(3)}>How fast can someone actually reach me here?<span className="plus">+</span></div>

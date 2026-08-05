@@ -613,7 +613,7 @@ export default function BrandsClientPage() {
           </div>
           <div className="trust-item">
             <b>45 min</b>
-            <span>Avg. Arrival Time</span>
+            <span>Within 45 Mins Arrival</span>
           </div>
           <div className="trust-item">
             <b>4.7★</b>

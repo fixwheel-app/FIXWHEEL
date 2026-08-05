@@ -289,9 +289,20 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         /* ===== PARTNER ===== */
         .${slug}-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
         .${slug}-scope .partner ul { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-        .${slug}-scope .partner li { font-size: 14.5px; color: #5A5D62; display: flex; gap: 10px; }
+        .${slug}-scope .partner li { font-size: 14.5px; color: var(--ink-dark); display: flex; gap: 10px; }
         .${slug}-scope .partner li::before { content: "—"; color: var(--accent); }
-        .${slug}-scope .partner-box { background: #FFFFFF; border: 1px solid var(--line-paper); padding: 34px; border-radius: 4px; color: var(--ink-dark); }
+        .${slug}-scope .partner-box { background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 6px; }
+
+        /* ===== CONTACT & EMERGENCY ===== */
+        .${slug}-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .${slug}-scope .contact-list { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .${slug}-scope .contact-item { display: flex; align-items: center; gap: 16px; }
+        .${slug}-scope .contact-item .ic {
+          width: 40px; height: 40px; border-radius: 50%; background: rgba(230, 43, 43, 0.08);
+          color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px;
+        }
+        .${slug}-scope .contact-item b { display: block; font-size: 15px; color: var(--ink-dark); }
+        .${slug}-scope .contact-item span { font-size: 12px; color: var(--ink-dim); }
 
         .${slug}-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .${slug}-scope .review { background: #FFFFFF; border: 1px solid var(--line-paper); color: var(--ink-dark); padding: 24px; border-radius: 4px; }
@@ -572,25 +583,27 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         </div>
       </section>
 
-      <section className="wrap partner">
-        <div>
-          <div className="eyebrow">Join our network</div>
-          <h2>Are you a bike mechanic in {data.name}?</h2>
-          <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>We're building out our mechanic network in {data.name} — join early to get priority dispatch on job requests coming from {data.subRegionText}</p>
-          <ul>
-            <li>Be assigned to bookings in {data.name}</li>
-            <li>Flexible working hours</li>
-            <li>Easy booking management from the app</li>
-          </ul>
-        </div>
-        <div className="partner-box">
-          <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "var(--paper)", marginBottom: "12px" }}>Become a partner</h3>
-          <p style={{ color: "var(--ink-dim)", fontSize: "14px", marginBottom: "22px" }}>Sign up in a few minutes and start receiving job requests from riders in {data.name}.</p>
-          <Link href="/partner" className="btn btn-primary">Become a Partner →</Link>
+      <section className="section-alt">
+        <div className="wrap partner">
+          <div>
+            <div className="eyebrow">Join our network</div>
+            <h2>Are you a bike mechanic in {data.name}?</h2>
+            <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>We're building out our mechanic network in {data.name} — join early to get priority dispatch on job requests coming from {data.subRegionText}.</p>
+            <ul>
+              <li>Be assigned to bookings in {data.name}</li>
+              <li>Flexible working hours</li>
+              <li>Easy booking management from the app</li>
+            </ul>
+          </div>
+          <div className="partner-box">
+            <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "#FFFFFF", marginBottom: "12px" }}>Become a partner</h3>
+            <p style={{ color: "#94A3B8", fontSize: "14px", marginBottom: "22px" }}>Sign up in a few minutes and start receiving job requests from riders in {data.name}.</p>
+            <Link href="/partner" className="btn btn-primary">Become a Partner →</Link>
+          </div>
         </div>
       </section>
 
-      <section className="section-alt">
+      <section>
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
@@ -608,7 +621,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         </div>
       </section>
 
-      <section id="faq">
+      <section id="faq" className="section-alt">
         <div className="wrap">
           <div className="section-head">
             <div className="eyebrow">FAQs — {data.name}</div>
@@ -624,6 +637,69 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             <div className={`faq-item ${openFaqs[4] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(4)}>My exact street isn't on the coverage list — am I still covered?<span className="plus">+</span></div>
               <div className="faq-a"><p>Yes. The listed streets are just the most requested ones. Book anyway and share your location — a mechanic will be dispatched.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CONTACT & ROADSIDE ASSISTANCE ===== */}
+      <section id="contact">
+        <div className="wrap contact-grid">
+          <div>
+            <div className="eyebrow">Contact</div>
+            <h2>Contact us</h2>
+            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>Have a question? We are available from 8 AM to 8 PM.</p>
+            <div className="contact-list">
+              <div className="contact-item">
+                <div className="ic">☎</div>
+                <div><b>+91 87459 45682</b><span>Call us between 8AM and 8PM</span></div>
+              </div>
+              <div className="contact-item">
+                <div className="ic">✉</div>
+                <div><b>support@fixwheel.app</b><span>We reply within 2 hours</span></div>
+              </div>
+              <div className="contact-item">
+                <div className="ic">💬</div>
+                <div><b>Chat on WhatsApp</b><span>Fastest way to book</span></div>
+              </div>
+            </div>
+          </div>
+          <div className="sos-highlight-box" style={{
+            background: "rgba(230, 43, 43, 0.05)",
+            border: "1px solid var(--accent)",
+            padding: "30px",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            position: "relative",
+          }}>
+            <div style={{
+              position: "absolute",
+              top: "-12px",
+              right: "20px",
+              background: "var(--accent)",
+              color: "#FFFFFF",
+              fontSize: "10px",
+              fontFamily: "var(--font-jetbrains)",
+              fontWeight: 700,
+              padding: "4px 10px",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              borderRadius: "2px",
+            }}>
+              24/7 EMERGENCY
+            </div>
+            <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>{data.name} Roadside Assistance</h3>
+            <p style={{ color: "#475569", fontSize: "14px" }}>
+              Stranded on the road or have a breakdown in {data.name}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.</p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
+              <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
+                Request Roadside Assistance →
+              </Link>
+              <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
+                Call Us Now
+              </a>
             </div>
           </div>
         </div>
