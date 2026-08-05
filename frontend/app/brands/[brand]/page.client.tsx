@@ -968,19 +968,10 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         </div>
       </section>
 
-      {/* ===== KEYWORDS & LOCATION FOOTPRINT ===== */}
+      {/* ===== LOCATION FOOTPRINT ===== */}
       <section className="keywords-section">
         <div className="wrap">
-          <h3 className="keywords-title">Popular {brandData.name} Service Searches in Delhi NCR</h3>
-          <div className="tags-cloud">
-            {brandData.seoKeywords.map((kw, i) => (
-              <span key={i} className="tag-pill">
-                #{kw}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="keywords-title" style={{ marginTop: "24px" }}>
+          <h3 className="keywords-title">
             Book {brandData.name} Doorstep Service by City
           </h3>
           <div className="locations-grid">

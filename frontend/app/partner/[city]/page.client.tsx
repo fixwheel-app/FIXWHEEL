@@ -654,21 +654,7 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
         </div>
       </section>
 
-      {/* SEO KEYWORDS */}
-      {cityData.seoKeywords && cityData.seoKeywords.length > 0 && (
-        <section className="content-section" style={{ padding: "48px 0" }}>
-          <div className="container">
-            <h3 style={{ fontSize: "16px", color: "var(--ink-dark)", marginBottom: "16px" }} className="mono">
-              POPULAR PARTNER SEARCHES IN {cityData.cityName.toUpperCase()}
-            </h3>
-            <div className="tag-cloud">
-              {cityData.seoKeywords.map((kw, i) => (
-                <span key={i}>{kw}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+
 
       {/* CTA BANNER */}
       <section className="cta-banner">

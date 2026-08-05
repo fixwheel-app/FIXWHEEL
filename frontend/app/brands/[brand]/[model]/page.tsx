@@ -34,9 +34,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/brands/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
+  const keywords = [
+    `${brandName.toLowerCase()} ${modelName.toLowerCase()} service near me`,
+    `doorstep ${modelName.toLowerCase()} repair`,
+    `${brandName.toLowerCase()} ${modelName.toLowerCase()} mechanic home service`,
+    `${modelName.toLowerCase()} bike service delhi ncr`,
+    `${brandName.toLowerCase()} ${modelName.toLowerCase()} periodic maintenance`,
+    `${modelName.toLowerCase()} doorstep oil change`,
+    `${modelName.toLowerCase()} brake repair at home`,
+  ].join(", ");
+
   return {
     title,
     description,
+    keywords,
     alternates: {
       canonical: canonicalUrl,
     },

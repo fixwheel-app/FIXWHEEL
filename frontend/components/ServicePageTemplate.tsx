@@ -388,22 +388,8 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
-          {/* ===== KEYWORDS TAG CLOUD & CITY LINKS ===== */}
+          {/* ===== CITY LINKS ===== */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
-              POPULAR LOCAL SEARCHES
-            </h3>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {keywords.map((kw, i) => (
-                <span
-                  key={i}
-                  className="bg-white border border-slate-200 font-mono text-xs text-slate-600 px-3 py-1.5 rounded-full"
-                >
-                  #{kw}
-                </span>
-              ))}
-            </div>
-
             <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
               BOOK DOORSTEP SERVICE BY CITY
             </h3>

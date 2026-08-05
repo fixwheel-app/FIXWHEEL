@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Become a Bike Mechanic Partner in ${cityData.cityName} — FixWheel Onboarding`,
     description: `Partner with FixWheel as a certified two-wheeler mechanic in ${cityData.cityName}. Direct customer doorstep service orders, zero joining fee, and full technical support. Apply online.`,
+    keywords: cityData.seoKeywords ? cityData.seoKeywords.join(", ") : "",
     alternates: {
       canonical: `https://www.fixwheel.app/partner/${city.toLowerCase()}`,
     },
