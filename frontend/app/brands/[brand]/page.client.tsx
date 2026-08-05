@@ -245,64 +245,93 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           letter-spacing: 0.05em;
         }
 
-        /* ===== HERO SNAPSHOT CARD ===== */
+        /* ===== HERO SNAPSHOT CARD (WHITE PAPER TICKET THEME) ===== */
         .brand-detail-scope .hero-snapshot-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          border-radius: 8px;
-          padding: 24px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-          backdrop-filter: blur(10px);
+          background: #FDFBF7;
+          color: #17181A;
+          border-radius: 6px;
+          padding: 24px 26px 20px;
+          position: relative;
+          box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
         }
+        .brand-detail-scope .hero-snapshot-card::before,
+        .brand-detail-scope .hero-snapshot-card::after {
+          content: "";
+          position: absolute;
+          width: 22px; height: 22px;
+          background: var(--hero-bg);
+          border-radius: 50%;
+          top: 50%; transform: translateY(-50%);
+        }
+        .brand-detail-scope .hero-snapshot-card::before { left: -11px; }
+        .brand-detail-scope .hero-snapshot-card::after { right: -11px; }
+
         .brand-detail-scope .hero-snapshot-header {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          align-items: flex-start;
+          border-bottom: 1px dashed #D8CFB8;
           padding-bottom: 14px;
-          margin-bottom: 18px;
+          margin-bottom: 16px;
         }
         .brand-detail-scope .hero-snapshot-title {
           font-family: var(--font-jetbrains), monospace;
-          font-size: 11px;
-          color: var(--accent);
+          font-size: 13px;
+          color: #17181A;
           font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+        .brand-detail-scope .hero-snapshot-title span {
+          display: block;
+          font-size: 10px;
+          color: #7a7364;
+          letter-spacing: 0.1em;
+          margin-top: 2px;
+          font-weight: 400;
         }
         .brand-detail-scope .hero-snapshot-badge {
-          background: rgba(230, 43, 43, 0.15);
-          color: #FF5252;
-          font-size: 10.5px;
           font-family: var(--font-jetbrains), monospace;
-          font-weight: 700;
-          padding: 3px 10px;
-          border-radius: 30px;
+          font-size: 10px;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
+          background: var(--stamp);
+          color: #3a2c00;
+          padding: 5px 10px;
+          border-radius: 20px;
+          font-weight: 700;
+          transform: rotate(2deg);
         }
-        .brand-detail-scope .hero-snapshot-list {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
+        .brand-detail-scope .hero-snapshot-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px 18px;
+          margin-bottom: 16px;
         }
-        .brand-detail-scope .hero-snapshot-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 13px;
+        .brand-detail-scope .hero-snapshot-item.full-width {
+          grid-column: span 2;
         }
         .brand-detail-scope .hero-snapshot-label {
-          color: #A7A9AC;
-        }
-        .brand-detail-scope .hero-snapshot-value {
-          color: #FFFFFF;
-          font-weight: 600;
+          display: block;
           font-family: var(--font-jetbrains), monospace;
-          text-align: right;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #8a836f;
+          margin-bottom: 3px;
         }
-        .brand-detail-scope .hero-snapshot-value.highlight {
+        .brand-detail-scope .hero-snapshot-val {
+          font-size: 13.5px;
+          font-weight: 600;
+          color: #17181A;
+          line-height: 1.35;
+        }
+        .brand-detail-scope .hero-snapshot-val.highlight {
           color: var(--accent);
           font-weight: 700;
+        }
+        .brand-detail-scope .hero-snapshot-foot {
+          border-top: 1px dashed #D8CFB8;
+          padding-top: 14px;
         }
 
         /* ===== TRUST STRIP ===== */
@@ -744,43 +773,46 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </div>
             </div>
 
-            {/* BRAND HERO SNAPSHOT CARD */}
+            {/* BRAND HERO SNAPSHOT CARD (WHITE PAPER TICKET THEME) */}
             <div className="hero-snapshot-card">
               <div className="hero-snapshot-header">
-                <span className="hero-snapshot-title">BRAND SNAPSHOT</span>
-                <span className="hero-snapshot-badge">{brandData.name} Specialist</span>
+                <div className="hero-snapshot-title">
+                  FW-{brandData.name.substring(0, 3).toUpperCase()}-2026
+                  <span>BRAND SERVICE SNAPSHOT</span>
+                </div>
+                <div className="hero-snapshot-badge">
+                  {brandData.name} SPECIALIST ✓
+                </div>
               </div>
 
-              <div className="hero-snapshot-list">
-                <div className="hero-snapshot-row">
+              <div className="hero-snapshot-grid">
+                <div className="hero-snapshot-item">
                   <span className="hero-snapshot-label">Starting Price</span>
-                  <span className="hero-snapshot-value highlight">₹199 Onwards</span>
+                  <div className="hero-snapshot-val highlight">₹199 Onwards</div>
                 </div>
-                <div className="hero-snapshot-row">
+                <div className="hero-snapshot-item">
                   <span className="hero-snapshot-label">Arrival Guarantee</span>
-                  <span className="hero-snapshot-value">Within 45 Mins</span>
+                  <div className="hero-snapshot-val">Within 45 Mins</div>
                 </div>
-                <div className="hero-snapshot-row">
+                <div className="hero-snapshot-item full-width">
                   <span className="hero-snapshot-label">Engine Oil Spec</span>
-                  <span className="hero-snapshot-value">{brandData.additionalInfo.engineOil}</span>
+                  <div className="hero-snapshot-val">{brandData.additionalInfo.engineOil}</div>
                 </div>
-                <div className="hero-snapshot-row">
-                  <span className="hero-snapshot-label">Spare Parts Policy</span>
-                  <span className="hero-snapshot-value">{brandData.additionalInfo.parts}</span>
-                </div>
-                <div className="hero-snapshot-row">
+                <div className="hero-snapshot-item">
                   <span className="hero-snapshot-label">Service Warranty</span>
-                  <span className="hero-snapshot-value">{brandData.additionalInfo.warranty}</span>
+                  <div className="hero-snapshot-val">{brandData.additionalInfo.warranty}</div>
                 </div>
-                <div className="hero-snapshot-row">
+                <div className="hero-snapshot-item">
                   <span className="hero-snapshot-label">Supported Models</span>
-                  <span className="hero-snapshot-value highlight">{allModels.length} Models</span>
+                  <div className="hero-snapshot-val highlight">{allModels.length} Models</div>
                 </div>
               </div>
 
-              <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: "20px" }}>
-                Book {brandData.name} Service →
-              </Link>
+              <div className="hero-snapshot-foot">
+                <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                  Book {brandData.name} Service →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
