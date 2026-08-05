@@ -194,7 +194,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         /* ===== HERO ===== */
         .brand-detail-scope .hero {
           position: relative;
-          padding: 88px 0 60px;
+          padding: 52px 0 44px;
           background: var(--hero-bg);
           color: var(--hero-text);
           border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -208,20 +208,26 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.12), transparent 70%);
           pointer-events: none;
         }
-        .brand-detail-scope .hero-inner {
+        .brand-detail-scope .hero-grid {
           position: relative; z-index: 1;
-          max-width: 820px;
+          display: grid;
+          grid-template-columns: 1.25fr 0.85fr;
+          gap: 40px;
+          align-items: center;
         }
-        .brand-detail-scope .hero h1 { font-size: 54px; margin: 0 0 20px; color: var(--hero-text); }
+        .brand-detail-scope .hero-inner {
+          max-width: 720px;
+        }
+        .brand-detail-scope .hero h1 { font-size: 48px; margin: 0 0 16px; color: var(--hero-text); }
         .brand-detail-scope .hero h1 em { font-style: normal; color: var(--accent); }
-        .brand-detail-scope .hero p.lead { font-size: 17px; color: var(--hero-ink-dim); max-width: 650px; margin-bottom: 32px; line-height: 1.6; }
-        .brand-detail-scope .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+        .brand-detail-scope .hero p.lead { font-size: 15.5px; color: var(--hero-ink-dim); margin-bottom: 24px; line-height: 1.6; }
+        .brand-detail-scope .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
 
         .brand-detail-scope .hero-stats {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
-          padding-top: 24px;
+          gap: 12px;
+          padding-top: 20px;
           border-top: 1px solid rgba(255,255,255,0.12);
         }
         .brand-detail-scope .hero-stat {
@@ -229,14 +235,74 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         }
         .brand-detail-scope .hero-stat b {
           display: block;
-          font-size: 20px;
+          font-size: 18px;
           color: #FFFFFF;
         }
         .brand-detail-scope .hero-stat span {
-          font-size: 11px;
+          font-size: 10.5px;
           color: #A7A9AC;
           text-transform: uppercase;
           letter-spacing: 0.05em;
+        }
+
+        /* ===== HERO SNAPSHOT CARD ===== */
+        .brand-detail-scope .hero-snapshot-card {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 8px;
+          padding: 24px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+          backdrop-filter: blur(10px);
+        }
+        .brand-detail-scope .hero-snapshot-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding-bottom: 14px;
+          margin-bottom: 18px;
+        }
+        .brand-detail-scope .hero-snapshot-title {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 11px;
+          color: var(--accent);
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+        .brand-detail-scope .hero-snapshot-badge {
+          background: rgba(230, 43, 43, 0.15);
+          color: #FF5252;
+          font-size: 10.5px;
+          font-family: var(--font-jetbrains), monospace;
+          font-weight: 700;
+          padding: 3px 10px;
+          border-radius: 30px;
+          text-transform: uppercase;
+        }
+        .brand-detail-scope .hero-snapshot-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .brand-detail-scope .hero-snapshot-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 13px;
+        }
+        .brand-detail-scope .hero-snapshot-label {
+          color: #A7A9AC;
+        }
+        .brand-detail-scope .hero-snapshot-value {
+          color: #FFFFFF;
+          font-weight: 600;
+          font-family: var(--font-jetbrains), monospace;
+          text-align: right;
+        }
+        .brand-detail-scope .hero-snapshot-value.highlight {
+          color: var(--accent);
+          font-weight: 700;
         }
 
         /* ===== TRUST STRIP ===== */
@@ -252,15 +318,15 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         }
         .brand-detail-scope .trust-item {
           background: #FFFFFF;
-          padding: 26px 20px;
+          padding: 18px 16px;
           text-align: center;
         }
         .brand-detail-scope .trust-item b {
           display: block;
           font-family: var(--font-jetbrains), monospace;
-          font-size: 20px;
+          font-size: 18px;
           color: var(--ink-dark);
-          margin-bottom: 4px;
+          margin-bottom: 3px;
         }
         .brand-detail-scope .trust-item span {
           font-family: var(--font-jetbrains), monospace;
@@ -272,7 +338,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
 
         /* ===== TABS COMPONENT ===== */
         .brand-detail-scope .tabs-section {
-          padding: 72px 0;
+          padding: 44px 0;
           background: var(--bg);
         }
         .brand-detail-scope .tab-container {
@@ -493,21 +559,21 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
 
         /* ===== FAQ ACCORDION SECTION ===== */
         .brand-detail-scope .faq-section {
-          padding: 80px 0;
+          padding: 48px 0;
           background: var(--bg-soft);
           border-top: 1px solid var(--line-paper);
           border-bottom: 1px solid var(--line-paper);
         }
         .brand-detail-scope .faq-head {
           max-width: 640px;
-          margin-bottom: 40px;
+          margin-bottom: 28px;
         }
-        .brand-detail-scope .faq-head h2 { font-size: 36px; color: var(--ink-dark); }
+        .brand-detail-scope .faq-head h2 { font-size: 32px; color: var(--ink-dark); }
         .brand-detail-scope .faq-grid {
           max-width: 860px;
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
         }
         .brand-detail-scope .faq-item {
           background: #FFFFFF;
@@ -520,47 +586,47 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           border-color: var(--accent);
         }
         .brand-detail-scope .faq-question {
-          padding: 20px 24px;
+          padding: 16px 20px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           cursor: pointer;
           font-family: var(--font-oswald), sans-serif;
-          font-size: 18px;
+          font-size: 17px;
           color: var(--ink-dark);
           text-transform: uppercase;
           letter-spacing: 0.02em;
         }
         .brand-detail-scope .faq-answer {
-          padding: 0 24px 22px;
-          font-size: 14.5px;
+          padding: 0 20px 18px;
+          font-size: 14px;
           color: var(--ink-dim);
-          line-height: 1.65;
+          line-height: 1.6;
           border-top: 1px solid rgba(0,0,0,0.04);
-          padding-top: 16px;
+          padding-top: 14px;
         }
 
         /* ===== KEYWORDS & FOOTPRINT ===== */
         .brand-detail-scope .keywords-section {
-          padding: 64px 0;
+          padding: 40px 0;
           background: #FFFFFF;
           border-bottom: 1px solid var(--line-paper);
         }
         .brand-detail-scope .keywords-title {
-          font-size: 20px;
+          font-size: 18px;
           color: var(--ink-dark);
-          margin-bottom: 16px;
+          margin-bottom: 14px;
         }
         .brand-detail-scope .tags-cloud {
           display: flex;
           flex-wrap: wrap;
           gap: 8px;
-          margin-bottom: 32px;
+          margin-bottom: 24px;
         }
         .brand-detail-scope .tag-pill {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
-          padding: 6px 14px;
+          padding: 5px 12px;
           background: var(--bg-soft);
           border: 1px solid var(--line-paper);
           border-radius: 20px;
@@ -570,10 +636,10 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         .brand-detail-scope .locations-grid {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
-          gap: 12px;
+          gap: 10px;
         }
         .brand-detail-scope .location-link {
-          padding: 12px 14px;
+          padding: 10px 12px;
           background: var(--bg-soft);
           border: 1px solid var(--line-paper);
           border-radius: 4px;
@@ -592,7 +658,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         /* ===== FINAL CTA ===== */
         .brand-detail-scope .final-cta {
           text-align: center;
-          padding: 88px 0;
+          padding: 56px 0;
           background: #17181A;
           color: #FFFFFF;
         }
@@ -639,41 +705,82 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="wrap">
-          <div className="hero-inner">
-            <div className="eyebrow">{brandData.name} Doorstep Service & Repair · Delhi NCR</div>
-            <h1>
-              Doorstep <em>{brandData.name}</em>
-              <br />
-              Bike & Scooter Service
-            </h1>
-            <p className="lead">{brandData.description}</p>
+          <div className="hero-grid">
+            <div className="hero-inner">
+              <div className="eyebrow">{brandData.name} Doorstep Service & Repair · Delhi NCR</div>
+              <h1>
+                Doorstep <em>{brandData.name}</em>
+                <br />
+                Bike & Scooter Service
+              </h1>
+              <p className="lead">{brandData.description}</p>
 
-            <div className="hero-ctas">
-              <Link href={`/book/${brandSlug}`} className="btn btn-primary">
-                Book {brandData.name} Service Now →
-              </Link>
-              <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
-                View Supported Models ({allModels.length})
-              </button>
+              <div className="hero-ctas">
+                <Link href={`/book/${brandSlug}`} className="btn btn-primary">
+                  Book {brandData.name} Service Now →
+                </Link>
+                <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
+                  View Supported Models ({allModels.length})
+                </button>
+              </div>
+
+              <div className="hero-stats">
+                <div className="hero-stat">
+                  <b>WITHIN 45 MINS</b>
+                  <span>Doorstep arrival</span>
+                </div>
+                <div className="hero-stat">
+                  <b>4.7 ★</b>
+                  <span>Customer rating</span>
+                </div>
+                <div className="hero-stat">
+                  <b>473+</b>
+                  <span>{brandData.name} serviced</span>
+                </div>
+                <div className="hero-stat">
+                  <b>15 DAYS</b>
+                  <span>Labor warranty</span>
+                </div>
+              </div>
             </div>
 
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <b>45 MIN</b>
-                <span>Doorstep arrival</span>
+            {/* BRAND HERO SNAPSHOT CARD */}
+            <div className="hero-snapshot-card">
+              <div className="hero-snapshot-header">
+                <span className="hero-snapshot-title">BRAND SNAPSHOT</span>
+                <span className="hero-snapshot-badge">{brandData.name} Specialist</span>
               </div>
-              <div className="hero-stat">
-                <b>4.7 ★</b>
-                <span>Average rating</span>
+
+              <div className="hero-snapshot-list">
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Starting Price</span>
+                  <span className="hero-snapshot-value highlight">₹199 Onwards</span>
+                </div>
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Arrival Guarantee</span>
+                  <span className="hero-snapshot-value">Within 45 Mins</span>
+                </div>
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Engine Oil Spec</span>
+                  <span className="hero-snapshot-value">{brandData.additionalInfo.engineOil}</span>
+                </div>
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Spare Parts Policy</span>
+                  <span className="hero-snapshot-value">{brandData.additionalInfo.parts}</span>
+                </div>
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Service Warranty</span>
+                  <span className="hero-snapshot-value">{brandData.additionalInfo.warranty}</span>
+                </div>
+                <div className="hero-snapshot-row">
+                  <span className="hero-snapshot-label">Supported Models</span>
+                  <span className="hero-snapshot-value highlight">{allModels.length} Models</span>
+                </div>
               </div>
-              <div className="hero-stat">
-                <b>473+</b>
-                <span>{brandData.name} serviced</span>
-              </div>
-              <div className="hero-stat">
-                <b>15 DAYS</b>
-                <span>Labor warranty</span>
-              </div>
+
+              <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: "20px" }}>
+                Book {brandData.name} Service →
+              </Link>
             </div>
           </div>
         </div>
