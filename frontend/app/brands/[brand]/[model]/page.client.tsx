@@ -414,37 +414,53 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </h2>
             </div>
 
-            <div className="space-y-3">
+            <div className="divide-y divide-slate-200">
               {faqs.map((faq, idx) => {
                 const isOpen = !!openFaqs[idx];
                 return (
-                  <div
-                    key={idx}
-                    className={cn(
-                      "bg-white border rounded-lg overflow-hidden transition-colors",
-                      isOpen ? "border-red-500" : "border-slate-200"
-                    )}
-                  >
+                  <div key={idx} className="py-5">
                     <button
-                      className="w-full px-6 py-4 text-left flex justify-between items-center font-oswald text-lg uppercase text-slate-900"
+                      className="w-full text-left flex justify-between items-center text-slate-900 font-medium text-base hover:text-[#e62b2b] transition-colors"
                       onClick={() => toggleFaq(idx)}
                     >
                       <span>{faq.q}</span>
-                      <ChevronDown
-                        className={cn(
-                          "w-5 h-5 text-slate-400 transition-transform duration-200",
-                          isOpen && "rotate-180 text-red-500"
-                        )}
-                      />
+                      <span className={cn("font-mono text-xl text-[#e62b2b] ml-4 transition-transform duration-200", isOpen && "rotate-45")}>+</span>
                     </button>
                     {isOpen && (
-                      <div className="px-6 pb-5 pt-3 text-base font-medium text-slate-700 leading-relaxed border-t border-slate-200">
+                      <div className="mt-3 text-slate-600 text-sm leading-relaxed max-w-3xl">
                         {faq.a}
                       </div>
                     )}
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* ===== BECOME A PARTNER SECTION ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b] block mb-2">
+                — JOIN OUR NETWORK
+              </span>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Are you a bike mechanic?
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                Join our team of mechanics servicing {brandName} {modelName} and all major two-wheeler brands in Delhi NCR. Work on your own schedule, get more customers, and grow your income.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-center gap-2"><span className="text-[#e62b2b] font-bold">—</span> Flexible working hours</li>
+                <li className="flex items-center gap-2"><span className="text-[#e62b2b] font-bold">—</span> Easy booking management</li>
+                <li className="flex items-center gap-2"><span className="text-[#e62b2b] font-bold">—</span> Receive service requests in your area</li>
+              </ul>
+            </div>
+            <div className="bg-[#0F172A] border border-white/10 p-7 rounded-xl text-white">
+              <h4 className="text-xl font-bold mb-2 text-white">Become a partner</h4>
+              <p className="text-slate-400 text-sm mb-5">Sign up in a few minutes and start getting service requests in your area.</p>
+              <Link href="/partner" className="inline-flex items-center justify-center bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-md transition-colors">
+                Become a Partner →
+              </Link>
             </div>
           </div>
 
@@ -484,6 +500,60 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               >
                 Faridabad
               </Link>
+            </div>
+          </div>
+
+          {/* ===== CONTACT & ROADSIDE ASSISTANCE SECTION ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b] block mb-2">
+                — CONTACT
+              </span>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">Contact us</h3>
+              <p className="text-slate-600 text-sm mb-6">Have a question? We are available from 8 AM to 8 PM.</p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-[#e62b2b] text-sm">☎</div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">+91 87459 45682</div>
+                    <div className="text-xs text-slate-500">Call us between 8AM and 8PM</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-[#e62b2b] text-sm">✉</div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">support@fixwheel.app</div>
+                    <div className="text-xs text-slate-500">We reply within 2 hours</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-[#e62b2b] text-sm">💬</div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">Chat on WhatsApp</div>
+                    <div className="text-xs text-slate-500">Fastest way to book</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-red-500/5 border border-[#e62b2b] p-7 rounded-xl relative">
+              <span className="absolute -top-3 right-5 bg-[#e62b2b] text-white text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded tracking-wider">
+                24/7 EMERGENCY
+              </span>
+              <h4 className="text-xl font-bold text-slate-900 mt-2 mb-3">
+                {brandName.toUpperCase()} {modelName.toUpperCase()} ROADSIDE ASSISTANCE
+              </h4>
+              <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                Stranded on the road or have a breakdown with your {brandName} {modelName}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/book" className="bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors">
+                  Request Roadside Assistance →
+                </Link>
+                <a href="tel:+918745945682" className="border border-slate-900 text-slate-900 font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors hover:bg-slate-900 hover:text-white">
+                  Call Us Now
+                </a>
+              </div>
             </div>
           </div>
 

@@ -586,53 +586,126 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           text-transform: uppercase;
         }
 
-        /* ===== FAQ ACCORDION SECTION ===== */
+        /* ===== FAQ ACCORDION SECTION (LOCALITY STYLE) ===== */
         .brand-detail-scope .faq-section {
-          padding: 48px 0;
-          background: var(--bg-soft);
+          padding: 88px 0;
+          background: #FFFFFF;
           border-top: 1px solid var(--line-paper);
           border-bottom: 1px solid var(--line-paper);
         }
-        .brand-detail-scope .faq-head {
-          max-width: 640px;
-          margin-bottom: 28px;
-        }
-        .brand-detail-scope .faq-head h2 { font-size: 32px; color: var(--ink-dark); }
-        .brand-detail-scope .faq-grid {
-          max-width: 860px;
+        .brand-detail-scope .faq-list {
           display: flex;
           flex-direction: column;
-          gap: 12px;
         }
         .brand-detail-scope .faq-item {
-          background: #FFFFFF;
-          border: 1px solid var(--line-paper);
-          border-radius: 4px;
-          overflow: hidden;
-          transition: border-color 0.15s;
+          border-bottom: 1px solid var(--line-paper);
+          background: transparent;
+          border-radius: 0;
         }
-        .brand-detail-scope .faq-item.open {
-          border-color: var(--accent);
-        }
-        .brand-detail-scope .faq-question {
-          padding: 16px 20px;
+        .brand-detail-scope .faq-q {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          padding: 22px 0;
           cursor: pointer;
-          font-family: var(--font-oswald), sans-serif;
-          font-size: 17px;
+          font-size: 16px;
           color: var(--ink-dark);
-          text-transform: uppercase;
-          letter-spacing: 0.02em;
+          font-weight: 500;
         }
-        .brand-detail-scope .faq-answer {
-          padding: 0 20px 18px;
-          font-size: 14px;
-          color: var(--ink-dim);
+        .brand-detail-scope .faq-q .plus {
+          font-family: var(--font-jetbrains), monospace;
+          color: var(--accent);
+          font-size: 18px;
+          transition: transform 0.2s ease;
+        }
+        .brand-detail-scope .faq-item.open .plus {
+          transform: rotate(45deg);
+        }
+        .brand-detail-scope .faq-a {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.25s ease;
+        }
+        .brand-detail-scope .faq-item.open .faq-a {
+          max-height: 300px;
+        }
+        .brand-detail-scope .faq-a p {
+          padding-bottom: 22px;
+          color: #475569;
+          font-size: 14.5px;
+          max-width: 760px;
           line-height: 1.6;
-          border-top: 1px solid rgba(0,0,0,0.04);
-          padding-top: 14px;
+        }
+
+        /* ===== PARTNER CTA ===== */
+        .brand-detail-scope .partner {
+          display: grid;
+          grid-template-columns: 1.3fr 1fr;
+          gap: 50px;
+          align-items: center;
+        }
+        .brand-detail-scope .partner ul {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .brand-detail-scope .partner li {
+          font-size: 14.5px;
+          color: var(--ink-dark);
+          display: flex;
+          gap: 10px;
+          list-style: none;
+        }
+        .brand-detail-scope .partner li::before {
+          content: "—";
+          color: var(--accent);
+        }
+        .brand-detail-scope .partner-box {
+          background: #0F172A;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 34px;
+          border-radius: 6px;
+        }
+
+        /* ===== CONTACT & ROADSIDE ASSISTANCE ===== */
+        .brand-detail-scope .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+        }
+        .brand-detail-scope .contact-list {
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+          margin-top: 20px;
+        }
+        .brand-detail-scope .contact-item {
+          display: flex;
+          gap: 16px;
+          align-items: flex-start;
+        }
+        .brand-detail-scope .contact-item .ic {
+          width: 38px;
+          height: 38px;
+          border: 1px solid var(--line-paper);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          color: var(--accent);
+          flex-shrink: 0;
+        }
+        .brand-detail-scope .contact-item b {
+          display: block;
+          color: var(--ink-dark);
+          font-size: 15px;
+          margin-bottom: 2px;
+        }
+        .brand-detail-scope .contact-item span {
+          color: #64748B;
+          font-size: 13.5px;
         }
 
         /* ===== KEYWORDS & FOOTPRINT ===== */
@@ -971,28 +1044,54 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         </div>
       </section>
 
-      {/* ===== BRAND FAQ SECTION ===== */}
-      <section className="faq-section">
-        <div className="wrap">
-          <div className="faq-head">
-            <div className="eyebrow">Frequently Asked Questions</div>
-            <h2>{brandData.name} Doorstep Service FAQs</h2>
+      {/* ===== BECOME A PARTNER SECTION ===== */}
+      <section className="section-alt" style={{ borderTop: "1px solid var(--line-paper)", borderBottom: "1px solid var(--line-paper)", padding: "88px 0" }}>
+        <div className="wrap partner">
+          <div>
+            <div className="eyebrow">Join our network</div>
+            <h2>Are you a bike mechanic?</h2>
+            <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>
+              Join our team of mechanics servicing {brandData.name} and all major two-wheeler brands across Delhi NCR. Work on your own schedule, get more customers, and grow your income.
+            </p>
+            <ul>
+              <li>Flexible working hours</li>
+              <li>Easy booking management</li>
+              <li>Receive service requests from customers in your area</li>
+            </ul>
           </div>
-          <div className="faq-grid">
+          <div className="partner-box">
+            <h3 style={{ fontSize: "20px", textTransform: "none", letterSpacing: 0, color: "#FFFFFF", marginBottom: "12px" }}>
+              Become a partner
+            </h3>
+            <p style={{ color: "#94A3B8", fontSize: "14px", marginBottom: "22px" }}>
+              Sign up in a few minutes and start getting service requests in your area.
+            </p>
+            <Link href="/partner" className="btn btn-primary">
+              Become a Partner →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BRAND FAQ SECTION (LOCALITY THEME) ===== */}
+      <section id="faq" className="faq-section">
+        <div className="wrap">
+          <div className="section-head" style={{ marginBottom: "40px" }}>
+            <div className="eyebrow">FAQS</div>
+            <h2>Common questions about {brandData.name} doorstep service</h2>
+          </div>
+          <div className="faq-list">
             {brandFaqs.map((faq, idx) => {
               const isOpen = !!openFaqs[idx];
               return (
                 <div key={idx} className={cn("faq-item", isOpen && "open")}>
-                  <div className="faq-question" onClick={() => toggleFaq(idx)}>
+                  <div className="faq-q" onClick={() => toggleFaq(idx)}>
                     <span>{faq.q}</span>
-                    <ChevronDown
-                      style={{
-                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                        transition: "transform 0.2s ease",
-                      }}
-                    />
+                    <span className="plus">+</span>
                   </div>
-                  {isOpen && <div className="faq-answer">{faq.a}</div>}
+                  <div className="faq-a">
+                    <p>{faq.a}</p>
+                  </div>
                 </div>
               );
             })}
@@ -1022,6 +1121,73 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             <Link href="/faridabad" className="location-link">
               Faridabad
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CONTACT & ROADSIDE ASSISTANCE SECTION ===== */}
+      <section id="contact" className="section-alt" style={{ borderTop: "1px solid var(--line-paper)", borderBottom: "1px solid var(--line-paper)", padding: "88px 0" }}>
+        <div className="wrap contact-grid">
+          <div>
+            <div className="eyebrow">Contact</div>
+            <h2>Contact us</h2>
+            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>Have a question about {brandData.name} service? We are available from 8 AM to 8 PM.</p>
+            <div className="contact-list">
+              <div className="contact-item">
+                <div className="ic">☎</div>
+                <div><b>+91 87459 45682</b><span>Call us between 8AM and 8PM</span></div>
+              </div>
+              <div className="contact-item">
+                <div className="ic">✉</div>
+                <div><b>support@fixwheel.app</b><span>We reply within 2 hours</span></div>
+              </div>
+              <div className="contact-item">
+                <div className="ic">💬</div>
+                <div><b>Chat on WhatsApp</b><span>Fastest way to book</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="sos-highlight-box" style={{
+            background: "rgba(230, 43, 43, 0.05)",
+            border: "1px solid var(--accent)",
+            padding: "30px",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            position: "relative",
+          }}>
+            <div style={{
+              position: "absolute",
+              top: "-12px",
+              right: "20px",
+              background: "var(--accent)",
+              color: "#FFFFFF",
+              fontSize: "10px",
+              fontFamily: "var(--font-jetbrains)",
+              fontWeight: 700,
+              padding: "4px 10px",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              borderRadius: "2px",
+            }}>
+              24/7 EMERGENCY
+            </div>
+            <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>
+              {brandData.name.toUpperCase()} ROADSIDE ASSISTANCE
+            </h3>
+            <p style={{ color: "#475569", fontSize: "14px" }}>
+              Stranded on the road or have a breakdown with your {brandData.name}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
+            </p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
+              <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
+                Request Roadside Assistance →
+              </Link>
+              <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
+                Call Us Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
