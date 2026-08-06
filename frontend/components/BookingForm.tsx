@@ -37,7 +37,7 @@ const bookingSchema = z.object({
     "6:00 PM - 7:00 PM", 
     "7:00 PM - 8:00 PM"
   ]),
-  package: z.enum(["General Service", "General Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"])
+  package: z.string().min(1, "Service package is required")
 });
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;

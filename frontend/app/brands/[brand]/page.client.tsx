@@ -29,8 +29,26 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
   const [activeTab, setActiveTab] = useState<"description" | "models" | "reviews">("description");
   const [modelQuery, setModelQuery] = useState("");
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
+  const [selectedCcTab, setSelectedCcTab] = useState<"0-249" | "250-399" | "400-599" | "600+">("0-249");
+  const [showFullMatrix, setShowFullMatrix] = useState(false);
 
   if (!brandData) return null;
+
+  const CC_PRICING_DATA: { name: string; desc: string; time: string; prices: Record<"0-249" | "250-399" | "400-599" | "600+", string> }[] = [
+    { name: "General Service", desc: "Comprehensive 21-point check, brake adjust, spark plug clean, air filter check, chain lube & dry wash.", time: "2 Hours", prices: { "0-249": "₹550", "250-399": "₹850", "400-599": "₹1,100", "600+": "₹1,500" } },
+    { name: "Service with Engine Oil", desc: "Full 21-point periodic service with fresh OEM synthetic engine oil change and oil filter replacement.", time: "2 Hours", prices: { "0-249": "₹999", "250-399": "₹1,999", "400-599": "₹2,990", "600+": "₹3,999" } },
+    { name: "Jump Start", desc: "Doorstep emergency battery jump start with heavy-duty battery booster for dead or drained batteries.", time: "30 Mins", prices: { "0-249": "₹399", "250-399": "₹399", "400-599": "₹499", "600+": "₹499" } },
+    { name: "Puncture Repair", desc: "On-site tubeless or tube puncture repair at your home, office, or stranded roadside location.", time: "30 Mins", prices: { "0-249": "₹399", "250-399": "₹399", "400-599": "₹550", "600+": "₹550" } },
+    { name: "Running Repair", desc: "On-site fix for clutch cable, accelerator cable, bulb fitting, mirror tightening, or lever adjustment.", time: "30 Mins", prices: { "0-249": "₹399", "250-399": "₹399", "400-599": "₹499", "600+": "₹499" } },
+    { name: "Carburetor Cleaning", desc: "Ultrasonic cleaning of carburetor jets, float bowl flushing, and air-fuel idle mixture tuning.", time: "45 Mins", prices: { "0-249": "₹199", "250-399": "₹199", "400-599": "₹399", "600+": "₹399" } },
+    { name: "Inspection with OBD Scanner", desc: "Advanced ECU error code reading, DTC clearing, sensor voltage check & check engine light reset for BS6 bikes.", time: "30 Mins", prices: { "0-249": "₹199", "250-399": "₹249", "400-599": "₹399", "600+": "₹399" } },
+    { name: "Battery Replacement", desc: "Doorstep installation of new sealed battery, terminal cleaning, and anti-corrosion greasing.", time: "30 Mins", prices: { "0-249": "₹99", "250-399": "₹99", "400-599": "₹149", "600+": "₹149" } },
+    { name: "Disc Replacement", desc: "Brake pad / rotor fitting, caliper pin greasing, hydraulic line air bleeding & squeal removal.", time: "45 Mins", prices: { "0-249": "₹199", "250-399": "₹249", "400-599": "₹299", "600+": "₹299" } },
+    { name: "Chain Sprocket Replacement", desc: "Front & rear sprocket fitment, new O-ring drive chain installation, wheel & swingarm alignment.", time: "1 Hour", prices: { "0-249": "₹299", "250-399": "₹299", "400-599": "₹450", "600+": "₹450" } },
+    { name: "Pick and Drop Charge", desc: "GPS-tracked insured flatbed pickup from your location to certified workshop and return delivery.", time: "Same Day", prices: { "0-249": "₹199", "250-399": "₹199", "400-599": "₹299", "600+": "₹299" } },
+    { name: "Engine Half Overhaul", desc: "Top-end engine repair including piston ring replacement, valve grinding, cylinder hone, and head gaskets.", time: "24 Hours", prices: { "0-249": "₹4,500", "250-399": "₹10,000", "400-599": "Inspection", "600+": "Inspection" } },
+    { name: "Engine Full Overhaul", desc: "Complete crankcase rebuild including crankshaft bearing replacement, connecting rod, gearbox & clutch overhaul.", time: "24 Hours", prices: { "0-249": "₹7,999", "250-399": "₹18,000", "400-599": "Inspection", "600+": "Inspection" } }
+  ];
 
   // Fetch all models from BIKE_DATA
   let brandObj = BIKE_DATA["Non-Electric Motorbike"].find(
@@ -757,6 +775,158 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           color: var(--accent);
         }
 
+        /* ===== CC PRICING SECTION ===== */
+        .brand-detail-scope .cc-pricing-section {
+          padding: 80px 0;
+          background: #FFFFFF;
+          border-bottom: 1px solid var(--line-paper);
+        }
+        .brand-detail-scope .cc-tabs-row {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+          margin-bottom: 32px;
+        }
+        .brand-detail-scope .cc-tab-btn {
+          background: var(--bg-soft);
+          border: 1px solid var(--line-paper);
+          border-radius: 6px;
+          padding: 16px;
+          text-align: left;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .brand-detail-scope .cc-tab-btn.active {
+          background: #0F172A;
+          border-color: #0F172A;
+          color: #FFFFFF;
+        }
+        .brand-detail-scope .cc-tab-btn b {
+          display: block;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 15px;
+          margin-bottom: 4px;
+        }
+        .brand-detail-scope .cc-tab-btn.active b {
+          color: var(--accent);
+        }
+        .brand-detail-scope .cc-tab-btn span {
+          font-size: 11px;
+          color: var(--ink-dim);
+          display: block;
+          line-height: 1.3;
+        }
+        .brand-detail-scope .cc-tab-btn.active span {
+          color: #94A3B8;
+        }
+
+        .brand-detail-scope .cc-pricing-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+        .brand-detail-scope .cc-price-card {
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 6px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .brand-detail-scope .cc-price-card:hover {
+          border-color: var(--accent);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .brand-detail-scope .cc-price-card-head {
+          margin-bottom: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .brand-detail-scope .cc-price-card h3 {
+          font-size: 18px;
+          color: var(--ink-dark);
+          margin-bottom: 6px;
+        }
+        .brand-detail-scope .cc-price-card p {
+          font-size: 13px;
+          color: #475569;
+          line-height: 1.5;
+        }
+        .brand-detail-scope .cc-price-card-foot {
+          border-top: 1px solid var(--line-paper);
+          padding-top: 16px;
+          margin-top: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .brand-detail-scope .cc-price-amount {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 24px;
+          font-weight: 800;
+          color: var(--accent);
+        }
+        .brand-detail-scope .cc-price-time {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #64748B;
+          background: var(--bg-soft);
+          padding: 4px 10px;
+          border-radius: 20px;
+          border: 1px solid var(--line-paper);
+          flex-shrink: 0;
+        }
+
+        /* FULL MATRIX TABLE */
+        .brand-detail-scope .matrix-table-wrap {
+          overflow-x: auto;
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          border-radius: 6px;
+          margin-top: 24px;
+        }
+        .brand-detail-scope .matrix-table {
+          width: 100%;
+          border-collapse: collapse;
+          text-align: left;
+          font-size: 13.5px;
+        }
+        .brand-detail-scope .matrix-table th {
+          background: #0F172A;
+          color: #FFFFFF;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          padding: 14px 18px;
+        }
+        .brand-detail-scope .matrix-table th.highlight-col {
+          color: var(--accent);
+        }
+        .brand-detail-scope .matrix-table td {
+          padding: 14px 18px;
+          border-bottom: 1px solid var(--line-paper);
+          color: var(--ink-dark);
+        }
+        .brand-detail-scope .matrix-table tr:last-child td {
+          border-bottom: none;
+        }
+        .brand-detail-scope .matrix-table tr:hover td {
+          background: #F8FAFC;
+        }
+        .brand-detail-scope .matrix-table .price-val {
+          font-family: var(--font-jetbrains), monospace;
+          font-weight: 700;
+          color: var(--accent);
+        }
+
         /* ===== FINAL CTA ===== */
         .brand-detail-scope .final-cta {
           text-align: center;
@@ -1041,6 +1211,123 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== CC-BASED SERVICE PRICING TABLE SECTION ===== */}
+      <section className="cc-pricing-section">
+        <div className="wrap">
+          <div className="section-head" style={{ marginBottom: "32px" }}>
+            <div className="eyebrow">Transparent Pricing</div>
+            <h2>{brandData.name} Doorstep Service Rates by Engine CC</h2>
+            <p style={{ color: "#475569", marginTop: "8px", fontSize: "15.5px" }}>
+              Upfront, fixed pricing for all {brandData.name} motorcycles & scooters based on engine displacement. Select your bike's CC category to view exact rates.
+            </p>
+          </div>
+
+          {/* CC Category Selector Tabs */}
+          <div className="cc-tabs-row">
+            <button
+              className={cn("cc-tab-btn", selectedCcTab === "0-249" && "active")}
+              onClick={() => setSelectedCcTab("0-249")}
+            >
+              <b>0 – 249 CC</b>
+              <span>Commuter Bikes & Scooters</span>
+            </button>
+            <button
+              className={cn("cc-tab-btn", selectedCcTab === "250-399" && "active")}
+              onClick={() => setSelectedCcTab("250-399")}
+            >
+              <b>250 – 399 CC</b>
+              <span>Performance & Quarter-Liter</span>
+            </button>
+            <button
+              className={cn("cc-tab-btn", selectedCcTab === "400-599" && "active")}
+              onClick={() => setSelectedCcTab("400-599")}
+            >
+              <b>400 – 599 CC</b>
+              <span>Middleweight Motorcycles</span>
+            </button>
+            <button
+              className={cn("cc-tab-btn", selectedCcTab === "600+" && "active")}
+              onClick={() => setSelectedCcTab("600+")}
+            >
+              <b>600 CC & Above</b>
+              <span>Superbikes & Heavy Cruisers</span>
+            </button>
+          </div>
+
+          {/* Service Cards Grid for Selected CC */}
+          <div className="cc-pricing-grid">
+            {CC_PRICING_DATA.map((srv, idx) => {
+              const priceVal = srv.prices[selectedCcTab];
+              return (
+                <div className="cc-price-card" key={idx}>
+                  <div>
+                    <div className="cc-price-card-head">
+                      <h3>{srv.name}</h3>
+                      <span className="cc-price-time">⏱ {srv.time}</span>
+                    </div>
+                    <p>{srv.desc}</p>
+                  </div>
+                  <div className="cc-price-card-foot">
+                    <div>
+                      <span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Fixed Rate</span>
+                      <span className="cc-price-amount">{priceVal}</span>
+                    </div>
+                    <Link
+                      href={`/book/${brandSlug}`}
+                      className="btn btn-primary"
+                      style={{ padding: "8px 16px", fontSize: "11px" }}
+                    >
+                      Book Now →
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Toggle Full Matrix View */}
+          <div style={{ textAlign: "center", marginTop: "24px" }}>
+            <button
+              onClick={() => setShowFullMatrix(!showFullMatrix)}
+              className="btn btn-outline"
+              style={{ color: "var(--ink-dark)", borderColor: "var(--line-paper)" }}
+            >
+              {showFullMatrix ? "Hide Full CC Comparison Matrix ▲" : "View Full CC Comparison Matrix Table ▼"}
+            </button>
+          </div>
+
+          {/* Side-by-side Full Matrix Table */}
+          {showFullMatrix && (
+            <div className="matrix-table-wrap">
+              <table className="matrix-table">
+                <thead>
+                  <tr>
+                    <th>Service Name</th>
+                    <th className={cn(selectedCcTab === "0-249" && "highlight-col")}>0–249 CC</th>
+                    <th className={cn(selectedCcTab === "250-399" && "highlight-col")}>250–399 CC</th>
+                    <th className={cn(selectedCcTab === "400-599" && "highlight-col")}>400–599 CC</th>
+                    <th className={cn(selectedCcTab === "600+" && "highlight-col")}>600 CC+</th>
+                    <th>Est. Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CC_PRICING_DATA.map((srv, idx) => (
+                    <tr key={idx}>
+                      <td style={{ fontWeight: 600 }}>{srv.name}</td>
+                      <td className="price-val">{srv.prices["0-249"]}</td>
+                      <td className="price-val">{srv.prices["250-399"]}</td>
+                      <td className="price-val">{srv.prices["400-599"]}</td>
+                      <td className="price-val">{srv.prices["600+"]}</td>
+                      <td className="mono" style={{ fontSize: "12px", color: "#64748B" }}>{srv.time}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </section>
 

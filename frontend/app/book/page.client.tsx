@@ -278,19 +278,15 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
                       <div className="flex items-baseline gap-3">
                         {price !== null && (() => {
-                          let originalPrice = null;
-                          if (srv.id === 'General Service') {
-                            originalPrice = price + 100;
-                          } else if (srv.id === 'General Service with engine oil') {
-                            originalPrice = price + 150;
-                          } else if (srv.id === 'Puncture') {
-                            originalPrice = price + 100;
-                          } else if (srv.id === 'Running Repair') {
-                            originalPrice = price + 100;
-                          } else if (srv.id === 'Engine Half') {
+                          let originalPrice: number | null = null;
+                          if (srv.id === 'Engine Half') {
                             originalPrice = price + 1000;
                           } else if (srv.id === 'Engine full') {
                             originalPrice = price + 2000;
+                          } else if (price >= 1000) {
+                            originalPrice = Math.round(price * 1.15 / 50) * 50;
+                          } else {
+                            originalPrice = price + 100;
                           }
                           
                           if (originalPrice !== null) {

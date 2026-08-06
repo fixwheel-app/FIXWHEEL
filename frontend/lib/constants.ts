@@ -67,16 +67,40 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
     ]
   },
   { 
+    id: "Jump start", 
+    name: "Jump start", 
+    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 },
+    estimatedTime: "30 MINS",
+    includes: [
+      "Heavy-Duty Battery Booster Arrival",
+      "Voltage & Alternator Charge Test",
+      "Terminal Corrosion Cleaning",
+      "45-Min Fast Doorstep Arrival"
+    ]
+  },
+  { 
     id: "Puncture", 
     name: "Puncture", 
     prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 },
-    estimatedTime: "30 MINS"
+    estimatedTime: "30 MINS",
+    includes: [
+      "High-Grade Vulcanized Rubber Strips",
+      "Air Pressure Check & Top-Up",
+      "Valve Core Inspection",
+      "No Garage Dragging Needed"
+    ]
   },
   { 
     id: "Running Repair", 
     name: "Running Repair", 
     prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 },
-    estimatedTime: "30 MINS"
+    estimatedTime: "30 MINS",
+    includes: [
+      "Clutch/Accelerator Cable Replacement",
+      "Headlight/Indicator Bulb Fitting",
+      "Mirror/Lever Tightening & Adjustment",
+      "On-Site Mechanical Diagnostics"
+    ]
   },
   { 
     id: "Engine Half", 
@@ -118,12 +142,84 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
       "Spark plug",
       "Mechanic charges"
     ]
+  },
+  { 
+    id: "Carburetor Cleaning", 
+    name: "Carburetor Cleaning", 
+    prices: { "0-249": 199, "250-399": 199, "400-599": 399, "600+": 399 },
+    estimatedTime: "45 MINS",
+    includes: [
+      "Jet & Passageway Carbon Removal",
+      "Float Chamber De-clogging",
+      "Air-Fuel Ratio Idle Adjustment",
+      "Cold Start Performance Fix"
+    ]
+  },
+  { 
+    id: "Inspection with OBD Scanner", 
+    name: "Inspection with OBD Scanner", 
+    prices: { "0-249": 199, "250-399": 249, "400-599": 399, "600+": 399 },
+    estimatedTime: "30 MINS",
+    includes: [
+      "ECU Error Code (DTC) Reading & Clearing",
+      "Sensor Voltage & Oxygen Sensor Check",
+      "Check Engine Light (CEL) Reset",
+      "Digital Diagnostic Report"
+    ]
+  },
+  { 
+    id: "Battery Replacement", 
+    name: "Battery Replacement", 
+    prices: { "0-249": 99, "250-399": 99, "400-599": 149, "600+": 149 },
+    estimatedTime: "30 MINS",
+    includes: [
+      "Doorstep Installation",
+      "Terminal Cleaning & Anti-Corrosion Grease",
+      "Battery & Alternator Charge Test",
+      "Disposal Assistance"
+    ]
+  },
+  { 
+    id: "Disc Replacement", 
+    name: "Disc Replacement", 
+    prices: { "0-249": 199, "250-399": 249, "400-599": 299, "600+": 299 },
+    estimatedTime: "45 MINS",
+    includes: [
+      "Organic/Sintered Brake Pad Fitting",
+      "Caliper Piston Cleaning & Greasing",
+      "Brake Line Air Bleeding",
+      "Squeal-Free Brake Restoration"
+    ]
+  },
+  { 
+    id: "Chain Sprocket Replacement", 
+    name: "Chain Sprocket Replacement", 
+    prices: { "0-249": 299, "250-399": 299, "400-599": 450, "600+": 450 },
+    estimatedTime: "1 HOUR",
+    includes: [
+      "Front & Rear Sprocket Fitment",
+      "Drive Chain Installation",
+      "Wheel Alignment & Swingarm Notch Check",
+      "High-Tack Chain Lube Coat"
+    ]
+  },
+  { 
+    id: "Pick and Drop Charge", 
+    name: "Pick and drop charge", 
+    prices: { "0-249": 199, "250-399": 199, "400-599": 299, "600+": 299 },
+    estimatedTime: "SAME DAY",
+    includes: [
+      "GPS Tracked Transit Pickup",
+      "Insured Safe Transport to Workshop",
+      "Same-Day Pickup & Return Delivery",
+      "Ideal for Major Overhauls"
+    ]
   }
 ];
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
-  { id: "General Service", name: "General Service", price: 799, estimatedTime: "2 HOURS" },
-  { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS" },
-  { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS" },
-  { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS" },
+  { id: "General Service", name: "General Service", price: 799, estimatedTime: "2 HOURS", includes: ["BMS Health & Cell Diagnostic", "Hub Motor & Sensor Check", "Regenerative Brake Calibration", "High Voltage Wire Check"] },
+  { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS", includes: ["Auxiliary Battery Boost", "Terminal Voltage Check", "Fast Doorstep Arrival"] },
+  { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS", includes: ["Tubeless Rubber Strip Repair", "Air Pressure Calibration", "Valve Inspection"] },
+  { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS", includes: ["Throttle Sensor Calibration", "Brake Lever Fitting", "Minor Electrical Repair"] },
 ];
