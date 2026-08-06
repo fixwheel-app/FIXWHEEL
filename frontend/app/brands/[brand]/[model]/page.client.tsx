@@ -70,7 +70,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
       {/* ===== HERO HEADER (FIXED NAVBAR CLEARANCE) ===== */}
-      <div className="bg-[#17181A] text-white pt-28 md:pt-36 pb-16 border-b border-white/10 relative overflow-hidden">
+      <div className="bg-[#17181A] text-white pt-20 md:pt-24 pb-12 border-b border-white/10 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
