@@ -1386,32 +1386,6 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         </div>
       </section>
 
-      {/* ===== LOCATION FOOTPRINT ===== */}
-      <section className="keywords-section">
-        <div className="wrap">
-          <h3 className="keywords-title">
-            Book {brandData.name} Doorstep Service by City
-          </h3>
-          <div className="locations-grid">
-            <Link href="/gurgaon" className="location-link">
-              Gurgaon / Gurugram
-            </Link>
-            <Link href="/delhi" className="location-link">
-              Delhi NCR
-            </Link>
-            <Link href="/noida" className="location-link">
-              Noida
-            </Link>
-            <Link href="/ghaziabad" className="location-link">
-              Ghaziabad
-            </Link>
-            <Link href="/faridabad" className="location-link">
-              Faridabad
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ===== CONTACT & ROADSIDE ASSISTANCE SECTION ===== */}
       <section id="contact" className="section-alt" style={{ borderTop: "1px solid var(--line-paper)", borderBottom: "1px solid var(--line-paper)", padding: "88px 0" }}>
         <div className="wrap contact-grid">
@@ -1475,6 +1449,32 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                 Call Us Now
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LOCATION FOOTPRINT (PLACED DIRECTLY AFTER CONTACT US) ===== */}
+      <section className="keywords-section">
+        <div className="wrap">
+          <h3 className="keywords-title">
+            Book {brandData.name} Doorstep Service by City
+          </h3>
+          <div className="locations-grid">
+            <Link href="/gurgaon" className="location-link">
+              Gurgaon / Gurugram
+            </Link>
+            <Link href="/delhi" className="location-link">
+              Delhi NCR
+            </Link>
+            <Link href="/noida" className="location-link">
+              Noida
+            </Link>
+            <Link href="/ghaziabad" className="location-link">
+              Ghaziabad
+            </Link>
+            <Link href="/faridabad" className="location-link">
+              Faridabad
+            </Link>
           </div>
         </div>
       </section>

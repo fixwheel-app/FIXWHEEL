@@ -803,6 +803,32 @@ export default function FaridabadClientPage() {
         </div>
       </section>
 
+      {/* ===== LOCATION FOOTPRINT (PLACED DIRECTLY AFTER CONTACT US) ===== */}
+      <section className="keywords-section" style={{ padding: "60px 0", borderBottom: "1px solid var(--line-paper)", background: "#FFFFFF" }}>
+        <div className="wrap">
+          <h3 className="keywords-title" style={{ fontSize: "18px", color: "var(--ink-dark)", marginBottom: "20px", fontFamily: "var(--font-jetbrains)", textTransform: "uppercase" }}>
+            Book Doorstep Service by City
+          </h3>
+          <div className="locations-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
+            <Link href="/gurgaon" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+              Gurgaon / Gurugram
+            </Link>
+            <Link href="/delhi" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+              Delhi NCR
+            </Link>
+            <Link href="/noida" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+              Noida
+            </Link>
+            <Link href="/ghaziabad" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+              Ghaziabad
+            </Link>
+            <Link href="/faridabad" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+              Faridabad
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ===== FINAL CTA ===== */}
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">

@@ -273,170 +273,6 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             </div>
           </div>
 
-          {/* ===== WHAT'S INCLUDED CHECKLIST ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-slate-900 mb-16 shadow-sm">
-            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-6 mb-8 gap-4">
-              <div>
-                <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                  15-POINT CHECKLIST
-                </span>
-                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
-                  What's Included in {brandName} {modelName} Service
-                </h2>
-              </div>
-              <span className="bg-white border border-slate-300 font-mono text-xs font-bold px-4 py-2 rounded-full text-slate-700">
-                Starting from <strong className="text-red-600">₹199</strong>
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Front & rear brake inspection, shoe cleaning & cable adjustment
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Spark plug inspection, electrode carbon removal & gap setting
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Air filter dust cleaning & intake airflow check
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Drive chain / belt tension check, cleaning & spray lubrication
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Full electrical circuit test (headlights, horn, battery voltage)
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Control cables & lever pivot lubrication
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Carburetor / FI idling adjustment for maximum fuel economy
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span className="text-base font-semibold text-slate-800">
-                  Tyre pressure calibration & tread safety check
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== STEP-BY-STEP PROCESS ===== */}
-          <div className="mb-16">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-2">
-                WORKFLOW
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                How Doorstep Service Works for {brandName} {modelName}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">01</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">1. Book Slot</h3>
-                <p className="text-sm text-slate-600">
-                  Select {brandName} {modelName} and pick a convenient time slot online.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">02</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">2. Mechanic Dispatched</h3>
-                <p className="text-sm text-slate-600">
-                  A certified technician arrives at your doorstep in 45 minutes with OEM tools.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">03</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">3. Doorstep Repair</h3>
-                <p className="text-sm text-slate-600">
-                  Watch servicing done directly in your home or office parking with zero mess.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">04</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">4. Test Drive & Pay</h3>
-                <p className="text-sm text-slate-600">
-                  Take a test ride, verify replaced parts, and pay digitally with a 15-day warranty.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== EXPANDABLE FAQS ===== */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="mb-8">
-              <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                FAQS
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                Got Questions About {brandName} {modelName} Service?
-              </h2>
-            </div>
-
-            <div className="divide-y divide-slate-200">
-              {faqs.map((faq, idx) => {
-                const isOpen = !!openFaqs[idx];
-                return (
-                  <div key={idx} className="py-5">
-                    <button
-                      className="w-full text-left flex justify-between items-center text-slate-900 font-medium text-base hover:text-[#e62b2b] transition-colors"
-                      onClick={() => toggleFaq(idx)}
-                    >
-                      <span>{faq.q}</span>
-                      <span className={cn("font-mono text-xl text-[#e62b2b] ml-4 transition-transform duration-200", isOpen && "rotate-45")}>+</span>
-                    </button>
-                    {isOpen && (
-                      <div className="mt-3 text-slate-600 text-sm leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* ===== BECOME A PARTNER SECTION ===== */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -460,45 +296,6 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               <p className="text-slate-400 text-sm mb-5">Sign up in a few minutes and start getting service requests in your area.</p>
               <Link href="/partner" className="inline-flex items-center justify-center bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-md transition-colors">
                 Become a Partner →
-              </Link>
-            </div>
-          </div>
-
-          {/* ===== CITY LINKS ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
-              BOOK DOORSTEP SERVICE BY CITY
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-              <Link
-                href="/gurgaon"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
-              >
-                Gurgaon
-              </Link>
-              <Link
-                href="/delhi"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
-              >
-                Delhi
-              </Link>
-              <Link
-                href="/noida"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
-              >
-                Noida
-              </Link>
-              <Link
-                href="/ghaziabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
-              >
-                Ghaziabad
-              </Link>
-              <Link
-                href="/faridabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
-              >
-                Faridabad
               </Link>
             </div>
           </div>
@@ -554,6 +351,45 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                   Call Us Now
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* ===== CITY LINKS (PLACED DIRECTLY AFTER CONTACT US) ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
+              BOOK DOORSTEP SERVICE BY CITY
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+              <Link
+                href="/gurgaon"
+                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+              >
+                Gurgaon
+              </Link>
+              <Link
+                href="/delhi"
+                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+              >
+                Delhi
+              </Link>
+              <Link
+                href="/noida"
+                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+              >
+                Noida
+              </Link>
+              <Link
+                href="/ghaziabad"
+                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+              >
+                Ghaziabad
+              </Link>
+              <Link
+                href="/faridabad"
+                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+              >
+                Faridabad
+              </Link>
             </div>
           </div>
 
