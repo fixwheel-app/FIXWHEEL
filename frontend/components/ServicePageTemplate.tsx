@@ -35,6 +35,12 @@ const SUPPORTED_BRANDS = [
   { name: "KTM", slug: "ktm", logo: "https://www.google.com/s2/favicons?domain=ktm.com&sz=64" },
   { name: "Ola Electric", slug: "ola-electric", logo: "https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" },
   { name: "Ather", slug: "ather", logo: "https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" },
+  { name: "Jawa", slug: "jawa", logo: "https://www.google.com/s2/favicons?domain=jawamotorcycles.com&sz=64" },
+  { name: "Yezdi", slug: "yezdi", logo: "https://www.google.com/s2/favicons?domain=yezdi.com&sz=64" },
+  { name: "Aprilia", slug: "aprilia", logo: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64" },
+  { name: "Vespa", slug: "vespa", logo: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64" },
+  { name: "Harley-Davidson", slug: "harley-davidson", logo: "https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" },
+  { name: "Kawasaki", slug: "kawasaki", logo: "https://www.google.com/s2/favicons?domain=kawasaki-india.com&sz=64" },
 ];
 
 export default function ServicePageTemplate({
@@ -298,28 +304,60 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
-          {/* ===== BRANDS WE SERVE ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
-            <div className="text-center max-w-2xl mx-auto mb-8">
-              <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                SUPPORTED TWO-WHEELERS
-              </span>
-              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
-                Brands We Serve
-              </h3>
-              <p className="text-slate-600 text-sm mt-1">
-                We service all major motorcycle and scooter brands across Delhi NCR with genuine parts.
-              </p>
+          {/* ===== BRANDS WE SERVE (SLIDING / SCROLLABLE CAROUSEL) ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
+                  SUPPORTED TWO-WHEELERS
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
+                  Brands We Serve
+                </h3>
+                <p className="text-slate-600 text-xs md:text-sm mt-1">
+                  We service all 16+ major motorcycle and scooter brands across Delhi NCR with 100% genuine parts.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById("service-brands-track");
+                    if (el) el.scrollBy({ left: -260, behavior: "smooth" });
+                  }}
+                  className="w-9 h-9 rounded-full bg-white border border-slate-300 hover:border-red-500 hover:text-red-600 flex items-center justify-center font-bold text-slate-700 transition-colors shadow-sm cursor-pointer"
+                  aria-label="Scroll left"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById("service-brands-track");
+                    if (el) el.scrollBy({ left: 260, behavior: "smooth" });
+                  }}
+                  className="w-9 h-9 rounded-full bg-white border border-slate-300 hover:border-red-500 hover:text-red-600 flex items-center justify-center font-bold text-slate-700 transition-colors shadow-sm cursor-pointer"
+                  aria-label="Scroll right"
+                >
+                  →
+                </button>
+              </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+
+            {/* Horizontal Sliding Track */}
+            <div
+              id="service-brands-track"
+              className="flex items-center gap-3 overflow-x-auto py-2 px-1 snap-x snap-mandatory scroll-smooth"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
               {SUPPORTED_BRANDS.map((b) => (
                 <Link
                   key={b.slug}
                   href={`/brands/${b.slug}`}
-                  className="flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group"
+                  className="flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start min-w-[150px]"
                 >
-                  <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform" />
-                  <span>{b.name}</span>
+                  <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="whitespace-nowrap">{b.name}</span>
                 </Link>
               ))}
             </div>
