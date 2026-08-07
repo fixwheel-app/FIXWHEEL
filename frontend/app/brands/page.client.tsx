@@ -896,19 +896,19 @@ export default function BrandsClientPage() {
             Book Doorstep Service by City
           </h3>
           <div className="locations-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
-            <Link href="/gurgaon" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+            <Link href="/gurgaon" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Gurgaon / Gurugram
             </Link>
-            <Link href="/delhi" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+            <Link href="/delhi" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Delhi NCR
             </Link>
-            <Link href="/noida" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+            <Link href="/noida" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Noida
             </Link>
-            <Link href="/ghaziabad" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+            <Link href="/ghaziabad" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Ghaziabad
             </Link>
-            <Link href="/faridabad" style={{ padding: "12px", background: "var(--bg-soft)", border: "1px solid var(--line-paper)", borderRadius: "4px", fontWeight: "700", color: "var(--ink-dark)", textAlign: "center", fontSize: "13px" }}>
+            <Link href="/faridabad" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Faridabad
             </Link>
           </div>

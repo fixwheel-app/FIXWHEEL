@@ -355,38 +355,38 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
           </div>
 
           {/* ===== CITY LINKS (PLACED DIRECTLY AFTER CONTACT US) ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-16 text-white shadow-xl">
             <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
               BOOK DOORSTEP SERVICE BY CITY
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
               <Link
                 href="/gurgaon"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
-                Gurgaon
+                Gurgaon / Gurugram
               </Link>
               <Link
                 href="/delhi"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
-                Delhi
+                Delhi NCR
               </Link>
               <Link
                 href="/noida"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Noida
               </Link>
               <Link
                 href="/ghaziabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Ghaziabad
               </Link>
               <Link
                 href="/faridabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Faridabad
               </Link>

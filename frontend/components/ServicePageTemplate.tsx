@@ -252,34 +252,6 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
-          {/* ===== WHAT'S INCLUDED CHECKLIST ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-slate-900 mb-16 shadow-sm">
-            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-6 mb-8 gap-4">
-              <div>
-                <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                  FULL CHECKLIST
-                </span>
-                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
-                  What's Included in This Service
-                </h2>
-              </div>
-              <span className="bg-white border border-slate-300 font-mono text-xs font-bold px-4 py-2 rounded-full text-slate-700">
-                Starting from <strong className="text-red-600">{startingPrice}</strong>
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
-              {includedItems.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-emerald-700" />
-                  </div>
-                  <span className="text-base font-semibold text-slate-800">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* ===== STEP-BY-STEP PROCESS ===== */}
           <div className="mb-16">
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -326,19 +298,27 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
-          {/* ===== SUPPORTED BRANDS GRID ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 text-center">
-            <h3 className="text-xl font-black uppercase tracking-wider text-slate-900 font-oswald mb-6">
-              Supported Two-Wheeler Brands
-            </h3>
-            <div className="flex flex-wrap justify-center items-center gap-4">
+          {/* ===== BRANDS WE SERVE ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
+                SUPPORTED TWO-WHEELERS
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
+                Brands We Serve
+              </h3>
+              <p className="text-slate-600 text-sm mt-1">
+                We service all major motorcycle and scooter brands across Delhi NCR with genuine parts.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {SUPPORTED_BRANDS.map((b) => (
                 <Link
                   key={b.slug}
                   href={`/brands/${b.slug}`}
-                  className="flex items-center gap-2 bg-white border border-slate-200 px-4 py-2.5 rounded-full text-xs font-mono font-bold text-slate-800 hover:border-red-500 hover:text-red-600 transition-colors shadow-sm"
+                  className="flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group"
                 >
-                  <img src={b.logo} alt={b.name} className="w-4 h-4 rounded-full" />
+                  <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform" />
                   <span>{b.name}</span>
                 </Link>
               ))}
@@ -391,38 +371,38 @@ export default function ServicePageTemplate({
           </div>
 
           {/* ===== CITY LINKS ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-16 text-white shadow-xl">
             <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
               BOOK DOORSTEP SERVICE BY CITY
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
               <Link
                 href="/gurgaon"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
-                Gurgaon
+                Gurgaon / Gurugram
               </Link>
               <Link
                 href="/delhi"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
-                Delhi
+                Delhi NCR
               </Link>
               <Link
                 href="/noida"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Noida
               </Link>
               <Link
                 href="/ghaziabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Ghaziabad
               </Link>
               <Link
                 href="/faridabad"
-                className="bg-white border border-slate-200 hover:border-red-500 hover:text-red-600 text-center py-2.5 rounded-md font-mono text-xs font-bold text-slate-800 transition-colors"
+                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Faridabad
               </Link>
