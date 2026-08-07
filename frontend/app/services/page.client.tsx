@@ -162,7 +162,7 @@ export default function ServicesClientPage() {
         .services-new-page .hero {
           background: var(--asphalt);
           color: #FFFFFF;
-          padding: 110px 0 72px;
+          padding: 40px 0 60px;
           position: relative;
           overflow: hidden;
           border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -594,6 +594,17 @@ export default function ServicesClientPage() {
       />
 
       <div className="services-new-page">
+        {/* BREADCRUMB */}
+        <div style={{ background: "#111214", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingTop: "80px" }}>
+          <div className="wrap">
+            <nav style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "12px", color: "#A7A9AC", display: "flex", alignItems: "center", gap: "8px" }}>
+              <Link href="/" style={{ color: "#A7A9AC" }}>Home</Link>
+              <span style={{ color: "#5C6066" }}>/</span>
+              <span style={{ color: "var(--orange)", fontWeight: "700" }}>Services</span>
+            </nav>
+          </div>
+        </div>
+
         {/* HERO */}
         <header className="hero">
           <div className="wrap hero-grid">
