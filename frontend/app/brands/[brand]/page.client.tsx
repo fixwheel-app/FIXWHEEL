@@ -940,23 +940,31 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px){
-          .brand-detail-scope .hero h1 { font-size: 38px; }
+          .brand-detail-scope .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+          .brand-detail-scope .hero h1 { font-size: 34px; }
+          .brand-detail-scope .cc-pricing-grid { grid-template-columns: 1fr; }
+          .brand-detail-scope .cc-tabs-row { grid-template-columns: repeat(2, 1fr); }
+          .brand-detail-scope .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+          .brand-detail-scope .partner { grid-template-columns: 1fr; gap: 24px; }
           .brand-detail-scope .info-grid { grid-template-columns: 1fr; gap: 16px; }
           .brand-detail-scope .benefits-grid { grid-template-columns: 1fr; }
-          .brand-detail-scope .models-grid { grid-template-columns: repeat(2, 1fr); }
+          .brand-detail-scope .models-grid { grid-template-columns: 1fr; }
           .brand-detail-scope .reviews-grid { grid-template-columns: 1fr; }
           .brand-detail-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
           .brand-detail-scope .hero-stats { grid-template-columns: repeat(2, 1fr); }
-          .brand-detail-scope .locations-grid { grid-template-columns: repeat(2, 1fr); }
+          .brand-detail-scope .locations-grid { grid-template-columns: 1fr; }
         }
         @media (max-width:560px){
+          .brand-detail-scope .hero h1 { font-size: 28px; }
+          .brand-detail-scope .cc-tabs-row { grid-template-columns: 1fr; }
           .brand-detail-scope .models-grid { grid-template-columns: 1fr; }
           .brand-detail-scope .trust-inner { grid-template-columns: 1fr; }
-          .brand-detail-scope .hero { padding-top: 60px; }
+          .brand-detail-scope .hero { padding-top: 40px; padding-bottom: 30px; }
           .brand-detail-scope .tab-headers { flex-direction: column; padding-right: 8px; gap: 4px; }
           .brand-detail-scope .tab-header-btn { border-bottom: 1px solid var(--line-paper); border-radius: 4px; }
-          .brand-detail-scope .tab-content { padding: 20px; }
+          .brand-detail-scope .tab-content { padding: 16px; }
           .brand-detail-scope .locations-grid { grid-template-columns: 1fr; }
+          .brand-detail-scope .hero-snapshot-card { padding: 18px; }
         }
       ` }}
       />
