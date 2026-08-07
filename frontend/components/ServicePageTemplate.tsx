@@ -199,7 +199,7 @@ export default function ServicePageTemplate({
             {/* Left Content Paragraphs */}
             <div className="lg:col-span-8 space-y-6 text-slate-700 text-base md:text-lg leading-relaxed">
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
-                Why Choose Doorstep {title} in Delhi NCR?
+                Why Choose Doorstep {title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi NCR.*$/i, "")} in Delhi NCR?
               </h2>
               {descriptionParagraphs.map((para, i) => (
                 <p key={i}>{para}</p>
@@ -225,7 +225,7 @@ export default function ServicePageTemplate({
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
                       Service Duration
                     </span>
-                    <span className="font-bold text-slate-900">35 – 50 Minutes at your doorstep</span>
+                    <span className="font-bold text-slate-900">25 – 45 Minutes at your doorstep</span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
@@ -269,7 +269,7 @@ export default function ServicePageTemplate({
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
                 <span className="font-mono text-3xl font-bold text-red-100 block mb-2">01</span>
                 <h3 className="font-bold text-slate-900 text-lg mb-2">1. Book Online</h3>
@@ -291,14 +291,6 @@ export default function ServicePageTemplate({
                 <h3 className="font-bold text-slate-900 text-lg mb-2">3. Doorstep Service</h3>
                 <p className="text-sm text-slate-600">
                   Watch full servicing done right in your home or office parking with zero mess.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">04</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">4. Test Drive & Pay</h3>
-                <p className="text-sm text-slate-600">
-                  Take a test ride, inspect replaced parts, and pay digitally with a 15-day warranty.
                 </p>
               </div>
             </div>
@@ -405,6 +397,63 @@ export default function ServicePageTemplate({
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* ===== CONTACT US & EMERGENCY ASSISTANCE ===== */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
+                  GET IN TOUCH & EMERGENCY HELP
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black uppercase text-slate-900 font-oswald mb-4">
+                  Contact Us & 24/7 Roadside Assistance
+                </h3>
+                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                  Have questions before booking your service or stuck with a sudden bike breakdown in Delhi NCR? Our certified mechanics are on standby to reach your location with tools & parts.
+                </p>
+                <div className="space-y-3 text-sm font-medium">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">📞</div>
+                    <div>
+                      <b className="block text-slate-900">+91 87459 45682</b>
+                      <span className="text-xs text-slate-500">Call us between 8 AM and 8 PM</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold">✉</div>
+                    <div>
+                      <b className="block text-slate-900">support@fixwheel.app</b>
+                      <span className="text-xs text-slate-500">Replies within 2 hours</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 relative">
+                <span className="bg-red-600 text-white text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full absolute -top-3 right-4">
+                  24/7 EMERGENCY
+                </span>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Emergency Breakdown Service</h4>
+                <p className="text-sm text-slate-700 mb-5 leading-relaxed">
+                  Stranded on the road with a puncture, dead battery, or snapped clutch cable? Request roadside assistance now for instant mobile dispatch.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href="/book"
+                    className="bg-[#e62b2b] hover:bg-red-600 text-white px-5 py-2.5 rounded-md font-mono text-xs font-bold uppercase tracking-wider transition-colors"
+                  >
+                    Request Roadside Assistance →
+                  </Link>
+                  <a
+                    href="tel:+918745945682"
+                    className="bg-white border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-5 py-2.5 rounded-md font-mono text-xs font-bold uppercase tracking-wider transition-colors"
+                  >
+                    Call Us Now
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

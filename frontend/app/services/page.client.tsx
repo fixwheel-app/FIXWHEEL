@@ -86,7 +86,7 @@ export default function ServicesClientPage() {
   const faqs = [
     {
       q: "How long does doorstep bike service take in Delhi NCR?",
-      a: "Most routine servicing and repairs take 35 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront.",
+      a: "Most routine servicing and repairs take 25 to 45 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront.",
     },
     {
       q: "How much does bike service at home cost in Delhi NCR?",
