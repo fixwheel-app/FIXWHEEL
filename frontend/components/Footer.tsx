@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Wrench, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-text-secondary text-xs md:text-sm max-w-sm">
-              Doorstep bike repairs across Delhi. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service and scooter repairs at home near you in Delhi NCR.
+              Doorstep bike repairs across Delhi NCR & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
             </p>
           </div>
 
@@ -80,6 +80,36 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* ===== POPULAR LOCAL SEO SEARCHES ===== */}
+        <div className="border-t border-white/10 pt-6 pb-6 text-xs text-text-secondary">
+          <p className="font-bold text-white uppercase tracking-wider mb-2">Popular Searches:</p>
+          <div className="flex flex-wrap gap-x-3 gap-y-1">
+            <Link href="/services" className="hover:text-white transition-colors">Bike Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/gurgaon" className="hover:text-white transition-colors">Bike Mechanic Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/royal-enfield-service" className="hover:text-white transition-colors">Royal Enfield Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/scooty-repair" className="hover:text-white transition-colors">Scooty Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/oil-change" className="hover:text-white transition-colors">Engine Oil Change Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/battery-replacement" className="hover:text-white transition-colors">Bike Battery Replacement Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/services/tyre-replacement" className="hover:text-white transition-colors">Bike Tyre Repair Near Me</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/gurgaon/dlf-phase-1" className="hover:text-white transition-colors">Bike Mechanic DLF Phase 1</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/gurgaon/sector-56" className="hover:text-white transition-colors">Doorstep Bike Repair Sector 56</Link>
+            <span className="text-white/20">•</span>
+            <Link href="/gurgaon/cyber-city" className="hover:text-white transition-colors">Two Wheeler Mechanic Cyber City</Link>
+          </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
