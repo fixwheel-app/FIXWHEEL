@@ -502,6 +502,20 @@ export default function GurgaonClientPage() {
           </div>
           <div className="svc-grid">
             <div className="svc-card">
+              <span className="svc-tag mono">[SPORTS BIKE]</span>
+              <h3>Sports Bike Service & Repair</h3>
+              <p>Specialized liquid coolant flush, synthetic oil change, laser chain alignment & sensor scan for R15, MT-15, KTM, Apache in Gurgaon.</p>
+              <div className="svc-price">₹899 <span>starting from</span></div>
+              <Link href="/services/sports-bike-service" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[EV SCOOTER]</span>
+              <h3>EV & Electric Scooter Repair</h3>
+              <p>Doorstep battery BMS diagnostic check, belt drive tensioning, electronic sensor scan & brake repair for Ola, Ather, TVS iQube, Chetak in Gurgaon.</p>
+              <div className="svc-price">₹599 <span>starting from</span></div>
+              <Link href="/services/electric-scooter-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
               <span className="svc-tag mono">[BASIC]</span>
               <h3>Basic Service</h3>
               <p>Brake adjustment, chain lube, spark plug clean, air filter check, electrical check — keeps your daily ride reliable.</p>

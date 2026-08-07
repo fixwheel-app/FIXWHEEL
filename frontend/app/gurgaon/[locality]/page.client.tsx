@@ -559,6 +559,46 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         </div>
       </section>
 
+      {/* ===== BIKE TYPES & SPECIALIZATIONS SERVICED IN LOCALITY ===== */}
+      <section>
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">All Bike Types & Two-Wheelers</div>
+            <h2>Specialized Bike & EV Repair Near Me in {data.name}, Gurgaon</h2>
+            <p>Whether you ride a high-performance sports bike, an electric scooter (EV), a Royal Enfield cruiser, or a daily commuter, FixWheel dispatches certified mechanics directly to your doorstep in {data.name}.</p>
+          </div>
+          <div className="why-grid">
+            <div className="why-card">
+              <span className="num" style={{ fontSize: "24px" }}>🏍️</span>
+              <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>Sports Bike Repair Near Me in {data.name}</h3>
+              <p>Specialized doorstep maintenance for Yamaha R15, MT-15, KTM RC 200/390, TVS Apache RTR, and Kawasaki Ninja in {data.name}. Liquid cooling flush, synthetic oil change, laser chain alignment, and ECU diagnostics. Searching for <strong>sports bike repair near me</strong> in {data.name}? Our technicians arrive in 45 minutes.</p>
+              <Link href="/services/sports-bike-service" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Sports Bike Service →</Link>
+            </div>
+
+            <div className="why-card">
+              <span className="num" style={{ fontSize: "24px" }}>⚡</span>
+              <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>EV & Electric Scooter Repair Near Me in {data.name}</h3>
+              <p>Certified doorstep EV technician for Ola S1 Pro, Ather 450X, TVS iQube, Bajaj Chetak, and Hero Vida in {data.name}. On-site lithium battery health diagnostics, BMS fault scanning, belt drive tensioning, and brake pad replacement. Premier choice for <strong>EV scooter repair near me</strong> in {data.name}.</p>
+              <Link href="/services/electric-scooter-repair" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>EV Scooter Repair →</Link>
+            </div>
+
+            <div className="why-card">
+              <span className="num" style={{ fontSize: "24px" }}>👑</span>
+              <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>Royal Enfield & Cruiser Repair Near Me in {data.name}</h3>
+              <p>Dedicated Royal Enfield mechanics for Classic 350, Bullet 350, Hunter 350, Meteor, Himalayan, and Interceptor 650 in {data.name}. Valve clearance (tappet) gap tuning, 15W-50 Liquid Gun oil change, and heavy-duty chain care. Expert <strong>Royal Enfield repair near me</strong> in {data.name}.</p>
+              <Link href="/services/royal-enfield-service" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Royal Enfield Service →</Link>
+            </div>
+
+            <div className="why-card">
+              <span className="num" style={{ fontSize: "24px" }}>🛵</span>
+              <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>Scooty & Bike Repair Near Me in {data.name}</h3>
+              <p>Instant doorstep repair for Honda Activa, TVS Jupiter, Suzuki Access, Hero Splendor, and Honda Shine in {data.name}. CVT variator roller cleaning, acceleration shudder removal, spark plug replacement, and oil changes. Reliable <strong>bike repair near me</strong> in {data.name}, Gurgaon.</p>
+              <Link href="/services/scooty-repair" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Scooty & Commuter Repair →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section>
         <div className="wrap">
