@@ -22,6 +22,8 @@ export interface ServicePageProps {
   includedItems: string[];
   faqs: ServiceFaq[];
   keywords: string[];
+  locationName?: string;
+  locationSlug?: string;
 }
 
 const SUPPORTED_BRANDS = [
@@ -55,12 +57,19 @@ export default function ServicePageTemplate({
   includedItems,
   faqs,
   keywords,
+  locationName,
+  locationSlug,
 }: ServicePageProps) {
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
 
   const toggleFaq = (idx: number) => {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
+
+  const cleanServiceName = title
+    .replace(/\s+at Doorstep.*$/i, "")
+    .replace(/\s+in Delhi NCR.*$/i, "")
+    .replace(/\s+in Gurgaon.*$/i, "");
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
@@ -86,7 +95,15 @@ export default function ServicePageTemplate({
               Services
             </Link>
             <span>/</span>
-            <span className="text-red-400 font-bold">{title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi NCR.*$/i, "")}</span>
+            <Link href={`/services/${serviceId}`} className="hover:text-white transition-colors">
+              {cleanServiceName}
+            </Link>
+            {locationName && (
+              <>
+                <span>/</span>
+                <span className="text-red-400 font-bold">{locationName}</span>
+              </>
+            )}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 align-middle items-center">
@@ -457,14 +474,14 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
-          {/* ===== CITY LINKS ===== */}
+          {/* ===== CITY & LOCALITY LINKS ===== */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-16 text-white shadow-xl">
             <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
               BOOK DOORSTEP SERVICE BY CITY
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-8">
               <Link
-                href="/gurgaon"
+                href={`/services/${serviceId}/gurgaon`}
                 className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
               >
                 Gurgaon / Gurugram
@@ -493,6 +510,45 @@ export default function ServicePageTemplate({
               >
                 Faridabad
               </Link>
+            </div>
+
+            <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 pt-4 border-t border-slate-800">
+              GURGAON LOCALITIES FOR {cleanServiceName.toUpperCase()}
+            </h4>
+            <div className="flex flex-wrap gap-2 text-xs font-mono">
+              {[
+                { name: "DLF Phase 1", slug: "dlf-phase-1" },
+                { name: "DLF Phase 2", slug: "dlf-phase-2" },
+                { name: "DLF Phase 3", slug: "dlf-phase-3" },
+                { name: "DLF Phase 4", slug: "dlf-phase-4" },
+                { name: "DLF Phase 5", slug: "dlf-phase-5" },
+                { name: "Sector 56", slug: "sector-56" },
+                { name: "Sector 57", slug: "sector-57" },
+                { name: "Sector 43", slug: "sector-43" },
+                { name: "Sector 48", slug: "sector-48" },
+                { name: "Sector 49", slug: "sector-49" },
+                { name: "Sector 50", slug: "sector-50" },
+                { name: "Golf Course Road", slug: "golf-course-road" },
+                { name: "Sohna Road", slug: "sohna-road" },
+                { name: "Cyber City", slug: "cyber-city" },
+                { name: "Palam Vihar", slug: "palam-vihar" },
+                { name: "Sector 14", slug: "sector-14" },
+                { name: "Sector 15", slug: "sector-15" },
+                { name: "Sector 23", slug: "sector-23" },
+                { name: "Sector 31", slug: "sector-31" },
+                { name: "Sector 46", slug: "sector-46" },
+                { name: "Dwarka Expressway", slug: "dwarka-expressway" },
+                { name: "Manesar", slug: "manesar" },
+                { name: "Badshahpur", slug: "badshahpur" },
+              ].map((loc) => (
+                <Link
+                  key={loc.slug}
+                  href={`/services/${serviceId}/gurgaon/${loc.slug}`}
+                  className="bg-slate-800/80 hover:bg-red-600 text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 transition-colors"
+                >
+                  📍 {loc.name}
+                </Link>
+              ))}
             </div>
           </div>
 
