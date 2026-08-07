@@ -18,7 +18,7 @@ export default function ElectricScooterRepairPage() {
       title="Electric Scooter Repair at Doorstep in Delhi NCR"
       lead="Electric scooters like OLA S1 Pro, Ather 450X, TVS iQube, and Bajaj Chetak feature advanced electronics and belt drivetrains. Get doorstep EV diagnostics, battery health scans, and brake servicing in under 45 minutes."
       startingPrice="₹599"
-      avgTime="45 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days EV Technical Warranty"
       descriptionParagraphs={[
         "EV scooters require specialized high-voltage diagnostic tools, belt alignment gauges, and electronic sensor scanners. Local roadside mechanics are often untrained in handling EV lithium battery packs or motor controllers.",

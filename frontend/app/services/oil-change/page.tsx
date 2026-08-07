@@ -18,7 +18,7 @@ export default function OilChangePage() {
       title="Bike Engine Oil Change at Doorstep in Delhi NCR"
       lead="Engine oil is your bike's lifeblood. Prevent engine overheating and friction wear with 100% sealed genuine engine oil replacement (Motul, Yamalube, Castrol, HMSI, Liquid Gun) done at your home in 30 minutes."
       startingPrice="₹349"
-      avgTime="35 Minutes"
+      avgTime="45 Mins"
       warranty="100% Sealed Genuine Oil Guarantee"
       descriptionParagraphs={[
         "Riding in Delhi NCR's stop-and-go traffic subjects engine oil to high thermal stress. Over time, oil breaks down, loses viscosity, and turns sludge-like — leading to engine overheating, clutch slipping, and piston ring wear.",

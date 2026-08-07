@@ -18,7 +18,7 @@ export default function GeneralWashingPage() {
       title="Bike General Washing & Detailing at Home in Delhi NCR"
       lead="Restore your two-wheeler's showroom shine without waiting in long garage queues. Get portable high-pressure foam washing, alloy degreasing, microfiber drying, and anti-rust gloss polishing right at your doorstep."
       startingPrice="₹249"
-      avgTime="35 Minutes"
+      avgTime="45 Mins"
       warranty="100% Satisfaction Guarantee"
       descriptionParagraphs={[
         "Commuting through monsoon sludge and dusty roads in Delhi NCR builds up grime, grease, and salt deposits on your bike's engine fins, wheel hubs, and underbody.",

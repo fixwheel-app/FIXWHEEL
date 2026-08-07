@@ -146,7 +146,7 @@ export default function ServicePageTemplate({
                   </div>
                   <div>
                     <span className="block text-slate-400 uppercase">ARRIVAL TIME</span>
-                    <span className="text-base font-bold text-slate-900">{avgTime}</span>
+                    <span className="text-base font-bold text-slate-900">45 Mins</span>
                   </div>
                   <div>
                     <span className="block text-slate-400 uppercase">LOCATION</span>

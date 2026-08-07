@@ -18,7 +18,7 @@ export default function EngineRepairPage() {
       title="Bike Engine Repair & Overhaul in Delhi NCR"
       lead="Experiencing engine knocking, metallic noise, white exhaust smoke, or loss of pickup? Get expert doorstep engine diagnostics, valve clearance tuning, and clutch plate overhauls."
       startingPrice="₹699"
-      avgTime="60 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Mechanical Warranty"
       descriptionParagraphs={[
         "Engine issues like valve noise, worn piston rings, slipping clutch plates, or clogged FI nozzles degrade performance and threaten internal engine components.",

@@ -17,7 +17,7 @@ export default function ComprehensiveServicePage() {
       title="Comprehensive Bike Service at Doorstep in Delhi NCR"
       lead="Give your motorcycle or scooter a complete health reset. Our 24-point comprehensive doorstep service includes premium synthetic oil change, carburetor/FI nozzle cleaning, brake overhaul, and deep lubrication."
       startingPrice="₹899"
-      avgTime="60 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Full Labor Guarantee"
       descriptionParagraphs={[
         "Our Comprehensive Bike Service is recommended every 6 months or 5,000 km. Over time, engine oil breaks down, carbon builds up in the throttle body, brake pads wear out, and suspension pivots lose grease.",

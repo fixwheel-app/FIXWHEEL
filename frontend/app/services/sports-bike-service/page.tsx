@@ -18,7 +18,7 @@ export default function SportsBikeServicePage() {
       title="Sports Bike Service at Doorstep in Delhi NCR"
       lead="High-revving liquid-cooled motorcycles like Yamaha R15, MT-15, KTM RC 200/390, and TVS Apache RTR need precise maintenance to deliver maximum acceleration and engine cooling."
       startingPrice="₹899"
-      avgTime="50 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Performance Warranty"
       descriptionParagraphs={[
         "Track-bred motorcycles operate at high RPMs and temperatures. Neglecting coolant levels, spark plug gaps, or drive chain alignment leads to loss of throttle response and engine overheating in city traffic.",

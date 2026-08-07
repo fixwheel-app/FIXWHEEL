@@ -18,7 +18,7 @@ export default function TyreReplacementPage() {
       title="Bike Tyre Replacement & Repair at Home in Delhi NCR"
       lead="Worn tyre treads or frequent punctures compromise wet road grip and emergency braking safety. Get doorstep tubeless tyre installation with fresh air valves and air pressure calibration."
       startingPrice="₹1,199"
-      avgTime="45 Minutes"
+      avgTime="45 Mins"
       warranty="Manufacturer Tyre Warranty Included"
       descriptionParagraphs={[
         "Riding on bald or cracked tyres in Delhi NCR increases braking distances, causes wheel wobbling at high speeds, and puts you at risk of sudden blowouts.",

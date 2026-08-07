@@ -26,7 +26,7 @@ export default function BatteryReplacementPage() {
       title="Bike Battery Replacement at Doorstep in Delhi NCR"
       lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and instant replacement with fresh, zero-maintenance batteries from top brands in under 45 minutes."
       startingPrice="₹1,299"
-      avgTime="45 Minutes"
+      avgTime="45 Mins"
       warranty="Official Brand Warranty Included"
       descriptionParagraphs={[
         "Extreme winter cold and hot summer weather in Delhi NCR often accelerate motorcycle battery cell degradation. When your battery fails, getting stuck in traffic or a office parking lot is frustrating.",

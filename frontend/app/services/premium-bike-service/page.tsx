@@ -18,7 +18,7 @@ export default function PremiumBikeServicePage() {
       title="Premium & Superbike Service at Doorstep in Delhi NCR"
       lead="High-displacement motorcycles require precision torque settings, double-ester synthetic oils (Motul 300V/7100), coolant flushes, and delicate care. Get specialized superbike mechanics at your doorstep."
       startingPrice="₹1,499"
-      avgTime="60 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Premium Labor Warranty"
       descriptionParagraphs={[
         "Performance motorcycles like Kawasaki Ninja 300/400, KTM Duke 390, Bajaj Dominar 400, Harley-Davidson X440, Triumph Speed 400, and BMW G310 require strict mechanical tolerances and zero shortcuts.",

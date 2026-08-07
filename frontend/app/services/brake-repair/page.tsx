@@ -26,7 +26,7 @@ export default function BrakeRepairPage() {
       title="Bike Brake Repair & Pad Replacement in Delhi NCR"
       lead="Brakes are your two-wheeler's most critical safety component. Squeaking noise, loose brake levers, or reduced stopping distance require immediate expert repair right at your doorstep."
       startingPrice="₹299"
-      avgTime="45 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
         "Stop-and-go commuting in Delhi NCR wears down drum brake shoes and disc brake pads quickly. Riding with worn brake linings damages the brake rotor, decreases emergency braking control, and risks your safety.",

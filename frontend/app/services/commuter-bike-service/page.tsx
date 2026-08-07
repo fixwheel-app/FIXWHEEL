@@ -18,7 +18,7 @@ export default function CommuterBikeServicePage() {
       title="Commuter Bike Service at Doorstep in Delhi NCR"
       lead="Daily commuter bikes like Hero Splendor, Honda Shine, Bajaj Pulsar, and TVS Raider demand consistent care to deliver peak mileage and vibration-free rides across Delhi NCR."
       startingPrice="₹199"
-      avgTime="45 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
         "Commuter bikes are the lifeline of daily travel across Gurgaon, Delhi, Noida, and Ghaziabad. High daily mileage quickly degrades engine oil, clogs air filters, and slackens drive chains.",

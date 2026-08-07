@@ -18,7 +18,7 @@ export default function RoyalEnfieldServicePage() {
       title="Royal Enfield & Bullet Service at Doorstep in Delhi NCR"
       lead="Royal Enfield cruisers demand dedicated valve clearance tuning, heavy-duty 15W-50 oil replacement, and chain tensioning to maintain their iconic thump and touring reliability."
       startingPrice="₹699"
-      avgTime="50 Minutes"
+      avgTime="45 Mins"
       warranty="15 Days RE Labor Warranty"
       descriptionParagraphs={[
         "Royal Enfield single-cylinder and twin engines need specialized care. Incorrect tappet gap settings lead to compression loss and hard starting, while improper chain tensioning causes severe driveline drag.",
