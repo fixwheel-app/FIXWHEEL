@@ -596,7 +596,7 @@ export default function ServicesClientPage() {
 
       <div className="services-new-page">
         {/* BREADCRUMB */}
-        <div style={{ background: "#111214", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingTop: "80px" }}>
+        <div style={{ background: "#111214", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
           <div className="wrap">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           </div>

@@ -357,7 +357,7 @@ export default function AuthorClientPage({ slug }: AuthorClientProps) {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb" style={{ paddingTop: "84px", background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "16px" }}>
+      <div className="breadcrumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: author.name }]} />
         </div>

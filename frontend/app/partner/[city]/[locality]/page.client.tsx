@@ -410,7 +410,7 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
       {/* HERO */}
       <header className="hero">
         <div className="container">
-          <div className="breadcrumb" style={{ paddingTop: "84px", marginBottom: "16px" }}>
+          <div className="breadcrumb" style={{ marginBottom: "8px" }}>
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName, href: `/partner/${cityData.slug}` }, { label: localityObj.name }]} />
           </div>
 

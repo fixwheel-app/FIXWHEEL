@@ -971,7 +971,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb" style={{ paddingTop: "84px", background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "16px" }}>
+      <div className="breadcrumb" style={{ background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands", href: "/brands" }, { label: brandData.name }]} />
         </div>

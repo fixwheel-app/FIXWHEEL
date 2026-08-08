@@ -373,7 +373,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         }
       ` }} />
 
-      <div className="crumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingTop: "84px", paddingBottom: "16px" }}>
+      <div className="crumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Delhi", href: "/delhi" }, { label: data.name }]} />
         </div>

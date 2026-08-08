@@ -487,7 +487,7 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
       {/* HERO HEADER */}
       <header className="hero">
         <div className="container">
-          <div className="breadcrumb" style={{ paddingTop: "84px", marginBottom: "16px" }}>
+          <div className="breadcrumb" style={{ marginBottom: "8px" }}>
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName }]} />
           </div>
 
