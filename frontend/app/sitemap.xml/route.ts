@@ -45,6 +45,10 @@ export async function GET() {
     <loc>https://www.fixwheel.app/other.xml</loc>
     <lastmod>2026-07-25T19:39:55+00:00</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://www.fixwheel.app/bike-type.xml</loc>
+    <lastmod>2026-08-08T12:00:00+00:00</lastmod>
+  </sitemap>
 </sitemapindex>`, {
     headers: {
       'Content-Type': 'application/xml',

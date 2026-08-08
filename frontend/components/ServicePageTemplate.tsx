@@ -477,73 +477,50 @@ export default function ServicePageTemplate({
           {/* ===== CITY & LOCALITY LINKS ===== */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-16 text-white shadow-xl">
             <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
-              BOOK DOORSTEP SERVICE BY CITY
+              BOOK DOORSTEP {cleanServiceName.toUpperCase()} BY CITY
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-8">
-              <Link
-                href={`/services/${serviceId}/gurgaon`}
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
-              >
-                Gurgaon / Gurugram
-              </Link>
-              <Link
-                href="/delhi"
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
-              >
-                Delhi NCR
-              </Link>
-              <Link
-                href="/noida"
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
-              >
-                Noida
-              </Link>
-              <Link
-                href="/ghaziabad"
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
-              >
-                Ghaziabad
-              </Link>
-              <Link
-                href="/faridabad"
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
-              >
-                Faridabad
-              </Link>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
+              {[
+                { name: "Gurgaon", slug: "gurgaon" },
+                { name: "Delhi", slug: "delhi" },
+                { name: "Noida", slug: "noida" },
+                { name: "Ghaziabad", slug: "ghaziabad" },
+                { name: "Faridabad", slug: "faridabad" },
+              ].map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/services/${serviceId}/${c.slug}`}
+                  className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
+                >
+                  {c.name}
+                </Link>
+              ))}
             </div>
 
             <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 pt-4 border-t border-slate-800">
-              GURGAON LOCALITIES FOR {cleanServiceName.toUpperCase()}
+              POPULAR LOCALITIES FOR {cleanServiceName.toUpperCase()}
             </h4>
             <div className="flex flex-wrap gap-2 text-xs font-mono">
               {[
-                { name: "DLF Phase 1", slug: "dlf-phase-1" },
-                { name: "DLF Phase 2", slug: "dlf-phase-2" },
-                { name: "DLF Phase 3", slug: "dlf-phase-3" },
-                { name: "DLF Phase 4", slug: "dlf-phase-4" },
-                { name: "DLF Phase 5", slug: "dlf-phase-5" },
-                { name: "Sector 56", slug: "sector-56" },
-                { name: "Sector 57", slug: "sector-57" },
-                { name: "Sector 43", slug: "sector-43" },
-                { name: "Sector 48", slug: "sector-48" },
-                { name: "Sector 49", slug: "sector-49" },
-                { name: "Sector 50", slug: "sector-50" },
-                { name: "Golf Course Road", slug: "golf-course-road" },
-                { name: "Sohna Road", slug: "sohna-road" },
-                { name: "Cyber City", slug: "cyber-city" },
-                { name: "Palam Vihar", slug: "palam-vihar" },
-                { name: "Sector 14", slug: "sector-14" },
-                { name: "Sector 15", slug: "sector-15" },
-                { name: "Sector 23", slug: "sector-23" },
-                { name: "Sector 31", slug: "sector-31" },
-                { name: "Sector 46", slug: "sector-46" },
-                { name: "Dwarka Expressway", slug: "dwarka-expressway" },
-                { name: "Manesar", slug: "manesar" },
-                { name: "Badshahpur", slug: "badshahpur" },
+                { name: "DLF Phase 1, Gurgaon", city: "gurgaon", slug: "dlf-phase-1" },
+                { name: "Cyber City, Gurgaon", city: "gurgaon", slug: "cyber-city" },
+                { name: "Sector 56, Gurgaon", city: "gurgaon", slug: "sector-56" },
+                { name: "Golf Course Road, Gurgaon", city: "gurgaon", slug: "golf-course-road" },
+                { name: "Dwarka, Delhi", city: "delhi", slug: "dwarka" },
+                { name: "Saket, Delhi", city: "delhi", slug: "saket" },
+                { name: "Connaught Place, Delhi", city: "delhi", slug: "connaught-place" },
+                { name: "Lajpat Nagar, Delhi", city: "delhi", slug: "lajpat-nagar" },
+                { name: "Rohini, Delhi", city: "delhi", slug: "rohini" },
+                { name: "Sector 18, Noida", city: "noida", slug: "sector-18" },
+                { name: "Sector 62, Noida", city: "noida", slug: "sector-62" },
+                { name: "Indirapuram, Ghaziabad", city: "ghaziabad", slug: "indirapuram" },
+                { name: "Vaishali, Ghaziabad", city: "ghaziabad", slug: "vaishali" },
+                { name: "NIT Faridabad", city: "faridabad", slug: "nit-faridabad" },
+                { name: "Sector 15, Faridabad", city: "faridabad", slug: "sector-15-faridabad" },
               ].map((loc) => (
                 <Link
-                  key={loc.slug}
-                  href={`/services/${serviceId}/gurgaon/${loc.slug}`}
+                  key={`${loc.city}-${loc.slug}`}
+                  href={`/services/${serviceId}/${loc.city}/${loc.slug}`}
                   className="bg-slate-800/80 hover:bg-red-600 text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 transition-colors"
                 >
                   📍 {loc.name}
