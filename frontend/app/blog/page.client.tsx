@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BLOG_POSTS } from "@/lib/blogData";
 import { cn } from "@/lib/utils";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -441,13 +442,9 @@ export default function BlogHubClient() {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb">
+      <div className="breadcrumb" style={{ paddingTop: "84px", background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "16px" }}>
         <div className="wrap">
-          <nav>
-            <Link href="/">Home</Link>
-            <span className="sep">/</span>
-            <span className="current">Blog</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
         </div>
       </div>
 

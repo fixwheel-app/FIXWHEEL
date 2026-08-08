@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -351,13 +352,9 @@ export default function PalamViharClientPage() {
         }
       ` }} />
 
-      <div className="crumb">
+      <div className="crumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingTop: "84px", paddingBottom: "16px" }}>
         <div className="wrap">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/gurgaon">Gurgaon</Link>
-          <span className="sep">/</span>
-          <span className="current">Palam Vihar</span>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Gurgaon", href: "/gurgaon" }, { label: "Palam Vihar" }]} />
         </div>
       </div>
 

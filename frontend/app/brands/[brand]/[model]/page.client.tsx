@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ResolvedModel } from "@/lib/modelSlug";
+import Breadcrumb from "@/components/Breadcrumb";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
@@ -81,23 +82,15 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           {/* Breadcrumbs */}
-          <div className="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-slate-400">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <Link href="/brands" className="hover:text-white transition-colors">
-              Brands
-            </Link>
-            <span>/</span>
-            <Link
-              href={`/brands/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-              className="hover:text-white transition-colors"
-            >
-              {brandName}
-            </Link>
-            <span>/</span>
-            <span className="text-red-400 font-bold">{modelName} Service</span>
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Brands", href: "/brands" },
+                { label: brandName, href: `/brands/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
+                { label: `${modelName} Service` },
+              ]}
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

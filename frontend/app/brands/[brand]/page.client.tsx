@@ -7,6 +7,7 @@ import { BRAND_DETAILS } from "@/lib/brandDetails";
 import { BIKE_DATA } from "@/lib/bikes";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Phone } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -970,15 +971,9 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb">
+      <div className="breadcrumb" style={{ paddingTop: "84px", background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "16px" }}>
         <div className="wrap">
-          <nav>
-            <Link href="/">Home</Link>
-            <span className="sep">/</span>
-            <Link href="/brands">Brands</Link>
-            <span className="sep">/</span>
-            <span className="current">{brandData.name}</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands", href: "/brands" }, { label: brandData.name }]} />
         </div>
       </div>
 

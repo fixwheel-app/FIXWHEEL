@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
+import Breadcrumb from "@/components/Breadcrumb";
 import { ChevronDown } from "lucide-react";
 
 const oswald = Oswald({
@@ -646,14 +647,10 @@ export default function BrandsClientPage() {
         }
       ` }} />
 
-      {/* BREADCRUMB */}
-      <div className="breadcrumb">
+      {/* ===== BREADCRUMB ===== */}
+      <div style={{ background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingTop: "84px", paddingBottom: "16px" }}>
         <div className="wrap">
-          <nav>
-            <Link href="/">Home</Link>
-            <span className="sep">/</span>
-            <span className="current">Brands</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands" }]} />
         </div>
       </div>
 

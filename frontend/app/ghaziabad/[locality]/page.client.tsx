@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
+import Breadcrumb from "@/components/Breadcrumb";
 import {
   getIntroParagraph,
   getWhyChooseTitle,
@@ -375,13 +376,9 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         }
       ` }} />
 
-      <div className="crumb">
+      <div className="crumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingTop: "84px", paddingBottom: "16px" }}>
         <div className="wrap">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/ghaziabad">Ghaziabad</Link>
-          <span className="sep">/</span>
-          <span className="current">{data.name}</span>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Ghaziabad", href: "/ghaziabad" }, { label: data.name }]} />
         </div>
       </div>
 

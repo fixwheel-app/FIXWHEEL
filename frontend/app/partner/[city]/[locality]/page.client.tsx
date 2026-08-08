@@ -7,6 +7,7 @@ import { PARTNER_CITY_DATA } from '@/lib/partnerData';
 import {
   ChevronDown, Phone, ShieldCheck, Wrench, Sparkles, ArrowRight, CheckCircle2
 } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -409,8 +410,8 @@ export default function PartnerLocalityClient({ citySlug, localitySlug }: Client
       {/* HERO */}
       <header className="hero">
         <div className="container">
-          <div className="breadcrumb">
-            <Link href="/">Home</Link> / <Link href="/partner">Become Partner</Link> / <Link href={`/partner/${cityData.slug}`}>{cityData.cityName}</Link> / <span>{localityObj.name}</span>
+          <div className="breadcrumb" style={{ paddingTop: "84px", marginBottom: "16px" }}>
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName, href: `/partner/${cityData.slug}` }, { label: localityObj.name }]} />
           </div>
 
           <div className="hero-grid">

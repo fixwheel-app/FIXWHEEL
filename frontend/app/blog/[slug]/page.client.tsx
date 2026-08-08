@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BLOG_POSTS } from "@/lib/blogData";
 import { supabase } from "@/lib/supabase";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -802,15 +803,9 @@ export default function BlogPostClient({ slug }: ClientProps) {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb">
+      <div className="breadcrumb" style={{ paddingTop: "84px", background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "16px" }}>
         <div className="wrap">
-          <nav>
-            <Link href="/">Home</Link>
-            <span className="sep">/</span>
-            <Link href="/blog">Blog</Link>
-            <span className="sep">/</span>
-            <span className="current">{post.title.substring(0, 24)}...</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.title }]} />
         </div>
       </div>
 

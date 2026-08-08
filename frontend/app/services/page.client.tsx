@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, Check, Wrench, ShieldCheck, Clock, Award, Phone } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function ServicesClientPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -597,11 +598,7 @@ export default function ServicesClientPage() {
         {/* BREADCRUMB */}
         <div style={{ background: "#111214", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingTop: "80px" }}>
           <div className="wrap">
-            <nav style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "12px", color: "#A7A9AC", display: "flex", alignItems: "center", gap: "8px" }}>
-              <Link href="/" style={{ color: "#A7A9AC" }}>Home</Link>
-              <span style={{ color: "#5C6066" }}>/</span>
-              <span style={{ color: "var(--orange)", fontWeight: "700" }}>Services</span>
-            </nav>
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           </div>
         </div>
 

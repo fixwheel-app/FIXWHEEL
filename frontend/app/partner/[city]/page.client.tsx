@@ -7,6 +7,7 @@ import { PARTNER_CITY_DATA } from '@/lib/partnerData';
 import {
   ChevronDown, Phone, ShieldCheck, Wrench, Sparkles, ArrowRight, CheckCircle2, Clock
 } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -486,8 +487,8 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
       {/* HERO HEADER */}
       <header className="hero">
         <div className="container">
-          <div className="breadcrumb">
-            <Link href="/">Home</Link> / <Link href="/partner">Become Partner</Link> / <span>{cityData.cityName}</span>
+          <div className="breadcrumb" style={{ paddingTop: "84px", marginBottom: "16px" }}>
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName }]} />
           </div>
 
           <div className="hero-grid">

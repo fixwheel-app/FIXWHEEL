@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Breadcrumb from "@/components/Breadcrumb";
 
-export interface ServiceFaq {
+interface FaqItem {
   q: string;
   a: string;
 }
@@ -20,7 +21,7 @@ export interface ServicePageProps {
   warranty: string;
   descriptionParagraphs: string[];
   includedItems: string[];
-  faqs: ServiceFaq[];
+  faqs: FaqItem[];
   keywords: string[];
   locationName?: string;
   locationSlug?: string;
@@ -86,24 +87,17 @@ export default function ServicePageTemplate({
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           {/* Breadcrumbs */}
-          <div className="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-slate-400">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">
-              Services
-            </Link>
-            <span>/</span>
-            <Link href={`/services/${serviceId}`} className="hover:text-white transition-colors">
-              {cleanServiceName}
-            </Link>
-            {locationName && (
-              <>
-                <span>/</span>
-                <span className="text-red-400 font-bold">{locationName}</span>
-              </>
-            )}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Services", href: "/services" },
+                locationName
+                  ? { label: cleanServiceName, href: `/services/${serviceId}` }
+                  : { label: cleanServiceName },
+                ...(locationName ? [{ label: locationName }] : []),
+              ]}
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 align-middle items-center">
