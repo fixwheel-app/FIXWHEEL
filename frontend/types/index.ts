@@ -6,12 +6,6 @@ export type PackageType =
   | "Engine Half" 
   | "Engine full" 
   | "Jump start"
-  | "Carburetor Cleaning"
-  | "Inspection with OBD Scanner"
-  | "Battery Replacement"
-  | "Disc Replacement"
-  | "Chain Sprocket Replacement"
-  | "Pick and Drop Charge"
   | string;
 
 export interface BookingFormData {

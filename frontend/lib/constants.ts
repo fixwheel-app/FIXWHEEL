@@ -142,6 +142,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
       "Spark plug",
       "Mechanic charges"
     ]
+  }
 ];
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
