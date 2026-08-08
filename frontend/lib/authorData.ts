@@ -17,7 +17,7 @@ export const AUTHORS_DB: Record<string, AuthorProfile> = {
     slug: "zakir-hussain",
     name: "Zakir Hussain",
     role: "Senior Master Mechanic & Automotive Specialist",
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+    avatar: "/zakir-hussain.png",
     bio: "Zakir Hussain is FixWheel's Lead Automotive Specialist with over 5+ years of hands-on experience in multi-brand motorcycle engineering, fuel injection (FI) tuning, and electrical systems. Zakir leads FixWheel's technical training program and writes comprehensive maintenance guides for Indian riders.",
     experience: "5+ Years",
     bikesServiced: "12,000+",

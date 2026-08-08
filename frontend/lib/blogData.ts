@@ -36,7 +36,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["bike engine oil grade", "honda activa engine oil", "royal enfield engine oil", "synthetic vs mineral oil", "bike engine heating solution"],
@@ -127,7 +127,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["motorcycle chain cleaning", "how to lube bike chain", "chain sprocket price", "loose chain sound adjustment", "doorstep chain cleaning"],
@@ -202,7 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["electric scooter battery health", "how to increase ev range", "ola s1 battery care", "ather battery lifespan", "ev doorstep inspection"],
@@ -297,7 +297,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["bike brake pad replacement", "disc brake fluid bleeding", "drum brake shoe cleaning", "motorcycle stopping distance", "doorstep brake repair"],
@@ -385,7 +385,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["monsoon bike care tips", "water entering bike exhaust", "prevent bike rust rain", "bike starting problem in rain", "doorstep monsoon checkup"],
@@ -495,7 +495,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Zakir Hussain",
       role: "Senior Master Mechanic & Automotive Lead",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200",
+      avatar: "/zakir-hussain.png",
       slug: "zakir-hussain"
     },
     keywords: ["carburetor vs fi bike", "bs6 bike starting problem", "fuel injector cleaning", "bike mileage tuning tips", "doorstep engine diagnosis"],
