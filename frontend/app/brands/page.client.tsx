@@ -275,24 +275,6 @@ export default function BrandsClientPage() {
         .brands-scope .hover-white:hover { color: var(--ink) !important; }
 
         /* BREADCRUMB */
-        .brands-scope .breadcrumb {
-          padding: 20px 0;
-          background: var(--hero-bg);
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        .brands-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: var(--hero-ink-dim);
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .brands-scope .breadcrumb a { color: var(--hero-ink-dim); transition: color .15s ease; }
-        .brands-scope .breadcrumb a:hover { color: var(--accent); }
-        .brands-scope .breadcrumb .sep { color: rgba(255,255,255,0.2); }
-        .brands-scope .breadcrumb .current { color: var(--hero-text); }
 
         /* HERO */
         .brands-scope .hero {
@@ -648,7 +630,7 @@ export default function BrandsClientPage() {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands" }]} />
         </div>

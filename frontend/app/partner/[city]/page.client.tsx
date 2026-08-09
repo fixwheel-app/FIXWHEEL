@@ -100,20 +100,6 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
           z-index: 1;
         }
 
-        .partner-scope .breadcrumb {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 12px;
-          color: #94A3B8;
-          margin-bottom: 24px;
-          font-family: var(--font-jetbrains), monospace;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-        }
-        .partner-scope .breadcrumb a { color: #94A3B8; text-decoration: none; transition: color 0.15s; }
-        .partner-scope .breadcrumb a:hover { color: var(--accent); }
-
         .partner-scope .hero-grid {
           display: grid;
           grid-template-columns: 1fr;
@@ -484,12 +470,16 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
       `}}
       />
 
+      {/* ===== BREADCRUMB ===== */}
+      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+        <div className="container">
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName }]} />
+        </div>
+      </div>
+
       {/* HERO HEADER */}
       <header className="hero">
         <div className="container">
-          <div className="breadcrumb" style={{ marginBottom: "8px" }}>
-            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Become Partner", href: "/partner" }, { label: cityData.cityName }]} />
-          </div>
 
           <div className="hero-grid">
             <div>

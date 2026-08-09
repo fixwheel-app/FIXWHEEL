@@ -116,27 +116,6 @@ export default function PricingClientPage() {
         .pricing-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
-        .pricing-scope .breadcrumb {
-          padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid var(--line);
-        }
-        .pricing-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .pricing-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .pricing-scope .breadcrumb a:hover { color: var(--accent); }
-        .pricing-scope .breadcrumb .sep { color: #5C6066; }
-        .pricing-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO HEADER ===== */
         .pricing-scope .pricing-hero {

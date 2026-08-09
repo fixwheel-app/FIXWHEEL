@@ -188,27 +188,6 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         .brand-detail-scope .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
         /* ===== BREADCRUMB ===== */
-        .brand-detail-scope .breadcrumb {
-          padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .brand-detail-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .brand-detail-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .brand-detail-scope .breadcrumb a:hover { color: var(--accent); }
-        .brand-detail-scope .breadcrumb .sep { color: #5C6066; }
-        .brand-detail-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
         .brand-detail-scope .hero {
@@ -971,7 +950,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb" style={{ background: "#17181A", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands", href: "/brands" }, { label: brandData.name }]} />
         </div>

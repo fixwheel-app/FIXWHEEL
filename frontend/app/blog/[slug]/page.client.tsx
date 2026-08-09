@@ -190,27 +190,6 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
         
         /* ===== BREADCRUMB ===== */
-        .post-scope .breadcrumb {
-          padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid var(--line);
-        }
-        .post-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .post-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .post-scope .breadcrumb a:hover { color: var(--accent); }
-        .post-scope .breadcrumb .sep { color: #5C6066; }
-        .post-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== POST HEADER ===== */
         .post-scope .post-header {

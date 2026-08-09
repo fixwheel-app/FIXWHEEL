@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 
 const oswald = Oswald({
@@ -532,6 +533,13 @@ export default function DelhiClientPage() {
           .delhi-scope * { transition:none !important; scroll-behavior:auto !important; }
         }
       ` }} />
+
+      {/* ===== BREADCRUMB ===== */}
+      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+        <div className="wrap">
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Delhi" }]} />
+        </div>
+      </div>
 
       {/* ===== HERO ===== */}
       <section className="hero">

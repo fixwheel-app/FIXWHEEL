@@ -114,27 +114,6 @@ export default function BlogHubClient() {
         .blog-scope .btn-dark:hover { background: #000; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
-        .blog-scope .breadcrumb {
-          padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid var(--line);
-        }
-        .blog-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .blog-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .blog-scope .breadcrumb a:hover { color: var(--accent); }
-        .blog-scope .breadcrumb .sep { color: #5C6066; }
-        .blog-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO ===== */
         .blog-scope .hero {

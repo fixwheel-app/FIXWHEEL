@@ -70,8 +70,22 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
-      {/* ===== HERO HEADER (FIXED NAVBAR CLEARANCE) ===== */}
-      <div className="bg-[#17181A] text-white pt-20 md:pt-24 pb-12 border-b border-white/10 relative overflow-hidden">
+      {/* ===== BREADCRUMB ===== */}
+      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Brands", href: "/brands" },
+              { label: brandName, href: `/brands/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
+              { label: `${modelName} Service` },
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* ===== HERO HEADER ===== */}
+      <div className="bg-[#17181A] text-white pt-10 md:pt-12 pb-12 border-b border-white/10 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
@@ -81,17 +95,6 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
         />
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          {/* Breadcrumbs */}
-          <div className="mb-6">
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Brands", href: "/brands" },
-                { label: brandName, href: `/brands/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
-                { label: `${modelName} Service` },
-              ]}
-            />
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Hero Main Info */}

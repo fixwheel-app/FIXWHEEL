@@ -109,27 +109,6 @@ export default function AuthorClientPage({ slug }: AuthorClientProps) {
         .author-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
-        .author-scope .breadcrumb {
-          padding: 20px 0;
-          background: #111214;
-          border-bottom: 1px solid var(--line);
-        }
-        .author-scope .breadcrumb nav {
-          font-family: var(--font-jetbrains), monospace;
-          font-size: 12px;
-          letter-spacing: 0.04em;
-          color: #A7A9AC;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .author-scope .breadcrumb a {
-          color: #A7A9AC;
-          transition: color .15s ease;
-        }
-        .author-scope .breadcrumb a:hover { color: var(--accent); }
-        .author-scope .breadcrumb .sep { color: #5C6066; }
-        .author-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO HEADER ===== */
         .author-scope .author-hero {
