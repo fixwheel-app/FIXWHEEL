@@ -710,7 +710,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Mechanics Network</span>
-                  <span className="v">40+ Certified</span>
+                  <span className="v">33+ Certified</span>
                 </li>
                 <li>
                   <span>Service Area</span>

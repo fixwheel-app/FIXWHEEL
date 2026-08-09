@@ -218,7 +218,7 @@ export default function AboutClient() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-b border-white/10 pb-10">
             {[
               { val: "473+", lbl: "Total vehicles serviced" },
-              { val: "40+", lbl: "Verified mechanics" },
+              { val: "33+", lbl: "Verified mechanics" },
               { val: "4.7★", lbl: "Customer rating" }
             ].map((stat, idx) => (
               <div key={idx} className="space-y-1">
