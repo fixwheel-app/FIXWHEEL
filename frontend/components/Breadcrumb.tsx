@@ -20,11 +20,11 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
 
         return (
           <div key={index} className="flex items-center gap-2">
-            {index > 0 && <span className="text-slate-500 font-normal">/</span>}
+            {index > 0 && <span className="!text-slate-500 font-normal">/</span>}
             {isLast || !item.href ? (
-              <span className="text-red-500 font-bold tracking-wide">{item.label}</span>
+              <span className="!text-red-500 font-bold tracking-wide">{item.label}</span>
             ) : (
-              <Link href={item.href} className="text-slate-400 hover:text-white transition-colors tracking-wide">
+              <Link href={item.href} className="!text-slate-300 hover:!text-white transition-colors tracking-wide">
                 {item.label}
               </Link>
             )}
