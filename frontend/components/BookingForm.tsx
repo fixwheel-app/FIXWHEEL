@@ -19,7 +19,12 @@ const bookingSchema = z.object({
   phone: z.string().length(10, "10 digit number required").regex(/^\d+$/, "Numbers only"),
   address: z.string().min(15, "Address must be at least 15 characters"),
   city: z.enum(["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"]),
-  bookingDate: z.string().min(1, "Booking date is required"),
+  bookingDate: z.string().min(1, "Booking date is required").refine((val) => {
+    const selected = new Date(val);
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const max = new Date(); max.setDate(max.getDate() + 30); max.setHours(23, 59, 59, 999);
+    return selected >= today && selected <= max;
+  }, "Date must be within the next 30 days"),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
@@ -397,6 +402,7 @@ function BookingFormInner() {
                 <input 
                   type="date"
                   min={new Date().toISOString().split('T')[0]}
+                  max={(() => { const d = new Date(); d.setDate(d.getDate() + 30); return d.toISOString().split('T')[0]; })()}
                   {...register("bookingDate")}
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
