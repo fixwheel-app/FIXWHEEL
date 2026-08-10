@@ -773,11 +773,46 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 750px) {
-          .post-scope .post-header h1 { font-size: 30px; }
-          .post-scope .post-banner { height: 280px; margin-bottom: 30px; }
+        @media (max-width: 960px) {
+          .post-scope .post-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            padding: 24px 0 60px;
+          }
+          .post-scope .post-sidebar {
+            position: static;
+            top: 0;
+            width: 100%;
+            margin-top: 20px;
+          }
+          .post-scope .post-header h1 {
+            font-size: 28px;
+            line-height: 1.25;
+            word-break: break-word;
+            overflow-wrap: break-word;
+          }
+          .post-scope .post-banner {
+            height: auto !important;
+            max-height: 280px !important;
+            margin: 20px 0 30px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .post-scope .post-header h1 {
+            font-size: 22px;
+            line-height: 1.25;
+          }
+          .post-scope .post-banner {
+            height: auto !important;
+            max-height: 200px !important;
+            margin-bottom: 20px !important;
+          }
           .post-scope .recommended-grid { grid-template-columns: 1fr; }
           .post-scope .form-row { grid-template-columns: 1fr; gap: 0; }
+          .post-scope .toc-card,
+          .post-scope .recent-blogs-card {
+            padding: 16px;
+          }
         }
       ` }} />
 

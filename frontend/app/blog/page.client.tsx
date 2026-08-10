@@ -412,11 +412,11 @@ export default function BlogHubClient() {
           .blog-scope .blog-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 650px) {
-          .blog-scope .hero h1 { font-size: 40px; }
+          .blog-scope .hero h1 { font-size: 28px; line-height: 1.2; }
           .blog-scope .blog-grid { grid-template-columns: 1fr; }
           .blog-scope .controls-strip { flex-direction: column; align-items: flex-start; }
           .blog-scope .search-container { width: 100%; }
-          .blog-scope .featured-info { padding: 28px; }
+          .blog-scope .featured-info { padding: 20px; }
         }
       ` }} />
 
