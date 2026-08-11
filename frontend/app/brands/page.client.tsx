@@ -618,9 +618,13 @@ export default function BrandsClientPage() {
           .brands-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width:560px){
+          .brands-scope .wrap { padding: 0 16px !important; }
+          .brands-scope .hero h1 { font-size: 26px !important; line-height: 1.2 !important; word-break: break-word; }
+          .brands-scope .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
+          .brands-scope .btn { width: 100%; justify-content: center; text-align: center; padding: 12px 16px; font-size: 12px; white-space: normal; }
           .brands-scope .brand-grid { grid-template-columns: 1fr; }
           .brands-scope .trust-inner { grid-template-columns: 1fr; }
-          .brands-scope .hero { padding-top: 70px; }
+          .brands-scope .hero { padding-top: 36px; padding-bottom: 24px; }
           .brands-scope .count-strip { flex-direction: column; text-align: center; }
         }
 

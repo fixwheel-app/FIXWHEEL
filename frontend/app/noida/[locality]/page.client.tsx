@@ -343,6 +343,10 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
         }
 
                 @media (max-width: 560px) {
+          .${slug}-scope .wrap { padding: 0 16px !important; }
+          .${slug}-scope .hero h1 { font-size: 24px !important; line-height: 1.2 !important; word-break: break-word !important; overflow-wrap: break-word !important; }
+          .${slug}-scope .hero-ctas { flex-direction: column !important; width: 100% !important; gap: 10px !important; }
+          .${slug}-scope .btn { width: 100% !important; justify-content: center !important; text-align: center !important; padding: 12px 16px !important; font-size: 12px !important; white-space: normal !important; word-break: break-word !important; }
           .${slug}-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
           .${slug}-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
           .${slug}-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
@@ -365,9 +369,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
           .${slug}-scope .steps {
             grid-template-columns: 1fr;
           }
-          .${slug}-scope .hero { padding-top: 48px; }
-        }
-          .${slug}-scope .hero { padding-top: 48px; }
+          .${slug}-scope .hero { padding-top: 36px; }
         }
 
         @media (prefers-reduced-motion: reduce) {

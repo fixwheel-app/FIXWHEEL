@@ -111,27 +111,27 @@ export default function ServicePageTemplate({
                 <span>{category}</span>
               </span>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6 text-white font-oswald">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6 text-white font-oswald break-words">
                 {title}
               </h1>
 
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+              <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
                 {lead}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <Link
                   href="/book"
-                  className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-8 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)] hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)]"
                 >
                   Book Doorstep Service →
                 </Link>
                 <a
                   href="tel:+919999999999"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"
                 >
                   <Phone className="w-4 h-4" />
-                  Call Specialist
+                  Call Mechanic
                 </a>
               </div>
             </div>

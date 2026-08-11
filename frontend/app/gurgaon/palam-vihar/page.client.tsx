@@ -320,6 +320,10 @@ export default function PalamViharClientPage() {
         }
 
                 @media (max-width: 560px) {
+          .palamvihar-scope .wrap { padding: 0 16px !important; }
+          .palamvihar-scope .hero h1 { font-size: 24px !important; line-height: 1.2 !important; word-break: break-word !important; overflow-wrap: break-word !important; }
+          .palamvihar-scope .hero-ctas { flex-direction: column !important; width: 100% !important; gap: 10px !important; }
+          .palamvihar-scope .btn { width: 100% !important; justify-content: center !important; text-align: center !important; padding: 12px 16px !important; font-size: 12px !important; white-space: normal !important; word-break: break-word !important; }
           .palamvihar-scope .trust-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
           .palamvihar-scope .trust-cell { padding: 14px 10px !important; text-align: center !important; border-radius: 6px !important; }
           .palamvihar-scope .trust-cell b { font-size: 20px !important; margin-bottom: 2px !important; color: var(--ink-dark) !important; }
@@ -342,7 +346,7 @@ export default function PalamViharClientPage() {
           .palamvihar-scope .steps {
             grid-template-columns: 1fr;
           }
-          .palamvihar-scope .hero { padding-top: 48px; }
+          .palamvihar-scope .hero { padding-top: 36px; }
         }
           
 
