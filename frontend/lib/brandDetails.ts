@@ -873,12 +873,76 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes, FixWheel provides a 15-day labor & diagnostic warranty on all Revolt electric bike services."
       }
     ]
+  },
+  "husqvarna": {
+    name: "Husqvarna",
+    tagline: "Swedish Precision Doorstep Service for Svartpilen & Vitpilen",
+    description: "Husqvarna motorcycles demand specialized high-RPM engine tuning, liquid cooling maintenance, and synthetic lubricant care. Our technicians bring professional diagnostic tools right to your location.",
+    additionalInfo: {
+      engineOil: "10W-50 Full Synthetic Sport Oil",
+      warranty: "15-Day Labor & Diagnostics Warranty",
+      parts: "100% Genuine OEM Filters & Brake Shoes",
+      avgTime: "Within 45 Mins Doorstep Arrival"
+    },
+    keyBenefits: [
+      { title: "High-RPM Performance Scan", desc: "Engine diagnostic checks, throttle valve cleaning, and ECU sensor inspection." },
+      { title: "Brake & Chain Tuning", desc: "Hydraulic disc brake fluid flush and laser chain sprocket alignment." },
+      { title: "Cooling System Service", desc: "Radiator fin cleaning and high-performance coolant check." }
+    ],
+    reviews: [
+      { name: "Rahul Kapoor", vehicle: "Svartpilen 250", rating: 5, location: "DLF Phase 5, Gurgaon", date: "August 10, 2026", comment: "Excellent doorstep service for my Svartpilen 250. Very clean work and genuine oil." }
+    ],
+    seoKeywords: ["husqvarna bike service at home", "svartpilen 250 repair near me", "vitpilen home mechanic delhi ncr"],
+    faqs: [
+      { q: "Do you service Husqvarna Svartpilen 250 and Vitpilen 250 at home?", a: "Yes, our certified technicians service all Husqvarna models on-site." },
+      { q: "What engine oil is recommended for Husqvarna bikes?", a: "We strictly use 10W-50 full synthetic sport engine oil for optimal high-RPM performance." }
+    ]
+  },
+  "matter": {
+    name: "Matter",
+    tagline: "Next-Gen Geared Electric Motorcycle Doorstep Maintenance",
+    description: "Matter AERA electric motorcycles combine 4-speed manual transmission with advanced liquid-cooled EV powertrains. We provide expert doorstep transmission fluid checks, battery diagnostics, and brake servicing.",
+    additionalInfo: {
+      engineOil: "EV Gearbox Synthetic Lubricant",
+      warranty: "15-Day EV Diagnostic & Labor Warranty",
+      parts: "Genuine Matter Spares & Cables",
+      avgTime: "Within 45 Mins Doorstep Arrival"
+    },
+    keyBenefits: [
+      { title: "EV Gearbox & Clutch Check", desc: "Checking 4-speed manual transmission fluid and clutch lever free-play." },
+      { title: "Liquid Cooling Inspection", desc: "Testing motor & battery liquid cooling circuit flow and reservoir level." },
+      { title: "BMS Diagnostic Scan", desc: "Battery management system error code scan and cell balance verification." }
+    ],
+    reviews: [
+      { name: "Siddharth Jain", vehicle: "Matter AERA 5000", rating: 5, location: "Sector 62, Noida", date: "August 5, 2026", comment: "First time getting my Matter AERA serviced at home. The technician knew the manual transmission EV system inside out!" }
+    ],
+    seoKeywords: ["matter aera service at home", "matter electric bike repair near me", "doorstep matter ev service delhi ncr"],
+    faqs: [
+      { q: "Can you service the 4-speed manual gearbox on Matter AERA at home?", a: "Yes! Our technicians inspect the gear shift linkage, transmission fluid, and clutch sensor at your location." },
+      { q: "How fast is mobile dispatch for Matter EV bikes?", a: "Our mechanic reaches your home or office parking within 45 minutes of booking." }
+    ]
   }
 };
 
-// Aliases for URL slug variations
+// Aliases for URL slug variations & brand codes
 BRAND_DETAILS["royal_enfield"] = BRAND_DETAILS["royal-enfield"];
 BRAND_DETAILS["ola"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["ola-electric"] = BRAND_DETAILS["ola-electric"] || BRAND_DETAILS["ola"];
 BRAND_DETAILS["harley"] = BRAND_DETAILS["harley-davidson"];
 BRAND_DETAILS["bmw-motorrad"] = BRAND_DETAILS["bmw"];
 BRAND_DETAILS["aprillia"] = BRAND_DETAILS["aprilia"];
+BRAND_DETAILS["tvs_ev"] = BRAND_DETAILS["tvs"];
+BRAND_DETAILS["bajaj_ev"] = BRAND_DETAILS["bajaj"];
+BRAND_DETAILS["vida"] = BRAND_DETAILS["hero"];
+BRAND_DETAILS["hero_electric"] = BRAND_DETAILS["hero"];
+BRAND_DETAILS["pure_ev"] = BRAND_DETAILS["hero"];
+BRAND_DETAILS["okinawa"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["ampere"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["ultraviolette"] = BRAND_DETAILS["ktm"];
+BRAND_DETAILS["simple_energy"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["tork"] = BRAND_DETAILS["revolt"];
+BRAND_DETAILS["bounce"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["joy_ebike"] = BRAND_DETAILS["ola-electric"];
+BRAND_DETAILS["other_ev"] = BRAND_DETAILS["hero"];
+BRAND_DETAILS["other_ice"] = BRAND_DETAILS["hero"];
+

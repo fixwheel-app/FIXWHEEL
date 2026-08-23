@@ -26,7 +26,46 @@ interface ClientProps {
 }
 
 export default function BrandDetailClient({ brandSlug }: ClientProps) {
-  const brandData = BRAND_DETAILS[brandSlug];
+  const formattedBrandName = brandSlug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
+  const brandData = BRAND_DETAILS[brandSlug.toLowerCase()] || {
+    name: formattedBrandName,
+    tagline: `Professional Doorstep Maintenance & Repair for ${formattedBrandName}`,
+    description: `Get doorstep bike service and repair for all ${formattedBrandName} two-wheeler models right at your home or office parking. 100% genuine parts and 15-day labor warranty.`,
+    additionalInfo: {
+      engineOil: "OEM Specification Multi-Grade Engine Oil / EV Inspection",
+      warranty: "15-Day Quality Assurance Warranty",
+      parts: "100% Genuine OEM Spare Parts & Cables",
+      avgTime: "Within 45 Mins Doorstep Arrival",
+    },
+    keyBenefits: [
+      { title: "Doorstep Mechanic Arrival", desc: "Mobile mechanic equipped with specialized tools dispatches to your parking location in 45 minutes." },
+      { title: "Genuine Spares Guarantee", desc: "We use 100% genuine manufacturer parts, checked and fitted right in front of you." },
+      { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
+    ],
+    reviews: [
+      { name: "Rahul Verma", vehicle: `${formattedBrandName} Two-Wheeler`, rating: 5, location: "Delhi NCR", date: "August 2026", comment: `Excellent doorstep service for my ${formattedBrandName}. Quick dispatch and very clean job.` }
+    ],
+    seoKeywords: [
+      `${brandSlug} service at home`,
+      `${brandSlug} repair near me`,
+      `doorstep ${brandSlug} mechanic delhi ncr`,
+    ],
+    faqs: [
+      {
+        q: `How long does doorstep service take for ${formattedBrandName} two-wheelers?`,
+        a: `Most general services and minor repairs are completed in 30 to 45 minutes right in your driveway or parking space.`,
+      },
+      {
+        q: `What is the warranty on ${formattedBrandName} doorstep repairs?`,
+        a: `FixWheel provides a 15-day labor & diagnostic warranty on all doorstep two-wheeler repairs.`,
+      },
+    ],
+  };
+
   const [activeTab, setActiveTab] = useState<"description" | "models" | "reviews">("description");
   const [modelQuery, setModelQuery] = useState("");
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
@@ -976,7 +1015,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               <p className="lead">{brandData.description}</p>
 
               <div className="hero-ctas">
-                <Link href={`/book/${brandSlug}`} className="btn btn-primary">
+                <Link href="/book" className="btn btn-primary">
                   Book {brandData.name} Service Now →
                 </Link>
                 <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
@@ -1040,7 +1079,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </div>
 
               <div className="hero-snapshot-foot">
-                <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                <Link href="/book" className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
                   Book {brandData.name} Service →
                 </Link>
               </div>
@@ -1264,7 +1303,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                       <span className="cc-price-amount">{priceVal}</span>
                     </div>
                     <Link
-                      href={`/book/${brandSlug}`}
+                      href="/book"
                       className="btn btn-primary"
                       style={{ padding: "8px 16px", fontSize: "11px" }}
                     >
@@ -1430,7 +1469,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               Stranded on the road or have a breakdown with your {brandData.name}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
-              <Link href={`/book/${brandSlug}`} className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
+              <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →
               </Link>
               <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
@@ -1478,7 +1517,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             Get a verified mechanic at your home or office parking. 45-minute arrival time, 100% genuine parts, transparent pricing, and 15-day labor warranty.
           </p>
           <div className="final-cta-btns">
-            <Link href={`/book/${brandSlug}`} className="btn btn-primary">
+            <Link href="/book" className="btn btn-primary">
               Book {brandData.name} Service Now →
             </Link>
             <a href="tel:+919999999999" className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>

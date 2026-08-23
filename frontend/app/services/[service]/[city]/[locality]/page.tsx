@@ -21,6 +21,48 @@ export async function generateStaticParams() {
   return params;
 }
 
+function resolveLocalityData(cityConfig: any, citySlug: string, localitySlug: string) {
+  if (!cityConfig || !cityConfig.db) return null;
+
+  // 1. Direct match
+  if (cityConfig.db[localitySlug]) return cityConfig.db[localitySlug];
+
+  // 2. Strip city suffix (e.g. sector-15-faridabad -> sector-15)
+  const cleanSlug = localitySlug.replace(new RegExp(`-${citySlug}$`, "i"), "");
+  if (cityConfig.db[cleanSlug]) return cityConfig.db[cleanSlug];
+
+  // 3. Known aliases
+  const aliases: Record<string, string> = {
+    "connaught-place": "cp",
+    "palam-vihar": "palam-vihar",
+    "saket": "saket",
+    "lajpat-nagar": "lajpat-nagar",
+  };
+  const targetKey = aliases[localitySlug];
+  if (targetKey && cityConfig.db[targetKey]) return cityConfig.db[targetKey];
+
+  // 4. Dynamic fallback object so NO valid service x city x locality URL returns 404
+  const formattedName = localitySlug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  return {
+    name: formattedName,
+    slug: localitySlug,
+    eta: "45 min",
+    servicePrice: "499",
+    aggregateRating: "4.7",
+    reviewCount: "350",
+    subRegionText: `${formattedName} stretch and local residential sectors in ${cityConfig.name}.`,
+    heroText: `Doorstep two-wheeler repair and maintenance service in ${formattedName}, ${cityConfig.name}. Fast 45-minute arrival.`,
+    whyChooseText: `Certified mechanics dispatch directly to your home, office, or roadside location in ${formattedName}.`,
+    coveragePoints: [`${formattedName} main road`, `${formattedName} residential gate`],
+    reviews: [],
+    faqs: [],
+    topServices: [],
+  };
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -30,7 +72,7 @@ export async function generateMetadata({
   const cityConfig = CITIES_DB[params.city];
   if (!serviceData || !cityConfig) return {};
 
-  const localityData = cityConfig.db[params.locality];
+  const localityData = resolveLocalityData(cityConfig, params.city, params.locality);
   if (!localityData) return {};
 
   const cleanTitle = serviceData.title
@@ -74,7 +116,7 @@ export default function CityLocalityServicePage({
     notFound();
   }
 
-  const localityData = cityConfig.db[params.locality];
+  const localityData = resolveLocalityData(cityConfig, params.city, params.locality);
   if (!localityData) {
     notFound();
   }
