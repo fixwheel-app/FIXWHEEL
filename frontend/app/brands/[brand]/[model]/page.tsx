@@ -34,14 +34,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/brands/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
+  const gurgaonLocalities = [
+    "dlf phase 1", "dlf phase 2", "dlf phase 3", "dlf phase 4", "dlf phase 5",
+    "cyber city", "golf course road", "sohna road", "palam vihar", "udyog vihar",
+    "sector 14", "sector 15", "sector 56", "sector 57", "badshahpur", "manesar"
+  ];
+
   const keywords = [
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} service near me`,
-    `doorstep ${modelName.toLowerCase()} repair`,
-    `${brandName.toLowerCase()} ${modelName.toLowerCase()} mechanic home service`,
+    `doorstep ${modelName.toLowerCase()} repair gurgaon`,
+    `${brandName.toLowerCase()} ${modelName.toLowerCase()} mechanic home service gurgaon`,
     `${modelName.toLowerCase()} bike service delhi ncr`,
-    `${brandName.toLowerCase()} ${modelName.toLowerCase()} periodic maintenance`,
-    `${modelName.toLowerCase()} doorstep oil change`,
-    `${modelName.toLowerCase()} brake repair at home`,
+    `${brandName.toLowerCase()} ${modelName.toLowerCase()} periodic maintenance gurgaon`,
+    `${modelName.toLowerCase()} doorstep oil change gurgaon`,
+    `${modelName.toLowerCase()} brake repair at home gurgaon`,
+    `${modelName.toLowerCase()} service dlf phase 1`,
+    `${modelName.toLowerCase()} repair cyber city gurgaon`,
+    `${modelName.toLowerCase()} oil change sohna road`,
+    `${modelName.toLowerCase()} mechanic golf course road gurgaon`,
+    `${modelName.toLowerCase()} service palam vihar`,
+    `${modelName.toLowerCase()} repair sector 56 gurgaon`,
+    `${modelName.toLowerCase()} doorstep service badshahpur`,
+    `${modelName.toLowerCase()} mechanic manesar gurgaon`,
+    ...gurgaonLocalities.map((loc) => `${modelName.toLowerCase()} service in ${loc} gurgaon`),
+    ...gurgaonLocalities.map((loc) => `${brandName.toLowerCase()} ${modelName.toLowerCase()} repair ${loc}`),
   ].join(", ");
 
   return {

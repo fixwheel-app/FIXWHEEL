@@ -387,6 +387,46 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Faridabad
               </Link>
             </div>
+
+            {/* ===== GURGAON LOCALITIES MODEL SERVICE FOOTPRINT ===== */}
+            <div className="mt-8 pt-8 border-t border-slate-800">
+              <h4 className="text-lg font-bold text-white mb-2 font-oswald uppercase tracking-wide">
+                {brandName} {modelName} Doorstep Service in Gurgaon Localities
+              </h4>
+              <p className="text-slate-400 text-xs mb-4">
+                Fast 45-minute doorstep mechanic dispatch for {brandName} {modelName} across all major Gurgaon hubs and gated residential societies:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                {[
+                  { name: "DLF Phase 1", slug: "dlf-phase-1" },
+                  { name: "DLF Phase 2", slug: "dlf-phase-2" },
+                  { name: "DLF Phase 3", slug: "dlf-phase-3" },
+                  { name: "DLF Phase 4", slug: "dlf-phase-4" },
+                  { name: "DLF Phase 5", slug: "dlf-phase-5" },
+                  { name: "Cyber City", slug: "cyber-city" },
+                  { name: "Golf Course Rd", slug: "golf-course-road" },
+                  { name: "Sohna Road", slug: "sohna-road" },
+                  { name: "Palam Vihar", slug: "palam-vihar" },
+                  { name: "Udyog Vihar", slug: "udyog-vihar" },
+                  { name: "Sector 14", slug: "sector-14" },
+                  { name: "Sector 15", slug: "sector-15" },
+                  { name: "Sector 56", slug: "sector-56" },
+                  { name: "Sector 57", slug: "sector-57" },
+                  { name: "Badshahpur", slug: "badshahpur" },
+                  { name: "Manesar", slug: "manesar" },
+                  { name: "Sushant Lok", slug: "sushant-lok" },
+                  { name: "Nirvana Country", slug: "nirvana-country" },
+                ].map((loc) => (
+                  <Link
+                    key={loc.slug}
+                    href={`/services/basic-service/gurgaon/${loc.slug}`}
+                    className="bg-slate-900/80 border border-slate-800 hover:border-red-500/50 hover:bg-slate-800 text-slate-300 hover:text-white px-2.5 py-2 rounded text-[11px] font-mono transition-colors text-center truncate"
+                  >
+                    {modelName} in {loc.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* ===== BOTTOM CTA BANNER ===== */}

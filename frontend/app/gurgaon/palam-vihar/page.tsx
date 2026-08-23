@@ -5,13 +5,22 @@ export const metadata: Metadata = {
   title: "Doorstep Bike Repair in Palam Vihar, Gurgaon | Two Wheeler Mechanic – FixWheel",
   description: "Get doorstep bike repair in Palam Vihar, Gurgaon for all two wheelers. Verified bike mechanics offer doorstep bike service and repair at home — arrival 45 mins.",
   keywords: [
-    "doorstep repair near me",
+    "doorstep repair near me Palam Vihar",
     "doorstep repair in Palam Vihar",
     "bike repair in Palam Vihar at home",
-    "two wheeler mechanic near me",
-    "bike mechanic near me",
+    "two wheeler mechanic near me Palam Vihar",
+    "bike mechanic near me Palam Vihar",
     "scooter service at home in Palam Vihar",
-    "doorstep motorcycle repair Palam Vihar"
+    "doorstep motorcycle repair Palam Vihar",
+    "Honda Activa 6G service Palam Vihar",
+    "Splendor Plus repair near me Palam Vihar",
+    "Pulsar 150 mechanic in Palam Vihar",
+    "Jupiter 125 service Palam Vihar",
+    "Royal Enfield Classic 350 service near me Palam Vihar",
+    "Yamaha R15 V4 repair Palam Vihar",
+    "KTM Duke 200 service near me Palam Vihar",
+    "Ather 450X EV service Palam Vihar",
+    "Ola S1 Pro repair Palam Vihar"
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/gurgaon/palam-vihar",
