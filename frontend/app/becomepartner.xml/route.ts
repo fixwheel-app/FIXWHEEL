@@ -11,7 +11,7 @@ export async function GET() {
   // Main Become Partner landing page
   xml += `  <url>\n    <loc>https://www.fixwheel.app/partner</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
 
-  // City & Locality Partner Pages
+  // City Partner Pages only
   const cityKeys = Object.keys(PARTNER_CITY_DATA);
 
   for (const cKey of cityKeys) {
@@ -19,11 +19,6 @@ export async function GET() {
     
     // City partner URL
     xml += `  <url>\n    <loc>https://www.fixwheel.app/partner/${cityData.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-
-    // Locality partner URLs
-    for (const loc of cityData.localities) {
-      xml += `  <url>\n    <loc>https://www.fixwheel.app/partner/${cityData.slug}/${loc.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-    }
   }
 
   xml += `</urlset>`;
@@ -35,3 +30,4 @@ export async function GET() {
     },
   });
 }
+
