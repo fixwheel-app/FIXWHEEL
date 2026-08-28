@@ -394,16 +394,9 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          text-decoration: none;
           color: var(--ink-dark);
           font-weight: 600;
           font-size: 14px;
-          transition: all 0.15s;
-        }
-        .partner-scope .locality-card:hover {
-          border-color: var(--accent);
-          color: var(--accent);
-          background: #FFF5F5;
         }
 
         /* FAQ */
@@ -607,15 +600,14 @@ export default function PartnerCityClient({ citySlug }: ClientProps) {
       {/* LOCALITIES GRID */}
       <section className="content-section">
         <div className="container">
-          <h2 className="section-title">Partner Locality Coverage in {cityData.cityName}</h2>
-          <p className="section-desc">Click on your preferred locality to view mechanic onboarding and service area details.</p>
+          <h2 className="section-title">Service Coverage Areas in {cityData.cityName}</h2>
+          <p className="section-desc">We serve the following localities and sectors across {cityData.cityName}.</p>
 
           <div className="locality-grid">
             {cityData.localities.map((loc) => (
-              <Link key={loc.slug} href={`/partner/${cityData.slug}/${loc.slug}`} className="locality-card">
+              <div key={loc.slug} className="locality-card" style={{ cursor: "default" }}>
                 <span>{loc.name}</span>
-                <ChevronDown size={16} style={{ transform: "rotate(-90deg)" }} />
-              </Link>
+              </div>
             ))}
           </div>
         </div>
