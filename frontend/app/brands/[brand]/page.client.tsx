@@ -73,7 +73,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     ],
   };
 
-  const [activeTab, setActiveTab] = useState<"description" | "models" | "reviews">("description");
+  const [activeTab, setActiveTab] = useState<"models" | "description" | "reviews">("models");
   const [modelQuery, setModelQuery] = useState("");
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
   const [selectedCcTab, setSelectedCcTab] = useState<"0-249" | "250-399" | "400-599" | "600+">("0-249");
@@ -1126,16 +1126,16 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             {/* Custom shaped headers */}
             <div className="tab-headers">
               <button
-                className={cn("tab-header-btn", activeTab === "description" && "active")}
-                onClick={() => setActiveTab("description")}
-              >
-                Specifications & Policies
-              </button>
-              <button
                 className={cn("tab-header-btn", activeTab === "models" && "active")}
                 onClick={() => setActiveTab("models")}
               >
                 Serviced Models ({allModels.length})
+              </button>
+              <button
+                className={cn("tab-header-btn", activeTab === "description" && "active")}
+                onClick={() => setActiveTab("description")}
+              >
+                Specifications & Policies
               </button>
               <button
                 className={cn("tab-header-btn", activeTab === "reviews" && "active")}
