@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
@@ -77,6 +78,12 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
 }
 
 export default function FaridabadLocalityClientPage({ slug }: LocalityClientProps) {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.faridabad || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('faridabad').then(setStats);
+  }, []);
+
   const data = LOCALITY_DB[slug];
   const ticket = data ? getDeterministicTicketDetails(data.name, slug, data.servicePrice, data.eta) : null;
 
@@ -432,8 +439,8 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>
-            <div className="trust-cell"><b>473+</b><span>Total vehicles serviced</span></div>
-            <div className="trust-cell"><b>4.7★</b><span>Rider rating</span></div>
+            <div className="trust-cell"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
+            <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Local Coverage</span></div>
           </div>
         </div>

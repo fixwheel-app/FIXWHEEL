@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Check, Wrench, ShieldCheck, Clock, Award, Phone } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
 export default function ServicesClientPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+    getPageVariables('services', 'global').then(setPageVars);
+  }, []);
 
   const staticServices = [
     {
@@ -626,16 +635,16 @@ export default function ServicesClientPage() {
               </div>
               <div className="trust-row">
                 <span>
-                  <b>45 MIN</b> Arrival
+                  <b>{pageVars.avgTime}</b> Arrival
                 </span>
                 <span>
-                  <b>473+</b> Serviced
+                  <b>{pageVars.bikesServiced}+</b> Serviced
                 </span>
                 <span>
-                  <b>4.7 ★</b> Rating
+                  <b>{pageVars.averageRating} ★</b> Rating
                 </span>
                 <span>
-                  <b>15 DAYS</b> Warranty
+                  <b>{pageVars.warranty}</b>
                 </span>
               </div>
             </div>
@@ -706,11 +715,11 @@ export default function ServicesClientPage() {
               <ul className="spec-list">
                 <li>
                   <span>Doorstep Arrival Time</span>
-                  <span className="v">Within 45 Mins</span>
+                  <span className="v">Within {pageVars.avgTime}</span>
                 </li>
                 <li>
                   <span>Mechanics Network</span>
-                  <span className="v">33+ Certified</span>
+                  <span className="v">{pageVars.totalPartners}+ Certified</span>
                 </li>
                 <li>
                   <span>Service Area</span>
@@ -722,11 +731,11 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Labor Warranty</span>
-                  <span className="v">15 Days</span>
+                  <span className="v">{pageVars.warranty}</span>
                 </li>
                 <li>
                   <span>Starting Rate</span>
-                  <span className="v">₹199</span>
+                  <span className="v">{pageVars.startingPrice}</span>
                 </li>
               </ul>
             </div>

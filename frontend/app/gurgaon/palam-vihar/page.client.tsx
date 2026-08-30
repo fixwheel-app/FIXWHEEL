@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -63,6 +64,12 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
 }
 
 export default function PalamViharClientPage() {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.gurgaon || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('gurgaon').then(setStats);
+  }, []);
+
   const ticket = getDeterministicTicketDetails("Palam Vihar", "palam-vihar", "550", "45 min");
 
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
@@ -405,8 +412,8 @@ export default function PalamViharClientPage() {
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>
-            <div className="trust-cell"><b>473+</b><span>Total vehicles serviced</span></div>
-            <div className="trust-cell"><b>4.7★</b><span>Rider rating</span></div>
+            <div className="trust-cell"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
+            <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Coverage across Palam Vihar</span></div>
           </div>
         </div>

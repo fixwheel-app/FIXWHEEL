@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
 interface FaqItem {
   q: string;
@@ -62,6 +64,18 @@ export default function ServicePageTemplate({
   locationSlug,
 }: ServicePageProps) {
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
+
+  useEffect(() => {
+    getPublicStatsForCity(locationSlug || 'global').then(setStats);
+    const routeKey = locationSlug ? `services/${serviceId}/${locationSlug}` : `services/${serviceId}`;
+    getPageVariables(routeKey, locationSlug || 'global', {
+      defaultAvgTime: avgTime,
+      defaultWarranty: warranty,
+      defaultPrice: startingPrice
+    }).then(setPageVars);
+  }, [serviceId, locationSlug, avgTime, warranty, startingPrice]);
 
   const toggleFaq = (idx: number) => {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
@@ -156,11 +170,11 @@ export default function ServicePageTemplate({
                 <div className="grid grid-cols-2 gap-4 mb-6 text-xs font-mono">
                   <div>
                     <span className="block text-slate-400 uppercase">STARTING FROM</span>
-                    <span className="text-xl font-bold text-[#e62b2b]">{startingPrice}</span>
+                    <span className="text-xl font-bold text-[#e62b2b]">{pageVars.startingPrice}</span>
                   </div>
                   <div>
                     <span className="block text-slate-400 uppercase">ARRIVAL TIME</span>
-                    <span className="text-base font-bold text-slate-900">45 Mins</span>
+                    <span className="text-base font-bold text-slate-900">{pageVars.avgTime}</span>
                   </div>
                   <div>
                     <span className="block text-slate-400 uppercase">LOCATION</span>
@@ -168,13 +182,13 @@ export default function ServicePageTemplate({
                   </div>
                   <div>
                     <span className="block text-slate-400 uppercase">WARRANTY</span>
-                    <span className="text-sm font-bold text-slate-900">{warranty}</span>
+                    <span className="text-sm font-bold text-slate-900">{pageVars.warranty}</span>
                   </div>
                 </div>
 
                 <div className="bg-slate-100 border border-slate-200 rounded-lg p-3 text-xs text-slate-600 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Verified Mechanics & 15-Day Labor Warranty</span>
+                  <span>Verified Mechanics & {pageVars.warranty} Labor Warranty</span>
                 </div>
               </div>
             </div>
@@ -187,19 +201,19 @@ export default function ServicePageTemplate({
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-mono">
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">45 MIN</b>
+              <b className="block text-2xl font-bold text-slate-900">{pageVars.avgTime}</b>
               <span className="text-xs text-slate-500 uppercase tracking-wider">Doorstep Arrival</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">4.7 ★</b>
+              <b className="block text-2xl font-bold text-slate-900">{pageVars.averageRating} ★</b>
               <span className="text-xs text-slate-500 uppercase tracking-wider">Customer Rating</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">10,000+</b>
+              <b className="block text-2xl font-bold text-slate-900">{pageVars.bikesServiced}+</b>
               <span className="text-xs text-slate-500 uppercase tracking-wider">Bikes Serviced</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">15 DAYS</b>
+              <b className="block text-2xl font-bold text-slate-900">{pageVars.warranty}</b>
               <span className="text-xs text-slate-500 uppercase tracking-wider">Labor Warranty</span>
             </div>
           </div>

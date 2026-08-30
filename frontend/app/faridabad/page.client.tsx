@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Oswald, JetBrains_Mono } from "next/font/google";
@@ -18,6 +19,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 export default function FaridabadClientPage() {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.faridabad || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('faridabad').then(setStats);
+  }, []);
+
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
     0: true,
   });
@@ -421,8 +428,8 @@ export default function FaridabadClientPage() {
             </div>
             <div className="stat-row">
               <div className="stat"><b>45 min</b><span>Arrival time</span></div>
-              <div className="stat"><b>473+</b><span>Total vehicles serviced</span></div>
-              <div className="stat"><b>4.7★</b><span>Customer rating</span></div>
+              <div className="stat"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
+              <div className="stat"><b>{stats.average_rating}★</b><span>Customer rating</span></div>
               <div className="stat"><b>Faridabad NCR</b><span>Service area</span></div>
             </div>
           </div>

@@ -1,14 +1,20 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ShieldCheck, Wrench, Clock, Star, MapPin, 
   CheckCircle2, Compass, HelpCircle, ArrowRight, UserCheck 
 } from 'lucide-react';
 import Link from 'next/link';
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
 
 export default function AboutClient() {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
   const whyDifferent = [
     {
       num: "01",
@@ -217,9 +223,9 @@ export default function AboutClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-b border-white/10 pb-10">
             {[
-              { val: "473+", lbl: "Total vehicles serviced" },
-              { val: "33+", lbl: "Verified mechanics" },
-              { val: "4.7★", lbl: "Customer rating" }
+              { val: `${stats.bikes_serviced}+`, lbl: "Total vehicles serviced" },
+              { val: `${stats.total_partners}+`, lbl: "Verified mechanics" },
+              { val: `${stats.average_rating}★`, lbl: "Customer rating" }
             ].map((stat, idx) => (
               <div key={idx} className="space-y-1">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-black text-accent tracking-tighter block font-mono">

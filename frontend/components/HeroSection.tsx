@@ -1,10 +1,18 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, CheckCircle } from 'lucide-react';
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
 
 export default function HeroSection() {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
+
   return (
     <section className="relative overflow-hidden pt-20 pb-32">
       {/* Background Gradient Mesh */}
@@ -72,11 +80,11 @@ export default function HeroSection() {
           >
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-status-success" />
-              <span>500+ Repairs Done</span>
+              <span>{stats.bikes_serviced}+ Repairs Done</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-yellow-400 text-lg">★</span>
-              <span>4.9 Rating</span>
+              <span>{stats.average_rating} Rating</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-accent" />
