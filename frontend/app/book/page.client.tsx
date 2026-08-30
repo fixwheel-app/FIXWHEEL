@@ -44,20 +44,23 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
   useEffect(() => {
     const handleHashAndParams = () => {
       if (typeof window !== 'undefined') {
-        // Handle hash pre-selection
-        const rawHash = window.location.hash.replace('#', '');
-        const hash = rawHash.split('?')[0].toLowerCase();
-        if (hash && BRAND_SLUG_MAP[hash]) {
-          const preselectedBrand = BRAND_SLUG_MAP[hash];
+        const searchParams = new URLSearchParams(window.location.search);
+
+        // 1. Get brand from query param (?brand=hero) or hash (#hero)
+        const rawHash = window.location.hash.replace(/^#/, '').split('?')[0].toLowerCase();
+        const rawQueryBrand = (searchParams.get('brand') || searchParams.get('b') || '').toLowerCase();
+        const targetBrandSlug = rawQueryBrand || rawHash;
+
+        if (targetBrandSlug && BRAND_SLUG_MAP[targetBrandSlug]) {
+          const preselectedBrand = BRAND_SLUG_MAP[targetBrandSlug];
           setBrand(preselectedBrand);
-          
+
           const isElectric = (preselectedBrand === 'Ola Electric' || preselectedBrand === 'Ather');
           setFuelType(isElectric ? 'Electric Motorbike' : 'Non-Electric Motorbike');
         }
-        
-        // Handle search params model selection
-        const searchParams = new URLSearchParams(window.location.search);
-        const queryModel = searchParams.get('model');
+
+        // 2. Handle search params model selection
+        const queryModel = searchParams.get('model') || searchParams.get('m');
         if (queryModel) {
           setModel(queryModel);
         }

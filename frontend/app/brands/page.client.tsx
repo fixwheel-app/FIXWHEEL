@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -150,6 +151,12 @@ const brands = [
 ];
 
 export default function BrandsClientPage() {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
 
@@ -667,7 +674,7 @@ export default function BrandsClientPage() {
             <span>Within 45 Mins Arrival</span>
           </div>
           <div className="trust-item">
-            <b>4.7★</b>
+            <b>{stats.average_rating}★</b>
             <span>Customer Rating</span>
           </div>
           <div className="trust-item">
@@ -735,7 +742,7 @@ export default function BrandsClientPage() {
                     ))}
                   </div>
                   <div className="brand-card-cta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                    <Link href={`/book#${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
+                    <Link href={`/book?brand=${brand.name.toLowerCase().replace(/ /g, "-")}#${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
                     <Link href={`/brands/${brand.name.toLowerCase().replace(/ /g, "-")}`} style={{ color: 'var(--ink-dim)', fontSize: '11px', transition: 'color 0.15s' }} className="hover-white">Models & Info →</Link>
                   </div>
                 </div>
