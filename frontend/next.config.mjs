@@ -70,6 +70,12 @@ const nextConfig = {
         destination: '/partner',
         permanent: true,
       },
+      // 301 Permanent Redirect for all deprecated book brand sub-pages (e.g. /book/hero) to /book
+      {
+        source: '/book/:brand((?!checkout$).*)',
+        destination: '/book',
+        permanent: true,
+      },
     ];
   },
 };
