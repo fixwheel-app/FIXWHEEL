@@ -51,15 +51,16 @@ export async function getPageVariables(
     hasManualOverride: false,
   };
 
-  // 2. Fetch overrides from public.page_variable_overrides
+  // 2. Fetch overrides from public.page_variable_overrides with global fallback
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://grvbunnfnqeyfafcaaaf.supabase.co';
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdydmJ1bm5mbnFleWZhZmNhYWFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzNjkyMzgsImV4cCI6MjA5MDk0NTIzOH0.c2Yb3KV-WnAmwiEPVe8Rt6QwlEaw7pZLMBDgXz3iJlQ';
 
     const normalizedKey = pageKey.replace(/^https?:\/\/[^\/]+/, '').replace(/^\//, '') || 'global';
 
+    // Fetch both specific route key AND global key in one query
     const res = await fetch(
-      `${supabaseUrl}/rest/v1/page_variable_overrides?page_key=eq.${encodeURIComponent(normalizedKey)}&select=*`,
+      `${supabaseUrl}/rest/v1/page_variable_overrides?page_key=in.(${encodeURIComponent(normalizedKey)},global)&select=*`,
       {
         headers: {
           apikey: supabaseAnonKey,
@@ -71,27 +72,35 @@ export async function getPageVariables(
     if (res.ok) {
       const rows = await res.json();
       if (Array.isArray(rows) && rows.length > 0) {
-        const override = rows[0];
-        resolved.hasManualOverride = true;
+        // Specific page key takes precedence over global fallback
+        const override = rows.find((r: any) => r.page_key === normalizedKey) || rows.find((r: any) => r.page_key === 'global');
+        
+        if (override) {
+          resolved.hasManualOverride = true;
 
-        if (override.use_manual_bikes && override.bikes_serviced_override !== null) {
-          resolved.bikesServiced = override.bikes_serviced_override;
-        }
+          if (override.use_manual_bikes && override.bikes_serviced_override !== null) {
+            resolved.bikesServiced = override.bikes_serviced_override;
+          }
 
-        if (override.use_manual_partners && override.partners_override !== null) {
-          resolved.totalPartners = override.partners_override;
-        }
+          if (override.use_manual_partners && override.partners_override !== null) {
+            resolved.totalPartners = override.partners_override;
+          }
 
-        if (override.avg_time) {
-          resolved.avgTime = override.avg_time;
-        }
+          if (override.avg_time) {
+            resolved.avgTime = override.avg_time;
+          }
 
-        if (override.warranty) {
-          resolved.warranty = override.warranty;
-        }
+          if (override.warranty) {
+            let w = String(override.warranty).trim();
+            if (/^\d+$/.test(w)) {
+              w = `${w} Days Warranty`;
+            }
+            resolved.warranty = w;
+          }
 
-        if (override.starting_price) {
-          resolved.startingPrice = override.starting_price;
+          if (override.starting_price) {
+            resolved.startingPrice = override.starting_price;
+          }
         }
       }
     }
