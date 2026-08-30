@@ -122,7 +122,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <Link
-                  href={`/book?brand=${bSlug}&model=${encodeURIComponent(modelName)}#${bSlug}`}
+                  href={`/book#${bSlug}`}
                   className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)]"
                 >
                   Book Service Now →
@@ -267,7 +267,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 </div>
 
                 <Link
-                  href={`/book?brand=${bSlug}&model=${encodeURIComponent(modelName)}#${bSlug}`}
+                  href={`/book#${bSlug}`}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-red-600 text-white py-3.5 rounded-md font-mono font-bold text-xs uppercase tracking-wider transition-all"
                 >
                   Book {modelName} Service
@@ -348,7 +348,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Stranded on the road or have a breakdown with your {brandName} {modelName}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href={`/book?brand=${bSlug}&model=${encodeURIComponent(modelName)}#${bSlug}`} className="bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors">
+                <Link href={`/book#${bSlug}`} className="bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors">
                   Request Roadside Assistance →
                 </Link>
                 <a href="tel:+918745945682" className="border border-slate-900 text-slate-900 font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors hover:bg-slate-900 hover:text-white">
@@ -447,7 +447,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href={`/book?brand=${bSlug}&model=${encodeURIComponent(modelName)}#${bSlug}`}
+                href={`/book#${bSlug}`}
                 className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-8 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)] hover:scale-[1.02]"
               >
                 BOOK NOW
