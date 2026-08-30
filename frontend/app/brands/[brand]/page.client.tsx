@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
@@ -26,6 +27,12 @@ interface ClientProps {
 }
 
 export default function BrandDetailClient({ brandSlug }: ClientProps) {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
+
   const formattedBrandName = brandSlug
     .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -1015,7 +1022,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               <p className="lead">{brandData.description}</p>
 
               <div className="hero-ctas">
-                <Link href="/book" className="btn btn-primary">
+                <Link href={`/book#${brandSlug}`} className="btn btn-primary">
                   Book {brandData.name} Service Now →
                 </Link>
                 <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
@@ -1029,7 +1036,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                   <span>Doorstep arrival</span>
                 </div>
                 <div className="hero-stat">
-                  <b>4.7 ★</b>
+                  <b>{stats.average_rating} ★</b>
                   <span>Customer rating</span>
                 </div>
                 <div className="hero-stat">
@@ -1079,7 +1086,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </div>
 
               <div className="hero-snapshot-foot">
-                <Link href="/book" className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                <Link href={`/book#${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
                   Book {brandData.name} Service →
                 </Link>
               </div>
@@ -1303,7 +1310,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                       <span className="cc-price-amount">{priceVal}</span>
                     </div>
                     <Link
-                      href="/book"
+                      href={`/book#${brandSlug}`}
                       className="btn btn-primary"
                       style={{ padding: "8px 16px", fontSize: "11px" }}
                     >
@@ -1469,7 +1476,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               Stranded on the road or have a breakdown with your {brandData.name}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
-              <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
+              <Link href={`/book#${brandSlug}`} className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
                 Request Roadside Assistance →
               </Link>
               <a href="tel:+918745945682" className="btn" style={{ padding: "10px 20px", fontSize: "12px", border: "1px solid #0F172A", color: "#0F172A", background: "transparent" }}>
@@ -1517,7 +1524,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             Get a verified mechanic at your home or office parking. 45-minute arrival time, 100% genuine parts, transparent pricing, and 15-day labor warranty.
           </p>
           <div className="final-cta-btns">
-            <Link href="/book" className="btn btn-primary">
+            <Link href={`/book#${brandSlug}`} className="btn btn-primary">
               Book {brandData.name} Service Now →
             </Link>
             <a href="tel:+919999999999" className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>

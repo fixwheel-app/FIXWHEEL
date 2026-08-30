@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,12 @@ interface ModelClientProps {
 }
 
 export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global || DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
+
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
 
   const toggleFaq = (idx: number) => {
@@ -22,6 +29,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
   const bLow = brandName.toLowerCase();
   const mLow = modelName.toLowerCase();
+  const bSlug = brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   // High-converting local & "near me" keywords tailored for this model
   const keywords = [
@@ -114,7 +122,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <Link
-                  href="/book"
+                  href={`/book#${bSlug}?model=${encodeURIComponent(modelName)}`}
                   className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)]"
                 >
                   Book Service Now →
@@ -259,7 +267,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 </div>
 
                 <Link
-                  href="/book"
+                  href={`/book#${bSlug}?model=${encodeURIComponent(modelName)}`}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-red-600 text-white py-3.5 rounded-md font-mono font-bold text-xs uppercase tracking-wider transition-all"
                 >
                   Book {modelName} Service
@@ -340,7 +348,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Stranded on the road or have a breakdown with your {brandName} {modelName}? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/book" className="bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors">
+                <Link href={`/book#${bSlug}?model=${encodeURIComponent(modelName)}`} className="bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors">
                   Request Roadside Assistance →
                 </Link>
                 <a href="tel:+918745945682" className="border border-slate-900 text-slate-900 font-mono font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors hover:bg-slate-900 hover:text-white">
@@ -364,7 +372,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </Link>
               <Link
                 href="/delhi"
-                className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
+                className="bg-[#e62b2b] text-center py-3 rounded-lg font-mono text-xs font-bold text-white shadow-sm"
               >
                 Delhi NCR
               </Link>
@@ -439,7 +447,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/book"
+                href={`/book#${bSlug}?model=${encodeURIComponent(modelName)}`}
                 className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-8 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)] hover:scale-[1.02]"
               >
                 BOOK NOW

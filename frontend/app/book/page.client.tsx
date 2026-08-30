@@ -45,7 +45,8 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
     const handleHashAndParams = () => {
       if (typeof window !== 'undefined') {
         // Handle hash pre-selection
-        const hash = window.location.hash.replace('#', '').toLowerCase();
+        const rawHash = window.location.hash.replace('#', '');
+        const hash = rawHash.split('?')[0].toLowerCase();
         if (hash && BRAND_SLUG_MAP[hash]) {
           const preselectedBrand = BRAND_SLUG_MAP[hash];
           setBrand(preselectedBrand);
