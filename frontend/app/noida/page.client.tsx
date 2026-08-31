@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Oswald, JetBrains_Mono } from "next/font/google";
@@ -19,10 +20,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 export default function NoidaClientPage() {
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.noida || DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
     getPublicStatsForCity('noida').then(setStats);
+    getPageVariables('noida', 'noida').then(setPageVars);
   }, []);
 
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
@@ -432,7 +435,7 @@ export default function NoidaClientPage() {
             </div>
             <div className="stat-row">
               <div className="stat"><b>45 min</b><span>Arrival time</span></div>
-              <div className="stat"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
+              <div className="stat"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
               <div className="stat"><b>{stats.average_rating}★</b><span>Customer rating</span></div>
               <div className="stat"><b>Noida & Gr. Noida</b><span>Service area</span></div>
             </div>

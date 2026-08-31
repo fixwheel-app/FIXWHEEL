@@ -8,12 +8,16 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from '@/lib/pageVariables';
 
 export default function AboutClient() {
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
     getPublicStatsForCity('global').then(setStats);
+    getPageVariables('global', 'global').then(setPageVars);
+    getPageVariables('global', 'global').then(setPageVars);
   }, []);
   const whyDifferent = [
     {

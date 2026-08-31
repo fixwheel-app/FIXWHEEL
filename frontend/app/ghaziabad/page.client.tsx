@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Oswald, JetBrains_Mono } from "next/font/google";
@@ -20,14 +21,13 @@ const jetbrains = JetBrains_Mono({
 
 export default function GhaziabadClientPage() {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.ghaziabad || DEFAULT_PUBLIC_STATS.global);
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
+  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
 
   useEffect(() => {
     getPublicStatsForCity('ghaziabad').then(setStats);
+    getPageVariables('ghaziabad', 'ghaziabad').then(setPageVars);
   }, []);
-
-  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
-    0: true,
-  });
 
   const toggleFaq = (idx: number) => {
     setOpenFaqs((prev) => ({
@@ -420,9 +420,9 @@ export default function GhaziabadClientPage() {
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">
-              <div className="stat"><b>45 min</b><span>Arrival time</span></div>
-              <div className="stat"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
-              <div className="stat"><b>{stats.average_rating}★</b><span>Customer rating</span></div>
+              <div className="stat"><b>{pageVars.avgTime}</b><span>Arrival time</span></div>
+              <div className="stat"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
+              <div className="stat"><b>{pageVars.averageRating}★</b><span>Customer rating</span></div>
               <div className="stat"><b>Ghaziabad NCR</b><span>Service area</span></div>
             </div>
           </div>

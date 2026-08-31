@@ -2,7 +2,9 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@
 
 export interface PageVariables {
   bikesServiced: number;
+  bikesServicedText: string;
   totalPartners: number;
+  totalPartnersText: string;
   avgTime: string;
   warranty: string;
   startingPrice: string;
@@ -13,7 +15,9 @@ export interface PageVariables {
 
 export const DEFAULT_PAGE_VARIABLES: PageVariables = {
   bikesServiced: 100,
+  bikesServicedText: '100+',
   totalPartners: 26,
+  totalPartnersText: '26',
   avgTime: '45 Mins',
   warranty: '30 Days Performance Warranty',
   startingPrice: '₹399',
@@ -42,7 +46,9 @@ export async function getPageVariables(
 
   const resolved: PageVariables = {
     bikesServiced: publicStats.bikes_serviced,
+    bikesServicedText: `${publicStats.bikes_serviced}+`,
     totalPartners: publicStats.total_partners,
+    totalPartnersText: `${publicStats.total_partners}`,
     avgTime: defaults.defaultAvgTime || '45 Mins',
     warranty: defaults.defaultWarranty || '30 Days Performance Warranty',
     startingPrice: defaults.defaultPrice || '₹399',
@@ -78,12 +84,19 @@ export async function getPageVariables(
         if (override) {
           resolved.hasManualOverride = true;
 
-          if (override.use_manual_bikes && override.bikes_serviced_override !== null) {
-            resolved.bikesServiced = override.bikes_serviced_override;
+          if (override.use_manual_bikes && override.bikes_serviced_override !== null && override.bikes_serviced_override !== undefined && override.bikes_serviced_override !== '') {
+            let bText = String(override.bikes_serviced_override).trim();
+            if (/^\d+$/.test(bText)) {
+              bText = `${bText}+`;
+            }
+            resolved.bikesServicedText = bText;
+            resolved.bikesServiced = parseInt(bText) || publicStats.bikes_serviced;
           }
 
-          if (override.use_manual_partners && override.partners_override !== null) {
-            resolved.totalPartners = override.partners_override;
+          if (override.use_manual_partners && override.partners_override !== null && override.partners_override !== undefined && override.partners_override !== '') {
+            let pText = String(override.partners_override).trim();
+            resolved.totalPartnersText = pText;
+            resolved.totalPartners = parseInt(pText) || publicStats.total_partners;
           }
 
           if (override.avg_time) {

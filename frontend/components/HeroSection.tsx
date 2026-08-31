@@ -5,12 +5,15 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from '@/lib/pageVariables';
 
 export default function HeroSection() {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
 
   useEffect(() => {
     getPublicStatsForCity('global').then(setStats);
+    getPageVariables('global', 'global').then(setPageVars);
   }, []);
 
   return (
@@ -80,7 +83,7 @@ export default function HeroSection() {
           >
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-status-success" />
-              <span>{stats.bikes_serviced}+ Repairs Done</span>
+              <span>{pageVars.bikesServicedText} Repairs Done</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-yellow-400 text-lg">★</span>
