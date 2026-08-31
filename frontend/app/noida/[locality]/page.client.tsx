@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
+import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
@@ -78,10 +79,12 @@ function getDeterministicTicketDetails(localityName: string, slug: string, servi
 }
 
 export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
+  const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.noida || DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
     getPublicStatsForCity('noida').then(setStats);
+    getPageVariables('noida/' + slug, 'noida').then(setPageVars);
   }, []);
 
   const data = LOCALITY_DB[slug];
@@ -413,7 +416,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
                 <div className="r"><label>Model</label><div>{ticket.model}</div></div>
                 <div className="r"><label>Location</label><div>{ticket.location}</div></div>
                 <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
-                <div className="r"><label>Warranty</label><div>15 days</div></div>
+                <div className="r"><label>Warranty</label><div>{pageVars.warranty}</div></div>
                 <div className="r"><label>Response</label><div>{ticket.eta}</div></div>
               </div>
               <div className="ticket-foot">
@@ -433,8 +436,8 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
             <p>{getIntroParagraph(data.name, "Noida")}</p>
           </div>
           <div className="trust-strip">
-            <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>
-            <div className="trust-cell"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
+            <div className="trust-cell"><b>{pageVars.avgTime}</b><span>Arrival time</span></div>
+            <div className="trust-cell"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Local Coverage</span></div>
           </div>
