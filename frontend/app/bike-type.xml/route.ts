@@ -16,6 +16,94 @@ export async function GET() {
       const cityConfig = CITIES_DB[citySlug];
       if (!cityConfig) continue;
 
+      if (service === "sports-bike-service") {
+        // Sports bike service: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/sports-bike-service/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "electric-scooter-repair") {
+        // Electric scooter repair: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/electric-scooter-repair/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "royal-enfield-service") {
+        // Royal enfield service: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/royal-enfield-service/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "commuter-bike-service") {
+        // Commuter bike service: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/commuter-bike-service/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "scooty-repair") {
+        // Scooty repair: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/scooty-repair/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "premium-bike-service") {
+        // Premium bike service: root city URL without /services/ prefix, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/premium-bike-service/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "basic-service") {
+        // Basic service: keeps /services/ prefix, 5 city URLs, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/services/basic-service/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
+      if (service === "oil-change" || service === "comprehensive-service" || service === "engine-repair" || service === "battery-replacement" || service === "brake-repair" || service === "tyre-replacement" || service === "general-washing") {
+        // Keeps /services/ prefix, 5 city URLs, no locality URLs
+        urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/services/${service}/${citySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+        continue;
+      }
+
       // City level service URL
       urlsXml += `  <url>
     <loc>https://www.fixwheel.app/services/${service}/${citySlug}</loc>

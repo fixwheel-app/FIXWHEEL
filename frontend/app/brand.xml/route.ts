@@ -55,7 +55,14 @@ export async function GET() {
 
   // Individual Service subpages
   for (const s of SERVICES) {
-    xml += `  <url>\n    <loc>https://www.fixwheel.app/services/${s}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+    let locUrl = `https://www.fixwheel.app/services/${s}`;
+    if (s === "sports-bike-service") locUrl = "https://www.fixwheel.app/sports-bike-service";
+    if (s === "electric-scooter-repair") locUrl = "https://www.fixwheel.app/electric-scooter-repair";
+    if (s === "royal-enfield-service") locUrl = "https://www.fixwheel.app/royal-enfield-service";
+    if (s === "commuter-bike-service") locUrl = "https://www.fixwheel.app/commuter-bike-service";
+    if (s === "scooty-repair") locUrl = "https://www.fixwheel.app/scooty-repair";
+    if (s === "premium-bike-service") locUrl = "https://www.fixwheel.app/premium-bike-service";
+    xml += `  <url>\n    <loc>${locUrl}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 
   // Individual Bike Model pages

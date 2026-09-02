@@ -48,6 +48,42 @@ export async function GET() {
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.fixwheel.app/premium-bike-service</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fixwheel.app/commuter-bike-service</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fixwheel.app/electric-scooter-repair</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fixwheel.app/royal-enfield-service</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fixwheel.app/sports-bike-service</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fixwheel.app/scooty-repair</loc>
+    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.fixwheel.app/services/tyre-replacement</loc>
     <lastmod>2026-07-25T19:39:55+00:00</lastmod>
     <changefreq>weekly</changefreq>

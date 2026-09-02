@@ -10,8 +10,10 @@ interface PageProps {
   };
 }
 
+const EXCLUDED_SERVICES = ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"];
+
 export async function generateStaticParams() {
-  const serviceSlugs = Object.keys(SERVICES_DB);
+  const serviceSlugs = Object.keys(SERVICES_DB).filter((s) => !EXCLUDED_SERVICES.includes(s));
   const citySlugs = Object.keys(CITIES_DB);
 
   return [...serviceSlugs, ...citySlugs].map((s) => ({
@@ -20,6 +22,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  if (EXCLUDED_SERVICES.includes(params.service)) return {};
+
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
     const serviceData = SERVICES_DB[params.service];
@@ -48,6 +52,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function ServiceOrCityPage({ params }: PageProps) {
+  if (EXCLUDED_SERVICES.includes(params.service)) {
+    notFound();
+  }
+
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
     const serviceData = SERVICES_DB[params.service];

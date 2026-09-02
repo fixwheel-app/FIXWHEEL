@@ -46,7 +46,7 @@ export default function ServicesClientPage() {
     {
       name: "Sports Bike Service",
       desc: "Full-synthetic oil changes, liquid cooling radiator flushes, and track-grade chain alignment.",
-      link: "/services/sports-bike-service",
+      link: "/sports-bike-service",
       price: "₹899",
     },
     {

@@ -77,4 +77,30 @@ router.patch("/partner-status/:id", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/queries", async (req: Request, res: Response) => {
+  try {
+    const queries = await prisma.query.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    res.json(queries);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch queries" });
+  }
+});
+
+router.patch("/queries/:id/status", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    const updatedQuery = await prisma.query.update({
+      where: { id },
+      data: { status }
+    });
+    res.json(updatedQuery);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update query status" });
+  }
+});
+
 export default router;
+

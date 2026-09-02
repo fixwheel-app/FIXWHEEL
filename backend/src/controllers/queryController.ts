@@ -1,30 +1,51 @@
 import { Request, Response } from 'express';
+import { db } from '../lib/db';
 import { sendQueryNotification } from '../lib/notifications';
 import { QueryInput } from '../middleware/validateQuery';
 
 export const createQuery = async (req: Request<{}, {}, QueryInput>, res: Response): Promise<void> => {
   try {
     const queryData = req.body;
+    const formattedPhone = "+91" + queryData.phone;
 
-    // Send email notification (asynchronous, but we wait for it to report any errors)
-    await sendQueryNotification({
-      name: queryData.name,
-      phone: "+91" + queryData.phone, // Format phone with country code
-      email: queryData.email,
-      message: queryData.message
+    // Save query to Supabase database
+    const newQuery = await db.query.create({
+      data: {
+        name: queryData.name,
+        phone: formattedPhone,
+        email: queryData.email,
+        message: queryData.message,
+        status: "pending"
+      }
     });
 
-    res.status(200).json({
+    // Send email notification (non-blocking so email issues won't fail query submission)
+    (async () => {
+      try {
+        await sendQueryNotification({
+          name: queryData.name,
+          phone: formattedPhone,
+          email: queryData.email,
+          message: queryData.message
+        });
+      } catch (emailError) {
+        console.error('[Query Email] Failed to send notification email:', emailError);
+      }
+    })();
+
+    res.status(201).json({
       success: true,
-      message: "Query sent successfully to support team"
+      queryId: newQuery.id,
+      message: "Query stored successfully and sent to support team"
     });
 
   } catch (error) {
     console.error("Query handling error:", error);
     res.status(500).json({
       success: false,
-      error: "Failed to send query. Please try again later.",
+      error: "Failed to process query. Please try again later.",
       details: error instanceof Error ? error.message : "Unknown error"
     });
   }
 };
+

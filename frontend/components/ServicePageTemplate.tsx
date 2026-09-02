@@ -96,7 +96,13 @@ export default function ServicePageTemplate({
               { label: "Home", href: "/" },
               { label: "Services", href: "/services" },
               locationName
-                ? { label: cleanServiceName, href: `/services/${serviceId}` }
+                ? {
+                    label: cleanServiceName,
+                    href:
+                      ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                        ? `/${serviceId}`
+                        : `/services/${serviceId}`,
+                  }
                 : { label: cleanServiceName },
               ...(locationName ? [{ label: locationName }] : []),
             ]}
@@ -500,7 +506,11 @@ export default function ServicePageTemplate({
               ].map((c) => (
                 <Link
                   key={c.slug}
-                  href={`/services/${serviceId}/${c.slug}`}
+                  href={
+                    ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                      ? `/${serviceId}/${c.slug}`
+                      : `/services/${serviceId}/${c.slug}`
+                  }
                   className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
                 >
                   {c.name}
@@ -508,36 +518,40 @@ export default function ServicePageTemplate({
               ))}
             </div>
 
-            <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 pt-4 border-t border-slate-800">
-              POPULAR LOCALITIES FOR {cleanServiceName.toUpperCase()}
-            </h4>
-            <div className="flex flex-wrap gap-2 text-xs font-mono">
-              {[
-                { name: "DLF Phase 1, Gurgaon", city: "gurgaon", slug: "dlf-phase-1" },
-                { name: "Cyber City, Gurgaon", city: "gurgaon", slug: "cyber-city" },
-                { name: "Sector 56, Gurgaon", city: "gurgaon", slug: "sector-56" },
-                { name: "Golf Course Road, Gurgaon", city: "gurgaon", slug: "golf-course-road" },
-                { name: "Dwarka, Delhi", city: "delhi", slug: "dwarka" },
-                { name: "Saket, Delhi", city: "delhi", slug: "saket" },
-                { name: "Connaught Place, Delhi", city: "delhi", slug: "connaught-place" },
-                { name: "Lajpat Nagar, Delhi", city: "delhi", slug: "lajpat-nagar" },
-                { name: "Rohini, Delhi", city: "delhi", slug: "rohini" },
-                { name: "Sector 18, Noida", city: "noida", slug: "sector-18" },
-                { name: "Sector 62, Noida", city: "noida", slug: "sector-62" },
-                { name: "Indirapuram, Ghaziabad", city: "ghaziabad", slug: "indirapuram" },
-                { name: "Vaishali, Ghaziabad", city: "ghaziabad", slug: "vaishali" },
-                { name: "NIT Faridabad", city: "faridabad", slug: "nit-faridabad" },
-                { name: "Sector 15, Faridabad", city: "faridabad", slug: "sector-15-faridabad" },
-              ].map((loc) => (
-                <Link
-                  key={`${loc.city}-${loc.slug}`}
-                  href={`/services/${serviceId}/${loc.city}/${loc.slug}`}
-                  className="bg-slate-800/80 hover:bg-red-600 text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 transition-colors"
-                >
-                  📍 {loc.name}
-                </Link>
-              ))}
-            </div>
+            {!["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service", "basic-service", "oil-change", "comprehensive-service", "engine-repair", "battery-replacement", "brake-repair", "tyre-replacement", "general-washing"].includes(serviceId) && (
+              <>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 pt-4 border-t border-slate-800">
+                  POPULAR LOCALITIES FOR {cleanServiceName.toUpperCase()}
+                </h4>
+                <div className="flex flex-wrap gap-2 text-xs font-mono">
+                  {[
+                    { name: "DLF Phase 1, Gurgaon", city: "gurgaon", slug: "dlf-phase-1" },
+                    { name: "Cyber City, Gurgaon", city: "gurgaon", slug: "cyber-city" },
+                    { name: "Sector 56, Gurgaon", city: "gurgaon", slug: "sector-56" },
+                    { name: "Golf Course Road, Gurgaon", city: "gurgaon", slug: "golf-course-road" },
+                    { name: "Dwarka, Delhi", city: "delhi", slug: "dwarka" },
+                    { name: "Saket, Delhi", city: "delhi", slug: "saket" },
+                    { name: "Connaught Place, Delhi", city: "delhi", slug: "connaught-place" },
+                    { name: "Lajpat Nagar, Delhi", city: "delhi", slug: "lajpat-nagar" },
+                    { name: "Rohini, Delhi", city: "delhi", slug: "rohini" },
+                    { name: "Sector 18, Noida", city: "noida", slug: "sector-18" },
+                    { name: "Sector 62, Noida", city: "noida", slug: "sector-62" },
+                    { name: "Indirapuram, Ghaziabad", city: "ghaziabad", slug: "indirapuram" },
+                    { name: "Vaishali, Ghaziabad", city: "ghaziabad", slug: "vaishali" },
+                    { name: "NIT Faridabad", city: "faridabad", slug: "nit-faridabad" },
+                    { name: "Sector 15, Faridabad", city: "faridabad", slug: "sector-15-faridabad" },
+                  ].map((loc) => (
+                    <Link
+                      key={`${loc.city}-${loc.slug}`}
+                      href={`/services/${serviceId}/${loc.city}/${loc.slug}`}
+                      className="bg-slate-800/80 hover:bg-red-600 text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 transition-colors"
+                    >
+                      📍 {loc.name}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* ===== BOTTOM CTA BANNER ===== */}

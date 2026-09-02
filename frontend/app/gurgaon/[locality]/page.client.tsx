@@ -581,7 +581,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               <span className="num" style={{ fontSize: "24px" }}>🏍️</span>
               <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>Sports Bike Repair Near Me in {data.name}</h3>
               <p>Specialized doorstep maintenance for Yamaha R15, MT-15, KTM RC 200/390, TVS Apache RTR, and Kawasaki Ninja in {data.name}. Liquid cooling flush, synthetic oil change, laser chain alignment, and ECU diagnostics. Searching for <strong>sports bike repair near me</strong> in {data.name}? Our technicians arrive in 45 minutes.</p>
-              <Link href="/services/sports-bike-service" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Sports Bike Service →</Link>
+              <Link href="/sports-bike-service" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Sports Bike Service →</Link>
             </div>
 
             <div className="why-card">

@@ -68,3 +68,14 @@ model AccountDelete {
 
   @@map("Account Delete")
 }
+
+model Query {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String
+  message   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}
+

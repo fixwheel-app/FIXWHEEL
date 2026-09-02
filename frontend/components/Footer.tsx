@@ -90,13 +90,13 @@ export default function Footer() {
             <span className="text-white/20">•</span>
             <Link href="/gurgaon" className="hover:text-white transition-colors">Bike Mechanic Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
+            <Link href="/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
+            <Link href="/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/royal-enfield-service" className="hover:text-white transition-colors">Royal Enfield Repair Near Me</Link>
+            <Link href="/royal-enfield-service" className="hover:text-white transition-colors">Royal Enfield Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/scooty-repair" className="hover:text-white transition-colors">Scooty Repair Near Me</Link>
+            <Link href="/scooty-repair" className="hover:text-white transition-colors">Scooty Repair Near Me</Link>
             <span className="text-white/20">•</span>
             <Link href="/services/oil-change" className="hover:text-white transition-colors">Engine Oil Change Near Me</Link>
             <span className="text-white/20">•</span>

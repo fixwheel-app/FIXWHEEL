@@ -4,8 +4,10 @@ import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
+const EXCLUDED_SERVICES = ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service", "basic-service", "oil-change", "comprehensive-service", "engine-repair", "battery-replacement", "brake-repair", "tyre-replacement", "general-washing"];
+
 export async function generateStaticParams() {
-  const serviceSlugs = Object.keys(SERVICES_DB);
+  const serviceSlugs = Object.keys(SERVICES_DB).filter((s) => !EXCLUDED_SERVICES.includes(s));
   const citySlugs = Object.keys(CITIES_DB);
 
   const params: { service: string; city: string; locality: string }[] = [];
@@ -109,6 +111,9 @@ export default function CityLocalityServicePage({
 }: {
   params: { service: string; city: string; locality: string };
 }) {
+  if (EXCLUDED_SERVICES.includes(params.service)) {
+    notFound();
+  }
   const serviceData = SERVICES_DB[params.service];
   const cityConfig = CITIES_DB[params.city];
 
