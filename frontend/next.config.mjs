@@ -102,7 +102,7 @@ const nextConfig = {
         destination: '/sports-bike-service',
         permanent: true,
       },
-      // 301 Permanent Redirects for electric scooter repair pages (moved to root /electric-scooter-repair, locality pages removed)
+      // 301 Permanent Redirects for electric scooter repair pages
       {
         source: '/services/electric-scooter-repair',
         destination: '/electric-scooter-repair',
@@ -115,17 +115,7 @@ const nextConfig = {
       },
       {
         source: '/services/electric-scooter-repair/:city/:locality+',
-        destination: '/electric-scooter-repair/:city',
-        permanent: true,
-      },
-      {
-        source: '/electric-scooter-repair/:city/:locality+',
-        destination: '/electric-scooter-repair/:city',
-        permanent: true,
-      },
-      {
-        source: '/services/electric-scooter-repair/:path*',
-        destination: '/electric-scooter-repair',
+        destination: '/electric-scooter-repair/:city/:locality+',
         permanent: true,
       },
       // 301 Permanent Redirects for Royal Enfield service pages (moved to root /royal-enfield-service, locality pages removed)

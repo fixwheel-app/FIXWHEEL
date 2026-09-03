@@ -36,6 +36,19 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>\n`;
+
+      // Restore locality URLs for electric-scooter-repair only
+      if (service === "electric-scooter-repair" && cityConfig.db) {
+        const localitySlugs = Object.keys(cityConfig.db);
+        for (const localitySlug of localitySlugs) {
+          urlsXml += `  <url>
+    <loc>https://www.fixwheel.app/electric-scooter-repair/${citySlug}/${localitySlug}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+        }
+      }
     }
   }
 
