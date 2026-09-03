@@ -41,6 +41,12 @@ router.get("/stats", async (req: Request, res: Response) => {
 router.get("/partners", async (req: Request, res: Response) => {
   try {
     const partners = await prisma.partner.findMany({
+      where: {
+        AND: [
+          { partner_status: { not: { contains: "Duplicate" } } },
+          { partner_status: { not: { contains: "Dublicate" } } },
+        ],
+      },
       orderBy: { createdAt: "desc" },
     });
     res.json(partners);
