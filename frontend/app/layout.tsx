@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.fixwheel.app"),
   title: {
     default: "FixWheel — Doorstep Bike Service Delhi NCR",
-    template: "%s | FixWheel",
+    template: "%s",
   },
   description: "Doorstep motorcycle servicing platform for Delhi NCR.",
   keywords: "bike repair delhi, doorstep bike service, bicycle mechanic delhi, bike repair at home",
