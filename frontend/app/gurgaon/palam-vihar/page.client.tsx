@@ -278,6 +278,61 @@ export default function PalamViharClientPage() {
         .palam-vihar-scope .partner li::before { content: "—"; color: var(--accent); }
         .palam-vihar-scope .partner-box { background: #0F172A; border: 1px solid rgba(255, 255, 255, 0.15); padding: 34px; border-radius: 6px; }
 
+        /* ===== ALL SERVICES HORIZONTAL SLIDER ===== */
+        .palam-vihar-scope .svc-grid {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          overflow-x: auto !important;
+          overflow-y: hidden !important;
+          scroll-snap-type: x mandatory !important;
+          scroll-behavior: smooth !important;
+          gap: 16px !important;
+          padding: 8px 4px 18px 4px !important;
+          -webkit-overflow-scrolling: touch !important;
+          scrollbar-width: thin !important;
+          scrollbar-color: var(--accent) #E2E8F0 !important;
+        }
+        .palam-vihar-scope .svc-grid::-webkit-scrollbar {
+          height: 6px !important;
+        }
+        .palam-vihar-scope .svc-grid::-webkit-scrollbar-track {
+          background: #E2E8F0 !important;
+          border-radius: 4px !important;
+        }
+        .palam-vihar-scope .svc-grid::-webkit-scrollbar-thumb {
+          background: var(--accent) !important;
+          border-radius: 4px !important;
+        }
+        .palam-vihar-scope .svc-card {
+          flex: 0 0 310px !important;
+          width: 310px !important;
+          min-width: 310px !important;
+          scroll-snap-align: start !important;
+          box-sizing: border-box !important;
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          padding: 24px;
+          border-radius: 6px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+          transition: border-color .15s ease, transform .15s ease;
+          position: relative;
+        }
+        @media (max-width: 640px) {
+          .palam-vihar-scope .svc-card {
+            flex: 0 0 82% !important;
+            width: 82% !important;
+            min-width: 82% !important;
+          }
+        }
+        .palam-vihar-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .palam-vihar-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
+        .palam-vihar-scope .svc-card h3 { font-size: 16.5px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px;}
+        .palam-vihar-scope .svc-card p { font-size: 13px; color: #475569; margin-bottom: 14px; min-height: 52px;}
+        .palam-vihar-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
+        .palam-vihar-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+        .palam-vihar-scope .svc-price span { font-size: 11px; font-weight: 400; color: #64748B; letter-spacing: 0.04em; }
+
         /* ===== CONTACT & EMERGENCY ===== */
         .palam-vihar-scope .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .palam-vihar-scope .contact-list { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
@@ -538,6 +593,119 @@ export default function PalamViharClientPage() {
             </div>
           </div>
           <p className="catalog-link">Need something else — engine repair, brakes, wash, or emergency SOS? <Link href="/gurgaon#services">See the full Gurgaon service catalog →</Link></p>
+        </div>
+      </section>
+
+      <section className="section-alt">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">Services Available in Palam Vihar</div>
+            <h2>Bike Repair Services We Offer in Palam Vihar, Gurgaon</h2>
+            <p>Our mobile mechanics cover all common two-wheeler repairs and routine maintenance in Palam Vihar. Here are the most searched bike repair services available at your doorstep:</p>
+          </div>
+          <div className="svc-grid">
+            <div className="svc-card">
+              <span className="svc-tag mono">[OIL]</span>
+              <h3>Service with Engine Oil</h3>
+              <p>Complete oil drain, OEM-grade oil refilled, oil filter checked, spark plug inspection & chain lube in Palam Vihar.</p>
+              <div className="svc-price">₹999 <span>starting from</span></div>
+              <Link href="/services/oil-change" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BASIC]</span>
+              <h3>Basic Bike Service</h3>
+              <p>Brake check & adjustment, chain lube, spark plug clean, air filter inspection & electrical system check in Palam Vihar.</p>
+              <div className="svc-price">₹499 <span>starting from</span></div>
+              <Link href="/services/basic-service" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[PUNCTURE]</span>
+              <h3>Doorstep Puncture Repair</h3>
+              <p>Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in Palam Vihar.</p>
+              <div className="svc-price">₹399 <span>starting from</span></div>
+              <Link href="/services/tyre-replacement" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BRAKE]</span>
+              <h3>Brake Disc & Pad Repair</h3>
+              <p>Brake pad replacement, disc rotor inspection, brake shoe swap & cable calibration right at your doorstep in Palam Vihar.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/services/brake-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BATTERY]</span>
+              <h3>Battery Replacement</h3>
+              <p>On-site battery diagnostics, testing, jump-start & new warranty battery installation in Palam Vihar.</p>
+              <div className="svc-price">₹99 <span>starting from</span></div>
+              <Link href="/services/battery-replacement" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[JUMPSTART]</span>
+              <h3>Jump Start Service</h3>
+              <p>Two-wheeler battery dead? Verified mechanic arrives to jump-start your bike or scooter on the spot in Palam Vihar.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[RUNNING]</span>
+              <h3>Running Repair</h3>
+              <p>Quick on-location breakdown repair, clutch adjustment & cable replacement to get you moving again in Palam Vihar.</p>
+              <div className="svc-price">₹399 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[ENGINE]</span>
+              <h3>Engine Half & Full Overhaul</h3>
+              <p>Full engine diagnosis, valve clearance tuning, head overhaul & component repair at your doorstep in Palam Vihar.</p>
+              <div className="svc-price">₹4,500 <span>starting from</span></div>
+              <Link href="/services/engine-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[CARB]</span>
+              <h3>Carburetor Cleaning & Jetting</h3>
+              <p>Complete carburetor cleaning, jet adjustment & tuning for optimal fuel efficiency and performance in Palam Vihar.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[OBD]</span>
+              <h3>Inspection with OBD Scanner</h3>
+              <p>Diagnostic scanner connected to read ECU fault codes & pinpoint engine or sensor issues in Palam Vihar.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[CHAIN]</span>
+              <h3>Chain & Sprocket Replacement</h3>
+              <p>Worn drive chain & sprocket set replaced with OEM-spec parts & laser chain alignment in Palam Vihar.</p>
+              <div className="svc-price">₹299 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[PICKUP]</span>
+              <h3>Pick & Drop Service Charge</h3>
+              <p>Safe two-wheeler pick-up, servicing at certified partner garage & doorstep drop-off in Palam Vihar.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[EV SCOOTER]</span>
+              <h3>Electric Scooter Periodic Service</h3>
+              <p>Lithium battery BMS scan, belt drive tensioning, electronic sensor check & brake overhaul for Ola, Ather, TVS in Palam Vihar.</p>
+              <div className="svc-price">₹599 <span>starting from</span></div>
+              <Link href="/services/electric-scooter-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[SPORTS BIKE]</span>
+              <h3>Sports Bike Service & Repair</h3>
+              <p>Specialized liquid coolant flush, synthetic oil change, ECU scan & chain care for R15, KTM, Apache in Palam Vihar.</p>
+              <div className="svc-price">₹899 <span>starting from</span></div>
+              <Link href="/sports-bike-service" className="go">View pricing →</Link>
+            </div>
+          </div>
+          <p style={{ marginTop: "24px", fontSize: "14px", color: "var(--ink-dim)" }}>
+            Also available: Comprehensive bike service, spark plug replacement, chain & sprocket replacement, air filter cleaning, scooty repair, Royal Enfield servicing, Activa service, and full bike washing in Palam Vihar, Gurgaon.
+          </p>
         </div>
       </section>
 

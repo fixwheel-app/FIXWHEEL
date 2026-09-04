@@ -261,14 +261,50 @@ export default function GhaziabadClientPage() {
         .ghaziabad-scope .why-card h3 { font-size: 18px; color: var(--ink-dark); margin-bottom: 10px; text-transform: none; letter-spacing: 0; }
         .ghaziabad-scope .why-card p { font-size: 14px; color: #475569; }
 
-        /* ===== SERVICES ===== */
-        .ghaziabad-scope .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        /* ===== SERVICES HORIZONTAL SLIDER ===== */
+        .ghaziabad-scope .svc-grid {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          overflow-x: auto !important;
+          overflow-y: hidden !important;
+          scroll-snap-type: x mandatory !important;
+          scroll-behavior: smooth !important;
+          gap: 16px !important;
+          padding: 8px 4px 18px 4px !important;
+          -webkit-overflow-scrolling: touch !important;
+          scrollbar-width: thin !important;
+          scrollbar-color: var(--accent) #E2E8F0 !important;
+        }
+        .ghaziabad-scope .svc-grid::-webkit-scrollbar {
+          height: 6px !important;
+        }
+        .ghaziabad-scope .svc-grid::-webkit-scrollbar-track {
+          background: #E2E8F0 !important;
+          border-radius: 4px !important;
+        }
+        .ghaziabad-scope .svc-grid::-webkit-scrollbar-thumb {
+          background: var(--accent) !important;
+          border-radius: 4px !important;
+        }
         .ghaziabad-scope .svc-card {
+          flex: 0 0 310px !important;
+          width: 310px !important;
+          min-width: 310px !important;
+          scroll-snap-align: start !important;
+          box-sizing: border-box !important;
           background: #FFFFFF; border: 1px solid var(--line-paper); box-shadow: 0 4px 16px rgba(0,0,0,0.02);
           padding: 26px;
           border-radius: 4px;
           transition: border-color .15s ease, transform .15s ease;
           position: relative;
+        }
+        @media (max-width: 640px) {
+          .ghaziabad-scope .svc-card {
+            flex: 0 0 82% !important;
+            width: 82% !important;
+            min-width: 82% !important;
+          }
         }
         .ghaziabad-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
         .ghaziabad-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
@@ -360,7 +396,6 @@ export default function GhaziabadClientPage() {
           .ghaziabad-scope .hero-grid { grid-template-columns: 1fr; }
           .ghaziabad-scope .hero h1 { font-size: 38px; }
           .ghaziabad-scope .why-grid { grid-template-columns: repeat(2,1fr); }
-          .ghaziabad-scope .svc-grid { grid-template-columns: repeat(2,1fr); }
           .ghaziabad-scope .steps { grid-template-columns: repeat(2,1fr); }
           .ghaziabad-scope .review-grid { grid-template-columns: 1fr; }
           .ghaziabad-scope .partner { grid-template-columns: 1fr; }
@@ -389,7 +424,6 @@ export default function GhaziabadClientPage() {
 
           .ghaziabad-scope .top-svc,
           .ghaziabad-scope .why-grid,
-          .ghaziabad-scope .svc-grid,
           .ghaziabad-scope .steps {
             grid-template-columns: 1fr;
           }

@@ -197,24 +197,39 @@ export default function Navbar() {
                     className="relative h-full flex items-center"
                     {...mouseHandlers}
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setActivePath(link.href)}
-                      className={cn(
-                        "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1",
-                        isLinkActive(link.href) ? "text-accent" : "text-white"
-                      )}
-                    >
-                      {link.name}
-                      {hasDropdown && (
+                    {hasDropdown ? (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (isServices) setShowServicesDropdown((prev) => !prev);
+                          if (isLocations) setShowLocationsDropdown((prev) => !prev);
+                        }}
+                        className={cn(
+                          "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1 bg-transparent border-none cursor-pointer",
+                          isLinkActive(link.href) ? "text-accent" : "text-white"
+                        )}
+                      >
+                        {link.name}
                         <ChevronDown
                           className={cn(
                             "w-3 h-3 transition-transform duration-200",
                             ((isServices && showServicesDropdown) || (isLocations && showLocationsDropdown)) && "rotate-180"
                           )}
                         />
-                      )}
-                    </Link>
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setActivePath(link.href)}
+                        className={cn(
+                          "text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1",
+                          isLinkActive(link.href) ? "text-accent" : "text-white"
+                        )}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
 
                     {/* ── Services Dropdown (desktop) ──────────────── */}
                     {isServices && (
@@ -392,35 +407,24 @@ export default function Navbar() {
                     return (
                       <div key={link.name}>
                         {/* Services toggle row */}
-                        <div className="flex items-center justify-between border-b border-white/5">
-                          <Link
-                            href={link.href}
-                            onClick={() => {
-                              setIsOpen(false);
-                              setActivePath(link.href);
-                            }}
+                        <button
+                          type="button"
+                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                          className={cn(
+                            "w-full flex items-center justify-between px-3 py-3 font-bold uppercase tracking-wider text-sm text-left border-b border-white/5 bg-transparent cursor-pointer",
+                            isLinkActive(link.href)
+                              ? "text-accent bg-white/5"
+                              : "text-white hover:text-accent"
+                          )}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronDown
                             className={cn(
-                              "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
-                              isLinkActive(link.href)
-                                ? "text-accent bg-white/5"
-                                : "text-white hover:text-accent"
+                              "w-4 h-4 transition-transform duration-200",
+                              mobileServicesOpen && "rotate-180"
                             )}
-                          >
-                            {link.name}
-                          </Link>
-                          <button
-                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                            className="px-3 py-3 text-white/60 hover:text-accent transition-colors"
-                            aria-label="Expand services"
-                          >
-                            <ChevronDown
-                              className={cn(
-                                "w-4 h-4 transition-transform duration-200",
-                                mobileServicesOpen && "rotate-180"
-                              )}
-                            />
-                          </button>
-                        </div>
+                          />
+                        </button>
 
                         {/* Expandable services section */}
                         <AnimatePresence>
@@ -502,35 +506,24 @@ export default function Navbar() {
                     return (
                       <div key={link.name}>
                         {/* Locations toggle row */}
-                        <div className="flex items-center justify-between border-b border-white/5">
-                          <Link
-                            href={link.href}
-                            onClick={() => {
-                              setIsOpen(false);
-                              setActivePath(link.href);
-                            }}
+                        <button
+                          type="button"
+                          onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
+                          className={cn(
+                            "w-full flex items-center justify-between px-3 py-3 font-bold uppercase tracking-wider text-sm text-left border-b border-white/5 bg-transparent cursor-pointer",
+                            isLinkActive(link.href)
+                              ? "text-accent bg-white/5"
+                              : "text-white hover:text-accent"
+                          )}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronDown
                             className={cn(
-                              "flex-1 block px-3 py-3 font-bold uppercase tracking-wider text-sm",
-                              isLinkActive(link.href)
-                                ? "text-accent bg-white/5"
-                                : "text-white hover:text-accent"
+                              "w-4 h-4 transition-transform duration-200",
+                              mobileLocationsOpen && "rotate-180"
                             )}
-                          >
-                            {link.name}
-                          </Link>
-                          <button
-                            onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
-                            className="px-3 py-3 text-white/60 hover:text-accent transition-colors"
-                            aria-label="Expand locations"
-                          >
-                            <ChevronDown
-                              className={cn(
-                                "w-4 h-4 transition-transform duration-200",
-                                mobileLocationsOpen && "rotate-180"
-                              )}
-                            />
-                          </button>
-                        </div>
+                          />
+                        </button>
 
                         {/* Expandable locations section */}
                         <AnimatePresence>

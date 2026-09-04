@@ -316,6 +316,60 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
         .${slug}-scope .contact-item b { display: block; font-size: 15px; color: var(--ink-dark); }
         .${slug}-scope .contact-item span { font-size: 12px; color: var(--ink-dim); }
 
+        /* ===== ALL SERVICES HORIZONTAL SLIDER ===== */
+        .${slug}-scope .svc-grid {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          overflow-x: auto !important;
+          overflow-y: hidden !important;
+          scroll-snap-type: x mandatory !important;
+          scroll-behavior: smooth !important;
+          gap: 16px !important;
+          padding: 8px 4px 18px 4px !important;
+          -webkit-overflow-scrolling: touch !important;
+          scrollbar-width: thin !important;
+          scrollbar-color: var(--accent) #E2E8F0 !important;
+        }
+        .${slug}-scope .svc-grid::-webkit-scrollbar {
+          height: 6px !important;
+        }
+        .${slug}-scope .svc-grid::-webkit-scrollbar-track {
+          background: #E2E8F0 !important;
+          border-radius: 4px !important;
+        }
+        .${slug}-scope .svc-grid::-webkit-scrollbar-thumb {
+          background: var(--accent) !important;
+          border-radius: 4px !important;
+        }
+        .${slug}-scope .svc-card {
+          flex: 0 0 310px !important;
+          width: 310px !important;
+          min-width: 310px !important;
+          scroll-snap-align: start !important;
+          box-sizing: border-box !important;
+          background: #FFFFFF;
+          border: 1px solid var(--line-paper);
+          padding: 24px;
+          border-radius: 4px;
+          transition: border-color .15s ease, transform .15s ease;
+          position: relative;
+        }
+        @media (max-width: 640px) {
+          .${slug}-scope .svc-card {
+            flex: 0 0 82% !important;
+            width: 82% !important;
+            min-width: 82% !important;
+          }
+        }
+        .${slug}-scope .svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .${slug}-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
+        .${slug}-scope .svc-card h3 { font-size: 16.5px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 8px;}
+        .${slug}-scope .svc-card p { font-size: 13px; color: #475569; margin-bottom: 14px; min-height: 52px;}
+        .${slug}-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
+        .${slug}-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+        .${slug}-scope .svc-price span { font-size: 11px; font-weight: 400; color: #64748B; letter-spacing: 0.04em; }
+
         .${slug}-scope .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .${slug}-scope .review { background: #FFFFFF; color: var(--ink-dark); padding: 24px; border-radius: 4px; border: 1px solid var(--line-paper); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); }
         .${slug}-scope .review .stars { color: var(--accent-dim); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
@@ -530,6 +584,116 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           </div>
           <div className="catalog-link">
             Looking for something else? <Link href="/services">Explore our full repair catalog →</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-alt">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">Services Available in {data.name}</div>
+            <h2>Bike Repair Services We Offer in {data.name}, Ghaziabad</h2>
+            <p>Our mobile mechanics cover all common two-wheeler repairs and routine maintenance in {data.name}. Here are all the bike repair services available at your doorstep:</p>
+          </div>
+          <div className="svc-grid">
+            <div className="svc-card">
+              <span className="svc-tag mono">[OIL]</span>
+              <h3>Service with Engine Oil</h3>
+              <p>Complete oil drain, OEM-grade oil refilled, oil filter checked, spark plug inspection & chain lube in {data.name}.</p>
+              <div className="svc-price">₹999 <span>starting from</span></div>
+              <Link href="/services/oil-change" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BASIC]</span>
+              <h3>Basic Bike Service</h3>
+              <p>Brake check & adjustment, chain lube, spark plug clean, air filter inspection & electrical system check in {data.name}.</p>
+              <div className="svc-price">₹499 <span>starting from</span></div>
+              <Link href="/services/basic-service" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[PUNCTURE]</span>
+              <h3>Doorstep Puncture Repair</h3>
+              <p>Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in {data.name}.</p>
+              <div className="svc-price">₹399 <span>starting from</span></div>
+              <Link href="/services/tyre-replacement" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BRAKE]</span>
+              <h3>Brake Disc & Pad Repair</h3>
+              <p>Brake pad replacement, disc rotor inspection, brake shoe swap & cable calibration right at your doorstep in {data.name}.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/services/brake-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[BATTERY]</span>
+              <h3>Battery Replacement</h3>
+              <p>On-site battery diagnostics, testing, jump-start & new warranty battery installation in {data.name}.</p>
+              <div className="svc-price">₹99 <span>starting from</span></div>
+              <Link href="/services/battery-replacement" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[JUMPSTART]</span>
+              <h3>Jump Start Service</h3>
+              <p>Two-wheeler battery dead? Verified mechanic arrives to jump-start your bike or scooter on the spot in {data.name}.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[RUNNING]</span>
+              <h3>Running Repair</h3>
+              <p>Quick on-location breakdown repair, clutch adjustment & cable replacement to get you moving again in {data.name}.</p>
+              <div className="svc-price">₹399 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[ENGINE]</span>
+              <h3>Engine Half & Full Overhaul</h3>
+              <p>Full engine diagnosis, valve clearance tuning, head overhaul & component repair at your doorstep in {data.name}.</p>
+              <div className="svc-price">₹4,500 <span>starting from</span></div>
+              <Link href="/services/engine-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[CARB]</span>
+              <h3>Carburetor Cleaning & Jetting</h3>
+              <p>Complete carburetor cleaning, jet adjustment & tuning for optimal fuel efficiency and performance in {data.name}.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[OBD]</span>
+              <h3>Inspection with OBD Scanner</h3>
+              <p>Diagnostic scanner connected to read ECU fault codes & pinpoint engine or sensor issues in {data.name}.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[CHAIN]</span>
+              <h3>Chain & Sprocket Replacement</h3>
+              <p>Worn drive chain & sprocket set replaced with OEM-spec parts & laser chain alignment in {data.name}.</p>
+              <div className="svc-price">₹299 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[PICKUP]</span>
+              <h3>Pick & Drop Service Charge</h3>
+              <p>Safe two-wheeler pick-up, servicing at certified partner garage & doorstep drop-off in {data.name}.</p>
+              <div className="svc-price">₹199 <span>starting from</span></div>
+              <Link href="/book" className="go">Book now →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[EV SCOOTER]</span>
+              <h3>Electric Scooter Periodic Service</h3>
+              <p>Lithium battery BMS scan, belt drive tensioning, electronic sensor check & brake overhaul for Ola, Ather, TVS in {data.name}.</p>
+              <div className="svc-price">₹599 <span>starting from</span></div>
+              <Link href="/services/electric-scooter-repair" className="go">View pricing →</Link>
+            </div>
+            <div className="svc-card">
+              <span className="svc-tag mono">[SPORTS BIKE]</span>
+              <h3>Sports Bike Service & Repair</h3>
+              <p>Specialized liquid coolant flush, synthetic oil change, ECU scan & chain care for R15, KTM, Apache in {data.name}.</p>
+              <div className="svc-price">₹899 <span>starting from</span></div>
+              <Link href="/sports-bike-service" className="go">View pricing →</Link>
+            </div>
           </div>
         </div>
       </section>
