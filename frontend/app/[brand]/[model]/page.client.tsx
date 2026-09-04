@@ -425,14 +425,21 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                   { name: "Sushant Lok", slug: "sushant-lok" },
                   { name: "Nirvana Country", slug: "nirvana-country" },
                 ].map((loc) => (
-                  <Link
+                  <div
                     key={loc.slug}
-                    href={`/services/basic-service/gurgaon/${loc.slug}`}
-                    className="bg-slate-900/80 border border-slate-800 hover:border-red-500/50 hover:bg-slate-800 text-slate-300 hover:text-white px-2.5 py-2 rounded text-[11px] font-mono transition-colors text-center truncate"
+                    className="bg-slate-900/80 border border-slate-800 text-slate-300 px-2.5 py-2 rounded text-[11px] font-mono text-center truncate select-none cursor-default"
                   >
                     {modelName} in {loc.name}
-                  </Link>
+                  </div>
                 ))}
+              </div>
+              <div className="mt-6 text-center">
+                <Link
+                  href={`/book#${bSlug}`}
+                  className="inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-red-600 text-white font-mono font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-md transition-all shadow-[0_4px_15px_rgba(230,43,43,0.3)] hover:scale-[1.02]"
+                >
+                  Book Service
+                </Link>
               </div>
             </div>
           </div>
