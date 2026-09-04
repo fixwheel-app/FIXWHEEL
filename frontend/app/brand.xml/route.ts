@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
+import { BRAND_DETAILS } from "@/lib/brandDetails";
 
 export const dynamic = "force-static";
 
@@ -39,6 +40,8 @@ const SERVICES = [
   "tyre-replacement",
 ];
 
+const CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
+
 export async function GET() {
   const lastmod = new Date().toISOString().split("T")[0];
   const allModels = getAllBikeModels();
@@ -49,9 +52,23 @@ export async function GET() {
   xml += `  <url>\n    <loc>https://www.fixwheel.app/brands</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
 
   // Individual Brand pages
-  for (const b of BRANDS) {
-    xml += `  <url>\n    <loc>https://www.fixwheel.app/${b}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-  }
+  const brandSet = new Set<string>();
+  BRANDS.forEach((b) => brandSet.add(slugifyModel(b)));
+  Object.keys(BRAND_DETAILS).forEach((b) => brandSet.add(slugifyModel(b)));
+  allModels.forEach((m) => brandSet.add(slugifyModel(m.brandName)));
+
+  const brandList = Array.from(brandSet);
+
+  brandList.forEach((b) => {
+    xml += `  <url>\n    <loc>https://www.fixwheel.app/${b}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  // Brand City pages (5 cities for all brands)
+  brandList.forEach((b) => {
+    CITIES.forEach((c) => {
+      xml += `  <url>\n    <loc>https://www.fixwheel.app/${b}/${c}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    });
+  });
 
   // Individual Service subpages
   for (const s of SERVICES) {

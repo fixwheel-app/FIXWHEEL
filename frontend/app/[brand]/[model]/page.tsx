@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { findModelBySlugs, getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
+import { BRAND_DETAILS } from "@/lib/brandDetails";
 import ModelDetailClient from "./page.client";
+import BrandCityClient from "./BrandCityClient";
+
+const CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
+
+const CITY_NAME_MAP: Record<string, string> = {
+  gurgaon: "Gurgaon",
+  delhi: "Delhi",
+  noida: "Noida",
+  faridabad: "Faridabad",
+  ghaziabad: "Ghaziabad",
+};
 
 interface PageProps {
   params: Promise<{
@@ -12,14 +24,69 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const allModels = getAllBikeModels();
-  return allModels.map((m) => ({
+  const modelParams = allModels.map((m) => ({
     brand: slugifyModel(m.brandName),
     model: slugifyModel(m.modelName),
   }));
+
+  const brandSet = new Set<string>();
+  allModels.forEach((m) => brandSet.add(slugifyModel(m.brandName)));
+  Object.keys(BRAND_DETAILS).forEach((b) => brandSet.add(slugifyModel(b)));
+
+  const cityParams: { brand: string; model: string }[] = [];
+  brandSet.forEach((brandSlug) => {
+    CITIES.forEach((citySlug) => {
+      cityParams.push({
+        brand: brandSlug,
+        model: citySlug,
+      });
+    });
+  });
+
+  return [...modelParams, ...cityParams];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { brand, model } = await params;
+  const isCity = CITIES.includes(model.toLowerCase());
+
+  if (isCity) {
+    const citySlug = model.toLowerCase();
+    const cityName = CITY_NAME_MAP[citySlug] || citySlug;
+    const brandKey = brand.toLowerCase();
+    const brandData = BRAND_DETAILS[brandKey];
+    const brandName =
+      brandData?.name ||
+      brand
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+
+    const title = `${brandName} Bike Service & Repair in ${cityName} | FixWheel Doorstep Service`;
+    const description = `Looking for certified ${brandName} bike service near you in ${cityName}? Book doorstep ${brandName} scooter & motorcycle repair in ${cityName}. 100% genuine parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
+    const canonicalUrl = `https://www.fixwheel.app/${brand}/${citySlug}`;
+
+    const keywords = brandData?.seoKeywords
+      ? brandData.seoKeywords.map((k) => `${k} ${cityName.toLowerCase()}`).join(", ")
+      : `${brandName.toLowerCase()} doorstep service ${cityName.toLowerCase()}, ${brandName.toLowerCase()} repair in ${cityName.toLowerCase()}, ${brandName.toLowerCase()} mechanic ${cityName.toLowerCase()}`;
+
+    return {
+      title,
+      description,
+      keywords,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "FixWheel",
+        type: "website",
+      },
+    };
+  }
+
   const modelInfo = findModelBySlugs(brand, model);
 
   if (!modelInfo) {
@@ -35,9 +102,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonicalUrl = `https://www.fixwheel.app/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
   const gurgaonLocalities = [
-    "dlf phase 1", "dlf phase 2", "dlf phase 3", "dlf phase 4", "dlf phase 5",
-    "cyber city", "golf course road", "sohna road", "palam vihar", "udyog vihar",
-    "sector 14", "sector 15", "sector 56", "sector 57", "badshahpur", "manesar"
+    "dlf phase 1",
+    "dlf phase 2",
+    "dlf phase 3",
+    "dlf phase 4",
+    "dlf phase 5",
+    "cyber city",
+    "golf course road",
+    "sohna road",
+    "palam vihar",
+    "udyog vihar",
+    "sector 14",
+    "sector 15",
+    "sector 56",
+    "sector 57",
+    "badshahpur",
+    "manesar",
   ];
 
   const keywords = [
@@ -79,6 +159,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ModelPage({ params }: PageProps) {
   const { brand, model } = await params;
+  const isCity = CITIES.includes(model.toLowerCase());
+
+  if (isCity) {
+    return <BrandCityClient brandSlug={brand} citySlug={model} />;
+  }
+
   const modelInfo = findModelBySlugs(brand, model);
 
   if (!modelInfo) {
