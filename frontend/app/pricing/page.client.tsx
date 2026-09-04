@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { PRICING_CATEGORIES, SERVICE_PRICING_LIST, ServicePriceItem } from "@/lib/pricingData";
-import Breadcrumb from "@/components/Breadcrumb";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -116,6 +115,27 @@ export default function PricingClientPage() {
         .pricing-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
+        .pricing-scope .breadcrumb {
+          padding: 20px 0;
+          background: #111214;
+          border-bottom: 1px solid var(--line);
+        }
+        .pricing-scope .breadcrumb nav {
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 12px;
+          letter-spacing: 0.04em;
+          color: #A7A9AC;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .pricing-scope .breadcrumb a {
+          color: #A7A9AC;
+          transition: color .15s ease;
+        }
+        .pricing-scope .breadcrumb a:hover { color: var(--accent); }
+        .pricing-scope .breadcrumb .sep { color: #5C6066; }
+        .pricing-scope .breadcrumb .current { color: var(--accent); font-weight: 700; }
 
         /* ===== HERO HEADER ===== */
         .pricing-scope .pricing-hero {
@@ -412,9 +432,13 @@ export default function PricingClientPage() {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div className="breadcrumb" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "12px 0" }}>
+      <div className="breadcrumb">
         <div className="wrap">
-          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Pricing & Rate Card" }]} />
+          <nav>
+            <Link href="/">Home</Link>
+            <span className="sep">/</span>
+            <span className="current">Pricing & Rate Card</span>
+          </nav>
         </div>
       </div>
 
@@ -484,9 +508,6 @@ export default function PricingClientPage() {
               <h3>Rates for {currentCategory.name}</h3>
               <p>{currentCategory.subtitle}</p>
             </div>
-            <span className="mono" style={{ fontSize: '12px', background: 'var(--accent)', color: '#17181A', padding: '4px 12px', borderRadius: '4px', fontWeight: 700 }}>
-              {displayServices.length} Services Available
-            </span>
           </div>
 
           <div style={{ height: '32px' }} />
@@ -506,7 +527,7 @@ export default function PricingClientPage() {
 
                   <div className="price-box">
                     <div className="price-val">{formattedPrice}</div>
-
+                    {isNumeric && <span className="price-unit">/ flat rate</span>}
                   </div>
 
                   <div className="feature-list">
