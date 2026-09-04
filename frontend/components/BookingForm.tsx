@@ -313,7 +313,7 @@ function BookingFormInner() {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5">
                 {[
-                  { id: "Delhi", name: "Delhi", region: "Delhi NCR" },
+                  { id: "Delhi", name: "Delhi", region: "Delhi" },
                   { id: "Gurgaon", name: "Gurgaon", region: "Haryana" },
                   { id: "Noida", name: "Noida", region: "UP" },
                   { id: "Faridabad", name: "Faridabad", region: "Haryana" },

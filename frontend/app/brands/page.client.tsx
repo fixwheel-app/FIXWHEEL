@@ -166,7 +166,7 @@ export default function BrandsClientPage() {
 
   const mainBrandFaqs = [
     {
-      q: "Which two-wheeler brands do FixWheel doorstep mechanics service in Delhi NCR?",
+      q: "Which two-wheeler brands do FixWheel doorstep mechanics service in Delhi?",
       a: "We service all major two-wheeler brands in India including Honda, Hero, Bajaj, TVS, Royal Enfield, Yamaha, Suzuki, KTM, Ola Electric, Ather Energy, Vespa, Jawa, Yezdi, Triumph, Kawasaki, Harley-Davidson, BMW Motorrad, Benelli, and Revolt.",
     },
     {
@@ -763,7 +763,7 @@ export default function BrandsClientPage() {
             <div className="eyebrow">Join our network</div>
             <h2>Are you a bike mechanic?</h2>
             <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>
-              Join our team of mechanics servicing all major two-wheeler brands across Delhi NCR. Work on your own schedule, get more customers, and grow your income.
+              Join our team of mechanics servicing all major two-wheeler brands across Delhi. Work on your own schedule, get more customers, and grow your income.
             </p>
             <ul>
               <li>Flexible working hours</li>
@@ -862,10 +862,10 @@ export default function BrandsClientPage() {
               24/7 EMERGENCY
             </div>
             <h3 style={{ fontSize: "22px", color: "var(--ink-dark)", marginTop: "10px" }}>
-              DELHI NCR ROADSIDE ASSISTANCE
+              DELHI ROADSIDE ASSISTANCE
             </h3>
             <p style={{ color: "#475569", fontSize: "14px" }}>
-              Stranded on the road or have a breakdown in Delhi NCR? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
+              Stranded on the road or have a breakdown in Delhi? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "10px" }}>
               <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "12px" }}>
@@ -890,7 +890,7 @@ export default function BrandsClientPage() {
               Gurgaon / Gurugram
             </Link>
             <Link href="/delhi" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
-              Delhi NCR
+              Delhi
             </Link>
             <Link href="/noida" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Noida

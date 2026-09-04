@@ -83,9 +83,9 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
   "delhi": {
     slug: "delhi",
     cityName: "Delhi",
-    stateName: "Delhi NCR",
+    stateName: "Delhi",
     headingTitle: "Become a Certified FixWheel Two-Wheeler Partner in Delhi",
-    subTitle: "Two-Wheeler Mechanic & Technician Registration across Delhi NCR",
+    subTitle: "Two-Wheeler Mechanic & Technician Registration across Delhi",
     leadParagraph: "Expand your mechanic business across South Delhi, West Delhi, North Delhi, and East Delhi. FixWheel connects skilled two-wheeler mechanics directly with customers needing doorstep oil changes, brake repairs, and breakdown assistance with zero joining fees.",
     activePartnersCount: "250+ Mechanics",
     joiningFee: "₹0 (FREE)",
@@ -102,7 +102,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       { slug: "connaught-place", name: "Connaught Place" }
     ],
     benefits: [
-      { title: "High Demand in Delhi NCR", desc: "Delhi's dense commuter population in Dwarka, Rohini, and South Delhi ensures non-stop doorstep booking requests year-round." },
+      { title: "High Demand in Delhi", desc: "Delhi's dense commuter population in Dwarka, Rohini, and South Delhi ensures non-stop doorstep booking requests year-round." },
       { title: "Flexible Zone Selection", desc: "Choose the exact residential clusters or commercial zones in Delhi where you prefer to accept service orders." },
       { title: "Free Safety & Working Gear", desc: "Receive heavy-duty safety gear, branded apparel, and diagnostic tool support while performing doorstep jobs." }
     ],
@@ -130,7 +130,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     ],
     seoKeywords: [
       "bike mechanic job in delhi",
-      "become partner mechanic delhi ncr",
+      "become partner mechanic delhi",
       "two wheeler repair technician vacancy dwarka",
       "garage registration south delhi",
       "fixwheel delhi partner apply online",

@@ -3,7 +3,7 @@ import PricingClientPage from "./page.client";
 
 export const metadata: Metadata = {
   title: "Bike Service & Repair Rates | Transparent Doorstep Pricing | FixWheel",
-  description: "View upfront, flat-rate pricing for doorstep bike service, engine oil change, brake repairs, and roadside assistance across Delhi NCR.",
+  description: "View upfront, flat-rate pricing for doorstep bike service, engine oil change, brake repairs, and roadside assistance across Delhi.",
   alternates: {
     canonical: "https://www.fixwheel.app/pricing",
   },

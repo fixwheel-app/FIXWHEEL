@@ -3,7 +3,7 @@ import HomeClient from './page.client';
 
 export const metadata: Metadata = {
   title: "Bike Repair Near Me | Doorstep Bike Mechanic Near Me – FixWheel",
-  description: "Searching for bike repair near me or a bike mechanic near me? FixWheel dispatches certified two-wheeler mechanics to your home, office, or parking in 45 mins across Delhi NCR & Gurgaon. 100% genuine parts, flat rates, 15-day warranty.",
+  description: "Searching for bike repair near me or a bike mechanic near me? FixWheel dispatches certified two-wheeler mechanics to your home, office, or parking in 45 mins across Delhi & Gurgaon. 100% genuine parts, flat rates, 15-day warranty.",
   keywords: [
     "bike repair near me",
     "bike mechanic near me",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "bike repair shop near me open now",
     "two wheeler service near me",
     "doorstep bike service Gurgaon",
-    "bike repair Delhi NCR",
+    "bike repair Delhi",
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/",
@@ -55,7 +55,7 @@ export default function Home() {
     "url": "https://www.fixwheel.app",
     "telephone": "+91 87459 45682",
     "priceRange": "₹199 - ₹4999",
-    "description": "Top-rated doorstep bike repair and mobile two-wheeler mechanic service near you in Delhi NCR and Gurgaon.",
+    "description": "Top-rated doorstep bike repair and mobile two-wheeler mechanic service near you in Delhi and Gurgaon.",
     "knowsAbout": [
       "Bike Repair Near Me",
       "Bike Mechanic Near Me",

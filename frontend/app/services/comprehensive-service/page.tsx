@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Comprehensive Bike Service at Doorstep | FixWheel",
-  description: "Full comprehensive bike service at home in Delhi NCR. Deep inspection, engine oil swap, carburetor/FI tuning, and full safety checks.",
+  description: "Full comprehensive bike service at home in Delhi. Deep inspection, engine oil swap, carburetor/FI tuning, and full safety checks.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/comprehensive-service",
   },
@@ -14,7 +14,7 @@ export default function ComprehensiveServicePage() {
     <ServicePageTemplate
       serviceId="comprehensive-service"
       category="Full Overhaul"
-      title="Comprehensive Bike Service at Doorstep in Delhi NCR"
+      title="Comprehensive Bike Service at Doorstep in Delhi"
       lead="Give your motorcycle or scooter a complete health reset. Our 24-point comprehensive doorstep service includes premium synthetic oil change, carburetor/FI nozzle cleaning, brake overhaul, and deep lubrication."
       startingPrice="₹899"
       avgTime="45 Mins"
@@ -56,7 +56,7 @@ export default function ComprehensiveServicePage() {
         "motorcycle overhaul noida",
         "scooter deep service ghaziabad",
         "royal enfield full service faridabad",
-        "doorstep bike service package delhi ncr",
+        "doorstep bike service package delhi",
       ]}
     />
   );

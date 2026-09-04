@@ -97,7 +97,7 @@ export default function AboutClient() {
               transition={{ delay: 0.1 }}
               className="text-sm md:text-xl text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed"
             >
-              FixWheel started with one idea — fixing a bike shouldn't mean losing half your day to it. Today, verified mechanics reach doorsteps across Delhi NCR — equipped for most repairs in a single visit.
+              FixWheel started with one idea — fixing a bike shouldn't mean losing half your day to it. Today, verified mechanics reach doorsteps across Delhi — equipped for most repairs in a single visit.
             </motion.p>
           </div>
         </div>

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
       `two wheeler mechanic in ${data.name} Delhi with phone number`,
       "doorstep two wheeler service Delhi",
       "mobile bike mechanic Delhi",
-      "two wheeler repair at home Delhi NCR",
+      "two wheeler repair at home Delhi",
       `home bike service ${data.name}`,
       "bike mechanic near me Delhi"
     ],

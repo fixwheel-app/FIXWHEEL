@@ -3,13 +3,13 @@ import BookClient from './page.client';
 
 export const metadata: Metadata = {
   title: "Book a Bike Service at Your Doorstep | FixWheel",
-  description: "Book a doorstep two-wheeler service in Delhi NCR. Choose your vehicle and pick a package that suits you.",
+  description: "Book a doorstep two-wheeler service in Delhi. Choose your vehicle and pick a package that suits you.",
   alternates: {
     canonical: "https://www.fixwheel.app/book",
   },
   openGraph: {
     title: "Book a Bike Service at Your Doorstep | FixWheel",
-    description: "Book a doorstep two-wheeler service in Delhi NCR. Choose your vehicle and pick a package that suits you.",
+    description: "Book a doorstep two-wheeler service in Delhi. Choose your vehicle and pick a package that suits you.",
     url: "https://www.fixwheel.app/book",
     siteName: "FixWheel",
     type: "website",

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { service: string }
   const serviceData = SERVICES_DB[params.service];
   if (!serviceData) return {};
 
-  const cleanTitle = serviceData.title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi NCR.*$/i, "");
+  const cleanTitle = serviceData.title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi.*$/i, "");
 
   return {
     title: `${cleanTitle} in Gurgaon – Doorstep Repair & Service | FixWheel`,
@@ -45,7 +45,7 @@ export default function GurgaonServiceCityPage({ params }: { params: { service: 
     notFound();
   }
 
-  const cleanTitle = serviceData.title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi NCR.*$/i, "");
+  const cleanTitle = serviceData.title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi.*$/i, "");
 
   return (
     <ServicePageTemplate

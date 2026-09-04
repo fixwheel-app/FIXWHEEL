@@ -42,7 +42,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
     `${mLow} battery replacement near me`,
     `${mLow} brake repair near me`,
     `${mLow} repair at home gurgaon`,
-    `${mLow} mechanic delhi ncr`,
+    `${mLow} mechanic delhi`,
     `${mLow} doorstep service noida`,
     `${mLow} service ghaziabad`,
     `${mLow} repair faridabad`,
@@ -51,12 +51,12 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
   const faqs = [
     {
-      q: `Looking for ${brandName} ${modelName} service near me in Delhi NCR?`,
+      q: `Looking for ${brandName} ${modelName} service near me in Delhi?`,
       a: `FixWheel is the top-rated doorstep ${brandName} ${modelName} service provider near you in Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. Our certified mobile mechanics reach your location within 45 minutes with genuine OEM parts and specialized tools.`,
     },
     {
       q: `How long does doorstep service for ${brandName} ${modelName} take?`,
-      a: `A standard periodic service or tune-up for ${brandName} ${modelName} takes 35 to 50 minutes at your home or office parking in Delhi NCR.`,
+      a: `A standard periodic service or tune-up for ${brandName} ${modelName} takes 35 to 50 minutes at your home or office parking in Delhi.`,
     },
     {
       q: `What engine oil is recommended for ${brandName} ${modelName}?`,
@@ -113,7 +113,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </span>
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6 text-white font-oswald break-words">
-                {brandName} {modelName} Service & Repair at Doorstep in Delhi NCR
+                {brandName} {modelName} Service & Repair at Doorstep in Delhi
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
@@ -214,10 +214,10 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             {/* Left Content Paragraphs */}
             <div className="lg:col-span-8 space-y-6 text-slate-700 text-base md:text-lg leading-relaxed">
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
-                Why Choose Doorstep {brandName} {modelName} Service in Delhi NCR?
+                Why Choose Doorstep {brandName} {modelName} Service in Delhi?
               </h2>
               <p>
-                Riding your {brandName} {modelName} through Delhi NCR's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.
+                Riding your {brandName} {modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.
               </p>
               <p>
                 FixWheel dispatches certified mechanics trained specifically on {brandName} two-wheelers directly to your location. Equipped with high-grade diagnostic kits, genuine replacement parts, and portable washing equipment, we service your {modelName} right where it's parked.
@@ -287,7 +287,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Are you a bike mechanic?
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                Join our team of mechanics servicing {brandName} {modelName} and all major two-wheeler brands in Delhi NCR. Work on your own schedule, get more customers, and grow your income.
+                Join our team of mechanics servicing {brandName} {modelName} and all major two-wheeler brands in Delhi. Work on your own schedule, get more customers, and grow your income.
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2"><span className="text-[#e62b2b] font-bold">—</span> Flexible working hours</li>
@@ -374,7 +374,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 href="/delhi"
                 className="bg-[#e62b2b] text-center py-3 rounded-lg font-mono text-xs font-bold text-white shadow-sm"
               >
-                Delhi NCR
+                Delhi
               </Link>
               <Link
                 href="/noida"
@@ -443,7 +443,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               Ready to Service Your {brandName} {modelName}?
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Get an expert mechanic at your doorstep in Delhi NCR within 45 minutes.
+              Get an expert mechanic at your doorstep in Delhi within 45 minutes.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

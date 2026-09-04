@@ -49,10 +49,10 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       { name: "Rohit Varma", vehicle: "Honda Shine", rating: 5, location: "Dwarka, Delhi", date: "June 28, 2026", comment: "Super convenient doorstep service. No waiting at local garages. The mechanic was professional and used genuine Honda engine oil." },
       { name: "Aditi Rao", vehicle: "H'ness CB350", rating: 4, location: "Sohna Road, Gurgaon", date: "May 15, 2026", comment: "Got my CB350 serviced at home. Very professional chain cleaning, oil filter change, and checkup. Highly recommended for premium bikes." }
     ],
-    seoKeywords: ["honda doorstep bike service", "honda activa repair at home", "honda shine mechanic near me", "honda cb350 home service", "doorstep activa service delhi ncr", "honda dio repair gurgaon", "honda sp125 home service noida", "honda unicorn mechanic ghaziabad", "honda hornet bike service faridabad", "honda scooter service near me"],
+    seoKeywords: ["honda doorstep bike service", "honda activa repair at home", "honda shine mechanic near me", "honda cb350 home service", "doorstep activa service delhi", "honda dio repair gurgaon", "honda sp125 home service noida", "honda unicorn mechanic ghaziabad", "honda hornet bike service faridabad", "honda scooter service near me"],
     faqs: [
       {
-        q: "How often should I get doorstep service for my Honda Activa or Shine in Delhi NCR?",
+        q: "How often should I get doorstep service for my Honda Activa or Shine in Delhi?",
         a: "We recommend periodic doorstep service every 3,000 km or 3 months for Honda scooters (Activa, Dio, Grazia) and motorcycles (Shine, SP 125, Unicorn) to maintain optimum fuel efficiency and engine longevity."
       },
       {
@@ -92,7 +92,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       { name: "Devendra Singh", vehicle: "Splendor Plus", rating: 5, location: "Indirapuram, Ghaziabad", date: "July 10, 2026", comment: "Affordable and fast. The mechanic came directly to my office parking lot and serviced my Splendor while I was working. Outstanding convenience!" },
       { name: "Kunal Gupta", vehicle: "Hero Xpulse 200", rating: 5, location: "DLF Phase 3, Gurgaon", date: "June 14, 2026", comment: "Was skeptical about doorstep service for off-road bikes, but the mechanic did a fantastic job with the chain sprocket tensioning, front fork check, and synthetic oil change." }
     ],
-    seoKeywords: ["hero bike service at home", "splendor mechanic near me", "hero xpulse home service", "doorstep hero repair delhi ncr", "glamour bike repair at home", "hero hf deluxe doorstep service gurgaon", "hero passion pro mechanic noida", "hero xtreme 160r service faridabad", "hero scooter repair ghaziabad", "hero motocorp home repair near me"],
+    seoKeywords: ["hero bike service at home", "splendor mechanic near me", "hero xpulse home service", "doorstep hero repair delhi", "glamour bike repair at home", "hero hf deluxe doorstep service gurgaon", "hero passion pro mechanic noida", "hero xtreme 160r service faridabad", "hero scooter repair ghaziabad", "hero motocorp home repair near me"],
     faqs: [
       {
         q: "How does doorstep servicing for Hero Splendor, HF Deluxe, and Glamour improve fuel mileage?",
@@ -103,7 +103,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes! We stock genuine Hero MotoCorp clutch plates, clutch cables, chain sprocket kits, and brake linings to perform complete driveline repairs directly in your parking area."
       },
       {
-        q: "Can I get my Hero XPulse 200 off-road motorcycle serviced at my doorstep in Delhi NCR?",
+        q: "Can I get my Hero XPulse 200 off-road motorcycle serviced at my doorstep in Delhi?",
         a: "Definitely! We service XPulse 200 4V models including front fork seal inspection, synthetic oil change, high-tack chain lubrication, and rear monoshock checkups."
       },
       {
@@ -135,7 +135,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       { name: "Siddharth Sen", vehicle: "Pulsar 150", rating: 5, location: "Vasant Kunj, Delhi", date: "July 05, 2026", comment: "My Pulsar was missing. The mechanic cleaned the spark plugs and air filter, and tuned the engine. Outstanding work at my doorstep." },
       { name: "Amit Yadav", vehicle: "Avenger 220", rating: 4, location: "Sector 15, Faridabad", date: "June 18, 2026", comment: "Excellent brake and clutch servicing. The avenger cruiser riding posture requires smooth cables and they lubed everything perfectly." }
     ],
-    seoKeywords: ["bajaj pulsar service near me", "bajaj avenger repair at home", "dominar 400 doorstep service", "doorstep bajaj mechanic delhi ncr", "pulsar ns200 home service", "platina mechanic near me gurgaon", "bajaj ct100 service noida", "bajaj pulsar 150 repair ghaziabad", "bajaj chetak ev home service", "bajaj bike repair faridabad"],
+    seoKeywords: ["bajaj pulsar service near me", "bajaj avenger repair at home", "dominar 400 doorstep service", "doorstep bajaj mechanic delhi", "pulsar ns200 home service", "platina mechanic near me gurgaon", "bajaj ct100 service noida", "bajaj pulsar 150 repair ghaziabad", "bajaj chetak ev home service", "bajaj bike repair faridabad"],
     faqs: [
       {
         q: "How do your mechanics handle DTS-i triple-spark plug tuning on Bajaj Pulsar models?",
@@ -177,7 +177,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Megha Juneja", vehicle: "TVS Jupiter", rating: 5, location: "Noida Sector 76", date: "July 01, 2026", comment: "The annoying vibration on acceleration is completely gone. Mechanic cleaned the clutch assembly and replaced the engine oil. Very polite and prompt service." }
     ],
-    seoKeywords: ["tvs jupiter home service", "tvs apache mechanic near me", "ntorq doorstep repair", "tvs scooty repair at home", "doorstep tvs service delhi ncr", "tvs raider 125 home service gurgaon", "tvs xl100 mechanic noida", "tvs star city repair ghaziabad", "tvs ronin bike service faridabad", "tvs scooter service near me"],
+    seoKeywords: ["tvs jupiter home service", "tvs apache mechanic near me", "ntorq doorstep repair", "tvs scooty repair at home", "doorstep tvs service delhi", "tvs raider 125 home service gurgaon", "tvs xl100 mechanic noida", "tvs star city repair ghaziabad", "tvs ronin bike service faridabad", "tvs scooter service near me"],
     faqs: [
       {
         q: "How do your mobile mechanics resolve acceleration vibrations in TVS Jupiter and NTORQ 125 scooters?",
@@ -220,7 +220,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       { name: "Vikram Malhotra", vehicle: "Classic 350", rating: 5, location: "Greater Kailash, Delhi", date: "July 15, 2026", comment: "Best doorstep service for Bullets. The mechanic knew the classic 350 inside out. Tappets adjusted perfectly, thump is back, bike feels super smooth." },
       { name: "Suresh Menon", vehicle: "Himalayan 411", rating: 5, location: "Golf Course Road, Gurgaon", date: "July 03, 2026", comment: "Had my adventure bike serviced before a weekend trip. Done in 1 hour. Oil change, filter, chain check, and full electrical check. Awesome!" }
     ],
-    seoKeywords: ["royal enfield mechanic near me", "bullet service at home", "classic 350 home service", "doorstep royal enfield service delhi ncr", "himalayan bike repair at home", "bullet 350 tappet adjustment doorstep", "hunter 350 oil change delhi", "meteor 350 service gurgaon", "continental gt 650 mechanic noida", "royal enfield doorstep repair faridabad"],
+    seoKeywords: ["royal enfield mechanic near me", "bullet service at home", "classic 350 home service", "doorstep royal enfield service delhi", "himalayan bike repair at home", "bullet 350 tappet adjustment doorstep", "hunter 350 oil change delhi", "meteor 350 service gurgaon", "continental gt 650 mechanic noida", "royal enfield doorstep repair faridabad"],
     faqs: [
       {
         q: "How do your technicians adjust tappet valve clearances on Royal Enfield Classic 350 and Bullet models?",
@@ -262,7 +262,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Pranav Raj", vehicle: "Yamaha MT-15", rating: 5, location: "Sector 50, Noida", date: "July 08, 2026", comment: "The mechanic used premium Yamalube fully synthetic oil. The bike shifts gears extremely cleanly now and feels much punchier. Five stars!" }
     ],
-    seoKeywords: ["yamaha r15 service at home", "yamaha fz mechanic near me", "mt15 doorstep service", "doorstep yamaha repair delhi ncr", "yamalube engine oil change", "yamaha ray zr home service gurgaon", "yamaha fascino repair noida", "yamaha fzs mechanic ghaziabad", "yamaha aerox 155 service faridabad", "yamaha bike repair near me"],
+    seoKeywords: ["yamaha r15 service at home", "yamaha fz mechanic near me", "mt15 doorstep service", "doorstep yamaha repair delhi", "yamalube engine oil change", "yamaha ray zr home service gurgaon", "yamaha fascino repair noida", "yamaha fzs mechanic ghaziabad", "yamaha aerox 155 service faridabad", "yamaha bike repair near me"],
     faqs: [
       {
         q: "How do your mechanics maintain Yamaha R15 V4 and MT-15 V2 liquid-cooling and VVA systems at home?",
@@ -281,7 +281,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Absoluty! We inspect FI throttle bodies, clean spark plugs, align drive chains with precision tools, and adjust clutch lever free play."
       },
       {
-        q: "What diagnostic checks are included in Yamaha doorstep service in Gurgaon and Delhi NCR?",
+        q: "What diagnostic checks are included in Yamaha doorstep service in Gurgaon and Delhi?",
         a: "Our 15-point checkup covers battery voltage, charging stator coil, brake disc thickness, pad life, tyre pressure, and suspension seal checks."
       }
     ]
@@ -304,7 +304,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Deepak Rawat", vehicle: "Access 125", rating: 5, location: "Ghaziabad Vasundhara", date: "June 25, 2026", comment: "Doorstep CVT cleaning solved my starting and vibration problems. Honest pricing and very knowledgeable technician." }
     ],
-    seoKeywords: ["suzuki access 125 home service", "suzuki gixxer mechanic near me", "burgman doorstep service", "doorstep suzuki repair delhi ncr", "access 125 repair at home", "suzuki avenis service gurgaon", "suzuki intruder mechanic noida", "suzuki v-strom home repair ghaziabad", "suzuki scooter service faridabad", "suzuki bike repair near me"],
+    seoKeywords: ["suzuki access 125 home service", "suzuki gixxer mechanic near me", "burgman doorstep service", "doorstep suzuki repair delhi", "access 125 repair at home", "suzuki avenis service gurgaon", "suzuki intruder mechanic noida", "suzuki v-strom home repair ghaziabad", "suzuki scooter service faridabad", "suzuki bike repair near me"],
     faqs: [
       {
         q: "How does doorstep servicing eliminate startup shudder in Suzuki Access 125 and Burgman Street?",
@@ -346,7 +346,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Varun Nair", vehicle: "Duke 390", rating: 5, location: "Sushant Lok, Gurgaon", date: "July 11, 2026", comment: "Used Motul 7100 oil as requested. Mechanic cleaned the radiator fins and flushed the front brakes. KTM Duke running cool and stopping on a dime." }
     ],
-    seoKeywords: ["ktm duke service at home", "ktm rc mechanic near me", "duke 390 home service", "doorstep ktm service delhi ncr", "ktm duke 200 repair", "ktm adventure 390 service gurgaon", "ktm rc 200 mechanic noida", "ktm duke 250 repair ghaziabad", "ktm motul oil change faridabad", "ktm bike service near me"],
+    seoKeywords: ["ktm duke service at home", "ktm rc mechanic near me", "duke 390 home service", "doorstep ktm service delhi", "ktm duke 200 repair", "ktm adventure 390 service gurgaon", "ktm rc 200 mechanic noida", "ktm duke 250 repair ghaziabad", "ktm motul oil change faridabad", "ktm bike service near me"],
     faqs: [
       {
         q: "How do your mechanics prevent overheating issues during doorstep service for KTM Duke 390 and RC 390?",
@@ -365,7 +365,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Absolutely! Our mobile units carry OBD scanners, digital multimeters, laser chain aligners, and Motul off-road/road chain lube."
       },
       {
-        q: "What is the warranty coverage on KTM doorstep performance servicing in Delhi NCR?",
+        q: "What is the warranty coverage on KTM doorstep performance servicing in Delhi?",
         a: "All KTM services include a 15-day labor & diagnostic warranty alongside manufacturer warranties on genuine KTM replacement components."
       }
     ]
@@ -388,7 +388,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Arun Joy", vehicle: "Ola S1 Pro", rating: 4, location: "Noida Sector 137", date: "July 02, 2026", comment: "Excellent service. Checked the battery health, brake pads, and resolved a small dashboard software glitch. Glad we have doorstep support for EVs now." }
     ],
-    seoKeywords: ["ola s1 pro home service", "ola electric repair near me", "ola scooter mechanic at home", "doorstep ola service delhi ncr", "ola s1 air brake repair", "ola s1 x battery check gurgaon", "ola electric scooter service noida", "ola ev mechanic ghaziabad", "ola doorstep repair faridabad", "ev scooter home service near me"],
+    seoKeywords: ["ola s1 pro home service", "ola electric repair near me", "ola scooter mechanic at home", "doorstep ola service delhi", "ola s1 air brake repair", "ola s1 x battery check gurgaon", "ola electric scooter service noida", "ola ev mechanic ghaziabad", "ola doorstep repair faridabad", "ev scooter home service near me"],
     faqs: [
       {
         q: "What electrical and battery health diagnostics are performed during doorstep OLA S1 Pro and Air service?",
@@ -430,7 +430,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Meera Nair", vehicle: "Ather 450X", rating: 5, location: "Saket, Delhi", date: "June 30, 2026", comment: "Ather home service was quick. The belt was squeaking slightly, and the mechanic aligned and cleaned it. Perfect doorstep convenience." }
     ],
-    seoKeywords: ["ather 450x service at home", "ather energy mechanic near me", "ather rizta doorstep repair", "doorstep ather repair delhi ncr", "electric scooter home service", "ather 450s belt tensioning gurgaon", "ather ev battery scan noida", "ather scooter mechanic ghaziabad", "ather doorstep service faridabad", "ather repair near me"],
+    seoKeywords: ["ather 450x service at home", "ather energy mechanic near me", "ather rizta doorstep repair", "doorstep ather repair delhi", "electric scooter home service", "ather 450s belt tensioning gurgaon", "ather ev battery scan noida", "ather scooter mechanic ghaziabad", "ather doorstep service faridabad", "ather repair near me"],
     faqs: [
       {
         q: "How do your EV technicians adjust and clean the Gates carbon belt drive on Ather 450X and Rizta scooters?",
@@ -449,8 +449,8 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "A comprehensive Ather EV doorstep checkup takes 35 to 45 minutes, covering brakes, belt drive, suspension, tyres, and electrical diagnostics."
       },
       {
-        q: "Which areas in Delhi NCR have 45-minute doorstep dispatch for Ather electric scooters?",
-        a: "We offer 45-minute doorstep dispatch across all sectors of Gurgaon, Delhi NCR, Noida, Ghaziabad, and Faridabad."
+        q: "Which areas in Delhi have 45-minute doorstep dispatch for Ather electric scooters?",
+        a: "We offer 45-minute doorstep dispatch across all sectors of Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad."
       }
     ]
   },
@@ -472,7 +472,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Tanvi Kapoor", vehicle: "Vespa VXL 125", rating: 5, location: "Noida Sector 50", date: "May 24, 2026", comment: "Highly professional. The mechanic took great care not to scratch the scooter and handled the CVT cleaning very meticulously. Bike runs super smooth." }
     ],
-    seoKeywords: ["vespa service at home", "vespa mechanic near me", "piaggio vespa home service", "doorstep vespa repair delhi ncr", "vespa clutch cleaning", "vespa vxl 125 service gurgaon", "vespa sxl 150 repair noida", "vespa zx 125 mechanic ghaziabad", "vespa body care faridabad", "vespa scooter repair near me"],
+    seoKeywords: ["vespa service at home", "vespa mechanic near me", "piaggio vespa home service", "doorstep vespa repair delhi", "vespa clutch cleaning", "vespa vxl 125 service gurgaon", "vespa sxl 150 repair noida", "vespa zx 125 mechanic ghaziabad", "vespa body care faridabad", "vespa scooter repair near me"],
     faqs: [
       {
         q: "How do your mechanics protect Vespa steel monocoque paint and bodywork during doorstep service?",
@@ -514,7 +514,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Inderjeet Singh", vehicle: "Jawa 42", rating: 5, location: "Mayur Vihar, Delhi", date: "July 06, 2026", comment: "Hard to find mechanics for Jawas. The FixWheel tech was highly trained. Did a proper coolant flush, oil change, and adjusted the chain. Fantastic job!" }
     ],
-    seoKeywords: ["jawa service at home", "jawa mechanic near me", "yezdi roadster home service", "doorstep jawa repair delhi ncr", "jawa perak service near me", "jawa 42 bike repair gurgaon", "yezdi adventure mechanic noida", "jawa dohc engine check ghaziabad", "jawa doorstep service faridabad", "yezdi bike repair near me"],
+    seoKeywords: ["jawa service at home", "jawa mechanic near me", "yezdi roadster home service", "doorstep jawa repair delhi", "jawa perak service near me", "jawa 42 bike repair gurgaon", "yezdi adventure mechanic noida", "jawa dohc engine check ghaziabad", "jawa doorstep service faridabad", "yezdi bike repair near me"],
     faqs: [
       {
         q: "How do your mechanics service the liquid-cooled DOHC engines on Jawa 350, Jawa 42, and Perak?",
@@ -529,7 +529,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes! We test timing chain tension, check radiator hoses for leaks, top up coolant, and inspect exhaust O2 sensors."
       },
       {
-        q: "Can I get Jawa 42 Bobber disc brake pads and heavy-duty chain spray done at home in Delhi NCR?",
+        q: "Can I get Jawa 42 Bobber disc brake pads and heavy-duty chain spray done at home in Delhi?",
         a: "Absoluty! We carry Bybre/Jawa genuine disc brake pads, heavy-duty chain cleaning sprays, and laser alignment tools to your parking lot."
       },
       {
@@ -556,7 +556,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Rishabh Malhotra", vehicle: "Aprilia SR 160", rating: 5, location: "Gurgaon Phase 1", date: "June 29, 2026", comment: "The SR 160 is a fast scooter and needs proper CVT and brake servicing. The mechanic did an awesome job. Shifting and engine pickup feels amazing." }
     ],
-    seoKeywords: ["aprilia doorstep service", "aprilia sr 160 mechanic", "aprilia sxr 160 home service", "doorstep aprilia repair delhi ncr", "aprilia scooter service near me", "aprilia sr 125 repair gurgaon", "aprilia storm home service noida", "aprilia cvt tuning ghaziabad", "aprilia doorstep repair faridabad", "aprilia mechanic near me"],
+    seoKeywords: ["aprilia doorstep service", "aprilia sr 160 mechanic", "aprilia sxr 160 home service", "doorstep aprilia repair delhi", "aprilia scooter service near me", "aprilia sr 125 repair gurgaon", "aprilia storm home service noida", "aprilia cvt tuning ghaziabad", "aprilia doorstep repair faridabad", "aprilia mechanic near me"],
     faqs: [
       {
         q: "How do your mechanics tune the high-revving CVT transmission on Aprilia SR 160 and SXR 160 scooters?",
@@ -575,7 +575,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes! We offer basic periodic maintenance, synthetic oil replacement, chain care, and brake service for Aprilia RS 457 sportbikes."
       },
       {
-        q: "What warranty applies to Aprilia doorstep performance scooter servicing in Delhi NCR?",
+        q: "What warranty applies to Aprilia doorstep performance scooter servicing in Delhi?",
         a: "All Aprilia services include a 15-day labor guarantee alongside genuine replacement parts."
       }
     ]
@@ -598,7 +598,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Karan Johar", vehicle: "Harley X440", rating: 5, location: "Siri Fort, Delhi", date: "July 14, 2026", comment: "Outstanding service. The mechanic used high-grade 20W-50 oil and torque wrenches for all bolts. Excellent care for premium cruisers." }
     ],
-    seoKeywords: ["harley davidson mechanic near me", "harley x440 home service", "doorstep harley repair", "harley cruiser service delhi ncr", "harley bike repair at home", "harley iron 883 service gurgaon", "harley forty eight mechanic noida", "harley street 750 repair ghaziabad", "harley v-twin oil change faridabad", "harley doorstep mechanic near me"],
+    seoKeywords: ["harley davidson mechanic near me", "harley x440 home service", "doorstep harley repair", "harley cruiser service delhi", "harley bike repair at home", "harley iron 883 service gurgaon", "harley forty eight mechanic noida", "harley street 750 repair ghaziabad", "harley v-twin oil change faridabad", "harley doorstep mechanic near me"],
     faqs: [
       {
         q: "How do your technicians service Harley-Davidson X440 single-cylinder and heavy V-Twin cruisers at home?",
@@ -613,7 +613,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes! We check primary drive tension, adjust clutch free play, clean battery terminals, and test Cold Cranking Amps (CCA) to ensure effortless starts."
       },
       {
-        q: "Can I get Harley-Davidson X440 front/rear disc brake pads replaced at my apartment parking in Delhi NCR?",
+        q: "Can I get Harley-Davidson X440 front/rear disc brake pads replaced at my apartment parking in Delhi?",
         a: "Absoluty! We carry genuine Harley X440 and Bybre brake pads, clean disc calipers, and bleed hydraulic brake lines at your location."
       },
       {
@@ -640,7 +640,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Deepankar Dev", vehicle: "Ninja 300", rating: 5, location: "DLF Phase 5, Gurgaon", date: "July 09, 2026", comment: "Hard to trust local mechanics with Ninjas. But the FixWheel technician used proper tools, torque-wrenched the oil drain bolt, and did a laser chain check. Superb!" }
     ],
-    seoKeywords: ["kawasaki ninja 300 service", "kawasaki mechanic near me", "ninja 300 home service", "doorstep kawasaki repair delhi ncr", "kawasaki z650 service near me", "kawasaki versys 650 repair gurgaon", "kawasaki w175 home service noida", "kawasaki ninja 400 mechanic ghaziabad", "kawasaki coolant flush faridabad", "kawasaki bike service near me"],
+    seoKeywords: ["kawasaki ninja 300 service", "kawasaki mechanic near me", "ninja 300 home service", "doorstep kawasaki repair delhi", "kawasaki z650 service near me", "kawasaki versys 650 repair gurgaon", "kawasaki w175 home service noida", "kawasaki ninja 400 mechanic ghaziabad", "kawasaki coolant flush faridabad", "kawasaki bike service near me"],
     faqs: [
       {
         q: "How do your specialized superbike mechanics maintain Kawasaki Ninja 300, 400, 500, and Z650 at home?",
@@ -682,7 +682,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Rahul Deshmukh", vehicle: "Speed 400", rating: 5, location: "Vasant Vihar, Delhi", date: "July 16, 2026", comment: "Serviced my Speed 400 right at my doorstep. The mechanic changed oil, cleaned the chain, and checked all diagnostics. Very professional!" }
     ],
-    seoKeywords: ["triumph speed 400 service", "triumph mechanic near me", "scrambler 400 x home service", "doorstep triumph repair delhi ncr", "trident 660 home service gurgaon", "triumph street triple mechanic noida", "triumph bonneville service ghaziabad", "triumph bike repair faridabad"],
+    seoKeywords: ["triumph speed 400 service", "triumph mechanic near me", "scrambler 400 x home service", "doorstep triumph repair delhi", "trident 660 home service gurgaon", "triumph street triple mechanic noida", "triumph bonneville service ghaziabad", "triumph bike repair faridabad"],
     faqs: [
       {
         q: "How do your mechanics handle doorstep periodic service for Triumph Speed 400 and Scrambler 400 X?",
@@ -724,7 +724,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Sameer Kapoor", vehicle: "G 310 GS", rating: 5, location: "Golf Course Extension, Gurgaon", date: "July 18, 2026", comment: "Outstanding doorstep service for my BMW G 310 GS. Oil change, chain lube, and brake check done cleanly in my apartment basement." }
     ],
-    seoKeywords: ["bmw g310r service at home", "bmw g310gs mechanic near me", "bmw bike doorstep repair", "doorstep bmw service delhi ncr", "bmw g310rr home service gurgaon", "bmw motorrad mechanic noida", "bmw s1000rr service ghaziabad"],
+    seoKeywords: ["bmw g310r service at home", "bmw g310gs mechanic near me", "bmw bike doorstep repair", "doorstep bmw service delhi", "bmw g310rr home service gurgaon", "bmw motorrad mechanic noida", "bmw s1000rr service ghaziabad"],
     faqs: [
       {
         q: "How do your mechanics service BMW G 310 R, G 310 GS, and G 310 RR motorcycles at doorstep?",
@@ -743,7 +743,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Yes, our mobile units carry electrical multimeters and EV diagnostic tools to service BMW electric and tourer models."
       },
       {
-        q: "What labor warranty is provided on doorstep BMW Motorrad maintenance in Delhi NCR?",
+        q: "What labor warranty is provided on doorstep BMW Motorrad maintenance in Delhi?",
         a: "All BMW Motorrad doorstep services carry a 15-day labor & diagnostic warranty."
       }
     ]
@@ -766,7 +766,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Harpreet Brar", vehicle: "Yezdi Roadster", rating: 5, location: "Sector 14, Gurgaon", date: "July 04, 2026", comment: "Quick and efficient Yezdi service at home. Changed engine oil and cleaned the chain thoroughly." }
     ],
-    seoKeywords: ["yezdi roadster service at home", "yezdi scrambler mechanic near me", "yezdi adventure doorstep repair", "doorstep yezdi service delhi ncr"],
+    seoKeywords: ["yezdi roadster service at home", "yezdi scrambler mechanic near me", "yezdi adventure doorstep repair", "doorstep yezdi service delhi"],
     faqs: [
       {
         q: "How do your technicians service Yezdi Roadster, Scrambler, and Adventure bikes at doorstep?",
@@ -808,7 +808,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Jatin Sood", vehicle: "Imperiale 400", rating: 5, location: "Vaishali, Ghaziabad", date: "June 20, 2026", comment: "Excellent home service for my Imperiale. The tappet sound was tuned perfectly and the chain noise is completely gone. Very happy with the technician." }
     ],
-    seoKeywords: ["benelli service at home", "benelli mechanic near me", "imperiale 400 home service", "doorstep benelli repair delhi ncr", "benelli tnt 300 service near me", "benelli leoncino repair gurgaon", "benelli trk 502 mechanic noida", "benelli twin cylinder service ghaziabad", "benelli doorstep repair faridabad", "benelli bike repair near me"],
+    seoKeywords: ["benelli service at home", "benelli mechanic near me", "imperiale 400 home service", "doorstep benelli repair delhi", "benelli tnt 300 service near me", "benelli leoncino repair gurgaon", "benelli trk 502 mechanic noida", "benelli twin cylinder service ghaziabad", "benelli doorstep repair faridabad", "benelli bike repair near me"],
     faqs: [
       {
         q: "How do your mechanics service Benelli Imperiale 400, TRK 502, and Leoncino 500 at doorstep?",
@@ -827,7 +827,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
         a: "Absoluty! We service all Benelli and Keeway models directly at your residence or office parking."
       },
       {
-        q: "What warranty coverage applies to doorstep Benelli repair and maintenance in Delhi NCR?",
+        q: "What warranty coverage applies to doorstep Benelli repair and maintenance in Delhi?",
         a: "All Benelli doorstep services carry a 15-day labor & diagnostic guarantee."
       }
     ]
@@ -850,7 +850,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Ankit Maurya", vehicle: "Revolt RV400", rating: 5, location: "Sector 18, Noida", date: "July 22, 2026", comment: "Great EV service at home. Checked the battery terminals, brake pads, and drive belt. Very convenient!" }
     ],
-    seoKeywords: ["revolt rv400 service at home", "revolt electric bike repair near me", "doorstep revolt service delhi ncr"],
+    seoKeywords: ["revolt rv400 service at home", "revolt electric bike repair near me", "doorstep revolt service delhi"],
     faqs: [
       {
         q: "What electrical and battery health diagnostics are performed during doorstep Revolt RV400 and RV1 service?",
@@ -892,7 +892,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Rahul Kapoor", vehicle: "Svartpilen 250", rating: 5, location: "DLF Phase 5, Gurgaon", date: "August 10, 2026", comment: "Excellent doorstep service for my Svartpilen 250. Very clean work and genuine oil." }
     ],
-    seoKeywords: ["husqvarna bike service at home", "svartpilen 250 repair near me", "vitpilen home mechanic delhi ncr"],
+    seoKeywords: ["husqvarna bike service at home", "svartpilen 250 repair near me", "vitpilen home mechanic delhi"],
     faqs: [
       { q: "Do you service Husqvarna Svartpilen 250 and Vitpilen 250 at home?", a: "Yes, our certified technicians service all Husqvarna models on-site." },
       { q: "What engine oil is recommended for Husqvarna bikes?", a: "We strictly use 10W-50 full synthetic sport engine oil for optimal high-RPM performance." }
@@ -916,7 +916,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
     reviews: [
       { name: "Siddharth Jain", vehicle: "Matter AERA 5000", rating: 5, location: "Sector 62, Noida", date: "August 5, 2026", comment: "First time getting my Matter AERA serviced at home. The technician knew the manual transmission EV system inside out!" }
     ],
-    seoKeywords: ["matter aera service at home", "matter electric bike repair near me", "doorstep matter ev service delhi ncr"],
+    seoKeywords: ["matter aera service at home", "matter electric bike repair near me", "doorstep matter ev service delhi"],
     faqs: [
       { q: "Can you service the 4-speed manual gearbox on Matter AERA at home?", a: "Yes! Our technicians inspect the gear shift linkage, transmission fluid, and clutch sensor at your location." },
       { q: "How fast is mobile dispatch for Matter EV bikes?", a: "Our mechanic reaches your home or office parking within 45 minutes of booking." }

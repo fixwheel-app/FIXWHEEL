@@ -83,7 +83,7 @@ export default function ServicePageTemplate({
 
   const cleanServiceName = title
     .replace(/\s+at Doorstep.*$/i, "")
-    .replace(/\s+in Delhi NCR.*$/i, "")
+    .replace(/\s+in Delhi.*$/i, "")
     .replace(/\s+in Gurgaon.*$/i, "");
 
   return (
@@ -233,7 +233,7 @@ export default function ServicePageTemplate({
             {/* Left Content Paragraphs */}
             <div className="lg:col-span-8 space-y-6 text-slate-700 text-base md:text-lg leading-relaxed">
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
-                Why Choose Doorstep {title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi NCR.*$/i, "")} in Delhi NCR?
+                Why Choose Doorstep {title.replace(/\s+at Doorstep.*$/i, "").replace(/\s+in Delhi.*$/i, "")} in Delhi?
               </h2>
               {descriptionParagraphs.map((para, i) => (
                 <p key={i}>{para}</p>
@@ -252,7 +252,7 @@ export default function ServicePageTemplate({
                       Service Coverage
                     </span>
                     <span className="font-bold text-slate-900">
-                      Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)
+                      Delhi (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)
                     </span>
                   </div>
                   <div>
@@ -341,7 +341,7 @@ export default function ServicePageTemplate({
                   Brands We Serve
                 </h3>
                 <p className="text-slate-600 text-xs md:text-sm mt-1">
-                  We service all 16+ major motorcycle and scooter brands across Delhi NCR with 100% genuine parts.
+                  We service all 16+ major motorcycle and scooter brands across Delhi with 100% genuine parts.
                 </p>
               </div>
               <div className="flex items-center gap-2 self-start sm:self-auto">
@@ -445,7 +445,7 @@ export default function ServicePageTemplate({
                   Contact Us & 24/7 Roadside Assistance
                 </h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  Have questions before booking your service or stuck with a sudden bike breakdown in Delhi NCR? Our certified mechanics are on standby to reach your location with tools & parts.
+                  Have questions before booking your service or stuck with a sudden bike breakdown in Delhi? Our certified mechanics are on standby to reach your location with tools & parts.
                 </p>
                 <div className="space-y-3 text-sm font-medium">
                   <div className="flex items-center gap-3">
@@ -560,7 +560,7 @@ export default function ServicePageTemplate({
               Ready to Service Your Two-Wheeler?
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Get an expert doorstep mechanic at your home or office parking in Delhi NCR within 45 minutes.
+              Get an expert doorstep mechanic at your home or office parking in Delhi within 45 minutes.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

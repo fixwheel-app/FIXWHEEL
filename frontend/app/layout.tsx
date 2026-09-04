@@ -12,10 +12,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.fixwheel.app"),
   title: {
-    default: "FixWheel — Doorstep Bike Service Delhi NCR",
+    default: "FixWheel — Doorstep Bike Service Delhi",
     template: "%s",
   },
-  description: "Doorstep motorcycle servicing platform for Delhi NCR.",
+  description: "Doorstep motorcycle servicing platform for Delhi.",
   keywords: "bike repair delhi, doorstep bike service, bicycle mechanic delhi, bike repair at home",
   icons: {
     icon: [

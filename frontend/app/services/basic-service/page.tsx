@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Basic Bike Service at Doorstep in Delhi NCR | FixWheel",
+  title: "Basic Bike Service at Doorstep in Delhi | FixWheel",
   description:
-    "Book professional basic bike service Delhi NCR. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
+    "Book professional basic bike service Delhi. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/basic-service",
   },
   openGraph: {
-    title: "Basic Bike Service at Doorstep in Delhi NCR | FixWheel",
+    title: "Basic Bike Service at Doorstep in Delhi | FixWheel",
     description:
-      "Book professional basic bike service Delhi NCR. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
+      "Book professional basic bike service Delhi. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
     url: "https://www.fixwheel.app/services/basic-service",
     siteName: "FixWheel",
     type: "website",
@@ -23,13 +23,13 @@ export default function BasicServicePage() {
     <ServicePageTemplate
       serviceId="basic-service"
       category="Regular Maintenance"
-      title="Basic Bike Service at Doorstep in Delhi NCR"
+      title="Basic Bike Service at Doorstep in Delhi"
       lead="Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high."
       startingPrice="₹199"
       avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
-        "Commuting through Delhi NCR traffic subjects your bike's clutch cables, brake shoes, spark plugs, and air filters to extreme dust and friction. Without regular maintenance, carbon deposits accumulate in the engine, resulting in poor fuel efficiency, engine knocking, and starting trouble.",
+        "Commuting through Delhi traffic subjects your bike's clutch cables, brake shoes, spark plugs, and air filters to extreme dust and friction. Without regular maintenance, carbon deposits accumulate in the engine, resulting in poor fuel efficiency, engine knocking, and starting trouble.",
         "Our certified doorstep mechanics arrive directly at your home or office parking with specialized diagnostic kits, OEM spare parts, and eco-friendly cleaning supplies. We perform a comprehensive 15-point checkup, adjusting control cables, cleaning spark plugs, inspecting brake liners, and lubricating key chassis pivots.",
         "With FixWheel, you get 100% transparent pricing, zero hidden charges, and a 15-day quality warranty on every basic service.",
       ]}
@@ -68,7 +68,7 @@ export default function BasicServicePage() {
         "hero splendor service ghaziabad",
         "honda activa basic service faridabad",
         "scooter mechanic near me",
-        "doorstep bike tune up delhi ncr",
+        "doorstep bike tune up delhi",
         "bike chain lube at home",
       ]}
     />

@@ -4,14 +4,14 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 export const metadata: Metadata = {
   title: "Bike Brake Repair & Replacement at Home | FixWheel",
   description:
-    "Doorstep bike brake repair Delhi NCR. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
+    "Doorstep bike brake repair Delhi. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/brake-repair",
   },
   openGraph: {
     title: "Bike Brake Repair & Replacement at Home | FixWheel",
     description:
-      "Doorstep bike brake repair Delhi NCR. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
+      "Doorstep bike brake repair Delhi. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
     url: "https://www.fixwheel.app/services/brake-repair",
     siteName: "FixWheel",
     type: "website",
@@ -23,13 +23,13 @@ export default function BrakeRepairPage() {
     <ServicePageTemplate
       serviceId="brake-repair"
       category="Safety Systems"
-      title="Bike Brake Repair & Pad Replacement in Delhi NCR"
+      title="Bike Brake Repair & Pad Replacement in Delhi"
       lead="Brakes are your two-wheeler's most critical safety component. Squeaking noise, loose brake levers, or reduced stopping distance require immediate expert repair right at your doorstep."
       startingPrice="₹299"
       avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
-        "Stop-and-go commuting in Delhi NCR wears down drum brake shoes and disc brake pads quickly. Riding with worn brake linings damages the brake rotor, decreases emergency braking control, and risks your safety.",
+        "Stop-and-go commuting in Delhi wears down drum brake shoes and disc brake pads quickly. Riding with worn brake linings damages the brake rotor, decreases emergency braking control, and risks your safety.",
         "FixWheel dispatches certified mechanics with 100% genuine OEM brake shoes, high-friction disc pads, and DOT 3/4 brake fluids to your home or office parking lot. We clean brake drums, replace worn linings, lubricate brake levers, and bleed hydraulic lines.",
         "Get instant brake servicing with transparent pricing, zero visiting charges, and full safety testing.",
       ]}

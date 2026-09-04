@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!modelInfo) {
     return {
       title: "Bike Service & Repair at Home | FixWheel",
-      description: "Book doorstep bike service and repair across Delhi NCR.",
+      description: "Book doorstep bike service and repair across Delhi.",
     };
   }
 
   const { brandName, modelName } = modelInfo;
-  const title = `${brandName} ${modelName} Service Near Me | Doorstep Repair Delhi NCR | FixWheel`;
+  const title = `${brandName} ${modelName} Service Near Me | Doorstep Repair Delhi | FixWheel`;
   const description = `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} service near me`,
     `doorstep ${modelName.toLowerCase()} repair gurgaon`,
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} mechanic home service gurgaon`,
-    `${modelName.toLowerCase()} bike service delhi ncr`,
+    `${modelName.toLowerCase()} bike service delhi`,
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} periodic maintenance gurgaon`,
     `${modelName.toLowerCase()} doorstep oil change gurgaon`,
     `${modelName.toLowerCase()} brake repair at home gurgaon`,

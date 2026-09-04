@@ -5,14 +5,14 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 export const metadata: Metadata = {
   title: "Commuter Bike Service at Doorstep | FixWheel",
   description:
-    "Doorstep commuter bike service Delhi NCR. Regular tune-ups, oil change, spark plug cleaning, and mileage tuning for Hero, Honda, Bajaj, and TVS commuter bikes in Gurgaon, Delhi, Noida.",
+    "Doorstep commuter bike service Delhi. Regular tune-ups, oil change, spark plug cleaning, and mileage tuning for Hero, Honda, Bajaj, and TVS commuter bikes in Gurgaon, Delhi, Noida.",
   alternates: {
     canonical: "https://www.fixwheel.app/commuter-bike-service",
   },
   openGraph: {
     type: "website",
     title: "Commuter Bike Service at Doorstep | FixWheel",
-    description: "Doorstep commuter bike service Delhi NCR. Certified mechanics, 45-min arrival, 15-day warranty.",
+    description: "Doorstep commuter bike service Delhi. Certified mechanics, 45-min arrival, 15-day warranty.",
     url: "https://www.fixwheel.app/commuter-bike-service",
   },
 };

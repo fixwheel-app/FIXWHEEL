@@ -54,12 +54,12 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
     ],
     reviews: [
-      { name: "Rahul Verma", vehicle: `${formattedBrandName} Two-Wheeler`, rating: 5, location: "Delhi NCR", date: "August 2026", comment: `Excellent doorstep service for my ${formattedBrandName}. Quick dispatch and very clean job.` }
+      { name: "Rahul Verma", vehicle: `${formattedBrandName} Two-Wheeler`, rating: 5, location: "Delhi", date: "August 2026", comment: `Excellent doorstep service for my ${formattedBrandName}. Quick dispatch and very clean job.` }
     ],
     seoKeywords: [
       `${brandSlug} service at home`,
       `${brandSlug} repair near me`,
-      `doorstep ${brandSlug} mechanic delhi ncr`,
+      `doorstep ${brandSlug} mechanic delhi`,
     ],
     faqs: [
       {
@@ -126,7 +126,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
 
   const defaultFaqs = [
     {
-      q: `How long does doorstep ${brandData.name} service take in Delhi NCR?`,
+      q: `How long does doorstep ${brandData.name} service take in Delhi?`,
       a: `Routine servicing for ${brandData.name} two-wheelers typically takes 35 to 50 minutes. Our certified mechanics arrive fully equipped at your doorstep with all required OEM spares and tools.`,
     },
     {
@@ -142,7 +142,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       a: `Yes, FixWheel provides a 15-day quality labor warranty on all ${brandData.name} services and diagnostics, plus manufacturer warranties on replacement components.`,
     },
     {
-      q: `Which locations in Delhi NCR do you cover for ${brandData.name} service?`,
+      q: `Which locations in Delhi do you cover for ${brandData.name} service?`,
       a: `We cover all major locations across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. You can book doorstep service at your home or office parking.`,
     },
   ];
@@ -1013,7 +1013,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         <div className="wrap">
           <div className="hero-grid">
             <div className="hero-inner">
-              <div className="eyebrow">{brandData.name} Doorstep Service & Repair · Delhi NCR</div>
+              <div className="eyebrow">{brandData.name} Doorstep Service & Repair · Delhi</div>
               <h1>
                 Doorstep <em>{brandData.name}</em>
                 <br />
@@ -1372,7 +1372,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             <div className="eyebrow">Join our network</div>
             <h2>Are you a bike mechanic?</h2>
             <p style={{ color: "var(--ink-dim)", marginTop: "14px", maxWidth: "480px" }}>
-              Join our team of mechanics servicing {brandData.name} and all major two-wheeler brands across Delhi NCR. Work on your own schedule, get more customers, and grow your income.
+              Join our team of mechanics servicing {brandData.name} and all major two-wheeler brands across Delhi. Work on your own schedule, get more customers, and grow your income.
             </p>
             <ul>
               <li>Flexible working hours</li>
@@ -1498,7 +1498,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               Gurgaon / Gurugram
             </Link>
             <Link href="/delhi" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
-              Delhi NCR
+              Delhi
             </Link>
             <Link href="/noida" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Noida

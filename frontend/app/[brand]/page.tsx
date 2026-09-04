@@ -42,12 +42,12 @@ function getBrandData(brandSlug: string) {
       { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
     ],
     reviews: [
-      { name: "Rahul Verma", vehicle: `${formattedName} Two-Wheeler`, rating: 5, location: "Delhi NCR", date: "August 2026", comment: `Excellent doorstep service for my ${formattedName}. Quick dispatch and very clean job.` }
+      { name: "Rahul Verma", vehicle: `${formattedName} Two-Wheeler`, rating: 5, location: "Delhi", date: "August 2026", comment: `Excellent doorstep service for my ${formattedName}. Quick dispatch and very clean job.` }
     ],
     seoKeywords: [
       `${key} service at home`,
       `${key} repair near me`,
-      `doorstep ${key} mechanic delhi ncr`,
+      `doorstep ${key} mechanic delhi`,
       `bike repair near me`,
     ],
     faqs: [

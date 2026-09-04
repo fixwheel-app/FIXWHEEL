@@ -105,7 +105,7 @@ export default function ContactClientPage() {
       title: "Our Location",
       value: "Delhi, India",
       href: "#",
-      description: "Providing Doorstep Services Across Delhi NCR"
+      description: "Providing Doorstep Services Across Delhi"
     }
   ];
 

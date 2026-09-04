@@ -4,7 +4,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 export const metadata: Metadata = {
   title: "Bike Tyre Replacement & Repair at Home | FixWheel",
   description:
-    "Doorstep bike tyre replacement Delhi NCR. Tubeless tyre fitting, puncture repairs, wheel rim alignment at home in Gurgaon, Delhi, Noida, Ghaziabad.",
+    "Doorstep bike tyre replacement Delhi. Tubeless tyre fitting, puncture repairs, wheel rim alignment at home in Gurgaon, Delhi, Noida, Ghaziabad.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/tyre-replacement",
   },
@@ -15,13 +15,13 @@ export default function TyreReplacementPage() {
     <ServicePageTemplate
       serviceId="tyre-replacement"
       category="Wheels & Tyres"
-      title="Bike Tyre Replacement & Repair at Home in Delhi NCR"
+      title="Bike Tyre Replacement & Repair at Home in Delhi"
       lead="Worn tyre treads or frequent punctures compromise wet road grip and emergency braking safety. Get doorstep tubeless tyre installation with fresh air valves and air pressure calibration."
       startingPrice="₹1,199"
       avgTime="45 Mins"
       warranty="Manufacturer Tyre Warranty Included"
       descriptionParagraphs={[
-        "Riding on bald or cracked tyres in Delhi NCR increases braking distances, causes wheel wobbling at high speeds, and puts you at risk of sudden blowouts.",
+        "Riding on bald or cracked tyres in Delhi increases braking distances, causes wheel wobbling at high speeds, and puts you at risk of sudden blowouts.",
         "FixWheel provides doorstep tubeless & tube-type tyre replacements from top brands (MRF, CEAT, TVS Eurogrip, Michelin, Apollo) with scratch-free rim installation tools right at your doorstep.",
         "Our mechanics replace the air valve pin, inspect brake shoes, calibrate tire pressure, and dispose of old tires safely.",
       ]}

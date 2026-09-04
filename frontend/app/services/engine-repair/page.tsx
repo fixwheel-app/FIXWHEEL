@@ -4,7 +4,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 export const metadata: Metadata = {
   title: "Bike Engine Repair & Overhaul at Home | FixWheel",
   description:
-    "Doorstep bike engine diagnostics & repair Delhi NCR. Valve clearance adjustment, clutch plate replacements, starter motor repair.",
+    "Doorstep bike engine diagnostics & repair Delhi. Valve clearance adjustment, clutch plate replacements, starter motor repair.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/engine-repair",
   },
@@ -15,14 +15,14 @@ export default function EngineRepairPage() {
     <ServicePageTemplate
       serviceId="engine-repair"
       category="Powertrain & Engine"
-      title="Bike Engine Repair & Overhaul in Delhi NCR"
+      title="Bike Engine Repair & Overhaul in Delhi"
       lead="Experiencing engine knocking, metallic noise, white exhaust smoke, or loss of pickup? Get expert doorstep engine diagnostics, valve clearance tuning, and clutch plate overhauls."
       startingPrice="₹699"
       avgTime="45 Mins"
       warranty="15 Days Mechanical Warranty"
       descriptionParagraphs={[
         "Engine issues like valve noise, worn piston rings, slipping clutch plates, or clogged FI nozzles degrade performance and threaten internal engine components.",
-        "FixWheel's senior engine mechanics bring compression gauges, feeler gauges, clutch pullers, and genuine replacement parts to your home or office parking in Delhi NCR. We diagnose engine noises, adjust tappet clearance, replace worn clutch plates, and clean throttle bodies.",
+        "FixWheel's senior engine mechanics bring compression gauges, feeler gauges, clutch pullers, and genuine replacement parts to your home or office parking in Delhi. We diagnose engine noises, adjust tappet clearance, replace worn clutch plates, and clean throttle bodies.",
         "Restore factory-smooth acceleration, silent idling, and peak power without leaving your bike at local garages for days.",
       ]}
       includedItems={[

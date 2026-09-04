@@ -903,7 +903,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               Gurgaon / Gurugram
             </Link>
             <Link href="/delhi" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
-              Delhi NCR
+              Delhi
             </Link>
             <Link href="/noida" style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>
               Noida

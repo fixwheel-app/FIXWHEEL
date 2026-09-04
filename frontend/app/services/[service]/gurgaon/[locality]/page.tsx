@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   const cleanTitle = serviceData.title
     .replace(/\s+at Doorstep.*$/i, "")
-    .replace(/\s+in Delhi NCR.*$/i, "");
+    .replace(/\s+in Delhi.*$/i, "");
 
   return {
     title: `${cleanTitle} in ${localityData.name}, Gurgaon – Doorstep Repair | FixWheel`,
@@ -69,7 +69,7 @@ export default function GurgaonLocalityServicePage({
 
   const cleanTitle = serviceData.title
     .replace(/\s+at Doorstep.*$/i, "")
-    .replace(/\s+in Delhi NCR.*$/i, "");
+    .replace(/\s+in Delhi.*$/i, "");
 
   const localizedLead = `${serviceData.lead} Now available with 45-minute doorstep mechanic dispatch in ${localityData.name}, Gurgaon (${localityData.subRegionText}).`;
 

@@ -3,15 +3,15 @@ import ContactClientPage from "./page.client";
 
 export const metadata: Metadata = {
   title: "Contact Us | Doorstep Bike Service & Repair Support – FixWheel",
-  description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi NCR. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
+  description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
   keywords: [
     "doorstep bike repair contact number",
-    "bike service customer care Delhi NCR",
+    "bike service customer care Delhi",
     "FixWheel customer support phone number",
     "two wheeler repair contact Delhi",
     "book mobile bike mechanic contact details",
     "scooter repair at home helpline",
-    "FixWheel phone number Delhi NCR",
+    "FixWheel phone number Delhi",
     "contact doorstep motorcycle mechanic"
   ],
   alternates: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Contact Us | Doorstep Bike Service & Repair Support – FixWheel",
-    description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi NCR. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
+    description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
     url: "https://www.fixwheel.app/contact",
   },
 };
@@ -30,7 +30,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact FixWheel",
-    "description": "Customer support page for doorstep bike repairs, scooter servicing, and motorcycle breakdown help in Delhi NCR.",
+    "description": "Customer support page for doorstep bike repairs, scooter servicing, and motorcycle breakdown help in Delhi.",
     "url": "https://www.fixwheel.app/contact",
     "mainEntity": {
       "@type": "AutoRepair",

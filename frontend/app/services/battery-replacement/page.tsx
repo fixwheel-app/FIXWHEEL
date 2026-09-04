@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Bike Battery Replacement at Home in Delhi NCR | FixWheel",
+  title: "Bike Battery Replacement at Home in Delhi | FixWheel",
   description:
-    "Instant doorstep bike battery replacement Delhi NCR. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
+    "Instant doorstep bike battery replacement Delhi. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/battery-replacement",
   },
   openGraph: {
-    title: "Bike Battery Replacement at Home in Delhi NCR | FixWheel",
+    title: "Bike Battery Replacement at Home in Delhi | FixWheel",
     description:
-      "Instant doorstep bike battery replacement Delhi NCR. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
+      "Instant doorstep bike battery replacement Delhi. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
     url: "https://www.fixwheel.app/services/battery-replacement",
     siteName: "FixWheel",
     type: "website",
@@ -23,13 +23,13 @@ export default function BatteryReplacementPage() {
     <ServicePageTemplate
       serviceId="battery-replacement"
       category="Electrical Systems"
-      title="Bike Battery Replacement at Doorstep in Delhi NCR"
+      title="Bike Battery Replacement at Doorstep in Delhi"
       lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and instant replacement with fresh, zero-maintenance batteries from top brands in under 45 minutes."
       startingPrice="₹1,299"
       avgTime="45 Mins"
       warranty="Official Brand Warranty Included"
       descriptionParagraphs={[
-        "Extreme winter cold and hot summer weather in Delhi NCR often accelerate motorcycle battery cell degradation. When your battery fails, getting stuck in traffic or a office parking lot is frustrating.",
+        "Extreme winter cold and hot summer weather in Delhi often accelerate motorcycle battery cell degradation. When your battery fails, getting stuck in traffic or a office parking lot is frustrating.",
         "FixWheel's mobile battery service brings digital load testers and genuine zero-maintenance batteries directly to your location. Our mechanic checks the alternator charging voltage and RR unit to verify if the issue is a dead battery or a charging circuit fault.",
         "Every new battery comes with an official printed manufacturer warranty card, terminal corrosion treatment, and eco-friendly recycling of your old battery.",
       ]}

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Bike Engine Oil Change at Home in Delhi NCR | FixWheel",
+  title: "Bike Engine Oil Change at Home in Delhi | FixWheel",
   description:
-    "Doorstep bike engine oil change Delhi NCR. Genuine Motul, Yamalube, Castrol, and Honda OEM engine oil replacement at home in Gurgaon, Delhi, Noida.",
+    "Doorstep bike engine oil change Delhi. Genuine Motul, Yamalube, Castrol, and Honda OEM engine oil replacement at home in Gurgaon, Delhi, Noida.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/oil-change",
   },
@@ -15,13 +15,13 @@ export default function OilChangePage() {
     <ServicePageTemplate
       serviceId="oil-change"
       category="Fluid & Lubrication"
-      title="Bike Engine Oil Change at Doorstep in Delhi NCR"
+      title="Bike Engine Oil Change at Doorstep in Delhi"
       lead="Engine oil is your bike's lifeblood. Prevent engine overheating and friction wear with 100% sealed genuine engine oil replacement (Motul, Yamalube, Castrol, HMSI, Liquid Gun) done at your home in 30 minutes."
       startingPrice="₹349"
       avgTime="45 Mins"
       warranty="100% Sealed Genuine Oil Guarantee"
       descriptionParagraphs={[
-        "Riding in Delhi NCR's stop-and-go traffic subjects engine oil to high thermal stress. Over time, oil breaks down, loses viscosity, and turns sludge-like — leading to engine overheating, clutch slipping, and piston ring wear.",
+        "Riding in Delhi's stop-and-go traffic subjects engine oil to high thermal stress. Over time, oil breaks down, loses viscosity, and turns sludge-like — leading to engine overheating, clutch slipping, and piston ring wear.",
         "FixWheel's mobile oil change service brings 100% sealed, genuine OEM engine oil bottles matching your motorcycle manufacturer's viscosity specs (10W-30, 10W-40, 15W-50, 20W-50).",
         "We drain old sludge completely, clean the magnetic drain plug, replace the oil filter, inspect O-rings, and dispose of used oil in an environmentally safe manner.",
       ]}

@@ -69,7 +69,7 @@ export async function generateMetadata({
 
     const cleanTitle = serviceData.title
       .replace(/\s+at Doorstep.*$/i, "")
-      .replace(/\s+in Delhi NCR.*$/i, "");
+      .replace(/\s+in Delhi.*$/i, "");
 
     return {
       title: `${cleanTitle} in ${cityData.name} – Doorstep Repair & Service | FixWheel`,
@@ -128,7 +128,7 @@ export default function CityServicePage({
 
     const cleanTitle = serviceData.title
       .replace(/\s+at Doorstep.*$/i, "")
-      .replace(/\s+in Delhi NCR.*$/i, "");
+      .replace(/\s+in Delhi.*$/i, "");
 
     return (
       <ServicePageTemplate
