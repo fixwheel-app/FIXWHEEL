@@ -74,12 +74,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: descText,
     keywords: brandData.seoKeywords.join(", "),
     alternates: {
-      canonical: `https://www.fixwheel.app/brands/${params.brand.toLowerCase()}`,
+      canonical: `https://www.fixwheel.app/${params.brand.toLowerCase()}`,
     },
     openGraph: {
       title: titleText,
       description: descText,
-      url: `https://www.fixwheel.app/brands/${params.brand.toLowerCase()}`,
+      url: `https://www.fixwheel.app/${params.brand.toLowerCase()}`,
       siteName: "FixWheel",
       type: "website",
     },

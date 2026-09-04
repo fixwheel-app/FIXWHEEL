@@ -1208,7 +1208,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                         return (
                           <Link
                             key={model}
-                            href={`/brands/${brandSlug}/${mSlug}`}
+                            href={`/${brandSlug}/${mSlug}`}
                             className="model-link-card"
                           >
                             <span className="name">{model}</span>

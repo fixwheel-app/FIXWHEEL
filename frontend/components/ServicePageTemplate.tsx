@@ -379,7 +379,7 @@ export default function ServicePageTemplate({
               {SUPPORTED_BRANDS.map((b) => (
                 <Link
                   key={b.slug}
-                  href={`/brands/${b.slug}`}
+                  href={`/${b.slug}`}
                   className="flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start min-w-[150px]"
                 >
                   <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />

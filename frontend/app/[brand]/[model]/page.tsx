@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { brandName, modelName } = modelInfo;
   const title = `${brandName} ${modelName} Service Near Me | Doorstep Repair Delhi NCR | FixWheel`;
   const description = `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
-  const canonicalUrl = `https://www.fixwheel.app/brands/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
+  const canonicalUrl = `https://www.fixwheel.app/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 
   const gurgaonLocalities = [
     "dlf phase 1", "dlf phase 2", "dlf phase 3", "dlf phase 4", "dlf phase 5",

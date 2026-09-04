@@ -50,7 +50,7 @@ export async function GET() {
 
   // Individual Brand pages
   for (const b of BRANDS) {
-    xml += `  <url>\n    <loc>https://www.fixwheel.app/brands/${b}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+    xml += `  <url>\n    <loc>https://www.fixwheel.app/${b}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 
   // Individual Service subpages
@@ -70,7 +70,7 @@ export async function GET() {
   for (const m of allModels) {
     const bSlug = slugifyModel(m.brandName);
     const mSlug = slugifyModel(m.modelName);
-    const url = `https://www.fixwheel.app/brands/${bSlug}/${mSlug}`;
+    const url = `https://www.fixwheel.app/${bSlug}/${mSlug}`;
 
     if (!addedModelUrls.has(url)) {
       addedModelUrls.add(url);

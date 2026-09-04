@@ -85,7 +85,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             items={[
               { label: "Home", href: "/" },
               { label: "Brands", href: "/brands" },
-              { label: brandName, href: `/brands/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
+              { label: brandName, href: `/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
               { label: `${modelName} Service` },
             ]}
           />

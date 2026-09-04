@@ -270,6 +270,17 @@ const nextConfig = {
         destination: '/services/general-washing/:city',
         permanent: true,
       },
+      // 301 Permanent Redirects for legacy /brands/ URLs to clean root URLs
+      {
+        source: '/brands/:brand',
+        destination: '/:brand',
+        permanent: true,
+      },
+      {
+        source: '/brands/:brand/:model',
+        destination: '/:brand/:model',
+        permanent: true,
+      },
     ];
   },
 };
