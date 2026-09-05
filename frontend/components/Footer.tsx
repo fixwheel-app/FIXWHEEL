@@ -103,12 +103,6 @@ export default function Footer() {
             <Link href="/services/battery-replacement" className="hover:text-white transition-colors">Bike Battery Replacement Near Me</Link>
             <span className="text-white/20">•</span>
             <Link href="/services/tyre-replacement" className="hover:text-white transition-colors">Bike Tyre Repair Near Me</Link>
-            <span className="text-white/20">•</span>
-            <Link href="/gurgaon/dlf-phase-1" className="hover:text-white transition-colors">Bike Mechanic DLF Phase 1</Link>
-            <span className="text-white/20">•</span>
-            <Link href="/gurgaon/sector-56" className="hover:text-white transition-colors">Doorstep Bike Repair Sector 56</Link>
-            <span className="text-white/20">•</span>
-            <Link href="/gurgaon/cyber-city" className="hover:text-white transition-colors">Two Wheeler Mechanic Cyber City</Link>
           </div>
         </div>
 
