@@ -95,7 +95,7 @@ export default function ServicesClientPage() {
 
   const faqs = [
     {
-      q: "How long does doorstep bike service take in Delhi?",
+      q: "How long does doorstep bike service take in Delhi NCR?",
       a: "Most routine servicing and repairs take 25 to 45 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront.",
     },
     {
@@ -617,10 +617,10 @@ export default function ServicesClientPage() {
             <div>
               <div className="eyebrow">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span>Bike Mechanic at Home — Delhi</span>
+                <span>Bike Mechanic at Home — Delhi NCR</span>
               </div>
               <h1>
-                Doorstep Bike Repair Service in <em>Delhi</em>
+                Doorstep Bike Repair Service in <em>Delhi NCR</em>
               </h1>
               <p className="lead">
                 Verified bike mechanics arrive at your home or office with genuine parts and diagnostic tools. No towing, no waiting in garage queues.
@@ -666,7 +666,7 @@ export default function ServicesClientPage() {
                 </div>
                 <div className="ticket-row">
                   <span className="label">COVERAGE</span>
-                  <span className="val">Delhi</span>
+                  <span className="val">Delhi NCR</span>
                 </div>
                 <div className="ticket-row">
                   <span className="label">LOCATION</span>
@@ -723,7 +723,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Service Area</span>
-                  <span className="v">Entire Delhi</span>
+                  <span className="v">Entire Delhi NCR</span>
                 </li>
                 <li>
                   <span>Parts Policy</span>
@@ -819,7 +819,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">ALL SERVICES & CATALOG</span>
-              <h2>Two-Wheeler Service Packages in Delhi</h2>
+              <h2>Two-Wheeler Service Packages in Delhi NCR</h2>
               <p>
                 Select a service below to view detailed checklist items, FAQs, and transparent doorstep pricing.
               </p>
@@ -850,7 +850,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">COVERAGE</span>
-              <h2>Service Areas Across Delhi</h2>
+              <h2>Service Areas Across Delhi NCR</h2>
               <p>Doorstep bike mechanics ready for instant dispatch across major cities.</p>
             </div>
 
@@ -907,7 +907,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">REVIEWS</span>
-              <h2>What Delhi Riders Say About FixWheel</h2>
+              <h2>What Delhi NCR Riders Say About FixWheel</h2>
             </div>
             <div className="review-grid font-sans">
               <div className="review-card">
@@ -975,7 +975,7 @@ export default function ServicesClientPage() {
         {/* FINAL CTA BANNER */}
         <section className="final-cta" id="book">
           <div className="wrap">
-            <h2>Book Doorstep Two-Wheeler Service in Delhi</h2>
+            <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
             <p>
               Certified mechanics at your home or office parking. Starting at ₹199. Zero visiting fees.
             </p>
