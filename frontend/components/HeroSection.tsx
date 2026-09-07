@@ -61,17 +61,19 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <Link 
-              href="/services" 
+              href="/book" 
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-accent hover:bg-accent-hover text-white font-semibold text-lg transition-all shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] transform hover:-translate-y-1"
             >
               BOOK NOW
             </Link>
-            <Link 
-              href="/services" 
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/20 hover:bg-white/5 text-white font-semibold text-lg transition-all"
+            <a 
+              href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/20 hover:bg-white/5 hover:border-accent text-white font-semibold text-lg transition-all text-center"
             >
-              View Repair Packages
-            </Link>
+              GET THE APP
+            </a>
           </motion.div>
 
           {/* Trust Bar */}

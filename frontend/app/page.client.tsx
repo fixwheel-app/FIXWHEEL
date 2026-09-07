@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import {
   ArrowRight, ShieldCheck, Wrench, Clock,
   MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown,
-  Calendar, Star
+  Calendar, Star, Smartphone
 } from 'lucide-react';
 import BrandsMarquee from '@/components/BrandsMarquee';
 import { submitQuery } from '@/lib/api';
@@ -183,7 +183,7 @@ export default function Home() {
         {/* Z-20: The Bike Image (Floating & Immersive) */}
         <div className="absolute bottom-[-5%] md:bottom-auto md:top-1/2 md:-translate-y-1/2 right-[-30%] md:right-[-5%] w-[160%] md:w-[75%] h-[65%] md:h-[90%] z-20 pointer-events-none">
           <motion.div 
-            initial={{ opacity: 0, scale: 1.15, x: 20 }}
+            initial={{ opacity: 1, scale: 1, x: 0 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1.8, ease: "easeOut" }}
             className="w-full h-full relative will-change-transform"
@@ -214,45 +214,48 @@ export default function Home() {
 
 
             {/* Headlines */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="text-[3.5rem] sm:text-6xl md:text-[5.5rem] lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-4 md:mb-6 flex flex-col"
+            <h1 
+              className="text-[3rem] sm:text-5xl md:text-6xl lg:text-[5.25rem] font-black uppercase tracking-tighter leading-[0.85] mb-3 md:mb-5 flex flex-col"
             >
               <span className="bg-gradient-to-b from-[#ff4d4d] to-[#e40521] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(230,43,43,0.3)] relative z-10">Mechanic</span>
               <span className="text-white relative z-10">At Your Doorstep</span>
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 mt-3 md:mt-4 tracking-tight font-extrabold">In 45 minutes.</span>
-            </motion.h1>
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400 mt-2 md:mt-3 tracking-tight font-extrabold">In 45 minutes.</span>
+            </h1>
 
             {/* Subtext */}
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-gray-400 text-sm sm:text-base md:text-xl max-w-lg font-medium leading-relaxed mb-8 md:mb-12"
+            <p 
+              className="text-gray-400 text-sm sm:text-base md:text-lg max-w-lg font-medium leading-relaxed mb-6 md:mb-8"
             >
               Certified mechanics come to you. We service your bike on the spot — no garage visit, no hidden fees.
-            </motion.p>
+            </p>
 
             {/* CTA & Trust Group */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="flex flex-col items-start gap-5 md:gap-6"
+            <div 
+              className="flex flex-col items-start gap-4 md:gap-5"
             >
-              <Link
-                href="/book"
-                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-3 bg-accent hover:bg-[#ff1a1a] text-white px-8 py-4 md:py-5 rounded-md font-black tracking-widest uppercase text-sm md:text-lg transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)] hover:scale-[1.03]"
-              >
-                {/* Shimmer sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-                
-                <Calendar className="relative z-10 w-5 h-5 md:w-6 md:h-6" />
-                <span className="relative z-10">BOOK NOW</span>
-                <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-2" />
-              </Link>
+              <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  href="/book"
+                  className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-2.5 bg-accent hover:bg-[#ff1a1a] text-white px-7 py-3.5 md:py-4 rounded-md font-black tracking-widest uppercase text-xs md:text-base transition-all duration-300 shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_40px_rgba(230,43,43,0.6)] hover:scale-[1.02]"
+                >
+                  {/* Shimmer sweep */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+                  
+                  <Calendar className="relative z-10 w-4 h-4 md:w-5 md:h-5" />
+                  <span className="relative z-10">BOOK NOW</span>
+                  <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
+
+                <a
+                  href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white border-2 border-white/20 hover:border-accent px-6 py-3.5 md:py-4 rounded-md font-black tracking-widest uppercase text-xs md:text-base transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <Smartphone className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-accent" />
+                  <span className="relative z-10">GET THE APP</span>
+                </a>
+              </div>
 
               {/* Trust Indicators */}
               <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/5 w-full sm:w-auto justify-center sm:justify-start">
@@ -262,7 +265,7 @@ export default function Home() {
                   <span className="inline"><span className="font-bold text-white">{stats.bikes_serviced}+</span> total vehicles serviced</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 

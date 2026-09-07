@@ -124,6 +124,7 @@ export default function Navbar() {
     { name: 'ABOUT',          href: '/about' },
     { name: 'BECOME PARTNER', href: '/partner' },
     { name: 'CONTACT',        href: '/contact' },
+    { name: 'GET APP',        href: 'https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN', external: true },
   ];
 
   /* ─── Active tab indicator ───────────────────────────────── */
@@ -218,6 +219,15 @@ export default function Navbar() {
                           )}
                         />
                       </button>
+                    ) : (link as any).external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-bold tracking-wide uppercase transition-colors hover:text-accent h-full flex items-center px-3 xl:px-4 whitespace-nowrap gap-1 text-white"
+                      >
+                        {link.name}
+                      </a>
                     ) : (
                       <Link
                         href={link.href}
@@ -361,7 +371,15 @@ export default function Navbar() {
               )}
             </div>
 
-            <div className="hidden lg:flex shrink-0">
+            <div className="hidden lg:flex shrink-0 items-center gap-3">
+              <a
+                href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 hover:border-accent text-white hover:text-accent px-4 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap"
+              >
+                GET APP
+              </a>
               <Link
                 href="/book"
                 className="bg-accent hover:bg-accent-hover text-white px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap"
@@ -370,8 +388,16 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Right: Book Now + Hamburger */}
-            <div className="lg:hidden flex items-center gap-3">
+            {/* Mobile Right: Get App + Book Now + Hamburger */}
+            <div className="lg:hidden flex items-center gap-2">
+              <a
+                href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 text-white px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap"
+              >
+                Get App
+              </a>
               <Link
                 href="/book"
                 className="bg-accent text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap"
@@ -387,6 +413,19 @@ export default function Navbar() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* Banner below menu bar */}
+        <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-4 text-center border-b border-slate-200 flex items-center justify-center gap-2 shadow-sm">
+          <span>Download App to get 10% off</span>
+          <a
+            href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-accent hover:bg-accent-hover text-white text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded transition-all ml-1.5 shadow-sm"
+          >
+            Get App ↗
+          </a>
         </div>
 
         {/* Mobile Full-screen Dropdown */}
@@ -557,6 +596,21 @@ export default function Navbar() {
                           )}
                         </AnimatePresence>
                       </div>
+                    );
+                  }
+
+                  if ((link as any).external) {
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-3 py-3 font-bold uppercase tracking-wider text-sm border-b border-white/5 text-white hover:text-accent"
+                      >
+                        {link.name} ↗
+                      </a>
                     );
                   }
 
