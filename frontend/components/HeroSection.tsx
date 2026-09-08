@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from '@/lib/pageVariables';
+import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 
 export default function HeroSection() {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
@@ -70,9 +71,10 @@ export default function HeroSection() {
               href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/20 hover:bg-white/5 hover:border-accent text-white font-semibold text-lg transition-all text-center"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/20 hover:bg-white/5 hover:border-accent text-white font-semibold text-lg transition-all text-center flex items-center justify-center gap-2"
             >
-              GET THE APP
+              <GooglePlayIcon className="w-5 h-5 shrink-0" />
+              <span>GET THE APP</span>
             </a>
           </motion.div>
 

@@ -10,6 +10,7 @@ import {
   Calendar, Star, Smartphone
 } from 'lucide-react';
 import BrandsMarquee from '@/components/BrandsMarquee';
+import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 import { submitQuery } from '@/lib/api';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
 
@@ -252,7 +253,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white border-2 border-white/20 hover:border-accent px-6 py-3.5 md:py-4 rounded-md font-black tracking-widest uppercase text-xs md:text-base transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <Smartphone className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-accent" />
+                  <GooglePlayIcon className="relative z-10 w-4 h-4 md:w-5 md:h-5 shrink-0" />
                   <span className="relative z-10">GET THE APP</span>
                 </a>
               </div>
