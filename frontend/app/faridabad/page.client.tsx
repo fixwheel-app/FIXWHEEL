@@ -457,7 +457,7 @@ export default function FaridabadClientPage() {
         <div className="wrap hero-grid">
           <div>
             <div className="eyebrow">Bike mechanic at your doorstep · Faridabad</div>
-            <h1>Doorstep Bike Repair<br /><em>in Faridabad</em></h1>
+            <h1>Bike Mechanic Near Me<br /><em>in Faridabad</em></h1>
             <p className="lead">FixWheel sends verified mobile mechanics directly to your house driveway, society parking lot, or office basement across Faridabad. No more pushing your broken motorcycle to local workshops — we carry the parts and tools to fix it on-site.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic in Faridabad →</Link>

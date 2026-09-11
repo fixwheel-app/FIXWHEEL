@@ -461,7 +461,7 @@ export default function NoidaClientPage() {
         <div className="wrap hero-grid">
           <div>
             <div className="eyebrow">Bike mechanic at your doorstep · Noida</div>
-            <h1>Doorstep Bike Repair<br /><em>in Noida</em></h1>
+            <h1>Bike Mechanic Near Me<br /><em>in Noida</em></h1>
             <p className="lead">FixWheel sends verified mechanics directly to your high-rise society, gated sector, or corporate office across Noida & Greater Noida. Forget towing your bike to local garages — we bring the tools and service to you.</p>
             <div className="hero-ctas">
               <Link href="/book" className="btn btn-primary">Book a Mechanic in Noida →</Link>
