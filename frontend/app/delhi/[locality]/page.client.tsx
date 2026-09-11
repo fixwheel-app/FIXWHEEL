@@ -105,7 +105,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
     return (
       <div style={{ padding: "80px 24px", textAlign: "center", color: "#EDEAE2", background: "#17181A", minHeight: "100vh" }}>
         <h2>Locality not found</h2>
-        <p style={{ marginTop: "12px" }}><Link href="/services/delhi" style={{ color: "#ff3b30" }}>Return to Delhi All Coverage →</Link></p>
+        <p style={{ marginTop: "12px" }}><Link href="/delhi" style={{ color: "#ff3b30" }}>Return to Delhi All Coverage →</Link></p>
       </div>
     );
   }
@@ -852,9 +852,9 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
           <p>{finalCta.p}</p>
           <Link href="/book" className="btn btn-dark">Book Bike Repair in {data.name} →</Link>
           <div className="silo">
-            <Link href="/services/delhi" className="hub">← All of Delhi</Link>
+            <Link href="/delhi" className="hub">← All of Delhi</Link>
             {otherSlugs.map((s) => (
-              <Link key={s} href={`/services/delhi/${s}`}>{LOCALITY_DB[s]?.name}</Link>
+              <Link key={s} href={`/delhi/${s}`}>{LOCALITY_DB[s]?.name}</Link>
             ))}
           </div>
         </div>
