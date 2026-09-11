@@ -54,7 +54,7 @@ export default function Home() {
     "@id": "https://www.fixwheel.app/#organization",
     "url": "https://www.fixwheel.app",
     "telephone": "+91 87459 45682",
-    "priceRange": "₹199 - ₹4999",
+    "priceRange": "₹99 - ₹18000",
     "description": "Top-rated doorstep bike repair and mobile two-wheeler mechanic service near you in Delhi and Gurgaon.",
     "knowsAbout": [
       "Bike Repair Near Me",
@@ -110,6 +110,8 @@ export default function Home() {
       "itemListElement": [
         {
           "@type": "Offer",
+          "price": "550",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
             "name": "Basic Service",
@@ -119,15 +121,19 @@ export default function Home() {
         },
         {
           "@type": "Offer",
+          "price": "999",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "Engine Oil Change",
+            "name": "Service with Engine Oil",
             "description": "Draining old engine oil, engine flushing, oil filter replacement, and refilling with fresh premium OEM-grade oil.",
             "url": "https://www.fixwheel.app/services/oil-change"
           }
         },
         {
           "@type": "Offer",
+          "price": "4500",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
             "name": "Engine Repair",
@@ -137,47 +143,57 @@ export default function Home() {
         },
         {
           "@type": "Offer",
+          "price": "399",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "Tyre Replacement",
-            "description": "Emergency on-site flat tyre repair, puncture fixing, and brand-new tyre fitting with warranty.",
-            "url": "https://www.fixwheel.app/services/tyre-replacement"
+            "name": "Puncture Repair",
+            "description": "Emergency on-site flat tyre puncture repair at your home, office, or roadside.",
+            "url": "https://www.fixwheel.app/pricing"
           }
         },
         {
           "@type": "Offer",
+          "price": "199",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "Brake Repair",
-            "description": "Brake shoe replacement, brake pad fitting, cable adjustment, and master cylinder check for safe braking.",
+            "name": "Brake Disc Replacement",
+            "description": "Brake shoe replacement, brake pad fitting, cable adjustment, and caliper check for safe braking.",
             "url": "https://www.fixwheel.app/services/brake-repair"
           }
         },
         {
           "@type": "Offer",
+          "price": "99",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "Battery Replacement",
-            "description": "On-the-spot battery voltage testing, jump-starts, and replacement with warranty-backed brand-new batteries.",
+            "name": "Battery Replacement (Labor)",
+            "description": "On-the-spot battery voltage testing, terminal cleaning, and professional battery installation.",
             "url": "https://www.fixwheel.app/services/battery-replacement"
           }
         },
         {
           "@type": "Offer",
+          "price": "399",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "General Washing",
-            "description": "Eco-friendly high-pressure water washing, foam cleaning, detailing, and chain polishing at your doorstep.",
-            "url": "https://www.fixwheel.app/services/general-washing"
+            "name": "Jump Start",
+            "description": "Immediate doorstep emergency battery jump-start service for drained batteries.",
+            "url": "https://www.fixwheel.app/pricing"
           }
         },
         {
           "@type": "Offer",
+          "price": "399",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
-            "name": "Comprehensive Service",
-            "description": "Complete top-to-bottom bumper-to-bumper bike servicing, inspection, lubrication, and tuning.",
-            "url": "https://www.fixwheel.app/services/comprehensive-service"
+            "name": "Running Repair",
+            "description": "Minor mechanical fixes, cable changes, clutch adjustments, lever replacements, and bulb fittings.",
+            "url": "https://www.fixwheel.app/pricing"
           }
         }
       ]

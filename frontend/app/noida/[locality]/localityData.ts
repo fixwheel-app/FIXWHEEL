@@ -444,7 +444,7 @@ Object.entries(RAW_LOCALITY_META).forEach(([slug, raw]) => {
     name: raw.name,
     slug: slug,
     eta: "45 min",
-    servicePrice: "499",
+    servicePrice: "550",
     aggregateRating: "4.7",
     reviewCount: "473",
     subRegionText: `${raw.landmarks[0]} stretch, ${raw.landmarks[1]} area, and local residential sectors.`,

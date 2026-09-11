@@ -49,7 +49,7 @@ function resolveLocalityData(cityConfig: any, citySlug: string, localitySlug: st
     name: formattedName,
     slug: localitySlug,
     eta: "45 min",
-    servicePrice: "499",
+    servicePrice: "799",
     aggregateRating: "4.8",
     reviewCount: "290",
     subRegionText: `${formattedName} stretch and local residential sectors in ${cityConfig.name}.`,

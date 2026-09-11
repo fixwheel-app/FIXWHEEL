@@ -18,7 +18,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Sports & Track",
     title: "Sports Bike Service at Doorstep",
     lead: "High-revving liquid-cooled motorcycles like Yamaha R15, MT-15, KTM RC 200/390, and TVS Apache RTR need precise maintenance to deliver maximum acceleration and engine cooling.",
-    startingPrice: "₹899",
+    startingPrice: "₹850",
     avgTime: "45 Mins",
     warranty: "15 Days Performance Warranty",
     descriptionParagraphs: [
@@ -63,7 +63,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "EV Maintenance",
     title: "Electric Scooter & EV Repair at Doorstep",
     lead: "Electric scooters like OLA S1 Pro, Ather 450X, TVS iQube, and Bajaj Chetak feature advanced electronics and belt drivetrains. Get doorstep EV diagnostics, battery health scans, and brake servicing.",
-    startingPrice: "₹599",
+    startingPrice: "₹799",
     avgTime: "45 Mins",
     warranty: "15 Days EV Technical Warranty",
     descriptionParagraphs: [
@@ -102,7 +102,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Royal Enfield Specialist",
     title: "Royal Enfield & Bullet Service at Doorstep",
     lead: "Royal Enfield cruisers demand dedicated valve clearance tuning, heavy-duty 15W-50 oil replacement, and chain tensioning to maintain their iconic thump and touring reliability.",
-    startingPrice: "₹699",
+    startingPrice: "₹850",
     avgTime: "45 Mins",
     warranty: "15 Days RE Labor Warranty",
     descriptionParagraphs: [
@@ -180,7 +180,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Commuter Maintenance",
     title: "Commuter Bike Service at Doorstep",
     lead: "Daily commuter bikes like Hero Splendor, Honda Shine, Bajaj Pulsar, and TVS Raider demand consistent care to deliver peak mileage and vibration-free rides.",
-    startingPrice: "₹199",
+    startingPrice: "₹550",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
@@ -214,7 +214,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Regular Maintenance",
     title: "Basic Bike Service at Doorstep",
     lead: "Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high.",
-    startingPrice: "₹199",
+    startingPrice: "₹550",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
@@ -238,7 +238,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       },
       {
         q: "Does the Basic Service price include engine oil?",
-        a: "The Basic Service is ₹199 labor checkup fee. If you need engine oil replacement, we offer OEM engine oil starting at ₹349 extra or you can book our 'Service with Engine Oil' package.",
+        a: "The Basic Service is ₹550 for commuter bikes and scooters (0-249cc). For comprehensive periodic servicing with genuine engine oil and filter replacement, you can book our 'Service with Engine Oil' package starting at ₹999.",
       },
     ],
     keywords: [
@@ -254,7 +254,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Fluid & Lubrication",
     title: "Bike Engine Oil Change at Doorstep",
     lead: "Engine oil is your bike's lifeblood. Prevent engine overheating and friction wear with 100% sealed genuine engine oil replacement (Motul, Yamalube, Castrol, HMSI, Liquid Gun) done at your home in 30 minutes.",
-    startingPrice: "₹349",
+    startingPrice: "₹999",
     avgTime: "45 Mins",
     warranty: "100% Sealed Genuine Oil Guarantee",
     descriptionParagraphs: [
@@ -287,7 +287,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Full Overhaul",
     title: "Comprehensive Bike Service at Doorstep",
     lead: "Give your motorcycle or scooter a complete health reset. Our 24-point comprehensive doorstep service includes premium synthetic oil change, carburetor/FI nozzle cleaning, brake overhaul, and deep lubrication.",
-    startingPrice: "₹899",
+    startingPrice: "₹999",
     avgTime: "45 Mins",
     warranty: "15 Days Full Labor Guarantee",
     descriptionParagraphs: [
@@ -321,7 +321,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Powertrain & Engine",
     title: "Bike Engine Repair & Overhaul",
     lead: "Experiencing engine knocking, metallic noise, white exhaust smoke, or loss of pickup? Get expert doorstep engine diagnostics, valve clearance tuning, and clutch plate overhauls.",
-    startingPrice: "₹699",
+    startingPrice: "₹4,500",
     avgTime: "45 Mins",
     warranty: "15 Days Mechanical Warranty",
     descriptionParagraphs: [
@@ -352,8 +352,8 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     serviceId: "battery-replacement",
     category: "Electrical Systems",
     title: "Bike Battery Replacement at Doorstep",
-    lead: "Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and instant replacement with fresh, zero-maintenance batteries from top brands.",
-    startingPrice: "₹1,299",
+    lead: "Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and professional installation starting at ₹99 labor.",
+    startingPrice: "₹99",
     avgTime: "45 Mins",
     warranty: "Official Brand Warranty Included",
     descriptionParagraphs: [
@@ -385,7 +385,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Safety Systems",
     title: "Bike Brake Repair & Pad Replacement",
     lead: "Brakes are your two-wheeler's most critical safety component. Squeaking noise, loose brake levers, or reduced stopping distance require immediate expert repair right at your doorstep.",
-    startingPrice: "₹299",
+    startingPrice: "₹199",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
@@ -412,76 +412,12 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       "two wheeler brake repair",
     ],
   },
-  "tyre-replacement": {
-    serviceId: "tyre-replacement",
-    category: "Wheels & Tyres",
-    title: "Bike Tyre Replacement & Repair at Home",
-    lead: "Worn tyre treads or frequent punctures compromise wet road grip and emergency braking safety. Get doorstep tubeless tyre installation with fresh air valves and air pressure calibration.",
-    startingPrice: "₹1,199",
-    avgTime: "45 Mins",
-    warranty: "Manufacturer Tyre Warranty Included",
-    descriptionParagraphs: [
-      "Riding on bald or cracked tyres increases braking distances, causes wheel wobbling at high speeds, and puts you at risk of sudden blowouts.",
-      "FixWheel provides doorstep tubeless & tube-type tyre replacements from top brands (MRF, CEAT, TVS Eurogrip, Michelin, Apollo) with scratch-free rim installation tools.",
-      "Our mechanics replace the air valve pin, inspect brake shoes, calibrate tire pressure, and dispose of old tires safely.",
-    ],
-    includedItems: [
-      "Doorstep delivery & scratch-free rim tubeless tyre fitting",
-      "Installation of fresh tubeless air valve stem & pin",
-      "Tire air pressure calibration to manufacturer PSI specs",
-      "Brake shoe & wheel bearing wear inspection during dismount",
-    ],
-    faqs: [
-      {
-        q: "What tyre brands do you provide for doorstep installation?",
-        a: "We supply brand new MRF Zapper, CEAT Zoom, TVS Eurogrip, and Michelin tyres with full manufacturer warranty.",
-      },
-    ],
-    keywords: [
-      "bike tyre replacement",
-      "tubeless tyre fitting at home",
-      "ceat bike tyre near me",
-      "mrf tyre replacement doorstep",
-    ],
-  },
-  "general-washing": {
-    serviceId: "general-washing",
-    category: "Cleaning & Polish",
-    title: "Bike General Washing & Detailing at Home",
-    lead: "Restore your two-wheeler's showroom shine without waiting in long garage queues. Get portable high-pressure foam washing, alloy degreasing, microfiber drying, and anti-rust gloss polishing right at your doorstep.",
-    startingPrice: "₹249",
-    avgTime: "45 Mins",
-    warranty: "100% Satisfaction Guarantee",
-    descriptionParagraphs: [
-      "Commuting through sludge and dusty roads builds up grime, grease, and salt deposits on your bike's engine fins, wheel hubs, and underbody.",
-      "FixWheel's mobile washing unit arrives at your home or office parking equipped with cordless high-pressure foam washers, pH-neutral car shampoos, chain degreaser sprays, and hydrophobic wax polishes.",
-      "We safely clean sensitive electrical components, degrease the drive chain, hand-dry with plush microfiber towels, and apply gloss protection.",
-    ],
-    includedItems: [
-      "Portable high-pressure snow foam wash with pH-balanced shampoo",
-      "Engine block, crankcase fins & alloy wheel rim deep degreasing",
-      "Plush microfiber towel hand drying & air blower moisture eviction",
-      "Drive chain cleaning & high-viscosity spray lube application",
-    ],
-    faqs: [
-      {
-        q: "Do I need to provide water or electricity for doorstep bike washing?",
-        a: "No! Our mobile wash vans carry onboard water tanks and battery-powered high-pressure washers.",
-      },
-    ],
-    keywords: [
-      "bike washing near me",
-      "doorstep bike foam wash",
-      "bike pressure wash at home",
-      "scooty cleaning service",
-    ],
-  },
   "premium-bike-service": {
     serviceId: "premium-bike-service",
     category: "High Performance",
     title: "Premium & Superbike Service at Doorstep",
     lead: "High-displacement motorcycles require precision torque settings, double-ester synthetic oils (Motul 300V/7100), coolant flushes, and delicate care. Get specialized superbike mechanics at your doorstep.",
-    startingPrice: "₹1,499",
+    startingPrice: "₹1,500",
     avgTime: "45 Mins",
     warranty: "15 Days Premium Labor Warranty",
     descriptionParagraphs: [

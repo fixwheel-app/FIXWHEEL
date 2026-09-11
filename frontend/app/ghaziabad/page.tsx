@@ -3,7 +3,7 @@ import GhaziabadClientPage from "./page.client";
 
 export const metadata: Metadata = {
   title: "Bike Mechanic Near Me in Ghaziabad – Doorstep Bike Repair & Scooter Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Ghaziabad? FixWheel sends verified mechanics to your home, office, or roadside 24/7. Doorstep bike repair & scooter service across Indirapuram, Vaishali, Kaushambi, Raj Nagar & all Ghaziabad areas. Starting ₹499.",
+  description: "Looking for a bike mechanic near me in Ghaziabad? FixWheel sends verified mechanics to your home, office, or roadside 24/7. Doorstep bike repair & scooter service across Indirapuram, Vaishali, Kaushambi, Raj Nagar & all Ghaziabad areas. Starting ₹550.",
   keywords: [
     "bike mechanic near me Ghaziabad",
     "two wheeler mechanic near me Ghaziabad",
@@ -70,7 +70,7 @@ const serviceSchema = {
     "telephone": "+918745945682",
     "email": "support@fixwheel.app",
     "image": "https://www.fixwheel.app/icon.png",
-    "priceRange": "₹199 - ₹18000",
+    "priceRange": "₹99 - ₹18000",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ghaziabad",
@@ -89,11 +89,11 @@ const serviceSchema = {
           "name": "Basic Service",
           "description": "Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check."
         },
-        "price": "499",
+        "price": "550",
         "priceCurrency": "INR",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "499",
+          "price": "550",
           "priceCurrency": "INR",
           "description": "Starting price for 0-249cc bikes"
         }
@@ -145,7 +145,7 @@ const serviceSchema = {
           "name": "Battery Replacement",
           "description": "Battery testing, jump-start, and full battery replacement."
         },
-        "price": "199",
+        "price": "99",
         "priceCurrency": "INR"
       },
       {
@@ -155,7 +155,7 @@ const serviceSchema = {
           "name": "Jump Start",
           "description": "On-location jump-start for two-wheelers that won't start."
         },
-        "price": "199",
+        "price": "399",
         "priceCurrency": "INR"
       },
       {

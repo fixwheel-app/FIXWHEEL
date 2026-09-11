@@ -258,16 +258,25 @@ const nextConfig = {
         destination: '/services/brake-repair/:city',
         permanent: true,
       },
-      // 301 Permanent Redirect for Tyre Replacement locality pages (locality pages removed, city pages kept under /services/tyre-replacement/:city)
+      // 301 Permanent Redirects for non-offered services (Tyre Replacement -> /pricing, General Washing -> /services/basic-service)
       {
-        source: '/services/tyre-replacement/:city/:locality+',
-        destination: '/services/tyre-replacement/:city',
+        source: '/services/tyre-replacement',
+        destination: '/pricing',
         permanent: true,
       },
-      // 301 Permanent Redirect for General Washing locality pages (locality pages removed, city pages kept under /services/general-washing/:city)
       {
-        source: '/services/general-washing/:city/:locality+',
-        destination: '/services/general-washing/:city',
+        source: '/services/tyre-replacement/:path*',
+        destination: '/pricing',
+        permanent: true,
+      },
+      {
+        source: '/services/general-washing',
+        destination: '/services/basic-service',
+        permanent: true,
+      },
+      {
+        source: '/services/general-washing/:path*',
+        destination: '/services/basic-service',
         permanent: true,
       },
       // 301 Permanent Redirects for legacy /brands/ URLs to clean root URLs

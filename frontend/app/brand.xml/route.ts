@@ -31,13 +31,11 @@ const SERVICES = [
   "comprehensive-service",
   "electric-scooter-repair",
   "engine-repair",
-  "general-washing",
   "oil-change",
   "premium-bike-service",
   "royal-enfield-service",
   "scooty-repair",
   "sports-bike-service",
-  "tyre-replacement",
 ];
 
 const CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];

@@ -79,7 +79,7 @@ const serviceSchema = {
     "telephone": "+918745945682",
     "email": "support@fixwheel.app",
     "image": "https://www.fixwheel.app/icon.png",
-    "priceRange": "₹199 - ₹18000",
+    "priceRange": "₹99 - ₹18000",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",
@@ -156,7 +156,7 @@ const serviceSchema = {
           "name": "Battery Replacement",
           "description": "Battery testing, jump-start assistance, and full replacement."
         },
-        "price": "199",
+        "price": "99",
         "priceCurrency": "INR"
       },
       {
@@ -166,7 +166,7 @@ const serviceSchema = {
           "name": "Jump Start",
           "description": "On-location jump-start for two-wheelers."
         },
-        "price": "199",
+        "price": "399",
         "priceCurrency": "INR"
       },
       {
