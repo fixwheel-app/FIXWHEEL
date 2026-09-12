@@ -157,12 +157,12 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Tyre Puncture Repair", "description": "On-site tubeless and tube tyre puncture repair at your doorstep." },
-          "price": "99", "priceCurrency": "INR"
+          "price": "399", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Comprehensive Bike Service", "description": "Full 21-point service including oil change, brake check, chain, spark plug, and electrical inspection." },
-          "price": "1499", "priceCurrency": "INR"
+          "price": "999", "priceCurrency": "INR"
         }
       ]
     }

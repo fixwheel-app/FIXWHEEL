@@ -113,7 +113,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN DLF PHASE 3", title: "Basic Service", desc: "Quick check of brakes, spark plugs, filters, and electrical circuits.", link: "/services/basic-service" },
       { rank: "#2 IN DLF PHASE 3", title: "Engine Oil Change", desc: "Complete draining and refill with high-grade motorcycle oil.", link: "/services/oil-change" },
-      { rank: "#3 IN DLF PHASE 3", title: "Puncture Repair", desc: "On-site tyre puncture fixes for tubeless and tube tyres.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN DLF PHASE 3", title: "Puncture Repair", desc: "On-site tyre puncture fixes for tubeless and tube tyres.", link: "/pricing" },
       { rank: "#4 IN DLF PHASE 3", title: "Clutch Tuning", desc: "Clutch plate adjustment and cable replacement.", link: "/services/brake-repair" }
     ]
   },
@@ -215,7 +215,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN SUSHANT LOK", title: "Basic Service", desc: "Spark plug, air filter, brake and electrical systems check.", link: "/services/basic-service" },
       { rank: "#2 IN SUSHANT LOK", title: "Engine Oil Change", desc: "Oil drain, oil filter clean, and refilling with OEM oil.", link: "/services/oil-change" },
-      { rank: "#3 IN SUSHANT LOK", title: "Tyre Replacement", desc: "Replacing tyres or repairing tube/tubeless punctures.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN SUSHANT LOK", title: "Tyre Replacement", desc: "Replacing tyres or repairing tube/tubeless punctures.", link: "/pricing" },
       { rank: "#4 IN SUSHANT LOK", title: "Carburetor Clean", desc: "Carburetor cleaning and tuning for optimal mileage.", link: "/book" }
     ]
   },
@@ -283,7 +283,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN SOHNA ROAD", title: "Basic Service", desc: "General tuning, brake checks, and filter cleans for daily commuters.", link: "/services/basic-service" },
       { rank: "#2 IN SOHNA ROAD", title: "Engine Oil Change", desc: "OEM-grade oil refilled and old oil safely drained.", link: "/services/oil-change" },
-      { rank: "#3 IN SOHNA ROAD", title: "Puncture Repair", desc: "Spot tyre repair for tubeless scooters and motorcycles.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN SOHNA ROAD", title: "Puncture Repair", desc: "Spot tyre repair for tubeless scooters and motorcycles.", link: "/pricing" },
       { rank: "#4 IN SOHNA ROAD", title: "Chain Sprocket", desc: "Replacing drive chains and sprockets at your doorstep.", link: "/book" }
     ]
   },
@@ -318,7 +318,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN UDYOG VIHAR", title: "Basic Service", desc: "Brake checkup, chain lubing, and general component test.", link: "/services/basic-service" },
       { rank: "#2 IN UDYOG VIHAR", title: "Jump Start Service", desc: "On-site battery jump-starts for commuter bikes.", link: "/book" },
       { rank: "#3 IN UDYOG VIHAR", title: "Engine Oil Change", desc: "Full oil change and disposal of old lubricants.", link: "/services/oil-change" },
-      { rank: "#4 IN UDYOG VIHAR", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN UDYOG VIHAR", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/pricing" }
     ]
   },
   "dwarka-expressway": {
@@ -351,7 +351,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN DWARKA EXPRESSWAY", title: "Basic Service", desc: "Spark plug, chain lubrication, and brake alignment check.", link: "/services/basic-service" },
       { rank: "#2 IN DWARKA EXPRESSWAY", title: "Engine Oil Change", desc: "Draining oil and replacing with high-grade semi-synthetic.", link: "/services/oil-change" },
-      { rank: "#3 IN DWARKA EXPRESSWAY", title: "Tyre Replacement", desc: "Replacing tyres or repairing flats on-site.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN DWARKA EXPRESSWAY", title: "Tyre Replacement", desc: "Replacing tyres or repairing flats on-site.", link: "/pricing" },
       { rank: "#4 IN DWARKA EXPRESSWAY", title: "Chain Sprocket", desc: "Full drive chain and sprocket replacements.", link: "/book" }
     ]
   },
@@ -385,7 +385,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN MG ROAD", title: "Basic Service", desc: "Spark plug clean, filter check, and brake checkups.", link: "/services/basic-service" },
       { rank: "#2 IN MG ROAD", title: "Engine Oil Change", desc: "Mineral or synthetic engine oil change with filter clean.", link: "/services/oil-change" },
-      { rank: "#3 IN MG ROAD", title: "Puncture Repair", desc: "On-site puncture repairs for tubeless two-wheelers.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN MG ROAD", title: "Puncture Repair", desc: "On-site puncture repairs for tubeless two-wheelers.", link: "/pricing" },
       { rank: "#4 IN MG ROAD", title: "Brake Disc Replacement", desc: "Replacing brake pads and cable adjustments.", link: "/services/brake-repair" }
     ]
   },
@@ -418,7 +418,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     topServices: [
       { rank: "#1 IN CYBER CITY", title: "Jump Start Service", desc: "Emergency battery jump-start inside office parkings.", link: "/book" },
-      { rank: "#2 IN CYBER CITY", title: "Puncture Repair", desc: "On-location puncture checks and flat tyre repairs.", link: "/services/tyre-replacement" },
+      { rank: "#2 IN CYBER CITY", title: "Puncture Repair", desc: "On-location puncture checks and flat tyre repairs.", link: "/pricing" },
       { rank: "#3 IN CYBER CITY", title: "Basic Service", desc: "Brakes, plugs, and electrical systems check.", link: "/services/basic-service" },
       { rank: "#4 IN CYBER CITY", title: "OBD Scanner Diagnostics", desc: "Scanning engine codes for troubleshooting.", link: "/book" }
     ]
@@ -556,7 +556,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN SECTOR 14", title: "Basic Service", desc: "Plug check, chain lubrication, and brake alignments.", link: "/services/basic-service" },
       { rank: "#2 IN SECTOR 14", title: "Engine Oil Change", desc: "Full oil flush and replacement with OEM oil.", link: "/services/oil-change" },
       { rank: "#3 IN SECTOR 14", title: "Carburetor Service", desc: "Cleaning, tuning, and fuel line checks.", link: "/book" },
-      { rank: "#4 IN SECTOR 14", title: "Tyre Replacement", desc: "On-site tyre replacements with brand warranties.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN SECTOR 14", title: "Tyre Replacement", desc: "On-site tyre replacements with brand warranties.", link: "/pricing" }
     ]
   },
   "sector-15": {
@@ -624,7 +624,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN SECTOR 17", title: "Basic Service", desc: "Brake tune-ups, spark plug cleaning, and general inspections.", link: "/services/basic-service" },
       { rank: "#2 IN SECTOR 17", title: "Battery Swap", desc: "Battery test and replacement with brand warranty.", link: "/services/battery-replacement" },
       { rank: "#3 IN SECTOR 17", title: "Engine Oil Change", desc: "Draining oil, flush, and fresh OEM refill.", link: "/services/oil-change" },
-      { rank: "#4 IN SECTOR 17", title: "Puncture Repair", desc: "On-site tubeless puncture fixes.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN SECTOR 17", title: "Puncture Repair", desc: "On-site tubeless puncture fixes.", link: "/pricing" }
     ]
   },
   "sector-23": {
@@ -759,7 +759,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN SECTOR 45", title: "Basic Service", desc: "Tuning, lubing, plugs, and general electric check.", link: "/services/basic-service" },
       { rank: "#2 IN SECTOR 45", title: "Engine Oil Change", desc: "Oil swap and general mechanical checkup.", link: "/services/oil-change" },
-      { rank: "#3 IN SECTOR 45", title: "Tyre Replacement", desc: "Tyre swap and tubeless puncture checks.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN SECTOR 45", title: "Tyre Replacement", desc: "Tyre swap and tubeless puncture checks.", link: "/pricing" },
       { rank: "#4 IN SECTOR 45", title: "Chain Sprocket", desc: "Drive chain kit and sprocket replacement.", link: "/book" }
     ]
   },
@@ -828,7 +828,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN SECTOR 47", title: "Basic Service", desc: "Brakes, plugs, and electrical systems check.", link: "/services/basic-service" },
       { rank: "#2 IN SECTOR 47", title: "Engine Oil Change", desc: "Oil swap and disposal of old engine oil.", link: "/services/oil-change" },
       { rank: "#3 IN SECTOR 47", title: "OBD Scanning", desc: "Electronic scanning to verify check engine light codes.", link: "/book" },
-      { rank: "#4 IN SECTOR 47", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN SECTOR 47", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/pricing" }
     ]
   },
   "sector-49": {
@@ -930,7 +930,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN SECTOR 56", title: "Basic Service", desc: "Plugs, filters, lubing, and electrical safety check.", link: "/services/basic-service" },
       { rank: "#2 IN SECTOR 56", title: "Engine Oil Change", desc: "Full oil change and filter replacement.", link: "/services/oil-change" },
       { rank: "#3 IN SECTOR 56", title: "Brake Shoe Repair", desc: "Brake shoe, pad replacement, and cable calibrations.", link: "/services/brake-repair" },
-      { rank: "#4 IN SECTOR 56", title: "Tyre Replacement", desc: "Replacing tyres or repairing flats on-site.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN SECTOR 56", title: "Tyre Replacement", desc: "Replacing tyres or repairing flats on-site.", link: "/pricing" }
     ]
   },
   "sector-57": {
@@ -1032,7 +1032,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN ASHOK VIHAR", title: "Basic Service", desc: "Brake check, chain clean, spark plug clean, and air filter check.", link: "/services/basic-service" },
       { rank: "#2 IN ASHOK VIHAR", title: "Engine Oil Change", desc: "Full oil change and filter replacement.", link: "/services/oil-change" },
       { rank: "#3 IN ASHOK VIHAR", title: "Battery Swap", desc: "Battery test and replacement with brand warranty.", link: "/services/battery-replacement" },
-      { rank: "#4 IN ASHOK VIHAR", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN ASHOK VIHAR", title: "Puncture Repair", desc: "On-site tubeless puncture extraction and plug insertion.", link: "/pricing" }
     ]
   },
   "huda-city-centre": {
@@ -1066,7 +1066,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN HUDA CITY CENTRE", title: "Basic Service", desc: "Electrical and mechanical check for daily two-wheelers.", link: "/services/basic-service" },
       { rank: "#2 IN HUDA CITY CENTRE", title: "Jump Start Service", desc: "Quick battery jump-starts for dead vehicles.", link: "/book" },
       { rank: "#3 IN HUDA CITY CENTRE", title: "Engine Oil Change", desc: "Oil swap and general mechanical checkup.", link: "/services/oil-change" },
-      { rank: "#4 IN HUDA CITY CENTRE", title: "Puncture Repair", desc: "On-site tubeless puncture fixes.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN HUDA CITY CENTRE", title: "Puncture Repair", desc: "On-site tubeless puncture fixes.", link: "/pricing" }
     ]
   },
   "manesar": {
@@ -1134,7 +1134,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN BHONDSI", title: "Basic Service", desc: "Regular mechanical checks and minor adjustments.", link: "/services/basic-service" },
       { rank: "#2 IN BHONDSI", title: "Engine Oil Change", desc: "Mineral or synthetic engine oil change with filter clean.", link: "/services/oil-change" },
       { rank: "#3 IN BHONDSI", title: "Clutch Cable Swap", desc: "On-site clutch cable replacement and tuning.", link: "/services/brake-repair" },
-      { rank: "#4 IN BHONDSI", title: "Puncture Repair", desc: "On-site puncture repairs for tubeless two-wheelers.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN BHONDSI", title: "Puncture Repair", desc: "On-site puncture repairs for tubeless two-wheelers.", link: "/pricing" }
     ]
   },
   "badshahpur": {

@@ -5,6 +5,7 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import CityServicesGrid from "@/components/CityServicesGrid";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 
 const oswald = Oswald({
@@ -554,109 +555,8 @@ export default function GurgaonClientPage() {
           <div className="section-head">
             <div className="eyebrow">Services & pricing</div>
             <h2>Bike Repair & Service Packages in Gurgaon</h2>
-            <p>We do all services at your doorstep in Gurgaon. Select a service to see the pricing for your bike.</p>
           </div>
-          <div className="svc-grid">
-            <div className="svc-card">
-              <span className="svc-tag mono">[SPORTS BIKE]</span>
-              <h3>Sports Bike Service & Repair</h3>
-              <p>Specialized liquid coolant flush, synthetic oil change, laser chain alignment & sensor scan for R15, MT-15, KTM, Apache in Gurgaon.</p>
-              <div className="svc-price">₹899 <span>starting from</span></div>
-              <Link href="/sports-bike-service" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[EV SCOOTER]</span>
-              <h3>EV & Electric Scooter Repair</h3>
-              <p>Doorstep battery BMS diagnostic check, belt drive tensioning, electronic sensor scan & brake repair for Ola, Ather, TVS iQube, Chetak in Gurgaon.</p>
-              <div className="svc-price">₹599 <span>starting from</span></div>
-              <Link href="/services/electric-scooter-repair" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[BASIC]</span>
-              <h3>Basic Service</h3>
-              <p>Brake adjustment, chain lube, spark plug clean, air filter check, electrical check — keeps your daily ride reliable.</p>
-              <div className="svc-price">₹550 <span>starting from</span></div>
-              <Link href="/services/basic-service" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[OIL]</span>
-              <h3>Service with Engine Oil</h3>
-              <p>Old oil drained and disposed, fresh OEM-grade oil refilled, oil filter inspection, spark plug check and chain lube.</p>
-              <div className="svc-price">₹999 <span>starting from</span></div>
-              <Link href="/services/oil-change" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[ENGINE]</span>
-              <h3>Engine Repair</h3>
-              <p>Full engine diagnosis, fault repair and component inspection, done at your doorstep by a verified mechanic.</p>
-              <div className="svc-price">₹4,500 <span>starting from (half engine)</span></div>
-              <Link href="/services/engine-repair" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[PUNCTURE]</span>
-              <h3>Puncture Repair</h3>
-              <p>Flat tyre puncture repair on the spot — wherever you are parked or stranded in Gurugram.</p>
-              <div className="svc-price">₹399 <span>starting from</span></div>
-              <Link href="/services/tyre-replacement" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[BRAKE]</span>
-              <h3>Brake Disc Replacement</h3>
-              <p>Brake disc replacement, pad or shoe replacement, cable adjustment, handled right at your doorstep.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/services/brake-repair" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[BATTERY]</span>
-              <h3>Battery Replacement</h3>
-              <p>Battery testing, jump-start assistance, and full replacement using standard-spec batteries.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/services/battery-replacement" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[JUMPSTART]</span>
-              <h3>Jump Start</h3>
-              <p>Bike not starting? We come to your location and jump-start your two-wheeler on the spot.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[RUNNING]</span>
-              <h3>Running Repair</h3>
-              <p>On-the-spot fixes for common breakdown issues so you can get moving again.</p>
-              <div className="svc-price">₹399 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[CARB]</span>
-              <h3>Carburetor Cleaning</h3>
-              <p>Complete carburetor cleaning and tuning to improve fuel efficiency and engine performance.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[OBD]</span>
-              <h3>Inspection with OBD Scanner</h3>
-              <p>We connect a diagnostic scanner to your bike's system to read fault codes and find engine or electrical issues early.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[CHAIN]</span>
-              <h3>Chain Sprocket Replacement</h3>
-              <p>Worn chain and sprocket replaced with standard-spec parts for smooth and safe riding.</p>
-              <div className="svc-price">₹299 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[PICKUP]</span>
-              <h3>Pick and Drop</h3>
-              <p>We pick up your bike, service it at a certified facility, and return it to you.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-          </div>
-          <p className="svc-note">Exact pricing depends on your bike type and model — select a service above to see your rate, or <Link href="/book">book directly here</Link>.</p>
+          <CityServicesGrid cityName="Gurgaon" />
         </div>
       </section>
 

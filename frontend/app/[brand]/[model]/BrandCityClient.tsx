@@ -593,7 +593,7 @@ export default function BrandCityClient({ brandSlug, citySlug }: BrandCityClient
                 <h3>Basic Bike Service</h3>
                 <p>21-point checkup, brake adjust, spark plug clean, air filter check & electrical system check in {cityName}.</p>
               </div>
-              <div className="price">₹499 <span>starting from</span></div>
+              <div className="price">₹550 <span>starting from</span></div>
             </div>
             <div className="service-card">
               <div>

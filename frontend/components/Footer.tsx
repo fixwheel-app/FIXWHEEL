@@ -102,7 +102,7 @@ export default function Footer() {
             <span className="text-white/20">•</span>
             <Link href="/services/battery-replacement" className="hover:text-white transition-colors">Bike Battery Replacement Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/tyre-replacement" className="hover:text-white transition-colors">Bike Tyre Repair Near Me</Link>
+            <Link href="/pricing" className="hover:text-white transition-colors">Bike Tyre Repair Near Me</Link>
           </div>
         </div>
 

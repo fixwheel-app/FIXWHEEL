@@ -87,7 +87,7 @@ export default function NoidaLocalityPage({ params }: { params: { locality: stri
             "name": "Basic Service",
             "description": "Brake adjustment, chain lube, spark plug clean, air filter check, electrical check."
           },
-          "price": "499",
+          "price": "550",
           "priceCurrency": "INR"
         },
         {

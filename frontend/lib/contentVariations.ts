@@ -123,7 +123,7 @@ export function getFinalCTAText(localityName: string): { h2: string; p: string }
   const variations = [
     {
       h2: `Book Professional Doorstep Service in ${localityName} Today.`,
-      p: `Verified mechanics, transparent billing, and premium spare parts at your home or office in ${localityName}. Packages starting at just ₹499.`
+      p: `Verified mechanics, transparent billing, and premium spare parts at your home or office in ${localityName}. Packages starting at just ₹550.`
     },
     {
       h2: `Get Your Bike Fixed Right at Your ${localityName} Residence.`,

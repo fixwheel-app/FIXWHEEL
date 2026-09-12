@@ -5,6 +5,7 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import CityServicesGrid from "@/components/CityServicesGrid";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 
 const oswald = Oswald({
@@ -488,7 +489,7 @@ export default function NoidaClientPage() {
               <div className="r"><label>Response</label><div>27 min</div></div>
             </div>
             <div className="ticket-foot">
-              <div className="total"><span>Total paid</span><b>₹499</b></div>
+              <div className="total"><span>Total paid</span><b>₹550</b></div>
               <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>NOIDA · NCR</div>
             </div>
           </div>
@@ -551,95 +552,8 @@ export default function NoidaClientPage() {
           <div className="section-head">
             <div className="eyebrow">Services & pricing</div>
             <h2>Two Wheeler Service & Repair in Noida</h2>
-            <p>Flat-rate doorstep repairs across all Noida sectors. Select any service to explore specialized pricing details.</p>
           </div>
-          <div className="svc-grid">
-            <div className="svc-card">
-              <span className="svc-tag mono">[BASIC]</span>
-              <h3>Basic Service</h3>
-              <p>Brake adjustment, chain lubrication, air filter check, spark plug cleaning, and general electric checkups.</p>
-              <div className="svc-price">₹499 <span>starting from</span></div>
-              <Link href="/services/basic-service" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[OIL]</span>
-              <h3>Engine Oil Change</h3>
-              <p>Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.</p>
-              <div className="svc-price">₹999 <span>starting from</span></div>
-              <Link href="/services/oil-change" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[ENGINE]</span>
-              <h3>Engine Repair</h3>
-              <p>Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.</p>
-              <div className="svc-price">₹4,500 <span>starting from (half engine)</span></div>
-              <Link href="/services/engine-repair" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[PUNCTURE]</span>
-              <h3>Puncture Repair</h3>
-              <p>Flat tyre fixed on the spot — whether you are parked at home or stranded roadside in Noida.</p>
-              <div className="svc-price">₹399 <span>starting from</span></div>
-              <Link href="/services/tyre-replacement" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[BRAKE]</span>
-              <h3>Brake Disc Replacement</h3>
-              <p>Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/services/brake-repair" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[BATTERY]</span>
-              <h3>Battery Replacement</h3>
-              <p>Battery testing, jump-start assistance, and full replacement using standard-spec batteries.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/services/battery-replacement" className="go">View pricing →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[JUMPSTART]</span>
-              <h3>Jump Start</h3>
-              <p>Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[RUNNING]</span>
-              <h3>Running Repair</h3>
-              <p>Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.</p>
-              <div className="svc-price">₹399 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[CARB]</span>
-              <h3>Carburetor Cleaning</h3>
-              <p>Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[OBD]</span>
-              <h3>OBD Scanner Inspection</h3>
-              <p>A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[CHAIN]</span>
-              <h3>Chain Sprocket Replacement</h3>
-              <p>Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.</p>
-              <div className="svc-price">₹299 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-            <div className="svc-card">
-              <span className="svc-tag mono">[PICKUP]</span>
-              <h3>Pick and Drop</h3>
-              <p>We collect your bike from your location, get it serviced, and deliver it back — you stay put.</p>
-              <div className="svc-price">₹199 <span>starting from</span></div>
-              <Link href="/book" className="go">Book now →</Link>
-            </div>
-          </div>
-          <p className="svc-note">Pricing depends on your bike model and cc — select a service above to check, or <Link href="/book">book directly here</Link>.</p>
+          <CityServicesGrid cityName="Noida" />
         </div>
       </section>
 
@@ -782,7 +696,7 @@ export default function NoidaClientPage() {
             </div>
             <div className={`faq-item ${openFaqs[1] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(1)}>What does doorstep bike repair cost in Noida?<span className="plus">+</span></div>
-              <div className="faq-a"><p>Basic service starts from ₹499 depending on your bike model. We confirm the exact price before starting any work.</p></div>
+              <div className="faq-a"><p>Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work.</p></div>
             </div>
             <div className={`faq-item ${openFaqs[2] ? "open" : ""}`}>
               <div className="faq-q" onClick={() => toggleFaq(2)}>Which areas in Noida does FixWheel cover?<span className="plus">+</span></div>
@@ -871,7 +785,7 @@ export default function NoidaClientPage() {
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
           <h2>Book doorstep bike repair in Noida.</h2>
-          <p>Verified mechanic at your home or office across Sector 18, 62, 137, 150 & all Noida sectors. Starting ₹499.</p>
+          <p>Verified mechanic at your home or office across Sector 18, 62, 137, 150 & all Noida sectors. Starting ₹550.</p>
           <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
         </div>
       </section>

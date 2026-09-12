@@ -114,7 +114,7 @@ export default function LocalityPage({ params }: { params: { locality: string } 
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Basic Bike Service", "description": "Brake adjustment, chain lube, spark plug clean, air filter check, 21-point safety inspection." },
-          "price": "499", "priceCurrency": "INR"
+          "price": "550", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
@@ -134,12 +134,12 @@ export default function LocalityPage({ params }: { params: { locality: string } 
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Tyre Puncture Repair", "description": "On-site tubeless and tube tyre puncture repair at your doorstep." },
-          "price": "99", "priceCurrency": "INR"
+          "price": "399", "priceCurrency": "INR"
         },
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Comprehensive Bike Service", "description": "Full 21-point service including oil change, brake check, chain, spark plug, and electrical inspection." },
-          "price": "1499", "priceCurrency": "INR"
+          "price": "999", "priceCurrency": "INR"
         }
       ]
     }

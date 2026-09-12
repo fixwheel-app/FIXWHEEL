@@ -237,7 +237,7 @@ const faqSchema = {
       "name": "What does doorstep bike repair cost in Ghaziabad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹499 depending on your bike model. We confirm the exact price before starting any work."
+        "text": "Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work."
       }
     },
     {

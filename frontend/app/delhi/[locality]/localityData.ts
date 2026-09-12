@@ -46,7 +46,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN DWARKA", title: "Basic Service", desc: "Brake check, chain clean, spark plug clean, and air filter check.", link: "/services/basic-service" },
       { rank: "#2 IN DWARKA", title: "Engine Oil Change", desc: "Old oil drained, OEM-grade oil refilled, and oil filter checked.", link: "/services/oil-change" },
       { rank: "#3 IN DWARKA", title: "Battery Replacement", desc: "On-site battery diagnostic, jump-start, and warranty replacement.", link: "/services/battery-replacement" },
-      { rank: "#4 IN DWARKA", title: "Tyre Replacement", desc: "Quick flat tyre repairs and tyre changes at home.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN DWARKA", title: "Tyre Replacement", desc: "Quick flat tyre repairs and tyre changes at home.", link: "/pricing" }
     ]
   },
   "vasant-kunj": {
@@ -113,7 +113,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { rank: "#1 IN KAPASHERA", title: "Basic Service", desc: "Electrical checks, brake adjustments, and chain lubing.", link: "/services/basic-service" },
       { rank: "#2 IN KAPASHERA", title: "Engine Oil Change", desc: "Safely draining old oil and replacing it with fresh OEM oil.", link: "/services/oil-change" },
       { rank: "#3 IN KAPASHERA", title: "Jump Start Service", desc: "Emergency battery jump-start for commuter bikes.", link: "/book" },
-      { rank: "#4 IN KAPASHERA", title: "Puncture Extraction", desc: "On-site tyre repair for tubeless scooters.", link: "/services/tyre-replacement" }
+      { rank: "#4 IN KAPASHERA", title: "Puncture Extraction", desc: "On-site tyre repair for tubeless scooters.", link: "/pricing" }
     ]
   },
   "mahipalpur": {
@@ -210,7 +210,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN RANGPURI", title: "Basic Service", desc: "Spark plug, brakes, and electrical checkups.", link: "/services/basic-service" },
       { rank: "#2 IN RANGPURI", title: "Engine Oil Change", desc: "Drain old oil and fill recommended OEM engine oil.", link: "/services/oil-change" },
-      { rank: "#3 IN RANGPURI", title: "Puncture Repair", desc: "On-site flat tyre fixing for tubeless scooters.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN RANGPURI", title: "Puncture Repair", desc: "On-site flat tyre fixing for tubeless scooters.", link: "/pricing" },
       { rank: "#4 IN RANGPURI", title: "Battery Jumpstart", desc: "Jump-starting bikes that won't start.", link: "/book" }
     ]
   },
@@ -309,7 +309,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN NAJAFGARH ROAD", title: "Basic Service", desc: "Chain lube, plug clean, and brake adjustments.", link: "/services/basic-service" },
       { rank: "#2 IN NAJAFGARH ROAD", title: "Engine Oil Change", desc: "Safely draining old oil and fresh OEM refill.", link: "/services/oil-change" },
-      { rank: "#3 IN NAJAFGARH ROAD", title: "Puncture Repair", desc: "On-site tubeless puncture fixing and tyre check.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN NAJAFGARH ROAD", title: "Puncture Repair", desc: "On-site tubeless puncture fixing and tyre check.", link: "/pricing" },
       { rank: "#4 IN NAJAFGARH ROAD", title: "Chain Kit Replacement", desc: "Drive chain sprocket replacement at your location.", link: "/book" }
     ]
   },
@@ -370,12 +370,12 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Can you service my bike in the narrow lanes of Uttam Nagar?", a: "Yes, our mobile mechanics travel on commuter bikes carrying all compact toolkits, making it easy to reach narrow lanes." },
-      { q: "Is pricing fixed for all blocks?", a: "Yes, starting at ₹499. Any spare parts added will be pre-approved by you." }
+      { q: "Is pricing fixed for all blocks?", a: "Yes, starting at ₹550. Any spare parts added will be pre-approved by you." }
     ],
     topServices: [
       { rank: "#1 IN UTTAM NAGAR", title: "Basic Service", desc: "General mechanical check, plug clean, chain lube.", link: "/services/basic-service" },
       { rank: "#2 IN UTTAM NAGAR", title: "Engine Oil Change", desc: "OEM oil refilling and old oil disposal.", link: "/services/oil-change" },
-      { rank: "#3 IN UTTAM NAGAR", title: "Tyre Replacement", desc: "Brand tyre replacement and tyre health check.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN UTTAM NAGAR", title: "Puncture Repair", desc: "Doorstep tyre puncture repair and tyre health check.", link: "/pricing" },
       { rank: "#4 IN UTTAM NAGAR", title: "Battery Replacement", desc: "Battery diagnostic and replacement.", link: "/services/battery-replacement" }
     ]
   },
@@ -442,7 +442,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN VIKASPURI", title: "Basic Service", desc: "Quick check of brakes, spark plugs, filters, and lubing.", link: "/services/basic-service" },
       { rank: "#2 IN VIKASPURI", title: "Engine Oil Change", desc: "Old oil drainage and fresh synthetic/mineral oil refill.", link: "/services/oil-change" },
-      { rank: "#3 IN VIKASPURI", title: "Tyre Puncture Repair", desc: "Spot tyre repair for tubeless and tube two-wheelers.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN VIKASPURI", title: "Tyre Puncture Repair", desc: "Spot tyre repair for tubeless and tube two-wheelers.", link: "/pricing" },
       { rank: "#4 IN VIKASPURI", title: "Clutch Tuning", desc: "Clutch wire adjustment and cable replacement.", link: "/services/brake-repair" }
     ]
   },
@@ -538,7 +538,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN NAWADA", title: "Basic Service", desc: "Spark plug, air filter, brake and electrical systems check.", link: "/services/basic-service" },
       { rank: "#2 IN NAWADA", title: "Engine Oil Change", desc: "Oil drain and refilling with recommended OEM oil.", link: "/services/oil-change" },
-      { rank: "#3 IN NAWADA", title: "Tyre Puncture Repair", desc: "On-site tubeless tire puncture repair.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN NAWADA", title: "Tyre Puncture Repair", desc: "On-site tubeless tire puncture repair.", link: "/pricing" },
       { rank: "#4 IN NAWADA", title: "Battery Test & Swap", desc: "Jump start and battery replacements with brand warranty.", link: "/services/battery-replacement" }
     ]
   },
@@ -603,7 +603,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN SUBHASH NAGAR", title: "Basic Service", desc: "Spark plug clean, filter check, brake adjustment.", link: "/services/basic-service" },
       { rank: "#2 IN SUBHASH NAGAR", title: "Engine Oil Change", desc: "Oil change and engine oil filter checkup.", link: "/services/oil-change" },
-      { rank: "#3 IN SUBHASH NAGAR", title: "Tyre Replacement", desc: "Tyre inspection and replacement on-site.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN SUBHASH NAGAR", title: "Tyre Replacement", desc: "Tyre inspection and replacement on-site.", link: "/pricing" },
       { rank: "#4 IN SUBHASH NAGAR", title: "Battery Replacement", desc: "On-site battery diagnostic and replacement.", link: "/services/battery-replacement" }
     ]
   },
@@ -697,7 +697,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Are your mechanics background-verified in Punjabi Bagh?", a: "Yes, every mechanic on our platform undergoes rigorous identity and background checks." },
-      { q: "Is pricing fixed for all scooter brands?", a: "Yes, starting at ₹499. The price is pre-agreed before the job begins." }
+      { q: "Is pricing fixed for all scooter brands?", a: "Yes, starting at ₹550. The price is pre-agreed before the job begins." }
     ],
     topServices: [
       { rank: "#1 IN PUNJABI BAGH", title: "Basic Service", desc: "General tuning, electrical system check, brake adjustment.", link: "/services/basic-service" },
@@ -801,7 +801,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN ROHINI", title: "Basic Service", desc: "Spark plug clean, filter check, brake adjustment.", link: "/services/basic-service" },
       { rank: "#2 IN ROHINI", title: "Engine Oil Change", desc: "Old engine oil drainage and premium OEM refill.", link: "/services/oil-change" },
-      { rank: "#3 IN ROHINI", title: "Tyre Replacement", desc: "Brand tyre replacement and tyre health check.", link: "/services/tyre-replacement" },
+      { rank: "#3 IN ROHINI", title: "Tyre Replacement", desc: "Brand tyre replacement and tyre health check.", link: "/pricing" },
       { rank: "#4 IN ROHINI", title: "Battery Test & Swap", desc: "Battery test and replacement on the spot.", link: "/services/battery-replacement" }
     ]
   },
