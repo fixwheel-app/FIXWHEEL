@@ -1,4 +1,5 @@
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
+import { normalizePublicCount } from '@/lib/publicStatsNormalization';
 
 export interface PageVariables {
   bikesServiced: number;
@@ -10,6 +11,7 @@ export interface PageVariables {
   startingPrice: string;
   averageRating: number;
   totalReviews: number;
+  bikesServicedScope: 'global' | 'city';
   hasManualOverride: boolean;
 }
 
@@ -23,6 +25,7 @@ export const DEFAULT_PAGE_VARIABLES: PageVariables = {
   startingPrice: '₹399',
   averageRating: 4.8,
   totalReviews: 100,
+  bikesServicedScope: 'global',
   hasManualOverride: false,
 };
 
@@ -54,6 +57,7 @@ export async function getPageVariables(
     startingPrice: defaults.defaultPrice || '₹399',
     averageRating: publicStats.average_rating,
     totalReviews: publicStats.total_reviews,
+    bikesServicedScope: citySlug.toLowerCase().trim() === 'global' ? 'global' : 'city',
     hasManualOverride: false,
   };
 
@@ -84,19 +88,29 @@ export async function getPageVariables(
         if (override) {
           resolved.hasManualOverride = true;
 
+          if (override.use_global_bikes === true) {
+            const globalStats = await getPublicStatsForCity('global');
+            resolved.bikesServiced = globalStats.bikes_serviced;
+            resolved.bikesServicedText = `${globalStats.bikes_serviced}+`;
+            resolved.bikesServicedScope = 'global';
+          }
+
           if (override.use_manual_bikes && override.bikes_serviced_override !== null && override.bikes_serviced_override !== undefined && override.bikes_serviced_override !== '') {
             let bText = String(override.bikes_serviced_override).trim();
             if (/^\d+$/.test(bText)) {
               bText = `${bText}+`;
             }
             resolved.bikesServicedText = bText;
-            resolved.bikesServiced = parseInt(bText) || publicStats.bikes_serviced;
+            resolved.bikesServiced = normalizePublicCount(parseInt(bText, 10), publicStats.bikes_serviced);
+            if (override.page_key === 'global') {
+              resolved.bikesServicedScope = 'global';
+            }
           }
 
           if (override.use_manual_partners && override.partners_override !== null && override.partners_override !== undefined && override.partners_override !== '') {
             let pText = String(override.partners_override).trim();
             resolved.totalPartnersText = pText;
-            resolved.totalPartners = parseInt(pText) || publicStats.total_partners;
+            resolved.totalPartners = normalizePublicCount(parseInt(pText, 10), publicStats.total_partners);
           }
 
           if (override.avg_time) {

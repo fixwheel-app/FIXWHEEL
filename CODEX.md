@@ -78,7 +78,7 @@ spinfix/
 │   ├── components/                # Reusable UI components (CityServicesGrid, BookingForm, etc.)
 │   ├── lib/                       # API client, Supabase client, static data & stats
 │   │   ├── api.ts                 # Axios calls to the backend API
-│   │   ├── pricingData.ts         # SINGLE SOURCE OF TRUTH for all service rates
+│   │   ├── pricingData.ts         # Approved display rate card; checkout migration pending
 │   │   ├── publicStats.ts         # Live stat fetching from Supabase public_stats table
 │   │   ├── pageVariables.ts       # Runtime overrides from Supabase
 │   │   └── supabase.ts            # Supabase JS client for storage and public queries
@@ -172,14 +172,16 @@ The frontend strictly separates Server Components from interactive Client Compon
   - Handles UI state, interactive accordions, search filters, and form submissions.
   - Never convert a Server Component to a Client Component just to use a hook.
 
-### 4.3. Single Source of Truth for Pricing
-Pricing is **strictly centralized** to avoid discrepancies across the 800+ pages:
-- **Rate Card File:** `frontend/lib/pricingData.ts`
-  - Contains `SERVICE_PRICING_LIST` (13 Non-Electric + 4 Electric packages).
-  - Contains helper functions: `getStartingPriceForCategory()`, `getServicePrice()`, and `getAllServicesWithStartingPrices()`.
-- **Reusable Component:** `frontend/components/CityServicesGrid.tsx`
-  - Used on `/delhi`, `/gurgaon`, `/noida`, `/faridabad`, `/ghaziabad`, and all locality subpages.
-  - Dynamically calculates starting prices per category. **Never hardcode price tags (e.g. "₹499") in raw HTML on city/locality pages.**
+### 4.3. Pricing Sources and Migration Status
+`frontend/lib/pricingData.ts` contains the approved 14-entry display rate card. Its current General Service starting prices are ₹550 for non-electric 0–249cc vehicles and ₹799 for electric vehicles.
+
+Pricing is not yet structurally single-source:
+- `frontend/lib/constants.ts` duplicates the selectable checkout packages and tier amounts.
+- `frontend/lib/servicesData.ts`, six dedicated service pages, brand/model pages, and SEO copy contain additional displayed prices. Some describe different scopes, such as installation labor versus a supplied part.
+- The booking request currently includes a browser-supplied price, and the backend does not yet recalculate it from a server-owned catalog.
+- Do not change or consolidate a conflicting value without explicit FixWheel business approval.
+
+`frontend/components/CityServicesGrid.tsx` renders the catalog on the five city pages and their locality pages. It reads `SERVICE_PRICING_LIST`, but it still contains a silent ₹550 missing-ID fallback that must be removed during the pricing-contract migration. Never add raw price literals to city, locality, or brand page layouts.
 
 ### 4.4. Protected Booking Flow
 The customer booking funnel is located in:
@@ -395,10 +397,9 @@ npm run build
 
 When working with Codex or any AI code generator on FixWheel, the following core principles must always be followed:
 1. **Scope Lockdown & Confirmation First:** Always plan and ask for confirmation before modifying multiple files or ambiguous areas. Never touch other cities when fixing one.
-2. **Strict Pricing Integrity:** Never hallucinate or hardcode prices. Always import and reference [`frontend/lib/pricingData.ts`](./frontend/lib/pricingData.ts).
+2. **Strict Pricing Integrity:** Never hallucinate or hardcode prices. Treat [`frontend/lib/pricingData.ts`](./frontend/lib/pricingData.ts) as the approved display rate card, audit the temporary checkout and content duplicates, and require explicit business approval for conflicts.
 3. **Mandatory Verification Gate:** Always run `npm run build` and check `git status` before declaring a task complete.
 4. **Git Safety:** Never run `git push` unless explicitly asked with the word "push".
 5. **Technical SEO Preservation:** Maintain canonicals, structured schemas, and sitemaps for all 800+ pages.
 
 For complete enforcement rules, see [`CODEX_RULES.md`](./CODEX_RULES.md).
-

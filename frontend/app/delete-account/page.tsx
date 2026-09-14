@@ -4,6 +4,10 @@ import DeleteAccountClient from './page.client';
 export const metadata: Metadata = {
   title: "Request Account Deletion — FixWheel",
   description: "Request to delete your FixWheel account. Enter your email and reason for account deletion.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   alternates: {
     canonical: "https://www.fixwheel.app/delete-account",
   },

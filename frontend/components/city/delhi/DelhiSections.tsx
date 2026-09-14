@@ -1,0 +1,112 @@
+import CityPageSections, { type CityPageConfig, type CityPageSectionsProps } from "@/components/city/CityPageSections";
+
+const delhiConfig: CityPageConfig = {
+  cityName: "Delhi",
+  citySlug: "delhi",
+  hero: {
+    eyebrow: "Bike mechanic at your doorstep · Delhi",
+    title: "Doorstep Bike Repair",
+    emphasis: "in Delhi",
+    lead: "FixWheel sends verified mechanics to your location anywhere in South and South-West Delhi. Whether it is your home parking, office basement, or a roadside breakdown — we bring the tools, you keep your day going.",
+    bookingLabel: "Book a Mechanic in Delhi →",
+    arrivalTime: "45 min",
+    ratingSource: "public-stats",
+    serviceArea: "South & SW Delhi",
+    ticketId: "FW-DEL-0837",
+    ticketRows: [
+      { label: "Service", value: "Engine Oil Change" },
+      { label: "Model", value: "Bajaj Pulsar 150" },
+      { label: "Location", value: "Dwarka, Delhi" },
+      { label: "Mechanic", value: "Verified ✓" },
+      { label: "Warranty", value: "15 days" },
+      { label: "Response", value: "32 min" },
+    ],
+    totalPaid: "₹999",
+    ticketRegion: "DELHI · NCR",
+  },
+  coverage: {
+    description: "We currently serve South and South-West Delhi. Our mechanics are stationed across these localities and can usually reach you within 45 minutes.",
+    expansionLabel: "📍 + Expanding across Delhi",
+    areas: [
+      { name: "Dwarka", slug: "dwarka" },
+      { name: "Kapashera", slug: "kapashera" },
+      { name: "Vasant Kunj", slug: "vasant-kunj" },
+      { name: "Janakpuri", slug: "janakpuri" },
+      { name: "Bijwasan", slug: "bijwasan" },
+      { name: "Mahipalpur", slug: "mahipalpur" },
+      { name: "Palam", slug: "palam" },
+      { name: "Hari Nagar", slug: "hari-nagar" },
+      { name: "Najafgarh Road", slug: "najafgarh-road" },
+      { name: "Rangpuri", slug: "rangpuri" },
+      { name: "Samalka", slug: "samalka" },
+      { name: "Uttam Nagar", slug: "uttam-nagar" },
+      { name: "Rajouri Garden", slug: "rajouri-garden" },
+      { name: "Tilak Nagar", slug: "tilak-nagar" },
+      { name: "Vikaspuri", slug: "vikaspuri" },
+      { name: "Paschim Vihar", slug: "paschim-vihar" },
+      { name: "Punjabi Bagh", slug: "punjabi-bagh" },
+      { name: "Dabri", slug: "dabri" },
+      { name: "Bindapur", slug: "bindapur" },
+      { name: "Nawada", slug: "nawada" },
+      { name: "Nihal Vihar", slug: "nihal-vihar" },
+      { name: "Subhash Nagar", slug: "subhash-nagar" },
+      { name: "Ashok Vihar", slug: "ashok-vihar" },
+      { name: "Pitampura", slug: "pitampura" },
+      { name: "Rohini", slug: "rohini" },
+      { name: "Shalimar Bagh", slug: "shalimar-bagh" },
+      { name: "Kirti Nagar", slug: "kirti-nagar" },
+    ],
+  },
+  why: {
+    heading: "Bike repair without the garage run",
+    description: "Delhi traffic makes getting to a mechanic a half-day task. We bring the mechanic to you instead.",
+    cards: [
+      { title: "Your location, our tools", text: "The mechanic arrives at your address with a full toolkit. You do not need to move your bike anywhere." },
+      { title: "Verified before dispatch", text: "Every mechanic on the platform is background-checked and trained before they get assigned a single job." },
+      { title: "Price locked upfront", text: "You see the price before any work starts. If extra parts are needed, we confirm the cost with you first." },
+      { title: "15-day labor warranty", text: "If something goes wrong with the same repair within 15 days, a mechanic comes back at no extra charge." },
+    ],
+  },
+  servicesDescription: "All repairs are done at your doorstep across South and South-West Delhi. Select a service to check pricing for your bike model.",
+  how: [
+    { title: "1. Pick a service", text: "Select what your bike needs and pick a time slot on our app or website." },
+    { title: "2. Mechanic dispatched", text: "A verified mechanic near your location is assigned and heads to you." },
+    { title: "3. Repaired on-site", text: "Your bike is fixed right where it is parked — home, office, or roadside." },
+    { title: "4. Pay and rate", text: "Pay the quoted amount via UPI, card, or cash, then rate the mechanic." },
+  ],
+  reviews: {
+    heading: "From riders across Delhi",
+    rating: "4.7★",
+    reviewCount: "473+ reviews",
+    items: [
+      { text: "Puncture at 10 PM near Dwarka Mor. Called FixWheel, mechanic was there in 45 minutes. Sorted and back on the road.", author: "Ankit R. — Dwarka" },
+      { text: "Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted.", author: "Deepak M. — Janakpuri" },
+      { text: "Battery died on my Activa in Vasant Kunj. Mechanic tested it, replaced the battery on the spot with a new one. Transparent billing.", author: "Sneha K. — Vasant Kunj", stars: "★★★★☆" },
+    ],
+  },
+  partner: {
+    heading: "Are you a bike mechanic in Delhi?",
+    description: "Join the FixWheel network and receive bookings from riders in your area. Set your own hours and manage everything from your phone.",
+    registrationText: "Register in a few minutes and start receiving service requests in Delhi.",
+  },
+  faqs: [
+    { question: "How quickly can a mechanic reach me in Delhi?", answer: "In most South and South-West Delhi localities, our mechanics arrive within 30 to 45 minutes of booking confirmation." },
+    { question: "What does doorstep bike repair cost in Delhi?", answer: "Basic service starts from ₹550 depending on your bike model and cc. We confirm the exact price before starting any work." },
+    { question: "Which areas in Delhi does FixWheel cover?", answer: "We cover South and South-West Delhi including Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, Mahipalpur, Hari Nagar, Najafgarh, Palam, Saket, Hauz Khas, and surrounding areas." },
+    { question: "Do you offer emergency roadside help in Delhi?", answer: "Yes, we dispatch mechanics for roadside breakdowns across our Delhi service area. Available 24/7." },
+    { question: "Can you service my EV scooter in Delhi?", answer: "Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Delhi." },
+    { question: "Is there a warranty on the repair?", answer: "Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge." },
+  ],
+  roadside: {
+    heading: "Delhi Roadside Assistance",
+    description: "Broken down on a Delhi road? A mechanic will come to your exact location with tools to diagnose and fix the issue on the spot.",
+  },
+  finalCta: {
+    heading: "Book doorstep bike repair in Delhi.",
+    description: "Verified mechanic at your home or office across South & South-West Delhi. Starting ₹550. No garage visit needed.",
+  },
+};
+
+export function DelhiSections(props: Omit<CityPageSectionsProps, "config">) {
+  return <CityPageSections config={delhiConfig} {...props} />;
+}

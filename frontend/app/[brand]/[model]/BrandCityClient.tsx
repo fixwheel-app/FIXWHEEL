@@ -21,68 +21,6 @@ const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
 });
 
-const CITY_NAME_MAP: Record<string, string> = {
-  gurgaon: "Gurgaon",
-  delhi: "Delhi",
-  noida: "Noida",
-  faridabad: "Faridabad",
-  ghaziabad: "Ghaziabad",
-};
-
-const CITY_LOCALITIES_MAP: Record<string, string[]> = {
-  gurgaon: [
-    "DLF Phase 1–5",
-    "Cyber City",
-    "Golf Course Road",
-    "Sohna Road",
-    "Palam Vihar",
-    "Udyog Vihar",
-    "Sector 14 & 15",
-    "Sector 56 & 57",
-    "Badshahpur",
-    "Manesar",
-  ],
-  delhi: [
-    "Dwarka",
-    "Vasant Kunj",
-    "Rohini",
-    "Saket & Hauz Khas",
-    "Lajpat Nagar",
-    "Janakpuri",
-    "Pitampura",
-    "Karol Bagh",
-    "Mayur Vihar",
-    "Connaught Place",
-  ],
-  noida: [
-    "Sector 18 & 27",
-    "Sector 62 & 63",
-    "Sector 50 & 51",
-    "Sector 75–78",
-    "Sector 137 & Expressway",
-    "Sector 120",
-    "Greater Noida West",
-  ],
-  ghaziabad: [
-    "Indirapuram",
-    "Vaishali",
-    "Kaushambi",
-    "Vasundhara",
-    "Raj Nagar & Extension",
-    "Crossings Republik",
-    "Vijay Nagar",
-  ],
-  faridabad: [
-    "NIT Faridabad (1–5)",
-    "Sector 15 & 16",
-    "Sector 21",
-    "Sector 37",
-    "Sector 85–89",
-    "Greater Faridabad",
-    "Ballabgarh stretch",
-  ],
-};
-
 const CITY_HERO_DESCS: Record<string, (brand: string) => string> = {
   gurgaon: (brand) =>
     `Looking for trusted doorstep ${brand} bike service in Gurgaon? FixWheel dispatches certified mobile mechanics directly to your home, gated society parking, or corporate office across DLF Phases, Cyber City, Sohna Road, and Palam Vihar in 45 minutes with 100% genuine parts.`,
@@ -99,10 +37,18 @@ const CITY_HERO_DESCS: Record<string, (brand: string) => string> = {
 interface BrandCityClientProps {
   brandSlug: string;
   citySlug: string;
+  cityName: string;
+  localities: string[];
+  otherCities: Array<{ slug: string; name: string }>;
 }
 
-export default function BrandCityClient({ brandSlug, citySlug }: BrandCityClientProps) {
-  const cityName = CITY_NAME_MAP[citySlug.toLowerCase()] || citySlug;
+export default function BrandCityClient({
+  brandSlug,
+  citySlug,
+  cityName,
+  localities,
+  otherCities,
+}: BrandCityClientProps) {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS[citySlug.toLowerCase()] || DEFAULT_PUBLIC_STATS.global);
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
 
@@ -151,8 +97,6 @@ export default function BrandCityClient({ brandSlug, citySlug }: BrandCityClient
   }
 
   const allModels = brandObj ? brandObj.models.map((m) => m.name) : [];
-  const localities = CITY_LOCALITIES_MAP[citySlug.toLowerCase()] || [];
-
   const toggleFaq = (idx: number) => {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
@@ -205,8 +149,6 @@ export default function BrandCityClient({ brandSlug, citySlug }: BrandCityClient
       comment: `Transparent pricing and professional mechanic. Done right in my society parking in ${cityName}. Will book again for regular servicing.`,
     },
   ];
-
-  const otherCities = Object.keys(CITY_NAME_MAP).filter((c) => c !== citySlug.toLowerCase());
 
   return (
     <div className={`brand-city-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -692,9 +634,9 @@ export default function BrandCityClient({ brandSlug, citySlug }: BrandCityClient
             </div>
             <div className="silo">
               <Link href={`/${bKey}`} className="active">{brandName} Main Hub</Link>
-              {otherCities.map((c) => (
-                <Link key={c} href={`/${bKey}/${c}`}>
-                  {brandName} in {CITY_NAME_MAP[c]}
+              {otherCities.map((city) => (
+                <Link key={city.slug} href={`/${bKey}/${city.slug}`}>
+                  {brandName} in {city.name}
                 </Link>
               ))}
             </div>

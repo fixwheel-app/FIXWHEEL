@@ -91,19 +91,11 @@ function BookingFormInner() {
   const initialPackage = (searchParams.get('package') as PackageType) || "General Service";
   const initialType = searchParams.get('type') || "Non-Electric Motorbike";
   const initialModel = searchParams.get('bike') || searchParams.get('model') || "";
-  const initialPrice = searchParams.get('price') || "0";
+  const initialCcRange = searchParams.get('ccRange') || undefined;
   
   const [selectedPackageId, setSelectedPackageId] = useState<string>(initialPackage);
-  const [price, setPrice] = useState<string>(initialPrice);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorToast, setErrorToast] = useState<string | null>(null);
-
-  const pkgData = [...NON_ELECTRIC_SERVICES, ...ELECTRIC_SERVICES].find(p => p.id === selectedPackageId);
-  const includesList = pkgData?.includes || [
-    "Full service specific to selected category.",
-    "Transparent pricing.",
-    "Doorstep assistance."
-  ];
 
   const { register, handleSubmit, formState: { errors, isValid }, watch, setValue, getValues } = useForm<BookingSchemaType>({
     resolver: zodResolver(bookingSchema),
@@ -122,7 +114,23 @@ function BookingFormInner() {
   const bookingDate = watch("bookingDate");
   const selectedSlot = watch("preferredSlot");
   const selectedCity = watch("city");
+  const selectedBikeType = watch("bikeType");
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
+  const pkgData = (selectedBikeType === 'Electric Motorbike'
+    ? ELECTRIC_SERVICES
+    : NON_ELECTRIC_SERVICES
+  ).find(p => p.id === selectedPackageId);
+  const selectedPrice = pkgData
+    ? selectedBikeType === 'Electric Motorbike'
+      ? 'price' in pkgData ? pkgData.price : null
+      : initialCcRange && 'prices' in pkgData ? pkgData.prices[initialCcRange as keyof typeof pkgData.prices] : null
+    : null;
+  const price = typeof selectedPrice === 'number' ? String(selectedPrice) : "0";
+  const includesList = pkgData?.includes || [
+    "Full service specific to selected category.",
+    "Transparent pricing.",
+    "Doorstep assistance."
+  ];
 
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0];
@@ -182,9 +190,17 @@ function BookingFormInner() {
     setIsSubmitting(true);
     setErrorToast(null);
 
+    if (!pkgData || typeof selectedPrice !== 'number' || (data.bikeType !== 'Electric Motorbike' && !initialCcRange)) {
+      setErrorToast("Please return to the booking page and select your vehicle and CC range.");
+      setIsSubmitting(false);
+      return;
+    }
+
     const response = await submitBooking({
       ...data,
-      price: Number(price)
+      serviceId: pkgData.pricingId,
+      ccRange: data.bikeType === 'Electric Motorbike' ? undefined : initialCcRange,
+      price: selectedPrice
     });
     
     if (response.success && response.bookingId) {
@@ -192,7 +208,7 @@ function BookingFormInner() {
       localStorage.setItem('latestBooking', JSON.stringify({
         ...data,
         bookingRef: response.bookingId,
-        price: price
+        price: String(response.price)
       }));
       router.push('/confirmation');
     } else {

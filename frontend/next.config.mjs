@@ -16,12 +16,12 @@ const nextConfig = {
       },
       {
         source: '/services/obd-scanner',
-        destination: '/services/electric-scooter-repair',
+        destination: '/electric-scooter-repair',
         permanent: true,
       },
       {
         source: '/services/obd-scanner/:path*',
-        destination: '/services/electric-scooter-repair',
+        destination: '/electric-scooter-repair',
         permanent: true,
       },
       {

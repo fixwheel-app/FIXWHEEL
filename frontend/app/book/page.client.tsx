@@ -309,10 +309,12 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                             const bikeStr = `${brand} ${model}`.trim();
                             const query = new URLSearchParams({
                               package: srv.id,
+                              serviceId: srv.pricingId,
                               bike: bikeStr,
                               type: fuelType,
                               price: price.toString()
-                            }).toString();
+                            });
+                            if (ccRange) query.set('ccRange', ccRange);
                             router.push(`/book/checkout?${query}`);
                           }}
                           disabled={!brand || !model}

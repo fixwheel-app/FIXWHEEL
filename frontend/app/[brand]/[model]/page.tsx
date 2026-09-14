@@ -2,18 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { findModelBySlugs, getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
+import { CITIES_DB } from "@/lib/cityLocalityData";
 import ModelDetailClient from "./page.client";
 import BrandCityClient from "./BrandCityClient";
 
-const CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
-
-const CITY_NAME_MAP: Record<string, string> = {
-  gurgaon: "Gurgaon",
-  delhi: "Delhi",
-  noida: "Noida",
-  faridabad: "Faridabad",
-  ghaziabad: "Ghaziabad",
-};
+const CITIES = Object.keys(CITIES_DB);
 
 interface PageProps {
   params: Promise<{
@@ -52,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (isCity) {
     const citySlug = model.toLowerCase();
-    const cityName = CITY_NAME_MAP[citySlug] || citySlug;
+    const cityName = CITIES_DB[citySlug]?.name || citySlug;
     const brandKey = brand.toLowerCase();
     const brandData = BRAND_DETAILS[brandKey];
     const brandName =
@@ -162,7 +155,26 @@ export default async function ModelPage({ params }: PageProps) {
   const isCity = CITIES.includes(model.toLowerCase());
 
   if (isCity) {
-    return <BrandCityClient brandSlug={brand} citySlug={model} />;
+    const citySlug = model.toLowerCase();
+    const cityConfig = CITIES_DB[citySlug];
+
+    if (!cityConfig) {
+      notFound();
+    }
+
+    const otherCities = Object.values(CITIES_DB)
+      .filter((city) => city.slug !== citySlug)
+      .map((city) => ({ slug: city.slug, name: city.name }));
+
+    return (
+      <BrandCityClient
+        brandSlug={brand}
+        citySlug={citySlug}
+        cityName={cityConfig.name}
+        localities={cityConfig.brandPageLocalities}
+        otherCities={otherCities}
+      />
+    );
   }
 
   const modelInfo = findModelBySlugs(brand, model);

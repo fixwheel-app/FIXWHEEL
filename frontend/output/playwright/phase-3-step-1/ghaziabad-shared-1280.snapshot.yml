@@ -1,0 +1,527 @@
+- generic [active] [ref=f17e1]:
+  - navigation [ref=f17e2]:
+    - generic [ref=f17e4]:
+      - link "FixWheel Logo FixWheel" [ref=f17e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f17e6]
+        - generic [ref=f17e7]: FixWheel
+      - generic [ref=f17e8]:
+        - link "HOME" [ref=f17e10] [cursor=pointer]:
+          - /url: /
+        - button "SERVICES" [ref=f17e12] [cursor=pointer]
+        - button "LOCATIONS" [ref=f17e16] [cursor=pointer]
+        - link "BLOG" [ref=f17e20] [cursor=pointer]:
+          - /url: /blog
+        - link "ABOUT" [ref=f17e22] [cursor=pointer]:
+          - /url: /about
+        - link "BECOME PARTNER" [ref=f17e24] [cursor=pointer]:
+          - /url: /partner
+        - link "CONTACT" [ref=f17e26] [cursor=pointer]:
+          - /url: /contact
+        - link "GET APP" [ref=f17e28] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+      - generic [ref=f17e30]:
+        - link "GET APP" [ref=f17e31] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "BOOK NOW" [ref=f17e32] [cursor=pointer]:
+          - /url: /book
+    - generic [ref=f17e33]:
+      - generic [ref=f17e34]: Download App to get 10% off
+      - link "Get App ↗" [ref=f17e35] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f17e36]:
+    - generic [ref=f17e37]:
+      - navigation "Breadcrumb" [ref=f17e40]:
+        - link "Home" [ref=f17e42] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f17e43]:
+          - generic [ref=f17e44]: /
+          - generic [ref=f17e45]: Ghaziabad
+      - generic [ref=f17e47]:
+        - generic [ref=f17e48]:
+          - generic [ref=f17e49]: Bike mechanic at your doorstep · Ghaziabad
+          - heading [level=1] [ref=f17e50]:
+            - text: Bike Mechanic Near Me
+            - emphasis [ref=f17e51]: in Ghaziabad
+          - paragraph [ref=f17e52]: FixWheel sends verified mobile mechanics directly to your house driveway, society parking lot, or office basement across Ghaziabad. No more pushing your broken motorcycle to local workshops — we carry the parts and tools to fix it on-site.
+          - generic [ref=f17e53]:
+            - link "Book a Mechanic in Ghaziabad →" [ref=f17e54] [cursor=pointer]:
+              - /url: /book
+            - link "See how it works" [ref=f17e55] [cursor=pointer]:
+              - /url: "#how"
+          - generic [ref=f17e56]:
+            - generic [ref=f17e57]:
+              - generic [ref=f17e58]: 45 Mins
+              - text: Arrival time
+            - generic [ref=f17e59]:
+              - generic [ref=f17e60]: 148+
+              - text: Total vehicles serviced
+            - generic [ref=f17e61]:
+              - generic [ref=f17e62]: 4.8★
+              - text: Customer rating
+            - generic [ref=f17e63]:
+              - generic [ref=f17e64]: Ghaziabad NCR
+              - text: Service area
+        - generic [ref=f17e65]:
+          - generic [ref=f17e66]:
+            - generic [ref=f17e67]:
+              - text: FW-GZB-0941
+              - generic [ref=f17e68]: SERVICE DETAILS
+            - generic [ref=f17e69]: Completed ✓
+          - generic [ref=f17e70]:
+            - generic [ref=f17e71]:
+              - generic [ref=f17e72]: Service
+              - generic [ref=f17e73]: Basic Service + Oil
+            - generic [ref=f17e74]:
+              - generic [ref=f17e75]: Model
+              - generic [ref=f17e76]: Hero Splendor Plus
+            - generic [ref=f17e77]:
+              - generic [ref=f17e78]: Location
+              - generic [ref=f17e79]: Indirapuram, Ghaziabad
+            - generic [ref=f17e80]:
+              - generic [ref=f17e81]: Mechanic
+              - generic [ref=f17e82]: Verified ✓
+            - generic [ref=f17e83]:
+              - generic [ref=f17e84]: Warranty
+              - generic [ref=f17e85]: 15 days
+            - generic [ref=f17e86]:
+              - generic [ref=f17e87]: Response
+              - generic [ref=f17e88]: 35 min
+          - generic [ref=f17e89]:
+            - generic [ref=f17e90]:
+              - generic [ref=f17e91]: Total paid
+              - text: ₹999
+            - generic [ref=f17e92]: GHAZIABAD · NCR
+      - generic [ref=f17e94]:
+        - generic [ref=f17e95]:
+          - generic [ref=f17e96]: Coverage
+          - heading "Where we operate in Ghaziabad" [level=2] [ref=f17e97]
+          - paragraph [ref=f17e98]: We serve all major sectors, residential enclaves, and industrial areas across Ghaziabad. Select your locality below for detailed street coverage.
+        - generic [ref=f17e99]:
+          - link "📍 Indirapuram" [ref=f17e100] [cursor=pointer]:
+            - /url: /ghaziabad/indirapuram
+          - link "📍 Vaishali" [ref=f17e101] [cursor=pointer]:
+            - /url: /ghaziabad/vaishali
+          - link "📍 Kaushambi" [ref=f17e102] [cursor=pointer]:
+            - /url: /ghaziabad/kaushambi
+          - link "📍 Raj Nagar Extension" [ref=f17e103] [cursor=pointer]:
+            - /url: /ghaziabad/raj-nagar-extension
+          - link "📍 Raj Nagar" [ref=f17e104] [cursor=pointer]:
+            - /url: /ghaziabad/raj-nagar
+          - link "📍 Vasundhara" [ref=f17e105] [cursor=pointer]:
+            - /url: /ghaziabad/vasundhara
+          - link "📍 Crossings Republik" [ref=f17e106] [cursor=pointer]:
+            - /url: /ghaziabad/crossings-republik
+          - link "📍 Abhay Khand" [ref=f17e107] [cursor=pointer]:
+            - /url: /ghaziabad/abhay-khand
+          - link "📍 Nyay Khand" [ref=f17e108] [cursor=pointer]:
+            - /url: /ghaziabad/nyay-khand
+          - link "📍 Shakti Khand" [ref=f17e109] [cursor=pointer]:
+            - /url: /ghaziabad/shakti-khand
+          - link "📍 Ahinsa Khand" [ref=f17e110] [cursor=pointer]:
+            - /url: /ghaziabad/ahinsa-khand
+          - link "📍 Shipra Suncity" [ref=f17e111] [cursor=pointer]:
+            - /url: /ghaziabad/shipra-suncity
+          - link "📍 Govindpuram" [ref=f17e112] [cursor=pointer]:
+            - /url: /ghaziabad/govindpuram
+          - link "📍 Loni" [ref=f17e113] [cursor=pointer]:
+            - /url: /ghaziabad/loni
+          - link "📍 Mohan Nagar" [ref=f17e114] [cursor=pointer]:
+            - /url: /ghaziabad/mohan-nagar
+          - link "📍 Sanjay Nagar" [ref=f17e115] [cursor=pointer]:
+            - /url: /ghaziabad/sanjay-nagar
+          - link "📍 Vijay Nagar" [ref=f17e116] [cursor=pointer]:
+            - /url: /ghaziabad/vijay-nagar
+          - link "📍 Gandhi Nagar" [ref=f17e117] [cursor=pointer]:
+            - /url: /ghaziabad/gandhi-nagar
+          - link "📍 Shastri Nagar" [ref=f17e118] [cursor=pointer]:
+            - /url: /ghaziabad/shastri-nagar
+          - link "📍 Nehru Nagar" [ref=f17e119] [cursor=pointer]:
+            - /url: /ghaziabad/nehru-nagar
+          - link "📍 Surya Nagar" [ref=f17e120] [cursor=pointer]:
+            - /url: /ghaziabad/surya-nagar
+          - link "📍 Dilshad Garden border" [ref=f17e121] [cursor=pointer]:
+            - /url: /ghaziabad/dilshad-garden-border
+          - link "📍 NH-24" [ref=f17e122] [cursor=pointer]:
+            - /url: /ghaziabad/nh-24
+          - link "📍 GT Road" [ref=f17e123] [cursor=pointer]:
+            - /url: /ghaziabad/gt-road
+          - link "📍 Hindon" [ref=f17e124] [cursor=pointer]:
+            - /url: /ghaziabad/hindon
+          - link "📍 Dasna" [ref=f17e125] [cursor=pointer]:
+            - /url: /ghaziabad/dasna
+          - generic [ref=f17e126]: 📍 + Expanding across Ghaziabad
+      - generic [ref=f17e128]:
+        - generic [ref=f17e129]:
+          - generic [ref=f17e130]: Why FixWheel Ghaziabad
+          - heading "Professional service right in your driveway" [level=2] [ref=f17e131]
+          - paragraph [ref=f17e132]: From Indirapuram enclaves to old GT Road stretches, our mechanics coordinate directly to service your two-wheeler while you relax at home.
+        - generic [ref=f17e133]:
+          - generic [ref=f17e134]:
+            - generic [ref=f17e135]: "01"
+            - heading "On-site doorstep servicing" [level=3] [ref=f17e136]
+            - paragraph [ref=f17e137]: We perform all servicing, oil changes, and repairs directly in your parking area, driveway, or office basement.
+          - generic [ref=f17e138]:
+            - generic [ref=f17e139]: "02"
+            - heading "Verified, trained mechanics" [level=3] [ref=f17e140]
+            - paragraph [ref=f17e141]: Every technician is background-checked, trained, and accountable, giving you complete safety and quality mechanical work.
+          - generic [ref=f17e142]:
+            - generic [ref=f17e143]: "03"
+            - heading "Transparent itemized billing" [level=3] [ref=f17e144]
+            - paragraph [ref=f17e145]: No surprise bills or hidden margins. You review and approve the exact quote before the service begins.
+          - generic [ref=f17e146]:
+            - generic [ref=f17e147]: "04"
+            - heading "15-day service guarantee" [level=3] [ref=f17e148]
+            - paragraph [ref=f17e149]: All doorstep work and mechanical tuning are backed by our standard 15-day labor warranty for complete peace of mind.
+      - generic [ref=f17e151]:
+        - generic [ref=f17e152]:
+          - generic [ref=f17e153]: Services & pricing
+          - heading "Two Wheeler Service & Repair in Ghaziabad" [level=2] [ref=f17e154]
+        - generic [ref=f17e155]:
+          - generic [ref=f17e156]:
+            - generic [ref=f17e157]: "[BASIC]"
+            - heading "Basic Service" [level=3] [ref=f17e158]
+            - paragraph [ref=f17e159]: Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.
+            - generic [ref=f17e160]: ₹550 starting from
+            - link "View pricing →" [ref=f17e161] [cursor=pointer]:
+              - /url: /services/basic-service
+          - generic [ref=f17e162]:
+            - generic [ref=f17e163]: "[OIL]"
+            - heading "Service with Engine Oil" [level=3] [ref=f17e164]
+            - paragraph [ref=f17e165]: Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.
+            - generic [ref=f17e166]: ₹999 starting from
+            - link "View pricing →" [ref=f17e167] [cursor=pointer]:
+              - /url: /services/oil-change
+          - generic [ref=f17e168]:
+            - generic [ref=f17e169]: "[ENGINE]"
+            - heading "Engine Repair" [level=3] [ref=f17e170]
+            - paragraph [ref=f17e171]: Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.
+            - generic [ref=f17e172]: ₹4,500 starting from (half engine)
+            - link "View pricing →" [ref=f17e173] [cursor=pointer]:
+              - /url: /services/engine-repair
+          - generic [ref=f17e174]:
+            - generic [ref=f17e175]: "[PUNCTURE]"
+            - heading "Puncture Repair" [level=3] [ref=f17e176]
+            - paragraph [ref=f17e177]: Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.
+            - generic [ref=f17e178]: ₹399 starting from
+            - link "View pricing →" [ref=f17e179] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e180]:
+            - generic [ref=f17e181]: "[BRAKE]"
+            - heading "Brake Disc Replacement" [level=3] [ref=f17e182]
+            - paragraph [ref=f17e183]: Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.
+            - generic [ref=f17e184]: ₹199 starting from
+            - link "View pricing →" [ref=f17e185] [cursor=pointer]:
+              - /url: /services/brake-repair
+          - generic [ref=f17e186]:
+            - generic [ref=f17e187]: "[BATTERY]"
+            - heading "Battery Replacement" [level=3] [ref=f17e188]
+            - paragraph [ref=f17e189]: Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.
+            - generic [ref=f17e190]: ₹99 starting from (labor)
+            - link "View pricing →" [ref=f17e191] [cursor=pointer]:
+              - /url: /services/battery-replacement
+          - generic [ref=f17e192]:
+            - generic [ref=f17e193]: "[JUMPSTART]"
+            - heading "Jump Start" [level=3] [ref=f17e194]
+            - paragraph [ref=f17e195]: Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.
+            - generic [ref=f17e196]: ₹399 starting from
+            - link "Book now →" [ref=f17e197] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e198]:
+            - generic [ref=f17e199]: "[RUNNING]"
+            - heading "Running Repair" [level=3] [ref=f17e200]
+            - paragraph [ref=f17e201]: Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.
+            - generic [ref=f17e202]: ₹399 starting from
+            - link "Book now →" [ref=f17e203] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e204]:
+            - generic [ref=f17e205]: "[CARB]"
+            - heading "Carburetor Cleaning" [level=3] [ref=f17e206]
+            - paragraph [ref=f17e207]: Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.
+            - generic [ref=f17e208]: ₹199 starting from
+            - link "Book now →" [ref=f17e209] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e210]:
+            - generic [ref=f17e211]: "[OBD]"
+            - heading "OBD Scanner Inspection" [level=3] [ref=f17e212]
+            - paragraph [ref=f17e213]: A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.
+            - generic [ref=f17e214]: ₹199 starting from
+            - link "Book now →" [ref=f17e215] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e216]:
+            - generic [ref=f17e217]: "[CHAIN]"
+            - heading "Chain Sprocket Replacement" [level=3] [ref=f17e218]
+            - paragraph [ref=f17e219]: Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.
+            - generic [ref=f17e220]: ₹299 starting from
+            - link "Book now →" [ref=f17e221] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f17e222]:
+            - generic [ref=f17e223]: "[PICKUP]"
+            - heading "Pick and Drop" [level=3] [ref=f17e224]
+            - paragraph [ref=f17e225]: We collect your bike from your location, get it serviced, and deliver it back — you stay put.
+            - generic [ref=f17e226]: ₹199 starting from
+            - link "Book now →" [ref=f17e227] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=f17e229]:
+        - generic [ref=f17e230]:
+          - generic [ref=f17e231]: Vehicle types
+          - heading "Every two-wheeler, serviced at your door" [level=2] [ref=f17e232]
+          - paragraph [ref=f17e233]: From daily scooters and commuter bikes to sports motorcycles and EVs — our mechanics handle them all.
+        - generic [ref=f17e234]:
+          - generic [ref=f17e235]: 🛵 Scooter
+          - generic [ref=f17e236]: 🏍️ Commuter Bike
+          - generic [ref=f17e237]: ⚡ EV Scooter
+          - generic [ref=f17e238]: ⚡ EV Bike
+          - generic [ref=f17e239]: 🏁 Sports Bike
+          - generic [ref=f17e240]: 🔵 Royal Enfield
+          - generic [ref=f17e241]: 🚲 Moped
+          - generic [ref=f17e242]: + all other types
+        - generic [ref=f17e244]:
+          - generic [ref=f17e245]: We service all major brands
+          - heading "Any brand, any model — Ghaziabad doorstep" [level=2] [ref=f17e246]
+        - generic [ref=f17e247]:
+          - generic [ref=f17e248]: Honda
+          - generic [ref=f17e249]: Hero
+          - generic [ref=f17e250]: Bajaj
+          - generic [ref=f17e251]: TVS
+          - generic [ref=f17e252]: Royal Enfield
+          - generic [ref=f17e253]: Yamaha
+          - generic [ref=f17e254]: Suzuki
+          - generic [ref=f17e255]: KTM
+          - generic [ref=f17e256]: Ola Electric
+          - generic [ref=f17e257]: Ather
+          - generic [ref=f17e258]: Vespa
+          - generic [ref=f17e259]: Jawa
+          - generic [ref=f17e260]: Aprilia
+          - generic [ref=f17e261]: Harley-Davidson
+          - generic [ref=f17e262]: Kawasaki
+          - generic [ref=f17e263]: Benelli
+      - generic [ref=f17e265]:
+        - generic [ref=f17e266]:
+          - generic [ref=f17e267]: How it works
+          - heading "Book to fixed — 4 simple steps" [level=2] [ref=f17e268]
+        - generic [ref=f17e269]:
+          - generic [ref=f17e270]:
+            - generic [ref=f17e271]: "01"
+            - heading "1. Pick a service" [level=3] [ref=f17e272]
+            - paragraph [ref=f17e273]: Select what your bike needs and pick a time slot on our app or website.
+          - generic [ref=f17e274]:
+            - generic [ref=f17e275]: "02"
+            - heading "2. Mechanic dispatched" [level=3] [ref=f17e276]
+            - paragraph [ref=f17e277]: A verified mechanic near your location in Ghaziabad is assigned and heads to you.
+          - generic [ref=f17e278]:
+            - generic [ref=f17e279]: "03"
+            - heading "3. Repaired on-site" [level=3] [ref=f17e280]
+            - paragraph [ref=f17e281]: Your bike is fixed right where it is parked — home, office, or society parking.
+          - generic [ref=f17e282]:
+            - generic [ref=f17e283]: "04"
+            - heading "4. Pay and rate" [level=3] [ref=f17e284]
+            - paragraph [ref=f17e285]: Pay the quoted amount via UPI, card, or cash, then rate the mechanic.
+      - generic [ref=f17e287]:
+        - generic [ref=f17e288]:
+          - generic [ref=f17e289]: Reviews
+          - heading "From Ghaziabad riders" [level=2] [ref=f17e290]
+          - paragraph [ref=f17e291]: 4.7★ average rating from 473+ reviews
+        - generic [ref=f17e292]:
+          - generic [ref=f17e293]:
+            - generic [ref=f17e294]: ★★★★★
+            - paragraph [ref=f17e295]: "\"Excellent experience in Indirapuram. The mechanic coordinated with my high-rise apartment security and did the brake disc change in the basement. Extremely convenient.\""
+            - generic [ref=f17e296]: Sanjay P. — Indirapuram
+          - generic [ref=f17e297]:
+            - generic [ref=f17e298]: ★★★★★
+            - paragraph [ref=f17e299]: "\"My Scooty had a flat tyre near GT Road. FixWheel dispatched a mechanic who reached in 25 minutes, did a puncture patch, and got me moving again. Genuine savior.\""
+            - generic [ref=f17e300]: Garima S. — Vaishali
+          - generic [ref=f17e301]:
+            - generic [ref=f17e302]: ★★★★★
+            - paragraph [ref=f17e303]: "\"No hidden margins, no pushy sales. Replaced my engine oil and tuned the carburetor in my apartment parking in Raj Nagar. Will use again.\""
+            - generic [ref=f17e304]: Sameer M. — Raj Nagar Extension
+      - generic [ref=f17e306]:
+        - generic [ref=f17e307]:
+          - generic [ref=f17e308]: Join our network
+          - heading "Are you a bike mechanic in Ghaziabad?" [level=2] [ref=f17e309]
+          - paragraph [ref=f17e310]: Join the FixWheel network and receive bookings from riders in Ghaziabad. Set your own hours and manage everything from your phone.
+          - list [ref=f17e311]:
+            - listitem [ref=f17e312]: — Set your own working hours
+            - listitem [ref=f17e313]: — Manage bookings from your phone
+            - listitem [ref=f17e314]: — Receive service requests from nearby customers
+        - generic [ref=f17e315]:
+          - heading "Become a partner" [level=3] [ref=f17e316]
+          - paragraph [ref=f17e317]: Register in a few minutes and start receiving service requests in Ghaziabad.
+          - link "Become a Partner →" [ref=f17e318] [cursor=pointer]:
+            - /url: /partner
+      - generic [ref=f17e320]:
+        - generic [ref=f17e321]:
+          - generic [ref=f17e322]: FAQs
+          - heading "Common questions about bike repair in Ghaziabad" [level=2] [ref=f17e323]
+        - generic [ref=f17e324]:
+          - generic [ref=f17e325]:
+            - generic [ref=f17e326] [cursor=pointer]:
+              - text: How quickly can a mechanic reach me in Ghaziabad?
+              - generic [ref=f17e327]: +
+            - paragraph [ref=f17e329]: In most Ghaziabad sectors and residential blocks, our mechanics arrive within 45 minutes of booking confirmation.
+          - generic [ref=f17e330]:
+            - generic [ref=f17e331] [cursor=pointer]:
+              - text: What does doorstep bike repair cost in Ghaziabad?
+              - generic [ref=f17e332]: +
+            - paragraph [ref=f17e333]: Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work.
+          - generic [ref=f17e334]:
+            - generic [ref=f17e335] [cursor=pointer]:
+              - text: Which areas in Ghaziabad does FixWheel cover?
+              - generic [ref=f17e336]: +
+            - paragraph [ref=f17e337]: We cover all major locations including Indirapuram, Vaishali, Kaushambi, Vasundhara, Raj Nagar Extension, Sanjay Nagar, and Crossings Republik.
+          - generic [ref=f17e338]:
+            - generic [ref=f17e339] [cursor=pointer]:
+              - text: Do you offer emergency roadside help in Ghaziabad?
+              - generic [ref=f17e340]: +
+            - paragraph [ref=f17e341]: Yes, we dispatch mechanics for roadside breakdowns across our Ghaziabad service area, including NH-24 and GT Road. Available 24/7.
+          - generic [ref=f17e342]:
+            - generic [ref=f17e343] [cursor=pointer]:
+              - text: Is there a warranty on the repair?
+              - generic [ref=f17e344]: +
+            - paragraph [ref=f17e345]: Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge.
+      - generic [ref=f17e347]:
+        - generic [ref=f17e348]:
+          - generic [ref=f17e349]: Contact
+          - heading "Get in touch" [level=2] [ref=f17e350]
+          - paragraph [ref=f17e351]: Call or email us. We respond within 2 hours during business hours (8 AM – 8 PM).
+          - generic [ref=f17e352]:
+            - generic [ref=f17e353]:
+              - generic [ref=f17e354]: ☎
+              - generic [ref=f17e355]:
+                - generic [ref=f17e356]: +91 87459 45682
+                - text: Call us between 8 AM and 8 PM
+            - generic [ref=f17e357]:
+              - generic [ref=f17e358]: ✉
+              - generic [ref=f17e359]:
+                - generic [ref=f17e360]: support@fixwheel.app
+                - text: We reply within 2 hours
+            - generic [ref=f17e361]:
+              - generic [ref=f17e362]: 💬
+              - generic [ref=f17e363]:
+                - generic [ref=f17e364]: Chat on WhatsApp
+                - text: Fastest way to book
+        - generic [ref=f17e365]:
+          - generic [ref=f17e366]: 24/7 EMERGENCY
+          - heading "Ghaziabad Roadside Assistance" [level=3] [ref=f17e367]
+          - paragraph [ref=f17e368]: Stranded on NH-24, GT Road, or near Hindon River? A mechanic will come to your exact location with tools to fix the issue on the spot.
+          - generic [ref=f17e369]:
+            - link "Request Roadside Assistance →" [ref=f17e370] [cursor=pointer]:
+              - /url: /book
+            - link "Call Us Now" [ref=f17e371] [cursor=pointer]:
+              - /url: tel:+918745945682
+      - generic [ref=f17e373]:
+        - heading "Book doorstep bike repair in Ghaziabad." [level=2] [ref=f17e374]
+        - paragraph [ref=f17e375]: Verified mechanic at your home or office across Indirapuram, Vaishali, Kaushambi, Vasundhara, Raj Nagar & all Ghaziabad areas. Starting ₹550.
+        - link "Book Your Bike Service →" [ref=f17e376] [cursor=pointer]:
+          - /url: /book
+  - generic [ref=f17e377]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f17e378] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f17e384]:
+    - generic: Call us
+    - link "Call us now" [ref=f17e385] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f17e391]:
+    - generic [ref=f17e392]:
+      - generic [ref=f17e393]:
+        - generic [ref=f17e394]:
+          - link "FixWheel Logo FixWheel" [ref=f17e395] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f17e396]
+            - generic [ref=f17e397]: FixWheel
+          - paragraph [ref=f17e398]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f17e399]:
+          - heading "Locations" [level=4] [ref=f17e400]
+          - list [ref=f17e401]:
+            - listitem [ref=f17e402]:
+              - link "Delhi" [ref=f17e403] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f17e404]:
+              - link "Gurgaon" [ref=f17e405] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f17e406]:
+              - link "Noida" [ref=f17e407] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f17e408]:
+              - link "Faridabad" [ref=f17e409] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f17e410]:
+              - link "Ghaziabad" [ref=f17e411] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f17e412]:
+          - heading "Quick Links" [level=4] [ref=f17e413]
+          - list [ref=f17e414]:
+            - listitem [ref=f17e415]:
+              - link "Home" [ref=f17e416] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f17e417]:
+              - link "About Us" [ref=f17e418] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f17e419]:
+              - link "Repairs" [ref=f17e420] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f17e421]:
+              - link "Pricing" [ref=f17e422] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f17e423]:
+              - link "Blogs" [ref=f17e424] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f17e425]:
+              - link "Book Now" [ref=f17e426] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f17e427]:
+          - heading "Contact" [level=4] [ref=f17e428]
+          - list [ref=f17e429]:
+            - listitem [ref=f17e430]: "Phone: +91 87459 45682"
+            - listitem [ref=f17e431]: "Email: support@fixwheel.app"
+          - generic [ref=f17e432]:
+            - link "WhatsApp" [ref=f17e433] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f17e436] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f17e440] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f17e443] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f17e448]:
+        - paragraph [ref=f17e449]: "Popular Searches:"
+        - generic [ref=f17e450]:
+          - link "Bike Repair Near Me" [ref=f17e451] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f17e452]: •
+          - link "Bike Mechanic Near Me" [ref=f17e453] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f17e454]: •
+          - link "Sports Bike Repair Near Me" [ref=f17e455] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f17e456]: •
+          - link "EV Scooter Repair Near Me" [ref=f17e457] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f17e458]: •
+          - link "Royal Enfield Repair Near Me" [ref=f17e459] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f17e460]: •
+          - link "Scooty Repair Near Me" [ref=f17e461] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f17e462]: •
+          - link "Engine Oil Change Near Me" [ref=f17e463] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f17e464]: •
+          - link "Bike Battery Replacement Near Me" [ref=f17e465] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f17e466]: •
+          - link "Bike Tyre Repair Near Me" [ref=f17e467] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f17e468]:
+        - paragraph [ref=f17e469]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f17e470]:
+          - link "Terms & Conditions" [ref=f17e471] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f17e472]: "|"
+          - link "Privacy Policy" [ref=f17e473] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f17e474]: "|"
+          - link "Delete Account" [ref=f17e475] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f17e476]

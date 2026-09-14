@@ -1,0 +1,230 @@
+{
+  "auditedAt": "2026-09-14T18:35:10.544Z",
+  "localOrigin": "http://localhost:3001",
+  "counts": {
+    "sitemaps": 11,
+    "uniqueSitemapPages": 1038,
+    "redirectCases": 18,
+    "notFoundCases": 3,
+    "utilityCases": 3
+  },
+  "failures": {
+    "sitemaps": [],
+    "pages": [],
+    "redirects": [],
+    "notFound": [],
+    "utilities": []
+  },
+  "sitemapResults": [
+    {
+      "url": "https://www.fixwheel.app/main.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 17
+    },
+    {
+      "url": "https://www.fixwheel.app/service.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 12
+    },
+    {
+      "url": "https://www.fixwheel.app/brand.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 640
+    },
+    {
+      "url": "https://www.fixwheel.app/becomepartner.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 1
+    },
+    {
+      "url": "https://www.fixwheel.app/gurgaon.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 36
+    },
+    {
+      "url": "https://www.fixwheel.app/delhi.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 28
+    },
+    {
+      "url": "https://www.fixwheel.app/noida.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 38
+    },
+    {
+      "url": "https://www.fixwheel.app/faridabad.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 34
+    },
+    {
+      "url": "https://www.fixwheel.app/ghaziabad.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 27
+    },
+    {
+      "url": "https://www.fixwheel.app/other.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 1
+    },
+    {
+      "url": "https://www.fixwheel.app/bike-type.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "urlCount": 217
+    }
+  ],
+  "redirectResults": [
+    {
+      "path": "/services/carburetor-cleaning",
+      "status": 308,
+      "location": "/services/engine-repair",
+      "expectedLocation": "/services/engine-repair"
+    },
+    {
+      "path": "/services/obd-scanner",
+      "status": 308,
+      "location": "/electric-scooter-repair",
+      "expectedLocation": "/electric-scooter-repair"
+    },
+    {
+      "path": "/services/disc-replacement",
+      "status": 308,
+      "location": "/services/brake-repair",
+      "expectedLocation": "/services/brake-repair"
+    },
+    {
+      "path": "/services/chain-sprocket",
+      "status": 308,
+      "location": "/services/basic-service",
+      "expectedLocation": "/services/basic-service"
+    },
+    {
+      "path": "/services/pick-and-drop",
+      "status": 308,
+      "location": "/services",
+      "expectedLocation": "/services"
+    },
+    {
+      "path": "/partner/gurgaon",
+      "status": 308,
+      "location": "/partner",
+      "expectedLocation": "/partner"
+    },
+    {
+      "path": "/book/hero",
+      "status": 308,
+      "location": "/book",
+      "expectedLocation": "/book"
+    },
+    {
+      "path": "/services/sports-bike-service",
+      "status": 308,
+      "location": "/sports-bike-service",
+      "expectedLocation": "/sports-bike-service"
+    },
+    {
+      "path": "/services/electric-scooter-repair",
+      "status": 308,
+      "location": "/electric-scooter-repair",
+      "expectedLocation": "/electric-scooter-repair"
+    },
+    {
+      "path": "/services/royal-enfield-service",
+      "status": 308,
+      "location": "/royal-enfield-service",
+      "expectedLocation": "/royal-enfield-service"
+    },
+    {
+      "path": "/services/commuter-bike-service",
+      "status": 308,
+      "location": "/commuter-bike-service",
+      "expectedLocation": "/commuter-bike-service"
+    },
+    {
+      "path": "/services/scooty-repair",
+      "status": 308,
+      "location": "/scooty-repair",
+      "expectedLocation": "/scooty-repair"
+    },
+    {
+      "path": "/services/premium-bike-service",
+      "status": 308,
+      "location": "/premium-bike-service",
+      "expectedLocation": "/premium-bike-service"
+    },
+    {
+      "path": "/services/basic-service/gurgaon/not-a-locality",
+      "status": 308,
+      "location": "/services/basic-service/gurgaon",
+      "expectedLocation": "/services/basic-service/gurgaon"
+    },
+    {
+      "path": "/services/tyre-replacement",
+      "status": 308,
+      "location": "/pricing",
+      "expectedLocation": "/pricing"
+    },
+    {
+      "path": "/services/general-washing",
+      "status": 308,
+      "location": "/services/basic-service",
+      "expectedLocation": "/services/basic-service"
+    },
+    {
+      "path": "/brands/hero",
+      "status": 308,
+      "location": "/hero",
+      "expectedLocation": "/hero"
+    },
+    {
+      "path": "/brands/hero/splendor-plus",
+      "status": 308,
+      "location": "/hero/splendor-plus",
+      "expectedLocation": "/hero/splendor-plus"
+    }
+  ],
+  "notFoundResults": [
+    {
+      "path": "/this-route-should-not-exist-phase5",
+      "status": 404
+    },
+    {
+      "path": "/gurgaon/not-a-real-locality-phase5",
+      "status": 404
+    },
+    {
+      "path": "/delhi/not-a-real-locality-phase5",
+      "status": 404
+    }
+  ],
+  "utilityResults": [
+    {
+      "path": "/confirmation",
+      "status": 200,
+      "noindex": true,
+      "inSitemap": false
+    },
+    {
+      "path": "/delete-account",
+      "status": 200,
+      "noindex": true,
+      "inSitemap": false
+    },
+    {
+      "path": "/book/checkout",
+      "status": 200,
+      "noindex": true,
+      "inSitemap": false
+    }
+  ]
+}

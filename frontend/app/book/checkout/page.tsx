@@ -4,6 +4,10 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Book a Mechanic — FixWheel Doorstep Bike Service",
   description: "Book your doorstep bike service in minutes. Pick a time slot and a verified mechanic comes to you. Serving Delhi.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   alternates: {
     canonical: "https://www.fixwheel.app/book/checkout",
   },

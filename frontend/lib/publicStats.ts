@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { normalizePublicCount, normalizePublicRating } from './publicStatsNormalization';
 
 export interface PublicStatRecord {
   city_slug: string;
@@ -94,13 +95,17 @@ export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRe
     const resultMap: Record<string, PublicStatRecord> = { ...DEFAULT_PUBLIC_STATS };
     data.forEach((row: any) => {
       if (row && row.city_slug) {
-        resultMap[row.city_slug.toLowerCase()] = {
-          city_slug: row.city_slug.toLowerCase(),
-          bikes_serviced: Number(row.bikes_serviced) || DEFAULT_PUBLIC_STATS.global.bikes_serviced,
-          total_partners: Number(row.total_partners) || DEFAULT_PUBLIC_STATS.global.total_partners,
-          cities_covered: Number(row.cities_covered) || DEFAULT_PUBLIC_STATS.global.cities_covered,
-          average_rating: Number(row.average_rating) || DEFAULT_PUBLIC_STATS.global.average_rating,
-          total_reviews: Number(row.total_reviews) || DEFAULT_PUBLIC_STATS.global.total_reviews,
+        const citySlug = String(row.city_slug).toLowerCase().trim();
+        if (!citySlug) return;
+
+        const fallback = DEFAULT_PUBLIC_STATS[citySlug] || DEFAULT_PUBLIC_STATS.global;
+        resultMap[citySlug] = {
+          city_slug: citySlug,
+          bikes_serviced: normalizePublicCount(row.bikes_serviced, fallback.bikes_serviced),
+          total_partners: normalizePublicCount(row.total_partners, fallback.total_partners),
+          cities_covered: normalizePublicCount(row.cities_covered, fallback.cities_covered),
+          average_rating: normalizePublicRating(row.average_rating, fallback.average_rating),
+          total_reviews: normalizePublicCount(row.total_reviews, fallback.total_reviews),
           updated_at: row.updated_at,
         };
       }
@@ -125,5 +130,5 @@ export async function getPublicStatsForCity(citySlug?: string): Promise<PublicSt
   if (statsMap[key]) {
     return statsMap[key];
   }
-  return statsMap.global || DEFAULT_PUBLIC_STATS.global;
+  return DEFAULT_PUBLIC_STATS[key] || statsMap.global || DEFAULT_PUBLIC_STATS.global;
 }

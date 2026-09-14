@@ -17,12 +17,15 @@ export interface BookingFormData {
   issueDescription?: string;
   preferredSlot: string;
   package: PackageType;
-  price: number;
+  serviceId: string;
+  ccRange?: string;
+  price?: number;
 }
 
 export interface BookingResponse {
   success: boolean;
   bookingId?: string;
+  price?: number;
   message?: string;
   error?: string;
   details?: any[];
@@ -75,4 +78,3 @@ export interface QueryResponse {
   error?: string;
   details?: any[];
 }
-

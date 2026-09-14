@@ -1,15 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { db as prisma } from '../lib/db';
+import { requireAdminKey } from '../middleware/requireAdminKey';
 
 const router = Router();
 
-router.use((req: Request, res: Response, next) => {
-  const adminKey = req.headers["x-admin-key"];
-  if (adminKey !== process.env.ADMIN_SECRET_KEY) {
-    return res.status(401).json({ error: "Unauthorized" });
-  }
-  next();
-});
+router.use(requireAdminKey);
 
 router.get("/bookings", async (req: Request, res: Response) => {
   try {
@@ -109,4 +104,3 @@ router.patch("/queries/:id/status", async (req: Request, res: Response) => {
 });
 
 export default router;
-

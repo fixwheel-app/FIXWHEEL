@@ -1,0 +1,562 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - generic [ref=f1e4]:
+      - link "FixWheel Logo FixWheel" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f1e6]
+        - generic [ref=f1e7]: FixWheel
+      - generic [ref=f1e8]:
+        - link "HOME" [ref=f1e10] [cursor=pointer]:
+          - /url: /
+        - button "SERVICES" [ref=f1e12] [cursor=pointer]
+        - button "LOCATIONS" [ref=f1e16] [cursor=pointer]
+        - link "BLOG" [ref=f1e20] [cursor=pointer]:
+          - /url: /blog
+        - link "ABOUT" [ref=f1e22] [cursor=pointer]:
+          - /url: /about
+        - link "BECOME PARTNER" [ref=f1e24] [cursor=pointer]:
+          - /url: /partner
+        - link "CONTACT" [ref=f1e26] [cursor=pointer]:
+          - /url: /contact
+        - link "GET APP" [ref=f1e28] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+      - generic [ref=f1e30]:
+        - link "GET APP" [ref=f1e31] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "BOOK NOW" [ref=f1e32] [cursor=pointer]:
+          - /url: /book
+    - generic [ref=f1e33]:
+      - generic [ref=f1e34]: Download App to get 10% off
+      - link "Get App ↗" [ref=f1e35] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f1e36]:
+    - generic [ref=f1e37]:
+      - navigation "Breadcrumb" [ref=f1e40]:
+        - link "Home" [ref=f1e42] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f1e43]:
+          - generic [ref=f1e44]: /
+          - generic [ref=f1e45]: Gurgaon
+      - generic [ref=f1e47]:
+        - generic [ref=f1e48]:
+          - generic [ref=f1e49]: Doorstep bike mechanic · Gurgaon
+          - heading [level=1] [ref=f1e50]:
+            - text: Doorstep Bike Repair Service
+            - emphasis [ref=f1e51]: in Gurgaon
+          - paragraph [ref=f1e52]: FixWheel offers doorstep bike repair service in Gurgaon. A verified mechanic will come to your home, office, or anywhere you are stranded to fix your bike or scooter. No need to visit a garage or wait in lines.
+          - generic [ref=f1e53]:
+            - link "Book a Mechanic in Gurgaon →" [ref=f1e54] [cursor=pointer]:
+              - /url: /book
+            - link "See how it works" [ref=f1e55] [cursor=pointer]:
+              - /url: "#how"
+          - generic [ref=f1e56]:
+            - generic [ref=f1e57]:
+              - generic [ref=f1e58]: 45 min
+              - text: Arrival time
+            - generic [ref=f1e59]:
+              - generic [ref=f1e60]: 148+
+              - text: Total vehicles serviced
+            - generic [ref=f1e61]:
+              - generic [ref=f1e62]: 4.8★
+              - text: Customer rating
+            - generic [ref=f1e63]:
+              - generic [ref=f1e64]: All sectors
+              - text: Service area
+        - generic [ref=f1e65]:
+          - generic [ref=f1e66]:
+            - generic [ref=f1e67]:
+              - text: FW-GGN-1042
+              - generic [ref=f1e68]: SERVICE DETAILS
+            - generic [ref=f1e69]: Completed ✓
+          - generic [ref=f1e70]:
+            - generic [ref=f1e71]:
+              - generic [ref=f1e72]: Service
+              - generic [ref=f1e73]: Basic Service
+            - generic [ref=f1e74]:
+              - generic [ref=f1e75]: Model
+              - generic [ref=f1e76]: Honda Activa
+            - generic [ref=f1e77]:
+              - generic [ref=f1e78]: Location
+              - generic [ref=f1e79]: Gurgaon
+            - generic [ref=f1e80]:
+              - generic [ref=f1e81]: Mechanic
+              - generic [ref=f1e82]: Verified ✓
+            - generic [ref=f1e83]:
+              - generic [ref=f1e84]: Warranty
+              - generic [ref=f1e85]: 15 days
+            - generic [ref=f1e86]:
+              - generic [ref=f1e87]: Response
+              - generic [ref=f1e88]: 29 min
+          - generic [ref=f1e89]:
+            - generic [ref=f1e90]:
+              - generic [ref=f1e91]: Total paid
+              - text: ₹550
+            - generic [ref=f1e92]: GURUGRAM · NCR
+      - generic [ref=f1e94]:
+        - generic [ref=f1e95]:
+          - generic [ref=f1e96]: Coverage
+          - heading "We cover all areas of Gurgaon" [level=2] [ref=f1e97]
+          - paragraph [ref=f1e98]: We dispatch mechanics across all Gurgaon sectors. A mechanic can usually reach you within 45 minutes.
+        - generic [ref=f1e99]:
+          - link "📍 DLF Phase 1" [ref=f1e100] [cursor=pointer]:
+            - /url: /gurgaon/dlf-phase-1
+          - link "📍 DLF Phase 2" [ref=f1e101] [cursor=pointer]:
+            - /url: /gurgaon/dlf-phase-2
+          - link "📍 DLF Phase 3" [ref=f1e102] [cursor=pointer]:
+            - /url: /gurgaon/dlf-phase-3
+          - link "📍 DLF Phase 4" [ref=f1e103] [cursor=pointer]:
+            - /url: /gurgaon/dlf-phase-4
+          - link "📍 DLF Phase 5" [ref=f1e104] [cursor=pointer]:
+            - /url: /gurgaon/dlf-phase-5
+          - link "📍 Sushant Lok" [ref=f1e105] [cursor=pointer]:
+            - /url: /gurgaon/sushant-lok
+          - link "📍 Golf Course Road" [ref=f1e106] [cursor=pointer]:
+            - /url: /gurgaon/golf-course-road
+          - link "📍 Sohna Road" [ref=f1e107] [cursor=pointer]:
+            - /url: /gurgaon/sohna-road
+          - link "📍 Palam Vihar" [ref=f1e108] [cursor=pointer]:
+            - /url: /gurgaon/palam-vihar
+          - link "📍 Udyog Vihar" [ref=f1e109] [cursor=pointer]:
+            - /url: /gurgaon/udyog-vihar
+          - link "📍 Dwarka Expressway" [ref=f1e110] [cursor=pointer]:
+            - /url: /gurgaon/dwarka-expressway
+          - link "📍 MG Road" [ref=f1e111] [cursor=pointer]:
+            - /url: /gurgaon/mg-road
+          - link "📍 Cyber City" [ref=f1e112] [cursor=pointer]:
+            - /url: /gurgaon/cyber-city
+          - link "📍 South City 1" [ref=f1e113] [cursor=pointer]:
+            - /url: /gurgaon/south-city-1
+          - link "📍 South City 2" [ref=f1e114] [cursor=pointer]:
+            - /url: /gurgaon/south-city-2
+          - link "📍 Nirvana Country" [ref=f1e115] [cursor=pointer]:
+            - /url: /gurgaon/nirvana-country
+          - link "📍 Sector 14" [ref=f1e116] [cursor=pointer]:
+            - /url: /gurgaon/sector-14
+          - link "📍 Sector 15" [ref=f1e117] [cursor=pointer]:
+            - /url: /gurgaon/sector-15
+          - link "📍 Sector 17" [ref=f1e118] [cursor=pointer]:
+            - /url: /gurgaon/sector-17
+          - link "📍 Sector 23" [ref=f1e119] [cursor=pointer]:
+            - /url: /gurgaon/sector-23
+          - link "📍 Sector 31" [ref=f1e120] [cursor=pointer]:
+            - /url: /gurgaon/sector-31
+          - link "📍 Sector 40" [ref=f1e121] [cursor=pointer]:
+            - /url: /gurgaon/sector-40
+          - link "📍 Sector 45" [ref=f1e122] [cursor=pointer]:
+            - /url: /gurgaon/sector-45
+          - link "📍 Sector 46" [ref=f1e123] [cursor=pointer]:
+            - /url: /gurgaon/sector-46
+          - link "📍 Sector 47" [ref=f1e124] [cursor=pointer]:
+            - /url: /gurgaon/sector-47
+          - link "📍 Sector 49" [ref=f1e125] [cursor=pointer]:
+            - /url: /gurgaon/sector-49
+          - link "📍 Sector 50" [ref=f1e126] [cursor=pointer]:
+            - /url: /gurgaon/sector-50
+          - link "📍 Sector 56" [ref=f1e127] [cursor=pointer]:
+            - /url: /gurgaon/sector-56
+          - link "📍 Sector 57" [ref=f1e128] [cursor=pointer]:
+            - /url: /gurgaon/sector-57
+          - link "📍 Sector 58" [ref=f1e129] [cursor=pointer]:
+            - /url: /gurgaon/sector-58
+          - link "📍 Ashok Vihar Phase 3" [ref=f1e130] [cursor=pointer]:
+            - /url: /gurgaon/ashok-vihar-phase-3
+          - link "📍 Huda City Centre" [ref=f1e131] [cursor=pointer]:
+            - /url: /gurgaon/huda-city-centre
+          - link "📍 Manesar" [ref=f1e132] [cursor=pointer]:
+            - /url: /gurgaon/manesar
+          - link "📍 Bhondsi" [ref=f1e133] [cursor=pointer]:
+            - /url: /gurgaon/bhondsi
+          - link "📍 Badshahpur" [ref=f1e134] [cursor=pointer]:
+            - /url: /gurgaon/badshahpur
+          - generic [ref=f1e135]: 📍 + All of Gurgaon covered
+      - generic [ref=f1e137]:
+        - generic [ref=f1e138]:
+          - generic [ref=f1e139]: Why FixWheel Gurgaon
+          - heading "How we work in Gurgaon" [level=2] [ref=f1e140]
+          - paragraph [ref=f1e141]: Avoid traffic and long waits. Get your bike serviced at home or office without pushing it to a shop.
+        - generic [ref=f1e142]:
+          - generic [ref=f1e143]:
+            - generic [ref=f1e144]: "01"
+            - heading "We come to you" [level=3] [ref=f1e145]
+            - paragraph [ref=f1e146]: Our mechanic will visit your home, office, or any location in Gurgaon. You do not have to move your bike.
+          - generic [ref=f1e147]:
+            - generic [ref=f1e148]: "02"
+            - heading "Trained mechanics" [level=3] [ref=f1e149]
+            - paragraph [ref=f1e150]: All our mechanics are trained, verified, and background-checked before joining the platform.
+          - generic [ref=f1e151]:
+            - generic [ref=f1e152]: "03"
+            - heading "Fixed pricing" [level=3] [ref=f1e153]
+            - paragraph [ref=f1e154]: We give you a clear price before we start working. There are no hidden fees or surprise costs.
+          - generic [ref=f1e155]:
+            - generic [ref=f1e156]: "04"
+            - heading "Fast arrival" [level=3] [ref=f1e157]
+            - paragraph [ref=f1e158]: Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 45 minutes.
+      - generic [ref=f1e160]:
+        - generic [ref=f1e161]:
+          - generic [ref=f1e162]: Services & pricing
+          - heading "Bike Repair & Service Packages in Gurgaon" [level=2] [ref=f1e163]
+        - generic [ref=f1e164]:
+          - generic [ref=f1e165]:
+            - generic [ref=f1e166]: "[BASIC]"
+            - heading "Basic Service" [level=3] [ref=f1e167]
+            - paragraph [ref=f1e168]: Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.
+            - generic [ref=f1e169]: ₹550 starting from
+            - link "View pricing →" [ref=f1e170] [cursor=pointer]:
+              - /url: /services/basic-service
+          - generic [ref=f1e171]:
+            - generic [ref=f1e172]: "[OIL]"
+            - heading "Service with Engine Oil" [level=3] [ref=f1e173]
+            - paragraph [ref=f1e174]: Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.
+            - generic [ref=f1e175]: ₹999 starting from
+            - link "View pricing →" [ref=f1e176] [cursor=pointer]:
+              - /url: /services/oil-change
+          - generic [ref=f1e177]:
+            - generic [ref=f1e178]: "[ENGINE]"
+            - heading "Engine Repair" [level=3] [ref=f1e179]
+            - paragraph [ref=f1e180]: Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.
+            - generic [ref=f1e181]: ₹4,500 starting from (half engine)
+            - link "View pricing →" [ref=f1e182] [cursor=pointer]:
+              - /url: /services/engine-repair
+          - generic [ref=f1e183]:
+            - generic [ref=f1e184]: "[PUNCTURE]"
+            - heading "Puncture Repair" [level=3] [ref=f1e185]
+            - paragraph [ref=f1e186]: Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.
+            - generic [ref=f1e187]: ₹399 starting from
+            - link "View pricing →" [ref=f1e188] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e189]:
+            - generic [ref=f1e190]: "[BRAKE]"
+            - heading "Brake Disc Replacement" [level=3] [ref=f1e191]
+            - paragraph [ref=f1e192]: Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.
+            - generic [ref=f1e193]: ₹199 starting from
+            - link "View pricing →" [ref=f1e194] [cursor=pointer]:
+              - /url: /services/brake-repair
+          - generic [ref=f1e195]:
+            - generic [ref=f1e196]: "[BATTERY]"
+            - heading "Battery Replacement" [level=3] [ref=f1e197]
+            - paragraph [ref=f1e198]: Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.
+            - generic [ref=f1e199]: ₹99 starting from (labor)
+            - link "View pricing →" [ref=f1e200] [cursor=pointer]:
+              - /url: /services/battery-replacement
+          - generic [ref=f1e201]:
+            - generic [ref=f1e202]: "[JUMPSTART]"
+            - heading "Jump Start" [level=3] [ref=f1e203]
+            - paragraph [ref=f1e204]: Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.
+            - generic [ref=f1e205]: ₹399 starting from
+            - link "Book now →" [ref=f1e206] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e207]:
+            - generic [ref=f1e208]: "[RUNNING]"
+            - heading "Running Repair" [level=3] [ref=f1e209]
+            - paragraph [ref=f1e210]: Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.
+            - generic [ref=f1e211]: ₹399 starting from
+            - link "Book now →" [ref=f1e212] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e213]:
+            - generic [ref=f1e214]: "[CARB]"
+            - heading "Carburetor Cleaning" [level=3] [ref=f1e215]
+            - paragraph [ref=f1e216]: Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.
+            - generic [ref=f1e217]: ₹199 starting from
+            - link "Book now →" [ref=f1e218] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e219]:
+            - generic [ref=f1e220]: "[OBD]"
+            - heading "OBD Scanner Inspection" [level=3] [ref=f1e221]
+            - paragraph [ref=f1e222]: A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.
+            - generic [ref=f1e223]: ₹199 starting from
+            - link "Book now →" [ref=f1e224] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e225]:
+            - generic [ref=f1e226]: "[CHAIN]"
+            - heading "Chain Sprocket Replacement" [level=3] [ref=f1e227]
+            - paragraph [ref=f1e228]: Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.
+            - generic [ref=f1e229]: ₹299 starting from
+            - link "Book now →" [ref=f1e230] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f1e231]:
+            - generic [ref=f1e232]: "[PICKUP]"
+            - heading "Pick and Drop" [level=3] [ref=f1e233]
+            - paragraph [ref=f1e234]: We collect your bike from your location, get it serviced, and deliver it back — you stay put.
+            - generic [ref=f1e235]: ₹199 starting from
+            - link "Book now →" [ref=f1e236] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=f1e238]:
+        - generic [ref=f1e239]:
+          - generic [ref=f1e240]: Vehicle types
+          - heading "We service all bikes and scooters" [level=2] [ref=f1e241]
+          - paragraph [ref=f1e242]: We repair all two-wheelers including daily scooters, commuter bikes, and electric vehicles.
+        - generic [ref=f1e243]:
+          - generic [ref=f1e244]: 🛵 Scooter
+          - generic [ref=f1e245]: 🏍️ Bike
+          - generic [ref=f1e246]: ⚡ EV Scooter
+          - generic [ref=f1e247]: ⚡ EV Bike
+          - generic [ref=f1e248]: 🏁 Sports Bike
+          - generic [ref=f1e249]: 🔵 Royal Enfield
+          - generic [ref=f1e250]: + all other types
+        - generic [ref=f1e252]:
+          - generic [ref=f1e253]: We service all major brands
+          - heading "Serviced in Gurgaon, whatever you ride" [level=2] [ref=f1e254]
+        - generic [ref=f1e255]:
+          - generic [ref=f1e256]: Royal Enfield
+          - generic [ref=f1e257]: Honda
+          - generic [ref=f1e258]: Yamaha
+          - generic [ref=f1e259]: Suzuki
+          - generic [ref=f1e260]: KTM
+          - generic [ref=f1e261]: Bajaj
+          - generic [ref=f1e262]: TVS
+          - generic [ref=f1e263]: Hero
+          - generic [ref=f1e264]: Vespa
+          - generic [ref=f1e265]: Ola Electric
+          - generic [ref=f1e266]: Ather
+          - generic [ref=f1e267]: Jawa
+          - generic [ref=f1e268]: Aprilia
+          - generic [ref=f1e269]: Harley-Davidson
+          - generic [ref=f1e270]: Kawasaki
+          - generic [ref=f1e271]: Benelli
+      - generic [ref=f1e273]:
+        - generic [ref=f1e274]:
+          - generic [ref=f1e275]: How it works
+          - heading "4 steps from booking to a fixed bike" [level=2] [ref=f1e276]
+        - generic [ref=f1e277]:
+          - generic [ref=f1e278]:
+            - generic [ref=f1e279]: "01"
+            - heading "1. Book a slot" [level=3] [ref=f1e280]
+            - paragraph [ref=f1e281]: Pick your service and choose a time on our app or website.
+          - generic [ref=f1e282]:
+            - generic [ref=f1e283]: "02"
+            - heading "2. Mechanic assigned" [level=3] [ref=f1e284]
+            - paragraph [ref=f1e285]: We assign a verified mechanic near you.
+          - generic [ref=f1e286]:
+            - generic [ref=f1e287]: "03"
+            - heading "3. Service at your doorstep" [level=3] [ref=f1e288]
+            - paragraph [ref=f1e289]: The mechanic repairs your bike at your home or office.
+          - generic [ref=f1e290]:
+            - generic [ref=f1e291]: "04"
+            - heading "4. Pay and rate" [level=3] [ref=f1e292]
+            - paragraph [ref=f1e293]: Pay the fixed price online or cash and rate the mechanic.
+      - generic [ref=f1e295]:
+        - generic [ref=f1e296]:
+          - generic [ref=f1e297]: Reviews
+          - heading "What our customers say" [level=2] [ref=f1e298]
+          - paragraph [ref=f1e299]: 4.7★ average rating from 473+ reviews
+        - generic [ref=f1e300]:
+          - generic [ref=f1e301]:
+            - generic [ref=f1e302]: ★★★★★
+            - paragraph [ref=f1e303]: "\"Quoted the price before starting, no extra charges added later. Honest service.\""
+            - generic [ref=f1e304]: Priya S. — Gurgaon
+          - generic [ref=f1e305]:
+            - generic [ref=f1e306]: ★★★★★
+            - paragraph [ref=f1e307]: "\"Bike broke down near Cyber Hub. Mechanic arrived in 15 minutes and didn't overcharge for the emergency call.\""
+            - generic [ref=f1e308]: Rahul Sharma — Gurgaon
+          - generic [ref=f1e309]:
+            - generic [ref=f1e310]: ★★★★★
+            - paragraph [ref=f1e311]: "\"Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now.\""
+            - generic [ref=f1e312]: Vikram Singh — Gurgaon
+      - generic [ref=f1e314]:
+        - generic [ref=f1e315]:
+          - generic [ref=f1e316]: Join our network
+          - heading "Are you a bike mechanic in Gurgaon?" [level=2] [ref=f1e317]
+          - paragraph [ref=f1e318]: Join our team of mechanics in Gurgaon. Work on your own schedule, get more customers, and grow your income.
+          - list [ref=f1e319]:
+            - listitem [ref=f1e320]: — Flexible working hours
+            - listitem [ref=f1e321]: — Easy booking management
+            - listitem [ref=f1e322]: — Receive service requests from customers in your area
+        - generic [ref=f1e323]:
+          - heading "Become a partner" [level=3] [ref=f1e324]
+          - paragraph [ref=f1e325]: Sign up in a few minutes and start getting service requests in your area.
+          - link "Become a Partner →" [ref=f1e326] [cursor=pointer]:
+            - /url: /partner
+      - generic [ref=f1e328]:
+        - generic [ref=f1e329]:
+          - generic [ref=f1e330]: FAQs
+          - heading "Common questions about bike repair in Gurgaon" [level=2] [ref=f1e331]
+        - generic [ref=f1e332]:
+          - generic [ref=f1e333]:
+            - generic [ref=f1e334] [cursor=pointer]:
+              - text: How long does doorstep bike service take in Gurgaon?
+              - generic [ref=f1e335]: +
+            - paragraph [ref=f1e337]: Most repairs take 30 to 50 minutes. We tell you the time needed before we start.
+          - generic [ref=f1e338]:
+            - generic [ref=f1e339] [cursor=pointer]:
+              - text: How much does doorstep bike service cost in Gurgaon?
+              - generic [ref=f1e340]: +
+            - paragraph [ref=f1e341]: Service starts from ₹550 depending on your bike model. We give you a clear price before starting.
+          - generic [ref=f1e342]:
+            - generic [ref=f1e343] [cursor=pointer]:
+              - text: Which areas do you cover in Gurgaon?
+              - generic [ref=f1e344]: +
+            - paragraph [ref=f1e345]: We cover all areas and sectors in Gurgaon.
+          - generic [ref=f1e346]:
+            - generic [ref=f1e347] [cursor=pointer]:
+              - text: Can I book emergency roadside assistance in Gurgaon?
+              - generic [ref=f1e348]: +
+            - paragraph [ref=f1e349]: Yes, our roadside assistance is available 24/7 in Gurgaon.
+          - generic [ref=f1e350]:
+            - generic [ref=f1e351] [cursor=pointer]:
+              - text: Do you service Royal Enfield bikes at home in Gurgaon?
+              - generic [ref=f1e352]: +
+            - paragraph [ref=f1e353]: Yes, we repair and service all Royal Enfield models at your home.
+          - generic [ref=f1e354]:
+            - generic [ref=f1e355] [cursor=pointer]:
+              - text: Is there a warranty on the repair?
+              - generic [ref=f1e356]: +
+            - paragraph [ref=f1e357]: Yes, we provide a 15-day warranty on our service.
+      - generic [ref=f1e359]:
+        - generic [ref=f1e360]:
+          - generic [ref=f1e361]: Contact
+          - heading "Contact us" [level=2] [ref=f1e362]
+          - paragraph [ref=f1e363]: Have a question? We are available from 8 AM to 8 PM.
+          - generic [ref=f1e364]:
+            - generic [ref=f1e365]:
+              - generic [ref=f1e366]: ☎
+              - generic [ref=f1e367]:
+                - generic [ref=f1e368]: +91 87459 45682
+                - text: Call us between 8AM and 8PM
+            - generic [ref=f1e369]:
+              - generic [ref=f1e370]: ✉
+              - generic [ref=f1e371]:
+                - generic [ref=f1e372]: support@fixwheel.app
+                - text: We reply within 2 hours
+            - generic [ref=f1e373]:
+              - generic [ref=f1e374]: 💬
+              - generic [ref=f1e375]:
+                - generic [ref=f1e376]: Chat on WhatsApp
+                - text: Fastest way to book
+        - generic [ref=f1e377]:
+          - generic [ref=f1e378]: 24/7 EMERGENCY
+          - heading "Gurgaon Roadside Assistance" [level=3] [ref=f1e379]
+          - paragraph [ref=f1e380]: Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot.
+          - generic [ref=f1e381]:
+            - link "Request Roadside Assistance →" [ref=f1e382] [cursor=pointer]:
+              - /url: /book
+            - link "Call Us Now" [ref=f1e383] [cursor=pointer]:
+              - /url: tel:+918745945682
+      - generic [ref=f1e385]:
+        - heading "Book Doorstep Service by City" [level=3] [ref=f1e386]
+        - generic [ref=f1e387]:
+          - link "Gurgaon / Gurugram" [ref=f1e388] [cursor=pointer]:
+            - /url: /gurgaon
+          - link "Delhi" [ref=f1e389] [cursor=pointer]:
+            - /url: /delhi
+          - link "Noida" [ref=f1e390] [cursor=pointer]:
+            - /url: /noida
+          - link "Ghaziabad" [ref=f1e391] [cursor=pointer]:
+            - /url: /ghaziabad
+          - link "Faridabad" [ref=f1e392] [cursor=pointer]:
+            - /url: /faridabad
+      - generic [ref=f1e394]:
+        - heading "Book doorstep bike repair in Gurgaon." [level=2] [ref=f1e395]
+        - paragraph [ref=f1e396]: Verified mechanic at your home or office, anywhere in Gurugram. Starting ₹550. No garage visit needed.
+        - link "Book Your Bike Service →" [ref=f1e397] [cursor=pointer]:
+          - /url: /book
+  - generic [ref=f1e398]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f1e399] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f1e405]:
+    - generic: Call us
+    - link "Call us now" [ref=f1e406] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f1e412]:
+    - generic [ref=f1e413]:
+      - generic [ref=f1e414]:
+        - generic [ref=f1e415]:
+          - link "FixWheel Logo FixWheel" [ref=f1e416] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f1e417]
+            - generic [ref=f1e418]: FixWheel
+          - paragraph [ref=f1e419]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f1e420]:
+          - heading "Locations" [level=4] [ref=f1e421]
+          - list [ref=f1e422]:
+            - listitem [ref=f1e423]:
+              - link "Delhi" [ref=f1e424] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f1e425]:
+              - link "Gurgaon" [ref=f1e426] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f1e427]:
+              - link "Noida" [ref=f1e428] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f1e429]:
+              - link "Faridabad" [ref=f1e430] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f1e431]:
+              - link "Ghaziabad" [ref=f1e432] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f1e433]:
+          - heading "Quick Links" [level=4] [ref=f1e434]
+          - list [ref=f1e435]:
+            - listitem [ref=f1e436]:
+              - link "Home" [ref=f1e437] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f1e438]:
+              - link "About Us" [ref=f1e439] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f1e440]:
+              - link "Repairs" [ref=f1e441] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f1e442]:
+              - link "Pricing" [ref=f1e443] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f1e444]:
+              - link "Blogs" [ref=f1e445] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f1e446]:
+              - link "Book Now" [ref=f1e447] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f1e448]:
+          - heading "Contact" [level=4] [ref=f1e449]
+          - list [ref=f1e450]:
+            - listitem [ref=f1e451]: "Phone: +91 87459 45682"
+            - listitem [ref=f1e452]: "Email: support@fixwheel.app"
+          - generic [ref=f1e453]:
+            - link "WhatsApp" [ref=f1e454] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f1e457] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f1e461] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f1e464] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f1e469]:
+        - paragraph [ref=f1e470]: "Popular Searches:"
+        - generic [ref=f1e471]:
+          - link "Bike Repair Near Me" [ref=f1e472] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f1e473]: •
+          - link "Bike Mechanic Near Me" [ref=f1e474] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f1e475]: •
+          - link "Sports Bike Repair Near Me" [ref=f1e476] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f1e477]: •
+          - link "EV Scooter Repair Near Me" [ref=f1e478] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f1e479]: •
+          - link "Royal Enfield Repair Near Me" [ref=f1e480] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f1e481]: •
+          - link "Scooty Repair Near Me" [ref=f1e482] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f1e483]: •
+          - link "Engine Oil Change Near Me" [ref=f1e484] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f1e485]: •
+          - link "Bike Battery Replacement Near Me" [ref=f1e486] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f1e487]: •
+          - link "Bike Tyre Repair Near Me" [ref=f1e488] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f1e489]:
+        - paragraph [ref=f1e490]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f1e491]:
+          - link "Terms & Conditions" [ref=f1e492] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f1e493]: "|"
+          - link "Privacy Policy" [ref=f1e494] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f1e495]: "|"
+          - link "Delete Account" [ref=f1e496] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f1e497]

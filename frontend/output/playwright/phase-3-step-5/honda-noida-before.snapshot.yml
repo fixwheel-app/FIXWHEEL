@@ -1,0 +1,486 @@
+- generic [active] [ref=f2e1]:
+  - navigation [ref=f2e2]:
+    - generic [ref=f2e4]:
+      - link "FixWheel Logo FixWheel" [ref=f2e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f2e6]
+        - generic [ref=f2e7]: FixWheel
+      - generic [ref=f2e8]:
+        - link "HOME" [ref=f2e10] [cursor=pointer]:
+          - /url: /
+        - button "SERVICES" [ref=f2e12] [cursor=pointer]
+        - button "LOCATIONS" [ref=f2e16] [cursor=pointer]
+        - link "BLOG" [ref=f2e20] [cursor=pointer]:
+          - /url: /blog
+        - link "ABOUT" [ref=f2e22] [cursor=pointer]:
+          - /url: /about
+        - link "BECOME PARTNER" [ref=f2e24] [cursor=pointer]:
+          - /url: /partner
+        - link "CONTACT" [ref=f2e26] [cursor=pointer]:
+          - /url: /contact
+        - link "GET APP" [ref=f2e28] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+      - generic [ref=f2e29]:
+        - link "GET APP" [ref=f2e30] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "BOOK NOW" [ref=f2e31] [cursor=pointer]:
+          - /url: /book
+    - generic [ref=f2e32]:
+      - generic [ref=f2e33]: Download App to get 10% off
+      - link "Get App ↗" [ref=f2e34] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f2e35]:
+    - generic [ref=f2e36]:
+      - navigation "Breadcrumb" [ref=f2e39]:
+        - link "Home" [ref=f2e41] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f2e42]:
+          - generic [ref=f2e43]: /
+          - link "Brands" [ref=f2e44] [cursor=pointer]:
+            - /url: /brands
+        - generic [ref=f2e45]:
+          - generic [ref=f2e46]: /
+          - link "Honda" [ref=f2e47] [cursor=pointer]:
+            - /url: /honda
+        - generic [ref=f2e48]:
+          - generic [ref=f2e49]: /
+          - generic [ref=f2e50]: Honda Service in Noida
+      - generic [ref=f2e52]:
+        - generic [ref=f2e53]:
+          - generic [ref=f2e54]: Honda Bike Repair Service · Noida
+          - heading [level=1] [ref=f2e55]:
+            - text: Doorstep
+            - emphasis [ref=f2e56]: Honda
+            - text: Bike Service in Noida
+          - paragraph [ref=f2e57]: Get expert doorstep Honda bike repair and periodic service in Noida. Our certified mechanics arrive at your home or office parking in Sector 18, Sector 62, Sector 137, or Greater Noida West with portable diagnostic equipment and genuine replacement spares.
+          - generic [ref=f2e58]:
+            - link "Book Honda Service →" [ref=f2e59] [cursor=pointer]:
+              - /url: /book#honda
+            - link "Call Mechanic" [ref=f2e60] [cursor=pointer]:
+              - /url: tel:+918745945682
+        - generic [ref=f2e63]:
+          - generic [ref=f2e64]:
+            - generic [ref=f2e65]:
+              - text: HONDA DISPATCH TICKET
+              - generic [ref=f2e66]: NOIDA · NCR
+            - generic [ref=f2e67]: DISPATCH READY
+          - generic [ref=f2e68]:
+            - generic [ref=f2e69]:
+              - generic [ref=f2e70]: STARTING PRICE
+              - text: ₹199
+            - generic [ref=f2e71]:
+              - generic [ref=f2e72]: ARRIVAL TIME
+              - text: 45 Minutes
+            - generic [ref=f2e73]:
+              - generic [ref=f2e74]: LOCATION
+              - generic [ref=f2e75]: Noida (Home/Office)
+            - generic [ref=f2e76]:
+              - generic [ref=f2e77]: WARRANTY
+              - text: 15 Days Labor
+          - generic [ref=f2e78]: 100% Genuine Honda OEM Spare Parts Guaranteed
+      - generic [ref=f2e85]:
+        - generic [ref=f2e86]:
+          - generic [ref=f2e87]: 45 MIN
+          - generic [ref=f2e88]: Arrival in Noida
+        - generic [ref=f2e89]:
+          - generic [ref=f2e90]: 4.7 ★
+          - text: Customer Rating
+        - generic [ref=f2e91]:
+          - generic [ref=f2e92]: 19+
+          - text: Vehicles Serviced
+        - generic [ref=f2e93]:
+          - generic [ref=f2e94]: 15 DAYS
+          - text: Labor Warranty
+      - generic [ref=f2e96]:
+        - generic [ref=f2e97]:
+          - generic [ref=f2e98]: Honda Models in Noida
+          - heading "Honda Bikes & Scooters Serviced at Doorstep in Noida" [level=2] [ref=f2e99]
+          - paragraph [ref=f2e100]: "We provide routine servicing, oil changes, engine tuning, and emergency repair for all Honda models across Noida:"
+        - generic [ref=f2e101]:
+          - link "Activa 6G View model service →" [ref=f2e102] [cursor=pointer]:
+            - /url: /honda/activa-6g
+            - generic [ref=f2e103]: Activa 6G
+            - generic [ref=f2e104]: View model service →
+          - link "Activa 125 View model service →" [ref=f2e105] [cursor=pointer]:
+            - /url: /honda/activa-125
+            - generic [ref=f2e106]: Activa 125
+            - generic [ref=f2e107]: View model service →
+          - link "Activa 5G View model service →" [ref=f2e108] [cursor=pointer]:
+            - /url: /honda/activa-5g
+            - generic [ref=f2e109]: Activa 5G
+            - generic [ref=f2e110]: View model service →
+          - link "Activa 4G / 3G View model service →" [ref=f2e111] [cursor=pointer]:
+            - /url: /honda/activa-4g-3g
+            - generic [ref=f2e112]: Activa 4G / 3G
+            - generic [ref=f2e113]: View model service →
+          - link "Shine 125 View model service →" [ref=f2e114] [cursor=pointer]:
+            - /url: /honda/shine-125
+            - generic [ref=f2e115]: Shine 125
+            - generic [ref=f2e116]: View model service →
+          - link "Shine 100 View model service →" [ref=f2e117] [cursor=pointer]:
+            - /url: /honda/shine-100
+            - generic [ref=f2e118]: Shine 100
+            - generic [ref=f2e119]: View model service →
+          - link "SP 125 View model service →" [ref=f2e120] [cursor=pointer]:
+            - /url: /honda/sp-125
+            - generic [ref=f2e121]: SP 125
+            - generic [ref=f2e122]: View model service →
+          - link "SP 160 View model service →" [ref=f2e123] [cursor=pointer]:
+            - /url: /honda/sp-160
+            - generic [ref=f2e124]: SP 160
+            - generic [ref=f2e125]: View model service →
+          - link "Dio View model service →" [ref=f2e126] [cursor=pointer]:
+            - /url: /honda/dio
+            - generic [ref=f2e127]: Dio
+            - generic [ref=f2e128]: View model service →
+          - link "Dio 125 View model service →" [ref=f2e129] [cursor=pointer]:
+            - /url: /honda/dio-125
+            - generic [ref=f2e130]: Dio 125
+            - generic [ref=f2e131]: View model service →
+          - link "Livo View model service →" [ref=f2e132] [cursor=pointer]:
+            - /url: /honda/livo
+            - generic [ref=f2e133]: Livo
+            - generic [ref=f2e134]: View model service →
+          - link "Unicorn 160 View model service →" [ref=f2e135] [cursor=pointer]:
+            - /url: /honda/unicorn-160
+            - generic [ref=f2e136]: Unicorn 160
+            - generic [ref=f2e137]: View model service →
+          - link "Hornet 2.0 View model service →" [ref=f2e138] [cursor=pointer]:
+            - /url: /honda/hornet-2-0
+            - generic [ref=f2e139]: Hornet 2.0
+            - generic [ref=f2e140]: View model service →
+          - link "XBlade View model service →" [ref=f2e141] [cursor=pointer]:
+            - /url: /honda/xblade
+            - generic [ref=f2e142]: XBlade
+            - generic [ref=f2e143]: View model service →
+          - link "CD 110 Dream View model service →" [ref=f2e144] [cursor=pointer]:
+            - /url: /honda/cd-110-dream
+            - generic [ref=f2e145]: CD 110 Dream
+            - generic [ref=f2e146]: View model service →
+          - link "Grazia 125 View model service →" [ref=f2e147] [cursor=pointer]:
+            - /url: /honda/grazia-125
+            - generic [ref=f2e148]: Grazia 125
+            - generic [ref=f2e149]: View model service →
+          - link "Dream Yuga View model service →" [ref=f2e150] [cursor=pointer]:
+            - /url: /honda/dream-yuga
+            - generic [ref=f2e151]: Dream Yuga
+            - generic [ref=f2e152]: View model service →
+          - link "Activa Premium View model service →" [ref=f2e153] [cursor=pointer]:
+            - /url: /honda/activa-premium
+            - generic [ref=f2e154]: Activa Premium
+            - generic [ref=f2e155]: View model service →
+          - link "Navi View model service →" [ref=f2e156] [cursor=pointer]:
+            - /url: /honda/navi
+            - generic [ref=f2e157]: Navi
+            - generic [ref=f2e158]: View model service →
+          - link "Activa i / Hetz View model service →" [ref=f2e159] [cursor=pointer]:
+            - /url: /honda/activa-i-hetz
+            - generic [ref=f2e160]: Activa i / Hetz
+            - generic [ref=f2e161]: View model service →
+          - link "CB Shine SP View model service →" [ref=f2e162] [cursor=pointer]:
+            - /url: /honda/cb-shine-sp
+            - generic [ref=f2e163]: CB Shine SP
+            - generic [ref=f2e164]: View model service →
+          - link "Aviator View model service →" [ref=f2e165] [cursor=pointer]:
+            - /url: /honda/aviator
+            - generic [ref=f2e166]: Aviator
+            - generic [ref=f2e167]: View model service →
+          - link "H'ness CB350 View model service →" [ref=f2e168] [cursor=pointer]:
+            - /url: /honda/h-ness-cb350
+            - generic [ref=f2e169]: H'ness CB350
+            - generic [ref=f2e170]: View model service →
+          - link "CB350RS View model service →" [ref=f2e171] [cursor=pointer]:
+            - /url: /honda/cb350rs
+            - generic [ref=f2e172]: CB350RS
+            - generic [ref=f2e173]: View model service →
+          - link "CB350 View model service →" [ref=f2e174] [cursor=pointer]:
+            - /url: /honda/cb350
+            - generic [ref=f2e175]: CB350
+            - generic [ref=f2e176]: View model service →
+          - link "CB200X View model service →" [ref=f2e177] [cursor=pointer]:
+            - /url: /honda/cb200x
+            - generic [ref=f2e178]: CB200X
+            - generic [ref=f2e179]: View model service →
+          - link "CB Unicorn 150 View model service →" [ref=f2e180] [cursor=pointer]:
+            - /url: /honda/cb-unicorn-150
+            - generic [ref=f2e181]: CB Unicorn 150
+            - generic [ref=f2e182]: View model service →
+          - link "CB300F View model service →" [ref=f2e183] [cursor=pointer]:
+            - /url: /honda/cb300f
+            - generic [ref=f2e184]: CB300F
+            - generic [ref=f2e185]: View model service →
+          - link "CB300R View model service →" [ref=f2e186] [cursor=pointer]:
+            - /url: /honda/cb300r
+            - generic [ref=f2e187]: CB300R
+            - generic [ref=f2e188]: View model service →
+          - link "CBR 150R View model service →" [ref=f2e189] [cursor=pointer]:
+            - /url: /honda/cbr-150r
+            - generic [ref=f2e190]: CBR 150R
+            - generic [ref=f2e191]: View model service →
+          - link "CBR 250R View model service →" [ref=f2e192] [cursor=pointer]:
+            - /url: /honda/cbr-250r
+            - generic [ref=f2e193]: CBR 250R
+            - generic [ref=f2e194]: View model service →
+          - link "CBR 650R View model service →" [ref=f2e195] [cursor=pointer]:
+            - /url: /honda/cbr-650r
+            - generic [ref=f2e196]: CBR 650R
+            - generic [ref=f2e197]: View model service →
+          - link "NX500 View model service →" [ref=f2e198] [cursor=pointer]:
+            - /url: /honda/nx500
+            - generic [ref=f2e199]: NX500
+            - generic [ref=f2e200]: View model service →
+          - link "XL750 Transalp View model service →" [ref=f2e201] [cursor=pointer]:
+            - /url: /honda/xl750-transalp
+            - generic [ref=f2e202]: XL750 Transalp
+            - generic [ref=f2e203]: View model service →
+          - link "Africa Twin View model service →" [ref=f2e204] [cursor=pointer]:
+            - /url: /honda/africa-twin
+            - generic [ref=f2e205]: Africa Twin
+            - generic [ref=f2e206]: View model service →
+          - link "CBR1000RR-R Fireblade View model service →" [ref=f2e207] [cursor=pointer]:
+            - /url: /honda/cbr1000rr-r-fireblade
+            - generic [ref=f2e208]: CBR1000RR-R Fireblade
+            - generic [ref=f2e209]: View model service →
+          - link "Gold Wing Tour View model service →" [ref=f2e210] [cursor=pointer]:
+            - /url: /honda/gold-wing-tour
+            - generic [ref=f2e211]: Gold Wing Tour
+            - generic [ref=f2e212]: View model service →
+      - generic [ref=f2e214]:
+        - generic [ref=f2e215]:
+          - generic [ref=f2e216]: Service Catalog
+          - heading "Doorstep Honda Service Charges in Noida" [level=2] [ref=f2e217]
+          - paragraph [ref=f2e218]: "Flat, honest rates with zero hidden fees. Pick your service and book a verified mechanic to your door:"
+        - generic [ref=f2e219]:
+          - generic [ref=f2e220]:
+            - generic [ref=f2e221]:
+              - heading "Service with Engine Oil" [level=3] [ref=f2e222]
+              - paragraph [ref=f2e223]: Complete oil drain, OEM-spec fresh engine oil refilled, spark plug clean & chain lube in Noida.
+            - generic [ref=f2e224]: ₹999 starting from
+          - generic [ref=f2e225]:
+            - generic [ref=f2e226]:
+              - heading "Basic Bike Service" [level=3] [ref=f2e227]
+              - paragraph [ref=f2e228]: 21-point checkup, brake adjust, spark plug clean, air filter check & electrical system check in Noida.
+            - generic [ref=f2e229]: ₹550 starting from
+          - generic [ref=f2e230]:
+            - generic [ref=f2e231]:
+              - heading "Doorstep Puncture Repair" [level=3] [ref=f2e232]
+              - paragraph [ref=f2e233]: Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in Noida.
+            - generic [ref=f2e234]: ₹399 starting from
+          - generic [ref=f2e235]:
+            - generic [ref=f2e236]:
+              - heading "Brake Disc & Pad Repair" [level=3] [ref=f2e237]
+              - paragraph [ref=f2e238]: Brake pad replacement, disc rotor inspection, drum shoe swap & cable calibration in Noida.
+            - generic [ref=f2e239]: ₹199 starting from
+          - generic [ref=f2e240]:
+            - generic [ref=f2e241]:
+              - heading "Battery Replacement" [level=3] [ref=f2e242]
+              - paragraph [ref=f2e243]: On-site battery diagnostics, testing, jump-start & new warranty battery installation in Noida.
+            - generic [ref=f2e244]: ₹99 starting from
+          - generic [ref=f2e245]:
+            - generic [ref=f2e246]:
+              - heading "Running Repair" [level=3] [ref=f2e247]
+              - paragraph [ref=f2e248]: Quick breakdown repair, clutch cable adjustment & accelerator cable replacement in Noida.
+            - generic [ref=f2e249]: ₹399 starting from
+      - generic [ref=f2e251]:
+        - generic [ref=f2e252]:
+          - generic [ref=f2e253]: Local Coverage
+          - heading "Where We Service Honda Two-Wheelers in Noida" [level=2] [ref=f2e254]
+          - paragraph [ref=f2e255]: "Our mobile mechanics cover all major sectors, apartment complexes, and office parks across Noida:"
+        - generic [ref=f2e256]:
+          - generic [ref=f2e257]:
+            - generic [ref=f2e258]: 📍
+            - generic [ref=f2e259]: Sector 18 & 27
+          - generic [ref=f2e260]:
+            - generic [ref=f2e261]: 📍
+            - generic [ref=f2e262]: Sector 62 & 63
+          - generic [ref=f2e263]:
+            - generic [ref=f2e264]: 📍
+            - generic [ref=f2e265]: Sector 50 & 51
+          - generic [ref=f2e266]:
+            - generic [ref=f2e267]: 📍
+            - generic [ref=f2e268]: Sector 75–78
+          - generic [ref=f2e269]:
+            - generic [ref=f2e270]: 📍
+            - generic [ref=f2e271]: Sector 137 & Expressway
+          - generic [ref=f2e272]:
+            - generic [ref=f2e273]: 📍
+            - generic [ref=f2e274]: Sector 120
+          - generic [ref=f2e275]:
+            - generic [ref=f2e276]: 📍
+            - generic [ref=f2e277]: Greater Noida West
+      - generic [ref=f2e279]:
+        - generic [ref=f2e280]:
+          - generic [ref=f2e281]: Customer Reviews
+          - heading "What Honda Owners in Noida Say" [level=2] [ref=f2e282]
+        - generic [ref=f2e283]:
+          - generic [ref=f2e284]:
+            - generic [ref=f2e285]: ★★★★★
+            - paragraph [ref=f2e286]: "\"Got my Honda serviced at my doorstep in Noida. The mechanic was on time, very thorough, and used genuine oil. Highly recommended!\""
+            - generic [ref=f2e287]: Rohan Sharma — Honda Two-Wheeler (Noida)
+          - generic [ref=f2e288]:
+            - generic [ref=f2e289]: ★★★★★
+            - paragraph [ref=f2e290]: "\"Extremely convenient service in Noida. No pushing the scooter to local workshops. Fixed the starting trouble in 40 minutes.\""
+            - generic [ref=f2e291]: Pooja Verma — Honda Scooter (Noida)
+          - generic [ref=f2e292]:
+            - generic [ref=f2e293]: ★★★★★
+            - paragraph [ref=f2e294]: "\"Transparent pricing and professional mechanic. Done right in my society parking in Noida. Will book again for regular servicing.\""
+            - generic [ref=f2e295]: Amit Patel — Honda Motorcycle (Noida)
+      - generic [ref=f2e297]:
+        - generic [ref=f2e298]:
+          - generic [ref=f2e299]: FAQs — Noida
+          - heading "Frequently Asked Questions About Honda Servicing in Noida" [level=2] [ref=f2e300]
+        - generic [ref=f2e301]:
+          - generic [ref=f2e302]:
+            - generic [ref=f2e303] [cursor=pointer]:
+              - text: How long does doorstep Honda service take in Noida?
+              - generic [ref=f2e304]: +
+            - paragraph [ref=f2e306]: Routine periodic servicing and minor repairs for Honda two-wheelers take 35 to 50 minutes at your home or office parking in Noida. Our mobile mechanic arrives fully equipped within 45 minutes.
+          - generic [ref=f2e307]:
+            - generic [ref=f2e308] [cursor=pointer]:
+              - text: Are 100% genuine Honda spare parts used for doorstep repairs in Noida?
+              - generic [ref=f2e309]: +
+            - paragraph [ref=f2e310]: Yes! We use sealed genuine OEM spare parts (100% Genuine HMSI Air Filters, Brakes, and Spark Plugs). All replaced parts are inspected and handed over to you after servicing in Noida.
+          - generic [ref=f2e311]:
+            - generic [ref=f2e312] [cursor=pointer]:
+              - text: What engine oil grade is used for Honda bikes & scooters in Noida?
+              - generic [ref=f2e313]: +
+            - paragraph [ref=f2e314]: We use recommended Honda specification oil (10W-30 HMSI Specification Semi-Synthetic/Synthetic) or high-grade Motul / Yamalube synthetic blends in sealed bottles, replaced right in front of you.
+          - generic [ref=f2e315]:
+            - generic [ref=f2e316] [cursor=pointer]:
+              - text: Is there a warranty on Honda doorstep service in Noida?
+              - generic [ref=f2e317]: +
+            - paragraph [ref=f2e318]: Yes, FixWheel provides a 15-day labor & diagnostic warranty on all Honda doorstep repairs in Noida, plus manufacturer warranties on replaced components.
+          - generic [ref=f2e319]:
+            - generic [ref=f2e320] [cursor=pointer]:
+              - text: Which areas in Noida do your Honda mobile mechanics cover?
+              - generic [ref=f2e321]: +
+            - paragraph [ref=f2e322]: We cover all major sectors, residential societies, and commercial hubs in Noida (Sector 18 & 27, Sector 62 & 63, Sector 50 & 51, Sector 75–78 and surrounding areas).
+        - generic [ref=f2e323]:
+          - generic [ref=f2e324]: "SERVICING HONDA IN OTHER CITIES:"
+          - generic [ref=f2e325]:
+            - link "Honda Main Hub" [ref=f2e326] [cursor=pointer]:
+              - /url: /honda
+            - link "Honda in Gurgaon" [ref=f2e327] [cursor=pointer]:
+              - /url: /honda/gurgaon
+            - link "Honda in Delhi" [ref=f2e328] [cursor=pointer]:
+              - /url: /honda/delhi
+            - link "Honda in Faridabad" [ref=f2e329] [cursor=pointer]:
+              - /url: /honda/faridabad
+            - link "Honda in Ghaziabad" [ref=f2e330] [cursor=pointer]:
+              - /url: /honda/ghaziabad
+      - generic [ref=f2e332]:
+        - heading "Get Your Honda Serviced at Doorstep in Noida" [level=2] [ref=f2e333]
+        - paragraph [ref=f2e334]: Certified mechanics. 45-minute arrival time. 15-day labor warranty.
+        - link "Book Honda Service in Noida →" [ref=f2e335] [cursor=pointer]:
+          - /url: /book#honda
+  - generic [ref=f2e336]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f2e337] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f2e343]:
+    - generic: Call us
+    - link "Call us now" [ref=f2e344] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f2e350]:
+    - generic [ref=f2e351]:
+      - generic [ref=f2e352]:
+        - generic [ref=f2e353]:
+          - link "FixWheel Logo FixWheel" [ref=f2e354] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f2e355]
+            - generic [ref=f2e356]: FixWheel
+          - paragraph [ref=f2e357]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f2e358]:
+          - heading "Locations" [level=4] [ref=f2e359]
+          - list [ref=f2e360]:
+            - listitem [ref=f2e361]:
+              - link "Delhi" [ref=f2e362] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f2e363]:
+              - link "Gurgaon" [ref=f2e364] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f2e365]:
+              - link "Noida" [ref=f2e366] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f2e367]:
+              - link "Faridabad" [ref=f2e368] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f2e369]:
+              - link "Ghaziabad" [ref=f2e370] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f2e371]:
+          - heading "Quick Links" [level=4] [ref=f2e372]
+          - list [ref=f2e373]:
+            - listitem [ref=f2e374]:
+              - link "Home" [ref=f2e375] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f2e376]:
+              - link "About Us" [ref=f2e377] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f2e378]:
+              - link "Repairs" [ref=f2e379] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f2e380]:
+              - link "Pricing" [ref=f2e381] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f2e382]:
+              - link "Blogs" [ref=f2e383] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f2e384]:
+              - link "Book Now" [ref=f2e385] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f2e386]:
+          - heading "Contact" [level=4] [ref=f2e387]
+          - list [ref=f2e388]:
+            - listitem [ref=f2e389]: "Phone: +91 87459 45682"
+            - listitem [ref=f2e390]: "Email: support@fixwheel.app"
+          - generic [ref=f2e391]:
+            - link "WhatsApp" [ref=f2e392] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f2e395] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f2e399] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f2e402] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f2e407]:
+        - paragraph [ref=f2e408]: "Popular Searches:"
+        - generic [ref=f2e409]:
+          - link "Bike Repair Near Me" [ref=f2e410] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f2e411]: •
+          - link "Bike Mechanic Near Me" [ref=f2e412] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f2e413]: •
+          - link "Sports Bike Repair Near Me" [ref=f2e414] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f2e415]: •
+          - link "EV Scooter Repair Near Me" [ref=f2e416] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f2e417]: •
+          - link "Royal Enfield Repair Near Me" [ref=f2e418] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f2e419]: •
+          - link "Scooty Repair Near Me" [ref=f2e420] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f2e421]: •
+          - link "Engine Oil Change Near Me" [ref=f2e422] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f2e423]: •
+          - link "Bike Battery Replacement Near Me" [ref=f2e424] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f2e425]: •
+          - link "Bike Tyre Repair Near Me" [ref=f2e426] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f2e427]:
+        - paragraph [ref=f2e428]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f2e429]:
+          - link "Terms & Conditions" [ref=f2e430] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f2e431]: "|"
+          - link "Privacy Policy" [ref=f2e432] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f2e433]: "|"
+          - link "Delete Account" [ref=f2e434] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f2e435]

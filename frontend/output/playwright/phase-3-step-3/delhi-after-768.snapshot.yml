@@ -1,0 +1,521 @@
+- generic [active] [ref=f11e1]:
+  - navigation [ref=f11e2]:
+    - generic [ref=f11e4]:
+      - link "FixWheel Logo FixWheel" [ref=f11e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f11e6]
+        - generic [ref=f11e7]: FixWheel
+      - generic [ref=f11e8]:
+        - link "Get App" [ref=f11e9] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "Book Now" [ref=f11e10] [cursor=pointer]:
+          - /url: /book
+        - button "Toggle menu" [ref=f11e11] [cursor=pointer]
+    - generic [ref=f11e13]:
+      - generic [ref=f11e14]: Download App to get 10% off
+      - link "Get App ↗" [ref=f11e15] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f11e16]:
+    - generic [ref=f11e17]:
+      - navigation "Breadcrumb" [ref=f11e20]:
+        - link "Home" [ref=f11e22] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f11e23]:
+          - generic [ref=f11e24]: /
+          - generic [ref=f11e25]: Delhi
+      - generic [ref=f11e27]:
+        - generic [ref=f11e28]:
+          - generic [ref=f11e29]: Bike mechanic at your doorstep · Delhi
+          - heading [level=1] [ref=f11e30]:
+            - text: Doorstep Bike Repair
+            - emphasis [ref=f11e31]: in Delhi
+          - paragraph [ref=f11e32]: FixWheel sends verified mechanics to your location anywhere in South and South-West Delhi. Whether it is your home parking, office basement, or a roadside breakdown — we bring the tools, you keep your day going.
+          - generic [ref=f11e33]:
+            - link "Book a Mechanic in Delhi →" [ref=f11e34] [cursor=pointer]:
+              - /url: /book
+            - link "See how it works" [ref=f11e35] [cursor=pointer]:
+              - /url: "#how"
+          - generic [ref=f11e36]:
+            - generic [ref=f11e37]:
+              - generic [ref=f11e38]: 45 min
+              - text: Arrival time
+            - generic [ref=f11e39]:
+              - generic [ref=f11e40]: 148+
+              - text: Total vehicles serviced
+            - generic [ref=f11e41]:
+              - generic [ref=f11e42]: 4.8★
+              - text: Customer rating
+            - generic [ref=f11e43]:
+              - generic [ref=f11e44]: South & SW Delhi
+              - text: Service area
+        - generic [ref=f11e45]:
+          - generic [ref=f11e46]:
+            - generic [ref=f11e47]:
+              - text: FW-DEL-0837
+              - generic [ref=f11e48]: SERVICE DETAILS
+            - generic [ref=f11e49]: Completed ✓
+          - generic [ref=f11e50]:
+            - generic [ref=f11e51]:
+              - generic [ref=f11e52]: Service
+              - generic [ref=f11e53]: Engine Oil Change
+            - generic [ref=f11e54]:
+              - generic [ref=f11e55]: Model
+              - generic [ref=f11e56]: Bajaj Pulsar 150
+            - generic [ref=f11e57]:
+              - generic [ref=f11e58]: Location
+              - generic [ref=f11e59]: Dwarka, Delhi
+            - generic [ref=f11e60]:
+              - generic [ref=f11e61]: Mechanic
+              - generic [ref=f11e62]: Verified ✓
+            - generic [ref=f11e63]:
+              - generic [ref=f11e64]: Warranty
+              - generic [ref=f11e65]: 15 days
+            - generic [ref=f11e66]:
+              - generic [ref=f11e67]: Response
+              - generic [ref=f11e68]: 32 min
+          - generic [ref=f11e69]:
+            - generic [ref=f11e70]:
+              - generic [ref=f11e71]: Total paid
+              - text: ₹999
+            - generic [ref=f11e72]: DELHI · NCR
+      - generic [ref=f11e74]:
+        - generic [ref=f11e75]:
+          - generic [ref=f11e76]: Coverage
+          - heading "Where we operate in Delhi" [level=2] [ref=f11e77]
+          - paragraph [ref=f11e78]: We currently serve South and South-West Delhi. Our mechanics are stationed across these localities and can usually reach you within 45 minutes.
+        - generic [ref=f11e79]:
+          - link "📍 Dwarka" [ref=f11e80] [cursor=pointer]:
+            - /url: /delhi/dwarka
+          - link "📍 Kapashera" [ref=f11e81] [cursor=pointer]:
+            - /url: /delhi/kapashera
+          - link "📍 Vasant Kunj" [ref=f11e82] [cursor=pointer]:
+            - /url: /delhi/vasant-kunj
+          - link "📍 Janakpuri" [ref=f11e83] [cursor=pointer]:
+            - /url: /delhi/janakpuri
+          - link "📍 Bijwasan" [ref=f11e84] [cursor=pointer]:
+            - /url: /delhi/bijwasan
+          - link "📍 Mahipalpur" [ref=f11e85] [cursor=pointer]:
+            - /url: /delhi/mahipalpur
+          - link "📍 Palam" [ref=f11e86] [cursor=pointer]:
+            - /url: /delhi/palam
+          - link "📍 Hari Nagar" [ref=f11e87] [cursor=pointer]:
+            - /url: /delhi/hari-nagar
+          - link "📍 Najafgarh Road" [ref=f11e88] [cursor=pointer]:
+            - /url: /delhi/najafgarh-road
+          - link "📍 Rangpuri" [ref=f11e89] [cursor=pointer]:
+            - /url: /delhi/rangpuri
+          - link "📍 Samalka" [ref=f11e90] [cursor=pointer]:
+            - /url: /delhi/samalka
+          - link "📍 Uttam Nagar" [ref=f11e91] [cursor=pointer]:
+            - /url: /delhi/uttam-nagar
+          - link "📍 Rajouri Garden" [ref=f11e92] [cursor=pointer]:
+            - /url: /delhi/rajouri-garden
+          - link "📍 Tilak Nagar" [ref=f11e93] [cursor=pointer]:
+            - /url: /delhi/tilak-nagar
+          - link "📍 Vikaspuri" [ref=f11e94] [cursor=pointer]:
+            - /url: /delhi/vikaspuri
+          - link "📍 Paschim Vihar" [ref=f11e95] [cursor=pointer]:
+            - /url: /delhi/paschim-vihar
+          - link "📍 Punjabi Bagh" [ref=f11e96] [cursor=pointer]:
+            - /url: /delhi/punjabi-bagh
+          - link "📍 Dabri" [ref=f11e97] [cursor=pointer]:
+            - /url: /delhi/dabri
+          - link "📍 Bindapur" [ref=f11e98] [cursor=pointer]:
+            - /url: /delhi/bindapur
+          - link "📍 Nawada" [ref=f11e99] [cursor=pointer]:
+            - /url: /delhi/nawada
+          - link "📍 Nihal Vihar" [ref=f11e100] [cursor=pointer]:
+            - /url: /delhi/nihal-vihar
+          - link "📍 Subhash Nagar" [ref=f11e101] [cursor=pointer]:
+            - /url: /delhi/subhash-nagar
+          - link "📍 Ashok Vihar" [ref=f11e102] [cursor=pointer]:
+            - /url: /delhi/ashok-vihar
+          - link "📍 Pitampura" [ref=f11e103] [cursor=pointer]:
+            - /url: /delhi/pitampura
+          - link "📍 Rohini" [ref=f11e104] [cursor=pointer]:
+            - /url: /delhi/rohini
+          - link "📍 Shalimar Bagh" [ref=f11e105] [cursor=pointer]:
+            - /url: /delhi/shalimar-bagh
+          - link "📍 Kirti Nagar" [ref=f11e106] [cursor=pointer]:
+            - /url: /delhi/kirti-nagar
+          - generic [ref=f11e107]: 📍 + Expanding across Delhi
+      - generic [ref=f11e109]:
+        - generic [ref=f11e110]:
+          - generic [ref=f11e111]: Why FixWheel Delhi
+          - heading "Bike repair without the garage run" [level=2] [ref=f11e112]
+          - paragraph [ref=f11e113]: Delhi traffic makes getting to a mechanic a half-day task. We bring the mechanic to you instead.
+        - generic [ref=f11e114]:
+          - generic [ref=f11e115]:
+            - generic [ref=f11e116]: "01"
+            - heading "Your location, our tools" [level=3] [ref=f11e117]
+            - paragraph [ref=f11e118]: The mechanic arrives at your address with a full toolkit. You do not need to move your bike anywhere.
+          - generic [ref=f11e119]:
+            - generic [ref=f11e120]: "02"
+            - heading "Verified before dispatch" [level=3] [ref=f11e121]
+            - paragraph [ref=f11e122]: Every mechanic on the platform is background-checked and trained before they get assigned a single job.
+          - generic [ref=f11e123]:
+            - generic [ref=f11e124]: "03"
+            - heading "Price locked upfront" [level=3] [ref=f11e125]
+            - paragraph [ref=f11e126]: You see the price before any work starts. If extra parts are needed, we confirm the cost with you first.
+          - generic [ref=f11e127]:
+            - generic [ref=f11e128]: "04"
+            - heading "15-day labor warranty" [level=3] [ref=f11e129]
+            - paragraph [ref=f11e130]: If something goes wrong with the same repair within 15 days, a mechanic comes back at no extra charge.
+      - generic [ref=f11e132]:
+        - generic [ref=f11e133]:
+          - generic [ref=f11e134]: Services & pricing
+          - heading "Two Wheeler Service & Repair in Delhi" [level=2] [ref=f11e135]
+          - paragraph [ref=f11e136]: All repairs are done at your doorstep across South and South-West Delhi. Select a service to check pricing for your bike model.
+        - generic [ref=f11e137]:
+          - generic [ref=f11e138]:
+            - generic [ref=f11e139]: "[BASIC]"
+            - heading "Basic Service" [level=3] [ref=f11e140]
+            - paragraph [ref=f11e141]: Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.
+            - generic [ref=f11e142]: ₹550 starting from
+            - link "View pricing →" [ref=f11e143] [cursor=pointer]:
+              - /url: /services/basic-service
+          - generic [ref=f11e144]:
+            - generic [ref=f11e145]: "[OIL]"
+            - heading "Service with Engine Oil" [level=3] [ref=f11e146]
+            - paragraph [ref=f11e147]: Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.
+            - generic [ref=f11e148]: ₹999 starting from
+            - link "View pricing →" [ref=f11e149] [cursor=pointer]:
+              - /url: /services/oil-change
+          - generic [ref=f11e150]:
+            - generic [ref=f11e151]: "[ENGINE]"
+            - heading "Engine Repair" [level=3] [ref=f11e152]
+            - paragraph [ref=f11e153]: Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.
+            - generic [ref=f11e154]: ₹4,500 starting from (half engine)
+            - link "View pricing →" [ref=f11e155] [cursor=pointer]:
+              - /url: /services/engine-repair
+          - generic [ref=f11e156]:
+            - generic [ref=f11e157]: "[PUNCTURE]"
+            - heading "Puncture Repair" [level=3] [ref=f11e158]
+            - paragraph [ref=f11e159]: Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.
+            - generic [ref=f11e160]: ₹399 starting from
+            - link "View pricing →" [ref=f11e161] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e162]:
+            - generic [ref=f11e163]: "[BRAKE]"
+            - heading "Brake Disc Replacement" [level=3] [ref=f11e164]
+            - paragraph [ref=f11e165]: Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.
+            - generic [ref=f11e166]: ₹199 starting from
+            - link "View pricing →" [ref=f11e167] [cursor=pointer]:
+              - /url: /services/brake-repair
+          - generic [ref=f11e168]:
+            - generic [ref=f11e169]: "[BATTERY]"
+            - heading "Battery Replacement" [level=3] [ref=f11e170]
+            - paragraph [ref=f11e171]: Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.
+            - generic [ref=f11e172]: ₹99 starting from (labor)
+            - link "View pricing →" [ref=f11e173] [cursor=pointer]:
+              - /url: /services/battery-replacement
+          - generic [ref=f11e174]:
+            - generic [ref=f11e175]: "[JUMPSTART]"
+            - heading "Jump Start" [level=3] [ref=f11e176]
+            - paragraph [ref=f11e177]: Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.
+            - generic [ref=f11e178]: ₹399 starting from
+            - link "Book now →" [ref=f11e179] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e180]:
+            - generic [ref=f11e181]: "[RUNNING]"
+            - heading "Running Repair" [level=3] [ref=f11e182]
+            - paragraph [ref=f11e183]: Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.
+            - generic [ref=f11e184]: ₹399 starting from
+            - link "Book now →" [ref=f11e185] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e186]:
+            - generic [ref=f11e187]: "[CARB]"
+            - heading "Carburetor Cleaning" [level=3] [ref=f11e188]
+            - paragraph [ref=f11e189]: Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.
+            - generic [ref=f11e190]: ₹199 starting from
+            - link "Book now →" [ref=f11e191] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e192]:
+            - generic [ref=f11e193]: "[OBD]"
+            - heading "OBD Scanner Inspection" [level=3] [ref=f11e194]
+            - paragraph [ref=f11e195]: A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.
+            - generic [ref=f11e196]: ₹199 starting from
+            - link "Book now →" [ref=f11e197] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e198]:
+            - generic [ref=f11e199]: "[CHAIN]"
+            - heading "Chain Sprocket Replacement" [level=3] [ref=f11e200]
+            - paragraph [ref=f11e201]: Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.
+            - generic [ref=f11e202]: ₹299 starting from
+            - link "Book now →" [ref=f11e203] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f11e204]:
+            - generic [ref=f11e205]: "[PICKUP]"
+            - heading "Pick and Drop" [level=3] [ref=f11e206]
+            - paragraph [ref=f11e207]: We collect your bike from your location, get it serviced, and deliver it back — you stay put.
+            - generic [ref=f11e208]: ₹199 starting from
+            - link "Book now →" [ref=f11e209] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=f11e211]:
+        - generic [ref=f11e212]:
+          - generic [ref=f11e213]: Vehicle types
+          - heading "Every two-wheeler, serviced at your door" [level=2] [ref=f11e214]
+          - paragraph [ref=f11e215]: From daily scooters and commuter bikes to sports motorcycles and EVs — our mechanics handle them all.
+        - generic [ref=f11e216]:
+          - generic [ref=f11e217]: 🛵 Scooter
+          - generic [ref=f11e218]: 🏍️ Commuter Bike
+          - generic [ref=f11e219]: ⚡ EV Scooter
+          - generic [ref=f11e220]: ⚡ EV Bike
+          - generic [ref=f11e221]: 🏁 Sports Bike
+          - generic [ref=f11e222]: 🔵 Royal Enfield
+          - generic [ref=f11e223]: 🚲 Moped
+          - generic [ref=f11e224]: + all other types
+        - generic [ref=f11e226]:
+          - generic [ref=f11e227]: We service all major brands
+          - heading "Any brand, any model — Delhi doorstep" [level=2] [ref=f11e228]
+        - generic [ref=f11e229]:
+          - generic [ref=f11e230]: Honda
+          - generic [ref=f11e231]: Hero
+          - generic [ref=f11e232]: Bajaj
+          - generic [ref=f11e233]: TVS
+          - generic [ref=f11e234]: Royal Enfield
+          - generic [ref=f11e235]: Yamaha
+          - generic [ref=f11e236]: Suzuki
+          - generic [ref=f11e237]: KTM
+          - generic [ref=f11e238]: Ola Electric
+          - generic [ref=f11e239]: Ather
+          - generic [ref=f11e240]: Vespa
+          - generic [ref=f11e241]: Jawa
+          - generic [ref=f11e242]: Aprilia
+          - generic [ref=f11e243]: Harley-Davidson
+          - generic [ref=f11e244]: Kawasaki
+          - generic [ref=f11e245]: Benelli
+      - generic [ref=f11e247]:
+        - generic [ref=f11e248]:
+          - generic [ref=f11e249]: How it works
+          - heading "Book to fixed — 4 simple steps" [level=2] [ref=f11e250]
+        - generic [ref=f11e251]:
+          - generic [ref=f11e252]:
+            - generic [ref=f11e253]: "01"
+            - heading "1. Pick a service" [level=3] [ref=f11e254]
+            - paragraph [ref=f11e255]: Select what your bike needs and pick a time slot on our app or website.
+          - generic [ref=f11e256]:
+            - generic [ref=f11e257]: "02"
+            - heading "2. Mechanic dispatched" [level=3] [ref=f11e258]
+            - paragraph [ref=f11e259]: A verified mechanic near your location is assigned and heads to you.
+          - generic [ref=f11e260]:
+            - generic [ref=f11e261]: "03"
+            - heading "3. Repaired on-site" [level=3] [ref=f11e262]
+            - paragraph [ref=f11e263]: Your bike is fixed right where it is parked — home, office, or roadside.
+          - generic [ref=f11e264]:
+            - generic [ref=f11e265]: "04"
+            - heading "4. Pay and rate" [level=3] [ref=f11e266]
+            - paragraph [ref=f11e267]: Pay the quoted amount via UPI, card, or cash, then rate the mechanic.
+      - generic [ref=f11e269]:
+        - generic [ref=f11e270]:
+          - generic [ref=f11e271]: Reviews
+          - heading "From riders across Delhi" [level=2] [ref=f11e272]
+          - paragraph [ref=f11e273]: 4.7★ average rating from 473+ reviews
+        - generic [ref=f11e274]:
+          - generic [ref=f11e275]:
+            - generic [ref=f11e276]: ★★★★★
+            - paragraph [ref=f11e277]: "\"Puncture at 10 PM near Dwarka Mor. Called FixWheel, mechanic was there in 45 minutes. Sorted and back on the road.\""
+            - generic [ref=f11e278]: Ankit R. — Dwarka
+          - generic [ref=f11e279]:
+            - generic [ref=f11e280]: ★★★★★
+            - paragraph [ref=f11e281]: "\"Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted.\""
+            - generic [ref=f11e282]: Deepak M. — Janakpuri
+          - generic [ref=f11e283]:
+            - generic [ref=f11e284]: ★★★★☆
+            - paragraph [ref=f11e285]: "\"Battery died on my Activa in Vasant Kunj. Mechanic tested it, replaced the battery on the spot with a new one. Transparent billing.\""
+            - generic [ref=f11e286]: Sneha K. — Vasant Kunj
+      - generic [ref=f11e288]:
+        - generic [ref=f11e289]:
+          - generic [ref=f11e290]: Join our network
+          - heading "Are you a bike mechanic in Delhi?" [level=2] [ref=f11e291]
+          - paragraph [ref=f11e292]: Join the FixWheel network and receive bookings from riders in your area. Set your own hours and manage everything from your phone.
+          - list [ref=f11e293]:
+            - listitem [ref=f11e294]: — Set your own working hours
+            - listitem [ref=f11e295]: — Manage bookings from your phone
+            - listitem [ref=f11e296]: — Receive service requests from nearby customers
+        - generic [ref=f11e297]:
+          - heading "Become a partner" [level=3] [ref=f11e298]
+          - paragraph [ref=f11e299]: Register in a few minutes and start receiving service requests in Delhi.
+          - link "Become a Partner →" [ref=f11e300] [cursor=pointer]:
+            - /url: /partner
+      - generic [ref=f11e302]:
+        - generic [ref=f11e303]:
+          - generic [ref=f11e304]: FAQs
+          - heading "Common questions about bike repair in Delhi" [level=2] [ref=f11e305]
+        - generic [ref=f11e306]:
+          - generic [ref=f11e307]:
+            - generic [ref=f11e308] [cursor=pointer]:
+              - text: How quickly can a mechanic reach me in Delhi?
+              - generic [ref=f11e309]: +
+            - paragraph [ref=f11e311]: In most South and South-West Delhi localities, our mechanics arrive within 30 to 45 minutes of booking confirmation.
+          - generic [ref=f11e312]:
+            - generic [ref=f11e313] [cursor=pointer]:
+              - text: What does doorstep bike repair cost in Delhi?
+              - generic [ref=f11e314]: +
+            - paragraph [ref=f11e315]: Basic service starts from ₹550 depending on your bike model and cc. We confirm the exact price before starting any work.
+          - generic [ref=f11e316]:
+            - generic [ref=f11e317] [cursor=pointer]:
+              - text: Which areas in Delhi does FixWheel cover?
+              - generic [ref=f11e318]: +
+            - paragraph [ref=f11e319]: We cover South and South-West Delhi including Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, Mahipalpur, Hari Nagar, Najafgarh, Palam, Saket, Hauz Khas, and surrounding areas.
+          - generic [ref=f11e320]:
+            - generic [ref=f11e321] [cursor=pointer]:
+              - text: Do you offer emergency roadside help in Delhi?
+              - generic [ref=f11e322]: +
+            - paragraph [ref=f11e323]: Yes, we dispatch mechanics for roadside breakdowns across our Delhi service area. Available 24/7.
+          - generic [ref=f11e324]:
+            - generic [ref=f11e325] [cursor=pointer]:
+              - text: Can you service my EV scooter in Delhi?
+              - generic [ref=f11e326]: +
+            - paragraph [ref=f11e327]: Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Delhi.
+          - generic [ref=f11e328]:
+            - generic [ref=f11e329] [cursor=pointer]:
+              - text: Is there a warranty on the repair?
+              - generic [ref=f11e330]: +
+            - paragraph [ref=f11e331]: Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge.
+      - generic [ref=f11e333]:
+        - generic [ref=f11e334]:
+          - generic [ref=f11e335]: Contact
+          - heading "Get in touch" [level=2] [ref=f11e336]
+          - paragraph [ref=f11e337]: Call or email us. We respond within 2 hours during business hours (8 AM – 8 PM).
+          - generic [ref=f11e338]:
+            - generic [ref=f11e339]:
+              - generic [ref=f11e340]: ☎
+              - generic [ref=f11e341]:
+                - generic [ref=f11e342]: +91 87459 45682
+                - text: Call us between 8 AM and 8 PM
+            - generic [ref=f11e343]:
+              - generic [ref=f11e344]: ✉
+              - generic [ref=f11e345]:
+                - generic [ref=f11e346]: support@fixwheel.app
+                - text: We reply within 2 hours
+            - generic [ref=f11e347]:
+              - generic [ref=f11e348]: 💬
+              - generic [ref=f11e349]:
+                - generic [ref=f11e350]: Chat on WhatsApp
+                - text: Fastest way to book
+        - generic [ref=f11e351]:
+          - generic [ref=f11e352]: 24/7 EMERGENCY
+          - heading "Delhi Roadside Assistance" [level=3] [ref=f11e353]
+          - paragraph [ref=f11e354]: Broken down on a Delhi road? A mechanic will come to your exact location with tools to diagnose and fix the issue on the spot.
+          - generic [ref=f11e355]:
+            - link "Request Roadside Assistance →" [ref=f11e356] [cursor=pointer]:
+              - /url: /book
+            - link "Call Us Now" [ref=f11e357] [cursor=pointer]:
+              - /url: tel:+918745945682
+      - generic [ref=f11e359]:
+        - heading "Book doorstep bike repair in Delhi." [level=2] [ref=f11e360]
+        - paragraph [ref=f11e361]: Verified mechanic at your home or office across South & South-West Delhi. Starting ₹550. No garage visit needed.
+        - link "Book Your Bike Service →" [ref=f11e362] [cursor=pointer]:
+          - /url: /book
+  - generic [ref=f11e363]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f11e364] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f11e370]:
+    - generic: Call us
+    - link "Call us now" [ref=f11e371] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f11e377]:
+    - generic [ref=f11e378]:
+      - generic [ref=f11e379]:
+        - generic [ref=f11e380]:
+          - link "FixWheel Logo FixWheel" [ref=f11e381] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f11e382]
+            - generic [ref=f11e383]: FixWheel
+          - paragraph [ref=f11e384]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f11e385]:
+          - heading "Locations" [level=4] [ref=f11e386]
+          - list [ref=f11e387]:
+            - listitem [ref=f11e388]:
+              - link "Delhi" [ref=f11e389] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f11e390]:
+              - link "Gurgaon" [ref=f11e391] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f11e392]:
+              - link "Noida" [ref=f11e393] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f11e394]:
+              - link "Faridabad" [ref=f11e395] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f11e396]:
+              - link "Ghaziabad" [ref=f11e397] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f11e398]:
+          - heading "Quick Links" [level=4] [ref=f11e399]
+          - list [ref=f11e400]:
+            - listitem [ref=f11e401]:
+              - link "Home" [ref=f11e402] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f11e403]:
+              - link "About Us" [ref=f11e404] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f11e405]:
+              - link "Repairs" [ref=f11e406] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f11e407]:
+              - link "Pricing" [ref=f11e408] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f11e409]:
+              - link "Blogs" [ref=f11e410] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f11e411]:
+              - link "Book Now" [ref=f11e412] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f11e413]:
+          - heading "Contact" [level=4] [ref=f11e414]
+          - list [ref=f11e415]:
+            - listitem [ref=f11e416]: "Phone: +91 87459 45682"
+            - listitem [ref=f11e417]: "Email: support@fixwheel.app"
+          - generic [ref=f11e418]:
+            - link "WhatsApp" [ref=f11e419] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f11e422] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f11e426] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f11e429] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f11e434]:
+        - paragraph [ref=f11e435]: "Popular Searches:"
+        - generic [ref=f11e436]:
+          - link "Bike Repair Near Me" [ref=f11e437] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f11e438]: •
+          - link "Bike Mechanic Near Me" [ref=f11e439] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f11e440]: •
+          - link "Sports Bike Repair Near Me" [ref=f11e441] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f11e442]: •
+          - link "EV Scooter Repair Near Me" [ref=f11e443] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f11e444]: •
+          - link "Royal Enfield Repair Near Me" [ref=f11e445] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f11e446]: •
+          - link "Scooty Repair Near Me" [ref=f11e447] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f11e448]: •
+          - link "Engine Oil Change Near Me" [ref=f11e449] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f11e450]: •
+          - link "Bike Battery Replacement Near Me" [ref=f11e451] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f11e452]: •
+          - link "Bike Tyre Repair Near Me" [ref=f11e453] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f11e454]:
+        - paragraph [ref=f11e455]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f11e456]:
+          - link "Terms & Conditions" [ref=f11e457] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f11e458]: "|"
+          - link "Privacy Policy" [ref=f11e459] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f11e460]: "|"
+          - link "Delete Account" [ref=f11e461] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f11e462]

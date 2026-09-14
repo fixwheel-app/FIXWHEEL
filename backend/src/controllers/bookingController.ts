@@ -2,15 +2,7 @@ import { Request, Response } from 'express';
 import { db } from '../lib/db';
 import { sendBookingNotification } from '../lib/notifications';
 import { BookingInput } from '../middleware/validateBooking';
-
-const getPriceForPackage = (pkg: string): number => {
-  switch (pkg) {
-    case 'Basic': return 499;
-    case 'Standard': return 899;
-    case 'Premium': return 1499;
-    default: return 899;
-  }
-};
+import { BookingPricingError, calculateBookingPrice, verifyQuotedPrice } from '../lib/bookingPricing';
 
 const generateBookingRef = (): string => {
   const chars = '0123456789ABCDEF';
@@ -24,7 +16,13 @@ const generateBookingRef = (): string => {
 export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Response): Promise<void> => {
   try {
     const bookingData = req.body;
-    const price = bookingData.price;
+    const price = calculateBookingPrice({
+      serviceId: bookingData.serviceId,
+      packageName: bookingData.package,
+      bikeType: bookingData.bikeType,
+      ccRange: bookingData.ccRange,
+    });
+    verifyQuotedPrice(bookingData.price, price);
     
     // Ensure unique booking ref
     let bookingRef = generateBookingRef();
@@ -88,10 +86,19 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
     res.status(201).json({
       success: true,
       bookingId: newBooking.bookingRef,
+      price,
       message: "Booking confirmed"
     });
 
   } catch (error) {
+    if (error instanceof BookingPricingError) {
+      res.status(400).json({
+        success: false,
+        error: error.message,
+      });
+      return;
+    }
+
     console.error("Booking creation error:", error);
     res.status(500).json({
       success: false,

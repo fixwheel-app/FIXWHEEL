@@ -1,0 +1,35 @@
+{
+  "testedAt": "2026-09-15",
+  "viewports": [
+    "375x812",
+    "768x1024",
+    "1280x900"
+  ],
+  "routes": [
+    "/ghaziabad",
+    "/faridabad",
+    "/noida",
+    "/delhi",
+    "/gurgaon",
+    "/gurgaon/palam-vihar",
+    "/brands",
+    "/honda",
+    "/hero/splendor-plus",
+    "/book"
+  ],
+  "checks": 30,
+  "failures": 0,
+  "assertions": [
+    "exactly one H1",
+    "non-empty document title",
+    "no document-level horizontal overflow"
+  ],
+  "interactions": {
+    "mobileMenu": "passed",
+    "cityFaqAccordion": "passed",
+    "cityServiceBookingHref": "/book",
+    "cityToBookingNavigation": "passed",
+    "bookingSubmissionPerformed": false
+  },
+  "browserConsoleErrorsOrWarnings": []
+}

@@ -68,16 +68,16 @@ Codex must operate in two distinct modes:
 
 FixWheel operates on an official, fixed rate card. **Fabricating numbers is strictly forbidden.**
 
-- **Single Source of Truth:**
-  - All pricing is defined in [`frontend/lib/pricingData.ts`](file:///c:/Users/krish/OneDrive/Documents/FixWheel/spinfix/frontend/lib/pricingData.ts) (`SERVICE_PRICING_LIST`).
-  - Note: Files like `servicesData.ts` and `constants.ts` handle descriptive copy and categories, **not pricing**.
-  - Non-Electric General Service starts at **₹399** (`Rs. 399`).
-  - Electric General Service starts at **₹499** (`Rs. 499`).
+- **Authoritative Rate Card and Current Migration State:**
+  - The approved display rate card is defined in [`frontend/lib/pricingData.ts`](./frontend/lib/pricingData.ts) (`SERVICE_PRICING_LIST`).
+  - Pricing is not yet structurally single-source. `frontend/lib/constants.ts` duplicates the bookable package amounts used by checkout, while `frontend/lib/servicesData.ts`, dedicated service pages, brand pages, and SEO copy contain additional displayed price values. Never assume those files contain descriptions only.
+  - Until the pricing-contract migration is complete, compare every affected display and transactional source before changing a price. Do not resolve a conflict by copying the most common value; obtain explicit FixWheel business approval.
+  - The current approved catalog starts Non-Electric General Service at **₹550** (`Rs. 550`) and Electric General Service at **₹799** (`Rs. 799`).
 - **Currency & Character Encoding:**
   - All prices represent Indian National Rupees (INR).
-  - Use UTF-8 `₹` (U+20B9) or ASCII `Rs.` / `INR`. Never let terminal encodings corrupt prices into `?399` or `?499`.
+  - Use UTF-8 `₹` (U+20B9) or ASCII `Rs.` / `INR`. Never let terminal encodings replace the currency symbol with `?`.
 - **No Hardcoded Price Tags:**
-  - Never write raw hardcoded pricing strings (e.g. `<span className="price">₹499</span>`) inside city, locality, or brand pages.
+  - Never write raw hardcoded pricing strings inside city, locality, or brand page layouts.
   - Always use the centralized dynamic component [`frontend/components/CityServicesGrid.tsx`](file:///c:/Users/krish/OneDrive/Documents/FixWheel/spinfix/frontend/components/CityServicesGrid.tsx) which imports and calculates prices directly from `pricingData.ts`.
 - **No Fabricated Stats or Promises:**
   - Never guess or invent customer counts, ratings, discounts, or turnaround times.

@@ -1,10 +1,12 @@
 import { PackageType } from '@/types';
+import { getServicePrice, ServicePriceId, ServicePriceTier } from '@/lib/pricingData';
 
 export type CCRange = "0-249" | "250-399" | "400-599" | "600+";
 
 export interface NonElectricService {
   id: PackageType;
   name: PackageType;
+  pricingId: ServicePriceId;
   prices: Record<CCRange, number | null>;
   includes?: string[];
   estimatedTime: string;
@@ -13,6 +15,7 @@ export interface NonElectricService {
 export interface ElectricService {
   id: PackageType;
   name: PackageType;
+  pricingId: ServicePriceId;
   price: number;
   includes?: string[];
   estimatedTime: string;
@@ -25,11 +28,45 @@ export const CCRANGES: { label: string, value: CCRange }[] = [
   { label: "600 CC & Above", value: "600+" }
 ];
 
+const CC_RANGE_PRICE_TIERS: Record<CCRange, ServicePriceTier> = {
+  "0-249": "cc0_249",
+  "250-399": "cc250_399",
+  "400-599": "cc400_599",
+  "600+": "cc600_above",
+};
+
+const getBookablePrice = (pricingId: ServicePriceId, tier: ServicePriceTier): number | null => {
+  const price = getServicePrice(pricingId, tier);
+
+  if (typeof price === 'number') return price;
+  if (price === 'On Inspection') return null;
+
+  throw new Error(`Missing bookable price for ${pricingId} at ${tier}`);
+};
+
+const getNonElectricPrices = (pricingId: ServicePriceId): Record<CCRange, number | null> => ({
+  "0-249": getBookablePrice(pricingId, CC_RANGE_PRICE_TIERS["0-249"]),
+  "250-399": getBookablePrice(pricingId, CC_RANGE_PRICE_TIERS["250-399"]),
+  "400-599": getBookablePrice(pricingId, CC_RANGE_PRICE_TIERS["400-599"]),
+  "600+": getBookablePrice(pricingId, CC_RANGE_PRICE_TIERS["600+"]),
+});
+
+const getElectricPrice = (pricingId: ServicePriceId): number => {
+  const price = getBookablePrice(pricingId, "electric");
+
+  if (price === null) {
+    throw new Error(`Electric service requires a numeric price: ${pricingId}`);
+  }
+
+  return price;
+};
+
 export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "General Service", 
     name: "General Service", 
-    prices: { "0-249": 550, "250-399": 850, "400-599": 1100, "600+": 1500 },
+    pricingId: "basic-service",
+    prices: getNonElectricPrices("basic-service"),
     estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
@@ -49,7 +86,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "General Service with engine oil", 
     name: "General Service with engine oil", 
-    prices: { "0-249": 999, "250-399": 1999, "400-599": 2990, "600+": 3999 },
+    pricingId: "service-engine-oil",
+    prices: getNonElectricPrices("service-engine-oil"),
     estimatedTime: "2 HOURS",
     includes: [
       "Air Filter Cleaning",
@@ -69,7 +107,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Jump start", 
     name: "Jump start", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 },
+    pricingId: "jump-start",
+    prices: getNonElectricPrices("jump-start"),
     estimatedTime: "30 MINS",
     includes: [
       "Heavy-Duty Battery Booster Arrival",
@@ -81,7 +120,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Puncture", 
     name: "Puncture", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 550, "600+": 550 },
+    pricingId: "puncture",
+    prices: getNonElectricPrices("puncture"),
     estimatedTime: "30 MINS",
     includes: [
       "High-Grade Vulcanized Rubber Strips",
@@ -93,7 +133,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Running Repair", 
     name: "Running Repair", 
-    prices: { "0-249": 399, "250-399": 399, "400-599": 499, "600+": 499 },
+    pricingId: "running-repair",
+    prices: getNonElectricPrices("running-repair"),
     estimatedTime: "30 MINS",
     includes: [
       "Clutch/Accelerator Cable Replacement",
@@ -105,7 +146,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Engine Half", 
     name: "Engine Half", 
-    prices: { "0-249": 4500, "250-399": 10000, "400-599": null, "600+": null },
+    pricingId: "engine-half",
+    prices: getNonElectricPrices("engine-half"),
     estimatedTime: "24 HOURS",
     includes: [
       "Piston",
@@ -121,7 +163,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   { 
     id: "Engine full", 
     name: "Engine full", 
-    prices: { "0-249": 7999, "250-399": 18000, "400-599": null, "600+": null },
+    pricingId: "engine-full",
+    prices: getNonElectricPrices("engine-full"),
     estimatedTime: "24 HOURS",
     includes: [
       "Crank assembly",
@@ -146,8 +189,8 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
 ];
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
-  { id: "General Service", name: "General Service", price: 799, estimatedTime: "2 HOURS", includes: ["BMS Health & Cell Diagnostic", "Hub Motor & Sensor Check", "Regenerative Brake Calibration", "High Voltage Wire Check"] },
-  { id: "Jump start", name: "Jump start", price: 399, estimatedTime: "30 MINS", includes: ["Auxiliary Battery Boost", "Terminal Voltage Check", "Fast Doorstep Arrival"] },
-  { id: "Puncture", name: "Puncture", price: 399, estimatedTime: "30 MINS", includes: ["Tubeless Rubber Strip Repair", "Air Pressure Calibration", "Valve Inspection"] },
-  { id: "Running Repair", name: "Running Repair", price: 399, estimatedTime: "30 MINS", includes: ["Throttle Sensor Calibration", "Brake Lever Fitting", "Minor Electrical Repair"] },
+  { id: "General Service", name: "General Service", pricingId: "ev-service", price: getElectricPrice("ev-service"), estimatedTime: "2 HOURS", includes: ["BMS Health & Cell Diagnostic", "Hub Motor & Sensor Check", "Regenerative Brake Calibration", "High Voltage Wire Check"] },
+  { id: "Jump start", name: "Jump start", pricingId: "jump-start", price: getElectricPrice("jump-start"), estimatedTime: "30 MINS", includes: ["Auxiliary Battery Boost", "Terminal Voltage Check", "Fast Doorstep Arrival"] },
+  { id: "Puncture", name: "Puncture", pricingId: "puncture", price: getElectricPrice("puncture"), estimatedTime: "30 MINS", includes: ["Tubeless Rubber Strip Repair", "Air Pressure Calibration", "Valve Inspection"] },
+  { id: "Running Repair", name: "Running Repair", pricingId: "running-repair", price: getElectricPrice("running-repair"), estimatedTime: "30 MINS", includes: ["Throttle Sensor Calibration", "Brake Lever Fitting", "Minor Electrical Repair"] },
 ];

@@ -1,0 +1,495 @@
+- generic [active] [ref=f17e1]:
+  - navigation [ref=f17e2]:
+    - generic [ref=f17e4]:
+      - link "FixWheel Logo FixWheel" [ref=f17e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f17e6]
+        - generic [ref=f17e7]: FixWheel
+      - generic [ref=f17e8]:
+        - link "HOME" [ref=f17e10] [cursor=pointer]:
+          - /url: /
+        - button "SERVICES" [ref=f17e12] [cursor=pointer]
+        - button "LOCATIONS" [ref=f17e16] [cursor=pointer]
+        - link "BLOG" [ref=f17e20] [cursor=pointer]:
+          - /url: /blog
+        - link "ABOUT" [ref=f17e22] [cursor=pointer]:
+          - /url: /about
+        - link "BECOME PARTNER" [ref=f17e24] [cursor=pointer]:
+          - /url: /partner
+        - link "CONTACT" [ref=f17e26] [cursor=pointer]:
+          - /url: /contact
+        - link "GET APP" [ref=f17e28] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+      - generic [ref=f17e29]:
+        - link "GET APP" [ref=f17e30] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "BOOK NOW" [ref=f17e31] [cursor=pointer]:
+          - /url: /book
+    - generic [ref=f17e32]:
+      - generic [ref=f17e33]: Download App to get 10% off
+      - link "Get App ↗" [ref=f17e34] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f17e35]:
+    - generic [ref=f17e36]:
+      - navigation "Breadcrumb" [ref=f17e39]:
+        - link "Home" [ref=f17e41] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f17e42]:
+          - generic [ref=f17e43]: /
+          - link "Brands" [ref=f17e44] [cursor=pointer]:
+            - /url: /brands
+        - generic [ref=f17e45]:
+          - generic [ref=f17e46]: /
+          - link "Honda" [ref=f17e47] [cursor=pointer]:
+            - /url: /honda
+        - generic [ref=f17e48]:
+          - generic [ref=f17e49]: /
+          - generic [ref=f17e50]: Honda Service in Delhi
+      - generic [ref=f17e52]:
+        - generic [ref=f17e53]:
+          - generic [ref=f17e54]: Honda Bike Repair Service · Delhi
+          - heading [level=1] [ref=f17e55]:
+            - text: Doorstep
+            - emphasis [ref=f17e56]: Honda
+            - text: Bike Service in Delhi
+          - paragraph [ref=f17e57]: Need a verified Honda mechanic near you in Delhi? FixWheel provides professional doorstep Honda two-wheeler service & emergency repair across South Delhi, West Delhi, Dwarka, Rohini, and Central Delhi. Flat upfront pricing, zero visiting fees, and a 15-day labor warranty.
+          - generic [ref=f17e58]:
+            - link "Book Honda Service →" [ref=f17e59] [cursor=pointer]:
+              - /url: /book#honda
+            - link "Call Mechanic" [ref=f17e60] [cursor=pointer]:
+              - /url: tel:+918745945682
+        - generic [ref=f17e63]:
+          - generic [ref=f17e64]:
+            - generic [ref=f17e65]:
+              - text: HONDA DISPATCH TICKET
+              - generic [ref=f17e66]: DELHI · NCR
+            - generic [ref=f17e67]: DISPATCH READY
+          - generic [ref=f17e68]:
+            - generic [ref=f17e69]:
+              - generic [ref=f17e70]: STARTING PRICE
+              - text: ₹199
+            - generic [ref=f17e71]:
+              - generic [ref=f17e72]: ARRIVAL TIME
+              - text: 45 Minutes
+            - generic [ref=f17e73]:
+              - generic [ref=f17e74]: LOCATION
+              - generic [ref=f17e75]: Delhi (Home/Office)
+            - generic [ref=f17e76]:
+              - generic [ref=f17e77]: WARRANTY
+              - text: 15 Days Labor
+          - generic [ref=f17e78]: 100% Genuine Honda OEM Spare Parts Guaranteed
+      - generic [ref=f17e85]:
+        - generic [ref=f17e86]:
+          - generic [ref=f17e87]: 45 MIN
+          - generic [ref=f17e88]: Arrival in Delhi
+        - generic [ref=f17e89]:
+          - generic [ref=f17e90]: 4.8 ★
+          - text: Customer Rating
+        - generic [ref=f17e91]:
+          - generic [ref=f17e92]: 23+
+          - text: Vehicles Serviced
+        - generic [ref=f17e93]:
+          - generic [ref=f17e94]: 15 DAYS
+          - text: Labor Warranty
+      - generic [ref=f17e96]:
+        - generic [ref=f17e97]:
+          - generic [ref=f17e98]: Honda Models in Delhi
+          - heading "Honda Bikes & Scooters Serviced at Doorstep in Delhi" [level=2] [ref=f17e99]
+          - paragraph [ref=f17e100]: "We provide routine servicing, oil changes, engine tuning, and emergency repair for all Honda models across Delhi:"
+        - generic [ref=f17e101]:
+          - link "Activa 6G View model service →" [ref=f17e102] [cursor=pointer]:
+            - /url: /honda/activa-6g
+            - generic [ref=f17e103]: Activa 6G
+            - generic [ref=f17e104]: View model service →
+          - link "Activa 125 View model service →" [ref=f17e105] [cursor=pointer]:
+            - /url: /honda/activa-125
+            - generic [ref=f17e106]: Activa 125
+            - generic [ref=f17e107]: View model service →
+          - link "Activa 5G View model service →" [ref=f17e108] [cursor=pointer]:
+            - /url: /honda/activa-5g
+            - generic [ref=f17e109]: Activa 5G
+            - generic [ref=f17e110]: View model service →
+          - link "Activa 4G / 3G View model service →" [ref=f17e111] [cursor=pointer]:
+            - /url: /honda/activa-4g-3g
+            - generic [ref=f17e112]: Activa 4G / 3G
+            - generic [ref=f17e113]: View model service →
+          - link "Shine 125 View model service →" [ref=f17e114] [cursor=pointer]:
+            - /url: /honda/shine-125
+            - generic [ref=f17e115]: Shine 125
+            - generic [ref=f17e116]: View model service →
+          - link "Shine 100 View model service →" [ref=f17e117] [cursor=pointer]:
+            - /url: /honda/shine-100
+            - generic [ref=f17e118]: Shine 100
+            - generic [ref=f17e119]: View model service →
+          - link "SP 125 View model service →" [ref=f17e120] [cursor=pointer]:
+            - /url: /honda/sp-125
+            - generic [ref=f17e121]: SP 125
+            - generic [ref=f17e122]: View model service →
+          - link "SP 160 View model service →" [ref=f17e123] [cursor=pointer]:
+            - /url: /honda/sp-160
+            - generic [ref=f17e124]: SP 160
+            - generic [ref=f17e125]: View model service →
+          - link "Dio View model service →" [ref=f17e126] [cursor=pointer]:
+            - /url: /honda/dio
+            - generic [ref=f17e127]: Dio
+            - generic [ref=f17e128]: View model service →
+          - link "Dio 125 View model service →" [ref=f17e129] [cursor=pointer]:
+            - /url: /honda/dio-125
+            - generic [ref=f17e130]: Dio 125
+            - generic [ref=f17e131]: View model service →
+          - link "Livo View model service →" [ref=f17e132] [cursor=pointer]:
+            - /url: /honda/livo
+            - generic [ref=f17e133]: Livo
+            - generic [ref=f17e134]: View model service →
+          - link "Unicorn 160 View model service →" [ref=f17e135] [cursor=pointer]:
+            - /url: /honda/unicorn-160
+            - generic [ref=f17e136]: Unicorn 160
+            - generic [ref=f17e137]: View model service →
+          - link "Hornet 2.0 View model service →" [ref=f17e138] [cursor=pointer]:
+            - /url: /honda/hornet-2-0
+            - generic [ref=f17e139]: Hornet 2.0
+            - generic [ref=f17e140]: View model service →
+          - link "XBlade View model service →" [ref=f17e141] [cursor=pointer]:
+            - /url: /honda/xblade
+            - generic [ref=f17e142]: XBlade
+            - generic [ref=f17e143]: View model service →
+          - link "CD 110 Dream View model service →" [ref=f17e144] [cursor=pointer]:
+            - /url: /honda/cd-110-dream
+            - generic [ref=f17e145]: CD 110 Dream
+            - generic [ref=f17e146]: View model service →
+          - link "Grazia 125 View model service →" [ref=f17e147] [cursor=pointer]:
+            - /url: /honda/grazia-125
+            - generic [ref=f17e148]: Grazia 125
+            - generic [ref=f17e149]: View model service →
+          - link "Dream Yuga View model service →" [ref=f17e150] [cursor=pointer]:
+            - /url: /honda/dream-yuga
+            - generic [ref=f17e151]: Dream Yuga
+            - generic [ref=f17e152]: View model service →
+          - link "Activa Premium View model service →" [ref=f17e153] [cursor=pointer]:
+            - /url: /honda/activa-premium
+            - generic [ref=f17e154]: Activa Premium
+            - generic [ref=f17e155]: View model service →
+          - link "Navi View model service →" [ref=f17e156] [cursor=pointer]:
+            - /url: /honda/navi
+            - generic [ref=f17e157]: Navi
+            - generic [ref=f17e158]: View model service →
+          - link "Activa i / Hetz View model service →" [ref=f17e159] [cursor=pointer]:
+            - /url: /honda/activa-i-hetz
+            - generic [ref=f17e160]: Activa i / Hetz
+            - generic [ref=f17e161]: View model service →
+          - link "CB Shine SP View model service →" [ref=f17e162] [cursor=pointer]:
+            - /url: /honda/cb-shine-sp
+            - generic [ref=f17e163]: CB Shine SP
+            - generic [ref=f17e164]: View model service →
+          - link "Aviator View model service →" [ref=f17e165] [cursor=pointer]:
+            - /url: /honda/aviator
+            - generic [ref=f17e166]: Aviator
+            - generic [ref=f17e167]: View model service →
+          - link "H'ness CB350 View model service →" [ref=f17e168] [cursor=pointer]:
+            - /url: /honda/h-ness-cb350
+            - generic [ref=f17e169]: H'ness CB350
+            - generic [ref=f17e170]: View model service →
+          - link "CB350RS View model service →" [ref=f17e171] [cursor=pointer]:
+            - /url: /honda/cb350rs
+            - generic [ref=f17e172]: CB350RS
+            - generic [ref=f17e173]: View model service →
+          - link "CB350 View model service →" [ref=f17e174] [cursor=pointer]:
+            - /url: /honda/cb350
+            - generic [ref=f17e175]: CB350
+            - generic [ref=f17e176]: View model service →
+          - link "CB200X View model service →" [ref=f17e177] [cursor=pointer]:
+            - /url: /honda/cb200x
+            - generic [ref=f17e178]: CB200X
+            - generic [ref=f17e179]: View model service →
+          - link "CB Unicorn 150 View model service →" [ref=f17e180] [cursor=pointer]:
+            - /url: /honda/cb-unicorn-150
+            - generic [ref=f17e181]: CB Unicorn 150
+            - generic [ref=f17e182]: View model service →
+          - link "CB300F View model service →" [ref=f17e183] [cursor=pointer]:
+            - /url: /honda/cb300f
+            - generic [ref=f17e184]: CB300F
+            - generic [ref=f17e185]: View model service →
+          - link "CB300R View model service →" [ref=f17e186] [cursor=pointer]:
+            - /url: /honda/cb300r
+            - generic [ref=f17e187]: CB300R
+            - generic [ref=f17e188]: View model service →
+          - link "CBR 150R View model service →" [ref=f17e189] [cursor=pointer]:
+            - /url: /honda/cbr-150r
+            - generic [ref=f17e190]: CBR 150R
+            - generic [ref=f17e191]: View model service →
+          - link "CBR 250R View model service →" [ref=f17e192] [cursor=pointer]:
+            - /url: /honda/cbr-250r
+            - generic [ref=f17e193]: CBR 250R
+            - generic [ref=f17e194]: View model service →
+          - link "CBR 650R View model service →" [ref=f17e195] [cursor=pointer]:
+            - /url: /honda/cbr-650r
+            - generic [ref=f17e196]: CBR 650R
+            - generic [ref=f17e197]: View model service →
+          - link "NX500 View model service →" [ref=f17e198] [cursor=pointer]:
+            - /url: /honda/nx500
+            - generic [ref=f17e199]: NX500
+            - generic [ref=f17e200]: View model service →
+          - link "XL750 Transalp View model service →" [ref=f17e201] [cursor=pointer]:
+            - /url: /honda/xl750-transalp
+            - generic [ref=f17e202]: XL750 Transalp
+            - generic [ref=f17e203]: View model service →
+          - link "Africa Twin View model service →" [ref=f17e204] [cursor=pointer]:
+            - /url: /honda/africa-twin
+            - generic [ref=f17e205]: Africa Twin
+            - generic [ref=f17e206]: View model service →
+          - link "CBR1000RR-R Fireblade View model service →" [ref=f17e207] [cursor=pointer]:
+            - /url: /honda/cbr1000rr-r-fireblade
+            - generic [ref=f17e208]: CBR1000RR-R Fireblade
+            - generic [ref=f17e209]: View model service →
+          - link "Gold Wing Tour View model service →" [ref=f17e210] [cursor=pointer]:
+            - /url: /honda/gold-wing-tour
+            - generic [ref=f17e211]: Gold Wing Tour
+            - generic [ref=f17e212]: View model service →
+      - generic [ref=f17e214]:
+        - generic [ref=f17e215]:
+          - generic [ref=f17e216]: Service Catalog
+          - heading "Doorstep Honda Service Charges in Delhi" [level=2] [ref=f17e217]
+          - paragraph [ref=f17e218]: "Flat, honest rates with zero hidden fees. Pick your service and book a verified mechanic to your door:"
+        - generic [ref=f17e219]:
+          - generic [ref=f17e220]:
+            - generic [ref=f17e221]:
+              - heading "Service with Engine Oil" [level=3] [ref=f17e222]
+              - paragraph [ref=f17e223]: Complete oil drain, OEM-spec fresh engine oil refilled, spark plug clean & chain lube in Delhi.
+            - generic [ref=f17e224]: ₹999 starting from
+          - generic [ref=f17e225]:
+            - generic [ref=f17e226]:
+              - heading "Basic Bike Service" [level=3] [ref=f17e227]
+              - paragraph [ref=f17e228]: 21-point checkup, brake adjust, spark plug clean, air filter check & electrical system check in Delhi.
+            - generic [ref=f17e229]: ₹550 starting from
+          - generic [ref=f17e230]:
+            - generic [ref=f17e231]:
+              - heading "Doorstep Puncture Repair" [level=3] [ref=f17e232]
+              - paragraph [ref=f17e233]: Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in Delhi.
+            - generic [ref=f17e234]: ₹399 starting from
+          - generic [ref=f17e235]:
+            - generic [ref=f17e236]:
+              - heading "Brake Disc & Pad Repair" [level=3] [ref=f17e237]
+              - paragraph [ref=f17e238]: Brake pad replacement, disc rotor inspection, drum shoe swap & cable calibration in Delhi.
+            - generic [ref=f17e239]: ₹199 starting from
+          - generic [ref=f17e240]:
+            - generic [ref=f17e241]:
+              - heading "Battery Replacement" [level=3] [ref=f17e242]
+              - paragraph [ref=f17e243]: On-site battery diagnostics, testing, jump-start & new warranty battery installation in Delhi.
+            - generic [ref=f17e244]: ₹99 starting from
+          - generic [ref=f17e245]:
+            - generic [ref=f17e246]:
+              - heading "Running Repair" [level=3] [ref=f17e247]
+              - paragraph [ref=f17e248]: Quick breakdown repair, clutch cable adjustment & accelerator cable replacement in Delhi.
+            - generic [ref=f17e249]: ₹399 starting from
+      - generic [ref=f17e251]:
+        - generic [ref=f17e252]:
+          - generic [ref=f17e253]: Local Coverage
+          - heading "Where We Service Honda Two-Wheelers in Delhi" [level=2] [ref=f17e254]
+          - paragraph [ref=f17e255]: "Our mobile mechanics cover all major sectors, apartment complexes, and office parks across Delhi:"
+        - generic [ref=f17e256]:
+          - generic [ref=f17e257]:
+            - generic [ref=f17e258]: 📍
+            - generic [ref=f17e259]: Dwarka
+          - generic [ref=f17e260]:
+            - generic [ref=f17e261]: 📍
+            - generic [ref=f17e262]: Vasant Kunj
+          - generic [ref=f17e263]:
+            - generic [ref=f17e264]: 📍
+            - generic [ref=f17e265]: Rohini
+          - generic [ref=f17e266]:
+            - generic [ref=f17e267]: 📍
+            - generic [ref=f17e268]: Saket & Hauz Khas
+          - generic [ref=f17e269]:
+            - generic [ref=f17e270]: 📍
+            - generic [ref=f17e271]: Lajpat Nagar
+          - generic [ref=f17e272]:
+            - generic [ref=f17e273]: 📍
+            - generic [ref=f17e274]: Janakpuri
+          - generic [ref=f17e275]:
+            - generic [ref=f17e276]: 📍
+            - generic [ref=f17e277]: Pitampura
+          - generic [ref=f17e278]:
+            - generic [ref=f17e279]: 📍
+            - generic [ref=f17e280]: Karol Bagh
+          - generic [ref=f17e281]:
+            - generic [ref=f17e282]: 📍
+            - generic [ref=f17e283]: Mayur Vihar
+          - generic [ref=f17e284]:
+            - generic [ref=f17e285]: 📍
+            - generic [ref=f17e286]: Connaught Place
+      - generic [ref=f17e288]:
+        - generic [ref=f17e289]:
+          - generic [ref=f17e290]: Customer Reviews
+          - heading "What Honda Owners in Delhi Say" [level=2] [ref=f17e291]
+        - generic [ref=f17e292]:
+          - generic [ref=f17e293]:
+            - generic [ref=f17e294]: ★★★★★
+            - paragraph [ref=f17e295]: "\"Got my Honda serviced at my doorstep in Delhi. The mechanic was on time, very thorough, and used genuine oil. Highly recommended!\""
+            - generic [ref=f17e296]: Rohan Sharma — Honda Two-Wheeler (Delhi)
+          - generic [ref=f17e297]:
+            - generic [ref=f17e298]: ★★★★★
+            - paragraph [ref=f17e299]: "\"Extremely convenient service in Delhi. No pushing the scooter to local workshops. Fixed the starting trouble in 40 minutes.\""
+            - generic [ref=f17e300]: Pooja Verma — Honda Scooter (Delhi)
+          - generic [ref=f17e301]:
+            - generic [ref=f17e302]: ★★★★★
+            - paragraph [ref=f17e303]: "\"Transparent pricing and professional mechanic. Done right in my society parking in Delhi. Will book again for regular servicing.\""
+            - generic [ref=f17e304]: Amit Patel — Honda Motorcycle (Delhi)
+      - generic [ref=f17e306]:
+        - generic [ref=f17e307]:
+          - generic [ref=f17e308]: FAQs — Delhi
+          - heading "Frequently Asked Questions About Honda Servicing in Delhi" [level=2] [ref=f17e309]
+        - generic [ref=f17e310]:
+          - generic [ref=f17e311]:
+            - generic [ref=f17e312] [cursor=pointer]:
+              - text: How long does doorstep Honda service take in Delhi?
+              - generic [ref=f17e313]: +
+            - paragraph [ref=f17e315]: Routine periodic servicing and minor repairs for Honda two-wheelers take 35 to 50 minutes at your home or office parking in Delhi. Our mobile mechanic arrives fully equipped within 45 minutes.
+          - generic [ref=f17e316]:
+            - generic [ref=f17e317] [cursor=pointer]:
+              - text: Are 100% genuine Honda spare parts used for doorstep repairs in Delhi?
+              - generic [ref=f17e318]: +
+            - paragraph [ref=f17e319]: Yes! We use sealed genuine OEM spare parts (100% Genuine HMSI Air Filters, Brakes, and Spark Plugs). All replaced parts are inspected and handed over to you after servicing in Delhi.
+          - generic [ref=f17e320]:
+            - generic [ref=f17e321] [cursor=pointer]:
+              - text: What engine oil grade is used for Honda bikes & scooters in Delhi?
+              - generic [ref=f17e322]: +
+            - paragraph [ref=f17e323]: We use recommended Honda specification oil (10W-30 HMSI Specification Semi-Synthetic/Synthetic) or high-grade Motul / Yamalube synthetic blends in sealed bottles, replaced right in front of you.
+          - generic [ref=f17e324]:
+            - generic [ref=f17e325] [cursor=pointer]:
+              - text: Is there a warranty on Honda doorstep service in Delhi?
+              - generic [ref=f17e326]: +
+            - paragraph [ref=f17e327]: Yes, FixWheel provides a 15-day labor & diagnostic warranty on all Honda doorstep repairs in Delhi, plus manufacturer warranties on replaced components.
+          - generic [ref=f17e328]:
+            - generic [ref=f17e329] [cursor=pointer]:
+              - text: Which areas in Delhi do your Honda mobile mechanics cover?
+              - generic [ref=f17e330]: +
+            - paragraph [ref=f17e331]: We cover all major sectors, residential societies, and commercial hubs in Delhi (Dwarka, Vasant Kunj, Rohini, Saket & Hauz Khas and surrounding areas).
+        - generic [ref=f17e332]:
+          - generic [ref=f17e333]: "SERVICING HONDA IN OTHER CITIES:"
+          - generic [ref=f17e334]:
+            - link "Honda Main Hub" [ref=f17e335] [cursor=pointer]:
+              - /url: /honda
+            - link "Honda in Gurgaon" [ref=f17e336] [cursor=pointer]:
+              - /url: /honda/gurgaon
+            - link "Honda in Noida" [ref=f17e337] [cursor=pointer]:
+              - /url: /honda/noida
+            - link "Honda in Faridabad" [ref=f17e338] [cursor=pointer]:
+              - /url: /honda/faridabad
+            - link "Honda in Ghaziabad" [ref=f17e339] [cursor=pointer]:
+              - /url: /honda/ghaziabad
+      - generic [ref=f17e341]:
+        - heading "Get Your Honda Serviced at Doorstep in Delhi" [level=2] [ref=f17e342]
+        - paragraph [ref=f17e343]: Certified mechanics. 45-minute arrival time. 15-day labor warranty.
+        - link "Book Honda Service in Delhi →" [ref=f17e344] [cursor=pointer]:
+          - /url: /book#honda
+  - generic [ref=f17e345]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f17e346] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f17e352]:
+    - generic: Call us
+    - link "Call us now" [ref=f17e353] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f17e359]:
+    - generic [ref=f17e360]:
+      - generic [ref=f17e361]:
+        - generic [ref=f17e362]:
+          - link "FixWheel Logo FixWheel" [ref=f17e363] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f17e364]
+            - generic [ref=f17e365]: FixWheel
+          - paragraph [ref=f17e366]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f17e367]:
+          - heading "Locations" [level=4] [ref=f17e368]
+          - list [ref=f17e369]:
+            - listitem [ref=f17e370]:
+              - link "Delhi" [ref=f17e371] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f17e372]:
+              - link "Gurgaon" [ref=f17e373] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f17e374]:
+              - link "Noida" [ref=f17e375] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f17e376]:
+              - link "Faridabad" [ref=f17e377] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f17e378]:
+              - link "Ghaziabad" [ref=f17e379] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f17e380]:
+          - heading "Quick Links" [level=4] [ref=f17e381]
+          - list [ref=f17e382]:
+            - listitem [ref=f17e383]:
+              - link "Home" [ref=f17e384] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f17e385]:
+              - link "About Us" [ref=f17e386] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f17e387]:
+              - link "Repairs" [ref=f17e388] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f17e389]:
+              - link "Pricing" [ref=f17e390] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f17e391]:
+              - link "Blogs" [ref=f17e392] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f17e393]:
+              - link "Book Now" [ref=f17e394] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f17e395]:
+          - heading "Contact" [level=4] [ref=f17e396]
+          - list [ref=f17e397]:
+            - listitem [ref=f17e398]: "Phone: +91 87459 45682"
+            - listitem [ref=f17e399]: "Email: support@fixwheel.app"
+          - generic [ref=f17e400]:
+            - link "WhatsApp" [ref=f17e401] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f17e404] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f17e408] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f17e411] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f17e416]:
+        - paragraph [ref=f17e417]: "Popular Searches:"
+        - generic [ref=f17e418]:
+          - link "Bike Repair Near Me" [ref=f17e419] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f17e420]: •
+          - link "Bike Mechanic Near Me" [ref=f17e421] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f17e422]: •
+          - link "Sports Bike Repair Near Me" [ref=f17e423] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f17e424]: •
+          - link "EV Scooter Repair Near Me" [ref=f17e425] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f17e426]: •
+          - link "Royal Enfield Repair Near Me" [ref=f17e427] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f17e428]: •
+          - link "Scooty Repair Near Me" [ref=f17e429] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f17e430]: •
+          - link "Engine Oil Change Near Me" [ref=f17e431] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f17e432]: •
+          - link "Bike Battery Replacement Near Me" [ref=f17e433] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f17e434]: •
+          - link "Bike Tyre Repair Near Me" [ref=f17e435] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f17e436]:
+        - paragraph [ref=f17e437]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f17e438]:
+          - link "Terms & Conditions" [ref=f17e439] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f17e440]: "|"
+          - link "Privacy Policy" [ref=f17e441] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f17e442]: "|"
+          - link "Delete Account" [ref=f17e443] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f17e444]

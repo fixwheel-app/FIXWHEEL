@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
+import { BOOKABLE_SERVICE_IDS, BOOKING_CC_RANGES } from '../lib/bookingPricing';
 
 export const bookingSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must not exceed 50 characters"),
@@ -25,7 +26,9 @@ export const bookingSchema = z.object({
     "7:00 PM - 8:00 PM"
   ]),
   package: z.enum(["General Service", "General Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"]),
-  price: z.coerce.number().int().positive()
+  serviceId: z.enum(BOOKABLE_SERVICE_IDS),
+  ccRange: z.enum(BOOKING_CC_RANGES).optional(),
+  price: z.coerce.number().int().positive().optional()
 });
 
 export type BookingInput = z.infer<typeof bookingSchema>;

@@ -1,0 +1,540 @@
+- generic [active] [ref=f14e1]:
+  - navigation [ref=f14e2]:
+    - generic [ref=f14e4]:
+      - link "FixWheel Logo FixWheel" [ref=f14e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f14e6]
+        - generic [ref=f14e7]: FixWheel
+      - generic [ref=f14e8]:
+        - link "Get App" [ref=f14e9] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "Book Now" [ref=f14e10] [cursor=pointer]:
+          - /url: /book
+        - button "Toggle menu" [ref=f14e11] [cursor=pointer]
+    - generic [ref=f14e13]:
+      - generic [ref=f14e14]: Download App to get 10% off
+      - link "Get App ↗" [ref=f14e15] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f14e16]:
+    - generic [ref=f14e17]:
+      - navigation "Breadcrumb" [ref=f14e20]:
+        - link "Home" [ref=f14e22] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f14e23]:
+          - generic [ref=f14e24]: /
+          - generic [ref=f14e25]: Faridabad
+      - generic [ref=f14e27]:
+        - generic [ref=f14e28]:
+          - generic [ref=f14e29]: Bike mechanic at your doorstep · Faridabad
+          - heading [level=1] [ref=f14e30]:
+            - text: Bike Mechanic Near Me
+            - emphasis [ref=f14e31]: in Faridabad
+          - paragraph [ref=f14e32]: FixWheel sends verified mobile mechanics directly to your house driveway, society parking lot, or office basement across Faridabad. No more pushing your broken motorcycle to local workshops — we carry the parts and tools to fix it on-site.
+          - generic [ref=f14e33]:
+            - link "Book a Mechanic in Faridabad →" [ref=f14e34] [cursor=pointer]:
+              - /url: /book
+            - link "See how it works" [ref=f14e35] [cursor=pointer]:
+              - /url: "#how"
+          - generic [ref=f14e36]:
+            - generic [ref=f14e37]:
+              - generic [ref=f14e38]: 45 min
+              - text: Arrival time
+            - generic [ref=f14e39]:
+              - generic [ref=f14e40]: 148+
+              - text: Total vehicles serviced
+            - generic [ref=f14e41]:
+              - generic [ref=f14e42]: 4.8★
+              - text: Customer rating
+            - generic [ref=f14e43]:
+              - generic [ref=f14e44]: Faridabad NCR
+              - text: Service area
+        - generic [ref=f14e45]:
+          - generic [ref=f14e46]:
+            - generic [ref=f14e47]:
+              - text: FW-FDB-0329
+              - generic [ref=f14e48]: SERVICE DETAILS
+            - generic [ref=f14e49]: Completed ✓
+          - generic [ref=f14e50]:
+            - generic [ref=f14e51]:
+              - generic [ref=f14e52]: Service
+              - generic [ref=f14e53]: Basic Service + Oil
+            - generic [ref=f14e54]:
+              - generic [ref=f14e55]: Model
+              - generic [ref=f14e56]: TVS Jupiter 125
+            - generic [ref=f14e57]:
+              - generic [ref=f14e58]: Location
+              - generic [ref=f14e59]: Sector 15, Faridabad
+            - generic [ref=f14e60]:
+              - generic [ref=f14e61]: Mechanic
+              - generic [ref=f14e62]: Verified ✓
+            - generic [ref=f14e63]:
+              - generic [ref=f14e64]: Warranty
+              - generic [ref=f14e65]: 15 days
+            - generic [ref=f14e66]:
+              - generic [ref=f14e67]: Response
+              - generic [ref=f14e68]: 38 min
+          - generic [ref=f14e69]:
+            - generic [ref=f14e70]:
+              - generic [ref=f14e71]: Total paid
+              - text: ₹999
+            - generic [ref=f14e72]: FARIDABAD · NCR
+      - generic [ref=f14e74]:
+        - generic [ref=f14e75]:
+          - generic [ref=f14e76]: Coverage
+          - heading "Where we operate in Faridabad" [level=2] [ref=f14e77]
+          - paragraph [ref=f14e78]: We serve all major sectors, residential enclaves, and industrial areas across Faridabad. Select your locality below for detailed street coverage.
+        - generic [ref=f14e79]:
+          - link "📍 NIT Faridabad" [ref=f14e80] [cursor=pointer]:
+            - /url: /faridabad/nit-faridabad
+          - link "📍 Sector 7" [ref=f14e81] [cursor=pointer]:
+            - /url: /faridabad/sector-7
+          - link "📍 Sector 8" [ref=f14e82] [cursor=pointer]:
+            - /url: /faridabad/sector-8
+          - link "📍 Sector 9" [ref=f14e83] [cursor=pointer]:
+            - /url: /faridabad/sector-9
+          - link "📍 Sector 10" [ref=f14e84] [cursor=pointer]:
+            - /url: /faridabad/sector-10
+          - link "📍 Sector 11" [ref=f14e85] [cursor=pointer]:
+            - /url: /faridabad/sector-11
+          - link "📍 Sector 12" [ref=f14e86] [cursor=pointer]:
+            - /url: /faridabad/sector-12
+          - link "📍 Sector 14" [ref=f14e87] [cursor=pointer]:
+            - /url: /faridabad/sector-14
+          - link "📍 Sector 15" [ref=f14e88] [cursor=pointer]:
+            - /url: /faridabad/sector-15
+          - link "📍 Sector 16" [ref=f14e89] [cursor=pointer]:
+            - /url: /faridabad/sector-16
+          - link "📍 Sector 17" [ref=f14e90] [cursor=pointer]:
+            - /url: /faridabad/sector-17
+          - link "📍 Sector 19" [ref=f14e91] [cursor=pointer]:
+            - /url: /faridabad/sector-19
+          - link "📍 Sector 21" [ref=f14e92] [cursor=pointer]:
+            - /url: /faridabad/sector-21
+          - link "📍 Sector 22" [ref=f14e93] [cursor=pointer]:
+            - /url: /faridabad/sector-22
+          - link "📍 Sector 23" [ref=f14e94] [cursor=pointer]:
+            - /url: /faridabad/sector-23
+          - link "📍 Sector 28" [ref=f14e95] [cursor=pointer]:
+            - /url: /faridabad/sector-28
+          - link "📍 Sector 29" [ref=f14e96] [cursor=pointer]:
+            - /url: /faridabad/sector-29
+          - link "📍 Sector 31" [ref=f14e97] [cursor=pointer]:
+            - /url: /faridabad/sector-31
+          - link "📍 Sector 37" [ref=f14e98] [cursor=pointer]:
+            - /url: /faridabad/sector-37
+          - link "📍 Sector 46" [ref=f14e99] [cursor=pointer]:
+            - /url: /faridabad/sector-46
+          - link "📍 Sector 55" [ref=f14e100] [cursor=pointer]:
+            - /url: /faridabad/sector-55
+          - link "📍 Sector 56" [ref=f14e101] [cursor=pointer]:
+            - /url: /faridabad/sector-56
+          - link "📍 Sector 86" [ref=f14e102] [cursor=pointer]:
+            - /url: /faridabad/sector-86
+          - link "📍 Sector 88" [ref=f14e103] [cursor=pointer]:
+            - /url: /faridabad/sector-88
+          - link "📍 Sector 89" [ref=f14e104] [cursor=pointer]:
+            - /url: /faridabad/sector-89
+          - link "📍 Old Faridabad" [ref=f14e105] [cursor=pointer]:
+            - /url: /faridabad/old-faridabad
+          - link "📍 Ballabhgarh" [ref=f14e106] [cursor=pointer]:
+            - /url: /faridabad/ballabhgarh
+          - link "📍 Tigaon Road" [ref=f14e107] [cursor=pointer]:
+            - /url: /faridabad/tigaon-road
+          - link "📍 Suraj Kund" [ref=f14e108] [cursor=pointer]:
+            - /url: /faridabad/suraj-kund
+          - link "📍 Mewla Maharajpur" [ref=f14e109] [cursor=pointer]:
+            - /url: /faridabad/mewla-maharajpur
+          - link "📍 BK Chowk" [ref=f14e110] [cursor=pointer]:
+            - /url: /faridabad/bk-chowk
+          - link "📍 Bata Chowk" [ref=f14e111] [cursor=pointer]:
+            - /url: /faridabad/bata-chowk
+          - link "📍 YMCA Chowk" [ref=f14e112] [cursor=pointer]:
+            - /url: /faridabad/ymca-chowk
+          - generic [ref=f14e113]: 📍 + Expanding across Faridabad
+      - generic [ref=f14e115]:
+        - generic [ref=f14e116]:
+          - generic [ref=f14e117]: Why FixWheel Faridabad
+          - heading "Professional service right in your driveway" [level=2] [ref=f14e118]
+          - paragraph [ref=f14e119]: From NIT markets to residential sectors, our mechanics coordinate directly to service your two-wheeler while you relax at home.
+        - generic [ref=f14e120]:
+          - generic [ref=f14e121]:
+            - generic [ref=f14e122]: "01"
+            - heading "On-site doorstep servicing" [level=3] [ref=f14e123]
+            - paragraph [ref=f14e124]: We perform all servicing, oil changes, and repairs directly in your parking area, driveway, or office basement.
+          - generic [ref=f14e125]:
+            - generic [ref=f14e126]: "02"
+            - heading "Verified, trained mechanics" [level=3] [ref=f14e127]
+            - paragraph [ref=f14e128]: Every technician is background-checked, trained, and accountable, giving you complete safety and quality mechanical work.
+          - generic [ref=f14e129]:
+            - generic [ref=f14e130]: "03"
+            - heading "Transparent itemized billing" [level=3] [ref=f14e131]
+            - paragraph [ref=f14e132]: No surprise bills or hidden margins. You review and approve the exact quote before the service begins.
+          - generic [ref=f14e133]:
+            - generic [ref=f14e134]: "04"
+            - heading "15-day service guarantee" [level=3] [ref=f14e135]
+            - paragraph [ref=f14e136]: All doorstep work and mechanical tuning are backed by our standard 15-day labor warranty for complete peace of mind.
+      - generic [ref=f14e138]:
+        - generic [ref=f14e139]:
+          - generic [ref=f14e140]: Services & pricing
+          - heading "Two Wheeler Service & Repair in Faridabad" [level=2] [ref=f14e141]
+        - generic [ref=f14e142]:
+          - generic [ref=f14e143]:
+            - generic [ref=f14e144]: "[BASIC]"
+            - heading "Basic Service" [level=3] [ref=f14e145]
+            - paragraph [ref=f14e146]: Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.
+            - generic [ref=f14e147]: ₹550 starting from
+            - link "View pricing →" [ref=f14e148] [cursor=pointer]:
+              - /url: /services/basic-service
+          - generic [ref=f14e149]:
+            - generic [ref=f14e150]: "[OIL]"
+            - heading "Service with Engine Oil" [level=3] [ref=f14e151]
+            - paragraph [ref=f14e152]: Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.
+            - generic [ref=f14e153]: ₹999 starting from
+            - link "View pricing →" [ref=f14e154] [cursor=pointer]:
+              - /url: /services/oil-change
+          - generic [ref=f14e155]:
+            - generic [ref=f14e156]: "[ENGINE]"
+            - heading "Engine Repair" [level=3] [ref=f14e157]
+            - paragraph [ref=f14e158]: Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.
+            - generic [ref=f14e159]: ₹4,500 starting from (half engine)
+            - link "View pricing →" [ref=f14e160] [cursor=pointer]:
+              - /url: /services/engine-repair
+          - generic [ref=f14e161]:
+            - generic [ref=f14e162]: "[PUNCTURE]"
+            - heading "Puncture Repair" [level=3] [ref=f14e163]
+            - paragraph [ref=f14e164]: Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.
+            - generic [ref=f14e165]: ₹399 starting from
+            - link "View pricing →" [ref=f14e166] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e167]:
+            - generic [ref=f14e168]: "[BRAKE]"
+            - heading "Brake Disc Replacement" [level=3] [ref=f14e169]
+            - paragraph [ref=f14e170]: Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.
+            - generic [ref=f14e171]: ₹199 starting from
+            - link "View pricing →" [ref=f14e172] [cursor=pointer]:
+              - /url: /services/brake-repair
+          - generic [ref=f14e173]:
+            - generic [ref=f14e174]: "[BATTERY]"
+            - heading "Battery Replacement" [level=3] [ref=f14e175]
+            - paragraph [ref=f14e176]: Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.
+            - generic [ref=f14e177]: ₹99 starting from (labor)
+            - link "View pricing →" [ref=f14e178] [cursor=pointer]:
+              - /url: /services/battery-replacement
+          - generic [ref=f14e179]:
+            - generic [ref=f14e180]: "[JUMPSTART]"
+            - heading "Jump Start" [level=3] [ref=f14e181]
+            - paragraph [ref=f14e182]: Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.
+            - generic [ref=f14e183]: ₹399 starting from
+            - link "Book now →" [ref=f14e184] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e185]:
+            - generic [ref=f14e186]: "[RUNNING]"
+            - heading "Running Repair" [level=3] [ref=f14e187]
+            - paragraph [ref=f14e188]: Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.
+            - generic [ref=f14e189]: ₹399 starting from
+            - link "Book now →" [ref=f14e190] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e191]:
+            - generic [ref=f14e192]: "[CARB]"
+            - heading "Carburetor Cleaning" [level=3] [ref=f14e193]
+            - paragraph [ref=f14e194]: Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.
+            - generic [ref=f14e195]: ₹199 starting from
+            - link "Book now →" [ref=f14e196] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e197]:
+            - generic [ref=f14e198]: "[OBD]"
+            - heading "OBD Scanner Inspection" [level=3] [ref=f14e199]
+            - paragraph [ref=f14e200]: A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.
+            - generic [ref=f14e201]: ₹199 starting from
+            - link "Book now →" [ref=f14e202] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e203]:
+            - generic [ref=f14e204]: "[CHAIN]"
+            - heading "Chain Sprocket Replacement" [level=3] [ref=f14e205]
+            - paragraph [ref=f14e206]: Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.
+            - generic [ref=f14e207]: ₹299 starting from
+            - link "Book now →" [ref=f14e208] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f14e209]:
+            - generic [ref=f14e210]: "[PICKUP]"
+            - heading "Pick and Drop" [level=3] [ref=f14e211]
+            - paragraph [ref=f14e212]: We collect your bike from your location, get it serviced, and deliver it back — you stay put.
+            - generic [ref=f14e213]: ₹199 starting from
+            - link "Book now →" [ref=f14e214] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=f14e216]:
+        - generic [ref=f14e217]:
+          - generic [ref=f14e218]: Vehicle types
+          - heading "Every two-wheeler, serviced at your door" [level=2] [ref=f14e219]
+          - paragraph [ref=f14e220]: From daily scooters and commuter bikes to sports motorcycles and EVs — our mechanics handle them all.
+        - generic [ref=f14e221]:
+          - generic [ref=f14e222]: 🛵 Scooter
+          - generic [ref=f14e223]: 🏍️ Commuter Bike
+          - generic [ref=f14e224]: ⚡ EV Scooter
+          - generic [ref=f14e225]: ⚡ EV Bike
+          - generic [ref=f14e226]: 🏁 Sports Bike
+          - generic [ref=f14e227]: 🔵 Royal Enfield
+          - generic [ref=f14e228]: 🚲 Moped
+          - generic [ref=f14e229]: + all other types
+        - generic [ref=f14e231]:
+          - generic [ref=f14e232]: We service all major brands
+          - heading "Any brand, any model — Faridabad doorstep" [level=2] [ref=f14e233]
+        - generic [ref=f14e234]:
+          - generic [ref=f14e235]: Honda
+          - generic [ref=f14e236]: Hero
+          - generic [ref=f14e237]: Bajaj
+          - generic [ref=f14e238]: TVS
+          - generic [ref=f14e239]: Royal Enfield
+          - generic [ref=f14e240]: Yamaha
+          - generic [ref=f14e241]: Suzuki
+          - generic [ref=f14e242]: KTM
+          - generic [ref=f14e243]: Ola Electric
+          - generic [ref=f14e244]: Ather
+          - generic [ref=f14e245]: Vespa
+          - generic [ref=f14e246]: Jawa
+          - generic [ref=f14e247]: Aprilia
+          - generic [ref=f14e248]: Harley-Davidson
+          - generic [ref=f14e249]: Kawasaki
+          - generic [ref=f14e250]: Benelli
+      - generic [ref=f14e252]:
+        - generic [ref=f14e253]:
+          - generic [ref=f14e254]: How it works
+          - heading "Book to fixed — 4 simple steps" [level=2] [ref=f14e255]
+        - generic [ref=f14e256]:
+          - generic [ref=f14e257]:
+            - generic [ref=f14e258]: "01"
+            - heading "1. Pick a service" [level=3] [ref=f14e259]
+            - paragraph [ref=f14e260]: Select what your bike needs and pick a time slot on our app or website.
+          - generic [ref=f14e261]:
+            - generic [ref=f14e262]: "02"
+            - heading "2. Mechanic dispatched" [level=3] [ref=f14e263]
+            - paragraph [ref=f14e264]: A verified mechanic near your location in Faridabad is assigned and heads to you.
+          - generic [ref=f14e265]:
+            - generic [ref=f14e266]: "03"
+            - heading "3. Repaired on-site" [level=3] [ref=f14e267]
+            - paragraph [ref=f14e268]: Your bike is fixed right where it is parked — home, office, or society parking.
+          - generic [ref=f14e269]:
+            - generic [ref=f14e270]: "04"
+            - heading "4. Pay and rate" [level=3] [ref=f14e271]
+            - paragraph [ref=f14e272]: Pay the quoted amount via UPI, card, or cash, then rate the mechanic.
+      - generic [ref=f14e274]:
+        - generic [ref=f14e275]:
+          - generic [ref=f14e276]: Reviews
+          - heading "From Faridabad riders" [level=2] [ref=f14e277]
+          - paragraph [ref=f14e278]: 4.7★ average rating from 473+ reviews
+        - generic [ref=f14e279]:
+          - generic [ref=f14e280]:
+            - generic [ref=f14e281]: ★★★★★
+            - paragraph [ref=f14e282]: "\"Excellent experience in Sector 15. The mechanic coordinate with my society guard and finished the basic service in the driveway under 45 minutes. Clean and hassle-free.\""
+            - generic [ref=f14e283]: Abhishek M. — Sector 15
+          - generic [ref=f14e284]:
+            - generic [ref=f14e285]: ★★★★★
+            - paragraph [ref=f14e286]: "\"My Pulsar broke down near Bata Chowk during the rush hour. The emergency roadside assistance mechanic was there in 45 minutes, changed the clutch cable, and got me moving.\""
+            - generic [ref=f14e287]: Rohit S. — Bata Chowk
+          - generic [ref=f14e288]:
+            - generic [ref=f14e289]: ★★★★★
+            - paragraph [ref=f14e290]: "\"Very professional service for my TVS Jupiter in NIT Faridabad. Upfront pricing, genuine oil, and no hidden margins. Highly recommend FixWheel.\""
+            - generic [ref=f14e291]: Sneha K. — NIT Faridabad
+      - generic [ref=f14e293]:
+        - generic [ref=f14e294]:
+          - generic [ref=f14e295]: Join our network
+          - heading "Are you a bike mechanic in Faridabad?" [level=2] [ref=f14e296]
+          - paragraph [ref=f14e297]: Join the FixWheel network and receive bookings from riders in Faridabad. Set your own hours and manage everything from your phone.
+          - list [ref=f14e298]:
+            - listitem [ref=f14e299]: — Set your own working hours
+            - listitem [ref=f14e300]: — Manage bookings from your phone
+            - listitem [ref=f14e301]: — Receive service requests from nearby customers
+        - generic [ref=f14e302]:
+          - heading "Become a partner" [level=3] [ref=f14e303]
+          - paragraph [ref=f14e304]: Register in a few minutes and start receiving service requests in Faridabad.
+          - link "Become a Partner →" [ref=f14e305] [cursor=pointer]:
+            - /url: /partner
+      - generic [ref=f14e307]:
+        - generic [ref=f14e308]:
+          - generic [ref=f14e309]: FAQs
+          - heading "Common questions about bike repair in Faridabad" [level=2] [ref=f14e310]
+        - generic [ref=f14e311]:
+          - generic [ref=f14e312]:
+            - generic [ref=f14e313] [cursor=pointer]:
+              - text: How quickly can a mechanic reach me in Faridabad?
+              - generic [ref=f14e314]: +
+            - paragraph [ref=f14e316]: In most Faridabad sectors and NIT areas, our mechanics arrive within 45 minutes of booking confirmation.
+          - generic [ref=f14e317]:
+            - generic [ref=f14e318] [cursor=pointer]:
+              - text: What does doorstep bike repair cost in Faridabad?
+              - generic [ref=f14e319]: +
+            - paragraph [ref=f14e320]: Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work.
+          - generic [ref=f14e321]:
+            - generic [ref=f14e322] [cursor=pointer]:
+              - text: Which areas in Faridabad does FixWheel cover?
+              - generic [ref=f14e323]: +
+            - paragraph [ref=f14e324]: We cover all major Faridabad sectors (Sector 15, 16, 21, 37, 86, etc.) as well as NIT, Old Faridabad, Ballabhgarh, and Suraj Kund.
+          - generic [ref=f14e325]:
+            - generic [ref=f14e326] [cursor=pointer]:
+              - text: Do you offer emergency roadside help in Faridabad?
+              - generic [ref=f14e327]: +
+            - paragraph [ref=f14e328]: Yes, we dispatch mechanics for roadside breakdowns across our Faridabad service area, including Mathura Road and Suraj Kund Road. Available 24/7.
+          - generic [ref=f14e329]:
+            - generic [ref=f14e330] [cursor=pointer]:
+              - text: Is there a warranty on the repair?
+              - generic [ref=f14e331]: +
+            - paragraph [ref=f14e332]: Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge.
+      - generic [ref=f14e334]:
+        - generic [ref=f14e335]:
+          - generic [ref=f14e336]: Contact
+          - heading "Get in touch" [level=2] [ref=f14e337]
+          - paragraph [ref=f14e338]: Call or email us. We respond within 2 hours during business hours (8 AM – 8 PM).
+          - generic [ref=f14e339]:
+            - generic [ref=f14e340]:
+              - generic [ref=f14e341]: ☎
+              - generic [ref=f14e342]:
+                - generic [ref=f14e343]: +91 87459 45682
+                - text: Call us between 8 AM and 8 PM
+            - generic [ref=f14e344]:
+              - generic [ref=f14e345]: ✉
+              - generic [ref=f14e346]:
+                - generic [ref=f14e347]: support@fixwheel.app
+                - text: We reply within 2 hours
+            - generic [ref=f14e348]:
+              - generic [ref=f14e349]: 💬
+              - generic [ref=f14e350]:
+                - generic [ref=f14e351]: Chat on WhatsApp
+                - text: Fastest way to book
+        - generic [ref=f14e352]:
+          - generic [ref=f14e353]: 24/7 EMERGENCY
+          - heading "Faridabad Roadside Assistance" [level=3] [ref=f14e354]
+          - paragraph [ref=f14e355]: Stranded on Mathura Road, Suraj Kund Road, or near Bata Chowk? A mechanic will come to your exact location with tools to fix the issue on the spot.
+          - generic [ref=f14e356]:
+            - link "Request Roadside Assistance →" [ref=f14e357] [cursor=pointer]:
+              - /url: /book
+            - link "Call Us Now" [ref=f14e358] [cursor=pointer]:
+              - /url: tel:+918745945682
+      - generic [ref=f14e360]:
+        - heading "Book Doorstep Service by City" [level=3] [ref=f14e361]
+        - generic [ref=f14e362]:
+          - link "Gurgaon / Gurugram" [ref=f14e363] [cursor=pointer]:
+            - /url: /gurgaon
+          - link "Delhi" [ref=f14e364] [cursor=pointer]:
+            - /url: /delhi
+          - link "Noida" [ref=f14e365] [cursor=pointer]:
+            - /url: /noida
+          - link "Ghaziabad" [ref=f14e366] [cursor=pointer]:
+            - /url: /ghaziabad
+          - link "Faridabad" [ref=f14e367] [cursor=pointer]:
+            - /url: /faridabad
+      - generic [ref=f14e369]:
+        - heading "Book doorstep bike repair in Faridabad." [level=2] [ref=f14e370]
+        - paragraph [ref=f14e371]: Verified mechanic at your home or office across NIT, Sector 15, 16, 17, 21, 37, 86 & all Faridabad areas. Starting ₹550.
+        - link "Book Your Bike Service →" [ref=f14e372] [cursor=pointer]:
+          - /url: /book
+  - generic [ref=f14e373]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f14e374] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f14e380]:
+    - generic: Call us
+    - link "Call us now" [ref=f14e381] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f14e387]:
+    - generic [ref=f14e388]:
+      - generic [ref=f14e389]:
+        - generic [ref=f14e390]:
+          - link "FixWheel Logo FixWheel" [ref=f14e391] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f14e392]
+            - generic [ref=f14e393]: FixWheel
+          - paragraph [ref=f14e394]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f14e395]:
+          - heading "Locations" [level=4] [ref=f14e396]
+          - list [ref=f14e397]:
+            - listitem [ref=f14e398]:
+              - link "Delhi" [ref=f14e399] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f14e400]:
+              - link "Gurgaon" [ref=f14e401] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f14e402]:
+              - link "Noida" [ref=f14e403] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f14e404]:
+              - link "Faridabad" [ref=f14e405] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f14e406]:
+              - link "Ghaziabad" [ref=f14e407] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f14e408]:
+          - heading "Quick Links" [level=4] [ref=f14e409]
+          - list [ref=f14e410]:
+            - listitem [ref=f14e411]:
+              - link "Home" [ref=f14e412] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f14e413]:
+              - link "About Us" [ref=f14e414] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f14e415]:
+              - link "Repairs" [ref=f14e416] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f14e417]:
+              - link "Pricing" [ref=f14e418] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f14e419]:
+              - link "Blogs" [ref=f14e420] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f14e421]:
+              - link "Book Now" [ref=f14e422] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f14e423]:
+          - heading "Contact" [level=4] [ref=f14e424]
+          - list [ref=f14e425]:
+            - listitem [ref=f14e426]: "Phone: +91 87459 45682"
+            - listitem [ref=f14e427]: "Email: support@fixwheel.app"
+          - generic [ref=f14e428]:
+            - link "WhatsApp" [ref=f14e429] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f14e432] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f14e436] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f14e439] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f14e444]:
+        - paragraph [ref=f14e445]: "Popular Searches:"
+        - generic [ref=f14e446]:
+          - link "Bike Repair Near Me" [ref=f14e447] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f14e448]: •
+          - link "Bike Mechanic Near Me" [ref=f14e449] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f14e450]: •
+          - link "Sports Bike Repair Near Me" [ref=f14e451] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f14e452]: •
+          - link "EV Scooter Repair Near Me" [ref=f14e453] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f14e454]: •
+          - link "Royal Enfield Repair Near Me" [ref=f14e455] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f14e456]: •
+          - link "Scooty Repair Near Me" [ref=f14e457] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f14e458]: •
+          - link "Engine Oil Change Near Me" [ref=f14e459] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f14e460]: •
+          - link "Bike Battery Replacement Near Me" [ref=f14e461] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f14e462]: •
+          - link "Bike Tyre Repair Near Me" [ref=f14e463] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f14e464]:
+        - paragraph [ref=f14e465]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f14e466]:
+          - link "Terms & Conditions" [ref=f14e467] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f14e468]: "|"
+          - link "Privacy Policy" [ref=f14e469] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f14e470]: "|"
+          - link "Delete Account" [ref=f14e471] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f14e472]

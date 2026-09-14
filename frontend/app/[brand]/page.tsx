@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
+import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import BrandDetailClient from "./page.client";
 
 interface PageProps {
@@ -9,9 +10,13 @@ interface PageProps {
   };
 }
 
+const KNOWN_BRAND_SLUGS = new Set([
+  ...Object.keys(BRAND_DETAILS).map(slugifyModel),
+  ...getAllBikeModels().map(({ brandName }) => slugifyModel(brandName)),
+]);
+
 export async function generateStaticParams() {
-  const brandSlugs = Object.keys(BRAND_DETAILS);
-  return brandSlugs.map((brand) => ({
+  return Array.from(KNOWN_BRAND_SLUGS).map((brand) => ({
     brand,
   }));
 }
@@ -19,8 +24,10 @@ export async function generateStaticParams() {
 function getBrandData(brandSlug: string) {
   const key = brandSlug.toLowerCase().trim();
   if (BRAND_DETAILS[key]) return BRAND_DETAILS[key];
-  
-  // Format dynamic brand fallback for unlisted brands
+  if (!KNOWN_BRAND_SLUGS.has(key)) return undefined;
+
+  // Preserve the existing generic presentation only for brands present in the
+  // authoritative bike catalog. Unknown slugs must return a real 404.
   const formattedName = key
     .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -65,6 +72,9 @@ function getBrandData(brandSlug: string) {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const brandData = getBrandData(params.brand);
+  if (!brandData) {
+    notFound();
+  }
 
   const titleText = `Doorstep ${brandData.name} Service & Repair Near Me | FixWheel`;
   const descText = `Book professional doorstep ${brandData.name} bike service and repairs. ${brandData.tagline}. Flat pricing, verified mechanics, 15-day warranty.`;
@@ -87,5 +97,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function BrandDetailPage({ params }: PageProps) {
-  return <BrandDetailClient brandSlug={params.brand.toLowerCase()} />;
+  const brandSlug = params.brand.toLowerCase();
+  if (!getBrandData(brandSlug)) {
+    notFound();
+  }
+
+  return <BrandDetailClient brandSlug={brandSlug} />;
 }

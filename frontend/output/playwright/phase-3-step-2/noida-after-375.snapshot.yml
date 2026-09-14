@@ -1,0 +1,540 @@
+- generic [active] [ref=f10e1]:
+  - navigation [ref=f10e2]:
+    - generic [ref=f10e4]:
+      - link "FixWheel Logo FixWheel" [ref=f10e5] [cursor=pointer]:
+        - /url: /
+        - img "FixWheel Logo" [ref=f10e6]
+        - generic [ref=f10e7]: FixWheel
+      - generic [ref=f10e8]:
+        - link "Get App" [ref=f10e9] [cursor=pointer]:
+          - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+        - link "Book Now" [ref=f10e10] [cursor=pointer]:
+          - /url: /book
+        - button "Toggle menu" [ref=f10e11] [cursor=pointer]
+    - generic [ref=f10e13]:
+      - generic [ref=f10e14]: Download App to get 10% off
+      - link "Get App ↗" [ref=f10e15] [cursor=pointer]:
+        - /url: https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN
+  - main [ref=f10e16]:
+    - generic [ref=f10e17]:
+      - navigation "Breadcrumb" [ref=f10e20]:
+        - link "Home" [ref=f10e22] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f10e23]:
+          - generic [ref=f10e24]: /
+          - generic [ref=f10e25]: Noida
+      - generic [ref=f10e27]:
+        - generic [ref=f10e28]:
+          - generic [ref=f10e29]: Bike mechanic at your doorstep · Noida
+          - heading [level=1] [ref=f10e30]:
+            - text: Bike Mechanic Near Me
+            - emphasis [ref=f10e31]: in Noida
+          - paragraph [ref=f10e32]: FixWheel sends verified mechanics directly to your high-rise society, gated sector, or corporate office across Noida & Greater Noida. Forget towing your bike to local garages — we bring the tools and service to you.
+          - generic [ref=f10e33]:
+            - link "Book a Mechanic in Noida →" [ref=f10e34] [cursor=pointer]:
+              - /url: /book
+            - link "See how it works" [ref=f10e35] [cursor=pointer]:
+              - /url: "#how"
+          - generic [ref=f10e36]:
+            - generic [ref=f10e37]:
+              - generic [ref=f10e38]: 45 min
+              - text: Arrival time
+            - generic [ref=f10e39]:
+              - generic [ref=f10e40]: 148+
+              - text: Total vehicles serviced
+            - generic [ref=f10e41]:
+              - generic [ref=f10e42]: 4.8★
+              - text: Customer rating
+            - generic [ref=f10e43]:
+              - generic [ref=f10e44]: Noida & Gr. Noida
+              - text: Service area
+        - generic [ref=f10e45]:
+          - generic [ref=f10e46]:
+            - generic [ref=f10e47]:
+              - text: FW-NOI-0914
+              - generic [ref=f10e48]: SERVICE DETAILS
+            - generic [ref=f10e49]: Completed ✓
+          - generic [ref=f10e50]:
+            - generic [ref=f10e51]:
+              - generic [ref=f10e52]: Service
+              - generic [ref=f10e53]: Basic Service
+            - generic [ref=f10e54]:
+              - generic [ref=f10e55]: Model
+              - generic [ref=f10e56]: Honda Activa 6G
+            - generic [ref=f10e57]:
+              - generic [ref=f10e58]: Location
+              - generic [ref=f10e59]: Sector 62, Noida
+            - generic [ref=f10e60]:
+              - generic [ref=f10e61]: Mechanic
+              - generic [ref=f10e62]: Verified ✓
+            - generic [ref=f10e63]:
+              - generic [ref=f10e64]: Warranty
+              - generic [ref=f10e65]: 15 days
+            - generic [ref=f10e66]:
+              - generic [ref=f10e67]: Response
+              - generic [ref=f10e68]: 27 min
+          - generic [ref=f10e69]:
+            - generic [ref=f10e70]:
+              - generic [ref=f10e71]: Total paid
+              - text: ₹550
+            - generic [ref=f10e72]: NOIDA · NCR
+      - generic [ref=f10e74]:
+        - generic [ref=f10e75]:
+          - generic [ref=f10e76]: Coverage
+          - heading "Where we operate in Noida" [level=2] [ref=f10e77]
+          - paragraph [ref=f10e78]: We serve all major residential sectors and commercial parks across Noida and Greater Noida. Select your locality below for detailed street coverage.
+        - generic [ref=f10e79]:
+          - link "📍 Sector 18" [ref=f10e80] [cursor=pointer]:
+            - /url: /noida/sector-18
+          - link "📍 Sector 22" [ref=f10e81] [cursor=pointer]:
+            - /url: /noida/sector-22
+          - link "📍 Sector 27" [ref=f10e82] [cursor=pointer]:
+            - /url: /noida/sector-27
+          - link "📍 Sector 29" [ref=f10e83] [cursor=pointer]:
+            - /url: /noida/sector-29
+          - link "📍 Sector 37" [ref=f10e84] [cursor=pointer]:
+            - /url: /noida/sector-37
+          - link "📍 Sector 44" [ref=f10e85] [cursor=pointer]:
+            - /url: /noida/sector-44
+          - link "📍 Sector 50" [ref=f10e86] [cursor=pointer]:
+            - /url: /noida/sector-50
+          - link "📍 Sector 51" [ref=f10e87] [cursor=pointer]:
+            - /url: /noida/sector-51
+          - link "📍 Sector 52" [ref=f10e88] [cursor=pointer]:
+            - /url: /noida/sector-52
+          - link "📍 Sector 55" [ref=f10e89] [cursor=pointer]:
+            - /url: /noida/sector-55
+          - link "📍 Sector 56" [ref=f10e90] [cursor=pointer]:
+            - /url: /noida/sector-56
+          - link "📍 Sector 62" [ref=f10e91] [cursor=pointer]:
+            - /url: /noida/sector-62
+          - link "📍 Sector 63" [ref=f10e92] [cursor=pointer]:
+            - /url: /noida/sector-63
+          - link "📍 Sector 75" [ref=f10e93] [cursor=pointer]:
+            - /url: /noida/sector-75
+          - link "📍 Sector 76" [ref=f10e94] [cursor=pointer]:
+            - /url: /noida/sector-76
+          - link "📍 Sector 77" [ref=f10e95] [cursor=pointer]:
+            - /url: /noida/sector-77
+          - link "📍 Sector 78" [ref=f10e96] [cursor=pointer]:
+            - /url: /noida/sector-78
+          - link "📍 Sector 100" [ref=f10e97] [cursor=pointer]:
+            - /url: /noida/sector-100
+          - link "📍 Sector 104" [ref=f10e98] [cursor=pointer]:
+            - /url: /noida/sector-104
+          - link "📍 Sector 110" [ref=f10e99] [cursor=pointer]:
+            - /url: /noida/sector-110
+          - link "📍 Sector 120" [ref=f10e100] [cursor=pointer]:
+            - /url: /noida/sector-120
+          - link "📍 Sector 125" [ref=f10e101] [cursor=pointer]:
+            - /url: /noida/sector-125
+          - link "📍 Sector 126" [ref=f10e102] [cursor=pointer]:
+            - /url: /noida/sector-126
+          - link "📍 Sector 128" [ref=f10e103] [cursor=pointer]:
+            - /url: /noida/sector-128
+          - link "📍 Sector 132" [ref=f10e104] [cursor=pointer]:
+            - /url: /noida/sector-132
+          - link "📍 Sector 135" [ref=f10e105] [cursor=pointer]:
+            - /url: /noida/sector-135
+          - link "📍 Sector 137" [ref=f10e106] [cursor=pointer]:
+            - /url: /noida/sector-137
+          - link "📍 Sector 143" [ref=f10e107] [cursor=pointer]:
+            - /url: /noida/sector-143
+          - link "📍 Sector 150" [ref=f10e108] [cursor=pointer]:
+            - /url: /noida/sector-150
+          - link "📍 Greater Noida West" [ref=f10e109] [cursor=pointer]:
+            - /url: /noida/greater-noida-west
+          - link "📍 Knowledge Park" [ref=f10e110] [cursor=pointer]:
+            - /url: /noida/knowledge-park
+          - link "📍 Alpha 1" [ref=f10e111] [cursor=pointer]:
+            - /url: /noida/alpha-1
+          - link "📍 Alpha 2" [ref=f10e112] [cursor=pointer]:
+            - /url: /noida/alpha-2
+          - link "📍 Omega" [ref=f10e113] [cursor=pointer]:
+            - /url: /noida/omega
+          - link "📍 Chi Phi" [ref=f10e114] [cursor=pointer]:
+            - /url: /noida/chi-phi
+          - link "📍 Techzone 4" [ref=f10e115] [cursor=pointer]:
+            - /url: /noida/techzone-4
+          - link "📍 Noida Extension" [ref=f10e116] [cursor=pointer]:
+            - /url: /noida/noida-extension
+          - generic [ref=f10e117]: 📍 + Expanding across Noida
+      - generic [ref=f10e119]:
+        - generic [ref=f10e120]:
+          - generic [ref=f10e121]: Why FixWheel Noida
+          - heading "Professional service right in your society parking" [level=2] [ref=f10e122]
+          - paragraph [ref=f10e123]: High-rise society gates or busy tech parks — our mechanics coordinate directly to service your bike while you work or relax.
+        - generic [ref=f10e124]:
+          - generic [ref=f10e125]:
+            - generic [ref=f10e126]: "01"
+            - heading "Convenient at-home service" [level=3] [ref=f10e127]
+            - paragraph [ref=f10e128]: Our mechanics carry out the entire service inside your gated society basement, driveway, or office parking slot.
+          - generic [ref=f10e129]:
+            - generic [ref=f10e130]: "02"
+            - heading "Trained & verified professionals" [level=3] [ref=f10e131]
+            - paragraph [ref=f10e132]: Every mechanic is background-checked and trained, giving you complete safety and professional mechanical work.
+          - generic [ref=f10e133]:
+            - generic [ref=f10e134]: "03"
+            - heading "No hidden billing" [level=3] [ref=f10e135]
+            - paragraph [ref=f10e136]: Upfront itemized quotes before the service begins. You only pay for what you explicitly approve.
+          - generic [ref=f10e137]:
+            - generic [ref=f10e138]: "04"
+            - heading "15-day labor warranty" [level=3] [ref=f10e139]
+            - paragraph [ref=f10e140]: All mechanical and electrical adjustments are backed by a solid 15-day service guarantee for complete peace of mind.
+      - generic [ref=f10e142]:
+        - generic [ref=f10e143]:
+          - generic [ref=f10e144]: Services & pricing
+          - heading "Two Wheeler Service & Repair in Noida" [level=2] [ref=f10e145]
+        - generic [ref=f10e146]:
+          - generic [ref=f10e147]:
+            - generic [ref=f10e148]: "[BASIC]"
+            - heading "Basic Service" [level=3] [ref=f10e149]
+            - paragraph [ref=f10e150]: Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.
+            - generic [ref=f10e151]: ₹550 starting from
+            - link "View pricing →" [ref=f10e152] [cursor=pointer]:
+              - /url: /services/basic-service
+          - generic [ref=f10e153]:
+            - generic [ref=f10e154]: "[OIL]"
+            - heading "Service with Engine Oil" [level=3] [ref=f10e155]
+            - paragraph [ref=f10e156]: Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.
+            - generic [ref=f10e157]: ₹999 starting from
+            - link "View pricing →" [ref=f10e158] [cursor=pointer]:
+              - /url: /services/oil-change
+          - generic [ref=f10e159]:
+            - generic [ref=f10e160]: "[ENGINE]"
+            - heading "Engine Repair" [level=3] [ref=f10e161]
+            - paragraph [ref=f10e162]: Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.
+            - generic [ref=f10e163]: ₹4,500 starting from (half engine)
+            - link "View pricing →" [ref=f10e164] [cursor=pointer]:
+              - /url: /services/engine-repair
+          - generic [ref=f10e165]:
+            - generic [ref=f10e166]: "[PUNCTURE]"
+            - heading "Puncture Repair" [level=3] [ref=f10e167]
+            - paragraph [ref=f10e168]: Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.
+            - generic [ref=f10e169]: ₹399 starting from
+            - link "View pricing →" [ref=f10e170] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e171]:
+            - generic [ref=f10e172]: "[BRAKE]"
+            - heading "Brake Disc Replacement" [level=3] [ref=f10e173]
+            - paragraph [ref=f10e174]: Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.
+            - generic [ref=f10e175]: ₹199 starting from
+            - link "View pricing →" [ref=f10e176] [cursor=pointer]:
+              - /url: /services/brake-repair
+          - generic [ref=f10e177]:
+            - generic [ref=f10e178]: "[BATTERY]"
+            - heading "Battery Replacement" [level=3] [ref=f10e179]
+            - paragraph [ref=f10e180]: Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.
+            - generic [ref=f10e181]: ₹99 starting from (labor)
+            - link "View pricing →" [ref=f10e182] [cursor=pointer]:
+              - /url: /services/battery-replacement
+          - generic [ref=f10e183]:
+            - generic [ref=f10e184]: "[JUMPSTART]"
+            - heading "Jump Start" [level=3] [ref=f10e185]
+            - paragraph [ref=f10e186]: Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.
+            - generic [ref=f10e187]: ₹399 starting from
+            - link "Book now →" [ref=f10e188] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e189]:
+            - generic [ref=f10e190]: "[RUNNING]"
+            - heading "Running Repair" [level=3] [ref=f10e191]
+            - paragraph [ref=f10e192]: Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.
+            - generic [ref=f10e193]: ₹399 starting from
+            - link "Book now →" [ref=f10e194] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e195]:
+            - generic [ref=f10e196]: "[CARB]"
+            - heading "Carburetor Cleaning" [level=3] [ref=f10e197]
+            - paragraph [ref=f10e198]: Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.
+            - generic [ref=f10e199]: ₹199 starting from
+            - link "Book now →" [ref=f10e200] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e201]:
+            - generic [ref=f10e202]: "[OBD]"
+            - heading "OBD Scanner Inspection" [level=3] [ref=f10e203]
+            - paragraph [ref=f10e204]: A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.
+            - generic [ref=f10e205]: ₹199 starting from
+            - link "Book now →" [ref=f10e206] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e207]:
+            - generic [ref=f10e208]: "[CHAIN]"
+            - heading "Chain Sprocket Replacement" [level=3] [ref=f10e209]
+            - paragraph [ref=f10e210]: Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.
+            - generic [ref=f10e211]: ₹299 starting from
+            - link "Book now →" [ref=f10e212] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f10e213]:
+            - generic [ref=f10e214]: "[PICKUP]"
+            - heading "Pick and Drop" [level=3] [ref=f10e215]
+            - paragraph [ref=f10e216]: We collect your bike from your location, get it serviced, and deliver it back — you stay put.
+            - generic [ref=f10e217]: ₹199 starting from
+            - link "Book now →" [ref=f10e218] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=f10e220]:
+        - generic [ref=f10e221]:
+          - generic [ref=f10e222]: Vehicle types
+          - heading "Every two-wheeler, serviced at your door" [level=2] [ref=f10e223]
+          - paragraph [ref=f10e224]: From daily scooters and commuter bikes to sports motorcycles and EVs — our mechanics handle them all.
+        - generic [ref=f10e225]:
+          - generic [ref=f10e226]: 🛵 Scooter
+          - generic [ref=f10e227]: 🏍️ Commuter Bike
+          - generic [ref=f10e228]: ⚡ EV Scooter
+          - generic [ref=f10e229]: ⚡ EV Bike
+          - generic [ref=f10e230]: 🏁 Sports Bike
+          - generic [ref=f10e231]: 🔵 Royal Enfield
+          - generic [ref=f10e232]: 🚲 Moped
+          - generic [ref=f10e233]: + all other types
+        - generic [ref=f10e235]:
+          - generic [ref=f10e236]: We service all major brands
+          - heading "Any brand, any model — Noida doorstep" [level=2] [ref=f10e237]
+        - generic [ref=f10e238]:
+          - generic [ref=f10e239]: Honda
+          - generic [ref=f10e240]: Hero
+          - generic [ref=f10e241]: Bajaj
+          - generic [ref=f10e242]: TVS
+          - generic [ref=f10e243]: Royal Enfield
+          - generic [ref=f10e244]: Yamaha
+          - generic [ref=f10e245]: Suzuki
+          - generic [ref=f10e246]: KTM
+          - generic [ref=f10e247]: Ola Electric
+          - generic [ref=f10e248]: Ather
+          - generic [ref=f10e249]: Vespa
+          - generic [ref=f10e250]: Jawa
+          - generic [ref=f10e251]: Aprilia
+          - generic [ref=f10e252]: Harley-Davidson
+          - generic [ref=f10e253]: Kawasaki
+          - generic [ref=f10e254]: Benelli
+      - generic [ref=f10e256]:
+        - generic [ref=f10e257]:
+          - generic [ref=f10e258]: How it works
+          - heading "Book to fixed — 4 simple steps" [level=2] [ref=f10e259]
+        - generic [ref=f10e260]:
+          - generic [ref=f10e261]:
+            - generic [ref=f10e262]: "01"
+            - heading "1. Pick a service" [level=3] [ref=f10e263]
+            - paragraph [ref=f10e264]: Select what your bike needs and pick a time slot on our app or website.
+          - generic [ref=f10e265]:
+            - generic [ref=f10e266]: "02"
+            - heading "2. Mechanic dispatched" [level=3] [ref=f10e267]
+            - paragraph [ref=f10e268]: A verified mechanic near your location in Noida is assigned and heads to you.
+          - generic [ref=f10e269]:
+            - generic [ref=f10e270]: "03"
+            - heading "3. Repaired on-site" [level=3] [ref=f10e271]
+            - paragraph [ref=f10e272]: Your bike is fixed right where it is parked — home, office, or society parking.
+          - generic [ref=f10e273]:
+            - generic [ref=f10e274]: "04"
+            - heading "4. Pay and rate" [level=3] [ref=f10e275]
+            - paragraph [ref=f10e276]: Pay the quoted amount via UPI, card, or cash, then rate the mechanic.
+      - generic [ref=f10e278]:
+        - generic [ref=f10e279]:
+          - generic [ref=f10e280]: Reviews
+          - heading "From Noida riders" [level=2] [ref=f10e281]
+          - paragraph [ref=f10e282]: 4.7★ average rating from 473+ reviews
+        - generic [ref=f10e283]:
+          - generic [ref=f10e284]:
+            - generic [ref=f10e285]: ★★★★★
+            - paragraph [ref=f10e286]: "\"Excellent experience in Sector 137. The mechanic coordinated with the society gate security himself and finished the general service in the basement. Spotless cleanup after service.\""
+            - generic [ref=f10e287]: Abhishek T. — Sector 137
+          - generic [ref=f10e288]:
+            - generic [ref=f10e289]: ★★★★★
+            - paragraph [ref=f10e290]: "\"My Royal Enfield Bullet broke down near Noida Sector 62. The roadside assistance mechanic was there in 45 minutes, cleaned the carburetor on the spot, and got it started. Highly recommended!\""
+            - generic [ref=f10e291]: Vikram S. — Sector 62
+          - generic [ref=f10e292]:
+            - generic [ref=f10e293]: ★★★★★
+            - paragraph [ref=f10e294]: "\"Got my TVS Jupiter serviced at home in Greater Noida West. Very polite technician, pre-confirmed pricing, and no pushy upselling.\""
+            - generic [ref=f10e295]: Pallavi G. — Greater Noida West
+      - generic [ref=f10e297]:
+        - generic [ref=f10e298]:
+          - generic [ref=f10e299]: Join our network
+          - heading "Are you a bike mechanic in Noida?" [level=2] [ref=f10e300]
+          - paragraph [ref=f10e301]: Join the FixWheel network and receive bookings from riders in Noida and Greater Noida. Set your own hours and manage everything from your phone.
+          - list [ref=f10e302]:
+            - listitem [ref=f10e303]: — Set your own working hours
+            - listitem [ref=f10e304]: — Manage bookings from your phone
+            - listitem [ref=f10e305]: — Receive service requests from nearby customers
+        - generic [ref=f10e306]:
+          - heading "Become a partner" [level=3] [ref=f10e307]
+          - paragraph [ref=f10e308]: Register in a few minutes and start receiving service requests in Noida.
+          - link "Become a Partner →" [ref=f10e309] [cursor=pointer]:
+            - /url: /partner
+      - generic [ref=f10e311]:
+        - generic [ref=f10e312]:
+          - generic [ref=f10e313]: FAQs
+          - heading "Common questions about bike repair in Noida" [level=2] [ref=f10e314]
+        - generic [ref=f10e315]:
+          - generic [ref=f10e316]:
+            - generic [ref=f10e317] [cursor=pointer]:
+              - text: How quickly can a mechanic reach me in Noida?
+              - generic [ref=f10e318]: +
+            - paragraph [ref=f10e320]: In most Noida sectors, our mechanics arrive within 45 minutes of booking confirmation.
+          - generic [ref=f10e321]:
+            - generic [ref=f10e322] [cursor=pointer]:
+              - text: What does doorstep bike repair cost in Noida?
+              - generic [ref=f10e323]: +
+            - paragraph [ref=f10e324]: Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work.
+          - generic [ref=f10e325]:
+            - generic [ref=f10e326] [cursor=pointer]:
+              - text: Which areas in Noida does FixWheel cover?
+              - generic [ref=f10e327]: +
+            - paragraph [ref=f10e328]: We cover all major Noida sectors (18, 62, 137, 150, etc.) as well as Greater Noida West, Knowledge Park, and Noida Extension.
+          - generic [ref=f10e329]:
+            - generic [ref=f10e330] [cursor=pointer]:
+              - text: Do you offer emergency roadside help in Noida?
+              - generic [ref=f10e331]: +
+            - paragraph [ref=f10e332]: Yes, we dispatch mechanics for roadside breakdowns across our Noida service area. Available 24/7.
+          - generic [ref=f10e333]:
+            - generic [ref=f10e334] [cursor=pointer]:
+              - text: Can you service my EV scooter in Noida?
+              - generic [ref=f10e335]: +
+            - paragraph [ref=f10e336]: Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Noida.
+          - generic [ref=f10e337]:
+            - generic [ref=f10e338] [cursor=pointer]:
+              - text: Is there a warranty on the repair?
+              - generic [ref=f10e339]: +
+            - paragraph [ref=f10e340]: Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge.
+      - generic [ref=f10e342]:
+        - generic [ref=f10e343]:
+          - generic [ref=f10e344]: Contact
+          - heading "Get in touch" [level=2] [ref=f10e345]
+          - paragraph [ref=f10e346]: Call or email us. We respond within 2 hours during business hours (8 AM – 8 PM).
+          - generic [ref=f10e347]:
+            - generic [ref=f10e348]:
+              - generic [ref=f10e349]: ☎
+              - generic [ref=f10e350]:
+                - generic [ref=f10e351]: +91 87459 45682
+                - text: Call us between 8 AM and 8 PM
+            - generic [ref=f10e352]:
+              - generic [ref=f10e353]: ✉
+              - generic [ref=f10e354]:
+                - generic [ref=f10e355]: support@fixwheel.app
+                - text: We reply within 2 hours
+            - generic [ref=f10e356]:
+              - generic [ref=f10e357]: 💬
+              - generic [ref=f10e358]:
+                - generic [ref=f10e359]: Chat on WhatsApp
+                - text: Fastest way to book
+        - generic [ref=f10e360]:
+          - generic [ref=f10e361]: 24/7 EMERGENCY
+          - heading "Noida Roadside Assistance" [level=3] [ref=f10e362]
+          - paragraph [ref=f10e363]: Stranded on Yamuna Expressway, DND Flyway, or a sector road? A mechanic will come to your exact location with tools to fix the issue on the spot.
+          - generic [ref=f10e364]:
+            - link "Request Roadside Assistance →" [ref=f10e365] [cursor=pointer]:
+              - /url: /book
+            - link "Call Us Now" [ref=f10e366] [cursor=pointer]:
+              - /url: tel:+918745945682
+      - generic [ref=f10e368]:
+        - heading "Book doorstep bike repair in Noida." [level=2] [ref=f10e369]
+        - paragraph [ref=f10e370]: Verified mechanic at your home or office across Sector 18, 62, 137, 150 & all Noida sectors. Starting ₹550.
+        - link "Book Your Bike Service →" [ref=f10e371] [cursor=pointer]:
+          - /url: /book
+  - generic [ref=f10e372]:
+    - generic: Chat with us
+    - link "Chat with us on WhatsApp" [ref=f10e373] [cursor=pointer]:
+      - /url: https://wa.me/918745945682?text=Hi!%20I%20want%20to%20book%20a%20bike%20service%20with%20FixWheel.
+  - generic [ref=f10e379]:
+    - generic: Call us
+    - link "Call us now" [ref=f10e380] [cursor=pointer]:
+      - /url: tel:+918745945682
+  - contentinfo [ref=f10e386]:
+    - generic [ref=f10e387]:
+      - generic [ref=f10e388]:
+        - generic [ref=f10e389]:
+          - link "FixWheel Logo FixWheel" [ref=f10e390] [cursor=pointer]:
+            - /url: /
+            - img "FixWheel Logo" [ref=f10e391]
+            - generic [ref=f10e392]: FixWheel
+          - paragraph [ref=f10e393]: Doorstep bike repairs across Delhi & Gurgaon. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+        - generic [ref=f10e394]:
+          - heading "Locations" [level=4] [ref=f10e395]
+          - list [ref=f10e396]:
+            - listitem [ref=f10e397]:
+              - link "Delhi" [ref=f10e398] [cursor=pointer]:
+                - /url: /delhi
+            - listitem [ref=f10e399]:
+              - link "Gurgaon" [ref=f10e400] [cursor=pointer]:
+                - /url: /gurgaon
+            - listitem [ref=f10e401]:
+              - link "Noida" [ref=f10e402] [cursor=pointer]:
+                - /url: /noida
+            - listitem [ref=f10e403]:
+              - link "Faridabad" [ref=f10e404] [cursor=pointer]:
+                - /url: /faridabad
+            - listitem [ref=f10e405]:
+              - link "Ghaziabad" [ref=f10e406] [cursor=pointer]:
+                - /url: /ghaziabad
+        - generic [ref=f10e407]:
+          - heading "Quick Links" [level=4] [ref=f10e408]
+          - list [ref=f10e409]:
+            - listitem [ref=f10e410]:
+              - link "Home" [ref=f10e411] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f10e412]:
+              - link "About Us" [ref=f10e413] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f10e414]:
+              - link "Repairs" [ref=f10e415] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f10e416]:
+              - link "Pricing" [ref=f10e417] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f10e418]:
+              - link "Blogs" [ref=f10e419] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f10e420]:
+              - link "Book Now" [ref=f10e421] [cursor=pointer]:
+                - /url: /book
+        - generic [ref=f10e422]:
+          - heading "Contact" [level=4] [ref=f10e423]
+          - list [ref=f10e424]:
+            - listitem [ref=f10e425]: "Phone: +91 87459 45682"
+            - listitem [ref=f10e426]: "Email: support@fixwheel.app"
+          - generic [ref=f10e427]:
+            - link "WhatsApp" [ref=f10e428] [cursor=pointer]:
+              - /url: https://wa.me/918745945682
+            - link "Instagram" [ref=f10e431] [cursor=pointer]:
+              - /url: https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1
+            - link "Facebook" [ref=f10e435] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573309963156
+            - link "LinkedIn" [ref=f10e438] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/fixwheel-app/
+      - generic [ref=f10e443]:
+        - paragraph [ref=f10e444]: "Popular Searches:"
+        - generic [ref=f10e445]:
+          - link "Bike Repair Near Me" [ref=f10e446] [cursor=pointer]:
+            - /url: /services
+          - generic [ref=f10e447]: •
+          - link "Bike Mechanic Near Me" [ref=f10e448] [cursor=pointer]:
+            - /url: /gurgaon
+          - generic [ref=f10e449]: •
+          - link "Sports Bike Repair Near Me" [ref=f10e450] [cursor=pointer]:
+            - /url: /sports-bike-service
+          - generic [ref=f10e451]: •
+          - link "EV Scooter Repair Near Me" [ref=f10e452] [cursor=pointer]:
+            - /url: /electric-scooter-repair
+          - generic [ref=f10e453]: •
+          - link "Royal Enfield Repair Near Me" [ref=f10e454] [cursor=pointer]:
+            - /url: /royal-enfield-service
+          - generic [ref=f10e455]: •
+          - link "Scooty Repair Near Me" [ref=f10e456] [cursor=pointer]:
+            - /url: /scooty-repair
+          - generic [ref=f10e457]: •
+          - link "Engine Oil Change Near Me" [ref=f10e458] [cursor=pointer]:
+            - /url: /services/oil-change
+          - generic [ref=f10e459]: •
+          - link "Bike Battery Replacement Near Me" [ref=f10e460] [cursor=pointer]:
+            - /url: /services/battery-replacement
+          - generic [ref=f10e461]: •
+          - link "Bike Tyre Repair Near Me" [ref=f10e462] [cursor=pointer]:
+            - /url: /pricing
+      - generic [ref=f10e463]:
+        - paragraph [ref=f10e464]: © 2026 FixWheel. All rights reserved.
+        - generic [ref=f10e465]:
+          - link "Terms & Conditions" [ref=f10e466] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=f10e467]: "|"
+          - link "Privacy Policy" [ref=f10e468] [cursor=pointer]:
+            - /url: /privacy-policy
+          - generic [ref=f10e469]: "|"
+          - link "Delete Account" [ref=f10e470] [cursor=pointer]:
+            - /url: /delete-account
+  - alert [ref=f10e471]
