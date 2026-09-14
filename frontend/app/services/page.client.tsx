@@ -82,13 +82,13 @@ export default function ServicesClientPage() {
     {
       name: "Doorstep Puncture Repair",
       desc: "Emergency on-site tubeless puncture sealing, air leak testing, and tire pressure calibration.",
-      link: "/pricing",
+      link: "/book",
       price: "₹399",
     },
     {
       name: "Jump Start & Roadside Assistance",
       desc: "Emergency battery jump-start, terminal corrosion cleaning, and electrical system diagnostics.",
-      link: "/pricing",
+      link: "/book",
       price: "₹399",
     },
   ];
@@ -983,7 +983,7 @@ export default function ServicesClientPage() {
               <Link href="/book" className="btn btn-primary font-sans">
                 Book Now →
               </Link>
-              <a href="tel:+919999999999" className="btn btn-ghost font-sans">
+              <a href="tel:+918745945682" className="btn btn-ghost font-sans">
                 <Phone className="w-4 h-4" />
                 Call Mechanic
               </a>

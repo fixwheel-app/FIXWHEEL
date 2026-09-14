@@ -1527,7 +1527,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             <Link href={`/book#${brandSlug}`} className="btn btn-primary">
               Book {brandData.name} Service Now →
             </Link>
-            <a href="tel:+919999999999" className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>
+            <a href="tel:+918745945682" className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>
               <Phone className="w-4 h-4" /> Call Specialist
             </a>
           </div>

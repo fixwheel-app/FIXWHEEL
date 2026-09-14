@@ -20,8 +20,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Basic Service",
     desc: "Brake check, chain lube, spark plug clean, air filter inspection, and electrical system check.",
     priceNote: "starting from",
-    link: "/services/basic-service",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[OIL]",
@@ -29,8 +29,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Service with Engine Oil",
     desc: "Complete oil drain, OEM-grade refill, oil filter check, spark plug inspection and chain lubrication.",
     priceNote: "starting from",
-    link: "/services/oil-change",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[ENGINE]",
@@ -38,8 +38,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Engine Repair",
     desc: "Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.",
     priceNote: "starting from (half engine)",
-    link: "/services/engine-repair",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[PUNCTURE]",
@@ -47,8 +47,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Puncture Repair",
     desc: "Flat tyre fixed on the spot — whether you are parked at home or stranded roadside.",
     priceNote: "starting from",
-    link: "/pricing",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[BRAKE]",
@@ -56,8 +56,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Brake Disc Replacement",
     desc: "Disc, pad, or shoe replacement and brake cable adjustment — handled at your location.",
     priceNote: "starting from",
-    link: "/services/brake-repair",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[BATTERY]",
@@ -65,8 +65,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Battery Replacement",
     desc: "Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.",
     priceNote: "starting from (labor)",
-    link: "/services/battery-replacement",
-    linkText: "View pricing →",
+    link: "/book",
+    linkText: "Book now →",
   },
   {
     tag: "[JUMPSTART]",
@@ -74,7 +74,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Jump Start",
     desc: "Bike won't start? A mechanic reaches your location and gets your two-wheeler running again.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
   {
@@ -83,7 +83,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Running Repair",
     desc: "Quick on-location fixes for common two-wheeler breakdowns so you can get moving again.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
   {
@@ -92,7 +92,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Carburetor Cleaning",
     desc: "Full carburetor disassembly, cleaning, and re-tuning for better fuel efficiency and throttle response.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
   {
@@ -101,7 +101,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "OBD Scanner Inspection",
     desc: "A diagnostic scanner is connected to your bike to read fault codes and pinpoint engine or electrical issues.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
   {
@@ -110,7 +110,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Chain Sprocket Replacement",
     desc: "Worn chain and sprocket replaced with standard-spec parts to restore smooth power transfer.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
   {
@@ -119,7 +119,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Pick and Drop",
     desc: "We collect your bike from your location, get it serviced, and deliver it back — you stay put.",
     priceNote: "starting from",
-    link: "/pricing",
+    link: "/book",
     linkText: "Book now →",
   },
 ];

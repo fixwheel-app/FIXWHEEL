@@ -128,7 +128,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                   Book Service Now →
                 </Link>
                 <a
-                  href="tel:+919999999999"
+                  href="tel:+918745945682"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"
                 >
                   <Phone className="w-4 h-4" />
@@ -461,7 +461,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
-                href="tel:+919999999999"
+                href="tel:+918745945682"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all"
               >
                 <Phone className="w-4 h-4" />
