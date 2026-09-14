@@ -13,6 +13,19 @@ import LoadingSpinner from './LoadingSpinner';
 import { PackageType } from '@/types';
 import { cn } from '@/lib/utils';
 
+function getLocalDateString(d: Date = new Date()): string {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function getLocalMaxDateString(daysAhead: number = 30): string {
+  const d = new Date();
+  d.setDate(d.getDate() + daysAhead);
+  return getLocalDateString(d);
+}
+
 // Zod Schema matching the backend requirements
 const bookingSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must not exceed 50 characters"),
@@ -20,10 +33,9 @@ const bookingSchema = z.object({
   address: z.string().min(15, "Address must be at least 15 characters"),
   city: z.enum(["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"]),
   bookingDate: z.string().min(1, "Booking date is required").refine((val) => {
-    const selected = new Date(val);
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    const max = new Date(); max.setDate(max.getDate() + 30); max.setHours(23, 59, 59, 999);
-    return selected >= today && selected <= max;
+    const todayStr = getLocalDateString();
+    const maxStr = getLocalMaxDateString(30);
+    return val >= todayStr && val <= maxStr;
   }, "Date must be within the next 30 days"),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
   bikeModel: z.string().min(3, "Model must be at least 3 characters"),
@@ -106,7 +118,7 @@ function BookingFormInner() {
       bikeModel: initialModel,
       preferredSlot: "8:00 AM - 9:00 AM",
       city: "Delhi",
-      bookingDate: new Date().toISOString().split('T')[0]
+      bookingDate: getLocalDateString()
     }
   });
 
@@ -133,7 +145,7 @@ function BookingFormInner() {
   ];
 
   useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = getLocalDateString();
     const ALL_SLOTS = [
       { label: "8:00 AM - 9:00 AM", startHour: 8 },
       { label: "9:00 AM - 10:00 AM", startHour: 9 },
@@ -417,8 +429,8 @@ function BookingFormInner() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Booking Date *</label>
                 <input 
                   type="date"
-                  min={new Date().toISOString().split('T')[0]}
-                  max={(() => { const d = new Date(); d.setDate(d.getDate() + 30); return d.toISOString().split('T')[0]; })()}
+                  min={getLocalDateString()}
+                  max={getLocalMaxDateString(30)}
                   {...register("bookingDate")}
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
