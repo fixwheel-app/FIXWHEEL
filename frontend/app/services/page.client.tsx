@@ -7,6 +7,24 @@ import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
+import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
+
+const SERVICE_TAGS: Record<string, string> = {
+  "basic-service": "[GENERAL]",
+  "service-engine-oil": "[ENGINE OIL]",
+  "jump-start": "[JUMPSTART]",
+  "puncture": "[PUNCTURE]",
+  "running-repair": "[REPAIR]",
+  "engine-half": "[ENG HALF]",
+  "engine-full": "[ENG FULL]",
+  "carburetor-cleaning": "[CARBURETOR]",
+  "obd-inspection": "[OBD SCAN]",
+  "battery-replacement": "[BATTERY]",
+  "disc-replacement": "[BRAKE]",
+  "chain-sprocket": "[CHAIN]",
+  "pick-drop": "[PICK & DROP]",
+  "ev-service": "[EV SCOOTER]",
+};
 
 export default function ServicesClientPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -18,80 +36,18 @@ export default function ServicesClientPage() {
     getPageVariables('services', 'global').then(setPageVars);
   }, []);
 
-  const staticServices = [
-    {
-      name: "Basic Bike Service",
-      desc: "Comprehensive 21-point tune-up, brake adjustment, chain lube, spark plug clean, and air filter check.",
-      link: "/services/basic-service",
-      price: "₹550",
-    },
-    {
-      name: "Service with Engine Oil",
-      desc: "Complete sludge drain, new sealed OEM engine oil refill, oil filter replacement, and spark plug check.",
-      link: "/services/oil-change",
-      price: "₹999",
-    },
-    {
-      name: "Electric Scooter Repair",
-      desc: "Doorstep EV maintenance, lithium battery diagnostics, controller checks, and drive belt alignment.",
-      link: "/electric-scooter-repair",
-      price: "₹799",
-    },
-    {
-      name: "Scooty Repair",
-      desc: "Doorstep CVT variator roller cleaning, clutch shoe degreasing, and engine tuning for gearless scooters.",
-      link: "/scooty-repair",
-      price: "₹199",
-    },
-    {
-      name: "Sports Bike Service",
-      desc: "Full-synthetic oil changes, liquid cooling radiator flushes, and track-grade chain alignment.",
-      link: "/sports-bike-service",
-      price: "₹850",
-    },
-    {
-      name: "Royal Enfield / Bullet Service",
-      desc: "Classic bike maintenance, tappet valve clearance adjustment, 15W-50 oil swap, and clutch overhauls.",
-      link: "/royal-enfield-service",
-      price: "₹850",
-    },
-    {
-      name: "Commuter Bike Service",
-      desc: "Reliable general servicing, mileage tuning, and oil change packages for daily 100cc-160cc bikes.",
-      link: "/commuter-bike-service",
-      price: "₹550",
-    },
-    {
-      name: "Comprehensive Service",
-      desc: "Full periodic overhaul with genuine engine oil, carburetor/FI nozzle cleaning, brake service, and deep lubrication.",
-      link: "/services/comprehensive-service",
-      price: "₹999",
-    },
-    {
-      name: "Brake Repair & Replacement",
-      desc: "Drum brake shoe replacement, disc pad renewal, hydraulic line bleeding, and CBS sensor checks.",
-      link: "/services/brake-repair",
-      price: "₹199",
-    },
-    {
-      name: "Battery Replacement (Labor)",
-      desc: "Instant doorstep battery testing and professional installation starting at ₹99 labor.",
-      link: "/services/battery-replacement",
-      price: "₹99",
-    },
-    {
-      name: "Doorstep Puncture Repair",
-      desc: "Emergency on-site tubeless puncture sealing, air leak testing, and tire pressure calibration.",
+  const servicesList = SERVICE_PRICING_LIST.map((item) => {
+    const rawPrice = item.prices.cc0_249 !== undefined ? item.prices.cc0_249 : item.prices.electric;
+    const formattedPrice = typeof rawPrice === "number" ? `₹${rawPrice}` : `${rawPrice}`;
+    return {
+      id: item.id,
+      tag: SERVICE_TAGS[item.id] || `[${item.name.toUpperCase().slice(0, 8)}]`,
+      name: item.name,
+      desc: item.description,
       link: "/book",
-      price: "₹399",
-    },
-    {
-      name: "Jump Start & Roadside Assistance",
-      desc: "Emergency battery jump-start, terminal corrosion cleaning, and electrical system diagnostics.",
-      link: "/book",
-      price: "₹399",
-    },
-  ];
+      price: formattedPrice,
+    };
+  });
 
   const faqs = [
     {
@@ -684,7 +640,7 @@ export default function ServicesClientPage() {
                 </div>
                 <div className="ticket-foot">
                   <span className="total-label">STARTING AT</span>
-                  <span className="total-val">₹199</span>
+                  <span className="total-val">₹99</span>
                 </div>
               </div>
             </div>
@@ -826,16 +782,16 @@ export default function ServicesClientPage() {
             </div>
 
             <div className="related-grid font-sans">
-              {staticServices.map((service, index) => (
-                <Link key={index} href={service.link} className="related-card group">
+              {servicesList.map((service) => (
+                <Link key={service.id} href={service.link} className="related-card group">
                   <div>
-                    <span className="icon-mono">[{service.name.toUpperCase().slice(0, 8)}]</span>
+                    <span className="icon-mono">{service.tag}</span>
                     <h3>{service.name}</h3>
                     <p>{service.desc}</p>
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-slate-200 mt-auto">
                     <span className="text-xs font-mono font-bold text-slate-500 uppercase">Starting</span>
-                    <span className="text-base font-mono font-extrabold text-[#e62b2b]">
+                    <span className="text-base font-mono font-extrabold text-[#e62b2b] whitespace-nowrap">
                       {service.price} →
                     </span>
                   </div>
@@ -977,7 +933,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
             <p>
-              Certified mechanics at your home or office parking. Starting at ₹199. Zero visiting fees.
+              Certified mechanics at your home or office parking. Starting at ₹99. Zero visiting fees.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book" className="btn btn-primary font-sans">

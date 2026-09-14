@@ -5,8 +5,28 @@ export interface PricingCategory {
   badge: string;
 }
 
+export const SERVICE_PRICE_IDS = [
+  "basic-service",
+  "service-engine-oil",
+  "jump-start",
+  "puncture",
+  "running-repair",
+  "engine-half",
+  "engine-full",
+  "carburetor-cleaning",
+  "obd-inspection",
+  "battery-replacement",
+  "disc-replacement",
+  "chain-sprocket",
+  "pick-drop",
+  "ev-service",
+] as const;
+
+export type ServicePriceId = typeof SERVICE_PRICE_IDS[number];
+export type ServicePriceTier = "cc0_249" | "cc250_399" | "cc400_599" | "cc600_above" | "electric";
+
 export interface ServicePriceItem {
-  id: string;
+  id: ServicePriceId;
   name: string;
   description: string;
   category: "Non-Electric" | "Electric";
@@ -32,7 +52,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
 export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
   {
     id: "basic-service",
-    name: "Periodic Service",
+    name: "General Service",
     description: "Comprehensive 21-point inspection, chain lube, spark plug cleaning, air filter check, and brake adjustment.",
     category: "Non-Electric",
     prices: {
@@ -53,7 +73,7 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
   {
     id: "service-engine-oil",
     name: "Service with Engine Oil",
-    description: "Complete periodic service bundled with premium engine oil change and oil filter replacement.",
+    description: "Complete general service bundled with premium engine oil change and oil filter replacement.",
     category: "Non-Electric",
     prices: {
       cc0_249: 999,
@@ -275,7 +295,7 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
   },
   {
     id: "ev-service",
-    name: "Electric Scooter Periodic Service",
+    name: "Electric Scooter General Service",
     description: "Complete electronic BMS scan, high-voltage wiring check, brake shoe service, and battery health audit.",
     category: "Electric",
     prices: {
@@ -295,3 +315,18 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
     popular: true
   }
 ];
+
+export const getServicePricing = (id: ServicePriceId): ServicePriceItem => {
+  const service = SERVICE_PRICING_LIST.find((item) => item.id === id);
+
+  if (!service) {
+    throw new Error(`Missing pricing catalog entry for service: ${id}`);
+  }
+
+  return service;
+};
+
+export const getServicePrice = (
+  id: ServicePriceId,
+  tier: ServicePriceTier
+): number | string | undefined => getServicePricing(id).prices[tier];
