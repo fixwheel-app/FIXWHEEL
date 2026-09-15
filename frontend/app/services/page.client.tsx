@@ -854,6 +854,72 @@ export default function ServicesClientPage() {
                   <div className="area-item">+ Nearby Localities</div>
                 </div>
               </div>
+
+              {/* NOIDA */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                    Noida
+                  </span>
+                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
+                </div>
+                <div className="area-grid">
+                  <div className="area-item">Sector 18</div>
+                  <div className="area-item">Sector 62</div>
+                  <div className="area-item">Sector 50</div>
+                  <div className="area-item">Sector 75–78</div>
+                  <div className="area-item">Sector 137</div>
+                  <div className="area-item">Sector 150</div>
+                  <div className="area-item">Greater Noida West</div>
+                  <div className="area-item">Knowledge Park</div>
+                  <div className="area-item">Noida Extension</div>
+                  <div className="area-item">+ All Noida Sectors</div>
+                </div>
+              </div>
+
+              {/* FARIDABAD */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                    Faridabad
+                  </span>
+                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
+                </div>
+                <div className="area-grid">
+                  <div className="area-item">NIT Faridabad</div>
+                  <div className="area-item">Sector 15</div>
+                  <div className="area-item">Sector 16</div>
+                  <div className="area-item">Sector 21</div>
+                  <div className="area-item">Sector 37</div>
+                  <div className="area-item">Sector 86</div>
+                  <div className="area-item">Old Faridabad</div>
+                  <div className="area-item">Ballabhgarh</div>
+                  <div className="area-item">Suraj Kund</div>
+                  <div className="area-item">+ All Faridabad Areas</div>
+                </div>
+              </div>
+
+              {/* GHAZIABAD */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                    Ghaziabad
+                  </span>
+                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
+                </div>
+                <div className="area-grid">
+                  <div className="area-item">Indirapuram</div>
+                  <div className="area-item">Vaishali</div>
+                  <div className="area-item">Kaushambi</div>
+                  <div className="area-item">Vasundhara</div>
+                  <div className="area-item">Raj Nagar Extension</div>
+                  <div className="area-item">Crossings Republik</div>
+                  <div className="area-item">Govindpuram</div>
+                  <div className="area-item">Vijay Nagar</div>
+                  <div className="area-item">NH-24</div>
+                  <div className="area-item">+ All Ghaziabad Areas</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
