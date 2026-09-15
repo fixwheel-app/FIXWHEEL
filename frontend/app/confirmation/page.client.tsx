@@ -19,6 +19,24 @@ const formatDate = (dateStr: string) => {
   return dateStr;
 };
 
+const formatPackageTitle = (packageName: unknown) => {
+  if (typeof packageName !== 'string') return '';
+
+  const title = packageName.trim();
+  if (!title || /(?:repair|service)$/i.test(title)) return title;
+
+  return `${title} Repair`;
+};
+
+const formatPrice = (price: unknown) => {
+  if (!price) return null;
+
+  const value = String(price).trim();
+  if (!value || /^(?:undefined|null|nan)$/i.test(value)) return null;
+
+  return value.replace(/^₹\s*/, '');
+};
+
 export default function ConfirmationPage() {
   const [bookingData, setBookingData] = useState<any>(null);
   const router = useRouter();
@@ -33,6 +51,9 @@ export default function ConfirmationPage() {
   }, [router]);
 
   if (!bookingData) return null;
+
+  const packageTitle = formatPackageTitle(bookingData.package);
+  const displayPrice = formatPrice(bookingData.price);
 
   return (
     <div className="min-h-screen py-10 md:py-16 flex items-start md:items-center justify-center bg-white">
@@ -111,8 +132,8 @@ export default function ConfirmationPage() {
             <div className="space-y-4">
               <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
                 <p className="text-gray-600 text-xs mb-1 uppercase tracking-wider">Package Selected</p>
-                <p className="text-black font-bold text-lg">{bookingData.package} Repair</p>
-                <p className="text-accent font-medium mt-1">₹{bookingData.price}</p>
+                <p className="text-black font-bold text-lg">{packageTitle}</p>
+                {displayPrice && <p className="text-accent font-medium mt-1">₹{displayPrice}</p>}
               </div>
 
               <div>

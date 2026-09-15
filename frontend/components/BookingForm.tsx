@@ -220,7 +220,7 @@ function BookingFormInner() {
       localStorage.setItem('latestBooking', JSON.stringify({
         ...data,
         bookingRef: response.bookingId,
-        price: String(response.price)
+        price: String(response.price ?? selectedPrice ?? price ?? "")
       }));
       router.push('/confirmation');
     } else {
