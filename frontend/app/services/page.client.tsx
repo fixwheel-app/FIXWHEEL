@@ -26,10 +26,117 @@ const SERVICE_TAGS: Record<string, string> = {
   "ev-service": "[EV SCOOTER]",
 };
 
+interface ServiceCityInfo {
+  slug: string;
+  name: string;
+  shortName: string;
+  buttonLabel?: string;
+  badge: string;
+  areas: string[];
+}
+
+const SERVICE_CITIES: ServiceCityInfo[] = [
+  {
+    slug: "gurgaon",
+    name: "Gurgaon / Gurugram",
+    shortName: "Gurgaon",
+    buttonLabel: "Gurgaon / Gurugram",
+    badge: "100% Coverage",
+    areas: [
+      "DLF Phase 1–5",
+      "Golf Course Road",
+      "Sushant Lok",
+      "Palam Vihar",
+      "Sohna Road",
+      "Cyber City",
+      "Udyog Vihar",
+      "Dwarka Expressway",
+      "Sector 14, 15, 17, 56",
+      "+ All Gurgaon Sectors",
+    ],
+  },
+  {
+    slug: "delhi",
+    name: "Delhi City",
+    shortName: "Delhi",
+    buttonLabel: "Delhi",
+    badge: "South & West Focus",
+    areas: [
+      "Kapashera",
+      "Dwarka (All Sectors)",
+      "Vasant Kunj",
+      "Mahipalpur",
+      "Bijwasan",
+      "Janakpuri",
+      "Samalka",
+      "Uttam Nagar",
+      "Hari Nagar",
+      "+ Nearby Localities",
+    ],
+  },
+  {
+    slug: "noida",
+    name: "Noida",
+    shortName: "Noida",
+    badge: "Major Localities",
+    areas: [
+      "Sector 18",
+      "Sector 62",
+      "Sector 50",
+      "Sector 75–78",
+      "Sector 137",
+      "Sector 150",
+      "Greater Noida West",
+      "Knowledge Park",
+      "Noida Extension",
+      "+ All Noida Sectors",
+    ],
+  },
+  {
+    slug: "ghaziabad",
+    name: "Ghaziabad",
+    shortName: "Ghaziabad",
+    badge: "Major Localities",
+    areas: [
+      "Indirapuram",
+      "Vaishali",
+      "Kaushambi",
+      "Vasundhara",
+      "Raj Nagar Extension",
+      "Crossings Republik",
+      "Govindpuram",
+      "Vijay Nagar",
+      "NH-24",
+      "+ All Ghaziabad Areas",
+    ],
+  },
+  {
+    slug: "faridabad",
+    name: "Faridabad",
+    shortName: "Faridabad",
+    badge: "Major Localities",
+    areas: [
+      "NIT Faridabad",
+      "Sector 15",
+      "Sector 16",
+      "Sector 21",
+      "Sector 37",
+      "Sector 86",
+      "Old Faridabad",
+      "Ballabhgarh",
+      "Suraj Kund",
+      "+ All Faridabad Areas",
+    ],
+  },
+];
+
 export default function ServicesClientPage() {
+  const [selectedCitySlug, setSelectedCitySlug] = useState<string>("gurgaon");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
   const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
+
+  const activeCity = SERVICE_CITIES.find((c) => c.slug === selectedCitySlug) || SERVICE_CITIES[0];
 
   useEffect(() => {
     getPublicStatsForCity('global').then(setStats);
@@ -810,115 +917,73 @@ export default function ServicesClientPage() {
               <p>Doorstep bike mechanics ready for instant dispatch across major cities.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
-              {/* GURGAON */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
-                    Gurgaon / Gurugram
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">100% Coverage</span>
-                </div>
-                <div className="area-grid">
-                  <div className="area-item">DLF Phase 1–5</div>
-                  <div className="area-item">Golf Course Road</div>
-                  <div className="area-item">Sushant Lok</div>
-                  <div className="area-item">Palam Vihar</div>
-                  <div className="area-item">Sohna Road</div>
-                  <div className="area-item">Cyber City</div>
-                  <div className="area-item">Udyog Vihar</div>
-                  <div className="area-item">Dwarka Expressway</div>
-                  <div className="area-item">Sector 14, 15, 17, 56</div>
-                  <div className="area-item">+ All Gurgaon Sectors</div>
-                </div>
+            {/* CITY SELECTOR BUTTONS */}
+            <div className="mb-8">
+              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">
+                BOOK DOORSTEP SERVICE BY CITY
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-sans">
+                {SERVICE_CITIES.map((city) => {
+                  const isSelected = city.slug === selectedCitySlug;
+                  return (
+                    <button
+                      key={city.slug}
+                      type="button"
+                      onClick={() => setSelectedCitySlug(city.slug)}
+                      className={cn(
+                        "text-center py-3 px-3 rounded-lg font-mono text-xs font-bold transition-all shadow-sm cursor-pointer",
+                        isSelected
+                          ? "bg-[#e62b2b] text-white shadow-md border border-[#e62b2b]"
+                          : "bg-slate-900 border border-slate-800 text-white hover:border-slate-700 hover:text-red-400"
+                      )}
+                    >
+                      {city.buttonLabel || city.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* SELECTED CITY COVERAGE & LOCALITIES */}
+            <div className="font-sans">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
+                  {activeCity.name}
+                </span>
+                <span className="text-xs text-slate-500 font-mono">{activeCity.badge}</span>
               </div>
 
-              {/* DELHI */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
-                    Delhi City
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">South & West Focus</span>
-                </div>
-                <div className="area-grid">
-                  <div className="area-item">Kapashera</div>
-                  <div className="area-item">Dwarka (All Sectors)</div>
-                  <div className="area-item">Vasant Kunj</div>
-                  <div className="area-item">Mahipalpur</div>
-                  <div className="area-item">Bijwasan</div>
-                  <div className="area-item">Janakpuri</div>
-                  <div className="area-item">Samalka</div>
-                  <div className="area-item">Uttam Nagar</div>
-                  <div className="area-item">Hari Nagar</div>
-                  <div className="area-item">+ Nearby Localities</div>
-                </div>
+              <div className="area-grid">
+                {activeCity.areas.map((area, idx) => (
+                  <div key={idx} className="area-item">
+                    {area}
+                  </div>
+                ))}
+                <Link
+                  href={`/${activeCity.slug}`}
+                  className="area-item !text-[#e62b2b] font-bold border-red-200 bg-red-50/50 hover:bg-red-50 hover:border-red-400 transition-colors"
+                >
+                  View {activeCity.shortName} Page →
+                </Link>
               </div>
 
-              {/* NOIDA */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
-                    Noida
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
+              {/* VIEW PAGE OPTION AFTER ALL LOCALITIES */}
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl">
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">
+                    Looking for full doorstep coverage in {activeCity.name}?
+                  </h4>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    View dedicated service pricing, certified mechanics, and instant doorstep booking for {activeCity.shortName}.
+                  </p>
                 </div>
-                <div className="area-grid">
-                  <div className="area-item">Sector 18</div>
-                  <div className="area-item">Sector 62</div>
-                  <div className="area-item">Sector 50</div>
-                  <div className="area-item">Sector 75–78</div>
-                  <div className="area-item">Sector 137</div>
-                  <div className="area-item">Sector 150</div>
-                  <div className="area-item">Greater Noida West</div>
-                  <div className="area-item">Knowledge Park</div>
-                  <div className="area-item">Noida Extension</div>
-                  <div className="area-item">+ All Noida Sectors</div>
-                </div>
-              </div>
-
-              {/* FARIDABAD */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
-                    Faridabad
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
-                </div>
-                <div className="area-grid">
-                  <div className="area-item">NIT Faridabad</div>
-                  <div className="area-item">Sector 15</div>
-                  <div className="area-item">Sector 16</div>
-                  <div className="area-item">Sector 21</div>
-                  <div className="area-item">Sector 37</div>
-                  <div className="area-item">Sector 86</div>
-                  <div className="area-item">Old Faridabad</div>
-                  <div className="area-item">Ballabhgarh</div>
-                  <div className="area-item">Suraj Kund</div>
-                  <div className="area-item">+ All Faridabad Areas</div>
-                </div>
-              </div>
-
-              {/* GHAZIABAD */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded border border-red-200">
-                    Ghaziabad
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">Major Localities</span>
-                </div>
-                <div className="area-grid">
-                  <div className="area-item">Indirapuram</div>
-                  <div className="area-item">Vaishali</div>
-                  <div className="area-item">Kaushambi</div>
-                  <div className="area-item">Vasundhara</div>
-                  <div className="area-item">Raj Nagar Extension</div>
-                  <div className="area-item">Crossings Republik</div>
-                  <div className="area-item">Govindpuram</div>
-                  <div className="area-item">Vijay Nagar</div>
-                  <div className="area-item">NH-24</div>
-                  <div className="area-item">+ All Ghaziabad Areas</div>
-                </div>
+                <Link
+                  href={`/${activeCity.slug}`}
+                  className="inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-[#c92222] text-white font-mono text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap"
+                >
+                  View {activeCity.shortName} Page
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
