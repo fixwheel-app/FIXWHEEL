@@ -169,7 +169,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black">
 
       {/* ── IMMERSIVE HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative md:min-h-[100vh] flex flex-col justify-start md:justify-center bg-[#050505] overflow-hidden pt-28 pb-56 md:pt-0 md:pb-0">
+      <section className="relative md:min-h-[100vh] flex flex-col justify-start md:justify-center bg-[#050505] overflow-hidden pt-28 pb-16 md:pt-0 md:pb-0">
         
         {/* Z-0: Base Background (Already #050505) */}
 

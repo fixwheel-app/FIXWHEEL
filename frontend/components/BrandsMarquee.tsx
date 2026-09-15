@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ChevronRight, Wrench } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const brandsRow1 = [
@@ -106,7 +106,11 @@ export default function BrandsMarquee() {
               
               <div className="flex items-center gap-6 z-10">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Wrench className="w-6 h-6 md:w-8 md:h-8 text-accent" />
+                  <img
+                    src={activeBrandData.logo}
+                    alt={`${activeBrandData.name} logo`}
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl md:text-3xl font-black text-white uppercase tracking-tight mb-1">
