@@ -37,7 +37,7 @@ export default function ContactPage() {
       "name": "FixWheel",
       "telephone": "+91-87459-45682",
       "email": "support@fixwheel.app",
-      "priceRange": "₹99 - ₹18000",
+      "priceRange": "₹399 - ₹18000",
       "areaServed": ["Delhi", "Gurgaon", "Noida", "Faridabad", "Ghaziabad"],
       "address": {
         "@type": "PostalAddress",

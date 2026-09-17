@@ -73,7 +73,6 @@ export interface CityPageConfig {
   reviews: {
     heading: string;
     rating: string;
-    reviewCount: string;
     items: CityReview[];
   };
   partner: {
@@ -169,7 +168,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             </div>
             <div className="stat-row">
               <div className="stat"><b>{arrivalTime}</b><span>Arrival time</span></div>
-              <div className="stat"><b>{pageVars.bikesServicedText}</b><span>{pageVars.bikesServicedScope === "global" ? "Total vehicles serviced" : `Vehicles serviced in ${config.cityName}`}</span></div>
+              <div className="stat"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
               <div className="stat"><b>{rating}★</b><span>Customer rating</span></div>
               <div className="stat"><b>{config.hero.serviceArea}</b><span>Service area</span></div>
             </div>
@@ -291,7 +290,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
             <h2>{config.reviews.heading}</h2>
-            <p style={{ marginTop: "10px" }}><b style={{ color: "var(--accent)", fontSize: "18px" }}>{config.reviews.rating}</b> average rating from <b style={{ color: "var(--ink-dark)" }}>{config.reviews.reviewCount}</b></p>
+            <p style={{ marginTop: "10px" }}><b style={{ color: "var(--accent)", fontSize: "18px" }}>{config.reviews.rating}</b> average rating from <b style={{ color: "var(--ink-dark)" }}>{pageVars.totalReviews}+ reviews</b></p>
           </div>
           <div className="review-grid">
             {config.reviews.items.map((review) => (

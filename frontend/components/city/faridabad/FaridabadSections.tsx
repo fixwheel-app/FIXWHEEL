@@ -82,7 +82,6 @@ const faridabadConfig: CityPageConfig = {
   reviews: {
     heading: "From Faridabad riders",
     rating: "4.7★",
-    reviewCount: "473+ reviews",
     items: [
       { text: "Excellent experience in Sector 15. The mechanic coordinate with my society guard and finished the basic service in the driveway under 45 minutes. Clean and hassle-free.", author: "Abhishek M. — Sector 15" },
       { text: "My Pulsar broke down near Bata Chowk during the rush hour. The emergency roadside assistance mechanic was there in 45 minutes, changed the clutch cable, and got me moving.", author: "Rohit S. — Bata Chowk" },

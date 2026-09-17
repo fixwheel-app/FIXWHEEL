@@ -479,8 +479,8 @@ export default function BrandCityClient({
               <span>Customer Rating</span>
             </div>
             <div className="trust-item">
-              <b>{stats.bikes_serviced || "10,000"}+</b>
-              <span>Vehicles Serviced</span>
+              <b>{stats.bikes_serviced}+</b>
+              <span>Total Vehicles Serviced</span>
             </div>
             <div className="trust-item">
               <b>15 DAYS</b>

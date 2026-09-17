@@ -5,7 +5,6 @@ export interface AuthorProfile {
   avatar: string;
   bio: string;
   experience: string;
-  bikesServiced: string;
   rating: string;
   location: string;
   specializations: string[];
@@ -20,7 +19,6 @@ export const AUTHORS_DB: Record<string, AuthorProfile> = {
     avatar: "/zakir-hussain.png",
     bio: "Zakir Hussain is FixWheel's Lead Automotive Specialist with over 5+ years of hands-on experience in multi-brand motorcycle engineering, fuel injection (FI) tuning, and electrical systems. Zakir leads FixWheel's technical training program and writes comprehensive maintenance guides for Indian riders.",
     experience: "5+ Years",
-    bikesServiced: "12,000+",
     rating: "4.95 ★",
     location: "Delhi-NCR, India",
     specializations: [
@@ -43,7 +41,6 @@ export const AUTHORS_DB: Record<string, AuthorProfile> = {
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&h=200",
     bio: "Sanjay Kumar has over 5+ years of field experience in two-wheeler chain maintenance, clutch assembly repairs, and preventative maintenance for commuter motorcycles across Delhi-NCR.",
     experience: "5+ Years",
-    bikesServiced: "8,500+",
     rating: "4.90 ★",
     location: "Gurgaon & Delhi, India",
     specializations: [

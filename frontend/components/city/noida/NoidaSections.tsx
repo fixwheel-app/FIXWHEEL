@@ -86,7 +86,6 @@ const noidaConfig: CityPageConfig = {
   reviews: {
     heading: "From Noida riders",
     rating: "4.7★",
-    reviewCount: "473+ reviews",
     items: [
       { text: "Excellent experience in Sector 137. The mechanic coordinated with the society gate security himself and finished the general service in the basement. Spotless cleanup after service.", author: "Abhishek T. — Sector 137" },
       { text: "My Royal Enfield Bullet broke down near Noida Sector 62. The roadside assistance mechanic was there in 45 minutes, cleaned the carburetor on the spot, and got it started. Highly recommended!", author: "Vikram S. — Sector 62" },

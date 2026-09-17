@@ -54,7 +54,7 @@ export default function Home() {
     "@id": "https://www.fixwheel.app/#organization",
     "url": "https://www.fixwheel.app",
     "telephone": "+91 87459 45682",
-    "priceRange": "₹99 - ₹18000",
+    "priceRange": "₹399 - ₹18000",
     "description": "Top-rated doorstep bike repair and mobile two-wheeler mechanic service near you in Delhi and Gurgaon.",
     "knowsAbout": [
       "Bike Repair Near Me",

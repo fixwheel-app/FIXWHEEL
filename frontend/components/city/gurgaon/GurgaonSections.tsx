@@ -120,7 +120,6 @@ const gurgaonConfig: CityPageConfig = {
   reviews: {
     heading: "What our customers say",
     rating: "4.7★",
-    reviewCount: "473+ reviews",
     items: [
       { text: "Quoted the price before starting, no extra charges added later. Honest service.", author: "Priya S. — Gurgaon" },
       { text: "Bike broke down near Cyber Hub. Mechanic arrived in 15 minutes and didn't overcharge for the emergency call.", author: "Rahul Sharma — Gurgaon" },

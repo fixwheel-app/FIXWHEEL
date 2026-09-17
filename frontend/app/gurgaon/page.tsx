@@ -79,7 +79,7 @@ const serviceSchema = {
     "telephone": "+918745945682",
     "email": "support@fixwheel.app",
     "image": "https://www.fixwheel.app/icon.png",
-    "priceRange": "₹99 - ₹18000",
+    "priceRange": "₹399 - ₹18000",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Carterpuri Rd, near Saat Phere Garden, Block H, Ashok Vihar Phase III Extension",

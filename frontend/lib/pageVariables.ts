@@ -1,4 +1,4 @@
-import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
+import { getPublicStatsForCity } from '@/lib/publicStats';
 import { normalizePublicCount } from '@/lib/publicStatsNormalization';
 
 export interface PageVariables {
@@ -16,35 +16,25 @@ export interface PageVariables {
 }
 
 export const DEFAULT_PAGE_VARIABLES: PageVariables = {
-  bikesServiced: 100,
-  bikesServicedText: '100+',
-  totalPartners: 26,
-  totalPartnersText: '26',
+  bikesServiced: 169,
+  bikesServicedText: '169+',
+  totalPartners: 38,
+  totalPartnersText: '38',
   avgTime: '45 Mins',
   warranty: '30 Days Performance Warranty',
   startingPrice: '₹399',
   averageRating: 4.8,
-  totalReviews: 100,
+  totalReviews: 169,
   bikesServicedScope: 'global',
   hasManualOverride: false,
 };
-
-const pageVarCache: Record<string, { data: PageVariables; timestamp: number }> = {};
-const CACHE_TTL_MS = 5 * 60 * 1000; // 5-minute cache
 
 export async function getPageVariables(
   pageKey: string,
   citySlug: string = 'global',
   defaults: { defaultAvgTime?: string; defaultWarranty?: string; defaultPrice?: string } = {}
 ): Promise<PageVariables> {
-  const cacheKey = `${pageKey}:${citySlug}`;
-  const now = Date.now();
-
-  if (pageVarCache[cacheKey] && now - pageVarCache[cacheKey].timestamp < CACHE_TTL_MS) {
-    return pageVarCache[cacheKey].data;
-  }
-
-  // 1. Fetch baseline public_stats for city or global
+  // Bikes serviced always comes from the global public_stats record.
   const publicStats = await getPublicStatsForCity(citySlug);
 
   const resolved: PageVariables = {
@@ -57,7 +47,7 @@ export async function getPageVariables(
     startingPrice: defaults.defaultPrice || '₹399',
     averageRating: publicStats.average_rating,
     totalReviews: publicStats.total_reviews,
-    bikesServicedScope: citySlug.toLowerCase().trim() === 'global' ? 'global' : 'city',
+    bikesServicedScope: 'global',
     hasManualOverride: false,
   };
 
@@ -88,25 +78,6 @@ export async function getPageVariables(
         if (override) {
           resolved.hasManualOverride = true;
 
-          if (override.use_global_bikes === true) {
-            const globalStats = await getPublicStatsForCity('global');
-            resolved.bikesServiced = globalStats.bikes_serviced;
-            resolved.bikesServicedText = `${globalStats.bikes_serviced}+`;
-            resolved.bikesServicedScope = 'global';
-          }
-
-          if (override.use_manual_bikes && override.bikes_serviced_override !== null && override.bikes_serviced_override !== undefined && override.bikes_serviced_override !== '') {
-            let bText = String(override.bikes_serviced_override).trim();
-            if (/^\d+$/.test(bText)) {
-              bText = `${bText}+`;
-            }
-            resolved.bikesServicedText = bText;
-            resolved.bikesServiced = normalizePublicCount(parseInt(bText, 10), publicStats.bikes_serviced);
-            if (override.page_key === 'global') {
-              resolved.bikesServicedScope = 'global';
-            }
-          }
-
           if (override.use_manual_partners && override.partners_override !== null && override.partners_override !== undefined && override.partners_override !== '') {
             let pText = String(override.partners_override).trim();
             resolved.totalPartnersText = pText;
@@ -135,6 +106,5 @@ export async function getPageVariables(
     console.warn('Error reading page_variable_overrides, using baseline stats:', err);
   }
 
-  pageVarCache[cacheKey] = { data: resolved, timestamp: now };
   return resolved;
 }

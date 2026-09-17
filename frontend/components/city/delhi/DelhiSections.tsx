@@ -77,7 +77,6 @@ const delhiConfig: CityPageConfig = {
   reviews: {
     heading: "From riders across Delhi",
     rating: "4.7★",
-    reviewCount: "473+ reviews",
     items: [
       { text: "Puncture at 10 PM near Dwarka Mor. Called FixWheel, mechanic was there in 45 minutes. Sorted and back on the road.", author: "Ankit R. — Dwarka" },
       { text: "Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted.", author: "Deepak M. — Janakpuri" },

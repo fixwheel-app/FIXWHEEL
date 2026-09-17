@@ -1040,8 +1040,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                   <span>Customer rating</span>
                 </div>
                 <div className="hero-stat">
-                  <b>473+</b>
-                  <span>{brandData.name} serviced</span>
+                  <b>{stats.bikes_serviced}+</b>
+                  <span>Total Vehicles Serviced</span>
                 </div>
                 <div className="hero-stat">
                   <b>15 DAYS</b>

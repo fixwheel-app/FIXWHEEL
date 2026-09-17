@@ -3,14 +3,14 @@ import ServicesClient from './page.client';
 
 export const metadata: Metadata = {
   title: "Doorstep Bike Repair Service in Delhi NCR | FixWheel",
-  description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Starting ₹99. Available across Delhi NCR.",
+  description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Running Repair starts at ₹399. Available across Delhi NCR.",
   keywords: "doorstep bike repair Delhi NCR, bike service at home Delhi NCR, bike mechanic near me, two wheeler repair at home, bike repair at home Delhi NCR, motorcycle repair Delhi NCR, scooter repair Delhi NCR, bike servicing at home, home bike service, doorstep bike mechanic Delhi NCR, bike oil change at home Delhi NCR, bike puncture repair at home, Honda Activa service at home, Royal Enfield service Delhi NCR, bike service near me Gurugram, scooty service at home Delhi NCR, online bike service Delhi NCR, bike breakdown assistance Delhi NCR, two wheeler service at home Gurugram, bike mechanic on call Delhi NCR",
   alternates: {
     canonical: "https://www.fixwheel.app/services",
   },
   openGraph: {
     title: "Doorstep Bike Repair Service in Delhi NCR | FixWheel",
-    description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Starting ₹99. Available across Delhi NCR.",
+    description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Running Repair starts at ₹399. Available across Delhi NCR.",
     url: "https://www.fixwheel.app/services",
     siteName: "FixWheel",
     type: "website",

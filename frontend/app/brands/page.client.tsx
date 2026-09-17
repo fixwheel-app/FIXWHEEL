@@ -910,7 +910,7 @@ export default function BrandsClientPage() {
         <div className="wrap">
           <div className="eyebrow" style={{ justifyContent: "center" }}>Ready to book?</div>
           <h2>Your Brand, Our Expertise.<br />Serviced at Your Door.</h2>
-          <p>Verified mechanic at your home or office. Any brand, any model. OEM parts. 15-day warranty. Starting ₹99.</p>
+          <p>Verified mechanic at your home or office. Any brand, any model. OEM parts. 15-day warranty. Running Repair starts at ₹399.</p>
           <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
         </div>
       </section>

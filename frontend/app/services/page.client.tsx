@@ -163,7 +163,7 @@ export default function ServicesClientPage() {
     },
     {
       q: "How much does bike service at home cost in Delhi?",
-      a: "Our doorstep periodic bike service starts at ₹550 for commuter bikes and scooters (0-249cc), with minor repairs and labor starting at ₹99. We confirm the price before any work begins, so you pay zero hidden fees.",
+      a: "Our doorstep periodic bike service starts at ₹550 for commuter bikes and scooters (0-249cc), while Running Repair starts at ₹399. We confirm the price before any work begins, so you pay zero hidden fees.",
     },
     {
       q: "Do you use genuine OEM parts for bike repair?",
@@ -725,7 +725,7 @@ export default function ServicesClientPage() {
               <div className="ticket-body">
                 <div className="ticket-row">
                   <span className="label">SERVICE TYPE</span>
-                  <span className="val">Periodic & Repair</span>
+                  <span className="val">Running Repair</span>
                 </div>
                 <div className="ticket-row">
                   <span className="label">COVERAGE</span>
@@ -747,7 +747,7 @@ export default function ServicesClientPage() {
                 </div>
                 <div className="ticket-foot">
                   <span className="total-label">STARTING AT</span>
-                  <span className="total-val">₹99</span>
+                  <span className="total-val">₹399</span>
                 </div>
               </div>
             </div>
@@ -1064,7 +1064,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
             <p>
-              Certified mechanics at your home or office parking. Starting at ₹99. Zero visiting fees.
+              Certified mechanics at your home or office parking. Running Repair starts at ₹399. Zero visiting fees.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book" className="btn btn-primary font-sans">

@@ -75,7 +75,6 @@ const ghaziabadConfig: CityPageConfig = {
   reviews: {
     heading: "From Ghaziabad riders",
     rating: "4.7★",
-    reviewCount: "473+ reviews",
     items: [
       { text: "Excellent experience in Indirapuram. The mechanic coordinated with my high-rise apartment security and did the brake disc change in the basement. Extremely convenient.", author: "Sanjay P. — Indirapuram" },
       { text: "My Scooty had a flat tyre near GT Road. FixWheel dispatched a mechanic who reached in 25 minutes, did a puncture patch, and got me moving again. Genuine savior.", author: "Garima S. — Vaishali" },

@@ -16,11 +16,12 @@ test('accepts valid stored counts and ratings', () => {
   assert.equal(normalizePublicRating('4.8', 0), 4.8);
 });
 
-test('uses the supplied scoped fallback for invalid values', () => {
+test('clamps negative counts and uses the supplied fallback for missing or invalid values', () => {
   assert.equal(normalizePublicCount(null, 2), 2);
-  assert.equal(normalizePublicCount(-1, 2), 2);
+  assert.equal(normalizePublicCount(-1, 2), 0);
   assert.equal(normalizePublicCount(1.5, 2), 2);
   assert.equal(normalizePublicCount('invalid', 2), 2);
+  assert.equal(normalizePublicCount(null, -2), 0);
   assert.equal(normalizePublicRating(5.1, 4.8), 4.8);
   assert.equal(normalizePublicRating(null, 4.8), 4.8);
 });

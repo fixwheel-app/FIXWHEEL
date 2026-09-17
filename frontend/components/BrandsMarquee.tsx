@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity, type PublicStatRecord } from '@/lib/publicStats';
 
 const brandsRow1 = [
   { id: 'royal-enfield', name: 'Royal Enfield', logo: 'https://www.google.com/s2/favicons?domain=royalenfield.com&sz=128', price: '₹850', color: 'group-hover:text-[#D92B27]', border: 'group-hover:border-[#D92B27]' },
@@ -26,6 +27,11 @@ const brandsRow2 = [
 
 export default function BrandsMarquee() {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
+  const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
+
+  useEffect(() => {
+    getPublicStatsForCity('global').then(setStats);
+  }, []);
 
   const handleBrandClick = (id: string) => {
     setSelectedBrand(prev => prev === id ? null : id);
@@ -125,7 +131,7 @@ export default function BrandsMarquee() {
 
               <div className="z-10 w-full md:w-auto flex flex-col sm:flex-row items-center gap-4 mt-4 md:mt-0">
                 <p className="text-gray-400 text-xs font-medium uppercase tracking-wider text-center md:text-right hidden sm:block">
-                  🔥 420+ Serviced
+                  🔥 {stats.bikes_serviced}+ Serviced
                 </p>
                 <Link
                   href={`/services`}

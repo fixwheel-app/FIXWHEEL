@@ -1,6 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { db as prisma } from '../lib/db';
 import { requireAdminKey } from '../middleware/requireAdminKey';
+import {
+  COMPLETED_BOOKING_STATUS,
+  syncGlobalBikesServiced,
+} from '../lib/publicStatsSync';
 
 const router = Router();
 
@@ -25,7 +29,7 @@ router.get("/stats", async (req: Request, res: Response) => {
       prisma.booking.count(),
       prisma.booking.count({ where: { createdAt: { gte: today } } }),
       prisma.booking.count({ where: { status: "pending" } }),
-      prisma.booking.count({ where: { status: "completed" } }),
+      prisma.booking.count({ where: { status: COMPLETED_BOOKING_STATUS } }),
     ]);
     res.json({ total, today: todayCount, pending, completed });
   } catch (error) {
@@ -54,9 +58,14 @@ router.patch("/bookings/:id/status", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    const booking = await prisma.booking.update({
-      where: { bookingRef: id },
-      data: { status }
+    const booking = await prisma.$transaction(async (transaction) => {
+      const updatedBooking = await transaction.booking.update({
+        where: { bookingRef: id },
+        data: { status }
+      });
+
+      await syncGlobalBikesServiced(transaction);
+      return updatedBooking;
     });
     res.json(booking);
   } catch (error) {

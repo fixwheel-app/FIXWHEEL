@@ -11,18 +11,20 @@ export interface PublicStatRecord {
   updated_at?: string;
 }
 
+export const DEFAULT_GLOBAL_BIKES_SERVICED = 169;
+
 export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   global: {
     city_slug: 'global',
-    bikes_serviced: 100,
-    total_partners: 26,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
+    total_partners: 38,
     cities_covered: 5,
     average_rating: 4.8,
-    total_reviews: 100,
+    total_reviews: 169,
   },
   delhi: {
     city_slug: 'delhi',
-    bikes_serviced: 22,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 6,
     cities_covered: 1,
     average_rating: 4.8,
@@ -30,7 +32,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   },
   gurgaon: {
     city_slug: 'gurgaon',
-    bikes_serviced: 54,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 12,
     cities_covered: 1,
     average_rating: 4.8,
@@ -38,7 +40,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   },
   noida: {
     city_slug: 'noida',
-    bikes_serviced: 12,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 5,
     cities_covered: 1,
     average_rating: 4.8,
@@ -46,7 +48,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   },
   faridabad: {
     city_slug: 'faridabad',
-    bikes_serviced: 11,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 3,
     cities_covered: 1,
     average_rating: 4.8,
@@ -54,7 +56,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   },
   ghaziabad: {
     city_slug: 'ghaziabad',
-    bikes_serviced: 1,
+    bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 0,
     cities_covered: 1,
     average_rating: 4.8,
@@ -62,28 +64,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   },
 };
 
-let memoryCache: { data: Record<string, PublicStatRecord>; fetchedAt: number } | null = null;
-const CACHE_TTL_MS = 5 * 60 * 1000;
-
 export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRecord>> {
-  const now = Date.now();
-  if (memoryCache && now - memoryCache.fetchedAt < CACHE_TTL_MS) {
-    return memoryCache.data;
-  }
-
-  if (typeof window !== 'undefined') {
-    try {
-      const cachedStr = sessionStorage.getItem('fixwheel_public_stats_cache');
-      if (cachedStr) {
-        const parsed = JSON.parse(cachedStr);
-        if (parsed && parsed.fetchedAt && now - parsed.fetchedAt < CACHE_TTL_MS) {
-          memoryCache = parsed;
-          return parsed.data;
-        }
-      }
-    } catch (e) {}
-  }
-
   try {
     const { data, error } = await supabase.from('public_stats').select('*');
 
@@ -111,12 +92,11 @@ export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRe
       }
     });
 
-    memoryCache = { data: resultMap, fetchedAt: now };
-    if (typeof window !== 'undefined') {
-      try {
-        sessionStorage.setItem('fixwheel_public_stats_cache', JSON.stringify(memoryCache));
-      } catch (e) {}
+    const globalBikesServiced = resultMap.global.bikes_serviced;
+    for (const stats of Object.values(resultMap)) {
+      stats.bikes_serviced = globalBikesServiced;
     }
+
     return resultMap;
   } catch (err) {
     console.error('Error fetching public stats:', err);
@@ -127,8 +107,11 @@ export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRe
 export async function getPublicStatsForCity(citySlug?: string): Promise<PublicStatRecord> {
   const statsMap = await fetchAllPublicStats();
   const key = (citySlug || 'global').toLowerCase().trim();
-  if (statsMap[key]) {
-    return statsMap[key];
-  }
-  return DEFAULT_PUBLIC_STATS[key] || statsMap.global || DEFAULT_PUBLIC_STATS.global;
+  const globalStats = statsMap.global || DEFAULT_PUBLIC_STATS.global;
+  const requestedStats = statsMap[key] || DEFAULT_PUBLIC_STATS[key] || globalStats;
+
+  return {
+    ...requestedStats,
+    bikes_serviced: globalStats.bikes_serviced,
+  };
 }

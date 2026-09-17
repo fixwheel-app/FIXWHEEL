@@ -196,8 +196,8 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               <span className="text-xs text-slate-500 uppercase tracking-wider">Customer Rating</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">10,000+</b>
-              <span className="text-xs text-slate-500 uppercase tracking-wider">Serviced</span>
+              <b className="block text-2xl font-bold text-slate-900">{stats.bikes_serviced}+</b>
+              <span className="text-xs text-slate-500 uppercase tracking-wider">Total Vehicles Serviced</span>
             </div>
             <div className="p-2">
               <b className="block text-2xl font-bold text-slate-900">15 DAYS</b>

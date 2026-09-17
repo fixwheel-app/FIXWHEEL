@@ -50,9 +50,9 @@ export default function PricingClientPage() {
           --ink:#EDEAE2;
           --ink-dim:#6B6E72;
           --ink-dark:#17181A;
-          --accent:#2563eb;
-          --accent-dim:#1d4ed8;
-          --stamp:#dbeafe;
+          --accent:#e62b2b;
+          --accent-dim:#c92222;
+          --stamp:#fee2e2;
           --steel:#5C7A93;
           --line:rgba(255,255,255,0.12);
           --line-paper:#D8CFB8;
@@ -112,7 +112,7 @@ export default function PricingClientPage() {
           transition: transform .15s ease, background .15s ease, border-color .15s ease;
         }
         .pricing-scope .btn-primary { background: var(--accent); color: #FFFFFF; }
-        .pricing-scope .btn-primary:hover { background: #3b82f6; transform: translateY(-2px); }
+        .pricing-scope .btn-primary:hover { background: #c92222; transform: translateY(-2px); }
 
         /* ===== BREADCRUMB ===== */
         .pricing-scope .breadcrumb {
@@ -315,8 +315,8 @@ export default function PricingClientPage() {
           font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
-          background: #dbeafe;
-          color: #1e40af;
+          background: #fee2e2;
+          color: #b91c1c;
           padding: 3px 10px;
           border-radius: 12px;
         }
@@ -464,12 +464,12 @@ export default function PricingClientPage() {
 
             <div className="ticket">
               <div className="ticket-header">
-                <span>FIXWHEEL RATE ASSURANCE</span>
+                <span>RUNNING REPAIR SERVICE</span>
                 <span style={{ color: '#22c55e' }}>✓ NO HIDDEN FEES</span>
               </div>
-              <div className="ticket-price-main">Starting ₹99</div>
+              <div className="ticket-price-main">Starting ₹399</div>
               <p style={{ fontSize: '13px', color: '#5A5D62', marginBottom: '16px' }}>
-                Flat rates based on your bike&apos;s exact engine capacity (CC) or EV battery specs.
+                Doorstep minor mechanical adjustments, cable replacements, and tuning. Flat rates based on engine CC.
               </p>
               <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '11px', color: 'var(--ink-dark)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <div>• 15-Day FixWheel Labor Warranty</div>
