@@ -26,6 +26,23 @@ const SERVICE_TAGS: Record<string, string> = {
   "ev-service": "[EV SCOOTER]",
 };
 
+const SERVICE_PAGE_ROUTES: Record<string, string> = {
+  "basic-service": "/services/basic-service",
+  "service-engine-oil": "/services/service-engine-oil",
+  "jump-start": "/services/jump-start",
+  "puncture": "/services/puncture",
+  "running-repair": "/services/running-repair",
+  "engine-half": "/services/engine-half",
+  "engine-full": "/services/engine-full",
+  "carburetor-cleaning": "/services/carburetor-cleaning",
+  "obd-inspection": "/services/obd-inspection",
+  "battery-replacement": "/services/battery-replacement",
+  "disc-replacement": "/services/disc-replacement",
+  "chain-sprocket": "/services/chain-sprocket",
+  "pick-drop": "/services/pick-drop",
+  "ev-service": "/services/ev-service",
+};
+
 interface ServiceCityInfo {
   slug: string;
   name: string;
@@ -151,7 +168,7 @@ export default function ServicesClientPage() {
       tag: SERVICE_TAGS[item.id] || `[${item.name.toUpperCase().slice(0, 8)}]`,
       name: item.name,
       desc: item.description,
-      link: "/book",
+      link: SERVICE_PAGE_ROUTES[item.id] || `/services/${item.id}`,
       price: formattedPrice,
     };
   });

@@ -24,8 +24,8 @@ export default function BatteryReplacementPage() {
       serviceId="battery-replacement"
       category="Electrical Systems"
       title="Bike Battery Replacement at Doorstep in Delhi"
-      lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and instant replacement with fresh, zero-maintenance batteries from top brands in under 45 minutes."
-      startingPrice="₹1,299"
+      lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep battery testing and replacement labor starting at ₹99. The selected battery is charged separately at actual price/MRP."
+      startingPrice="₹99"
       avgTime="45 Mins"
       warranty="Official Brand Warranty Included"
       descriptionParagraphs={[
@@ -48,7 +48,7 @@ export default function BatteryReplacementPage() {
         },
         {
           q: "Do you provide official manufacturer warranty with the battery?",
-          a: "Yes! Every battery installed by FixWheel includes the manufacturer's original warranty card (typically 36 to 48 months warranty).",
+          a: "Yes. Every battery installed by FixWheel includes the manufacturer's official warranty card. The warranty term depends on the selected battery brand and model.",
         },
         {
           q: "How long does doorstep battery replacement take?",

@@ -32,7 +32,12 @@ export const DEFAULT_PAGE_VARIABLES: PageVariables = {
 export async function getPageVariables(
   pageKey: string,
   citySlug: string = 'global',
-  defaults: { defaultAvgTime?: string; defaultWarranty?: string; defaultPrice?: string } = {}
+  defaults: {
+    defaultAvgTime?: string;
+    defaultWarranty?: string;
+    defaultPrice?: string;
+    useGlobalOverrides?: boolean;
+  } = {}
 ): Promise<PageVariables> {
   // Bikes serviced always comes from the global public_stats record.
   const publicStats = await getPublicStatsForCity(citySlug);
@@ -58,9 +63,14 @@ export async function getPageVariables(
 
     const normalizedKey = pageKey.replace(/^https?:\/\/[^\/]+/, '').replace(/^\//, '') || 'global';
 
-    // Fetch both specific route key AND global key in one query
+    const pageKeyFilter = defaults.useGlobalOverrides === false
+      ? `eq.${encodeURIComponent(normalizedKey)}`
+      : `in.(${encodeURIComponent(normalizedKey)},global)`;
+
+    // Service pages can opt out of unrelated global display overrides while
+    // still allowing a deliberate route-specific override.
     const res = await fetch(
-      `${supabaseUrl}/rest/v1/page_variable_overrides?page_key=in.(${encodeURIComponent(normalizedKey)},global)&select=*`,
+      `${supabaseUrl}/rest/v1/page_variable_overrides?page_key=${pageKeyFilter}&select=*`,
       {
         headers: {
           apikey: supabaseAnonKey,
@@ -73,7 +83,8 @@ export async function getPageVariables(
       const rows = await res.json();
       if (Array.isArray(rows) && rows.length > 0) {
         // Specific page key takes precedence over global fallback
-        const override = rows.find((r: any) => r.page_key === normalizedKey) || rows.find((r: any) => r.page_key === 'global');
+        const override = rows.find((r: any) => r.page_key === normalizedKey)
+          || (defaults.useGlobalOverrides === false ? undefined : rows.find((r: any) => r.page_key === 'global'));
         
         if (override) {
           resolved.hasManualOverride = true;

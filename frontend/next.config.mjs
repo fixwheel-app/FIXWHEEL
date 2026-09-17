@@ -5,16 +5,6 @@ const nextConfig = {
     return [
       // 301 Permanent Redirects for removed/deprecated service URLs
       {
-        source: '/services/carburetor-cleaning',
-        destination: '/services/engine-repair',
-        permanent: true,
-      },
-      {
-        source: '/services/carburetor-cleaning/:path*',
-        destination: '/services/engine-repair',
-        permanent: true,
-      },
-      {
         source: '/services/obd-scanner',
         destination: '/electric-scooter-repair',
         permanent: true,
@@ -22,36 +12,6 @@ const nextConfig = {
       {
         source: '/services/obd-scanner/:path*',
         destination: '/electric-scooter-repair',
-        permanent: true,
-      },
-      {
-        source: '/services/disc-replacement',
-        destination: '/services/brake-repair',
-        permanent: true,
-      },
-      {
-        source: '/services/disc-replacement/:path*',
-        destination: '/services/brake-repair',
-        permanent: true,
-      },
-      {
-        source: '/services/chain-sprocket',
-        destination: '/services/basic-service',
-        permanent: true,
-      },
-      {
-        source: '/services/chain-sprocket/:path*',
-        destination: '/services/basic-service',
-        permanent: true,
-      },
-      {
-        source: '/services/pick-drop',
-        destination: '/services',
-        permanent: true,
-      },
-      {
-        source: '/services/pick-drop/:path*',
-        destination: '/services',
         permanent: true,
       },
       {
