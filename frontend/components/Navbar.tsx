@@ -138,14 +138,11 @@ export default function Navbar() {
 
   /* ─── Nav links (PRICING added) ─────────────────────────── */
   const navLinks = [
-    { name: 'HOME',           href: '/' },
     { name: 'SERVICES',       href: '/services' },
     { name: 'LOCATIONS',      href: '/delhi' },
     { name: 'BLOG',           href: '/blog' },
-    { name: 'ABOUT',          href: '/about' },
     { name: 'BECOME PARTNER', href: '/partner' },
     { name: 'CONTACT',        href: '/contact' },
-    { name: 'GET APP',        href: 'https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN', external: true },
   ];
 
   /* ─── Active tab indicator ───────────────────────────────── */
