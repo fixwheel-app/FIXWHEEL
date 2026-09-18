@@ -1141,7 +1141,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                 className={cn("tab-header-btn", activeTab === "reviews" && "active")}
                 onClick={() => setActiveTab("reviews")}
               >
-                Customer Reviews ({brandData.reviews.length})
+                Customer Reviews
               </button>
             </div>
 

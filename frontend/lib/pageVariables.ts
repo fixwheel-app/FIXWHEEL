@@ -1,4 +1,4 @@
-import { getPublicStatsForCity } from '@/lib/publicStats';
+import { getPublicStatsForCity, PUBLIC_AVERAGE_RATING } from '@/lib/publicStats';
 import { normalizePublicCount } from '@/lib/publicStatsNormalization';
 
 export interface PageVariables {
@@ -23,7 +23,7 @@ export const DEFAULT_PAGE_VARIABLES: PageVariables = {
   avgTime: '45 Mins',
   warranty: '30 Days Performance Warranty',
   startingPrice: '₹399',
-  averageRating: 4.8,
+  averageRating: PUBLIC_AVERAGE_RATING,
   totalReviews: 169,
   bikesServicedScope: 'global',
   hasManualOverride: false,

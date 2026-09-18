@@ -290,7 +290,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
           <div className="section-head">
             <div className="eyebrow">Reviews</div>
             <h2>{config.reviews.heading}</h2>
-            <p style={{ marginTop: "10px" }}><b style={{ color: "var(--accent)", fontSize: "18px" }}>{config.reviews.rating}</b> average rating from <b style={{ color: "var(--ink-dark)" }}>{pageVars.totalReviews}+ reviews</b></p>
+            <p style={{ marginTop: "10px" }}><b style={{ color: "var(--accent)", fontSize: "18px" }}>{config.reviews.rating}</b> average customer rating</p>
           </div>
           <div className="review-grid">
             {config.reviews.items.map((review) => (

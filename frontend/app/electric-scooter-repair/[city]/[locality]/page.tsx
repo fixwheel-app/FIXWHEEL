@@ -50,7 +50,7 @@ function resolveLocalityData(cityConfig: any, citySlug: string, localitySlug: st
     slug: localitySlug,
     eta: "45 min",
     servicePrice: "799",
-    aggregateRating: "4.8",
+    aggregateRating: "4.7",
     reviewCount: "290",
     subRegionText: `${formattedName} stretch and local residential sectors in ${cityConfig.name}.`,
     heroText: `Doorstep electric scooter repair and battery service in ${formattedName}, ${cityConfig.name}. Fast 45-minute arrival.`,

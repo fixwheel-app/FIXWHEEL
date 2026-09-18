@@ -475,7 +475,7 @@ export default function BrandCityClient({
               <span>Arrival in {cityName}</span>
             </div>
             <div className="trust-item">
-              <b>{stats.average_rating || "4.8"} ★</b>
+              <b>{stats.average_rating || "4.7"} ★</b>
               <span>Customer Rating</span>
             </div>
             <div className="trust-item">

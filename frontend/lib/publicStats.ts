@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { normalizePublicCount, normalizePublicRating } from './publicStatsNormalization';
+import { normalizePublicCount } from './publicStatsNormalization';
 
 export interface PublicStatRecord {
   city_slug: string;
@@ -12,6 +12,7 @@ export interface PublicStatRecord {
 }
 
 export const DEFAULT_GLOBAL_BIKES_SERVICED = 169;
+export const PUBLIC_AVERAGE_RATING = 4.7;
 
 export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
   global: {
@@ -19,7 +20,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 38,
     cities_covered: 5,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 169,
   },
   delhi: {
@@ -27,7 +28,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 6,
     cities_covered: 1,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 22,
   },
   gurgaon: {
@@ -35,7 +36,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 12,
     cities_covered: 1,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 54,
   },
   noida: {
@@ -43,7 +44,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 5,
     cities_covered: 1,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 12,
   },
   faridabad: {
@@ -51,7 +52,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 3,
     cities_covered: 1,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 11,
   },
   ghaziabad: {
@@ -59,7 +60,7 @@ export const DEFAULT_PUBLIC_STATS: Record<string, PublicStatRecord> = {
     bikes_serviced: DEFAULT_GLOBAL_BIKES_SERVICED,
     total_partners: 0,
     cities_covered: 1,
-    average_rating: 4.8,
+    average_rating: PUBLIC_AVERAGE_RATING,
     total_reviews: 1,
   },
 };
@@ -85,7 +86,7 @@ export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRe
           bikes_serviced: normalizePublicCount(row.bikes_serviced, fallback.bikes_serviced),
           total_partners: normalizePublicCount(row.total_partners, fallback.total_partners),
           cities_covered: normalizePublicCount(row.cities_covered, fallback.cities_covered),
-          average_rating: normalizePublicRating(row.average_rating, fallback.average_rating),
+          average_rating: PUBLIC_AVERAGE_RATING,
           total_reviews: normalizePublicCount(row.total_reviews, fallback.total_reviews),
           updated_at: row.updated_at,
         };
@@ -95,6 +96,7 @@ export async function fetchAllPublicStats(): Promise<Record<string, PublicStatRe
     const globalBikesServiced = resultMap.global.bikes_serviced;
     for (const stats of Object.values(resultMap)) {
       stats.bikes_serviced = globalBikesServiced;
+      stats.average_rating = PUBLIC_AVERAGE_RATING;
     }
 
     return resultMap;
@@ -113,5 +115,6 @@ export async function getPublicStatsForCity(citySlug?: string): Promise<PublicSt
   return {
     ...requestedStats,
     bikes_serviced: globalStats.bikes_serviced,
+    average_rating: PUBLIC_AVERAGE_RATING,
   };
 }
