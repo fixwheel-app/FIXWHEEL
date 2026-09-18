@@ -118,7 +118,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
 
   const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
-  const finalCta = getFinalCTAText(data.name);
+  const finalCta = getFinalCTAText(data.name, "Gurgaon");
 
   return (
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>

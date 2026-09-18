@@ -119,7 +119,8 @@ export function getCoverageTitle(localityName: string): string {
   return selectVariation(localityName, variations);
 }
 
-export function getFinalCTAText(localityName: string): { h2: string; p: string } {
+export function getFinalCTAText(localityName: string, cityName?: string): { h2: string; p: string } {
+  const cityLabel = cityName || localityName;
   const variations = [
     {
       h2: `Book Professional Doorstep Service in ${localityName} Today.`,
@@ -131,7 +132,7 @@ export function getFinalCTAText(localityName: string): { h2: string; p: string }
     },
     {
       h2: `No More Towing Hassles. Service at Home in ${localityName}.`,
-      p: `Schedule a diagnostic check, engine oil change, or brake repair with Noida's best doorstep service. Safe, clean, and trusted.`
+      p: `Schedule a diagnostic check, engine oil change, or brake repair with ${cityLabel}'s best doorstep service. Safe, clean, and trusted.`
     }
   ];
   return selectVariation(localityName, variations);

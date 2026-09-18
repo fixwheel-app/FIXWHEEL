@@ -116,7 +116,7 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
 
   const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
-  const finalCta = getFinalCTAText(data.name);
+  const finalCta = getFinalCTAText(data.name, "Faridabad");
 
   return (
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -377,10 +377,6 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         .${slug}-scope .review .who { font-family: var(--font-jetbrains); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; }
 
 
-
-        .${slug}-scope .final-cta { text-align: center; padding: 90px 0; background: var(--bg); color: var(--paper); border-top: 1px solid var(--line); }
-        .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
-        .${slug}-scope .final-cta p { color: #475569; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
         .${slug}-scope .faq-item { border-bottom: 1px solid var(--line-paper); }
         .${slug}-scope .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 15.5px; color: var(--ink-dark); font-weight: 500; }

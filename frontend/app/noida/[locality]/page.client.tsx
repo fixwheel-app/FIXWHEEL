@@ -116,7 +116,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
 
   const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
-  const finalCta = getFinalCTAText(data.name);
+  const finalCta = getFinalCTAText(data.name, "Noida");
 
   return (
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>

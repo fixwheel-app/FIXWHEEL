@@ -116,7 +116,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
 
   const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
-  const finalCta = getFinalCTAText(data.name);
+  const finalCta = getFinalCTAText(data.name, "Delhi");
 
   return (
     <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -387,9 +387,10 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .silo a { font-family: var(--font-jetbrains); font-size: 12px; border: 1px solid var(--line-paper); padding: 9px 16px; border-radius: 30px; color: var(--ink-dark); background: #FFFFFF; transition: border-color .15s ease, color .15s ease; }
 
 
-        .${slug}-scope .final-cta { text-align: center; padding: 90px 0; background: var(--bg); color: var(--paper); border-top: 1px solid var(--line); }
-        .${slug}-scope .final-cta h2 { font-size: 38px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
-        .${slug}-scope .final-cta p { color: #475569; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .${slug}-scope .final-cta { text-align: center; padding: 80px 0; background: linear-gradient(180deg, transparent, rgba(230,43,43,0.06)); border-top: 1px solid var(--line-paper); }
+        .${slug}-scope .final-cta h2 { font-size: 34px; color: var(--ink-dark); max-width: 700px; margin: 0 auto 16px; }
+        .${slug}-scope .final-cta p { color: #475569; margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .${slug}-scope .final-cta .btn { margin-bottom: 24px; }
 
         @media (max-width: 900px) {
           .${slug}-scope .hero-grid { grid-template-columns: 1fr; }
@@ -432,6 +433,9 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             grid-template-columns: 1fr;
           }
           .${slug}-scope .hero { padding-top: 36px; }
+          .${slug}-scope .final-cta { padding: 50px 0 !important; }
+          .${slug}-scope .final-cta h2 { font-size: 24px !important; line-height: 1.25 !important; }
+          .${slug}-scope .final-cta p { font-size: 13.5px !important; padding: 0 10px; margin-bottom: 20px !important; }
         }
 
         @media (prefers-reduced-motion: reduce) {
