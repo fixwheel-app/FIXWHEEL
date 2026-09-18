@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Check, Wrench } from 'lucide-react';
+import { ChevronDown, ArrowRight, Wrench } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
@@ -244,7 +244,6 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                 : NON_ELECTRIC_SERVICES.filter(srv => ccRange && srv.prices[ccRange] !== null)
               ).map((srv) => {
                 const price = fuelType === 'Electric Motorbike' ? (srv as any).price : (ccRange ? (srv as any).prices[ccRange] : null);
-                const includesList = srv.includes || ["Doorstep assistance", "Transparent Pricing"];
                 
                 return (
                   <div key={srv.id} className="bg-white rounded-[2rem] p-6 md:p-8 text-black shadow-2xl relative overflow-hidden">
@@ -270,17 +269,8 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                       </div>
                     </div>
                     
-                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 mb-8 bg-gray-50/50 p-6 rounded-2xl border border-gray-100">
-                      {includesList.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-status-success flex-shrink-0 mt-0.5" />
-                          <span className="text-sm font-semibold text-gray-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-6 gap-4">
-                      <div className="flex items-baseline gap-3">
+                    <div className="relative z-10 flex flex-row items-center justify-between border-t border-gray-100 pt-6 gap-3">
+                      <div className="flex items-baseline gap-2 md:gap-3 shrink-0">
                         {price !== null && (() => {
                           let originalPrice: number | null = null;
                           if (srv.id === 'Engine Half') {
@@ -295,14 +285,14 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                           
                           if (originalPrice !== null) {
                             return (
-                              <span className="text-xl md:text-2xl line-through text-gray-400 font-bold">₹{originalPrice}</span>
+                              <span className="text-base sm:text-xl md:text-2xl line-through text-gray-400 font-bold">₹{originalPrice}</span>
                             );
                           }
                           return null;
                         })()}
-                        <span className="text-3xl md:text-4xl font-black text-black">₹{price}</span>
+                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-black">₹{price}</span>
                       </div>
-                      <div className="w-full md:w-auto flex flex-col items-end gap-2">
+                      <div className="w-auto flex flex-col items-end gap-2">
                         <button
                           onClick={() => {
                             if (!brand || !model || price === null) return;
@@ -318,9 +308,9 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                             router.push(`/book/checkout?${query}`);
                           }}
                           disabled={!brand || !model}
-                          className="w-full md:w-auto px-12 py-4 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white rounded-full font-black tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
+                          className="w-auto whitespace-nowrap px-5 sm:px-8 md:px-12 py-4 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-xs sm:text-sm md:text-base rounded-full font-black tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
                         >
-                          CHECKOUT
+                          BOOK SERVICE
                         </button>
                         {(!brand || !model) && (
                           <p className="text-xs text-status-error font-bold uppercase tracking-wider text-center md:text-right w-full">Select Brand & Model first</p>
