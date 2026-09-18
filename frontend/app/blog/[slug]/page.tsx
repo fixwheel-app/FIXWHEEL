@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS } from "@/lib/blogData";
 import BlogPostClient from "./page.client";
+import { getWordPressPostBySlug, getAllWordPressPostSlugs } from "@/lib/wordpress";
+
+export const revalidate = 60; // Incremental Static Regeneration every 60s
 
 interface PageProps {
   params: {
@@ -10,13 +12,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
-    slug: post.slug,
+  const slugs = await getAllWordPressPostSlugs();
+  return slugs.map((slug) => ({
+    slug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug.toLowerCase());
+  const post = await getWordPressPostBySlug(params.slug);
   if (!post) {
     return {
       title: "Article Not Found | FixWheel",
@@ -26,11 +29,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const titleText = `${post.title} | FixWheel Blog`;
   const descText = post.excerpt;
+  const ogImageUrl = post.image.startsWith("http")
+    ? post.image
+    : `https://www.fixwheel.app${post.image}`;
 
   return {
     title: titleText,
     description: descText,
-    keywords: post.keywords.join(", "),
+    keywords: (post.keywords || []).join(", "),
     alternates: {
       canonical: `https://www.fixwheel.app/blog/${post.slug}`,
     },
@@ -43,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: new Date(post.date).toISOString(),
       images: [
         {
-          url: `https://www.fixwheel.app${post.image}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
         },
@@ -52,11 +58,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug.toLowerCase());
+export default async function BlogPostPage({ params }: PageProps) {
+  const post = await getWordPressPostBySlug(params.slug);
   if (!post) {
     notFound();
   }
 
-  return <BlogPostClient slug={params.slug.toLowerCase()} />;
+  return <BlogPostClient slug={params.slug.toLowerCase()} post={post} />;
 }
+

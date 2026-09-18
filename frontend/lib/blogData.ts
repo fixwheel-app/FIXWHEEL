@@ -22,6 +22,7 @@ export interface BlogPost {
   author: BlogAuthor;
   keywords: string[];
   content: BlogContentSection[];
+  htmlContent?: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [

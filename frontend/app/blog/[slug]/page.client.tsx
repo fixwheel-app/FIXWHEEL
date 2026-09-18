@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
-import { BLOG_POSTS } from "@/lib/blogData";
+import { BLOG_POSTS, BlogPost } from "@/lib/blogData";
 import { supabase } from "@/lib/supabase";
 import Breadcrumb from "@/components/Breadcrumb";
 
@@ -21,6 +21,7 @@ const jetbrains = JetBrains_Mono({
 
 interface ClientProps {
   slug: string;
+  post?: BlogPost | null;
 }
 
 interface CommentItem {
@@ -54,8 +55,34 @@ function formatDate(dateString: string): string {
   }
 }
 
-export default function BlogPostClient({ slug }: ClientProps) {
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+export default function BlogPostClient({ slug, post: initialPost }: ClientProps) {
+  const post = initialPost || BLOG_POSTS.find((p) => p.slug === slug);
+
+  // Extract TOC and inject unique IDs for WordPress HTML headings
+  const { processedHtml, htmlTocList } = (() => {
+    if (!post?.htmlContent) {
+      return { processedHtml: "", htmlTocList: [] };
+    }
+    const toc: { id: string; text: string }[] = [];
+    let hIdx = 0;
+    const processed = post.htmlContent.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
+      const text = content.replace(/<[^>]*>?/gm, "").trim();
+      if (!text) return match;
+      const id = `heading-${hIdx++}`;
+      toc.push({ id, text });
+      return `<${tag} id="${id}"${attrs}>${content}</${tag}>`;
+    });
+    return { processedHtml: processed, htmlTocList: toc };
+  })();
+
+  const structuredTocList = (post?.content || [])
+    .filter((sec) => sec.type === "heading" && sec.text)
+    .map((sec, idx) => ({
+      id: `heading-${idx}`,
+      text: sec.text as string,
+    }));
+
+  const tocList = htmlTocList.length > 0 ? htmlTocList : structuredTocList;
 
   const [comments, setComments] = useState<CommentItem[]>([]);
   const [loadingComments, setLoadingComments] = useState<boolean>(true);
@@ -470,6 +497,7 @@ export default function BlogPostClient({ slug }: ClientProps) {
         .post-scope .post-body p {
           margin-bottom: 24px;
         }
+        .post-scope .post-body h2,
         .post-scope .post-body h3 {
           font-size: 26px;
           color: var(--ink-dark);
@@ -478,14 +506,71 @@ export default function BlogPostClient({ slug }: ClientProps) {
           padding-bottom: 10px;
           scroll-margin-top: 110px;
         }
+        .post-scope .post-body h4 {
+          font-size: 20px;
+          color: var(--ink-dark);
+          margin: 30px 0 14px;
+        }
         .post-scope .post-body ul {
           margin-bottom: 28px;
           padding-left: 20px;
           list-style: square;
         }
+        .post-scope .post-body ol {
+          margin-bottom: 28px;
+          padding-left: 20px;
+          list-style: decimal;
+        }
         .post-scope .post-body li {
           margin-bottom: 12px;
           color: #4A4D52;
+        }
+        .post-scope .post-body img,
+        .post-scope .post-body figure {
+          max-width: 100%;
+          height: auto;
+          border-radius: 4px;
+          margin: 28px 0;
+          border: 1px solid var(--line-paper);
+        }
+        .post-scope .post-body figcaption {
+          font-size: 12.5px;
+          color: var(--ink-dim);
+          text-align: center;
+          margin-top: 8px;
+          font-family: var(--font-jetbrains), monospace;
+        }
+        .post-scope .post-body blockquote {
+          border-left: 4px solid var(--accent);
+          padding: 16px 24px;
+          margin: 30px 0;
+          background: #FFFFFF;
+          border-radius: 0 4px 4px 0;
+          font-style: italic;
+          color: #4A4D52;
+        }
+        .post-scope .post-body table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 30px 0;
+          font-size: 14.5px;
+        }
+        .post-scope .post-body th,
+        .post-scope .post-body td {
+          border: 1px solid var(--line-paper);
+          padding: 12px 16px;
+          text-align: left;
+        }
+        .post-scope .post-body th {
+          background: var(--paper-dim);
+          font-weight: 700;
+          color: var(--ink-dark);
+        }
+        .post-scope .post-body a {
+          color: var(--accent);
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          font-weight: 600;
         }
 
         /* ===== COMMENTS SECTION ===== */
@@ -856,27 +941,34 @@ export default function BlogPostClient({ slug }: ClientProps) {
 
             {/* Dynamic content */}
             <section className="post-body">
-              {(() => {
-                let hIdx = 0;
-                return post.content.map((sec, idx) => {
-                  if (sec.type === "paragraph") {
-                    return <p key={idx}>{sec.text}</p>;
-                  } else if (sec.type === "heading") {
-                    const headingId = `heading-${hIdx}`;
-                    hIdx++;
-                    return <h3 key={idx} id={headingId}>{sec.text}</h3>;
-                  } else if (sec.type === "list" && sec.items) {
-                    return (
-                      <ul key={idx}>
-                        {sec.items.map((item, lIdx) => (
-                          <li key={lIdx}>{item}</li>
-                        ))}
-                      </ul>
-                    );
-                  }
-                  return null;
-                });
-              })()}
+              {post.htmlContent ? (
+                <div
+                  className="wp-rendered-content"
+                  dangerouslySetInnerHTML={{ __html: processedHtml }}
+                />
+              ) : (
+                (() => {
+                  let hIdx = 0;
+                  return (post.content || []).map((sec, idx) => {
+                    if (sec.type === "paragraph") {
+                      return <p key={idx}>{sec.text}</p>;
+                    } else if (sec.type === "heading") {
+                      const headingId = `heading-${hIdx}`;
+                      hIdx++;
+                      return <h3 key={idx} id={headingId}>{sec.text}</h3>;
+                    } else if (sec.type === "list" && sec.items) {
+                      return (
+                        <ul key={idx}>
+                          {sec.items.map((item, lIdx) => (
+                            <li key={lIdx}>{item}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return null;
+                  });
+                })()
+              )}
             </section>
 
             {/* AUTHOR BIO BOX */}
@@ -985,42 +1077,31 @@ export default function BlogPostClient({ slug }: ClientProps) {
           {/* RIGHT SIDEBAR (TOC & AUTHOR CARD) */}
           <aside className="post-sidebar">
             {/* Table of Contents Card */}
-            {(() => {
-              const tocList = post.content
-                .filter((sec) => sec.type === "heading" && sec.text)
-                .map((sec, idx) => ({
-                  id: `heading-${idx}`,
-                  text: sec.text as string
-                }));
-
-              if (tocList.length === 0) return null;
-
-              return (
-                <div className="toc-card">
-                  <h4>
-                    <span style={{ color: 'var(--accent)' }}>📌</span> On This Page
-                  </h4>
-                  <ul className="toc-list">
-                    {tocList.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          className="toc-link"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const el = document.getElementById(item.id);
-                            if (el) {
-                              el.scrollIntoView({ behavior: 'smooth' });
-                            }
-                          }}
-                        >
-                          {item.text}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })()}
+            {tocList.length > 0 && (
+              <div className="toc-card">
+                <h4>
+                  <span style={{ color: 'var(--accent)' }}>📌</span> On This Page
+                </h4>
+                <ul className="toc-list">
+                  {tocList.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        className="toc-link"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const el = document.getElementById(item.id);
+                          if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Recent Blogs Sidebar Card with Latest Article Suggestion */}
             {(() => {

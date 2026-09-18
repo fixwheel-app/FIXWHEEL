@@ -1,6 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.fixwheel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'secure.gravatar.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.google.com',
+      },
+    ],
+  },
   async redirects() {
     return [
       // 301 Permanent Redirects for removed/deprecated service URLs

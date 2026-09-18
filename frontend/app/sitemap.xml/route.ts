@@ -12,6 +12,10 @@ export async function GET() {
     <lastmod>${lastmod}</lastmod>
   </sitemap>
   <sitemap>
+    <loc>https://www.fixwheel.app/blog.xml</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://www.fixwheel.app/service.xml</loc>
     <lastmod>${lastmod}</lastmod>
   </sitemap>

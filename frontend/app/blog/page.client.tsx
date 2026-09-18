@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
-import { BLOG_POSTS } from "@/lib/blogData";
+import { BLOG_POSTS, BlogPost } from "@/lib/blogData";
 import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
 
@@ -19,15 +19,23 @@ const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
 });
 
-export default function BlogHubClient() {
+interface BlogHubClientProps {
+  initialPosts?: BlogPost[];
+  initialCategories?: { id: number; name: string; slug: string }[];
+}
+
+export default function BlogHubClient({ initialPosts, initialCategories }: BlogHubClientProps = {}) {
+  const posts = initialPosts && initialPosts.length > 0 ? initialPosts : BLOG_POSTS;
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const categories = ["All", "Maintenance", "Tips & Tricks", "EV Corner", "Buying Guide"];
+  const categories = initialCategories && initialCategories.length > 0
+    ? Array.from(new Set(["All", ...initialCategories.map((c) => c.name)]))
+    : Array.from(new Set(["All", "Maintenance", "Tips & Tricks", "EV Corner", "Buying Guide", ...posts.map((p) => p.category)]));
 
   // Filter posts based on active category and search query
-  const filteredPosts = BLOG_POSTS.filter((post) => {
-    const matchesCategory = activeCategory === "All" || post.category === activeCategory;
+  const filteredPosts = posts.filter((post) => {
+    const matchesCategory = activeCategory === "All" || post.category.toLowerCase() === activeCategory.toLowerCase();
     const matchesSearch = 
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -35,7 +43,7 @@ export default function BlogHubClient() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredPost = BLOG_POSTS[0]; // First post as featured post
+  const featuredPost = posts[0] || BLOG_POSTS[0]; // First post as featured post
 
   return (
     <div className={`blog-scope ${oswald.variable} ${jetbrains.variable}`}>

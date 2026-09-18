@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import BlogHubClient from "./page.client";
+import { getWordPressPosts, getWordPressCategories } from "@/lib/wordpress";
+
+export const revalidate = 60; // Incremental Static Regeneration every 60 seconds
 
 export const metadata: Metadata = {
   title: "FixWheel Blog — Doorstep Two-Wheeler Maintenance Tips & News",
@@ -23,6 +26,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogHubPage() {
-  return <BlogHubClient />;
+export default async function BlogHubPage() {
+  const [posts, categories] = await Promise.all([
+    getWordPressPosts(),
+    getWordPressCategories(),
+  ]);
+
+  return <BlogHubClient initialPosts={posts} initialCategories={categories} />;
 }
