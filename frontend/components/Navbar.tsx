@@ -391,7 +391,7 @@ export default function Navbar() {
 
             <div className="hidden lg:flex shrink-0 items-center gap-3">
               <a
-                href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white/20 hover:border-accent text-white hover:text-accent px-4 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap inline-flex items-center gap-2"
@@ -410,7 +410,7 @@ export default function Navbar() {
             {/* Mobile Right: Get App + Book Now + Hamburger */}
             <div className="lg:hidden flex items-center gap-2">
               <a
-                href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white/20 text-white px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap inline-flex items-center gap-1.5"
@@ -440,7 +440,7 @@ export default function Navbar() {
           <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-10 border-b border-slate-200 relative flex items-center justify-center gap-2 shadow-sm">
             <span>Download App to get 10% off</span>
             <a
-              href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-accent hover:bg-accent-hover text-white text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded transition-all ml-1.5 shadow-sm"

@@ -51,6 +51,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} font-sans`}>
       <head>
+        <script
+          id="google-tag-manager"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVSCJMZ4');`,
+          }}
+        />
         <meta name="google-site-verification" content="C833_fFDkpy5lyqYIs8Tfha4pv5gciagl2uJOEcfB9I" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-S01GQVCQ0B"
@@ -109,6 +119,14 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen bg-primary text-text-primary">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MVSCJMZ4"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Navbar />
         <main className="flex-grow pt-16">
           {children}
@@ -120,4 +138,3 @@ export default function RootLayout({
     </html>
   );
 }
-

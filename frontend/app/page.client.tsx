@@ -248,7 +248,7 @@ export default function Home() {
                 </Link>
 
                 <a
-                  href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN"
+                  href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white border-2 border-white/20 hover:border-accent px-6 py-3.5 md:py-4 rounded-md font-black tracking-widest uppercase text-xs md:text-base transition-all duration-300 hover:scale-[1.02]"

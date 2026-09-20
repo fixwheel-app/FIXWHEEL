@@ -68,7 +68,7 @@ export default function HeroSection() {
               BOOK NOW
             </Link>
             <a 
-              href="https://play.google.com/store/search?q=fixwheel&c=apps&hl=en_IN" 
+              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/20 hover:bg-white/5 hover:border-accent text-white font-semibold text-lg transition-all text-center flex items-center justify-center gap-2"
