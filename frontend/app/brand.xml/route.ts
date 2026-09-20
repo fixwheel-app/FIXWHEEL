@@ -33,7 +33,6 @@ const SERVICES = [
   "engine-repair",
   "oil-change",
   "premium-bike-service",
-  "royal-enfield-service",
   "scooty-repair",
   "sports-bike-service",
 ];
@@ -73,7 +72,6 @@ export async function GET() {
     let locUrl = `https://www.fixwheel.app/services/${s}`;
     if (s === "sports-bike-service") locUrl = "https://www.fixwheel.app/sports-bike-service";
     if (s === "electric-scooter-repair") locUrl = "https://www.fixwheel.app/electric-scooter-repair";
-    if (s === "royal-enfield-service") locUrl = "https://www.fixwheel.app/royal-enfield-service";
     if (s === "commuter-bike-service") locUrl = "https://www.fixwheel.app/commuter-bike-service";
     if (s === "scooty-repair") locUrl = "https://www.fixwheel.app/scooty-repair";
     if (s === "premium-bike-service") locUrl = "https://www.fixwheel.app/premium-bike-service";

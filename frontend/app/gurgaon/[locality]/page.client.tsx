@@ -630,7 +630,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               <span className="num" style={{ fontSize: "24px" }}>👑</span>
               <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>Royal Enfield & Cruiser Repair Near Me in {data.name}</h3>
               <p>Dedicated Royal Enfield mechanics for Classic 350, Bullet 350, Hunter 350, Meteor, Himalayan, and Interceptor 650 in {data.name}. Valve clearance (tappet) gap tuning, 15W-50 Liquid Gun oil change, and heavy-duty chain care. Expert <strong>Royal Enfield repair near me</strong> in {data.name}.</p>
-              <Link href="/services/royal-enfield-service" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Royal Enfield Service →</Link>
+              <Link href="/royal-enfield" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>Royal Enfield Service →</Link>
             </div>
 
             <div className="why-card">

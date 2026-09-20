@@ -7,7 +7,6 @@ export const dynamic = "force-static";
 const CUSTOM_ROOT_SERVICES = [
   "sports-bike-service",
   "electric-scooter-repair",
-  "royal-enfield-service",
   "commuter-bike-service",
   "scooty-repair",
   "premium-bike-service",

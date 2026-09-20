@@ -97,45 +97,6 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       "electric bike mechanic near me",
     ],
   },
-  "royal-enfield-service": {
-    serviceId: "royal-enfield-service",
-    category: "Royal Enfield Specialist",
-    title: "Royal Enfield & Bullet Service at Doorstep",
-    lead: "Royal Enfield cruisers demand dedicated valve clearance tuning, heavy-duty 15W-50 oil replacement, and chain tensioning to maintain their iconic thump and touring reliability.",
-    startingPrice: "₹850",
-    avgTime: "45 Mins",
-    warranty: "15 Days RE Labor Warranty",
-    descriptionParagraphs: [
-      "Royal Enfield single-cylinder and twin engines need specialized care. Incorrect tappet gap settings lead to compression loss and hard starting, while improper chain tensioning causes severe driveline drag.",
-      "FixWheel dispatches specialized RE mechanics trained on Classic 350, Bullet 350, Hunter 350, Meteor 350, Himalayan, and Interceptor 650 directly to your home or office parking.",
-      "We handle Liquid Gun 15W-50 oil changes, valve clearance (tappet) settings, heavy-duty chain degreasing & lube, disc brake pad cleaning, and telescopic fork seal checks.",
-    ],
-    includedItems: [
-      "15W-50 Liquid Gun / Motul semi-synthetic engine oil & filter replacement",
-      "Engine tappet valve clearance gap setting & compression check",
-      "Heavy-duty drive chain cleaning, tensioning & high-viscosity spray lube",
-      "Front & rear disc brake pad cleaning, de-glazing & fluid level check",
-      "Spark plug cleaning, electrode gap adjustment & air filter cleaning",
-    ],
-    faqs: [
-      {
-        q: "Do you service RE Classic 350, Bullet 350, and Himalayan at home?",
-        a: "Yes! Our technicians carry dedicated RE pullers, gaskets, and filters for Classic 350, Bullet 350, Hunter 350, Meteor, and Himalayan.",
-      },
-      {
-        q: "What engine oil is recommended for Royal Enfield bikes?",
-        a: "We use official Royal Enfield Liquid Gun 15W-50 semi-synthetic oil or Motul 7100 15W-50 100% synthetic oil.",
-      },
-    ],
-    keywords: [
-      "royal enfield service",
-      "royal enfield repair near me",
-      "bullet 350 mechanic at home",
-      "classic 350 doorstep service",
-      "himalayan bike repair",
-      "hunter 350 oil change",
-    ],
-  },
   "scooty-repair": {
     serviceId: "scooty-repair",
     category: "Scooter & CVT Specialist",

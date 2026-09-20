@@ -9,7 +9,9 @@ import {
   MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown,
   Calendar, Star, Smartphone
 } from 'lucide-react';
+import { getServicePricing, type ServicePriceId } from '@/lib/pricingData';
 import BrandsMarquee from '@/components/BrandsMarquee';
+import HomeCoverageSection from '@/components/HomeCoverageSection';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 import { submitQuery } from '@/lib/api';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
@@ -22,18 +24,26 @@ export default function Home() {
   }, []);
 
   const features = [
-    { icon: <Award className="w-8 h-8" />, label: "Trained Technicians" },
-    { icon: <ShieldCheck className="w-8 h-8" />, label: "Work Guaranteed" },
+    { icon: <CheckCircle2 className="w-8 h-8" />, label: "Pay After Service" },
+    { icon: <ShieldCheck className="w-8 h-8" />, label: "15 Days Service Warranty" },
+    { icon: <Award className="w-8 h-8" />, label: "Price Approval Before Repair" },
     { icon: <CheckCircle2 className="w-8 h-8" />, label: "Verified Mechanics" },
   ];
 
   const steps = [
-    { num: 1, icon: <Step1Icon />, title: "Book Online",           desc: "Choose your service package and enter your details in under 60 seconds." },
-    { num: 2, icon: <Step2Icon />, title: "Booking Confirmed",  desc: "We confirm your booking within 45 minutes and secure your preferred time slot." },
-    { num: 3, icon: <Step3Icon />, title: "Mechanic Assigned",    desc: "We assign a certified mechanic near your location to your booking." },
-    { num: 4, icon: <Step4Icon />, title: "Mechanic Arrives",      desc: "Your mechanic arrives at your doorstep with the right tools and equipment." },
-    { num: 5, icon: <Step5Icon />, title: "Repair Done",           desc: "We service your bike on the spot. Watch the process or step away — your call." },
-    { num: 6, icon: <Step6Icon />, title: "Job Complete",             desc: "Your bike is ready. Pay only after the service is completed to your satisfaction." },
+    { num: "01", icon: <Smartphone className="w-5 h-5" />, title: "Book Your Service", desc: "Select your bike, required service, location, date and preferred time." },
+    { num: "02", icon: <ShieldCheck className="w-5 h-5" />, title: "Mechanic Assigned", desc: "FixWheel confirms your booking and assigns a verified mechanic near your location." },
+    { num: "03", icon: <Wrench className="w-5 h-5" />, title: "Doorstep Service", desc: "The mechanic arrives with the required tools, inspects your vehicle and completes the approved work." },
+    { num: "04", icon: <CheckCircle2 className="w-5 h-5" />, title: "Review & Pay", desc: "Check the completed service and pay only after the job is finished." },
+  ];
+
+  const homeServices: { name: string; href: string; priceId: ServicePriceId; note: string }[] = [
+    { name: "Basic Service", href: "/services/basic-service", priceId: "basic-service", note: "General service" },
+    { name: "Engine Oil Change", href: "/services/oil-change", priceId: "service-engine-oil", note: "Service with engine oil" },
+    { name: "Engine Repair", href: "/services/engine-repair", priceId: "engine-half", note: "Engine half overhaul" },
+    { name: "Brake Repair", href: "/services/brake-repair", priceId: "disc-replacement", note: "Disc replacement labor" },
+    { name: "Battery Replacement", href: "/services/battery-replacement", priceId: "battery-replacement", note: "Labor only; battery charged separately" },
+    { name: "Tyre Replacement/Repair", href: "/services/puncture", priceId: "puncture", note: "Puncture repair; replacement quoted separately" },
   ];
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────
@@ -130,22 +140,14 @@ export default function Home() {
   const faqs = [
     { q: "What services does FixWheel provide?",
       a: "FixWheel provides doorstep bike repair, maintenance, and servicing. Our services include routine servicing, oil changes, engine repairs, tyre replacements, brake repairs, battery replacements, washing, and emergency roadside assistance." },
-    { q: "How does FixWheel work?",
-      a: "Book a service online or via WhatsApp. We assign a certified mechanic near you who arrives at your doorstep with the right tools and genuine parts to service your bike on the spot." },
-    { q: "Are the prices fixed or negotiable?",
-      a: "Our prices are transparent and fixed. We inform you of the cost before the service starts, so you pay zero hidden fees." },
-    { q: "Do you provide doorstep service?",
-      a: "Yes. We perform all repairs and servicing at your location, home, or office, so you save time and avoid garage visits." },
-    { q: "How long does the service take?",
-      a: "Most routine servicing and repairs take 30 to 50 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront." },
+    { q: "Are the prices fixed or are there additional charges?",
+      a: "Our prices are transparent and estimated based on the selected service. If any additional repair or spare part is required, the mechanic will inform you of the cost and get your approval before proceeding. There are no hidden charges." },
     { q: "How do I know the mechanic is verified?",
       a: "Yes. Every FixWheel mechanic is background-checked and trained on two-wheeler repair. You can rate your mechanic after every service, and we follow up on any complaint." },
     { q: "What if I have an issue with the service?",
       a: "If you have an issue with the service, contact us within 15 days. We'll send a mechanic back at no extra charge to fix it." },
     { q: "How can I book a service?",
       a: "Book online through our website or send us a message on WhatsApp. The booking process takes under a minute." },
-    { q: "What payment methods are available?",
-      a: "We accept UPI, cards, net banking, and cash. Payment is collected after the service is completed." },
     { q: "Do you provide emergency / breakdown service?",
       a: "Yes. We provide 24/7 emergency roadside assistance and breakdown support in Delhi and Gurugram." },
     { q: "Do you use genuine spare parts?",
@@ -155,14 +157,13 @@ export default function Home() {
   // ── Contact form state removed ─────────────────────────────────────────────
 
   const reviews = [
-    { name: "Rahul Sharma", rating: 5, text: "Bike broke down near Cyber Hub. Mechanic arrived in 15 mins. Very professional and didn't overcharge for emergency. Highly recommended.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-2" },
-    { name: "Anjali Verma", rating: 4.5, text: "First time using a doorstep service. The mechanic was polite and did a full servicing right in front of me. Saved me a trip to the local garage.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-2" },
-    { name: "Vikram Singh", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels much smoother now. A bit premium but totally worth it for the convenience.", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:-rotate-1" },
-    { name: "Priya Das", rating: 4, text: "Good service but the mechanic was 15 mins late due to traffic. The actual repair was fast and the pricing was very transparent though.", style: "bg-[#1E293B] text-gray-200 border-l-[3px] border-[#0F172A]", tilt: "md:rotate-1" },
-    { name: "Sameer Reddy", rating: 5, text: "Was skeptical at first, but the booking process is super easy. My scooter wouldn't start on the way to office, they fixed the spark plug on the spot.", style: "bg-[#0F172A] text-white", tilt: "md:-rotate-2" },
-    { name: "Neha Gupta", rating: 5, text: "Absolutely hassle-free. They brought all the tools and cleaned up after the oil change. Will definitely use FixWheel again!", style: "bg-[#1E293B] text-white border-l-[3px] border-accent", tilt: "md:rotate-2" },
-    { name: "Arjun Nair", rating: 4.5, text: "Great convenience. Pricing is slightly higher than my local guy, but the transparency and not having to leave home makes it totally worth it.", style: "bg-[#0F172A] text-white", tilt: "md:-rotate-1" },
-    { name: "Manish Pandey", rating: 5, text: "Mechanic named Suresh was excellent. Explained the brake issue clearly before replacing the pads. Trustworthy service.", style: "bg-[#0F172A] text-white", tilt: "md:rotate-1" },
+    { name: "Deepak M.", city: "Delhi", vehicle: "Bajaj Pulsar", rating: 5, text: "Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted." },
+    { name: "Sneha K.", city: "Delhi", vehicle: "Honda Activa", rating: 4, text: "Battery died on my Activa in Vasant Kunj. The mechanic tested it and replaced the battery on the spot with transparent billing." },
+    { name: "Vikram Singh", city: "Gurgaon", vehicle: "Royal Enfield", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now." },
+    { name: "Vikram S.", city: "Noida", vehicle: "Royal Enfield Bullet", rating: 5, text: "My Royal Enfield Bullet broke down near Sector 62. The mechanic cleaned the carburetor on the spot and got it started." },
+    { name: "Pallavi G.", city: "Noida", vehicle: "TVS Jupiter", rating: 5, text: "Got my TVS Jupiter serviced at home in Greater Noida West. Polite technician, pre-confirmed pricing, and no pushy upselling." },
+    { name: "Rohit S.", city: "Faridabad", vehicle: "Bajaj Pulsar", rating: 5, text: "My Pulsar broke down near Bata Chowk. The roadside mechanic changed the clutch cable and got me moving again." },
+    { name: "Garima S.", city: "Ghaziabad", vehicle: "Scooty", rating: 5, text: "My Scooty had a flat tyre near GT Road. The mechanic reached quickly, repaired the puncture, and got me moving again." },
   ];
 
   return (
@@ -286,8 +287,8 @@ export default function Home() {
 
 
       {/* ── FEATURES + QUOTE ─────────────────────────────────────────────── */}
-      <section className="pt-10 pb-4 md:pt-14 md:pb-6 container mx-auto px-4">
-        <div className="flex flex-wrap justify-center gap-8 md:gap-24">
+      <section className="py-5 md:py-8 container mx-auto px-2 sm:px-4">
+        <div className="grid grid-cols-4 gap-1 sm:gap-3 md:gap-6 max-w-6xl mx-auto">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -295,13 +296,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col items-center group cursor-pointer"
+              className="group flex min-w-0 cursor-pointer flex-col items-center text-center"
             >
-              <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-accent flex items-center justify-center mb-3 md:mb-4 transition-all duration-300 group-hover:bg-accent relative">
-                <div className="absolute -inset-2 border border-accent/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-                <div className="text-accent group-hover:text-white transition-colors duration-300 z-10">{feature.icon}</div>
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full border-2 border-accent flex items-center justify-center mb-2 md:mb-3 transition-all duration-300 group-hover:bg-accent">
+                <div className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+                <div className="relative z-10 text-accent scale-[0.65] sm:scale-75 md:scale-100 transition-colors duration-300 group-hover:text-white">{feature.icon}</div>
               </div>
-              <p className="font-bold uppercase tracking-wider text-xs md:text-sm text-center max-w-[90px] md:max-w-[100px]">{feature.label}</p>
+              <p className="font-black uppercase tracking-tight text-[8px] leading-[1.15] sm:text-[10px] md:text-xs md:tracking-wide max-w-[145px]">{feature.label}</p>
             </motion.div>
           ))}
         </div>
@@ -309,53 +310,67 @@ export default function Home() {
 
       <BrandsMarquee />
 
+      <section id="home-services" className="py-10 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-center mb-4">Services at Your Doorstep</h2>
+          <p className="text-gray-500 text-center mb-8">Starting rates for 0–249cc bikes. Final pricing depends on your service and engine CC.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {homeServices.map((service) => (
+              <Link key={service.priceId} href={service.href} className="group flex min-h-[154px] flex-col rounded-xl border border-gray-200 bg-white p-5 transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent md:p-6">
+                <div className="flex min-w-0 items-center gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#17191d] p-1.5">
+                    <Image src="/logo.png" alt="FixWheel" width={48} height={48} className="h-full w-full object-contain" />
+                  </div>
+                  <h3 className="min-w-0 text-lg font-black leading-tight text-[#111820]">{service.name}</h3>
+                </div>
+                <div className="mt-auto flex items-end justify-between gap-3 pt-6">
+                  <p className="shrink-0 whitespace-nowrap text-sm font-black leading-tight text-accent sm:text-base">Starts from ₹{getServicePricing(service.priceId).prices.cc0_249.toLocaleString('en-IN')}</p>
+                  <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-black text-[#111820] transition-colors group-hover:text-accent">View Service <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ════════════════════════════════════════════════════════════════════
           🟠  OUR PROCESS
       ════════════════════════════════════════════════════════════════════ */}
-      <section id="process" className="py-10 md:py-16 bg-[#F8FAFC]">
+      <section id="process" className="overflow-hidden bg-[#f5f6f8] py-12 text-[#111820] md:py-20">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          {/* Heading */}
-          <div className="text-center mb-10 md:mb-16">
-            <span className="inline-block bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">How It Works</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-[#0F172A] tracking-tight mb-3">Your Booking, Step by Step</h2>
-            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">From booking to repair — here's exactly what happens</p>
+          <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+            <p className="mb-3 text-sm font-bold text-accent">How your service moves</p>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">Your booking, step by step</h2>
+            <p className="text-sm text-slate-500 md:text-base">Four clear checkpoints from selecting a service to approving the completed job.</p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical connecting line */}
-            <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F97316] to-[#EF4444] md:-translate-x-px" />
-
-            <div className="space-y-8 md:space-y-0">
+          <div className="relative mx-auto max-w-5xl">
+            <div className="absolute bottom-6 left-5 top-6 w-0.5 bg-accent/35 md:left-1/2 md:-translate-x-1/2" />
+            <div className="space-y-6 md:space-y-12">
               {steps.map((step, idx) => {
                 const isLeft = idx % 2 === 0;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: idx * 0.08 }}
-                    className={`relative flex items-start gap-6 md:gap-0 md:mb-10 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                  >
-                    {/* Card */}
-                    <div className={`ml-14 md:ml-0 md:w-[45%] bg-[#1E293B] border-l-[3px] border-l-[#F97316] rounded-[12px] p-6 shadow-md hover:shadow-[0_0_15px_rgba(249,115,22,0.15)] transition-all duration-300 ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                      <div className="mb-4 flex">{step.icon}</div>
-                      <h3 className="font-bold text-[16px] text-white mb-2">{step.title}</h3>
-                      <p className="text-[#94A3B8] text-[14px] leading-relaxed">{step.desc}</p>
-                    </div>
 
-                    {/* Circle number on the line */}
-                    <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-4 md:top-1/2 md:-translate-y-1/2 w-[40px] h-[40px] rounded-full bg-[#F97316] flex items-center justify-center text-white font-bold text-sm shadow-md shrink-0 z-10 transition-transform duration-300 hover:scale-110">
-                      {step.num}
+                return (
+                  <article key={step.num} className="relative grid grid-cols-[40px_minmax(0,1fr)] gap-4 md:min-h-[190px] md:grid-cols-[minmax(0,1fr)_88px_minmax(0,1fr)] md:items-center md:gap-6">
+                    <div className="relative z-10 col-start-1 flex h-10 w-10 items-center justify-center rounded-full border-4 border-[#f5f6f8] bg-accent text-sm font-black text-white shadow-[0_0_0_1px_rgba(230,43,43,0.25)] md:col-start-2 md:row-start-1 md:mx-auto md:h-12 md:w-12 md:text-base">
+                      {idx + 1}
                     </div>
-                  </motion.div>
+                    <div className={`col-start-2 row-start-1 rounded-xl border-l-4 border-accent bg-[#111820] p-5 text-white shadow-[0_10px_24px_rgba(17,24,32,0.12)] md:p-7 ${isLeft ? 'md:col-start-1' : 'md:col-start-3'}`}>
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-accent/40 text-accent">
+                        {step.icon}
+                      </div>
+                      <h3 className="mb-2 text-lg font-black md:text-xl">{step.title}</h3>
+                      <p className="text-sm leading-6 text-slate-300 md:text-base md:leading-7">{step.desc}</p>
+                    </div>
+                  </article>
                 );
               })}
             </div>
           </div>
         </div>
       </section>
+
+      <HomeCoverageSection />
 
       {/* ════════════════════════════════════════════════════════════════════
           🟠  CUSTOMER REVIEWS
@@ -373,7 +388,7 @@ export default function Home() {
             {reviews.map((review, idx) => (
               <div
                 key={idx}
-                className={`w-[280px] sm:w-[320px] md:w-auto snap-center shrink-0 p-6 rounded-[12px] shadow-xl transition-all duration-300 hover:scale-[1.02] hover:z-10 cursor-pointer flex flex-col justify-between h-full whitespace-normal ${review.style}`}
+                className="w-[280px] sm:w-[320px] md:w-auto snap-center shrink-0 p-6 rounded-[12px] border border-white/10 bg-[#1E293B] text-white flex flex-col justify-between h-full whitespace-normal"
               >
                 <div>
                   <div className="flex justify-between items-start mb-4">
@@ -382,6 +397,10 @@ export default function Home() {
                       <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                       <span className="text-xs font-bold">{review.rating}</span>
                     </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-4 text-[10px] font-bold uppercase tracking-wide text-slate-300">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/20 px-2.5 py-1"><MapPin className="w-3 h-3 text-accent" />{review.city}</span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/20 px-2.5 py-1"><Wrench className="w-3 h-3 text-accent" />{review.vehicle}</span>
                   </div>
                   <p className="text-[14px] leading-relaxed opacity-90">"{review.text}"</p>
                 </div>
@@ -483,17 +502,45 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          🟠  QUERY / REPORT FORM
+          🟠  CONTACT
       ════════════════════════════════════════════════════════════════════ */}
-      <section id="query-form" className="py-12 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Support</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Report a Problem / Query</h2>
-            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Have an issue with a booking, repair, or want to ask something? Let us know below.</p>
+      <section id="contact" className="py-8 md:py-16 bg-[#F8FAFC]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-6 md:mb-14">
+            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Contact</span>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Contact Us</h2>
+            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Call or email us. We respond within 2 hours.</p>
           </div>
 
-          <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-10 shadow-sm relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 md:gap-8 items-start">
+            {/* Contact details */}
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-4">
+              {[
+                { icon: <Phone className="w-5 h-5 text-accent" />, label: "Phone",         value: "+91 87459 45682",     note: "Call us between 8AM and 8PM" },
+                { icon: <Mail  className="w-5 h-5 text-accent" />, label: "Email",         value: "support@fixwheel.app", note: "We reply within 2 hours" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex min-w-0 items-start gap-2.5 bg-white border border-gray-100 rounded-xl p-3 md:p-5 shadow-sm"
+                >
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">{item.icon}</div>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-0.5">{item.label}</p>
+                    <p className="text-black font-bold text-[11px] break-words sm:text-sm md:text-base">{item.value}</p>
+                    <p className="hidden sm:block text-gray-500 text-xs mt-0.5">{item.note}</p>
+                  </div>
+                </motion.div>
+              ))}
+
+
+            </div>
+          <div id="query-form" className="bg-white border border-gray-100 rounded-xl md:rounded-3xl p-4 sm:p-6 md:p-10 shadow-sm relative overflow-hidden">
+            <h3 className="text-lg md:text-xl font-black uppercase mb-2 md:mb-3">Report a Problem / Query</h3>
+            <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6">Have an issue with a booking, repair, or want to ask something? Let us know below.</p>
             {/* Left accent strip */}
             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-accent" />
 
@@ -519,14 +566,14 @@ export default function Home() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleQuerySubmit} className="space-y-6">
+              <form onSubmit={handleQuerySubmit} className="space-y-4 md:space-y-6">
                 {queryError && (
                   <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium">
                     {queryError}
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {/* Name field */}
                   <div>
                     <label htmlFor="query-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
@@ -540,7 +587,7 @@ export default function Home() {
                       onChange={handleQueryChange}
                       placeholder="Your name"
                       disabled={isSubmittingQuery}
-                      className={`w-full bg-gray-50 border ${validationErrors.name ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                      className={`w-full bg-gray-50 border ${validationErrors.name ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
                     />
                     {validationErrors.name && (
                       <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.name}</p>
@@ -563,7 +610,7 @@ export default function Home() {
                         placeholder="10-digit number"
                         disabled={isSubmittingQuery}
                         maxLength={10}
-                        className={`w-full bg-gray-50 border ${validationErrors.phone ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl pl-12 pr-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                        className={`w-full bg-gray-50 border ${validationErrors.phone ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl pl-12 pr-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
                       />
                     </div>
                     {validationErrors.phone && (
@@ -585,7 +632,7 @@ export default function Home() {
                     onChange={handleQueryChange}
                     placeholder="example@gmail.com"
                     disabled={isSubmittingQuery}
-                    className={`w-full bg-gray-50 border ${validationErrors.email ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                    className={`w-full bg-gray-50 border ${validationErrors.email ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
                   />
                   {validationErrors.email && (
                     <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.email}</p>
@@ -604,8 +651,8 @@ export default function Home() {
                     onChange={handleQueryChange}
                     placeholder="Please describe the issue or your question in detail..."
                     disabled={isSubmittingQuery}
-                    rows={4}
-                    className={`w-full bg-gray-50 border ${validationErrors.message ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all resize-none`}
+                    rows={3}
+                    className={`w-full bg-gray-50 border ${validationErrors.message ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all resize-none`}
                   />
                   {validationErrors.message && (
                     <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.message}</p>
@@ -613,11 +660,11 @@ export default function Home() {
                 </div>
 
                 {/* Submit button */}
-                <div className="flex justify-end pt-2">
+                <div className="flex justify-end pt-0 md:pt-2">
                   <button
                     type="submit"
                     disabled={isSubmittingQuery}
-                    className={`inline-flex items-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-8 py-4 rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
+                    className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-7 py-3 md:px-8 md:py-4 rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {isSubmittingQuery ? (
                       <>
@@ -638,106 +685,11 @@ export default function Home() {
               </form>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════════
-          🟠  CONTACT
-      ════════════════════════════════════════════════════════════════════ */}
-      <section id="contact" className="py-10 md:py-16 bg-[#F8FAFC]">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Contact</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Contact Us</h2>
-            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Call or email us. We respond within 2 hours.</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {/* Contact details */}
-            <div className="space-y-4">
-              {[
-                { icon: <Phone className="w-5 h-5 text-accent" />, label: "Phone",         value: "+91 87459 45682",     note: "Call us between 8AM and 8PM" },
-                { icon: <Mail  className="w-5 h-5 text-accent" />, label: "Email",         value: "support@fixwheel.app", note: "We reply within 2 hours" },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl p-4 md:p-5 shadow-sm"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">{item.icon}</div>
-                  <div>
-                    <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-0.5">{item.label}</p>
-                    <p className="text-black font-bold text-sm md:text-base">{item.value}</p>
-                    <p className="text-gray-500 text-xs mt-0.5">{item.note}</p>
-                  </div>
-                </motion.div>
-              ))}
-
-
-            </div>
           </div>
         </div>
       </section>
 
 
     </main>
-  );
-}
-
-function Step1Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-      <line x1="12" y1="18" x2="12.01" y2="18" />
-    </svg>
-  );
-}
-
-function Step2Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
-  );
-}
-
-function Step3Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 19a6 6 0 0 0-12 0" />
-      <circle cx="8" cy="9" r="4" />
-      <path d="m20.61 14.39-1.92 1.92a2 2 0 1 0 2.82 2.82l1.92-1.92a2 2 0 0 0-2.82-2.82Z" />
-      <path d="m14 11 3.54 3.54" />
-    </svg>
-  );
-}
-
-function Step4Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  );
-}
-
-function Step5Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  );
-}
-
-function Step6Icon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m12 14 4-4" />
-      <path d="M3.34 16.998a10 10 0 1 1 17.32 0" />
-    </svg>
   );
 }

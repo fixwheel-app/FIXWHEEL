@@ -30,7 +30,6 @@ const LEGACY_SERVICE_URLS = [
   "/premium-bike-service",
   "/commuter-bike-service",
   "/electric-scooter-repair",
-  "/royal-enfield-service",
   "/sports-bike-service",
   "/scooty-repair",
 ];

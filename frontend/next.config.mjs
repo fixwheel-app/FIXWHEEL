@@ -94,31 +94,16 @@ const nextConfig = {
         destination: '/electric-scooter-repair/:city/:locality+',
         permanent: true,
       },
-      // 301 Permanent Redirects for Royal Enfield service pages (moved to root /royal-enfield-service, locality pages removed)
+      // Retired Royal Enfield service URLs go directly to the canonical brand page.
       {
-        source: '/services/royal-enfield-service',
-        destination: '/royal-enfield-service',
-        permanent: true,
-      },
-      {
-        source: '/services/royal-enfield-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/royal-enfield-service/:city',
-        permanent: true,
-      },
-      {
-        source: '/services/royal-enfield-service/:city/:locality+',
-        destination: '/royal-enfield-service/:city',
-        permanent: true,
-      },
-      {
-        source: '/royal-enfield-service/:city/:locality+',
-        destination: '/royal-enfield-service/:city',
-        permanent: true,
+        source: '/royal-enfield-service/:path*',
+        destination: '/royal-enfield',
+        statusCode: 301,
       },
       {
         source: '/services/royal-enfield-service/:path*',
-        destination: '/royal-enfield-service',
-        permanent: true,
+        destination: '/royal-enfield',
+        statusCode: 301,
       },
       // 301 Permanent Redirects for Commuter Bike service pages (moved to root /commuter-bike-service, locality pages removed)
       {
