@@ -345,22 +345,22 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto max-w-5xl">
-            <div className="absolute bottom-6 left-5 top-6 w-0.5 bg-accent/35 md:left-1/2 md:-translate-x-1/2" />
+            <div className="absolute bottom-6 left-1/2 top-6 w-0.5 -translate-x-1/2 bg-accent/35" />
             <div className="space-y-6 md:space-y-12">
               {steps.map((step, idx) => {
                 const isLeft = idx % 2 === 0;
 
                 return (
-                  <article key={step.num} className="relative grid grid-cols-[40px_minmax(0,1fr)] gap-4 md:min-h-[190px] md:grid-cols-[minmax(0,1fr)_88px_minmax(0,1fr)] md:items-center md:gap-6">
-                    <div className="relative z-10 col-start-1 flex h-10 w-10 items-center justify-center rounded-full border-4 border-[#f5f6f8] bg-accent text-sm font-black text-white shadow-[0_0_0_1px_rgba(230,43,43,0.25)] md:col-start-2 md:row-start-1 md:mx-auto md:h-12 md:w-12 md:text-base">
+                  <article key={step.num} className="relative grid grid-cols-[minmax(0,1fr)_32px_minmax(0,1fr)] items-center gap-2 md:min-h-[190px] md:grid-cols-[minmax(0,1fr)_88px_minmax(0,1fr)] md:gap-6">
+                    <div className="relative z-10 col-start-2 row-start-1 mx-auto flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#f5f6f8] bg-accent text-xs font-black text-white shadow-[0_0_0_1px_rgba(230,43,43,0.25)] md:h-12 md:w-12 md:text-base">
                       {idx + 1}
                     </div>
-                    <div className={`col-start-2 row-start-1 rounded-xl border-l-4 border-accent bg-[#111820] p-5 text-white shadow-[0_10px_24px_rgba(17,24,32,0.12)] md:p-7 ${isLeft ? 'md:col-start-1' : 'md:col-start-3'}`}>
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-accent/40 text-accent">
+                    <div className={`min-w-0 row-start-1 rounded-xl border-l-4 border-accent bg-[#111820] p-3 text-white shadow-[0_10px_24px_rgba(17,24,32,0.12)] md:p-7 ${isLeft ? 'col-start-1' : 'col-start-3'}`}>
+                      <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg border border-accent/40 text-accent md:mb-4 md:h-10 md:w-10">
                         {step.icon}
                       </div>
-                      <h3 className="mb-2 text-lg font-black md:text-xl">{step.title}</h3>
-                      <p className="text-sm leading-6 text-slate-300 md:text-base md:leading-7">{step.desc}</p>
+                      <h3 className="mb-2 break-words text-sm font-black leading-5 md:text-xl md:leading-7">{step.title}</h3>
+                      <p className="break-words text-xs leading-5 text-slate-300 md:text-base md:leading-7">{step.desc}</p>
                     </div>
                   </article>
                 );
