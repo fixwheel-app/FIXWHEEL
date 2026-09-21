@@ -505,16 +505,16 @@ export default function Home() {
           🟠  CONTACT
       ════════════════════════════════════════════════════════════════════ */}
       <section id="contact" className="py-8 md:py-16 bg-[#F8FAFC]">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-6 md:mb-14">
+        <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-6 md:mb-10">
             <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Contact</span>
             <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Contact Us</h2>
             <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Call or email us. We respond within 2 hours.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 md:gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.35fr] gap-4 md:gap-6 lg:items-stretch">
             {/* Contact details */}
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-4">
+            <div className="grid grid-cols-2 gap-3 lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:gap-4">
               {[
                 { icon: <Phone className="w-5 h-5 text-accent" />, label: "Phone",         value: "+91 87459 45682",     note: "Call us between 8AM and 8PM" },
                 { icon: <Mail  className="w-5 h-5 text-accent" />, label: "Email",         value: "support@fixwheel.app", note: "We reply within 2 hours" },
@@ -525,7 +525,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="flex min-w-0 items-start gap-2.5 bg-white border border-gray-100 rounded-xl p-3 md:p-5 shadow-sm"
+                  className="flex min-w-0 items-start gap-2.5 bg-white border border-gray-100 rounded-xl p-3 md:p-5 shadow-sm lg:items-center"
                 >
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">{item.icon}</div>
                   <div className="min-w-0">
@@ -538,9 +538,9 @@ export default function Home() {
 
 
             </div>
-          <div id="query-form" className="bg-white border border-gray-100 rounded-xl md:rounded-3xl p-4 sm:p-6 md:p-10 shadow-sm relative overflow-hidden">
-            <h3 className="text-lg md:text-xl font-black uppercase mb-2 md:mb-3">Report a Problem / Query</h3>
-            <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6">Have an issue with a booking, repair, or want to ask something? Let us know below.</p>
+          <div id="query-form" className="bg-white border border-gray-100 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-sm relative overflow-hidden">
+            <h3 className="text-base md:text-lg font-black uppercase mb-1.5 md:mb-2">Report a Problem / Query</h3>
+            <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">Have an issue with a booking, repair, or want to ask something? Let us know below.</p>
             {/* Left accent strip */}
             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-accent" />
 
@@ -566,17 +566,17 @@ export default function Home() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleQuerySubmit} className="space-y-4 md:space-y-6">
+              <form onSubmit={handleQuerySubmit} className="space-y-3 md:space-y-4">
                 {queryError && (
                   <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium">
                     {queryError}
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   {/* Name field */}
                   <div>
-                    <label htmlFor="query-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    <label htmlFor="query-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
                       Full Name
                     </label>
                     <input
@@ -587,7 +587,7 @@ export default function Home() {
                       onChange={handleQueryChange}
                       placeholder="Your name"
                       disabled={isSubmittingQuery}
-                      className={`w-full bg-gray-50 border ${validationErrors.name ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                      className={`w-full bg-gray-50 border ${validationErrors.name ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-lg px-3.5 py-2.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
                     />
                     {validationErrors.name && (
                       <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.name}</p>
@@ -596,7 +596,7 @@ export default function Home() {
 
                   {/* Phone number field */}
                   <div>
-                    <label htmlFor="query-phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    <label htmlFor="query-phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -610,7 +610,7 @@ export default function Home() {
                         placeholder="10-digit number"
                         disabled={isSubmittingQuery}
                         maxLength={10}
-                        className={`w-full bg-gray-50 border ${validationErrors.phone ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl pl-12 pr-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                        className={`w-full bg-gray-50 border ${validationErrors.phone ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-lg pl-12 pr-3.5 py-2.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
                       />
                     </div>
                     {validationErrors.phone && (
@@ -619,52 +619,54 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Email field */}
-                <div>
-                  <label htmlFor="query-email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="query-email"
-                    name="email"
-                    value={queryForm.email}
-                    onChange={handleQueryChange}
-                    placeholder="example@gmail.com"
-                    disabled={isSubmittingQuery}
-                    className={`w-full bg-gray-50 border ${validationErrors.email ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
-                  />
-                  {validationErrors.email && (
-                    <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.email}</p>
-                  )}
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 md:items-start">
+                  {/* Email field */}
+                  <div>
+                    <label htmlFor="query-email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="query-email"
+                      name="email"
+                      value={queryForm.email}
+                      onChange={handleQueryChange}
+                      placeholder="example@gmail.com"
+                      disabled={isSubmittingQuery}
+                      className={`w-full bg-gray-50 border ${validationErrors.email ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-lg px-3.5 py-2.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all`}
+                    />
+                    {validationErrors.email && (
+                      <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.email}</p>
+                    )}
+                  </div>
 
-                {/* Query message field */}
-                <div>
-                  <label htmlFor="query-message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
-                    Problem or Query
-                  </label>
-                  <textarea
-                    id="query-message"
-                    name="message"
-                    value={queryForm.message}
-                    onChange={handleQueryChange}
-                    placeholder="Please describe the issue or your question in detail..."
-                    disabled={isSubmittingQuery}
-                    rows={3}
-                    className={`w-full bg-gray-50 border ${validationErrors.message ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-xl px-4 py-2.5 md:py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all resize-none`}
-                  />
-                  {validationErrors.message && (
-                    <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.message}</p>
-                  )}
+                  {/* Query message field */}
+                  <div>
+                    <label htmlFor="query-message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+                      Problem or Query
+                    </label>
+                    <textarea
+                      id="query-message"
+                      name="message"
+                      value={queryForm.message}
+                      onChange={handleQueryChange}
+                      placeholder="Describe the issue or question..."
+                      disabled={isSubmittingQuery}
+                      rows={2}
+                      className={`w-full bg-gray-50 border ${validationErrors.message ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:ring-accent/20 focus:border-accent'} rounded-lg px-3.5 py-2.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-4 transition-all resize-none`}
+                    />
+                    {validationErrors.message && (
+                      <p className="text-red-500 text-xs mt-1.5 font-semibold">{validationErrors.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 {/* Submit button */}
-                <div className="flex justify-end pt-0 md:pt-2">
+                <div className="flex justify-end pt-0">
                   <button
                     type="submit"
                     disabled={isSubmittingQuery}
-                    className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-7 py-3 md:px-8 md:py-4 rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
+                    className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-red-600 text-white font-black uppercase tracking-widest px-6 py-2.5 md:px-7 md:py-3 rounded-lg text-sm transition-all shadow-[0_0_20px_rgba(230,43,43,0.3)] hover:shadow-[0_0_35px_rgba(230,43,43,0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {isSubmittingQuery ? (
                       <>
