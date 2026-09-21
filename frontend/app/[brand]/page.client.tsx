@@ -1016,8 +1016,14 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               <div className="eyebrow">{brandData.name} Doorstep Service & Repair · Delhi</div>
               <h1>
                 Doorstep <em>{brandData.name}</em>
-                <br />
-                Bike & Scooter Service
+                {brandSlug === "royal-enfield" ? (
+                  <> Service</>
+                ) : (
+                  <>
+                    <br />
+                    Bike & Scooter Service
+                  </>
+                )}
               </h1>
               <p className="lead">{brandData.description}</p>
 
