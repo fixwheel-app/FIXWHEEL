@@ -3,7 +3,7 @@ import HomeClient from './page.client';
 
 export const metadata: Metadata = {
   title: "Bike Repair Near Me | Doorstep Bike Mechanic Near Me – FixWheel",
-  description: "Searching for bike repair near me or a bike mechanic near me? FixWheel dispatches certified two-wheeler mechanics to your home, office, or parking in 45 mins across Delhi & Gurgaon. 100% genuine parts, flat rates, 15-day warranty.",
+  description: "Searching for bike repair near me or a bike mechanic near me? FixWheel dispatches certified two-wheeler mechanics to your home, office, or parking in 45 mins across Delhi & Gurgaon. 100% genuine parts, transparent pricing, 15-day warranty.",
   keywords: [
     "bike repair near me",
     "bike mechanic near me",

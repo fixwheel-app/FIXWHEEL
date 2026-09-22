@@ -89,7 +89,7 @@ export async function generateMetadata({
       openGraph: {
         type: "website",
         title: `${cleanTitle} in ${cityData.name} – Doorstep Repair | FixWheel`,
-        description: `Book doorstep ${cleanTitle.toLowerCase()} in ${cityData.name}. Certified mechanics, 45-min arrival, flat rates, 15-day warranty.`,
+        description: `Book doorstep ${cleanTitle.toLowerCase()} in ${cityData.name}. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
         url: `https://www.fixwheel.app/services/${params.service}/${params.city}`,
       },
     };
@@ -102,7 +102,7 @@ export async function generateMetadata({
     if (localityData) {
       return {
         title: `Doorstep Bike Repair in ${localityData.name}, ${cityConfig.name} | FixWheel`,
-        description: `Book verified doorstep bike mechanic in ${localityData.name}, ${cityConfig.name}. Fast 45-minute arrival for all two-wheelers. Flat rates, 15-day warranty.`,
+        description: `Book verified doorstep bike mechanic in ${localityData.name}, ${cityConfig.name}. Fast 45-minute arrival for all two-wheelers. Transparent pricing, 15-day warranty.`,
         alternates: {
           canonical: `https://www.fixwheel.app/services/${params.service}/${params.city}`,
         },

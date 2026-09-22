@@ -447,7 +447,7 @@ export default function PricingClientPage() {
         <div className="wrap">
           <div className="hero-grid">
             <div className="hero-text">
-              <div className="eyebrow">Official Rate Card · 100% Flat Pricing</div>
+              <div className="eyebrow">Official Rate Card · 100% Transparent Pricing</div>
               <h1>Doorstep Two Wheeler Service Charges</h1>
               <p>
                 No surprise bills or hidden mechanics fees. Inspect exact labor charges for commuter motorcycles, performance tourers, scooters, and electric EVs across Delhi-NCR.
@@ -469,7 +469,7 @@ export default function PricingClientPage() {
               </div>
               <div className="ticket-price-main">Starting ₹399</div>
               <p style={{ fontSize: '13px', color: '#5A5D62', marginBottom: '16px' }}>
-                Doorstep minor mechanical adjustments, cable replacements, and tuning. Flat rates based on engine CC.
+                Doorstep minor mechanical adjustments, cable replacements, and tuning. Transparent pricing based on engine CC.
               </p>
               <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '11px', color: 'var(--ink-dark)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <div>• 15-Day FixWheel Labor Warranty</div>
@@ -527,7 +527,7 @@ export default function PricingClientPage() {
 
                   <div className="price-box">
                     <div className="price-val">{formattedPrice}</div>
-                    {isNumeric && <span className="price-unit">/ flat rate</span>}
+                    {isNumeric && <span className="price-unit">/ transparent price</span>}
                   </div>
 
                   <div className="feature-list">
@@ -623,7 +623,7 @@ export default function PricingClientPage() {
         <div className="wrap">
           <h2 style={{ fontSize: '38px', color: 'var(--paper)', marginBottom: '16px' }}>Ready to Schedule Your Doorstep Service?</h2>
           <p style={{ color: '#A7A9AC', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
-            Get a verified mobile mechanic at your home or office in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad. Flat rates, zero traveling fee, 15-day warranty.
+            Get a verified mobile mechanic at your home or office in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad. Transparent pricing, zero traveling fee, 15-day warranty.
           </p>
           <Link href="/book" className="btn btn-primary">
             Book Your Service Now →

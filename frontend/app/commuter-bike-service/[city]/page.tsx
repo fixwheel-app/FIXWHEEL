@@ -37,7 +37,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       title: `Commuter Bike Service in ${cityData.name} – Doorstep Repair | FixWheel`,
-      description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics, 45-min arrival, flat rates, 15-day warranty.`,
+      description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
       url: `https://www.fixwheel.app/commuter-bike-service/${citySlug}`,
     },
   };

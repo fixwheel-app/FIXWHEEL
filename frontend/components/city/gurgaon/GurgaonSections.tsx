@@ -73,7 +73,7 @@ const gurgaonConfig: CityPageConfig = {
     cards: [
       { title: "We come to you", text: "Our mechanic will visit your home, office, or any location in Gurgaon. You do not have to move your bike." },
       { title: "Trained mechanics", text: "All our mechanics are trained, verified, and background-checked before joining the platform." },
-      { title: "Fixed pricing", text: "We give you a clear price before we start working. There are no hidden fees or surprise costs." },
+      { title: "Transparent pricing", text: "We give you a clear price before we start working. There are no hidden fees or surprise costs." },
       { title: "Fast arrival", text: "Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 45 minutes." },
     ],
   },
@@ -115,7 +115,7 @@ const gurgaonConfig: CityPageConfig = {
     { title: "1. Book a slot", text: "Pick your service and choose a time on our app or website." },
     { title: "2. Mechanic assigned", text: "We assign a verified mechanic near you." },
     { title: "3. Service at your doorstep", text: "The mechanic repairs your bike at your home or office." },
-    { title: "4. Pay and rate", text: "Pay the fixed price online or cash and rate the mechanic." },
+    { title: "4. Pay and rate", text: "Pay the transparent price online or cash and rate the mechanic." },
   ],
   reviews: {
     heading: "What our customers say",

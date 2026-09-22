@@ -38,12 +38,12 @@ export default function Home() {
   ];
 
   const homeServices: { name: string; href: string; priceId: ServicePriceId; note: string }[] = [
-    { name: "Basic Service", href: "/services/basic-service", priceId: "basic-service", note: "General service" },
-    { name: "Engine Oil Change", href: "/services/oil-change", priceId: "service-engine-oil", note: "Service with engine oil" },
-    { name: "Engine Repair", href: "/services/engine-repair", priceId: "engine-half", note: "Engine half overhaul" },
-    { name: "Brake Repair", href: "/services/brake-repair", priceId: "disc-replacement", note: "Disc replacement labor" },
-    { name: "Battery Replacement", href: "/services/battery-replacement", priceId: "battery-replacement", note: "Labor only; battery charged separately" },
-    { name: "Tyre Replacement/Repair", href: "/services/puncture", priceId: "puncture", note: "Puncture repair; replacement quoted separately" },
+    { name: "Basic Service", href: "/services", priceId: "basic-service", note: "General service" },
+    { name: "Jump Start", href: "/services", priceId: "jump-start", note: "Emergency battery jump-start" },
+    { name: "Engine Repair", href: "/services", priceId: "engine-half", note: "Engine half overhaul" },
+    { name: "Brake Repair", href: "/services", priceId: "disc-replacement", note: "Disc replacement labor" },
+    { name: "Roadside Assistance", href: "/services", priceId: "battery-replacement", note: "Emergency roadside assistance" },
+    { name: "Tyre Replacement/Repair", href: "/services", priceId: "puncture", note: "Puncture repair; replacement quoted separately" },
   ];
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────
@@ -140,7 +140,7 @@ export default function Home() {
   const faqs = [
     { q: "What services does FixWheel provide?",
       a: "FixWheel provides doorstep bike repair, maintenance, and servicing. Our services include routine servicing, oil changes, engine repairs, tyre replacements, brake repairs, battery replacements, washing, and emergency roadside assistance." },
-    { q: "Are the prices fixed or are there additional charges?",
+    { q: "Can the final service price change?",
       a: "Our prices are transparent and estimated based on the selected service. If any additional repair or spare part is required, the mechanic will inform you of the cost and get your approval before proceeding. There are no hidden charges." },
     { q: "How do I know the mechanic is verified?",
       a: "Yes. Every FixWheel mechanic is background-checked and trained on two-wheeler repair. You can rate your mechanic after every service, and we follow up on any complaint." },

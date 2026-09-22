@@ -140,7 +140,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 56",
     landmarks: ["Sector 56 Market", "DAV Public School", "Metro Hospital"],
     description: "Sector 56 is a well-populated residential zone with busy markets and hospitals. Roadside mechanics here often overcharge and use unverified parts.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["DAV School road", "Metro Hospital stretch", "Sector 56 Market area", "Block B residential gate", "Block F pockets", "Devi Mandir road"],
     reviewers: [
       { name: "Sudhir Pandey", detail: "Near Metro Hospital", comment: "Fast service during a medical emergency. The mechanic jump-started my scooter in 45 minutes." },
@@ -206,7 +206,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 78",
     landmarks: ["Mahagun Moderne", "Hyde Park", "Sector 78 Metro"],
     description: "Sector 78 has busy metro corridors and premium high-rise apartments. Pushing bikes through traffic to local garages is unsafe and tedious.",
-    whyChoose: "We dispatch mobile mechanics directly to your society basement, offering flat-rate pricing and standard labor guarantees.",
+    whyChoose: "We dispatch mobile mechanics directly to your society basement, offering transparent pricing and standard labor guarantees.",
     societies: ["Mahagun Moderne basement", "Hyde Park gate", "Sector 78 Metro Exit", "The IITL Nimbus Hyde Park", "Mahagun Mezzaria entrance", "Sector 78 Commercial Zone"],
     reviewers: [
       { name: "Alok Nath", detail: "Mahagun Moderne", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
@@ -349,7 +349,7 @@ const RAW_LOCALITY_META: Record<
     name: "Greater Noida West",
     landmarks: ["Gaur City", "Gaur City Mall", "Ek Murti Chowk"],
     description: "Greater Noida West (Noida Extension) has massive high-rise townships with high traffic. Finding a reliable local mechanic without waiting in long queues is extremely difficult.",
-    whyChoose: "We send verified mechanics to your society basement or parking slot, providing reliable, flat-rate repairs on-site.",
+    whyChoose: "We send verified mechanics to your society basement or parking slot, providing reliable, transparently priced repairs on-site.",
     societies: ["Gaur City 1 & 2 basements", "Gaur Mall parking area", "Ek Murti Chowk stretch", "Cherry County gate", "Supertech Eco Village", "Stellar Jeevan entrance"],
     reviewers: [
       { name: "Jasprit Bumrah", detail: "Gaur City 2", comment: "Amazing convenience. The mechanic serviced my scooter in the basement while I was working from home. No hassle at all." },
@@ -426,7 +426,7 @@ const RAW_LOCALITY_META: Record<
     name: "Noida Extension",
     landmarks: ["Gaur City Mall", "Char Murti Chowk", "Cherry County"],
     description: "Noida Extension (Greater Noida West) features sprawling high-rise residential projects and heavy commuter traffic. Dragging a bike to roadside workshops is tiring.",
-    whyChoose: "Get a certified mechanic at your society basement or parking slot, providing reliable, flat-rate repairs on-site.",
+    whyChoose: "Get a certified mechanic at your society basement or parking slot, providing reliable, transparently priced repairs on-site.",
     societies: ["Gaur City Mall basement", "Char Murti Chowk stretch", "Cherry County entrance", "Supertech Eco Village enclaves", "Stellar Jeevan parking", "Nirala Estate gate"],
     reviewers: [
       { name: "Yuzvendra Chahal", detail: "Gaur City Mall", comment: "Routine servicing done perfectly at home. Clean work, honest advice, and transparent billing." },

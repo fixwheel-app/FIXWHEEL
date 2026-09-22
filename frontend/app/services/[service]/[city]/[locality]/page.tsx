@@ -83,7 +83,7 @@ export async function generateMetadata({
 
   return {
     title: `${cleanTitle} in ${localityData.name}, ${cityConfig.name} – Doorstep Repair | FixWheel`,
-    description: `Book doorstep ${cleanTitle.toLowerCase()} in ${localityData.name}, ${cityConfig.name}. Fast 45-minute mechanic arrival for all two-wheelers in ${localityData.name} (${localityData.subRegionText}). Flat rates, 15-day warranty. FixWheel.`,
+    description: `Book doorstep ${cleanTitle.toLowerCase()} in ${localityData.name}, ${cityConfig.name}. Fast 45-minute mechanic arrival for all two-wheelers in ${localityData.name} (${localityData.subRegionText}). Transparent pricing, 15-day warranty. FixWheel.`,
     keywords: [
       `${cleanTitle.toLowerCase()} in ${localityData.name}`,
       `${cleanTitle.toLowerCase()} near me ${localityData.name}`,

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -51,8 +52,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Contact</h4>
             <ul className="space-y-2 text-xs md:text-sm text-text-secondary mb-4">
-              <li>Phone: +91 87459 45682</li>
-              <li>Email: support@fixwheel.app</li>
+              <li>Phone: <a href="tel:+918745945682" className="hover:text-white transition-colors">+91 87459 45682</a></li>
+              <li>Email: <a href="mailto:support@fixwheel.app" className="hover:text-white transition-colors">support@fixwheel.app</a></li>
             </ul>
             <div className="flex gap-2">
               <a href="https://wa.me/918745945682" target="_blank" rel="noopener noreferrer"
@@ -76,6 +77,11 @@ export default function Footer() {
                 aria-label="LinkedIn"
                 className="w-10 h-10 flex items-center justify-center bg-[#0077b5] hover:bg-[#006396] text-white rounded-lg transition-all duration-200 border border-blue-300/20 hover:scale-105 active:scale-95 shadow-md">
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN" target="_blank" rel="noopener noreferrer"
+                aria-label="Download FixWheel on Google Play"
+                className="w-10 h-10 flex items-center justify-center bg-[#1f2937] hover:bg-[#111827] text-white rounded-lg transition-all duration-200 border border-white/10 hover:scale-105 active:scale-95 shadow-md">
+                <GooglePlayIcon className="w-5 h-5" />
               </a>
             </div>
           </div>

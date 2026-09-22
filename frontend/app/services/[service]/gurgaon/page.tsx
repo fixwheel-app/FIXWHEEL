@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: { service: string }
     openGraph: {
       type: "website",
       title: `${cleanTitle} in Gurgaon – Doorstep Repair | FixWheel`,
-      description: `Book doorstep ${cleanTitle.toLowerCase()} in Gurgaon. Certified mechanics, 45-min arrival, flat rates, 15-day warranty.`,
+      description: `Book doorstep ${cleanTitle.toLowerCase()} in Gurgaon. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
       url: `https://www.fixwheel.app/services/${params.service}/gurgaon`,
     },
   };

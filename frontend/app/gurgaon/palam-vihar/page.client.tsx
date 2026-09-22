@@ -464,7 +464,7 @@ export default function PalamViharClientPage() {
           <div className="section-head">
             <div className="eyebrow">Palam Vihar</div>
             <h2>Two Wheeler Mechanic in Palam Vihar, Gurgaon</h2>
-            <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong> with flat pricing, verified mechanics, and a 15-day labor warranty.</p>
+            <p>If you are searching for a verified <strong>two wheeler mechanic near me</strong> or <strong>doorstep repair near me</strong>, we offer reliable <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong> with transparent pricing, verified mechanics, and a 15-day labor warranty.</p>
           </div>
           <div className="trust-strip">
             <div className="trust-cell"><b>45 min</b><span>Arrival time</span></div>

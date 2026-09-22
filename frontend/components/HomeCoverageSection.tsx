@@ -303,7 +303,7 @@ export default function HomeCoverageSection() {
               </div>
             ))}
             <Link href={`/${activeCity.slug}`} className="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50/50 p-3 text-xs font-bold text-[#e62b2b] transition-colors hover:border-red-400 hover:bg-red-50 md:text-sm">
-              View {activeCity.shortName} Page <ArrowRight className="h-4 w-4 shrink-0" />
+              View {activeCity.shortName} <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
           </div>
 
@@ -317,7 +317,7 @@ export default function HomeCoverageSection() {
               </p>
             </div>
             <Link href={`/${activeCity.slug}`} className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[#e62b2b] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#c92222] sm:w-auto">
-              View {activeCity.shortName} Page <ArrowRight className="h-4 w-4" />
+              View {activeCity.shortName} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

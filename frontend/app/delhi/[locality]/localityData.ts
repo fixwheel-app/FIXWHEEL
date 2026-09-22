@@ -370,7 +370,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Can you service my bike in the narrow lanes of Uttam Nagar?", a: "Yes, our mobile mechanics travel on commuter bikes carrying all compact toolkits, making it easy to reach narrow lanes." },
-      { q: "Is pricing fixed for all blocks?", a: "Yes, starting at ₹550. Any spare parts added will be pre-approved by you." }
+      { q: "Is pricing transparent for all blocks?", a: "Yes, starting at ₹550. Any spare parts added will be pre-approved by you." }
     ],
     topServices: [
       { rank: "#1 IN UTTAM NAGAR", title: "Basic Service", desc: "General mechanical check, plug clean, chain lube.", link: "/services/basic-service" },
@@ -551,7 +551,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     reviewCount: "76",
     subRegionText: "Nihal Vihar Main Road, Chander Vihar border, Nangloi road stretch, and Paschim Vihar boundary.",
     heroText: "FixWheel doorstep bike repair and scooter service in Nihal Vihar, Delhi. Mobile mechanics arrive at your home with genuine parts to repair your two-wheeler.",
-    whyChooseText: "Getting your bike serviced in local Nihal Vihar shops often involves long wait times and sub-standard parts. FixWheel guarantees quality service and flat pricing.",
+    whyChooseText: "Getting your bike serviced in local Nihal Vihar shops often involves long wait times and sub-standard parts. FixWheel guarantees quality service and transparent pricing.",
     coveragePoints: [
       "Nihal Vihar Main Road",
       "Chander Vihar Border Area",
@@ -697,7 +697,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Are your mechanics background-verified in Punjabi Bagh?", a: "Yes, every mechanic on our platform undergoes rigorous identity and background checks." },
-      { q: "Is pricing fixed for all scooter brands?", a: "Yes, starting at ₹550. The price is pre-agreed before the job begins." }
+      { q: "Is pricing transparent for all scooter brands?", a: "Yes, starting at ₹550. The price is agreed before the job begins." }
     ],
     topServices: [
       { rank: "#1 IN PUNJABI BAGH", title: "Basic Service", desc: "General tuning, electrical system check, brake adjustment.", link: "/services/basic-service" },
@@ -880,7 +880,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     reviewCount: "86",
     subRegionText: "Furniture Market stretch, Industrial Area Phase 1 & 2, Ramesh Nagar border, and Patel Nagar boundary.",
     heroText: "Doorstep bike mechanic and two-wheeler servicing in Kirti Nagar, Delhi. Avoid local garage queues — we send a trained mechanic to your location with all required tools.",
-    whyChooseText: "Getting your bike serviced in local Kirti Nagar shops often involves long wait times and sub-standard parts. FixWheel guarantees quality service and flat pricing.",
+    whyChooseText: "Getting your bike serviced in local Kirti Nagar shops often involves long wait times and sub-standard parts. FixWheel guarantees quality service and transparent pricing.",
     coveragePoints: [
       "Furniture Market Road",
       "Industrial Area Phase 1 & 2 Blocks",

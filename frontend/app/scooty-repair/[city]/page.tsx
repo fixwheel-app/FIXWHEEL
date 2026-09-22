@@ -37,7 +37,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       title: `Scooty Repair in ${cityData.name} – Doorstep Service | FixWheel`,
-      description: `Book doorstep scooty & scooter repair in ${cityData.name}. Certified mechanics, 45-min arrival, flat rates, 15-day warranty.`,
+      description: `Book doorstep scooty & scooter repair in ${cityData.name}. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
       url: `https://www.fixwheel.app/scooty-repair/${citySlug}`,
     },
   };

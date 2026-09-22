@@ -85,7 +85,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 11",
     landmarks: ["Sector 11 Market", "Sector 11 Pockets", "Milestone school road"],
     description: "Sector 11 has active residential pockets. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Sector 11 Market Lane", "Block B Residential Pockets", "Milestone School Road", "Pocket E Gate", "Sector 11 Central Avenue", "Near Sector 11 Park"],
     reviewers: [
       { name: "Nikhil Chaudhary", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -140,7 +140,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 17",
     landmarks: ["Sector 17 Market", "Sector 17 Blocks", "Main Avenue"],
     description: "Sector 17 is a planned residential zone with busy markets. Roadside mechanics here often use unverified parts.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Sector 17 Market Lane", "Block B Residential Pockets", "Main Avenue Sector 17", "Pocket D Gate", "Sector 17 Central Avenue", "Near Sector 17 Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -195,7 +195,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 28",
     landmarks: ["Sector 28 Metro", "Sector 28 Market", "Block A pockets"],
     description: "Sector 28 has busy metro corridors and premium high-rise apartments. Pushing bikes through traffic to local garages is unsafe and tedious.",
-    whyChoose: "We dispatch mobile mechanics directly to your society basement, offering flat-rate pricing and standard labor guarantees.",
+    whyChoose: "We dispatch mobile mechanics directly to your society basement, offering transparent pricing and standard labor guarantees.",
     societies: ["Sector 28 Metro Exit", "Sector 28 Market Lane", "Block A Residential Road", "Block B Gate", "Main Sector Road", "Near Metro Station"],
     reviewers: [
       { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
@@ -206,7 +206,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 29",
     landmarks: ["Sector 29 Market", "Sector 29 Blocks", "Main Avenue"],
     description: "Sector 29 has planned residential blocks. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Sector 29 Market Lane", "Block B Residential Pockets", "Main Avenue Sector 29", "Pocket D Gate", "Sector 29 Central Avenue", "Near Sector 29 Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -239,7 +239,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 46",
     landmarks: ["Sector 46 Market", "Sector 46 Blocks", "Main Avenue"],
     description: "Sector 46 has active residential pockets. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Sector 46 Market Lane", "Block B Residential Pockets", "Main Avenue Sector 46", "Pocket D Gate", "Sector 46 Central Avenue", "Near Sector 46 Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -250,7 +250,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 55",
     landmarks: ["Sector 55 Market", "Block A Pockets", "Main Avenue"],
     description: "Sector 55 has active residential pockets. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Sector 55 Market Lane", "Block B Residential Pockets", "Main Avenue Sector 55", "Pocket D Gate", "Sector 55 Central Avenue", "Near Sector 55 Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -294,7 +294,7 @@ const RAW_LOCALITY_META: Record<
     name: "Sector 89",
     landmarks: ["Puri Pranayam", "Sector 89 blocks", "Main Avenue"],
     description: "Sector 89 has planned residential blocks. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Puri Pranayam Gate", "Block B Residential Pockets", "Main Avenue Sector 89", "Pocket D Gate", "Sector 89 Central Avenue", "Near Sector 89 Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },
@@ -305,7 +305,7 @@ const RAW_LOCALITY_META: Record<
     name: "Old Faridabad",
     landmarks: ["Old Faridabad Metro", "Old Faridabad Market", "Traditional Commercial"],
     description: "Old Faridabad features busy metro corridors and traditional markets. Pushing bikes through traffic to local garages is unsafe and tedious.",
-    whyChoose: "We dispatch mobile mechanics directly to your location, offering flat-rate pricing and standard labor guarantees.",
+    whyChoose: "We dispatch mobile mechanics directly to your location, offering transparent pricing and standard labor guarantees.",
     societies: ["Old Faridabad Metro Exit", "Old Faridabad Market Lane", "Block A Residential Road", "Block B Gate", "Main Sector Road", "Near Metro Station"],
     reviewers: [
       { name: "Alok Nath", detail: "Block A", comment: "Quick brake pad replacement and checkup. Done in under 45 minutes in the basement." },
@@ -327,7 +327,7 @@ const RAW_LOCALITY_META: Record<
     name: "Tigaon Road",
     landmarks: ["Tigaon Road Market", "Tigaon Crossing", "Main Avenue"],
     description: "Tigaon Road has active residential pockets. Local workshops often use unverified parts and lack transparent pricing.",
-    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and flat-rate labor services directly at your doorstep.",
+    whyChoose: "FixWheel offers genuine manufacturer-approved spare parts and transparently priced labor services directly at your doorstep.",
     societies: ["Tigaon Road Market Lane", "Block B Residential Pockets", "Main Avenue Tigaon Road", "Pocket D Gate", "Tigaon Road Central Avenue", "Near Tigaon Road Park"],
     reviewers: [
       { name: "Abhinav Singh", detail: "Block B", comment: "Excellent home service. Changed the engine oil and cleaned the spark plug quickly." },

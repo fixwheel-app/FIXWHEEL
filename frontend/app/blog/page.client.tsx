@@ -546,7 +546,7 @@ export default function BlogHubClient({ initialPosts, initialCategories }: BlogH
       <section className="final-cta">
         <div className="wrap">
           <h2>Tired of doing it yourself?</h2>
-          <p>Skip the grease. Book a verified doorstep mechanic from FixWheel for flat rates, transparent inspection, and a 15-day warranty.</p>
+          <p>Skip the grease. Book a verified doorstep mechanic from FixWheel for transparent pricing, a clear inspection, and a 15-day warranty.</p>
           <Link href="/book" className="btn btn-primary">Book Doorstep Service Now →</Link>
         </div>
       </section>

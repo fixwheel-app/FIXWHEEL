@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
+import CityServicesGrid from "@/components/CityServicesGrid";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
@@ -29,7 +30,14 @@ export interface ServicePageProps {
   locationSlug?: string;
 }
 
-const SUPPORTED_BRANDS = [
+interface ServiceBrand {
+  name: string;
+  slug: string;
+  logo: string;
+  models?: string;
+}
+
+const SUPPORTED_BRANDS: ServiceBrand[] = [
   { name: "Honda", slug: "honda", logo: "https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&sz=64" },
   { name: "Hero", slug: "hero", logo: "https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" },
   { name: "Royal Enfield", slug: "royal-enfield", logo: "https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64" },
@@ -46,6 +54,16 @@ const SUPPORTED_BRANDS = [
   { name: "Vespa", slug: "vespa", logo: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64" },
   { name: "Harley-Davidson", slug: "harley-davidson", logo: "https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" },
   { name: "Kawasaki", slug: "kawasaki", logo: "https://www.google.com/s2/favicons?domain=kawasaki-india.com&sz=64" },
+];
+
+const SCOOTER_BRANDS: ServiceBrand[] = [
+  { name: "Honda", slug: "honda", logo: "https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&sz=64", models: "Activa, Dio, Grazia" },
+  { name: "TVS", slug: "tvs", logo: "https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64", models: "Jupiter, Ntorq, Scooty Zest" },
+  { name: "Suzuki", slug: "suzuki", logo: "https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&sz=64", models: "Access 125, Burgman Street, Avenis" },
+  { name: "Hero", slug: "hero", logo: "https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64", models: "Pleasure+, Maestro, Destini, Xoom" },
+  { name: "Yamaha", slug: "yamaha", logo: "https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&sz=64", models: "RayZR, Fascino, Aerox 155" },
+  { name: "Vespa", slug: "vespa", logo: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64", models: "Vespa VXL, SXL, ZX 125/150" },
+  { name: "Aprilia", slug: "aprilia", logo: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64", models: "SR 125/160, SXR 125/160" },
 ];
 
 export default function ServicePageTemplate({
@@ -94,26 +112,39 @@ export default function ServicePageTemplate({
     .replace(/^Doorstep\s+/i, "")
     .trim();
 
+  const isScootyRepair = serviceId === "scooty-repair";
+  const displayedBrands = isScootyRepair ? SCOOTER_BRANDS : SUPPORTED_BRANDS;
+  const breadcrumbItems = isScootyRepair
+    ? [
+        { label: "Home", href: "/" },
+        ...(locationName
+          ? [
+              { label: "Scooty & Scooter Repair", href: "/scooty-repair" },
+              { label: locationName },
+            ]
+          : [{ label: "Scooty & Scooter Repair" }]),
+      ]
+    : [
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        locationName
+          ? {
+              label: cleanServiceName,
+              href: ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "premium-bike-service"].includes(serviceId)
+                ? `/${serviceId}`
+                : `/services/${serviceId}`,
+            }
+          : { label: cleanServiceName },
+        ...(locationName ? [{ label: locationName }] : []),
+      ];
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
       {/* ===== BREADCRUMB ===== */}
       <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="container mx-auto px-4 max-w-6xl">
           <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/services" },
-              locationName
-                ? {
-                    label: cleanServiceName,
-                    href:
-                      ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
-                        ? `/${serviceId}`
-                        : `/services/${serviceId}`,
-                  }
-                : { label: cleanServiceName },
-              ...(locationName ? [{ label: locationName }] : []),
-            ]}
+            items={breadcrumbItems}
           />
         </div>
       </div>
@@ -309,36 +340,137 @@ export default function ServicePageTemplate({
                 HASSLE-FREE WORKFLOW
               </span>
               <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                How Doorstep Bike Service Works
+                {isScootyRepair ? "How Doorstep Scooty Service Works" : "How Doorstep Bike Service Works"}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">01</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">1. Book Online</h3>
-                <p className="text-sm text-slate-600">
-                  Select your bike model and preferred doorstep time slot in under 60 seconds.
-                </p>
+            {isScootyRepair ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    number: "01",
+                    title: "Book Your Service",
+                    description:
+                      "Select your bike, required service, location, date and preferred time.",
+                  },
+                  {
+                    number: "02",
+                    title: "Mechanic Assigned",
+                    description:
+                      "FixWheel confirms your booking and assigns a verified mechanic near your location.",
+                  },
+                  {
+                    number: "03",
+                    title: "Doorstep Service",
+                    description:
+                      "The mechanic arrives with the required tools, inspects your vehicle and completes the approved work.",
+                  },
+                  {
+                    number: "04",
+                    title: "Review & Pay",
+                    description:
+                      "Check the completed service and pay only after the job is finished.",
+                  },
+                ].map((step) => (
+                  <div key={step.number} className="bg-white border border-slate-200 rounded-xl p-6 relative">
+                    <span className="font-mono text-3xl font-bold text-red-100 block mb-2">{step.number}</span>
+                    <h3 className="font-bold text-slate-900 text-lg mb-2">{step.title}</h3>
+                    <p className="text-sm text-slate-600">{step.description}</p>
+                  </div>
+                ))}
               </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
+                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">01</span>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">1. Book Online</h3>
+                  <p className="text-sm text-slate-600">
+                    Select your bike model and preferred doorstep time slot in under 60 seconds.
+                  </p>
+                </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">02</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">2. Mechanic Dispatched</h3>
-                <p className="text-sm text-slate-600">
-                  Our certified technician arrives at your doorstep within 45 minutes with OEM tools.
-                </p>
-              </div>
+                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
+                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">02</span>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">2. Mechanic Dispatched</h3>
+                  <p className="text-sm text-slate-600">
+                    Our certified technician arrives at your doorstep within 45 minutes with OEM tools.
+                  </p>
+                </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                <span className="font-mono text-3xl font-bold text-red-100 block mb-2">03</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">3. Doorstep Service</h3>
-                <p className="text-sm text-slate-600">
-                  Watch full servicing done right in your home or office parking with zero mess.
-                </p>
+                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
+                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">03</span>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">3. Doorstep Service</h3>
+                  <p className="text-sm text-slate-600">
+                    Watch full servicing done right in your home or office parking with zero mess.
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
+
+          {isScootyRepair && (
+            <div className="scooty-service-rail mb-16">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+                <div>
+                  <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
+                    POPULAR DOORSTEP REPAIRS
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
+                    Services We Provide Across Delhi NCR
+                  </h3>
+                  <p className="text-slate-600 text-xs md:text-sm mt-1">
+                    Transparent pricing for periodic servicing, CVT tuning, and emergency breakdown repairs.
+                  </p>
+                </div>
+                <Link href="/pricing" className="text-xs font-mono font-bold uppercase tracking-wider text-red-600 hover:text-red-700 flex items-center gap-1">
+                  View Full Price List →
+                </Link>
+              </div>
+              <CityServicesGrid />
+              <style jsx global>{`
+                .scooty-service-rail .svc-grid {
+                  display: flex !important;
+                  flex-flow: row nowrap !important;
+                  gap: 16px !important;
+                  overflow-x: auto !important;
+                  overflow-y: hidden !important;
+                  padding: 8px 4px 18px !important;
+                  scroll-behavior: smooth !important;
+                  scroll-snap-type: x mandatory !important;
+                  scrollbar-color: #e62b2b #e2e8f0 !important;
+                  scrollbar-width: thin !important;
+                  -webkit-overflow-scrolling: touch !important;
+                }
+                .scooty-service-rail .svc-grid::-webkit-scrollbar { height: 6px !important; }
+                .scooty-service-rail .svc-grid::-webkit-scrollbar-track { background: #e2e8f0 !important; border-radius: 4px !important; }
+                .scooty-service-rail .svc-grid::-webkit-scrollbar-thumb { background: #e62b2b !important; border-radius: 4px !important; }
+                .scooty-service-rail .svc-card {
+                  background: #fff;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 6px;
+                  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+                  box-sizing: border-box !important;
+                  flex: 0 0 310px !important;
+                  min-width: 310px !important;
+                  padding: 26px;
+                  position: relative;
+                  scroll-snap-align: start !important;
+                  transition: border-color .15s ease, transform .15s ease;
+                  width: 310px !important;
+                }
+                .scooty-service-rail .svc-card:hover { border-color: #e62b2b; transform: translateY(-3px); }
+                .scooty-service-rail .svc-tag { color: #e62b2b; display: inline-block; font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: .08em; margin-bottom: 12px; }
+                .scooty-service-rail .svc-card h3 { color: #0f172a; font-size: 17px; letter-spacing: 0; margin-bottom: 10px; text-transform: none; }
+                .scooty-service-rail .svc-card p { color: #475569; font-size: 13.5px; margin-bottom: 16px; min-height: 58px; }
+                .scooty-service-rail .svc-price { color: #0f172a; font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+                .scooty-service-rail .svc-price span { color: #64748b; font-size: 11px; font-weight: 400; letter-spacing: .04em; }
+                .scooty-service-rail .go { color: #e62b2b; font-family: var(--font-jetbrains); font-size: 12px; font-weight: 700; }
+                @media (max-width: 640px) {
+                  .scooty-service-rail .svc-card { flex-basis: 82% !important; min-width: 82% !important; width: 82% !important; }
+                }
+              `}</style>
+            </div>
+          )}
 
           {/* ===== BRANDS WE SERVE (SLIDING / SCROLLABLE CAROUSEL) ===== */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
@@ -351,7 +483,9 @@ export default function ServicePageTemplate({
                   Brands We Serve
                 </h3>
                 <p className="text-slate-600 text-xs md:text-sm mt-1">
-                  We service all 16+ major motorcycle and scooter brands across {locationName || "Delhi NCR"} with 100% genuine parts.
+                  {isScootyRepair
+                    ? `Popular gearless scooter brands serviced across ${locationName || "Delhi NCR"} with 100% genuine parts.`
+                    : `We service all 16+ major motorcycle and scooter brands across ${locationName || "Delhi NCR"} with 100% genuine parts.`}
                 </p>
               </div>
               <div className="flex items-center gap-2 self-start sm:self-auto">
@@ -386,17 +520,47 @@ export default function ServicePageTemplate({
               className="flex items-center gap-3 overflow-x-auto py-2 px-1 snap-x snap-mandatory scroll-smooth"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              {SUPPORTED_BRANDS.map((b) => (
+              {displayedBrands.map((b) => (
                 <Link
                   key={b.slug}
                   href={`/${b.slug}`}
-                  className="flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start min-w-[150px]"
+                  className={cn(
+                    "flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start",
+                    isScootyRepair ? "min-w-[230px]" : "min-w-[150px]"
+                  )}
                 >
                   <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />
-                  <span className="whitespace-nowrap">{b.name}</span>
+                  <span>
+                    <span className="block whitespace-nowrap">{b.name}</span>
+                    {b.models && (
+                      <span className="block mt-0.5 text-[10px] leading-snug font-normal text-slate-500 group-hover:text-slate-600">
+                        {b.models}
+                      </span>
+                    )}
+                  </span>
                 </Link>
               ))}
             </div>
+
+            {isScootyRepair && (
+              <div className="mt-6 p-4 md:p-5 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold text-lg shrink-0">
+                    ⚡
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900">Riding an Electric Scooter (EV)?</h4>
+                    <p className="text-xs text-slate-500">We have specialized diagnostic software and belt tools for Ola S1, Ather 450X, TVS iQube & Chetak.</p>
+                  </div>
+                </div>
+                <Link
+                  href="/electric-scooter-repair"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg transition-all shrink-0"
+                >
+                  Explore EV Scooter Repair →
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* ===== EXPANDABLE FAQS ===== */}

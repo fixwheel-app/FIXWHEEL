@@ -3,16 +3,17 @@ import { SERVICES_DB } from "@/lib/servicesData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Scooty & Gearless Scooter Repair at Home | FixWheel",
+  title: "Doorstep Scooty & Scooter Repair in Delhi NCR | FixWheel",
   description:
-    "Doorstep scooty repair Delhi. CVT clutch roller cleaning, belt drive replacement, oil change for Activa, Jupiter, Access, Dio, Ntorq in Gurgaon, Delhi, Noida.",
+    "Book doorstep scooty repair in Delhi NCR. Certified mechanics for Activa, Jupiter, Access, Ntorq in Delhi, Gurgaon, Noida, Ghaziabad, Faridabad. 45-min arrival, 15-day warranty.",
   alternates: {
     canonical: "https://www.fixwheel.app/scooty-repair",
   },
   openGraph: {
     type: "website",
-    title: "Scooty & Gearless Scooter Repair at Home | FixWheel",
-    description: "Doorstep scooty repair Delhi. Certified mechanics, 45-min arrival, 15-day warranty.",
+    title: "Doorstep Scooty & Scooter Repair in Delhi NCR | FixWheel",
+    description:
+      "Book doorstep scooty repair in Delhi NCR. Certified mechanics for Activa, Jupiter, Access, Ntorq in Delhi, Gurgaon, Noida, Ghaziabad, Faridabad. 45-min arrival, 15-day warranty.",
     url: "https://www.fixwheel.app/scooty-repair",
   },
 };

@@ -106,7 +106,7 @@ export default function LocalityPage({ params }: { params: { locality: string } 
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "FixWheel",
-    "description": `Doorstep bike mechanic in ${data.name}, Delhi. Book engine oil change, brake repair, battery replacement, tyre puncture, and full two-wheeler servicing at home. Covers ${data.subRegionText} with flat pricing and 15-day warranty.`,
+    "description": `Doorstep bike mechanic in ${data.name}, Delhi. Book engine oil change, brake repair, battery replacement, tyre puncture, and full two-wheeler servicing at home. Covers ${data.subRegionText} with transparent pricing and 15-day warranty.`,
     "url": `https://www.fixwheel.app/delhi/${params.locality}`,
     "telephone": "+91-87459-45682",
     "image": "https://www.fixwheel.app/icon.png",

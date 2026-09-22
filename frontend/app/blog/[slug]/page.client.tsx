@@ -1177,7 +1177,7 @@ export default function BlogPostClient({ slug, post: initialPost }: ClientProps)
       <section className="final-cta">
         <div className="wrap">
           <h2>Ready to schedule maintenance?</h2>
-          <p>Get a highly experienced mechanic at your home or office. Flat rates, full transparency, and a 15-day labor warranty on all models.</p>
+          <p>Get a highly experienced mechanic at your home or office. Transparent pricing, a detailed inspection, and a 15-day labor warranty on all models.</p>
           <Link href="/book" className="btn btn-primary">Book Doorstep Service Now →</Link>
         </div>
       </section>

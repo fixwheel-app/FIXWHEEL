@@ -37,7 +37,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       title: `Premium Bike Service in ${cityData.name} – Doorstep Service | FixWheel`,
-      description: `Book doorstep premium bike service in ${cityData.name}. Certified superbike mechanics, 45-min arrival, flat rates, 15-day warranty.`,
+      description: `Book doorstep premium bike service in ${cityData.name}. Certified superbike mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
       url: `https://www.fixwheel.app/premium-bike-service/${citySlug}`,
     },
   };

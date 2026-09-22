@@ -46,7 +46,7 @@ function getBrandData(brandSlug: string) {
     keyBenefits: [
       { title: "Doorstep Mechanic Arrival", desc: "Mobile mechanic equipped with specialized tools dispatches to your parking location in 45 minutes." },
       { title: "Genuine Spares Guarantee", desc: "We use 100% genuine manufacturer parts, checked and fitted right in front of you." },
-      { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
+      { title: "Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
     ],
     reviews: [
       { name: "Rahul Verma", vehicle: `${formattedName} Two-Wheeler`, rating: 5, location: "Delhi", date: "August 2026", comment: `Excellent doorstep service for my ${formattedName}. Quick dispatch and very clean job.` }
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const titleText = `Doorstep ${brandData.name} Service & Repair Near Me | FixWheel`;
-  const descText = `Book professional doorstep ${brandData.name} bike service and repairs. ${brandData.tagline}. Flat pricing, verified mechanics, 15-day warranty.`;
+  const descText = `Book professional doorstep ${brandData.name} bike service and repairs. ${brandData.tagline}. Transparent pricing, verified mechanics, 15-day warranty.`;
 
   return {
     title: titleText,

@@ -298,7 +298,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .svc-tag { font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; display: inline-block;}
         .gurgaon-scope .svc-card h3 { font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--ink-dark); margin-bottom: 10px;}
         .gurgaon-scope .svc-card p { font-size: 13.5px; color: #475569; margin-bottom: 16px; min-height: 58px;}
-        .gurgaon-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: var(--accent); font-weight: 700;}
+        .gurgaon-scope .svc-card .go { font-family: var(--font-jetbrains); font-size: 12px; color: #000000; font-weight: 700;}
         .gurgaon-scope .svc-price { font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; color: var(--ink-dark); margin-bottom: 12px; }
         .gurgaon-scope .svc-price span { font-size: 11px; font-weight: 400; color: #64748B; letter-spacing: 0.04em; }
         .gurgaon-scope .svc-note { margin-top: 26px; font-size: 13.5px; color: var(--ink-dark);}

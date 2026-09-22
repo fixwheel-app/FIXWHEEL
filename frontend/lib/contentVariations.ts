@@ -16,13 +16,13 @@ function selectVariation<T>(key: string, arr: T[]): T {
 
 export function getIntroParagraph(localityName: string, cityName: string): string {
   const variations = [
-    `Searching for a prompt, verified two-wheeler mechanic near me in ${localityName}? We deliver direct, on-demand bike repair and scooter servicing at your home, office parking, or roadside across ${localityName} with clear flat rates, seasoned technicians, and our signature 15-day service guarantee.`,
+    `Searching for a prompt, verified two-wheeler mechanic near me in ${localityName}? We deliver direct, on-demand bike repair and scooter servicing at your home, office parking, or roadside across ${localityName} with clear, transparent pricing, seasoned technicians, and our signature 15-day service guarantee.`,
     `Skip the ride to congested local garages. Get professional motorcycle mechanics and doorstep scooter maintenance in ${localityName} today. We send certified mechanics to service your two-wheeler right in your driveway, housing society basement, or office block with honest, transparent pricing.`,
     `Keep your bike or scooty running perfectly without leaving your house. We provide trusted doorstep two-wheeler service inside ${localityName}, offering rapid-response roadside assistance, emergency battery swaps, brake repairs, and routine checkups backed by genuine OEM spares.`,
     `If you're located in ${localityName} and need a reliable bike mechanic near me, FixWheel brings the workshop to your doorstep. Our verified experts handle full engine servicing, brake tuning, oil replacements, and diagnostics directly at your villa or apartment block.`,
     `Need an engine oil change, tyre puncture fix, or battery replacement in ${localityName}? FixWheel sends a verified mobile mechanic directly to your home, office, or parking spot in ${localityName} — no garage visit needed. We service Activa, Royal Enfield, Pulsar, Splendor, Jupiter, and all two-wheelers.`,
     `FixWheel is ${localityName}'s trusted doorstep bike repair service. Whether it's a Honda Activa service, Royal Enfield oil change, brake pad replacement, or emergency tyre puncture — our mechanics reach your location in ${localityName} with all tools and spare parts, ready to fix it on the spot.`,
-    `Need a scooty mechanic at home in ${localityName}? Or a bike mechanic on call at midnight? FixWheel is available 24/7 for doorstep bike repair and scooty repair in ${localityName}. Verified mechanics, flat rates, no hidden charges.`,
+    `Need a scooty mechanic at home in ${localityName}? Or a bike mechanic on call at midnight? FixWheel is available 24/7 for doorstep bike repair and scooty repair in ${localityName}. Verified mechanics, transparent pricing, no hidden charges.`,
     `Looking for a bike mechanic near me open now in ${localityName}? FixWheel operates 7 days a week including evenings and emergencies. Get scooter repair at home, bike servicing, or roadside assistance in ${localityName} — mechanics dispatched in under ${cityName === "Gurgaon" ? "45 minutes" : "45 minutes"}.`
   ];
   return selectVariation(localityName, variations);
@@ -57,7 +57,7 @@ export function getWhyChooseCards(localityName: string): { title: string; desc: 
 
   const card3Options = [
     { title: "100% Upfront Quotes", desc: "We explain all issues and lock the price before starting. No surprise charges or hidden fee revisions on your bill." },
-    { title: "Honest Flat-Rate Pricing", desc: "Know exactly what you pay for. Transparent spares costing and fixed labor prices shown directly on the app." },
+    { title: "Honest, Transparent Pricing", desc: "Know exactly what you pay for. Clear spare-parts costs and transparent labor pricing are shown directly in the app." },
     { title: "Zero Surprise Billing", desc: "Approved costs are final costs. We never recommend unnecessary repairs or add sneaky add-ons to your receipt." }
   ];
 

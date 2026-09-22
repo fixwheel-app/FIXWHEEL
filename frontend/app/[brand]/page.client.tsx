@@ -51,7 +51,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     keyBenefits: [
       { title: "Doorstep Mechanic Arrival", desc: "Mobile mechanic equipped with specialized tools dispatches to your parking location in 45 minutes." },
       { title: "Genuine Spares Guarantee", desc: "We use 100% genuine manufacturer parts, checked and fitted right in front of you." },
-      { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
+      { title: "Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
     ],
     reviews: [
       { name: "Rahul Verma", vehicle: `${formattedBrandName} Two-Wheeler`, rating: 5, location: "Delhi", date: "August 2026", comment: `Excellent doorstep service for my ${formattedBrandName}. Quick dispatch and very clean job.` }
@@ -1115,7 +1115,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             </div>
             <div className="trust-item">
               <b>ZERO HIGHWAY</b>
-              <span>Flat Honest Rates</span>
+              <span>Transparent Pricing</span>
             </div>
             <div className="trust-item">
               <b>VERIFIED</b>
@@ -1261,7 +1261,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
             <div className="eyebrow">Transparent Pricing</div>
             <h2>{brandData.name} Doorstep Service Rates by Engine CC</h2>
             <p style={{ color: "#475569", marginTop: "8px", fontSize: "15.5px" }}>
-              Upfront, fixed pricing for all {brandData.name} motorcycles & scooters based on engine displacement. Select your bike's CC category to view exact rates.
+              Upfront, transparent pricing for all {brandData.name} motorcycles & scooters based on engine displacement. Select your bike's CC category to view exact rates.
             </p>
           </div>
 
@@ -1312,7 +1312,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                   </div>
                   <div className="cc-price-card-foot">
                     <div>
-                      <span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Fixed Rate</span>
+                      <span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Transparent Price</span>
                       <span className="cc-price-amount">{priceVal}</span>
                     </div>
                     <Link

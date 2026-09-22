@@ -20,8 +20,8 @@ const faqs: FAQItem[] = [
     answer: "Book a service online or via WhatsApp. We assign a certified mechanic near you who arrives at your doorstep with the right tools and genuine parts to service your bike on the spot."
   },
   {
-    question: "Are the prices fixed or negotiable?",
-    answer: "Our prices are transparent and fixed. We inform you of the cost before the service starts, so you pay zero hidden fees."
+    question: "How are service prices confirmed?",
+    answer: "Our pricing is transparent. We inform you of the cost before the service starts, so you pay zero hidden fees."
   },
   {
     question: "Do you provide doorstep service?",

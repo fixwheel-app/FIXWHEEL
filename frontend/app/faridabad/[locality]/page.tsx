@@ -116,7 +116,7 @@ export default function FaridabadLocalityPage({ params }: { params: { locality: 
       "telephone": "+91-87459-45682"
     },
     "areaServed": { "@type": "Place", "name": `${data.name}, Faridabad, Haryana` },
-    "description": `Doorstep repair near me and bike repair in ${data.name} at home. Book a verified two wheeler mechanic near me for doorstep repair in ${data.name}, covering ${data.subRegionText} with flat pricing.`,
+    "description": `Doorstep repair near me and bike repair in ${data.name} at home. Book a verified two wheeler mechanic near me for doorstep repair in ${data.name}, covering ${data.subRegionText} with transparent pricing.`,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.7",

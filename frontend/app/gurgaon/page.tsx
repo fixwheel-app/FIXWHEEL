@@ -256,7 +256,7 @@ const faqSchema = {
       "name": "Can I get scooter repair at home in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely. FixWheel offers complete scooter repair at home in Gurgaon including engine servicing, brake repair, battery replacement, tyre puncture, and electrical work — all done at your doorstep with flat pricing."
+        "text": "Absolutely. FixWheel offers complete scooter repair at home in Gurgaon including engine servicing, brake repair, battery replacement, tyre puncture, and electrical work — all done at your doorstep with transparent pricing."
       }
     },
     {

@@ -25,7 +25,7 @@ const CITY_HERO_DESCS: Record<string, (brand: string) => string> = {
   gurgaon: (brand) =>
     `Looking for trusted doorstep ${brand} bike service in Gurgaon? FixWheel dispatches certified mobile mechanics directly to your home, gated society parking, or corporate office across DLF Phases, Cyber City, Sohna Road, and Palam Vihar in 45 minutes with 100% genuine parts.`,
   delhi: (brand) =>
-    `Need a verified ${brand} mechanic near you in Delhi? FixWheel provides professional doorstep ${brand} two-wheeler service & emergency repair across South Delhi, West Delhi, Dwarka, Rohini, and Central Delhi. Flat upfront pricing, zero visiting fees, and a 15-day labor warranty.`,
+    `Need a verified ${brand} mechanic near you in Delhi? FixWheel provides professional doorstep ${brand} two-wheeler service & emergency repair across South Delhi, West Delhi, Dwarka, Rohini, and Central Delhi. Transparent upfront pricing, zero visiting fees, and a 15-day labor warranty.`,
   noida: (brand) =>
     `Get expert doorstep ${brand} bike repair and periodic service in Noida. Our certified mechanics arrive at your home or office parking in Sector 18, Sector 62, Sector 137, or Greater Noida West with portable diagnostic equipment and genuine replacement spares.`,
   ghaziabad: (brand) =>
@@ -70,7 +70,7 @@ export default function BrandCityClient({
     keyBenefits: [
       { title: "Doorstep Mechanic Arrival", desc: `Mobile mechanic dispatches to your parking location in ${cityName} in 45 minutes.` },
       { title: "Genuine Spares Guarantee", desc: "We use 100% genuine manufacturer parts, checked and fitted right in front of you." },
-      { title: "Flat Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
+      { title: "Transparent Pricing", desc: "No hidden charges or unexpected garage add-ons. Upfront labor and part billing." },
     ],
     reviews: [],
     seoKeywords: [],
@@ -520,7 +520,7 @@ export default function BrandCityClient({
           <div className="section-head">
             <div className="eyebrow">Service Catalog</div>
             <h2>Doorstep {brandName} Service Charges in {cityName}</h2>
-            <p>Flat, honest rates with zero hidden fees. Pick your service and book a verified mechanic to your door:</p>
+            <p>Transparent pricing with zero hidden fees. Pick your service and book a verified mechanic to your door:</p>
           </div>
           <div className="services-grid">
             <div className="service-card">

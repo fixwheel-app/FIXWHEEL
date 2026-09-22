@@ -138,7 +138,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     reviews: [
       { stars: "★★★★★", text: "Had a flat tyre near Galleria. Mechanic arrived within 45 minutes and fixed it.", who: "Siddharth Ray — Galleria Road, DLF Phase 4" },
-      { stars: "★★★★★", text: "Got my Avenger serviced in my apartment lot. Zero hassle, fixed pricing.", who: "Monica Shah — Ridgewood Estate, DLF Phase 4" }
+      { stars: "★★★★★", text: "Got my Avenger serviced in my apartment lot. Zero hassle, transparent pricing.", who: "Monica Shah — Ridgewood Estate, DLF Phase 4" }
     ],
     faqs: [
       { q: "How do I pay after the service?", a: "You can pay via UPI, credit/debit card, net banking, or cash once the service is complete." },
@@ -584,7 +584,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover both Sector 15 Part 1 and Part 2?", a: "Yes, our mechanics cover all blocks in both parts of Sector 15." },
-      { q: "Is pricing fixed?", a: "Yes, the price quoted is final. No surprise fees are added later." }
+      { q: "Is pricing transparent?", a: "Yes, the price is shared before work begins. No surprise fees are added later." }
     ],
     topServices: [
       { rank: "#1 IN SECTOR 15", title: "Basic Service", desc: "Commuter bike maintenance, checkup, and adjustments.", link: "/services/basic-service" },
@@ -822,7 +822,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you service bikes in Sector 38?", a: "Yes, our Sector 47 unit covers Sector 38, Sector 48, and Subhash Chowk." },
-      { q: "How are doorstep service charges calculated?", a: "We have fixed packages starting at ₹550. No visiting fees are added to the package." }
+      { q: "How are doorstep service charges calculated?", a: "We provide transparent service estimates starting at ₹550. No visiting fees are added to the estimate." }
     ],
     topServices: [
       { rank: "#1 IN SECTOR 47", title: "Basic Service", desc: "Brakes, plugs, and electrical systems check.", link: "/services/basic-service" },
@@ -958,7 +958,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     ],
     faqs: [
       { q: "Do you cover Sushant Lok Phase 3?", a: "Yes, our Sector 57 unit covers all blocks of Sushant Lok Phase 3." },
-      { q: "Is pricing fixed?", a: "Yes, the price quoted is final. No surprise fees are added later." }
+      { q: "Is pricing transparent?", a: "Yes, the price is shared before work begins. No surprise fees are added later." }
     ],
     topServices: [
       { rank: "#1 IN SECTOR 57", title: "Basic Service", desc: "Spark plug, chain lubrication, and brake alignment check.", link: "/services/basic-service" },

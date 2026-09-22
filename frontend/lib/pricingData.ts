@@ -233,7 +233,7 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
       cc600_above: 149,
     },
     features: [
-      "Flat ₹99 Service Fee",
+      "Transparent Service Fee: ₹99",
       "Terminal Cleaning & Anti-Corrosion Grease",
       "Old Battery Trade-in Discount Available",
       "100% Genuine Sealed Batteries (Exide / Amaron)"

@@ -571,7 +571,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
           <div className="section-head">
             <div className="eyebrow">Services</div>
             <h2>Top doorstep service packages in {data.name}</h2>
-            <p>Flat-rate mechanical services handled directly at your residence.</p>
+            <p>Transparently priced mechanical services handled directly at your residence.</p>
           </div>
           <div className="top-svc">
             {data.topServices.map((svc, idx) => (

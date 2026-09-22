@@ -100,15 +100,15 @@ export const SERVICES_DB: Record<string, ServiceData> = {
   "scooty-repair": {
     serviceId: "scooty-repair",
     category: "Scooter & CVT Specialist",
-    title: "Scooty & Gearless Scooter Repair at Doorstep",
-    lead: "Scooters like Honda Activa, TVS Jupiter, Suzuki Access, and TVS Ntorq are daily workhorses. Eliminate starting trouble and takeoff vibration with expert doorstep CVT clutch cleaning and tune-ups.",
+    title: "Doorstep Scooty & Scooter Repair in Delhi NCR",
+    lead: "Looking for the best doorstep scooty repair in Delhi NCR, scooty mechanic near me, or scooter repair at home? FixWheel dispatches certified two-wheeler specialists across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad in under 45 minutes. From Honda Activa, TVS Jupiter, and Suzuki Access to TVS Ntorq and Hero Maestro — eliminate starting trouble, pickup lag, and CVT vibration right in your parking spot.",
     startingPrice: "₹199",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
-      "Gearless scooters rely on a Continuously Variable Transmission (CVT) system. Road dust and belt wear cause variator roller buildup, leading to severe shudder on acceleration, poor pickup, and reduced mileage.",
-      "FixWheel's mobile scooter technicians dismantle variator assemblies, degrease clutch shoes, inspect Bando/OEM drive belts, clean spark plugs, and tune carburetors/FI units right at your home.",
-      "Get instant doorstep scooty repair with transparent pricing and 100% genuine parts.",
+      "Daily stop-and-go commuting in Delhi NCR traffic, summer heat, and roadside dust takes a heavy toll on gearless scooters. Over time, variator rollers collect grime, drive belts lose traction, and clutch shoes glaze over — resulting in sluggish pickup, heavy takeoff vibrations, and sudden drop in fuel efficiency.",
+      "FixWheel brings complete workshop capabilities directly to your residential gate, society basement, or office parking across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Our certified scooter mechanics dismantle and degrease CVT assemblies, sand clutch shoes, inspect OEM Bando/Gates drive belts, clean spark plugs, and tune carburetors/FI sensors right in front of your eyes.",
+      "No more dragging a broken scooter to distant local garages or leaving it behind for days. With FixWheel, you get 100% upfront transparent pricing, sealed OEM spare parts, 45-minute doorstep dispatch, and an assured 15-day labor warranty on every repair.",
     ],
     includedItems: [
       "CVT variator roller cleaning, degreasing & belt wear check",
@@ -119,21 +119,35 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     ],
     faqs: [
       {
-        q: "Why does my Activa or Jupiter shudder when accelerating?",
-        a: "Vibration during takeoff is caused by dust and glaze buildup inside the CVT clutch bell. Our mechanics clean and sand the clutch shoes on-site to restore smooth acceleration.",
+        q: "Why does my Activa, Jupiter, or Access vibrate or shudder during acceleration?",
+        a: "Takeoff vibration is typically caused by accumulated clutch dust, worn variator rollers, or glazed clutch shoes inside the Continuously Variable Transmission (CVT) system. Our doorstep technician opens the clutch casing, degreases all transmission components, and resurfaces the clutch shoes on the spot to restore silky-smooth pickup.",
       },
       {
-        q: "Do you replace broken kick cables and battery terminals on scooties?",
-        a: "Yes! We stock cables, spark plugs, fuses, and batteries for Activa, Jupiter, Access, and Maestro.",
+        q: "My scooty won't start using self-start or kick start. Can you fix it at home in Delhi NCR?",
+        a: "Yes! Starting issues on gearless scooters are usually due to discharged batteries, fouled spark plugs, clogged carburetors/fuel injectors, or loose starter relays. Our mobile mechanics carry multi-meters, jump-starters, spare plugs, and fresh batteries to diagnose and start your scooter at your home.",
+      },
+      {
+        q: "How much does doorstep scooty repair cost in Delhi, Gurgaon, and Noida?",
+        a: "Doorstep scooter diagnostics and minor tune-ups start at just ₹199, while comprehensive periodic servicing starts at ₹550. If any spare parts (like drive belts, brake cables, or engine oil) are required, the price is quoted and approved by you before installation. There are zero hidden fees.",
+      },
+      {
+        q: "How quickly can a scooty mechanic reach my location across Delhi NCR?",
+        a: "Our mobile mechanics are stationed across key hubs in Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. We typically reach your home, office, or roadside breakdown location within 45 minutes of booking confirmation.",
+      },
+      {
+        q: "Do you provide doorstep puncture repair, brake replacement, and drive belt changes for scooters?",
+        a: "Yes. Our service vans and technician toolkits are fully equipped to handle tubeless tyre puncture repairs, drum brake shoe/disc pad replacements, throttle/brake cable installations, and genuine OEM drive belt replacements right on-site.",
       },
     ],
     keywords: [
-      "scooty repair",
-      "scooty repair near me",
-      "honda activa service at home",
-      "tvs jupiter doorstep mechanic",
-      "access 125 clutch cleaning",
-      "scooter repair near me",
+      "doorstep scooty repair delhi ncr",
+      "scooty mechanic near me",
+      "scooter repair at home",
+      "honda activa service delhi",
+      "tvs jupiter repair gurgaon",
+      "scooty service noida",
+      "access 125 mechanic near me",
+      "scooter breakdown assistance delhi ncr",
     ],
   },
   "commuter-bike-service": {

@@ -58,7 +58,7 @@ export default function BasicServicePage() {
         },
         {
           q: "Are there any extra visiting charges for doorstep service in Gurgaon or Noida?",
-          a: "No! FixWheel offers flat, transparent pricing with zero doorstep visit fees across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
+          a: "No! FixWheel offers transparent pricing with zero doorstep visit fees across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
         },
       ]}
       keywords={[

@@ -980,7 +980,7 @@ export default function ServicesClientPage() {
                   href={`/${activeCity.slug}`}
                   className="area-item !text-[#e62b2b] font-bold border-red-200 bg-red-50/50 hover:bg-red-50 hover:border-red-400 transition-colors"
                 >
-                  View {activeCity.shortName} Page →
+                  View {activeCity.shortName} →
                 </Link>
               </div>
 
@@ -998,7 +998,7 @@ export default function ServicesClientPage() {
                   href={`/${activeCity.slug}`}
                   className="inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-[#c92222] text-white font-mono text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap"
                 >
-                  View {activeCity.shortName} Page
+                  View {activeCity.shortName}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
