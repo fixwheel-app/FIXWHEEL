@@ -299,7 +299,7 @@ export default function ServicePageTemplate({
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Service Duration
+                      Arrival Duration
                     </span>
                     <span className="font-bold text-slate-900">25 – 45 Minutes at your doorstep</span>
                   </div>

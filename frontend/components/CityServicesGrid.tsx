@@ -129,8 +129,8 @@ const ELECTRIC_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
   {
     tag: "[EV SERVICE]",
     id: "ev-service",
-    name: "EV General Service",
-    desc: "BMS scan, motor & wiring check",
+    name: "Electric Scooter General Service",
+    desc: "Complete electronic BMS scan, high-voltage wiring check, brake shoe service, and battery health audit.",
     price: 799,
     priceNote: "starting from",
     link: "/book",
@@ -138,50 +138,30 @@ const ELECTRIC_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
   },
   {
     tag: "[JUMPSTART]",
-    id: "ev-jump-start",
-    name: "EV Auxiliary Jump Start",
-    desc: "12V battery boost & voltage check",
-    price: 249,
+    id: "jump-start",
+    name: "Jump Start",
+    desc: "Immediate doorstep emergency battery jump start service for drained or dead two-wheeler batteries.",
+    price: 399,
     priceNote: "starting from",
     link: "/book",
     linkText: "Book now →",
   },
   {
     tag: "[PUNCTURE]",
-    id: "ev-puncture",
-    name: "EV Puncture Repair",
-    desc: "Tubeless puncture & pressure check",
-    price: 149,
+    id: "puncture",
+    name: "Doorstep Puncture Repair",
+    desc: "On-site tubeless or tube puncture repair at your home, office, or roadside location.",
+    price: 399,
     priceNote: "starting from",
     link: "/book",
     linkText: "Book now →",
   },
   {
     tag: "[RUNNING]",
-    id: "ev-running-repair",
-    name: "EV Running Repair",
-    desc: "Throttle sensor calibration & minor electrical",
-    price: 149,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-  {
-    tag: "[BRAKE]",
-    id: "ev-brake-pad",
-    name: "EV Brake Pad Replacement",
-    desc: "Regenerative brake & disc service",
-    price: 199,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-  {
-    tag: "[PICKUP]",
-    id: "ev-pick-drop",
-    name: "EV Pick & Drop Service",
-    desc: "Safe transport for major motor/battery repair",
-    price: 199,
+    id: "running-repair",
+    name: "Running Repair",
+    desc: "Minor mechanical adjustments, cable replacement, clutch tuning, lever fitting, or bulb changes.",
+    price: 399,
     priceNote: "starting from",
     link: "/book",
     linkText: "Book now →",
@@ -202,7 +182,7 @@ export default function CityServicesGrid({ filterCategory = "all" }: CityService
     <div className="svc-grid">
       {serviceCards.map((item) => {
         const pricingEntry = SERVICE_PRICING_LIST.find((p) => p.id === item.id);
-        const priceValue = item.price ?? pricingEntry?.prices.cc0_249 ?? 550;
+        const priceValue = item.price ?? (pricingEntry?.prices as any)?.electric ?? pricingEntry?.prices.cc0_249 ?? 399;
         const formattedPrice =
           typeof priceValue === "number"
             ? `₹${priceValue.toLocaleString("en-IN")}`
