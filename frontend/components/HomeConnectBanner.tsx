@@ -43,11 +43,10 @@ const contactItems = [
 
 export default function HomeConnectBanner() {
   return (
-    <section className="bg-white px-4 py-10 md:px-8 md:py-16" aria-labelledby="home-connect-title">
-      <div className="mx-auto max-w-7xl">
-        <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#161d26] shadow-[0_22px_60px_rgba(15,23,42,0.18)] transition-colors duration-300 hover:border-accent/40">
-          <div className="h-1 bg-accent" />
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.85fr_1.5fr_0.9fr] lg:items-stretch lg:p-10">
+    <section className="w-full bg-[#161d26]" aria-labelledby="home-connect-title">
+      <div className="group w-full overflow-hidden border-y border-white/10 bg-[#161d26] transition-colors duration-300 hover:border-accent/40">
+        <div className="h-1 bg-accent" />
+        <div className="mx-auto grid max-w-7xl gap-8 p-6 sm:p-8 lg:grid-cols-[0.85fr_1.5fr_0.9fr] lg:items-stretch lg:p-10">
             <div className="flex flex-col justify-between gap-7">
               <div>
                 <p style={jetbrainsStyle} className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
@@ -134,7 +133,6 @@ export default function HomeConnectBanner() {
                 </a>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </section>
