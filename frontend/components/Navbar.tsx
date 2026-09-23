@@ -33,6 +33,15 @@ const locationLinks = [
   { name: 'Faridabad',  href: '/faridabad' },
 ];
 
+const vehicleTypeLinks = [
+  { name: 'Commuter Bike Service',    href: '/commuter-bike-service' },
+  { name: 'Scooty & Scooter Repair',  href: '/scooty-repair' },
+  { name: 'EV & Electric Scooter',    href: '/electric-scooter-repair' },
+  { name: 'Royal Enfield Specialist', href: '/royal-enfield' },
+  { name: 'Premium Bike Service',     href: '/premium-bike-service' },
+  { name: 'Sports Bike Service',      href: '/sports-bike-service' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -74,8 +83,24 @@ export default function Navbar() {
     }, 200);
   }, []);
 
+  /* ─── Vehicle type dropdown state (desktop) ──────────────── */
+  const [showVehicleTypeDropdown, setShowVehicleTypeDropdown] = useState(false);
+  const vehicleTypeTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const openVehicleTypeDropdown = useCallback(() => {
+    if (vehicleTypeTimeout.current) clearTimeout(vehicleTypeTimeout.current);
+    setShowVehicleTypeDropdown(true);
+  }, []);
+
+  const closeVehicleTypeDropdown = useCallback(() => {
+    vehicleTypeTimeout.current = setTimeout(() => {
+      setShowVehicleTypeDropdown(false);
+    }, 200);
+  }, []);
+
   /* ─── Mobile expand state ───────────────────────── */
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileVehicleTypeOpen, setMobileVehicleTypeOpen] = useState(false);
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
 
   /* ─── Sync active path ───────────────────────────────────── */
@@ -89,6 +114,9 @@ export default function Navbar() {
     }
     if (linkHref === '/services') {
       return pathname?.startsWith('/services');
+    }
+    if (linkHref === '/commuter-bike-service') {
+      return vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
     }
     if (linkHref === '/partner') {
       return pathname?.startsWith('/partner');
@@ -139,6 +167,7 @@ export default function Navbar() {
   /* ─── Nav links (PRICING added) ─────────────────────────── */
   const navLinks = [
     { name: 'SERVICES',       href: '/services' },
+    { name: 'VEHICLE TYPE',   href: '/commuter-bike-service' },
     { name: 'LOCATIONS',      href: '/delhi' },
     { name: 'BLOG',           href: '/blog' },
     { name: 'BECOME PARTNER', href: '/partner' },
@@ -200,11 +229,14 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center h-full relative">
               {navLinks.map((link, idx) => {
                 const isServices = link.name === 'SERVICES';
+                const isVehicleType = link.name === 'VEHICLE TYPE';
                 const isLocations = link.name === 'LOCATIONS';
-                const hasDropdown = isServices || isLocations;
+                const hasDropdown = isServices || isVehicleType || isLocations;
 
                 const mouseHandlers = isServices
                   ? { onMouseEnter: openDropdown, onMouseLeave: closeDropdown }
+                  : isVehicleType
+                  ? { onMouseEnter: openVehicleTypeDropdown, onMouseLeave: closeVehicleTypeDropdown }
                   : isLocations
                   ? { onMouseEnter: openLocationsDropdown, onMouseLeave: closeLocationsDropdown }
                   : {};
@@ -222,6 +254,7 @@ export default function Navbar() {
                         onClick={(e) => {
                           e.preventDefault();
                           if (isServices) setShowServicesDropdown((prev) => !prev);
+                          if (isVehicleType) setShowVehicleTypeDropdown((prev) => !prev);
                           if (isLocations) setShowLocationsDropdown((prev) => !prev);
                         }}
                         className={cn(
@@ -233,7 +266,9 @@ export default function Navbar() {
                         <ChevronDown
                           className={cn(
                             "w-3 h-3 transition-transform duration-200",
-                            ((isServices && showServicesDropdown) || (isLocations && showLocationsDropdown)) && "rotate-180"
+                            ((isServices && showServicesDropdown) ||
+                              (isVehicleType && showVehicleTypeDropdown) ||
+                              (isLocations && showLocationsDropdown)) && "rotate-180"
                           )}
                         />
                       </button>
@@ -334,6 +369,56 @@ export default function Navbar() {
                                   View All Brands →
                                 </Link>
                               </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+
+                    {/* ── Vehicle Type Dropdown (desktop) ─────────── */}
+                    {isVehicleType && (
+                      <AnimatePresence>
+                        {showVehicleTypeDropdown && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 w-[280px] border-t-2 border-accent bg-[#151b24] border border-t-0 border-white/10 shadow-2xl z-[100]"
+                            onMouseEnter={openVehicleTypeDropdown}
+                            onMouseLeave={closeVehicleTypeDropdown}
+                          >
+                            <div className="p-5 flex flex-col gap-1">
+                              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-3">
+                                Choose Your Vehicle
+                              </span>
+                              {vehicleTypeLinks.map((vehicleType) => (
+                                <Link
+                                  key={vehicleType.href}
+                                  href={vehicleType.href}
+                                  onClick={() => {
+                                    setActivePath(vehicleType.href);
+                                    setShowVehicleTypeDropdown(false);
+                                  }}
+                                  className={cn(
+                                    dropdownLinkClass,
+                                    pathname?.startsWith(vehicleType.href) && "text-accent"
+                                  )}
+                                >
+                                  {vehicleType.name}
+                                </Link>
+                              ))}
+                              <hr className="border-white/10 my-3" />
+                              <Link
+                                href="/services"
+                                onClick={() => {
+                                  setActivePath('/services');
+                                  setShowVehicleTypeDropdown(false);
+                                }}
+                                className="text-[12px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+                              >
+                                View All Services →
+                              </Link>
                             </div>
                           </motion.div>
                         )}
@@ -470,6 +555,7 @@ export default function Navbar() {
               <div className="px-4 pt-2 pb-6 space-y-1">
                 {navLinks.map((link) => {
                   const isServices = link.name === 'SERVICES';
+                  const isVehicleType = link.name === 'VEHICLE TYPE';
                   const isLocations = link.name === 'LOCATIONS';
 
                   if (isServices) {
@@ -562,6 +648,75 @@ export default function Navbar() {
                                   className="block mt-2 text-[11px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
                                 >
                                   View All Brands →
+                                </Link>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (isVehicleType) {
+                    return (
+                      <div key={link.name}>
+                        <button
+                          type="button"
+                          onClick={() => setMobileVehicleTypeOpen(!mobileVehicleTypeOpen)}
+                          className={cn(
+                            "w-full flex items-center justify-between px-3 py-3 font-bold uppercase tracking-wider text-sm text-left border-b border-white/5 bg-transparent cursor-pointer",
+                            isLinkActive(link.href)
+                              ? "text-accent bg-white/5"
+                              : "text-white hover:text-accent"
+                          )}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronDown
+                            className={cn(
+                              "w-4 h-4 transition-transform duration-200",
+                              mobileVehicleTypeOpen && "rotate-180"
+                            )}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileVehicleTypeOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden bg-[#151b24] border-b border-white/5"
+                            >
+                              <div className="px-4 py-3">
+                                <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-2">
+                                  Choose Your Vehicle
+                                </span>
+                                {vehicleTypeLinks.map((vehicleType) => (
+                                  <Link
+                                    key={vehicleType.href}
+                                    href={vehicleType.href}
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                      setActivePath(vehicleType.href);
+                                    }}
+                                    className={cn(
+                                      "block py-2 pl-2 text-sm text-white/80 hover:text-accent transition-colors",
+                                      pathname?.startsWith(vehicleType.href) && "text-accent"
+                                    )}
+                                  >
+                                    {vehicleType.name}
+                                  </Link>
+                                ))}
+                                <Link
+                                  href="/services"
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setActivePath('/services');
+                                  }}
+                                  className="block mt-2 text-[11px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+                                >
+                                  View All Services →
                                 </Link>
                               </div>
                             </motion.div>

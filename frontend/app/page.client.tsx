@@ -12,6 +12,7 @@ import {
 import { getServicePricing, type ServicePriceId } from '@/lib/pricingData';
 import BrandsMarquee from '@/components/BrandsMarquee';
 import HomeCoverageSection from '@/components/HomeCoverageSection';
+import HomeConnectBanner from '@/components/HomeConnectBanner';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 import { submitQuery } from '@/lib/api';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
@@ -370,7 +371,11 @@ export default function Home() {
         </div>
       </section>
 
-      <HomeCoverageSection />
+      <div id="coverage" className="scroll-mt-24">
+        <HomeCoverageSection />
+      </div>
+
+      <HomeConnectBanner />
 
       {/* ════════════════════════════════════════════════════════════════════
           🟠  CUSTOMER REVIEWS

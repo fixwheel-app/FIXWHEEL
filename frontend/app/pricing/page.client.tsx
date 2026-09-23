@@ -367,9 +367,13 @@ export default function PricingClientPage() {
           align-items: center;
           gap: 8px;
         }
-        .pricing-scope .feature-item span {
+        .pricing-scope .feature-item span:first-child {
           color: var(--accent);
           font-weight: 700;
+        }
+        .pricing-scope .feature-item span:last-child {
+          color: #111827;
+          font-weight: 600;
         }
 
         /* ===== FULL MATRIX RATE TABLE ===== */

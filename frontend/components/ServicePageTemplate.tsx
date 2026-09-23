@@ -113,6 +113,7 @@ export default function ServicePageTemplate({
     .trim();
 
   const isScootyRepair = serviceId === "scooty-repair";
+  const isElectricRepair = serviceId === "electric-scooter-repair";
   const displayedBrands = isScootyRepair ? SCOOTER_BRANDS : SUPPORTED_BRANDS;
   const breadcrumbItems = isScootyRepair
     ? [
@@ -408,27 +409,31 @@ export default function ServicePageTemplate({
             )}
           </div>
 
-          {isScootyRepair && (
-            <div className="scooty-service-rail mb-16">
+          {(isScootyRepair || isElectricRepair) && (
+            <div className="service-page-service-rail mb-16">
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
                 <div>
                   <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                    POPULAR DOORSTEP REPAIRS
+                    {isElectricRepair ? "POPULAR EV DOORSTEP SERVICES" : "POPULAR DOORSTEP REPAIRS"}
                   </span>
                   <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-slate-900 font-oswald">
-                    Services We Provide Across Delhi NCR
+                    {isElectricRepair
+                      ? "EV & Electric Scooter Services We Provide Across Delhi NCR"
+                      : "Services We Provide Across Delhi NCR"}
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm mt-1">
-                    Transparent pricing for periodic servicing, CVT tuning, and emergency breakdown repairs.
+                    {isElectricRepair
+                      ? "Specialized doorstep care for high-voltage systems, BMS health checks, and motor diagnostics."
+                      : "Transparent pricing for periodic servicing, CVT tuning, and emergency breakdown repairs."}
                   </p>
                 </div>
                 <Link href="/pricing" className="text-xs font-mono font-bold uppercase tracking-wider text-red-600 hover:text-red-700 flex items-center gap-1">
                   View Full Price List →
                 </Link>
               </div>
-              <CityServicesGrid />
+              <CityServicesGrid filterCategory={isElectricRepair ? "electric" : "scooty"} />
               <style jsx global>{`
-                .scooty-service-rail .svc-grid {
+                .service-page-service-rail .svc-grid {
                   display: flex !important;
                   flex-flow: row nowrap !important;
                   gap: 16px !important;
@@ -441,10 +446,10 @@ export default function ServicePageTemplate({
                   scrollbar-width: thin !important;
                   -webkit-overflow-scrolling: touch !important;
                 }
-                .scooty-service-rail .svc-grid::-webkit-scrollbar { height: 6px !important; }
-                .scooty-service-rail .svc-grid::-webkit-scrollbar-track { background: #e2e8f0 !important; border-radius: 4px !important; }
-                .scooty-service-rail .svc-grid::-webkit-scrollbar-thumb { background: #e62b2b !important; border-radius: 4px !important; }
-                .scooty-service-rail .svc-card {
+                .service-page-service-rail .svc-grid::-webkit-scrollbar { height: 6px !important; }
+                .service-page-service-rail .svc-grid::-webkit-scrollbar-track { background: #e2e8f0 !important; border-radius: 4px !important; }
+                .service-page-service-rail .svc-grid::-webkit-scrollbar-thumb { background: #e62b2b !important; border-radius: 4px !important; }
+                .service-page-service-rail .svc-card {
                   background: #fff;
                   border: 1px solid #e2e8f0;
                   border-radius: 6px;
@@ -458,15 +463,15 @@ export default function ServicePageTemplate({
                   transition: border-color .15s ease, transform .15s ease;
                   width: 310px !important;
                 }
-                .scooty-service-rail .svc-card:hover { border-color: #e62b2b; transform: translateY(-3px); }
-                .scooty-service-rail .svc-tag { color: #e62b2b; display: inline-block; font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: .08em; margin-bottom: 12px; }
-                .scooty-service-rail .svc-card h3 { color: #0f172a; font-size: 17px; letter-spacing: 0; margin-bottom: 10px; text-transform: none; }
-                .scooty-service-rail .svc-card p { color: #475569; font-size: 13.5px; margin-bottom: 16px; min-height: 58px; }
-                .scooty-service-rail .svc-price { color: #0f172a; font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
-                .scooty-service-rail .svc-price span { color: #64748b; font-size: 11px; font-weight: 400; letter-spacing: .04em; }
-                .scooty-service-rail .go { color: #e62b2b; font-family: var(--font-jetbrains); font-size: 12px; font-weight: 700; }
+                .service-page-service-rail .svc-card:hover { border-color: #e62b2b; transform: translateY(-3px); }
+                .service-page-service-rail .svc-tag { color: #e62b2b; display: inline-block; font-family: var(--font-jetbrains); font-size: 10.5px; letter-spacing: .08em; margin-bottom: 12px; }
+                .service-page-service-rail .svc-card h3 { color: #0f172a; font-size: 17px; letter-spacing: 0; margin-bottom: 10px; text-transform: none; }
+                .service-page-service-rail .svc-card p { color: #475569; font-size: 13.5px; margin-bottom: 16px; min-height: 58px; }
+                .service-page-service-rail .svc-price { color: #0f172a; font-family: var(--font-jetbrains), monospace; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+                .service-page-service-rail .svc-price span { color: #64748b; font-size: 11px; font-weight: 400; letter-spacing: .04em; }
+                .service-page-service-rail .go { color: #e62b2b; font-family: var(--font-jetbrains); font-size: 12px; font-weight: 700; }
                 @media (max-width: 640px) {
-                  .scooty-service-rail .svc-card { flex-basis: 82% !important; min-width: 82% !important; width: 82% !important; }
+                  .service-page-service-rail .svc-card { flex-basis: 82% !important; min-width: 82% !important; width: 82% !important; }
                 }
               `}</style>
             </div>

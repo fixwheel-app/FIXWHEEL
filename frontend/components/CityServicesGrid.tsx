@@ -8,6 +8,7 @@ export interface CityServiceConfig {
   id: string;
   name: string;
   desc: string;
+  price?: number;
   priceNote?: string;
   link: string;
   linkText: string;
@@ -124,16 +125,84 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
   },
 ];
 
+const ELECTRIC_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
+  {
+    tag: "[EV SERVICE]",
+    id: "ev-service",
+    name: "EV General Service",
+    desc: "BMS scan, motor & wiring check",
+    price: 799,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+  {
+    tag: "[JUMPSTART]",
+    id: "ev-jump-start",
+    name: "EV Auxiliary Jump Start",
+    desc: "12V battery boost & voltage check",
+    price: 249,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+  {
+    tag: "[PUNCTURE]",
+    id: "ev-puncture",
+    name: "EV Puncture Repair",
+    desc: "Tubeless puncture & pressure check",
+    price: 149,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+  {
+    tag: "[RUNNING]",
+    id: "ev-running-repair",
+    name: "EV Running Repair",
+    desc: "Throttle sensor calibration & minor electrical",
+    price: 149,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+  {
+    tag: "[BRAKE]",
+    id: "ev-brake-pad",
+    name: "EV Brake Pad Replacement",
+    desc: "Regenerative brake & disc service",
+    price: 199,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+  {
+    tag: "[PICKUP]",
+    id: "ev-pick-drop",
+    name: "EV Pick & Drop Service",
+    desc: "Safe transport for major motor/battery repair",
+    price: 199,
+    priceNote: "starting from",
+    link: "/book",
+    linkText: "Book now →",
+  },
+];
+
 export interface CityServicesGridProps {
   cityName?: string;
+  filterCategory?: "all" | "electric" | "scooty";
 }
 
-export default function CityServicesGrid({ cityName }: CityServicesGridProps = {}) {
+export default function CityServicesGrid({ filterCategory = "all" }: CityServicesGridProps = {}) {
+  const serviceCards = filterCategory === "electric"
+    ? ELECTRIC_SERVICE_CARDS_CONFIG
+    : CITY_SERVICE_CARDS_CONFIG;
+
   return (
     <div className="svc-grid">
-      {CITY_SERVICE_CARDS_CONFIG.map((item) => {
+      {serviceCards.map((item) => {
         const pricingEntry = SERVICE_PRICING_LIST.find((p) => p.id === item.id);
-        const priceValue = pricingEntry?.prices.cc0_249 ?? 550;
+        const priceValue = item.price ?? pricingEntry?.prices.cc0_249 ?? 550;
         const formattedPrice =
           typeof priceValue === "number"
             ? `₹${priceValue.toLocaleString("en-IN")}`

@@ -244,6 +244,19 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                 : NON_ELECTRIC_SERVICES.filter(srv => ccRange && srv.prices[ccRange] !== null)
               ).map((srv) => {
                 const price = fuelType === 'Electric Motorbike' ? (srv as any).price : (ccRange ? (srv as any).prices[ccRange] : null);
+                let originalPrice: number | null = null;
+
+                if (price !== null) {
+                  if (srv.id === 'Engine Half') {
+                    originalPrice = price + 1000;
+                  } else if (srv.id === 'Engine full') {
+                    originalPrice = price + 2000;
+                  } else if (price >= 1000) {
+                    originalPrice = Math.round(price * 1.15 / 50) * 50;
+                  } else {
+                    originalPrice = price + 100;
+                  }
+                }
                 
                 return (
                   <div key={srv.id} className="bg-white rounded-[2rem] p-6 md:p-8 text-black shadow-2xl relative overflow-hidden">
@@ -252,69 +265,54 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
 
                     <div className="relative z-10 flex flex-col md:flex-row gap-6 mb-8">
                       <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center shadow-inner p-2 text-center">
-                         <img src="/logo.png" alt="FixWheel Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain mb-1 transform -rotate-12" />
+                         <img src="/logo.png" alt="FixWheel Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain mb-1" />
                          <span className="font-black text-[10px] md:text-[11px] tracking-tighter text-black uppercase leading-tight">
                            <span className="text-accent">Fix</span>Wheel
                          </span>
                       </div>
                       <div className="flex-1">
-                        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider mb-3">{srv.name}</h2>
+                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
+                          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider">{srv.name}</h2>
+                          <div className="flex items-baseline gap-2 md:gap-3 shrink-0">
+                            {originalPrice !== null && (
+                              <span className="text-sm sm:text-base md:text-lg line-through text-gray-400 font-bold">₹{originalPrice}</span>
+                            )}
+                            <span className="text-2xl sm:text-3xl font-black text-black">₹{price}</span>
+                          </div>
+                        </div>
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
                           <span>• Available at Doorstep</span>
                           <span>• 15 Days Warranty</span>
                         </div>
-                        <div className="inline-block bg-gray-100 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200">
-                          ⏱ {srv.estimatedTime}
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="inline-block bg-gray-100 px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200 whitespace-nowrap">
+                            ⏱ {srv.estimatedTime}
+                          </div>
+                          <div className="flex flex-col items-end gap-2 min-w-0">
+                            <button
+                              onClick={() => {
+                                if (!brand || !model || price === null) return;
+                                const bikeStr = `${brand} ${model}`.trim();
+                                const query = new URLSearchParams({
+                                  package: srv.id,
+                                  serviceId: srv.pricingId,
+                                  bike: bikeStr,
+                                  type: fuelType,
+                                  price: price.toString()
+                                });
+                                if (ccRange) query.set('ccRange', ccRange);
+                                router.push(`/book/checkout?${query}`);
+                              }}
+                              disabled={!brand || !model}
+                              className="whitespace-nowrap px-4 sm:px-8 md:px-10 py-3 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-[11px] sm:text-sm rounded-full font-black tracking-wider sm:tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
+                            >
+                              BOOK SERVICE
+                            </button>
+                            {(!brand || !model) && (
+                              <p className="max-w-[12rem] text-[10px] sm:text-xs leading-tight text-status-error font-bold uppercase tracking-wider text-right">Select Brand & Model first</p>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    
-                    <div className="relative z-10 flex flex-row items-center justify-between border-t border-gray-100 pt-6 gap-3">
-                      <div className="flex items-baseline gap-2 md:gap-3 shrink-0">
-                        {price !== null && (() => {
-                          let originalPrice: number | null = null;
-                          if (srv.id === 'Engine Half') {
-                            originalPrice = price + 1000;
-                          } else if (srv.id === 'Engine full') {
-                            originalPrice = price + 2000;
-                          } else if (price >= 1000) {
-                            originalPrice = Math.round(price * 1.15 / 50) * 50;
-                          } else {
-                            originalPrice = price + 100;
-                          }
-                          
-                          if (originalPrice !== null) {
-                            return (
-                              <span className="text-base sm:text-xl md:text-2xl line-through text-gray-400 font-bold">₹{originalPrice}</span>
-                            );
-                          }
-                          return null;
-                        })()}
-                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-black">₹{price}</span>
-                      </div>
-                      <div className="w-auto flex flex-col items-end gap-2">
-                        <button
-                          onClick={() => {
-                            if (!brand || !model || price === null) return;
-                            const bikeStr = `${brand} ${model}`.trim();
-                            const query = new URLSearchParams({
-                              package: srv.id,
-                              serviceId: srv.pricingId,
-                              bike: bikeStr,
-                              type: fuelType,
-                              price: price.toString()
-                            });
-                            if (ccRange) query.set('ccRange', ccRange);
-                            router.push(`/book/checkout?${query}`);
-                          }}
-                          disabled={!brand || !model}
-                          className="w-auto whitespace-nowrap px-5 sm:px-8 md:px-12 py-4 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-xs sm:text-sm md:text-base rounded-full font-black tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
-                        >
-                          BOOK SERVICE
-                        </button>
-                        {(!brand || !model) && (
-                          <p className="text-xs text-status-error font-bold uppercase tracking-wider text-center md:text-right w-full">Select Brand & Model first</p>
-                        )}
                       </div>
                     </div>
                   </div>
