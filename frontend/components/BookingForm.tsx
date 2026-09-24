@@ -239,7 +239,7 @@ function BookingFormInner() {
         <div className="flex justify-between items-center bg-white rounded-xl p-4 mb-8 border-2 border-gray-200 shadow-sm transition-colors">
           <div>
             <p className="text-gray-600 text-sm">Selected Service</p>
-            <p className="font-semibold text-black text-lg">{selectedPackageId}</p>
+            <p className="font-semibold text-black text-lg">{pkgData && 'displayName' in pkgData && pkgData.displayName ? pkgData.displayName : selectedPackageId}</p>
           </div>
           <div className="text-right">
             <p className="text-gray-500 text-sm">Estimated Price</p>
@@ -559,7 +559,7 @@ function BookingFormInner() {
           
           <div className="flex justify-between items-start mb-4 md:mb-6 pb-4 md:pb-6 border-b border-gray-200 gap-3">
             <div className="min-w-0">
-              <p className="text-gray-600 text-sm mb-1 break-words">{selectedPackageId}</p>
+              <p className="text-gray-600 text-sm mb-1 break-words">{pkgData && 'displayName' in pkgData && pkgData.displayName ? pkgData.displayName : selectedPackageId}</p>
               <p className="text-accent text-sm">Estimated Price</p>
             </div>
             <p className="text-2xl md:text-3xl font-bold text-black shrink-0">₹{price}</p>

@@ -6,6 +6,7 @@ export type CCRange = "0-249" | "250-399" | "400-599" | "600+";
 export interface NonElectricService {
   id: PackageType;
   name: PackageType;
+  displayName?: string;
   pricingId: ServicePriceId;
   prices: Record<CCRange, number | null>;
   includes?: string[];
@@ -189,6 +190,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
   {
     id: "Battery Replacement",
     name: "Battery Replacement",
+    displayName: "Battery Replacement (Labor)",
     pricingId: "battery-replacement",
     prices: getNonElectricPrices("battery-replacement"),
     estimatedTime: "30 MINS",

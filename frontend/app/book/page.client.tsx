@@ -272,7 +272,7 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider">{srv.name}</h2>
+                          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider">{'displayName' in srv && srv.displayName ? srv.displayName : srv.name}</h2>
                           <div className="flex items-baseline gap-2 md:gap-3 shrink-0">
                             {originalPrice !== null && (
                               <span className="text-sm sm:text-base md:text-lg line-through text-gray-400 font-bold">₹{originalPrice}</span>
