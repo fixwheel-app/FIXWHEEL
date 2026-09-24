@@ -25,7 +25,21 @@ export const bookingSchema = z.object({
     "6:00 PM - 7:00 PM", 
     "7:00 PM - 8:00 PM"
   ]),
-  package: z.enum(["General Service", "General Service with engine oil", "Puncture", "Running Repair", "Engine Half", "Engine full", "Jump start"]),
+  package: z.enum([
+    "General Service",
+    "General Service with engine oil",
+    "Puncture",
+    "Running Repair",
+    "Engine Half",
+    "Engine full",
+    "Jump start",
+    "Battery Replacement",
+    "Carburetor Cleaning",
+    "OBD Scanner Inspection",
+    "Brake Disc Replacement",
+    "Chain Sprocket Replacement",
+    "Pick & Drop Service",
+  ]),
   serviceId: z.enum(BOOKABLE_SERVICE_IDS),
   ccRange: z.enum(BOOKING_CC_RANGES).optional(),
   price: z.coerce.number().int().positive().optional()

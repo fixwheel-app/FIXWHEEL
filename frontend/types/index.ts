@@ -1,12 +1,20 @@
-export type PackageType = 
-  | "General Service" 
-  | "General Service with engine oil" 
-  | "Puncture" 
-  | "Running Repair" 
-  | "Engine Half" 
-  | "Engine full" 
-  | "Jump start"
-  | string;
+export const PACKAGE_TYPES = [
+  "General Service",
+  "General Service with engine oil",
+  "Puncture",
+  "Running Repair",
+  "Engine Half",
+  "Engine full",
+  "Jump start",
+  "Battery Replacement",
+  "Carburetor Cleaning",
+  "OBD Scanner Inspection",
+  "Brake Disc Replacement",
+  "Chain Sprocket Replacement",
+  "Pick & Drop Service",
+] as const;
+
+export type PackageType = typeof PACKAGE_TYPES[number];
 
 export interface BookingFormData {
   customerName: string;

@@ -36,6 +36,30 @@ const nonElectricCases: Array<[BookingPriceSelection['serviceId'], BookingPriceS
   ['engine-half', 'Engine Half', '250-399', 10000],
   ['engine-full', 'Engine full', '0-249', 7999],
   ['engine-full', 'Engine full', '250-399', 18000],
+  ['battery-replacement', 'Battery Replacement', '0-249', 99],
+  ['battery-replacement', 'Battery Replacement', '250-399', 99],
+  ['battery-replacement', 'Battery Replacement', '400-599', 149],
+  ['battery-replacement', 'Battery Replacement', '600+', 149],
+  ['carburetor-cleaning', 'Carburetor Cleaning', '0-249', 199],
+  ['carburetor-cleaning', 'Carburetor Cleaning', '250-399', 199],
+  ['carburetor-cleaning', 'Carburetor Cleaning', '400-599', 399],
+  ['carburetor-cleaning', 'Carburetor Cleaning', '600+', 399],
+  ['obd-inspection', 'OBD Scanner Inspection', '0-249', 199],
+  ['obd-inspection', 'OBD Scanner Inspection', '250-399', 249],
+  ['obd-inspection', 'OBD Scanner Inspection', '400-599', 399],
+  ['obd-inspection', 'OBD Scanner Inspection', '600+', 399],
+  ['disc-replacement', 'Brake Disc Replacement', '0-249', 199],
+  ['disc-replacement', 'Brake Disc Replacement', '250-399', 249],
+  ['disc-replacement', 'Brake Disc Replacement', '400-599', 299],
+  ['disc-replacement', 'Brake Disc Replacement', '600+', 299],
+  ['chain-sprocket', 'Chain Sprocket Replacement', '0-249', 299],
+  ['chain-sprocket', 'Chain Sprocket Replacement', '250-399', 299],
+  ['chain-sprocket', 'Chain Sprocket Replacement', '400-599', 450],
+  ['chain-sprocket', 'Chain Sprocket Replacement', '600+', 450],
+  ['pick-drop', 'Pick & Drop Service', '0-249', 199],
+  ['pick-drop', 'Pick & Drop Service', '250-399', 199],
+  ['pick-drop', 'Pick & Drop Service', '400-599', 299],
+  ['pick-drop', 'Pick & Drop Service', '600+', 299],
 ];
 
 test('calculates every bookable non-electric spreadsheet tier', () => {
@@ -159,6 +183,38 @@ test('request validation rejects unknown service and CC identifiers', () => {
     ccRange: '0-249',
     price: 550,
   }).success, true);
+});
+
+test('request validation accepts every newly added booking service', () => {
+  const base = {
+    customerName: 'Test Rider',
+    phone: '9876543210',
+    address: 'Test address with enough length',
+    city: 'Delhi' as const,
+    bookingDate: '2026-09-15',
+    bikeType: 'Non-Electric Motorbike' as const,
+    bikeModel: 'Honda Activa 6G',
+    preferredSlot: '8:00 AM - 9:00 AM' as const,
+    ccRange: '0-249' as const,
+  };
+
+  const cases = [
+    ['battery-replacement', 'Battery Replacement', 99],
+    ['carburetor-cleaning', 'Carburetor Cleaning', 199],
+    ['obd-inspection', 'OBD Scanner Inspection', 199],
+    ['disc-replacement', 'Brake Disc Replacement', 199],
+    ['chain-sprocket', 'Chain Sprocket Replacement', 299],
+    ['pick-drop', 'Pick & Drop Service', 199],
+  ] as const;
+
+  for (const [serviceId, packageName, price] of cases) {
+    assert.equal(bookingSchema.safeParse({
+      ...base,
+      package: packageName,
+      serviceId,
+      price,
+    }).success, true);
+  }
 });
 
 test('booking controller rejects a tampered quote before persistence', async () => {

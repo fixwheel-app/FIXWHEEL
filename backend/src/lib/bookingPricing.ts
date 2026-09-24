@@ -6,6 +6,12 @@ export const BOOKABLE_SERVICE_IDS = [
   'running-repair',
   'engine-half',
   'engine-full',
+  'battery-replacement',
+  'carburetor-cleaning',
+  'obd-inspection',
+  'disc-replacement',
+  'chain-sprocket',
+  'pick-drop',
   'ev-service',
 ] as const;
 
@@ -52,6 +58,30 @@ const BOOKING_PRICING: Record<BookableServiceId, ServicePricing> = {
   'engine-full': {
     packageName: 'Engine full',
     nonElectric: { '0-249': 7999, '250-399': 18000, '400-599': null, '600+': null },
+  },
+  'battery-replacement': {
+    packageName: 'Battery Replacement',
+    nonElectric: { '0-249': 99, '250-399': 99, '400-599': 149, '600+': 149 },
+  },
+  'carburetor-cleaning': {
+    packageName: 'Carburetor Cleaning',
+    nonElectric: { '0-249': 199, '250-399': 199, '400-599': 399, '600+': 399 },
+  },
+  'obd-inspection': {
+    packageName: 'OBD Scanner Inspection',
+    nonElectric: { '0-249': 199, '250-399': 249, '400-599': 399, '600+': 399 },
+  },
+  'disc-replacement': {
+    packageName: 'Brake Disc Replacement',
+    nonElectric: { '0-249': 199, '250-399': 249, '400-599': 299, '600+': 299 },
+  },
+  'chain-sprocket': {
+    packageName: 'Chain Sprocket Replacement',
+    nonElectric: { '0-249': 299, '250-399': 299, '400-599': 450, '600+': 450 },
+  },
+  'pick-drop': {
+    packageName: 'Pick & Drop Service',
+    nonElectric: { '0-249': 199, '250-399': 199, '400-599': 299, '600+': 299 },
   },
   'ev-service': {
     packageName: 'General Service',

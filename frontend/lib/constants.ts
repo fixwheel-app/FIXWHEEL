@@ -185,6 +185,84 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
       "Spark plug",
       "Mechanic charges"
     ]
+  },
+  {
+    id: "Battery Replacement",
+    name: "Battery Replacement",
+    pricingId: "battery-replacement",
+    prices: getNonElectricPrices("battery-replacement"),
+    estimatedTime: "30 MINS",
+    includes: [
+      "Digital Battery & Cranking Health Test",
+      "Stator & RR Unit Charging Voltage Check",
+      "Terminal Corrosion Cleaning & Anti-Rust Grease",
+      "Fresh OEM Battery Installation (Exide/Amaron)"
+    ]
+  },
+  {
+    id: "Carburetor Cleaning",
+    name: "Carburetor Cleaning",
+    pricingId: "carburetor-cleaning",
+    prices: getNonElectricPrices("carburetor-cleaning"),
+    estimatedTime: "45 MINS",
+    includes: [
+      "Carburetor Disassembly & Inspection",
+      "Main & Pilot Jet Ultrasonic De-clogging",
+      "Float Chamber Flushing & Sediment Removal",
+      "Idle Air-Fuel Ratio Tuning & Throttle Sync"
+    ]
+  },
+  {
+    id: "OBD Scanner Inspection",
+    name: "OBD Scanner Inspection",
+    pricingId: "obd-inspection",
+    prices: getNonElectricPrices("obd-inspection"),
+    estimatedTime: "30 MINS",
+    includes: [
+      "Handheld OBD-II Scanner Diagnostic Connection",
+      "ECU DTC Fault Code Reading & Analysis",
+      "Live Sensor Voltage & O2 Sensor Data Review",
+      "Check Engine Light (CEL) Reset & Health Report"
+    ]
+  },
+  {
+    id: "Brake Disc Replacement",
+    name: "Brake Disc Replacement",
+    pricingId: "disc-replacement",
+    prices: getNonElectricPrices("disc-replacement"),
+    estimatedTime: "45 MINS",
+    includes: [
+      "Front & Rear Disc Pad / Shoe Wear Check",
+      "Caliper Piston Cleaning & Slider Pin Greasing",
+      "OEM Disc Pad / Shoe Fitment Labor",
+      "Hydraulic Brake Line Air Bleeding & Fluid Top-Up"
+    ]
+  },
+  {
+    id: "Chain Sprocket Replacement",
+    name: "Chain Sprocket Replacement",
+    pricingId: "chain-sprocket",
+    prices: getNonElectricPrices("chain-sprocket"),
+    estimatedTime: "1.5 HOURS",
+    includes: [
+      "Front & Rear Sprocket Fitment Labor",
+      "New Heavy-Duty O-Ring Chain Fitment",
+      "Rear Wheel Laser Alignment & Notch Setting",
+      "High-Tack Chain Lube Coat & Slack Tensioning"
+    ]
+  },
+  {
+    id: "Pick & Drop Service",
+    name: "Pick & Drop Service",
+    pricingId: "pick-drop",
+    prices: getNonElectricPrices("pick-drop"),
+    estimatedTime: "SAME DAY",
+    includes: [
+      "Safe Doorstep Two-Wheeler Transit Pickup",
+      "GPS-Tracked Transit to Specialized Workshop",
+      "Physical Inspection & Handover Condition Log",
+      "Doorstep Return Delivery Post-Service"
+    ]
   }
 ];
 

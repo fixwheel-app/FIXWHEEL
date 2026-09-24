@@ -10,7 +10,7 @@ import { Lock, AlertCircle, CheckCircle2, MapPin, Sunrise, Sun, Sunset, Clock, C
 import { submitBooking } from '@/lib/api';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES } from '@/lib/constants';
 import LoadingSpinner from './LoadingSpinner';
-import { PackageType } from '@/types';
+import { PACKAGE_TYPES, PackageType } from '@/types';
 import { cn } from '@/lib/utils';
 
 function getLocalDateString(d: Date = new Date()): string {
@@ -54,7 +54,7 @@ const bookingSchema = z.object({
     "6:00 PM - 7:00 PM", 
     "7:00 PM - 8:00 PM"
   ]),
-  package: z.string().min(1, "Service package is required")
+  package: z.enum(PACKAGE_TYPES)
 });
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;
