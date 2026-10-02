@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   ArrowRight, ShieldCheck, Wrench, Clock,
   MapPin, Phone, Mail, Award, CheckCircle2, ChevronDown,
@@ -12,7 +12,6 @@ import {
 import { getServicePricing, type ServicePriceId } from '@/lib/pricingData';
 import BrandsMarquee from '@/components/BrandsMarquee';
 import HomeCoverageSection from '@/components/HomeCoverageSection';
-import HomeConnectBanner from '@/components/HomeConnectBanner';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 import { submitQuery } from '@/lib/api';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
@@ -49,6 +48,13 @@ export default function Home() {
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const reviewsRef = useRef<HTMLDivElement>(null);
+  const scrollReviews = (direction: number) => {
+    const slider = reviewsRef.current;
+    if (!slider) return;
+    const card = slider.firstElementChild as HTMLElement | null;
+    slider.scrollBy({ left: direction * ((card?.offsetWidth || 320) + 24), behavior: 'smooth' });
+  };
 
   // Query Form State
   const [queryForm, setQueryForm] = useState({
@@ -158,13 +164,13 @@ export default function Home() {
   // ── Contact form state removed ─────────────────────────────────────────────
 
   const reviews = [
-    { name: "Deepak M.", city: "Delhi", vehicle: "Bajaj Pulsar", rating: 5, text: "Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted." },
-    { name: "Sneha K.", city: "Delhi", vehicle: "Honda Activa", rating: 4, text: "Battery died on my Activa in Vasant Kunj. The mechanic tested it and replaced the battery on the spot with transparent billing." },
-    { name: "Vikram Singh", city: "Gurgaon", vehicle: "Royal Enfield", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now." },
-    { name: "Vikram S.", city: "Noida", vehicle: "Royal Enfield Bullet", rating: 5, text: "My Royal Enfield Bullet broke down near Sector 62. The mechanic cleaned the carburetor on the spot and got it started." },
-    { name: "Pallavi G.", city: "Noida", vehicle: "TVS Jupiter", rating: 5, text: "Got my TVS Jupiter serviced at home in Greater Noida West. Polite technician, pre-confirmed pricing, and no pushy upselling." },
-    { name: "Rohit S.", city: "Faridabad", vehicle: "Bajaj Pulsar", rating: 5, text: "My Pulsar broke down near Bata Chowk. The roadside mechanic changed the clutch cable and got me moving again." },
-    { name: "Garima S.", city: "Ghaziabad", vehicle: "Scooty", rating: 5, text: "My Scooty had a flat tyre near GT Road. The mechanic reached quickly, repaired the puncture, and got me moving again." },
+    { name: "Deepak M.", locality: "Janakpuri", city: "Delhi", vehicle: "Bajaj Pulsar", rating: 5, text: "Got my Pulsar serviced at my office parking in Janakpuri. Oil change done in 45 minutes. Price was exactly what they quoted." },
+    { name: "Sneha K.", locality: "Vasant Kunj", city: "Delhi", vehicle: "Honda Activa", rating: 4, text: "Battery died on my Activa in Vasant Kunj. The mechanic tested it and replaced the battery on the spot with transparent billing." },
+    { name: "Vikram Singh", locality: "Sector 14", city: "Gurgaon", vehicle: "Royal Enfield", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now." },
+    { name: "Vikram S.", locality: "Sector 62", city: "Noida", vehicle: "Royal Enfield Bullet", rating: 5, text: "My Royal Enfield Bullet broke down near Sector 62. The mechanic cleaned the carburetor on the spot and got it started." },
+    { name: "Pallavi G.", locality: "Greater Noida West", city: "Noida", vehicle: "TVS Jupiter", rating: 5, text: "Got my TVS Jupiter serviced at home in Greater Noida West. Polite technician, pre-confirmed pricing, and no pushy upselling." },
+    { name: "Rohit S.", locality: "Bata Chowk", city: "Faridabad", vehicle: "Bajaj Pulsar", rating: 5, text: "My Pulsar broke down near Bata Chowk. The roadside mechanic changed the clutch cable and got me moving again." },
+    { name: "Garima S.", locality: "GT Road", city: "Ghaziabad", vehicle: "Honda Activa", rating: 5, text: "My Honda Activa had a flat tyre near GT Road. The mechanic reached quickly, repaired the puncture, and got me moving again." },
   ];
 
   return (
@@ -331,6 +337,9 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <Link href="/services" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-bold text-white hover:bg-accent-hover">View All Services <ArrowRight className="h-4 w-4" /></Link>
+          </div>
         </div>
       </section>
 
@@ -378,20 +387,19 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════════════
           🟠  CUSTOMER REVIEWS
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24 bg-[#0F172A] overflow-hidden">
+      <section className="py-10 md:py-14 bg-[#0F172A] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
             <span className="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Real Feedback</span>
             <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-3">What Riders Say</h2>
-            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">Reviews from verified riders who've used FixWheel.</p>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">From everyday servicing to roadside repairs, explore riders’ experiences across Delhi NCR.</p>
           </div>
 
-          {/* Grid Layout for Desktop, Horizontal Scroll for Mobile */}
-          <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-4 px-4 md:mx-0 md:px-0">
+          <div id="home-reviews" ref={reviewsRef} role="region" aria-label="Rider reviews slider" tabIndex={0} className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4">
             {reviews.map((review, idx) => (
               <div
                 key={idx}
-                className="w-[280px] sm:w-[320px] md:w-auto snap-center shrink-0 p-6 rounded-[12px] border border-white/10 bg-[#1E293B] text-white flex flex-col justify-between h-full whitespace-normal"
+                className="w-[85%] sm:w-[320px] lg:w-[calc((100%-48px)/3)] snap-start shrink-0 p-6 rounded-[12px] border border-white/10 bg-[#1E293B] text-white flex flex-col justify-between whitespace-normal"
               >
                 <div>
                   <div className="flex justify-between items-start mb-4">
@@ -402,16 +410,19 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2 mb-4 text-[10px] font-bold uppercase tracking-wide text-slate-300">
-                    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/20 px-2.5 py-1"><MapPin className="w-3 h-3 text-accent" />{review.city}</span>
                     <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/20 px-2.5 py-1"><Wrench className="w-3 h-3 text-accent" />{review.vehicle}</span>
                   </div>
                   <p className="text-[14px] leading-relaxed opacity-90">"{review.text}"</p>
                 </div>
                 <div className="mt-6 flex items-center justify-end">
-                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-50">Verified Rider</span>
+                  <span className="inline-flex items-center gap-1.5 text-xs text-slate-300"><MapPin className="w-3.5 h-3.5 shrink-0 text-accent" />{review.locality ? `${review.locality}, ${review.city}` : review.city}</span>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center gap-3 mt-5">
+            <button type="button" onClick={() => scrollReviews(-1)} aria-label="Previous reviews" aria-controls="home-reviews" className="rounded-full border border-white/30 p-3 text-white hover:bg-white/10"><ArrowRight className="h-5 w-5 rotate-180" /></button>
+            <button type="button" onClick={() => scrollReviews(1)} aria-label="Next reviews" aria-controls="home-reviews" className="rounded-full border border-white/30 p-3 text-white hover:bg-white/10"><ArrowRight className="h-5 w-5" /></button>
           </div>
         </div>
       </section>
@@ -460,41 +471,44 @@ export default function Home() {
       ════════════════════════════════════════════════════════════════════ */}
       <section id="faq" className="py-10 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-10 md:mb-14">
-            <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">FAQ</span>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-3">Frequently Asked Questions</h2>
-            <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto">Common questions about bookings, service, and pricing</p>
+          <div className="mb-10 md:mb-14">
+            <div className="flex items-center gap-3 text-accent text-xs font-mono uppercase tracking-[0.2em] mb-4"><span className="w-6 h-px bg-accent" />FAQs</div>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-slate-900 tracking-tight max-w-3xl">Common questions about bike repair</h2>
           </div>
 
-          <div className="max-w-3xl mx-auto divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div>
             {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white">
+              <div key={idx} className="bg-white border-b border-slate-200">
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full flex items-center justify-between text-left px-5 md:px-7 py-4 md:py-5 gap-4 hover:bg-gray-50 transition-colors"
+                  aria-expanded={openFaq === idx}
+                  aria-controls={`home-faq-${idx}`}
+                  className="w-full flex items-center justify-between text-left py-[22px] gap-4"
                 >
-                  <span className={`font-bold text-sm md:text-base uppercase tracking-tight transition-colors ${openFaq === idx ? 'text-accent' : 'text-black'}`}>
+                  <span className="font-medium text-base text-slate-900">
                     {faq.q}
                   </span>
                   <motion.div
-                    animate={{ rotate: openFaq === idx ? 180 : 0 }}
+                    animate={{ rotate: openFaq === idx ? 45 : 0 }}
                     transition={{ duration: 0.25 }}
-                    className={`shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-colors ${openFaq === idx ? 'bg-accent border-accent text-white' : 'border-gray-200 text-gray-400'}`}
+                    aria-hidden="true"
+                    className="shrink-0 text-accent text-lg font-mono"
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    +
                   </motion.div>
                 </button>
                 <AnimatePresence initial={false}>
                   {openFaq === idx && (
                     <motion.div
                       key="body"
+                      id={`home-faq-${idx}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 md:px-7 pb-5 text-gray-600 text-sm md:text-base leading-relaxed">{faq.a}</p>
+                      <p className="pb-[22px] text-slate-600 text-[14.5px] leading-relaxed max-w-[760px]">{faq.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -695,7 +709,6 @@ export default function Home() {
       </section>
 
 
-      <HomeConnectBanner />
 
 
     </main>

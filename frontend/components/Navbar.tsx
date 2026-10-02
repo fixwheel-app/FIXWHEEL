@@ -214,6 +214,29 @@ export default function Navbar() {
         "w-full z-50 transition-all duration-300 pointer-events-auto border-b border-white/10 fixed top-0",
         scrolled ? "bg-[#0d1117] shadow-xl" : "bg-[#0d1117]/95 backdrop-blur-md"
       )}>
+        {/* Banner above menu bar */}
+        {showDiscountBanner && (
+          <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-10 border-b border-slate-200 relative flex items-center justify-center gap-2 shadow-sm">
+            <span>Download App to get 10% off</span>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-accent hover:bg-accent-hover text-white text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded transition-all ml-1.5 shadow-sm"
+            >
+              Get App ↗
+            </a>
+            <button
+              type="button"
+              onClick={handleDismissDiscountBanner}
+              aria-label="Close discount banner"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-800 p-1 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
 
@@ -505,7 +528,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/book"
-                className="bg-accent text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap"
+                className="hidden md:inline-flex bg-accent text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap"
               >
                 Book Now
               </Link>
@@ -519,29 +542,6 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-
-        {/* Banner below menu bar */}
-        {showDiscountBanner && (
-          <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-10 border-b border-slate-200 relative flex items-center justify-center gap-2 shadow-sm">
-            <span>Download App to get 10% off</span>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-accent hover:bg-accent-hover text-white text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded transition-all ml-1.5 shadow-sm"
-            >
-              Get App ↗
-            </a>
-            <button
-              type="button"
-              onClick={handleDismissDiscountBanner}
-              aria-label="Close discount banner"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-800 p-1 transition-colors cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-        )}
 
         {/* Mobile Full-screen Dropdown */}
         <AnimatePresence>
@@ -821,6 +821,11 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </nav>
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] md:hidden">
+        <Link href="/book" onClick={() => setIsOpen(false)} className="pointer-events-auto flex h-12 w-full items-center justify-center rounded-2xl bg-accent font-bold uppercase tracking-wide text-white shadow-[0_6px_20px_rgba(255,59,48,0.3)] transition-[background-color,transform] hover:bg-accent-hover active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+          Book Service
+        </Link>
+      </div>
     </>
   );
 }

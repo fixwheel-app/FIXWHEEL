@@ -118,7 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className="flex flex-col min-h-screen bg-primary text-text-primary">
+      <body className="flex flex-col min-h-screen bg-primary text-text-primary pb-[calc(72px+env(safe-area-inset-bottom))] md:pb-0">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MVSCJMZ4"
