@@ -128,7 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <Navbar />
-        <main className="flex-grow pt-16">
+        <main className="flex-grow pt-[var(--site-header-height,100px)] md:pt-[var(--site-header-height,116px)]">
           {children}
         </main>
         <WhatsAppButton />

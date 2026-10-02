@@ -47,6 +47,26 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showDiscountBanner, setShowDiscountBanner] = useState(true);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const header = headerRef.current;
+    if (!header) {
+      root.style.setProperty('--site-header-height', '0px');
+      return () => root.style.removeProperty('--site-header-height');
+    }
+    const updateHeight = () => {
+      root.style.setProperty('--site-header-height', `${header.getBoundingClientRect().height}px`);
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(header);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty('--site-header-height');
+    };
+  }, [pathname]);
   const [activePath, setActivePath] = useState(pathname || '/');
 
   const [tabWidth, setTabWidth] = useState(0);
@@ -214,6 +234,7 @@ export default function Navbar() {
         "w-full z-50 transition-all duration-300 pointer-events-auto border-b border-white/10 fixed top-0",
         scrolled ? "bg-[#0d1117] shadow-xl" : "bg-[#0d1117]/95 backdrop-blur-md"
       )}>
+        <div ref={headerRef}>
         {/* Banner above menu bar */}
         {showDiscountBanner && (
           <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-10 border-b border-slate-200 relative flex items-center justify-center gap-2 shadow-sm">
@@ -543,6 +564,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        </div>
         {/* Mobile Full-screen Dropdown */}
         <AnimatePresence>
           {isOpen && (
