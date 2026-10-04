@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LOCALITY_DB } from "./localityData";
 import DelhiLocalityClientPage from "./page.client";
+import {
+  BIKE_TYPE_SLUGS,
+  generateCityBikeTypeMetadata,
+  isBikeTypeSlug,
+  renderCityBikeType,
+} from "@/lib/locationServiceRoutes";
 
 export async function generateStaticParams() {
-  return Object.keys(LOCALITY_DB).map((locality) => ({
-    locality,
-  }));
+  return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS].map((locality) => ({ locality }));
 }
 
 export async function generateMetadata({ params }: { params: { locality: string } }): Promise<Metadata> {
+  if (isBikeTypeSlug(params.locality)) {
+    return generateCityBikeTypeMetadata("delhi", params.locality);
+  }
   const data = LOCALITY_DB[params.locality];
   if (!data) return {};
 
@@ -87,6 +94,9 @@ export async function generateMetadata({ params }: { params: { locality: string 
 }
 
 export default function LocalityPage({ params }: { params: { locality: string } }) {
+  if (isBikeTypeSlug(params.locality)) {
+    return renderCityBikeType("delhi", params.locality);
+  }
   const data = LOCALITY_DB[params.locality];
   if (!data) {
     notFound();

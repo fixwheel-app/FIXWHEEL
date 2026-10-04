@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LOCALITY_DB } from "./localityData";
 import GhaziabadLocalityClientPage from "./page.client";
+import {
+  BIKE_TYPE_SLUGS,
+  generateCityBikeTypeMetadata,
+  isBikeTypeSlug,
+  renderCityBikeType,
+} from "@/lib/locationServiceRoutes";
 
 export async function generateStaticParams() {
-  return Object.keys(LOCALITY_DB).map((locality) => ({
-    locality,
-  }));
+  return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS].map((locality) => ({ locality }));
 }
 
 export async function generateMetadata({ params }: { params: { locality: string } }): Promise<Metadata> {
+  if (isBikeTypeSlug(params.locality)) {
+    return generateCityBikeTypeMetadata("ghaziabad", params.locality);
+  }
   const data = LOCALITY_DB[params.locality];
   if (!data) return {};
 
@@ -87,6 +94,9 @@ export async function generateMetadata({ params }: { params: { locality: string 
 }
 
 export default function GhaziabadLocalityPage({ params }: { params: { locality: string } }) {
+  if (isBikeTypeSlug(params.locality)) {
+    return renderCityBikeType("ghaziabad", params.locality);
+  }
   const data = LOCALITY_DB[params.locality];
   if (!data) {
     notFound();

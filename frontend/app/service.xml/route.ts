@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { CITIES_DB } from "@/lib/cityLocalityData";
 
 export const dynamic = "force-static";
 
@@ -35,6 +36,14 @@ const LEGACY_SERVICE_URLS = [
 ];
 
 const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
+const CITY_SERVICE_SLUGS = [
+  ...OFFICIAL_SERVICE_SLUGS,
+  "oil-change",
+  "comprehensive-service",
+  "engine-repair",
+  "battery-replacement",
+  "brake-repair",
+];
 
 function urlNode(path: string, priority: string) {
   return `  <url>
@@ -49,15 +58,22 @@ export async function GET() {
   const officialLandingPages = OFFICIAL_SERVICE_SLUGS.map((service) =>
     urlNode(`/services/${service}`, "0.8")
   );
-  const officialCityPages = OFFICIAL_SERVICE_SLUGS.flatMap((service) =>
-    SERVICE_CITIES.map((city) => urlNode(`/services/${service}/${city}`, "0.7"))
+  const officialCityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
+    SERVICE_CITIES.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
+  );
+  const officialLocalityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
+    SERVICE_CITIES.flatMap((city) =>
+      Object.keys(CITIES_DB[city]?.db || {}).map((locality) =>
+        urlNode(`/${city}/${locality}/services/${service}`, "0.6")
+      )
+    )
   );
   const legacyPages = LEGACY_SERVICE_URLS.map((path) => urlNode(path, "0.8"));
 
   return new NextResponse(
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...officialLandingPages, ...officialCityPages, ...legacyPages].join("\n")}
+${[...officialLandingPages, ...officialCityPages, ...officialLocalityPages, ...legacyPages].join("\n")}
 </urlset>`,
     {
       headers: {
