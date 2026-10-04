@@ -25,16 +25,8 @@ export function getServiceSlugs() {
   return Object.keys(SERVICES_DB).filter((slug) => !isBikeTypeSlug(slug));
 }
 
-export function getLocalitySlugs(citySlug: string) {
-  return Object.keys(CITIES_DB[citySlug]?.db || {});
-}
-
 function getCity(citySlug: string) {
   return CITIES_DB[citySlug.toLowerCase()];
-}
-
-function getLocality(citySlug: string, localitySlug: string) {
-  return getCity(citySlug)?.db?.[localitySlug];
 }
 
 function cleanServiceTitle(title: string) {
@@ -44,22 +36,15 @@ function cleanServiceTitle(title: string) {
     .trim();
 }
 
-function buildMetadata(
-  serviceSlug: string,
-  citySlug: string,
-  localitySlug?: string,
-): Metadata {
+function buildMetadata(serviceSlug: string, citySlug: string): Metadata {
   const service = SERVICES_DB[serviceSlug];
   const city = getCity(citySlug);
-  const locality = localitySlug ? getLocality(citySlug, localitySlug) : undefined;
 
-  if (!service || !city || (localitySlug && !locality)) return {};
+  if (!service || !city) return {};
 
   const serviceName = cleanServiceTitle(service.title);
-  const placeName = locality ? `${locality.name}, ${city.name}` : city.name;
-  const path = locality
-    ? `/${citySlug}/${localitySlug}/${isBikeTypeSlug(serviceSlug) ? serviceSlug : `services/${serviceSlug}`}`
-    : `/${citySlug}/${isBikeTypeSlug(serviceSlug) ? serviceSlug : `services/${serviceSlug}`}`;
+  const placeName = city.name;
+  const path = `/${citySlug}/${isBikeTypeSlug(serviceSlug) ? serviceSlug : `services/${serviceSlug}`}`;
   const title = `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
   const description = `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
 
@@ -85,15 +70,6 @@ function buildMetadata(
 export function generateCityServiceMetadata(citySlug: string, serviceSlug: string) {
   if (isBikeTypeSlug(serviceSlug)) return {};
   return buildMetadata(serviceSlug, citySlug);
-}
-
-export function generateLocalityServiceMetadata(
-  citySlug: string,
-  localitySlug: string,
-  serviceSlug: string,
-) {
-  if (isBikeTypeSlug(serviceSlug)) return {};
-  return buildMetadata(serviceSlug, citySlug, localitySlug);
 }
 
 export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: string) {
@@ -126,36 +102,21 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
   return buildMetadata(bikeTypeSlug, citySlug);
 }
 
-export function generateLocalityBikeTypeMetadata(
-  citySlug: string,
-  localitySlug: string,
-  bikeTypeSlug: string,
-) {
-  if (!isBikeTypeSlug(bikeTypeSlug)) return {};
-  return buildMetadata(bikeTypeSlug, citySlug, localitySlug);
-}
-
-function renderLocationService(serviceSlug: string, citySlug: string, localitySlug?: string) {
+function renderLocationService(serviceSlug: string, citySlug: string) {
   const service = SERVICES_DB[serviceSlug];
   const city = getCity(citySlug);
-  const locality = localitySlug ? getLocality(citySlug, localitySlug) : undefined;
 
-  if (!service || !city || (localitySlug && !locality)) notFound();
+  if (!service || !city) notFound();
 
   const serviceName = cleanServiceTitle(service.title);
-  const placeName = locality ? `${locality.name}, ${city.name}` : city.name;
-  const localizedLead = locality
-    ? `${service.lead} Available at your doorstep in ${locality.name}, ${city.name}.`
-    : service.lead;
 
   return (
     <ServicePageTemplate
       {...service}
       serviceId={serviceSlug}
-      title={`${serviceName} at Doorstep in ${placeName}`}
-      lead={localizedLead}
-      locationName={placeName}
-      locationSlug={localitySlug || citySlug}
+      title={`${serviceName} at Doorstep in ${city.name}`}
+      locationName={city.name}
+      locationSlug={citySlug}
     />
   );
 }
@@ -163,15 +124,6 @@ function renderLocationService(serviceSlug: string, citySlug: string, localitySl
 export function renderCityService(citySlug: string, serviceSlug: string) {
   if (isBikeTypeSlug(serviceSlug)) notFound();
   return renderLocationService(serviceSlug, citySlug);
-}
-
-export function renderLocalityService(
-  citySlug: string,
-  localitySlug: string,
-  serviceSlug: string,
-) {
-  if (isBikeTypeSlug(serviceSlug)) notFound();
-  return renderLocationService(serviceSlug, citySlug, localitySlug);
 }
 
 export function renderCityBikeType(citySlug: string, bikeTypeSlug: string) {
@@ -237,13 +189,4 @@ async function ScootyCityRoute({ citySlug }: { citySlug: string }) {
       />
     </>
   );
-}
-
-export function renderLocalityBikeType(
-  citySlug: string,
-  localitySlug: string,
-  bikeTypeSlug: string,
-) {
-  if (!isBikeTypeSlug(bikeTypeSlug)) notFound();
-  return renderLocationService(bikeTypeSlug, citySlug, localitySlug);
 }

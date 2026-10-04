@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { CITIES_DB } from "@/lib/cityLocalityData";
 
 export const dynamic = "force-static";
 
@@ -61,19 +60,12 @@ export async function GET() {
   const officialCityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
     SERVICE_CITIES.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
   );
-  const officialLocalityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
-    SERVICE_CITIES.flatMap((city) =>
-      Object.keys(CITIES_DB[city]?.db || {}).map((locality) =>
-        urlNode(`/${city}/${locality}/services/${service}`, "0.6")
-      )
-    )
-  );
   const legacyPages = LEGACY_SERVICE_URLS.map((path) => urlNode(path, "0.8"));
 
   return new NextResponse(
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...officialLandingPages, ...officialCityPages, ...officialLocalityPages, ...legacyPages].join("\n")}
+${[...officialLandingPages, ...officialCityPages, ...legacyPages].join("\n")}
 </urlset>`,
     {
       headers: {

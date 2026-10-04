@@ -35,17 +35,6 @@ export async function GET() {
     <priority>0.8</priority>
   </url>\n`;
 
-      if (cityConfig.db) {
-        const localitySlugs = Object.keys(cityConfig.db);
-        for (const localitySlug of localitySlugs) {
-          urlsXml += `  <url>
-    <loc>https://www.fixwheel.app/${citySlug}/${localitySlug}/${service}</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>\n`;
-        }
-      }
     }
   }
 

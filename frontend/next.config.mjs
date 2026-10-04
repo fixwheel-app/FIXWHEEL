@@ -21,28 +21,13 @@ const nextConfig = {
     return [
       // 301: legacy service and bike-type URLs -> city-first canonical URLs
       {
-        source: '/services/:bikeType(scooty-repair|commuter-bike-service|electric-scooter-repair|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)/:locality',
-        destination: '/:city/:locality/:bikeType',
-        statusCode: 301,
-      },
-      {
         source: '/services/:bikeType(scooty-repair|commuter-bike-service|electric-scooter-repair|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
       {
-        source: '/services/:service/:city(delhi|gurgaon|noida|ghaziabad|faridabad)/:locality',
-        destination: '/:city/:locality/services/:service',
-        statusCode: 301,
-      },
-      {
         source: '/services/:service/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/services/:service',
-        statusCode: 301,
-      },
-      {
-        source: '/:bikeType(scooty-repair|commuter-bike-service|electric-scooter-repair|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)/:locality',
-        destination: '/:city/:locality/:bikeType',
         statusCode: 301,
       },
       {
