@@ -36,7 +36,7 @@ const locationLinks = [
 const vehicleTypeLinks = [
   { name: 'Commuter Bike Service',    href: '/commuter-bike-service' },
   { name: 'Scooty & Scooter Repair',  href: '/scooty-repair' },
-  { name: 'EV & Electric Scooter',    href: '/electric-scooter-repair' },
+  { name: 'EV & Electric Scooter',    href: '/services/electric-scooter-repair' },
   { name: 'Royal Enfield Specialist', href: '/royal-enfield' },
   { name: 'Premium Bike Service',     href: '/premium-bike-service' },
   { name: 'Sports Bike Service',      href: '/sports-bike-service' },

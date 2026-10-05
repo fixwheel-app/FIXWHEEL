@@ -296,7 +296,7 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         /* ===== BRANDS ===== */
         .${slug}-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
         .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; color: var(--ink-dark); }
-        .${slug}-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%; }
+        .${slug}-scope .brand-chip img { width: 28px; height: 22px; object-fit: contain; }
 
         /* ===== PARTNER ===== */
         .${slug}-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }

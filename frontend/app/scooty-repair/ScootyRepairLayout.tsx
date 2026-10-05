@@ -3,6 +3,7 @@
 import { useState } from "react";
 import "./scooty-reference.css";
 import type { ScooterCityContent } from "./cityContent";
+import { getBrandLogo } from "@/lib/brandLogos";
 
 const tips: Record<string, string[]> = {
   starting:["Likely a weak battery, fouled spark plug or loose starter relay.","We carry a multimeter, jump-starter, spare plugs and batteries."],
@@ -17,6 +18,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
  const [selected, setSelected] = useState("");
  const citySlug = city?.name.toLowerCase();
  const vehicleHref = (path: string) => citySlug ? path + "/" + citySlug : path;
+ const electricRepairHref = citySlug
+   ? `/${citySlug}/services/electric-scooter-repair`
+   : "/services/electric-scooter-repair";
  return <div className="scooty-reference" data-theme="light">
 
 
@@ -125,22 +129,22 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
   <div className="wrap">
     <div className="sec-head"><h2>Brands we serve</h2><p>{city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
     <div className="brands">
-      <a className="brand" href="/honda"><img src="https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&amp;sz=64" alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
-      <a className="brand" href="/tvs"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&amp;sz=64" alt="TVS logo" width={36} height={36} loading="lazy" /><span><b>TVS</b><small>Jupiter, Ntorq, Scooty Zest</small></span></a>
-      <a className="brand" href="/suzuki"><img src="https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&amp;sz=64" alt="Suzuki logo" width={36} height={36} loading="lazy" /><span><b>Suzuki</b><small>Access 125, Burgman Street, Avenis</small></span></a>
-      <a className="brand" href="/hero"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&amp;sz=64" alt="Hero logo" width={36} height={36} loading="lazy" /><span><b>Hero</b><small>Pleasure+, Maestro, Destini, Xoom</small></span></a>
-      <a className="brand" href="/yamaha"><img src="https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&amp;sz=64" alt="Yamaha logo" width={36} height={36} loading="lazy" /><span><b>Yamaha</b><small>RayZR, Fascino, Aerox 155</small></span></a>
-      <a className="brand" href="/vespa"><img src="https://www.google.com/s2/favicons?domain=vespa.in&amp;sz=64" alt="Vespa logo" width={36} height={36} loading="lazy" /><span><b>Vespa</b><small>VXL, SXL, ZX 125/150</small></span></a>
-      <a className="brand" href="/aprilia"><img src="https://www.google.com/s2/favicons?domain=apriliaindia.com&amp;sz=64" alt="Aprilia logo" width={36} height={36} loading="lazy" /><span><b>Aprilia</b><small>SR 125/160, SXR 125/160</small></span></a>
+      <a className="brand" href="/honda"><img src={getBrandLogo("Honda")} alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
+      <a className="brand" href="/tvs"><img src={getBrandLogo("TVS")} alt="TVS logo" width={36} height={36} loading="lazy" /><span><b>TVS</b><small>Jupiter, Ntorq, Scooty Zest</small></span></a>
+      <a className="brand" href="/suzuki"><img src={getBrandLogo("Suzuki")} alt="Suzuki logo" width={36} height={36} loading="lazy" /><span><b>Suzuki</b><small>Access 125, Burgman Street, Avenis</small></span></a>
+      <a className="brand" href="/hero"><img src={getBrandLogo("Hero")} alt="Hero logo" width={36} height={36} loading="lazy" /><span><b>Hero</b><small>Pleasure+, Maestro, Destini, Xoom</small></span></a>
+      <a className="brand" href="/yamaha"><img src={getBrandLogo("Yamaha")} alt="Yamaha logo" width={36} height={36} loading="lazy" /><span><b>Yamaha</b><small>RayZR, Fascino, Aerox 155</small></span></a>
+      <a className="brand" href="/vespa"><img src={getBrandLogo("Vespa")} alt="Vespa logo" width={36} height={36} loading="lazy" /><span><b>Vespa</b><small>VXL, SXL, ZX 125/150</small></span></a>
+      <a className="brand" href="/aprilia"><img src={getBrandLogo("Aprilia")} alt="Aprilia logo" width={36} height={36} loading="lazy" /><span><b>Aprilia</b><small>SR 125/160, SXR 125/160</small></span></a>
     </div>
     <p className="other-models">Other scooty or scooter models? Share your brand and model when booking so we can confirm the right service for your vehicle.</p>
     <div className="ev">
       <p><b>Also riding an electric scooter?</b> Specialist support for Ola, Ather, TVS iQube and Chetak.</p>
-      <a className="btn" href={vehicleHref("/electric-scooter-repair")}>Explore EV repair</a>
+      <a className="btn" href={electricRepairHref}>Explore EV repair</a>
     </div>
     <div className="more">
       <a href={vehicleHref("/commuter-bike-service")}>Commuter Bike Service</a>
-      <a href={vehicleHref("/electric-scooter-repair")}>EV &amp; Electric Scooter</a>
+      <a href={electricRepairHref}>EV &amp; Electric Scooter</a>
       <a href={vehicleHref("/royal-enfield")}>Royal Enfield Specialist</a>
       <a href={vehicleHref("/premium-bike-service")}>Premium Bike Service</a>
       <a href={vehicleHref("/sports-bike-service")}>Sports Bike Service</a>

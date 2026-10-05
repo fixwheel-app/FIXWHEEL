@@ -60,7 +60,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
   },
   "electric-scooter-repair": {
     serviceId: "electric-scooter-repair",
-    category: "EV Maintenance",
+    category: "EV & Electric Scooter Specialist",
     title: "Electric Scooter & EV Repair at Doorstep",
     lead: "Electric scooters like OLA S1 Pro, Ather 450X, TVS iQube, and Bajaj Chetak feature advanced electronics and belt drivetrains. Get doorstep EV diagnostics, battery health scans, and brake servicing.",
     startingPrice: "₹799",
@@ -77,6 +77,8 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       "Electronic throttle sensor, brake cut-off switch & side-stand sensor check",
       "Front & rear hydraulic disc brake pad replacement & fluid bleed",
       "Tire pressure calibration & suspension bushing lubrication",
+      "High-voltage connector, wiring & available cell-balance inspection",
+      "Hub motor, controller and regenerative-braking diagnostic check",
     ],
     faqs: [
       {
@@ -87,14 +89,35 @@ export const SERVICES_DB: Record<string, ServiceData> = {
         q: "Do you repair EV scooter disc brakes and belt tension at home?",
         a: "Absolutely. We replace worn ceramic brake pads and adjust drive belt tension on-site in under 45 minutes.",
       },
+      {
+        q: "Which electric scooters can FixWheel inspect?",
+        a: "The service covers supported electric scooters including common Ola, Ather, TVS iQube, and Chetak models, subject to diagnostic compatibility.",
+      },
+      {
+        q: "Do you open sealed EV battery packs at the doorstep?",
+        a: "No. The doorstep service focuses on safe diagnostics and external systems; sealed-pack repair is handled only through an appropriate specialist process.",
+      },
     ],
     keywords: [
       "electric scooter repair",
       "ev scooter repair near me",
-      "ola s1 pro repair at home",
+      "electric scooter service at home",
+      "ola electric scooter repair",
+      "ola s1 pro home service",
       "ather 450x doorstep service",
+      "ather rizta repair near me",
       "tvs iqube battery check",
+      "bajaj chetak ev repair",
       "electric bike mechanic near me",
+      "ev battery diagnostic near me",
+      "ev motor controller repair",
+      "electric scooter brake repair",
+      "ev belt drive replacement",
+      "doorstep electric scooter mechanic delhi ncr",
+      "ev scooter service gurgaon",
+      "electric scooter repair noida",
+      "ev bike mechanic faridabad",
+      "electric scooter repair ghaziabad",
     ],
   },
   "scooty-repair": {
@@ -629,43 +652,6 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       "motorcycle workshop pickup",
       "two wheeler towing service",
       "bike repair pickup near me",
-    ],
-  },
-  "ev-service": {
-    serviceId: "ev-service",
-    category: "EV Specialist",
-    title: "Electric Scooter Periodic Service at Doorstep",
-    lead: "Complete electronic BMS scan, high-voltage wiring inspection, drive belt adjustment, and brake servicing for Ola, Ather, TVS iQube, and Chetak.",
-    startingPrice: "₹799",
-    avgTime: "45 Mins",
-    warranty: "15 Days EV Warranty",
-    descriptionParagraphs: [
-      "Electric scooters need periodic checks for the battery-management system, high-voltage connectors, motor controls, brakes, tyres, suspension, and drive components.",
-      "FixWheel's EV service uses appropriate diagnostic and electrical test equipment to inspect the scooter without disturbing sealed battery-pack components.",
-      "The mechanic records the findings and explains any replacement or manufacturer-level repair that may be required.",
-    ],
-    includedItems: [
-      "BMS health and available cell-balance diagnostic",
-      "High-voltage connector and wiring inspection",
-      "Hub motor and throttle-sensor check",
-      "Brake and regenerative-braking inspection",
-      "Tyre, suspension and drive-component check",
-    ],
-    faqs: [
-      {
-        q: "Which electric scooters can FixWheel inspect?",
-        a: "The service covers supported electric scooters including common Ola, Ather, TVS iQube, and Chetak models, subject to diagnostic compatibility.",
-      },
-      {
-        q: "Do you open sealed EV battery packs at the doorstep?",
-        a: "No. The doorstep service focuses on safe diagnostics and external systems; sealed-pack repair is handled only through an appropriate specialist process.",
-      },
-    ],
-    keywords: [
-      "electric scooter service",
-      "EV scooter repair at home",
-      "BMS diagnostic service",
-      "Ather Ola iQube service",
     ],
   },
   "oil-change": {

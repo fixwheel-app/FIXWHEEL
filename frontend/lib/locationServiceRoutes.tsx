@@ -10,7 +10,6 @@ import { SERVICES_DB } from "@/lib/servicesData";
 export const BIKE_TYPE_SLUGS = [
   "scooty-repair",
   "commuter-bike-service",
-  "electric-scooter-repair",
   "sports-bike-service",
   "premium-bike-service",
 ] as const;

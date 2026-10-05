@@ -10,7 +10,7 @@ interface PageProps {
   };
 }
 
-const EXCLUDED_SERVICES = ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"];
+const EXCLUDED_SERVICES = ["sports-bike-service", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"];
 
 export async function generateStaticParams() {
   const serviceSlugs = Object.keys(SERVICES_DB).filter((s) => !EXCLUDED_SERVICES.includes(s));
@@ -30,8 +30,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${serviceData.title} | FixWheel`,
       description: serviceData.lead,
+      keywords: serviceData.keywords,
       alternates: {
         canonical: `https://www.fixwheel.app/services/${params.service}`,
+      },
+      openGraph: {
+        type: "website",
+        title: `${serviceData.title} | FixWheel`,
+        description: serviceData.lead,
+        url: `https://www.fixwheel.app/services/${params.service}`,
       },
     };
   }

@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
+import { getBrandLogo } from "@/lib/brandLogos";
 
 export interface CityArea {
   name: string;
@@ -261,7 +262,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
           </div>
           <div className="brand-row">
             {configuredBrands.map((brand) => (
-              <div className="brand-chip" key={brand.name}><img src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=64`} alt="" />{brand.name}</div>
+              <div className="brand-chip" key={brand.name}><img src={getBrandLogo(brand.name)} alt={`${brand.name} logo`} className="object-contain" />{brand.name}</div>
             ))}
           </div>
         </div>

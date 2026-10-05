@@ -21,7 +21,7 @@ const nextConfig = {
     return [
       // 301: legacy service and bike-type URLs -> city-first canonical URLs
       {
-        source: '/services/:bikeType(scooty-repair|commuter-bike-service|electric-scooter-repair|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/services/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
@@ -31,19 +31,19 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: '/:bikeType(scooty-repair|commuter-bike-service|electric-scooter-repair|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
       // 301 Permanent Redirects for removed/deprecated service URLs
       {
         source: '/services/obd-scanner',
-        destination: '/electric-scooter-repair',
+        destination: '/services/electric-scooter-repair',
         permanent: true,
       },
       {
         source: '/services/obd-scanner/:path*',
-        destination: '/electric-scooter-repair',
+        destination: '/services/electric-scooter-repair',
         permanent: true,
       },
       {
@@ -94,21 +94,56 @@ const nextConfig = {
         destination: '/sports-bike-service',
         permanent: true,
       },
-      // 301 Permanent Redirects for electric scooter repair pages
+      // 301 Permanent Redirects to the canonical EV service route
       {
-        source: '/services/electric-scooter-repair',
-        destination: '/electric-scooter-repair',
-        permanent: true,
+        source: '/electric-scooter-repair',
+        destination: '/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/ev-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/ev-service',
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/ev-service',
+        destination: '/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/electric-scooter-repair',
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
       },
       {
         source: '/services/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/electric-scooter-repair/:city',
-        permanent: true,
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/electric-scooter-repair/:city/:locality+',
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
       },
       {
         source: '/services/electric-scooter-repair/:city/:locality+',
-        destination: '/electric-scooter-repair/:city/:locality+',
-        permanent: true,
+        destination: '/:city/services/electric-scooter-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/ev-service/:path+',
+        destination: '/services/electric-scooter-repair',
+        statusCode: 301,
       },
       // Retired Royal Enfield service URLs go directly to the canonical brand page.
       {

@@ -19,7 +19,7 @@ const OFFICIAL_SERVICE_SLUGS = [
   "disc-replacement",
   "chain-sprocket",
   "pick-drop",
-  "ev-service",
+  "electric-scooter-repair",
 ];
 
 const LEGACY_SERVICE_URLS = [
@@ -29,7 +29,6 @@ const LEGACY_SERVICE_URLS = [
   "/services/oil-change",
   "/premium-bike-service",
   "/commuter-bike-service",
-  "/electric-scooter-repair",
   "/sports-bike-service",
   "/scooty-repair",
 ];

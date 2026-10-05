@@ -8,6 +8,7 @@ import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
+import { getBrandLogo } from "@/lib/brandLogos";
 import {
   getIntroParagraph,
   getWhyChooseTitle,
@@ -296,7 +297,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         /* ===== BRANDS ===== */
         .${slug}-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
         .${slug}-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; color: var(--ink-dark); }
-        .${slug}-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%; }
+        .${slug}-scope .brand-chip img { width: 28px; height: 22px; object-fit: contain; }
 
         /* ===== PARTNER ===== */
         .${slug}-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
@@ -610,22 +611,22 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             <p>From daily commuter scooters to Royal Enfields, our mechanics work across every major brand.</p>
           </div>
           <div className="brand-row">
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64" alt={`Royal Enfield bike repair ${data.name}`} />Royal Enfield</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=honda.com&sz=64" alt={`Honda bike repair ${data.name}`} />Honda</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=yamahamotorsports.com&sz=64" alt={`Yamaha bike repair ${data.name}`} />Yamaha</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=suzukicycles.com&sz=64" alt={`Suzuki bike repair ${data.name}`} />Suzuki</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=ktm.com&sz=64" alt={`KTM bike repair ${data.name}`} />KTM</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=bajajauto.com&sz=64" alt={`Bajaj bike repair ${data.name}`} />Bajaj</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64" alt={`TVS bike repair ${data.name}`} />TVS</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" alt={`Hero bike repair ${data.name}`} />Hero</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=vespa.com&sz=64" alt={`Vespa bike repair ${data.name}`} />Vespa</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" alt={`Ola Electric bike repair ${data.name}`} />Ola Electric</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" alt={`Ather bike repair ${data.name}`} />Ather</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=jawa.in&sz=64" alt={`Jawa bike repair ${data.name}`} />Jawa</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=aprilia.com&sz=64" alt={`Aprilia bike repair ${data.name}`} />Aprilia</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" alt={`Harley-Davidson bike repair ${data.name}`} />Harley-Davidson</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=kawasakimotorcycle.com&sz=64" alt={`Kawasaki bike repair ${data.name}`} />Kawasaki</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=benelli.com&sz=64" alt={`Benelli bike repair ${data.name}`} />Benelli</div>
+            <div className="brand-chip"><img src={getBrandLogo("Royal Enfield")} alt={`Royal Enfield bike repair ${data.name}`} />Royal Enfield</div>
+            <div className="brand-chip"><img src={getBrandLogo("Honda")} alt={`Honda bike repair ${data.name}`} />Honda</div>
+            <div className="brand-chip"><img src={getBrandLogo("Yamaha")} alt={`Yamaha bike repair ${data.name}`} />Yamaha</div>
+            <div className="brand-chip"><img src={getBrandLogo("Suzuki")} alt={`Suzuki bike repair ${data.name}`} />Suzuki</div>
+            <div className="brand-chip"><img src={getBrandLogo("KTM")} alt={`KTM bike repair ${data.name}`} />KTM</div>
+            <div className="brand-chip"><img src={getBrandLogo("Bajaj")} alt={`Bajaj bike repair ${data.name}`} />Bajaj</div>
+            <div className="brand-chip"><img src={getBrandLogo("TVS")} alt={`TVS bike repair ${data.name}`} />TVS</div>
+            <div className="brand-chip"><img src={getBrandLogo("Hero")} alt={`Hero bike repair ${data.name}`} />Hero</div>
+            <div className="brand-chip"><img src={getBrandLogo("Vespa")} alt={`Vespa bike repair ${data.name}`} />Vespa</div>
+            <div className="brand-chip"><img src={getBrandLogo("Ola Electric")} alt={`Ola Electric bike repair ${data.name}`} />Ola Electric</div>
+            <div className="brand-chip"><img src={getBrandLogo("Ather")} alt={`Ather bike repair ${data.name}`} />Ather</div>
+            <div className="brand-chip"><img src={getBrandLogo("Jawa")} alt={`Jawa bike repair ${data.name}`} />Jawa</div>
+            <div className="brand-chip"><img src={getBrandLogo("Aprilia")} alt={`Aprilia bike repair ${data.name}`} />Aprilia</div>
+            <div className="brand-chip"><img src={getBrandLogo("Harley-Davidson")} alt={`Harley-Davidson bike repair ${data.name}`} />Harley-Davidson</div>
+            <div className="brand-chip"><img src={getBrandLogo("Kawasaki")} alt={`Kawasaki bike repair ${data.name}`} />Kawasaki</div>
+            <div className="brand-chip"><img src={getBrandLogo("Benelli")} alt={`Benelli bike repair ${data.name}`} />Benelli</div>
           </div>
         </div>
       </section>

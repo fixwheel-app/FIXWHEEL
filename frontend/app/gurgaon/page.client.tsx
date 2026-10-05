@@ -319,7 +319,7 @@ export default function GurgaonClientPage() {
           background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px;
           font-size: 13.5px; color: var(--ink-dark);
         }
-        .gurgaon-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%;}
+        .gurgaon-scope .brand-chip img { width: 28px; height: 22px; object-fit: contain; }
 
         /* ===== HOW IT WORKS ===== */
         .gurgaon-scope .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step;}
