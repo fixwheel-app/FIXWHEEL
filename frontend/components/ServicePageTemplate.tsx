@@ -66,6 +66,12 @@ const SCOOTER_BRANDS: ServiceBrand[] = [
   { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia"), models: "SR 125/160, SXR 125/160" },
 ];
 
+const VEHICLE_TYPE_SERVICE_IDS = new Set([
+  "commuter-bike-service",
+  "sports-bike-service",
+  "premium-bike-service",
+]);
+
 export default function ServicePageTemplate({
   serviceId,
   category,
@@ -114,30 +120,19 @@ export default function ServicePageTemplate({
 
   const isScootyRepair = serviceId === "scooty-repair";
   const isElectricRepair = serviceId === "electric-scooter-repair";
+  const isVehicleType = VEHICLE_TYPE_SERVICE_IDS.has(serviceId);
   const displayedBrands = isScootyRepair ? SCOOTER_BRANDS : SUPPORTED_BRANDS;
-  const breadcrumbItems = isScootyRepair
-    ? [
-        { label: "Home", href: "/" },
-        ...(locationName
-          ? [
-              { label: "Scooty & Scooter Repair", href: "/scooty-repair" },
-              { label: locationName },
-            ]
-          : [{ label: "Scooty & Scooter Repair" }]),
-      ]
-    : [
-        { label: "Home", href: "/" },
-        { label: "Services", href: "/services" },
-        locationName
-          ? {
-              label: cleanServiceName,
-              href: ["sports-bike-service", "royal-enfield-service", "commuter-bike-service", "premium-bike-service"].includes(serviceId)
-                ? `/${serviceId}`
-                : `/services/${serviceId}`,
-            }
-          : { label: cleanServiceName },
-        ...(locationName ? [{ label: locationName }] : []),
-      ];
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    ...(locationName && locationSlug
+      ? [{ label: locationName, href: `/${locationSlug}` }]
+      : []),
+    {
+      label: isVehicleType ? "Vehicle Type" : "Services",
+      href: "/services",
+    },
+    { label: cleanServiceName },
+  ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">

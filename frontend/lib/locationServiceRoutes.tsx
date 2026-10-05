@@ -158,7 +158,8 @@ async function ScootyCityRoute({ citySlug }: { citySlug: string }) {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
           { "@type": "ListItem", position: 2, name: city.name, item: `https://www.fixwheel.app/${citySlug}` },
-          { "@type": "ListItem", position: 3, name: "Scooty & Scooter Repair", item: url },
+          { "@type": "ListItem", position: 3, name: "Vehicle Type", item: "https://www.fixwheel.app/services" },
+          { "@type": "ListItem", position: 4, name: "Scooty & Scooter Repair", item: url },
         ],
       },
       {

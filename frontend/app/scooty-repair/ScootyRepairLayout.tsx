@@ -26,7 +26,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 
 
 
-<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city ? <><a href="/scooty-repair">Scooty &amp; Scooter Repair</a> &nbsp;/&nbsp; <span>{city.name}</span></> : <span>Scooty &amp; Scooter Repair</span>}</div></div>
+<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<a href="/services">Vehicle Type</a> &nbsp;/&nbsp; <span>Scooty &amp; Scooter Repair</span></div></div>
 
 {/* 1. HERO */}
 <div className="hero">
