@@ -5,7 +5,7 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ResolvedModel } from "@/lib/modelSlug";
+import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 
 interface ModelClientProps {
@@ -29,7 +29,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
   const bLow = brandName.toLowerCase();
   const mLow = modelName.toLowerCase();
-  const bSlug = brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const bSlug = slugifyModel(brandName);
 
   // High-converting local & "near me" keywords tailored for this model
   const keywords = [
@@ -85,7 +85,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             items={[
               { label: "Home", href: "/" },
               { label: "Brands", href: "/brands" },
-              { label: brandName, href: `/${brandName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` },
+              { label: brandName, href: `/${bSlug}` },
               { label: `${modelName} Service` },
             ]}
           />

@@ -730,7 +730,7 @@ export default function PalamViharClientPage() {
           <div className="silo">
             <Link href="/gurgaon" className="hub">← All of Gurgaon</Link>
             <Link href="/gurgaon/cyber-city">Cyber City</Link>
-            <Link href="/gurgaon/dlf-phases">DLF Phase 1–5</Link>
+            <Link href="/gurgaon/dlf-phase-1">DLF Phase 1–5</Link>
             <Link href="/gurgaon/sohna-road">Sohna Road</Link>
             <Link href="/gurgaon/sushant-lok">Sushant Lok</Link>
           </div>
