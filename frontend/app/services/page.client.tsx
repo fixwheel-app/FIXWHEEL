@@ -799,7 +799,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Mechanics Network</span>
-                  <span className="v">{pageVars.totalPartners}+ Certified</span>
+                  <span className="v">{pageVars.totalPartners}+ Active Verified Mechanics</span>
                 </li>
                 <li>
                   <span>Service Area</span>

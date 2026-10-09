@@ -228,7 +228,7 @@ export default function AboutClient() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-b border-white/10 pb-10">
             {[
               { val: `${stats.bikes_serviced}+`, lbl: "Total vehicles serviced" },
-              { val: `${stats.total_partners}+`, lbl: "Verified mechanics" },
+              { val: `${stats.total_partners}+`, lbl: "Active verified mechanics" },
               { val: `${stats.average_rating}★`, lbl: "Customer rating" }
             ].map((stat, idx) => (
               <div key={idx} className="space-y-1">
@@ -247,7 +247,7 @@ export default function AboutClient() {
               Cities Covered
             </span>
             <span className="text-xl md:text-3xl font-black tracking-tight text-accent font-mono">
-              Delhi &nbsp;·&nbsp; Gurugram
+              Delhi &nbsp;·&nbsp; Gurugram &nbsp;·&nbsp; Noida &nbsp;·&nbsp; Ghaziabad &nbsp;·&nbsp; Faridabad
             </span>
           </div>
         </div>
