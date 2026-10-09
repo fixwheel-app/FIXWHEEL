@@ -66,8 +66,23 @@ const SCOOTER_BRANDS: ServiceBrand[] = [
   { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia"), models: "SR 125/160, SXR 125/160" },
 ];
 
+const CRUISER_BRANDS: ServiceBrand[] = [
+  { name: "Royal Enfield", slug: "royal-enfield", logo: getBrandLogo("Royal Enfield"), models: "Classic, Bullet, Meteor, Super Meteor, Shotgun, Thunderbird" },
+  { name: "Bajaj", slug: "bajaj", logo: getBrandLogo("Bajaj"), models: "Avenger Street 160, Avenger Cruise 220, Avenger Street 220" },
+  { name: "Honda", slug: "honda", logo: getBrandLogo("Honda"), models: "H'ness CB350, CB350, CB350RS" },
+  { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa"), models: "Jawa 42, Jawa 350, 42 Bobber, Perak" },
+  { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi"), models: "Roadster" },
+  { name: "Harley-Davidson", slug: "harley-davidson", logo: getBrandLogo("Harley-Davidson"), models: "X440, Iron 883, Street 750, Forty-Eight, Fat Boy 114" },
+  { name: "Hero", slug: "hero", logo: getBrandLogo("Hero"), models: "Mavrick 440" },
+  { name: "TVS", slug: "tvs", logo: getBrandLogo("TVS"), models: "Ronin 225" },
+  { name: "Triumph", slug: "triumph", logo: getBrandLogo("Triumph"), models: "Bonneville T100, Bonneville T120" },
+  { name: "Kawasaki", slug: "kawasaki", logo: getBrandLogo("Kawasaki"), models: "Eliminator 450, Vulcan S" },
+  { name: "Benelli", slug: "benelli", logo: getBrandLogo("Benelli"), models: "Imperiale 400" },
+];
+
 const VEHICLE_TYPE_SERVICE_IDS = new Set([
   "commuter-bike-service",
+  "cruiser-bike-service",
   "sports-bike-service",
   "premium-bike-service",
 ]);
@@ -120,8 +135,13 @@ export default function ServicePageTemplate({
 
   const isScootyRepair = serviceId === "scooty-repair";
   const isElectricRepair = serviceId === "electric-scooter-repair";
+  const isCruiserBike = serviceId === "cruiser-bike-service";
   const isVehicleType = VEHICLE_TYPE_SERVICE_IDS.has(serviceId);
-  const displayedBrands = isScootyRepair ? SCOOTER_BRANDS : SUPPORTED_BRANDS;
+  const displayedBrands = isScootyRepair
+    ? SCOOTER_BRANDS
+    : isCruiserBike
+      ? CRUISER_BRANDS
+      : SUPPORTED_BRANDS;
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     ...(locationName && locationSlug
@@ -485,7 +505,9 @@ export default function ServicePageTemplate({
                 <p className="text-slate-600 text-xs md:text-sm mt-1">
                   {isScootyRepair
                     ? `Popular gearless scooter brands serviced across ${locationName || "Delhi NCR"} with 100% genuine parts.`
-                    : `We service all 16+ major motorcycle and scooter brands across ${locationName || "Delhi NCR"} with 100% genuine parts.`}
+                    : isCruiserBike
+                      ? `Cruiser and modern-classic motorcycles we service across ${locationName || "Delhi NCR"}.`
+                      : `We service all 16+ major motorcycle and scooter brands across ${locationName || "Delhi NCR"} with 100% genuine parts.`}
                 </p>
               </div>
               <div className="flex items-center gap-2 self-start sm:self-auto">
@@ -526,7 +548,7 @@ export default function ServicePageTemplate({
                   href={`/${b.slug}`}
                   className={cn(
                     "flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start",
-                    isScootyRepair ? "min-w-[230px]" : "min-w-[150px]"
+                    isScootyRepair || isCruiserBike ? "min-w-[230px]" : "min-w-[150px]"
                   )}
                 >
                   <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />
@@ -681,7 +703,9 @@ export default function ServicePageTemplate({
                 <Link
                   key={c.slug}
                   href={
-                    ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                    isCruiserBike
+                      ? `/${c.slug}`
+                      : ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
                       ? `/${c.slug}/${serviceId}`
                       : `/${c.slug}/services/${serviceId}`
                   }

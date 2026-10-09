@@ -145,7 +145,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
     <div className="more">
       <a href={vehicleHref("/commuter-bike-service")}>Commuter Bike Service</a>
       <a href={electricRepairHref}>EV &amp; Electric Scooter</a>
-      <a href={vehicleHref("/royal-enfield")}>Royal Enfield Specialist</a>
+      <a href={vehicleHref("/cruiser-bike-service")}>Cruiser Bike Service</a>
       <a href={vehicleHref("/premium-bike-service")}>Premium Bike Service</a>
       <a href={vehicleHref("/sports-bike-service")}>Sports Bike Service</a>
     </div>
