@@ -62,7 +62,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
  const [selected, setSelected] = useState("");
  const citySlug = city?.name.toLowerCase();
  const vehicleHref = (path: string) => citySlug ? `/${citySlug}/${path === "/bike" ? "bike" : path.slice(1)}` : path;
- const electricRepairHref = citySlug ? `/${citySlug}/services/electric-scooter-repair` : "/services/electric-scooter-repair";
+ const electricRepairHref = citySlug ? `/${citySlug}/services/electric-scooter-repair` : "/electric-vehicle";
  return <div className="scooty-reference" data-theme="light">
 
 

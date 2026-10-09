@@ -37,7 +37,7 @@ const locationLinks = [
 const vehicleTypeLinks = [
   { name: 'Bike', href: '/bike', icon: 'bike' },
   { name: 'Scooty & Scooter', href: '/scooty-repair', icon: 'scooter' },
-  { name: 'EV & Electric', href: '/services/electric-scooter-repair', icon: 'electric' },
+  { name: 'EV & Electric', href: '/electric-vehicle', icon: 'electric' },
   { name: 'Cruiser/Bullet', href: '/royal-enfield', icon: 'cruiser' },
   { name: 'Premium Bike', href: '/premium-bike-service', icon: 'premium' },
   { name: 'Sport Bike', href: '/sports-bike-service', icon: 'sport' },

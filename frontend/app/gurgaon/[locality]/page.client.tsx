@@ -624,7 +624,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               <span className="num" style={{ fontSize: "24px" }}>⚡</span>
               <h3 style={{ fontSize: "19px", fontWeight: "700", marginBottom: "8px" }}>EV & Electric Scooter Repair Near Me in {data.name}</h3>
               <p>Certified doorstep EV technician for Ola S1 Pro, Ather 450X, TVS iQube, Bajaj Chetak, and Hero Vida in {data.name}. On-site lithium battery health diagnostics, BMS fault scanning, belt drive tensioning, and brake pad replacement. Premier choice for <strong>EV scooter repair near me</strong> in {data.name}.</p>
-              <Link href="/services/electric-scooter-repair" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>EV Scooter Repair →</Link>
+              <Link href="/electric-vehicle" style={{ marginTop: "14px", display: "inline-block", color: "var(--accent)", fontWeight: "700", fontSize: "13px" }}>EV Scooter Repair →</Link>
             </div>
 
             <div className="why-card">

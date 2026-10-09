@@ -54,7 +54,7 @@ function urlNode(path: string, priority: string) {
 
 export async function GET() {
   const officialLandingPages = OFFICIAL_SERVICE_SLUGS.map((service) =>
-    urlNode(`/services/${service}`, "0.8")
+    urlNode(service === "electric-scooter-repair" ? "/electric-vehicle" : `/services/${service}`, "0.8")
   );
   const officialCityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
     SERVICE_CITIES.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
