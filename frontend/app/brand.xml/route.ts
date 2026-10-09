@@ -71,7 +71,7 @@ export async function GET() {
   for (const s of SERVICES) {
     let locUrl = `https://www.fixwheel.app/services/${s}`;
     if (s === "sports-bike-service") locUrl = "https://www.fixwheel.app/sports-bike-service";
-    if (s === "commuter-bike-service") locUrl = "https://www.fixwheel.app/commuter-bike-service";
+    if (s === "commuter-bike-service") locUrl = "https://www.fixwheel.app/bike";
     if (s === "scooty-repair") locUrl = "https://www.fixwheel.app/scooty-repair";
     if (s === "premium-bike-service") locUrl = "https://www.fixwheel.app/premium-bike-service";
     xml += `  <url>\n    <loc>${locUrl}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;

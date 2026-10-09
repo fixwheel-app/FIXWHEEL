@@ -40,7 +40,7 @@ const SERVICE_PAGE_ROUTES: Record<string, string> = {
   "disc-replacement": "/services/disc-replacement",
   "chain-sprocket": "/services/chain-sprocket",
   "pick-drop": "/services/pick-drop",
-  "ev-service": "/services/electric-scooter-repair",
+  "ev-service": "/electric-vehicle",
 };
 
 interface ServiceCityInfo {

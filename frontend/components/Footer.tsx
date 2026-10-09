@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-text-secondary text-xs md:text-sm max-w-sm">
-              Doorstep bike repairs across Delhi NCR. Fast, reliable, and transparent pricing. Book verified mechanics for two-wheeler doorstep service, sports bike repair, and EV scooter repairs at home near you.
+              Doorstep two-wheeler repair across Delhi NCR. Fast, reliable service with transparent pricing. Book verified mechanics for two-wheeler servicing at a location of your choice.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
             <span className="text-white/20">•</span>
             <Link href="/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/services/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
+            <Link href="/electric-vehicle" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
             <span className="text-white/20">•</span>
             <Link href="/royal-enfield" className="hover:text-white transition-colors">Royal Enfield Repair Near Me</Link>
             <span className="text-white/20">•</span>

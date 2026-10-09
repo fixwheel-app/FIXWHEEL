@@ -81,6 +81,9 @@ const CRUISER_BRANDS: ServiceBrand[] = [
 ];
 
 const VEHICLE_TYPE_SERVICE_IDS = new Set([
+  "electric-scooter-repair",
+  "royal-enfield-service",
+  "scooty-repair",
   "commuter-bike-service",
   "cruiser-bike-service",
   "sports-bike-service",
@@ -147,10 +150,7 @@ export default function ServicePageTemplate({
     ...(locationName && locationSlug
       ? [{ label: locationName, href: `/${locationSlug}` }]
       : []),
-    {
-      label: isVehicleType ? "Vehicle Type" : "Services",
-      href: "/services",
-    },
+    ...(!isVehicleType ? [{ label: "Services", href: "/services" }] : []),
     { label: cleanServiceName },
   ];
 
@@ -576,7 +576,7 @@ export default function ServicePageTemplate({
                   </div>
                 </div>
                 <Link
-                  href="/services/electric-scooter-repair"
+                  href="/electric-vehicle"
                   className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg transition-all shrink-0"
                 >
                   Explore EV Scooter Repair →
@@ -705,7 +705,9 @@ export default function ServicePageTemplate({
                   href={
                     isCruiserBike
                       ? `/${c.slug}`
-                      : ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                      : serviceId === "commuter-bike-service"
+                        ? `/${c.slug}/bike`
+                        : ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
                       ? `/${c.slug}/${serviceId}`
                       : `/${c.slug}/services/${serviceId}`
                   }

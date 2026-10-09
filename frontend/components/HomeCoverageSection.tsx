@@ -184,7 +184,7 @@ export default function HomeCoverageSection() {
             Service Areas Across Delhi NCR
           </h2>
           <p className="mt-4 text-sm text-slate-500 md:text-lg">
-            Doorstep bike mechanics ready for instant dispatch across major cities.
+            Doorstep two-wheeler repair and service across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad.
           </p>
         </div>
 

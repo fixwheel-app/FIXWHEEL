@@ -10,7 +10,7 @@ interface PageProps {
   };
 }
 
-const EXCLUDED_SERVICES = ["sports-bike-service", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"];
+const EXCLUDED_SERVICES = ["sports-bike-service", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service", "electric-scooter-repair"];
 
 export async function generateStaticParams() {
   const serviceSlugs = Object.keys(SERVICES_DB).filter((s) => !EXCLUDED_SERVICES.includes(s));

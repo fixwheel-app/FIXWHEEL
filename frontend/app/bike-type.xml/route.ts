@@ -25,7 +25,7 @@ export async function GET() {
       const cityConfig = CITIES_DB[citySlug];
       if (!cityConfig) continue;
 
-      const locUrl = `https://www.fixwheel.app/${citySlug}/${service}`;
+      const locUrl = `https://www.fixwheel.app/${citySlug}/${service === "commuter-bike-service" ? "bike" : service}`;
 
       urlsXml += `  <url>
     <loc>${locUrl}</loc>
