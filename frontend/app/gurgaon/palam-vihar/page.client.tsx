@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
+import { getBrandLogo } from "@/lib/brandLogos";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -270,7 +271,7 @@ export default function PalamViharClientPage() {
         /* ===== BRANDS ===== */
         .palam-vihar-scope .brand-row { display: flex; flex-wrap: wrap; gap: 14px; }
         .palam-vihar-scope .brand-chip { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid var(--line-paper); padding: 10px 16px; border-radius: 30px; font-size: 13.5px; color: var(--ink-dark); }
-        .palam-vihar-scope .brand-chip img { width: 18px; height: 18px; border-radius: 50%; }
+        .palam-vihar-scope .brand-chip img { width: 28px; height: 22px; object-fit: contain; }
 
         /* ===== PARTNER ===== */
         .palam-vihar-scope .partner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
@@ -619,22 +620,22 @@ export default function PalamViharClientPage() {
             <p>From daily commuter scooters to Royal Enfields, our mechanics work across every major brand.</p>
           </div>
           <div className="brand-row">
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64" alt="Royal Enfield bike repair Palam Vihar" />Royal Enfield</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=honda.com&sz=64" alt="Honda bike repair Palam Vihar" />Honda</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=yamahamotorsports.com&sz=64" alt="Yamaha bike repair Palam Vihar" />Yamaha</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=suzukicycles.com&sz=64" alt="Suzuki bike repair Palam Vihar" />Suzuki</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=ktm.com&sz=64" alt="KTM bike repair Palam Vihar" />KTM</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=bajajauto.com&sz=64" alt="Bajaj bike repair Palam Vihar" />Bajaj</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64" alt="TVS bike repair Palam Vihar" />TVS</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" alt="Hero bike repair Palam Vihar" />Hero</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=vespa.com&sz=64" alt="Vespa bike repair Palam Vihar" />Vespa</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" alt="Ola Electric bike repair Palam Vihar" />Ola Electric</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" alt="Ather bike repair Palam Vihar" />Ather</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=jawa.in&sz=64" alt="Jawa bike repair Palam Vihar" />Jawa</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=aprilia.com&sz=64" alt="Aprilia bike repair Palam Vihar" />Aprilia</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" alt="Harley-Davidson bike repair Palam Vihar" />Harley-Davidson</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=kawasakimotorcycle.com&sz=64" alt="Kawasaki bike repair Palam Vihar" />Kawasaki</div>
-            <div className="brand-chip"><img src="https://www.google.com/s2/favicons?domain=benelli.com&sz=64" alt="Benelli bike repair Palam Vihar" />Benelli</div>
+            <div className="brand-chip"><img src={getBrandLogo("Royal Enfield")} alt="Royal Enfield bike repair Palam Vihar" />Royal Enfield</div>
+            <div className="brand-chip"><img src={getBrandLogo("Honda")} alt="Honda bike repair Palam Vihar" />Honda</div>
+            <div className="brand-chip"><img src={getBrandLogo("Yamaha")} alt="Yamaha bike repair Palam Vihar" />Yamaha</div>
+            <div className="brand-chip"><img src={getBrandLogo("Suzuki")} alt="Suzuki bike repair Palam Vihar" />Suzuki</div>
+            <div className="brand-chip"><img src={getBrandLogo("KTM")} alt="KTM bike repair Palam Vihar" />KTM</div>
+            <div className="brand-chip"><img src={getBrandLogo("Bajaj")} alt="Bajaj bike repair Palam Vihar" />Bajaj</div>
+            <div className="brand-chip"><img src={getBrandLogo("TVS")} alt="TVS bike repair Palam Vihar" />TVS</div>
+            <div className="brand-chip"><img src={getBrandLogo("Hero")} alt="Hero bike repair Palam Vihar" />Hero</div>
+            <div className="brand-chip"><img src={getBrandLogo("Vespa")} alt="Vespa bike repair Palam Vihar" />Vespa</div>
+            <div className="brand-chip"><img src={getBrandLogo("Ola Electric")} alt="Ola Electric bike repair Palam Vihar" />Ola Electric</div>
+            <div className="brand-chip"><img src={getBrandLogo("Ather")} alt="Ather bike repair Palam Vihar" />Ather</div>
+            <div className="brand-chip"><img src={getBrandLogo("Jawa")} alt="Jawa bike repair Palam Vihar" />Jawa</div>
+            <div className="brand-chip"><img src={getBrandLogo("Aprilia")} alt="Aprilia bike repair Palam Vihar" />Aprilia</div>
+            <div className="brand-chip"><img src={getBrandLogo("Harley-Davidson")} alt="Harley-Davidson bike repair Palam Vihar" />Harley-Davidson</div>
+            <div className="brand-chip"><img src={getBrandLogo("Kawasaki")} alt="Kawasaki bike repair Palam Vihar" />Kawasaki</div>
+            <div className="brand-chip"><img src={getBrandLogo("Benelli")} alt="Benelli bike repair Palam Vihar" />Benelli</div>
           </div>
         </div>
       </section>
@@ -729,7 +730,7 @@ export default function PalamViharClientPage() {
           <div className="silo">
             <Link href="/gurgaon" className="hub">← All of Gurgaon</Link>
             <Link href="/gurgaon/cyber-city">Cyber City</Link>
-            <Link href="/gurgaon/dlf-phases">DLF Phase 1–5</Link>
+            <Link href="/gurgaon/dlf-phase-1">DLF Phase 1–5</Link>
             <Link href="/gurgaon/sohna-road">Sohna Road</Link>
             <Link href="/gurgaon/sushant-lok">Sushant Lok</Link>
           </div>

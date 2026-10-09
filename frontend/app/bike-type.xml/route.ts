@@ -6,14 +6,15 @@ export const dynamic = "force-static";
 
 const CUSTOM_ROOT_SERVICES = [
   "sports-bike-service",
-  "electric-scooter-repair",
   "commuter-bike-service",
   "scooty-repair",
   "premium-bike-service",
 ];
 
 export async function GET() {
-  const serviceSlugs = Object.keys(SERVICES_DB);
+  const serviceSlugs = Object.keys(SERVICES_DB).filter((service) =>
+    CUSTOM_ROOT_SERVICES.includes(service)
+  );
   const citySlugs = Object.keys(CITIES_DB);
 
   let urlsXml = "";
@@ -24,12 +25,7 @@ export async function GET() {
       const cityConfig = CITIES_DB[citySlug];
       if (!cityConfig) continue;
 
-      const isCustomRoot = CUSTOM_ROOT_SERVICES.includes(service);
-      const locUrl = service === "commuter-bike-service"
-        ? `https://www.fixwheel.app/${citySlug}/bike`
-        : isCustomRoot
-        ? `https://www.fixwheel.app/${service}/${citySlug}`
-        : `https://www.fixwheel.app/services/${service}/${citySlug}`;
+      const locUrl = `https://www.fixwheel.app/${citySlug}/${service === "commuter-bike-service" ? "bike" : service}`;
 
       urlsXml += `  <url>
     <loc>${locUrl}</loc>
@@ -38,18 +34,6 @@ export async function GET() {
     <priority>0.8</priority>
   </url>\n`;
 
-      // Restore locality URLs for electric-scooter-repair only
-      if (service === "electric-scooter-repair" && cityConfig.db) {
-        const localitySlugs = Object.keys(cityConfig.db);
-        for (const localitySlug of localitySlugs) {
-          urlsXml += `  <url>
-    <loc>https://www.fixwheel.app/electric-scooter-repair/${citySlug}/${localitySlug}</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>\n`;
-        }
-      }
     }
   }
 

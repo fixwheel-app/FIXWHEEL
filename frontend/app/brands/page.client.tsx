@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
 import { ChevronDown } from "lucide-react";
+import { getBrandLogo } from "@/lib/brandLogos";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ const brands = [
     models: ["Activa", "Shine", "Unicorn", "Dio", "SP125", "Hornet 2.0", "CB350"],
     description:
       "India's most popular two-wheeler brand. From the legendary Activa to the sporty CB350 — we service every Honda model at your doorstep with genuine OEM parts.",
-    icon: "https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&sz=64",
+    icon: getBrandLogo("Honda"),
     tag: "MOST SERVICED",
   },
   {
@@ -33,7 +34,7 @@ const brands = [
     models: ["Splendor", "HF Deluxe", "Passion", "Glamour", "Xtreme 160R", "Xpulse 200"],
     description:
       "The world's largest two-wheeler manufacturer. Hero's commuter bikes dominate Indian roads, and our mechanics know every nut and bolt across the entire lineup.",
-    icon: "https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64",
+    icon: getBrandLogo("Hero"),
     tag: "COMMUTER KING",
   },
   {
@@ -41,7 +42,7 @@ const brands = [
     models: ["Pulsar", "Platina", "CT100", "Dominar 400", "Avenger", "NS200"],
     description:
       "From the street-smart Pulsar series to the highway-cruising Dominar — Bajaj bikes demand precision servicing, and our verified mechanics deliver exactly that.",
-    icon: "https://www.google.com/s2/favicons?domain=bajajauto.com&sz=64",
+    icon: getBrandLogo("Bajaj"),
     tag: "PERFORMANCE",
   },
   {
@@ -49,7 +50,7 @@ const brands = [
     models: ["Jupiter", "Apache RTR", "Ntorq", "XL100", "Raider", "Star City"],
     description:
       "TVS builds everything from the peppy Ntorq to the race-bred Apache RTR. Our doorstep technicians handle routine service, engine work, and electrical diagnostics for all TVS models.",
-    icon: "https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64",
+    icon: getBrandLogo("TVS"),
     tag: "VERSATILE",
   },
   {
@@ -57,7 +58,7 @@ const brands = [
     models: ["Classic 350", "Bullet 350", "Meteor 350", "Hunter 350", "Himalayan", "Continental GT"],
     description:
       "The thumping heartbeat of Indian motorcycling. Royal Enfield's single-cylinder engines need specialist care — our mechanics are trained specifically for RE servicing.",
-    icon: "https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64",
+    icon: getBrandLogo("Royal Enfield"),
     tag: "ICONIC",
   },
   {
@@ -65,7 +66,7 @@ const brands = [
     models: ["FZ", "R15", "MT15", "Ray ZR", "Fascino", "FZS"],
     description:
       "Japanese engineering, refined performance. From the track-focused R15 to the elegant Fascino scooter — we service Yamaha's complete India portfolio.",
-    icon: "https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&sz=64",
+    icon: getBrandLogo("Yamaha"),
     tag: "PRECISION",
   },
   {
@@ -73,7 +74,7 @@ const brands = [
     models: ["Access 125", "Gixxer", "Burgman", "Avenis", "Intruder"],
     description:
       "Suzuki's reliability-first philosophy means fewer breakdowns, but when service is due — our mechanics use OEM-spec parts and follow Suzuki's maintenance schedule.",
-    icon: "https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&sz=64",
+    icon: getBrandLogo("Suzuki"),
     tag: "RELIABLE",
   },
   {
@@ -81,7 +82,7 @@ const brands = [
     models: ["Duke 200", "Duke 390", "RC 200", "RC 390", "Adventure 250", "Adventure 390"],
     description:
       "High-performance Austrian engineering meets Indian roads. KTM's liquid-cooled engines and advanced electronics require trained hands — that's exactly what we send.",
-    icon: "https://www.google.com/s2/favicons?domain=ktm.com&sz=64",
+    icon: getBrandLogo("KTM"),
     tag: "HIGH PERFORMANCE",
   },
   {
@@ -89,7 +90,7 @@ const brands = [
     models: ["S1 Pro", "S1 Air", "S1 X"],
     description:
       "India's EV revolution leader. Our technicians are trained in EV-specific diagnostics, battery health checks, motor servicing, and software-related troubleshooting for all Ola models.",
-    icon: "https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64",
+    icon: getBrandLogo("Ola Electric"),
     tag: "EV",
   },
   {
@@ -97,7 +98,7 @@ const brands = [
     models: ["Ather 450X", "Ather 450S", "Ather Rizta"],
     description:
       "Premium electric scooters with connected dashboards and fast-charging. Our EV-certified mechanics handle brake service, suspension, tyre changes, and general maintenance.",
-    icon: "https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64",
+    icon: getBrandLogo("Ather"),
     tag: "EV PREMIUM",
   },
   {
@@ -105,7 +106,7 @@ const brands = [
     models: ["Jawa 42", "Perak", "Jawa 350", "42 Bobber"],
     description:
       "Modern retro legends powered by liquid-cooled DOHC engines. We provide specialized doorstep service for Jawa motorcycles using genuine lubricants and parts.",
-    icon: "https://www.google.com/s2/favicons?domain=jawamotorcycles.com&sz=64",
+    icon: getBrandLogo("Jawa"),
     tag: "RETRO CLASSIC",
   },
   {
@@ -113,7 +114,7 @@ const brands = [
     models: ["Roadster", "Scrambler", "Adventure"],
     description:
       "Built for rugged roads and off-beat trails. Our mechanics carry dedicated tools for Yezdi's 334cc DOHC platform, handling chain lube, coolant checks, and full servicing.",
-    icon: "https://www.google.com/s2/favicons?domain=yezdi.com&sz=64",
+    icon: getBrandLogo("Yezdi"),
     tag: "ADVENTURE",
   },
   {
@@ -121,7 +122,7 @@ const brands = [
     models: ["SR 160", "SXR 160", "Storm 125", "RS 457"],
     description:
       "Italian racing DNA in every throttle twist. From high-RPM CVT scooter tuning to disc brake pad replacements — we keep your Aprilia running sharp.",
-    icon: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64",
+    icon: getBrandLogo("Aprilia"),
     tag: "RACING DNA",
   },
   {
@@ -129,7 +130,7 @@ const brands = [
     models: ["VXL 125", "SXL 150", "ZX 125", "Urban Club"],
     description:
       "Iconic steel monocoque design and timeless Italian style. We handle your Vespa with white-glove care — CVT variator cleaning, oil change, and full inspection.",
-    icon: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64",
+    icon: getBrandLogo("Vespa"),
     tag: "ITALIAN STYLE",
   },
   {
@@ -137,7 +138,7 @@ const brands = [
     models: ["X440", "Iron 883", "Forty-Eight", "Street 750"],
     description:
       "Heavy-duty cruisers demanding high-torque fasteners and premium V-twin synthetic oils. Our mechanics handle periodic service and brake checks right in your driveway.",
-    icon: "https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64",
+    icon: getBrandLogo("Harley-Davidson"),
     tag: "CRUISER",
   },
   {
@@ -145,7 +146,7 @@ const brands = [
     models: ["Ninja 300", "Ninja 400", "Z650", "Versys 650"],
     description:
       "High-revving multi-cylinder sportbikes and streetfighters. We use double-ester synthetic oils, perform laser chain alignments, and radiator cooling checks at doorstep.",
-    icon: "https://www.google.com/s2/favicons?domain=kawasaki-india.com&sz=64",
+    icon: getBrandLogo("Kawasaki"),
     tag: "SUPERBIKE",
   },
 ];

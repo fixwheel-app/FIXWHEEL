@@ -97,10 +97,26 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     { name: "Engine Full Overhaul", desc: "Complete crankcase rebuild including crankshaft bearing replacement, connecting rod, gearbox & clutch overhaul.", time: "24 Hours", prices: { "0-249": "₹7,999", "250-399": "₹18,000", "400-599": "Inspection", "600+": "Inspection" } }
   ];
 
-  // Fetch all models from BIKE_DATA
-  let brandObj = BIKE_DATA["Non-Electric Motorbike"].find(
-    (b) => b.name.toLowerCase() === brandData.name.toLowerCase()
-  );
+  // Resolve legacy EV brand aliases against their own catalog entries so they
+  // cannot generate model links belonging to another manufacturer.
+  const legacyCatalogBrandIds: Record<string, string> = {
+    vida: "vida",
+    okinawa: "okinawa",
+    ampere: "ampere",
+    ultraviolette: "ultraviolette",
+    tork: "tork",
+    bounce: "bounce",
+  };
+  const legacyCatalogBrandId = legacyCatalogBrandIds[brandSlug.toLowerCase()];
+  const allCatalogBrands = [
+    ...BIKE_DATA["Non-Electric Motorbike"],
+    ...BIKE_DATA["Electric Motorbike"],
+  ];
+  let brandObj = legacyCatalogBrandId
+    ? allCatalogBrands.find((b) => b.id === legacyCatalogBrandId)
+    : BIKE_DATA["Non-Electric Motorbike"].find(
+        (b) => b.name.toLowerCase() === brandData.name.toLowerCase()
+      );
   if (!brandObj) {
     brandObj = BIKE_DATA["Electric Motorbike"].find(
       (b) => b.name.toLowerCase() === brandData.name.toLowerCase()

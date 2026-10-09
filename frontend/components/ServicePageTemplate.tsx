@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getBrandLogo } from "@/lib/brandLogos";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
@@ -13,7 +14,6 @@ interface FaqItem {
   q: string;
   a: string;
 }
-
 export interface ServicePageProps {
   serviceId: string;
   category: string;
@@ -38,33 +38,39 @@ interface ServiceBrand {
 }
 
 const SUPPORTED_BRANDS: ServiceBrand[] = [
-  { name: "Honda", slug: "honda", logo: "https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&sz=64" },
-  { name: "Hero", slug: "hero", logo: "https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64" },
-  { name: "Royal Enfield", slug: "royal-enfield", logo: "https://www.google.com/s2/favicons?domain=royalenfield.com&sz=64" },
-  { name: "TVS", slug: "tvs", logo: "https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64" },
-  { name: "Bajaj", slug: "bajaj", logo: "https://www.google.com/s2/favicons?domain=bajajauto.com&sz=64" },
-  { name: "Yamaha", slug: "yamaha", logo: "https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&sz=64" },
-  { name: "Suzuki", slug: "suzuki", logo: "https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&sz=64" },
-  { name: "KTM", slug: "ktm", logo: "https://www.google.com/s2/favicons?domain=ktm.com&sz=64" },
-  { name: "Ola Electric", slug: "ola-electric", logo: "https://www.google.com/s2/favicons?domain=olaelectric.com&sz=64" },
-  { name: "Ather", slug: "ather", logo: "https://www.google.com/s2/favicons?domain=atherenergy.com&sz=64" },
-  { name: "Jawa", slug: "jawa", logo: "https://www.google.com/s2/favicons?domain=jawamotorcycles.com&sz=64" },
-  { name: "Yezdi", slug: "yezdi", logo: "https://www.google.com/s2/favicons?domain=yezdi.com&sz=64" },
-  { name: "Aprilia", slug: "aprilia", logo: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64" },
-  { name: "Vespa", slug: "vespa", logo: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64" },
-  { name: "Harley-Davidson", slug: "harley-davidson", logo: "https://www.google.com/s2/favicons?domain=harley-davidson.com&sz=64" },
-  { name: "Kawasaki", slug: "kawasaki", logo: "https://www.google.com/s2/favicons?domain=kawasaki-india.com&sz=64" },
+  { name: "Honda", slug: "honda", logo: getBrandLogo("Honda") },
+  { name: "Hero", slug: "hero", logo: getBrandLogo("Hero") },
+  { name: "Royal Enfield", slug: "royal-enfield", logo: getBrandLogo("Royal Enfield") },
+  { name: "TVS", slug: "tvs", logo: getBrandLogo("TVS") },
+  { name: "Bajaj", slug: "bajaj", logo: getBrandLogo("Bajaj") },
+  { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha") },
+  { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki") },
+  { name: "KTM", slug: "ktm", logo: getBrandLogo("KTM") },
+  { name: "Ola Electric", slug: "ola-electric", logo: getBrandLogo("Ola Electric") },
+  { name: "Ather", slug: "ather", logo: getBrandLogo("Ather") },
+  { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa") },
+  { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi") },
+  { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia") },
+  { name: "Vespa", slug: "vespa", logo: getBrandLogo("Vespa") },
+  { name: "Harley-Davidson", slug: "harley-davidson", logo: getBrandLogo("Harley-Davidson") },
+  { name: "Kawasaki", slug: "kawasaki", logo: getBrandLogo("Kawasaki") },
 ];
 
 const SCOOTER_BRANDS: ServiceBrand[] = [
-  { name: "Honda", slug: "honda", logo: "https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&sz=64", models: "Activa, Dio, Grazia" },
-  { name: "TVS", slug: "tvs", logo: "https://www.google.com/s2/favicons?domain=tvsmotor.com&sz=64", models: "Jupiter, Ntorq, Scooty Zest" },
-  { name: "Suzuki", slug: "suzuki", logo: "https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&sz=64", models: "Access 125, Burgman Street, Avenis" },
-  { name: "Hero", slug: "hero", logo: "https://www.google.com/s2/favicons?domain=heromotocorp.com&sz=64", models: "Pleasure+, Maestro, Destini, Xoom" },
-  { name: "Yamaha", slug: "yamaha", logo: "https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&sz=64", models: "RayZR, Fascino, Aerox 155" },
-  { name: "Vespa", slug: "vespa", logo: "https://www.google.com/s2/favicons?domain=vespa.in&sz=64", models: "Vespa VXL, SXL, ZX 125/150" },
-  { name: "Aprilia", slug: "aprilia", logo: "https://www.google.com/s2/favicons?domain=apriliaindia.com&sz=64", models: "SR 125/160, SXR 125/160" },
+  { name: "Honda", slug: "honda", logo: getBrandLogo("Honda"), models: "Activa, Dio, Grazia" },
+  { name: "TVS", slug: "tvs", logo: getBrandLogo("TVS"), models: "Jupiter, Ntorq, Scooty Zest" },
+  { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki"), models: "Access 125, Burgman Street, Avenis" },
+  { name: "Hero", slug: "hero", logo: getBrandLogo("Hero"), models: "Pleasure+, Maestro, Destini, Xoom" },
+  { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha"), models: "RayZR, Fascino, Aerox 155" },
+  { name: "Vespa", slug: "vespa", logo: getBrandLogo("Vespa"), models: "Vespa VXL, SXL, ZX 125/150" },
+  { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia"), models: "SR 125/160, SXR 125/160" },
 ];
+
+const VEHICLE_TYPE_SERVICE_IDS = new Set([
+  "commuter-bike-service",
+  "sports-bike-service",
+  "premium-bike-service",
+]);
 
 export default function ServicePageTemplate({
   serviceId,
@@ -114,30 +120,19 @@ export default function ServicePageTemplate({
 
   const isScootyRepair = serviceId === "scooty-repair";
   const isElectricRepair = serviceId === "electric-scooter-repair";
+  const isVehicleType = VEHICLE_TYPE_SERVICE_IDS.has(serviceId);
   const displayedBrands = isScootyRepair ? SCOOTER_BRANDS : SUPPORTED_BRANDS;
-  const breadcrumbItems = isScootyRepair
-    ? [
-        { label: "Home", href: "/" },
-        ...(locationName
-          ? [
-              { label: "Scooty & Scooter Repair", href: "/scooty-repair" },
-              { label: locationName },
-            ]
-          : [{ label: "Scooty & Scooter Repair" }]),
-      ]
-    : [
-        { label: "Home", href: "/" },
-        { label: "Services", href: "/services" },
-        locationName
-          ? {
-              label: cleanServiceName,
-              href: serviceId === "commuter-bike-service" ? "/bike" : ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "premium-bike-service"].includes(serviceId)
-                ? `/${serviceId}`
-                : `/services/${serviceId}`,
-            }
-          : { label: cleanServiceName },
-        ...(locationName ? [{ label: locationName }] : []),
-      ];
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    ...(locationName && locationSlug
+      ? [{ label: locationName, href: `/${locationSlug}` }]
+      : []),
+    {
+      label: isVehicleType ? "Vehicle Type" : "Services",
+      href: "/services",
+    },
+    { label: cleanServiceName },
+  ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
@@ -559,7 +554,7 @@ export default function ServicePageTemplate({
                   </div>
                 </div>
                 <Link
-                  href="/electric-scooter-repair"
+                  href="/services/electric-scooter-repair"
                   className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg transition-all shrink-0"
                 >
                   Explore EV Scooter Repair →
@@ -686,9 +681,9 @@ export default function ServicePageTemplate({
                 <Link
                   key={c.slug}
                   href={
-                    serviceId === "commuter-bike-service" ? `/${c.slug}/bike` : ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
-                      ? `/${serviceId}/${c.slug}`
-                      : `/services/${serviceId}/${c.slug}`
+                    serviceId === "commuter-bike-service" ? `/${c.slug}/bike` : ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                      ? `/${c.slug}/${serviceId}`
+                      : `/${c.slug}/services/${serviceId}`
                   }
                   className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
                 >
@@ -697,40 +692,6 @@ export default function ServicePageTemplate({
               ))}
             </div>
 
-            {!["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service", "basic-service", "oil-change", "comprehensive-service", "engine-repair", "battery-replacement", "brake-repair", "tyre-replacement", "general-washing"].includes(serviceId) && (
-              <>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 pt-4 border-t border-slate-800">
-                  POPULAR LOCALITIES FOR {cleanServiceName.toUpperCase()}
-                </h4>
-                <div className="flex flex-wrap gap-2 text-xs font-mono">
-                  {[
-                    { name: "DLF Phase 1, Gurgaon", city: "gurgaon", slug: "dlf-phase-1" },
-                    { name: "Cyber City, Gurgaon", city: "gurgaon", slug: "cyber-city" },
-                    { name: "Sector 56, Gurgaon", city: "gurgaon", slug: "sector-56" },
-                    { name: "Golf Course Road, Gurgaon", city: "gurgaon", slug: "golf-course-road" },
-                    { name: "Dwarka, Delhi", city: "delhi", slug: "dwarka" },
-                    { name: "Saket, Delhi", city: "delhi", slug: "saket" },
-                    { name: "Connaught Place, Delhi", city: "delhi", slug: "connaught-place" },
-                    { name: "Lajpat Nagar, Delhi", city: "delhi", slug: "lajpat-nagar" },
-                    { name: "Rohini, Delhi", city: "delhi", slug: "rohini" },
-                    { name: "Sector 18, Noida", city: "noida", slug: "sector-18" },
-                    { name: "Sector 62, Noida", city: "noida", slug: "sector-62" },
-                    { name: "Indirapuram, Ghaziabad", city: "ghaziabad", slug: "indirapuram" },
-                    { name: "Vaishali, Ghaziabad", city: "ghaziabad", slug: "vaishali" },
-                    { name: "NIT Faridabad", city: "faridabad", slug: "nit-faridabad" },
-                    { name: "Sector 15, Faridabad", city: "faridabad", slug: "sector-15-faridabad" },
-                  ].map((loc) => (
-                    <Link
-                      key={`${loc.city}-${loc.slug}`}
-                      href={`/services/${serviceId}/${loc.city}/${loc.slug}`}
-                      className="bg-slate-800/80 hover:bg-red-600 text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 transition-colors"
-                    >
-                      📍 {loc.name}
-                    </Link>
-                  ))}
-                </div>
-              </>
-            )}
           </div>
 
           {/* ===== BOTTOM CTA BANNER ===== */}

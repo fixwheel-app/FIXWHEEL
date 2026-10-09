@@ -37,7 +37,8 @@ export default async function ScootyRepairPage() {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fixwheel.app/' },
-          { '@type': 'ListItem', position: 2, name: 'Scooty & Scooter Repair', item: 'https://www.fixwheel.app/scooty-repair' },
+          { '@type': 'ListItem', position: 2, name: 'Vehicle Type', item: 'https://www.fixwheel.app/services' },
+          { '@type': 'ListItem', position: 3, name: 'Scooty & Scooter Repair', item: 'https://www.fixwheel.app/scooty-repair' },
         ],
       },
       {

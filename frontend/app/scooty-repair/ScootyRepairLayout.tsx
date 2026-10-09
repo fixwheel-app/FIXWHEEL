@@ -47,6 +47,7 @@ const bikeReviews = [
   { name: "Vikram Singh", location: "Sector 14, Gurgaon", vehicle: "Royal Enfield", rating: 5, text: "Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now." },
   { name: "Rohit S.", location: "Bata Chowk, Faridabad", vehicle: "Bajaj Pulsar", rating: 5, text: "My Pulsar broke down near Bata Chowk. The roadside mechanic changed the clutch cable and got me moving again." },
 ];
+import { getBrandLogo } from "@/lib/brandLogos";
 
 const tips: Record<string, string[]> = {
   starting:["Likely a weak battery, fouled spark plug or loose starter relay.","We carry a multimeter, jump-starter, spare plugs and batteries."],
@@ -60,13 +61,14 @@ const tips: Record<string, string[]> = {
 export default function ScootyRepairLayout({ bikesServiced, rating, city, areas = [], bike }: { bikesServiced: string; rating: number; city?: ScooterCityContent; areas?: string[]; bike?: BikeLandingContent }) {
  const [selected, setSelected] = useState("");
  const citySlug = city?.name.toLowerCase();
- const vehicleHref = (path: string) => citySlug ? (path === "/bike" ? "/" + citySlug + "/bike" : path + "/" + citySlug) : path;
+ const vehicleHref = (path: string) => citySlug ? `/${citySlug}/${path === "/bike" ? "bike" : path.slice(1)}` : path;
+ const electricRepairHref = citySlug ? `/${citySlug}/services/electric-scooter-repair` : "/services/electric-scooter-repair";
  return <div className="scooty-reference" data-theme="light">
 
 
 
 
-<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {bike ? <span>Bike Repair &amp; Service</span> : city ? <><a href="/scooty-repair">Scooty &amp; Scooter Repair</a> &nbsp;/&nbsp; <span>{city.name}</span></> : <span>Scooty &amp; Scooter Repair</span>}</div></div>
+<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<a href="/services">Vehicle Type</a> &nbsp;/&nbsp; <span>{bike ? "Bike Repair & Service" : "Scooty & Scooter Repair"}</span></div></div>
 
 {/* 1. HERO */}
 <div className="hero">
@@ -175,24 +177,24 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
   <div className="wrap">
     <div className="sec-head"><h2>Brands we serve</h2><p>{bike ? "From daily commuters to performance motorcycles, share your make and model so we can confirm the right service." : city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
     <div className="brands">
-      {bike ? bikeBrands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={"https://www.google.com/s2/favicons?domain=" + brand.domain + "&sz=64"} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>) : <>
-      <a className="brand" href="/honda"><img src="https://www.google.com/s2/favicons?domain=honda2wheelersindia.com&amp;sz=64" alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
-      <a className="brand" href="/tvs"><img src="https://www.google.com/s2/favicons?domain=tvsmotor.com&amp;sz=64" alt="TVS logo" width={36} height={36} loading="lazy" /><span><b>TVS</b><small>Jupiter, Ntorq, Scooty Zest</small></span></a>
-      <a className="brand" href="/suzuki"><img src="https://www.google.com/s2/favicons?domain=suzukimotorcycle.co.in&amp;sz=64" alt="Suzuki logo" width={36} height={36} loading="lazy" /><span><b>Suzuki</b><small>Access 125, Burgman Street, Avenis</small></span></a>
-      <a className="brand" href="/hero"><img src="https://www.google.com/s2/favicons?domain=heromotocorp.com&amp;sz=64" alt="Hero logo" width={36} height={36} loading="lazy" /><span><b>Hero</b><small>Pleasure+, Maestro, Destini, Xoom</small></span></a>
-      <a className="brand" href="/yamaha"><img src="https://www.google.com/s2/favicons?domain=yamaha-motor-india.com&amp;sz=64" alt="Yamaha logo" width={36} height={36} loading="lazy" /><span><b>Yamaha</b><small>RayZR, Fascino, Aerox 155</small></span></a>
-      <a className="brand" href="/vespa"><img src="https://www.google.com/s2/favicons?domain=vespa.in&amp;sz=64" alt="Vespa logo" width={36} height={36} loading="lazy" /><span><b>Vespa</b><small>VXL, SXL, ZX 125/150</small></span></a>
-      <a className="brand" href="/aprilia"><img src="https://www.google.com/s2/favicons?domain=apriliaindia.com&amp;sz=64" alt="Aprilia logo" width={36} height={36} loading="lazy" /><span><b>Aprilia</b><small>SR 125/160, SXR 125/160</small></span></a>
+      {bike ? bikeBrands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>) : <>
+      <a className="brand" href="/honda"><img src={getBrandLogo("Honda")} alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
+      <a className="brand" href="/tvs"><img src={getBrandLogo("TVS")} alt="TVS logo" width={36} height={36} loading="lazy" /><span><b>TVS</b><small>Jupiter, Ntorq, Scooty Zest</small></span></a>
+      <a className="brand" href="/suzuki"><img src={getBrandLogo("Suzuki")} alt="Suzuki logo" width={36} height={36} loading="lazy" /><span><b>Suzuki</b><small>Access 125, Burgman Street, Avenis</small></span></a>
+      <a className="brand" href="/hero"><img src={getBrandLogo("Hero")} alt="Hero logo" width={36} height={36} loading="lazy" /><span><b>Hero</b><small>Pleasure+, Maestro, Destini, Xoom</small></span></a>
+      <a className="brand" href="/yamaha"><img src={getBrandLogo("Yamaha")} alt="Yamaha logo" width={36} height={36} loading="lazy" /><span><b>Yamaha</b><small>RayZR, Fascino, Aerox 155</small></span></a>
+      <a className="brand" href="/vespa"><img src={getBrandLogo("Vespa")} alt="Vespa logo" width={36} height={36} loading="lazy" /><span><b>Vespa</b><small>VXL, SXL, ZX 125/150</small></span></a>
+      <a className="brand" href="/aprilia"><img src={getBrandLogo("Aprilia")} alt="Aprilia logo" width={36} height={36} loading="lazy" /><span><b>Aprilia</b><small>SR 125/160, SXR 125/160</small></span></a>
       </>}
     </div>
     <p className="other-models">{bike ? "Ride another bike model? Share the brand, model and engine capacity when booking to confirm the service and quote." : "Other scooty or scooter models? Share your brand and model when booking so we can confirm the right service for your vehicle."}</p>
     <div className="ev">
       <p>{bike ? <><b>Ride an electric bike or scooter?</b> Explore EV repair and servicing. Share your make, model and issue to confirm the right support.</> : <><b>Also riding an electric scooter?</b> Specialist support for Ola, Ather, TVS iQube and Chetak.</>}</p>
-      <a className="btn" href={vehicleHref("/electric-scooter-repair")}>Explore EV repair</a>
+      <a className="btn" href={electricRepairHref}>Explore EV repair</a>
     </div>
     <div className="more">
       {bike ? <a href="/scooty-repair">Scooty &amp; Scooter Repair</a> : <a href={vehicleHref("/bike")}>Bike Repair &amp; Service</a>}
-      <a href={vehicleHref("/electric-scooter-repair")}>{bike ? "EV Bikes & Scooters" : "EV & Electric Scooter"}</a>
+      <a href={electricRepairHref}>{bike ? "EV Bikes & Scooters" : "EV & Electric Scooter"}</a>
       <a href={vehicleHref("/royal-enfield")}>Royal Enfield Specialist</a>
       <a href={vehicleHref("/premium-bike-service")}>Premium Bike Service</a>
       <a href={vehicleHref("/sports-bike-service")}>Sports Bike Service</a>
@@ -255,7 +257,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
   <div className="wrap">
     <div className="sec-head"><h2>{bike ? "Book doorstep bike service by city" : city ? "Scooter repair in other cities" : "Book doorstep scooty & scooter repair by city"}</h2></div>
     <div className="cities">
-      {["Gurgaon", "Delhi", "Noida", "Ghaziabad", "Faridabad"].filter(name => name !== city?.name).map(name => <a key={name} href={bike ? "/" + name.toLowerCase() + "/bike" : "/scooty-repair/" + name.toLowerCase()}>{name}</a>)}
+      {["Gurgaon", "Delhi", "Noida", "Ghaziabad", "Faridabad"].filter(name => name !== city?.name).map(name => <a key={name} href={"/" + name.toLowerCase() + (bike ? "/bike" : "/scooty-repair")}>{name}</a>)}
     </div>
   </div>
 </section>

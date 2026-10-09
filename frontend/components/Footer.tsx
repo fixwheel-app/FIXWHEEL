@@ -98,7 +98,7 @@ export default function Footer() {
             <span className="text-white/20">•</span>
             <Link href="/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
+            <Link href="/services/electric-scooter-repair" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
             <span className="text-white/20">•</span>
             <Link href="/royal-enfield" className="hover:text-white transition-colors">Royal Enfield Repair Near Me</Link>
             <span className="text-white/20">•</span>

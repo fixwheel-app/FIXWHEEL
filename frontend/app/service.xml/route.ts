@@ -19,7 +19,7 @@ const OFFICIAL_SERVICE_SLUGS = [
   "disc-replacement",
   "chain-sprocket",
   "pick-drop",
-  "ev-service",
+  "electric-scooter-repair",
 ];
 
 const LEGACY_SERVICE_URLS = [
@@ -29,12 +29,19 @@ const LEGACY_SERVICE_URLS = [
   "/services/oil-change",
   "/premium-bike-service",
   "/bike",
-  "/electric-scooter-repair",
   "/sports-bike-service",
   "/scooty-repair",
 ];
 
 const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
+const CITY_SERVICE_SLUGS = [
+  ...OFFICIAL_SERVICE_SLUGS,
+  "oil-change",
+  "comprehensive-service",
+  "engine-repair",
+  "battery-replacement",
+  "brake-repair",
+];
 
 function urlNode(path: string, priority: string) {
   return `  <url>
@@ -49,8 +56,8 @@ export async function GET() {
   const officialLandingPages = OFFICIAL_SERVICE_SLUGS.map((service) =>
     urlNode(`/services/${service}`, "0.8")
   );
-  const officialCityPages = OFFICIAL_SERVICE_SLUGS.flatMap((service) =>
-    SERVICE_CITIES.map((city) => urlNode(`/services/${service}/${city}`, "0.7"))
+  const officialCityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
+    SERVICE_CITIES.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
   );
   const legacyPages = LEGACY_SERVICE_URLS.map((path) => urlNode(path, "0.8"));
 

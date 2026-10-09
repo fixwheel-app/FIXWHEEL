@@ -326,7 +326,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4">
             {[
               { name: 'Bike', detail: 'Repair & servicing', image: 'bike', href: '/bike' },
-              { name: 'EV', detail: 'Electric scooters', image: 'ev', href: '/electric-scooter-repair' },
+              { name: 'EV', detail: 'Electric scooters', image: 'ev', href: '/services/electric-scooter-repair' },
               { name: 'Scooty', detail: 'Gearless scooters', image: 'scooty', href: '/scooty-repair' },
               { name: 'Sports Bike', detail: 'Performance rides', image: 'sports', href: '/sports-bike-service' },
               { name: 'Cruiser / Bullet', detail: 'Classic motorcycles', image: 'cruiser', href: '/royal-enfield' },
