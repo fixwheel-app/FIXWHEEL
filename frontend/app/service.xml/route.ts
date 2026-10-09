@@ -28,7 +28,7 @@ const LEGACY_SERVICE_URLS = [
   "/services/engine-repair",
   "/services/oil-change",
   "/premium-bike-service",
-  "/commuter-bike-service",
+  "/bike",
   "/electric-scooter-repair",
   "/sports-bike-service",
   "/scooty-repair",

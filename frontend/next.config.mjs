@@ -105,30 +105,45 @@ const nextConfig = {
         destination: '/royal-enfield',
         statusCode: 301,
       },
-      // 301 Permanent Redirects for Commuter Bike service pages (moved to root /commuter-bike-service, locality pages removed)
+      // Bike landing and city pages use the /bike URL family.
+      {
+        source: '/bike/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/bike',
+        statusCode: 301,
+      },
+      {
+        source: '/commuter-bike-service',
+        destination: '/bike',
+        statusCode: 301,
+      },
+      {
+        source: '/commuter-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/bike',
+        statusCode: 301,
+      },
       {
         source: '/services/commuter-bike-service',
-        destination: '/commuter-bike-service',
-        permanent: true,
+        destination: '/bike',
+        statusCode: 301,
       },
       {
         source: '/services/commuter-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/commuter-bike-service/:city',
+        destination: '/:city/bike',
         permanent: true,
       },
       {
         source: '/services/commuter-bike-service/:city/:locality+',
-        destination: '/commuter-bike-service/:city',
+        destination: '/:city/bike',
         permanent: true,
       },
       {
         source: '/commuter-bike-service/:city/:locality+',
-        destination: '/commuter-bike-service/:city',
+        destination: '/:city/bike',
         permanent: true,
       },
       {
         source: '/services/commuter-bike-service/:path*',
-        destination: '/commuter-bike-service',
+        destination: '/bike',
         permanent: true,
       },
       // 301 Permanent Redirects for Scooty repair pages (moved to root /scooty-repair, locality pages removed)

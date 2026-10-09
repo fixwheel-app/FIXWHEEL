@@ -31,7 +31,7 @@ export default function Home() {
   ];
 
   const steps = [
-    { num: "01", icon: <Smartphone className="w-5 h-5" />, title: "Book Your Service", desc: "Select your bike, required service, location, date and preferred time." },
+    { num: "01", icon: <Smartphone className="w-5 h-5" />, title: "Book Your Service", desc: "Select your two-wheeler, required service, location, date and preferred time." },
     { num: "02", icon: <ShieldCheck className="w-5 h-5" />, title: "Mechanic Assigned", desc: "FixWheel confirms your booking and assigns a verified mechanic near your location." },
     { num: "03", icon: <Wrench className="w-5 h-5" />, title: "Doorstep Service", desc: "The mechanic arrives with the required tools, inspects your vehicle and completes the approved work." },
     { num: "04", icon: <CheckCircle2 className="w-5 h-5" />, title: "Review & Pay", desc: "Check the completed service and pay only after the job is finished." },
@@ -146,7 +146,7 @@ export default function Home() {
 
   const faqs = [
     { q: "What services does FixWheel provide?",
-      a: "FixWheel provides doorstep bike repair, maintenance, and servicing. Our services include routine servicing, oil changes, engine repairs, tyre replacements, brake repairs, battery replacements, washing, and emergency roadside assistance." },
+      a: "FixWheel provides doorstep two-wheeler repair and service across Delhi NCR, including Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. We service bikes, scooties and electric scooters, with routine maintenance, brake and tyre repairs, battery assistance and other repairs suited to your vehicle." },
     { q: "Can the final service price change?",
       a: "Our prices are transparent and estimated based on the selected service. If any additional repair or spare part is required, the mechanic will inform you of the cost and get your approval before proceeding. There are no hidden charges." },
     { q: "How do I know the mechanic is verified?",
@@ -158,7 +158,7 @@ export default function Home() {
     { q: "Do you provide emergency / breakdown service?",
       a: "Yes. We provide 24/7 emergency roadside assistance and breakdown support in Delhi and Gurugram." },
     { q: "Do you use genuine spare parts?",
-      a: "Yes. We use only genuine and certified manufacturer parts to ensure the safety and performance of your bike." },
+      a: "Yes. We use only genuine and certified manufacturer parts to ensure the safety and performance of your two-wheeler." },
   ];
 
   // ── Contact form state removed ─────────────────────────────────────────────
@@ -224,18 +224,19 @@ export default function Home() {
 
             {/* Headlines */}
             <h1 
-              className="text-[3rem] sm:text-5xl md:text-6xl lg:text-[5.25rem] font-black uppercase tracking-tighter leading-[0.85] mb-3 md:mb-5 flex flex-col"
+              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black uppercase tracking-tighter leading-[0.95] mb-3 md:mb-5 flex flex-col"
             >
               <span className="bg-gradient-to-b from-[#ff4d4d] to-[#e40521] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(230,43,43,0.3)] relative z-10">Mechanic</span>
-              <span className="text-white relative z-10">At Your Doorstep</span>
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400 mt-2 md:mt-3 tracking-tight font-extrabold">In 45 minutes.</span>
+              <span className="text-white relative z-10">At Your</span>
+              <span className="text-white relative z-10">Doorstep</span>
+              <span className="text-base sm:text-xl md:text-2xl text-gray-400 mt-3 md:mt-4 tracking-tight leading-snug font-extrabold">Two-wheeler repair in Delhi NCR</span>
             </h1>
 
             {/* Subtext */}
             <p 
               className="text-gray-400 text-sm sm:text-base md:text-lg max-w-lg font-medium leading-relaxed mb-6 md:mb-8"
             >
-              Certified mechanics come to you. We service your bike on the spot — no garage visit, no hidden fees.
+              Doorstep care for your bike, scooty or electric scooter. Our mechanics come to your home or office across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad — with arrival in 45 minutes.
             </p>
 
             {/* CTA & Trust Group */}
@@ -315,12 +316,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section aria-labelledby="vehicle-types-heading" className="bg-slate-50 border-y border-slate-200 py-10 md:py-16 mb-10 md:mb-14">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-7 md:mb-9">
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.18em]">Choose your ride</span>
+            <h2 id="vehicle-types-heading" className="mt-2 text-3xl md:text-5xl font-black uppercase tracking-tight text-slate-900">Vehicles we <span className="text-accent">service</span></h2>
+            <p className="mt-3 text-sm md:text-base text-slate-600">Everyday rides to weekend favourites. Find the right care for your two-wheeler.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4">
+            {[
+              { name: 'Bike', detail: 'Repair & servicing', image: 'bike', href: '/bike' },
+              { name: 'EV', detail: 'Electric scooters', image: 'ev', href: '/electric-scooter-repair' },
+              { name: 'Scooty', detail: 'Gearless scooters', image: 'scooty', href: '/scooty-repair' },
+              { name: 'Sports Bike', detail: 'Performance rides', image: 'sports', href: '/sports-bike-service' },
+              { name: 'Cruiser / Bullet', detail: 'Classic motorcycles', image: 'cruiser', href: '/royal-enfield' },
+              { name: 'Premium Bike', detail: 'Premium motorcycles', image: 'premium', href: '/premium-bike-service' },
+            ].map((vehicle) => (
+              <Link key={vehicle.image} href={vehicle.href} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transform-none">
+                <div className="relative aspect-[3/2] overflow-hidden bg-slate-100">
+                  <Image src={`/images/vehicles/${vehicle.image}.png`} alt={`${vehicle.name} vehicle`} fill sizes="(min-width: 1280px) 200px, (min-width: 768px) 30vw, 46vw" className="object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none" />
+                </div>
+                <div className="p-3 md:p-4">
+                  <h3 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-accent">{vehicle.name}</h3>
+                  <p className="mt-1 text-xs text-slate-500">{vehicle.detail}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-accent">Explore service <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <BrandsMarquee />
 
       <section id="home-services" className="py-10 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-center mb-4">Services at Your Doorstep</h2>
-          <p className="text-gray-500 text-center mb-8">Starting rates for 0–249cc bikes. Final pricing depends on your service and engine CC.</p>
+          <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-center mb-4">Two-Wheeler Services at Your Doorstep</h2>
+          <p className="text-gray-500 text-center mb-8">Two-wheeler care, with pricing based on your vehicle and service. Listed starting rates apply to 0–249cc bikes.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {homeServices.map((service) => (
               <Link key={service.priceId} href={service.href} className="group flex min-h-[154px] flex-col rounded-xl border border-gray-200 bg-white p-5 transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent md:p-6">
@@ -439,7 +471,7 @@ export default function Home() {
             {/* Text */}
             <div className="flex-1 pl-2 md:pl-4">
               <span className="inline-block bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Join Our Network</span>
-              <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-4">Are You a Bike Mechanic?</h2>
+              <h2 className="text-2xl md:text-4xl font-black uppercase text-black tracking-tight mb-4">Are You a Two-Wheeler Mechanic?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Join the FixWheel mechanic network to get bookings in your area. Set your own schedule and manage jobs through our platform.
               </p>
@@ -473,7 +505,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <div className="mb-10 md:mb-14">
             <div className="flex items-center gap-3 text-accent text-xs font-mono uppercase tracking-[0.2em] mb-4"><span className="w-6 h-px bg-accent" />FAQs</div>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-slate-900 tracking-tight max-w-3xl">Common questions about bike repair</h2>
+            <h2 className="text-2xl md:text-4xl font-black uppercase text-slate-900 tracking-tight max-w-3xl">Two-Wheeler Repair &amp; Service: Your Questions</h2>
           </div>
 
           <div>

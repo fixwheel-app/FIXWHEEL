@@ -6,10 +6,6 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 const ALLOWED_CITIES = ["gurgaon", "delhi", "noida", "ghaziabad", "faridabad"];
 
-export async function generateStaticParams() {
-  return ALLOWED_CITIES.map((city) => ({ city }));
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -22,7 +18,7 @@ export async function generateMetadata({
 
   const cityData = CITIES_DB[citySlug];
   return {
-    title: `Commuter Bike Service in ${cityData.name} – Doorstep Tune-up | FixWheel`,
+    title: `Bike Repair & Service in ${cityData.name} – At Your Doorstep | FixWheel`,
     description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics for Hero Splendor, Honda Shine, Bajaj Pulsar & TVS Raider. Arrives in 45 mins. FixWheel.`,
     keywords: [
       `commuter bike service in ${cityData.name}`,
@@ -32,13 +28,13 @@ export async function generateMetadata({
       `doorstep commuter bike mechanic ${cityData.name}`,
     ],
     alternates: {
-      canonical: `https://www.fixwheel.app/commuter-bike-service/${citySlug}`,
+      canonical: `https://www.fixwheel.app/${citySlug}/bike`,
     },
     openGraph: {
       type: "website",
-      title: `Commuter Bike Service in ${cityData.name} – Doorstep Repair | FixWheel`,
+      title: `Bike Repair & Service in ${cityData.name} – Doorstep Repair | FixWheel`,
       description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
-      url: `https://www.fixwheel.app/commuter-bike-service/${citySlug}`,
+      url: `https://www.fixwheel.app/${citySlug}/bike`,
     },
   };
 }
@@ -60,7 +56,7 @@ export default function CommuterBikeCityPage({
     <ServicePageTemplate
       {...serviceData}
       serviceId="commuter-bike-service"
-      title={`Commuter Bike Service at Doorstep in ${cityData.name}`}
+      title={`Bike Repair & Service at Your Doorstep in ${cityData.name}`}
       locationName={cityData.name}
       locationSlug={cityData.slug}
     />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Wrench, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,13 +35,23 @@ const locationLinks = [
 ];
 
 const vehicleTypeLinks = [
-  { name: 'Commuter Bike Service',    href: '/commuter-bike-service' },
-  { name: 'Scooty & Scooter Repair',  href: '/scooty-repair' },
-  { name: 'EV & Electric Scooter',    href: '/electric-scooter-repair' },
-  { name: 'Royal Enfield Specialist', href: '/royal-enfield' },
-  { name: 'Premium Bike Service',     href: '/premium-bike-service' },
-  { name: 'Sports Bike Service',      href: '/sports-bike-service' },
+  { name: 'Bike', href: '/bike', icon: 'bike' },
+  { name: 'Scooty & Scooter', href: '/scooty-repair', icon: 'scooter' },
+  { name: 'EV & Electric', href: '/electric-scooter-repair', icon: 'electric' },
+  { name: 'Cruiser/Bullet', href: '/royal-enfield', icon: 'cruiser' },
+  { name: 'Premium Bike', href: '/premium-bike-service', icon: 'premium' },
+  { name: 'Sport Bike', href: '/sports-bike-service', icon: 'sport' },
 ];
+
+function VehicleTypeIcon({ type }: { type: string }) {
+  // Center the supplied silhouettes without showing their surrounding white space.
+  const imageWidths: Record<string, number> = { bike: 34, scooter: 42, cruiser: 54, premium: 48, sport: 45, electric: 30 };
+  return (
+    <span className="relative h-7 w-9 shrink-0 overflow-hidden mix-blend-screen" aria-hidden="true">
+      <Image src={`/images/vehicle-icons/${type}.png`} alt="" width={imageWidths[type]} height={imageWidths[type]} sizes="54px" className="absolute left-1/2 top-1/2 h-auto max-w-none -translate-x-1/2 -translate-y-1/2 invert" style={{ width: imageWidths[type] }} />
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -130,13 +141,13 @@ export default function Navbar() {
     }
     if (linkHref === '/delhi') {
       const locs = ['/delhi', '/gurgaon', '/noida', '/faridabad', '/ghaziabad'];
-      return locs.some(loc => pathname?.startsWith(loc) && !pathname?.startsWith('/partner'));
+      return locs.some(loc => pathname?.startsWith(loc) && !pathname?.endsWith('/bike') && !pathname?.startsWith('/partner'));
     }
     if (linkHref === '/services') {
       return pathname?.startsWith('/services');
     }
-    if (linkHref === '/commuter-bike-service') {
-      return vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
+    if (linkHref === '/bike') {
+      return pathname?.endsWith('/bike') || pathname?.startsWith('/commuter-bike-service') || vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
     }
     if (linkHref === '/partner') {
       return pathname?.startsWith('/partner');
@@ -187,7 +198,7 @@ export default function Navbar() {
   /* ─── Nav links (PRICING added) ─────────────────────────── */
   const navLinks = [
     { name: 'SERVICES',       href: '/services' },
-    { name: 'VEHICLE TYPE',   href: '/commuter-bike-service' },
+    { name: 'VEHICLE TYPE',   href: '/bike' },
     { name: 'LOCATIONS',      href: '/delhi' },
     { name: 'BLOG',           href: '/blog' },
     { name: 'BECOME PARTNER', href: '/partner' },
@@ -446,23 +457,14 @@ export default function Navbar() {
                                   }}
                                   className={cn(
                                     dropdownLinkClass,
-                                    pathname?.startsWith(vehicleType.href) && "text-accent"
+                                    "flex items-center gap-3",
+                                    (pathname?.startsWith(vehicleType.href) || (vehicleType.href === '/bike' && pathname?.endsWith('/bike'))) && "text-accent"
                                   )}
                                 >
-                                  {vehicleType.name}
+                                  <VehicleTypeIcon type={vehicleType.icon} />
+                                  <span>{vehicleType.name}</span>
                                 </Link>
                               ))}
-                              <hr className="border-white/10 my-3" />
-                              <Link
-                                href="/services"
-                                onClick={() => {
-                                  setActivePath('/services');
-                                  setShowVehicleTypeDropdown(false);
-                                }}
-                                className="text-[12px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
-                              >
-                                View All Services →
-                              </Link>
                             </div>
                           </motion.div>
                         )}
@@ -723,23 +725,14 @@ export default function Navbar() {
                                       setActivePath(vehicleType.href);
                                     }}
                                     className={cn(
-                                      "block py-2 pl-2 text-sm text-white/80 hover:text-accent transition-colors",
-                                      pathname?.startsWith(vehicleType.href) && "text-accent"
+                                      "flex items-center gap-3 py-2 pl-2 text-sm text-white/80 hover:text-accent transition-colors",
+                                      (pathname?.startsWith(vehicleType.href) || (vehicleType.href === '/bike' && pathname?.endsWith('/bike'))) && "text-accent"
                                     )}
                                   >
-                                    {vehicleType.name}
+                                    <VehicleTypeIcon type={vehicleType.icon} />
+                                    <span>{vehicleType.name}</span>
                                   </Link>
                                 ))}
-                                <Link
-                                  href="/services"
-                                  onClick={() => {
-                                    setIsOpen(false);
-                                    setActivePath('/services');
-                                  }}
-                                  className="block mt-2 text-[11px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
-                                >
-                                  View All Services →
-                                </Link>
                               </div>
                             </motion.div>
                           )}

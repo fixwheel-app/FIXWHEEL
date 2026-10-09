@@ -131,7 +131,7 @@ export default function ServicePageTemplate({
         locationName
           ? {
               label: cleanServiceName,
-              href: ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "premium-bike-service"].includes(serviceId)
+              href: serviceId === "commuter-bike-service" ? "/bike" : ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "premium-bike-service"].includes(serviceId)
                 ? `/${serviceId}`
                 : `/services/${serviceId}`,
             }
@@ -686,7 +686,7 @@ export default function ServicePageTemplate({
                 <Link
                   key={c.slug}
                   href={
-                    ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
+                    serviceId === "commuter-bike-service" ? `/${c.slug}/bike` : ["sports-bike-service", "electric-scooter-repair", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
                       ? `/${serviceId}/${c.slug}`
                       : `/services/${serviceId}/${c.slug}`
                   }

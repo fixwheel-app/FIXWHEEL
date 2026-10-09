@@ -25,7 +25,9 @@ export async function GET() {
       if (!cityConfig) continue;
 
       const isCustomRoot = CUSTOM_ROOT_SERVICES.includes(service);
-      const locUrl = isCustomRoot
+      const locUrl = service === "commuter-bike-service"
+        ? `https://www.fixwheel.app/${citySlug}/bike`
+        : isCustomRoot
         ? `https://www.fixwheel.app/${service}/${citySlug}`
         : `https://www.fixwheel.app/services/${service}/${citySlug}`;
 
