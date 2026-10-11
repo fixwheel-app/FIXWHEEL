@@ -56,7 +56,6 @@ function VehicleTypeIcon({ type }: { type: string }) {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showDiscountBanner, setShowDiscountBanner] = useState(true);
   const pathname = usePathname();
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -167,25 +166,6 @@ export default function Navbar() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  useEffect(() => {
-    try {
-      if (localStorage.getItem('fixwheel_hide_discount_banner') === 'true') {
-        setShowDiscountBanner(false);
-      }
-    } catch {
-      // Keep the banner visible when localStorage is unavailable.
-    }
-  }, []);
-
-  const handleDismissDiscountBanner = () => {
-    setShowDiscountBanner(false);
-    try {
-      localStorage.setItem('fixwheel_hide_discount_banner', 'true');
-    } catch {
-      // The banner can still be dismissed for the current page session.
-    }
-  };
-
   /* ─── Scroll listener ────────────────────────────────────── */
   useEffect(() => {
     const handleScroll = () => {
@@ -246,29 +226,6 @@ export default function Navbar() {
         scrolled ? "bg-[#0d1117] shadow-xl" : "bg-[#0d1117]/95 backdrop-blur-md"
       )}>
         <div ref={headerRef}>
-        {/* Banner above menu bar */}
-        {showDiscountBanner && (
-          <div className="bg-white text-slate-900 text-xs md:text-sm font-extrabold tracking-wide py-1.5 px-10 border-b border-slate-200 relative flex items-center justify-center gap-2 shadow-sm">
-            <span>Download App to get 10% off</span>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-accent hover:bg-accent-hover text-white text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded transition-all ml-1.5 shadow-sm"
-            >
-              Get App ↗
-            </a>
-            <button
-              type="button"
-              onClick={handleDismissDiscountBanner}
-              aria-label="Close discount banner"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-800 p-1 transition-colors cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-        )}
-
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
 
@@ -528,7 +485,7 @@ export default function Navbar() {
                 className="border border-white/20 hover:border-accent text-white hover:text-accent px-4 py-3 font-bold uppercase tracking-wider text-xs transition-all whitespace-nowrap inline-flex items-center gap-2"
               >
                 <GooglePlayIcon className="w-4 h-4 shrink-0" />
-                <span>GET APP</span>
+                <span>GET APP · 10% OFF</span>
               </a>
               <Link
                 href="/book"
@@ -547,7 +504,7 @@ export default function Navbar() {
                 className="border border-white/20 text-white px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap inline-flex items-center gap-1.5"
               >
                 <GooglePlayIcon className="w-3.5 h-3.5 shrink-0" />
-                <span>Get App</span>
+                <span>10% OFF</span>
               </a>
               <Link
                 href="/book"

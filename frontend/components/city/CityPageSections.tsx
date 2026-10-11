@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import VehiclesWeService from "@/components/VehiclesWeService";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
 import { getBrandLogo } from "@/lib/brandLogos";
@@ -139,6 +144,7 @@ const brands = [
 ];
 
 export default function CityPageSections({ config, pageVars, stats, openFaqs, toggleFaq }: CityPageSectionsProps) {
+  const [showAllAreas, setShowAllAreas] = useState(false);
   const arrivalTime = config.hero.arrivalTime === "page-variable" ? pageVars.avgTime : config.hero.arrivalTime;
   const rating = config.hero.ratingSource === "page-variable" ? pageVars.averageRating : stats.average_rating;
   const configuredVehicleTypes = config.vehicles?.types || vehicleTypes;
@@ -148,6 +154,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
     "Manage bookings from your phone",
     "Receive service requests from nearby customers",
   ];
+  const visibleAreas = showAllAreas ? config.coverage.areas : config.coverage.areas.slice(0, 10);
 
   return (
     <>
@@ -174,23 +181,11 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
               <div className="stat"><b>{config.hero.serviceArea}</b><span>Service area</span></div>
             </div>
           </div>
-          <div className="ticket">
-            <div className="ticket-top">
-              <div className="ticket-id">{config.hero.ticketId}<span>SERVICE DETAILS</span></div>
-              <div className="ticket-status">Completed ✓</div>
-            </div>
-            <div className="ticket-rows">
-              {config.hero.ticketRows.map((row) => (
-                <div className="r" key={row.label}><label>{row.label}</label><div>{row.value}</div></div>
-              ))}
-            </div>
-            <div className="ticket-foot">
-              <div className="total"><span>Total paid</span><b>{config.hero.totalPaid}</b></div>
-              <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>{config.hero.ticketRegion}</div>
-            </div>
-          </div>
+          <TwoWheelerQueryCard locationName={config.cityName} />
         </div>
       </section>
+
+      <VehiclesWeService />
 
       <section id="areas" className="section-alt">
         <div className="wrap">
@@ -200,17 +195,20 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             <p>{config.coverage.description}</p>
           </div>
           <div className="area-grid">
-            {config.coverage.areas.map((area, idx) => (
+            {visibleAreas.map((area, idx) => (
               <Link key={idx} href={`/${config.citySlug}/${area.slug}`} className="area-tag">📍 {area.name}</Link>
             ))}
-            <span
+            {config.coverage.areas.length > 10 && <button
+              type="button"
               className="area-tag"
+              aria-expanded={showAllAreas}
+              onClick={() => setShowAllAreas((current) => !current)}
               style={config.coverage.expansionStyle === "filled"
-                ? { backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }
-                : { borderColor: "var(--accent)", color: "var(--accent)" }}
+                ? { backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)", cursor: "pointer" }
+                : { borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
             >
-              {config.coverage.expansionLabel}
-            </span>
+              {showAllAreas ? "Show top 10 localities" : `📍 + Across all ${config.cityName}`}
+            </button>}
           </div>
         </div>
       </section>

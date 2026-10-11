@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import VehiclesWeService from "@/components/VehiclesWeService";
 import { getBrandLogo } from "@/lib/brandLogos";
 
 const oswald = Oswald({
@@ -20,59 +22,12 @@ const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
 });
 
-function getDeterministicTicketDetails(localityName: string, slug: string, servicePrice: string, eta: string) {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = slug.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  hash = Math.abs(hash);
-
-  const bookingIdNum = 1000 + (hash % 150);
-  const bookingId = `FW-GGN-${bookingIdNum}`;
-
-  const services = [
-    "Basic Service",
-    "Engine Oil Change",
-    "Brake Replacement",
-    "Comprehensive Service",
-    "Battery Replacement"
-  ];
-  const service = services[hash % services.length];
-
-  const models = [
-    "Honda Activa",
-    "Royal Enfield Classic 350",
-    "TVS Jupiter",
-    "Hero Splendor Plus",
-    "Bajaj Pulsar 150",
-    "Yamaha FZ",
-    "Suzuki Access 125"
-  ];
-  const model = models[hash % models.length];
-
-  let price = parseInt(servicePrice) || 550;
-  if (service === "Engine Oil Change") price = 999;
-  if (service === "Battery Replacement") price = 99;
-  if (service === "Comprehensive Service") price = 999;
-
-  return {
-    bookingId,
-    service,
-    model,
-    price: `₹${price}`,
-    location: localityName,
-    eta: `${25 + (hash % 21)} min`
-  };
-}
-
 export default function PalamViharClientPage() {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.gurgaon || DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
     getPublicStatsForCity('gurgaon').then(setStats);
   }, []);
-
-  const ticket = getDeterministicTicketDetails("Palam Vihar", "palam-vihar", "550", "45 min");
 
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({
     0: true, // First one open by default
@@ -437,28 +392,11 @@ export default function PalamViharClientPage() {
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          {ticket && (
-            <div className="ticket">
-              <div className="ticket-top">
-                <div className="ticket-id">{ticket.bookingId}<span>SERVICE DETAILS</span></div>
-                <div className="ticket-status">Completed ✓</div>
-              </div>
-              <div className="ticket-rows">
-                <div className="r"><label>Service</label><div>{ticket.service}</div></div>
-                <div className="r"><label>Model</label><div>{ticket.model}</div></div>
-                <div className="r"><label>Location</label><div>{ticket.location}</div></div>
-                <div className="r"><label>Mechanic</label><div>Verified ✓</div></div>
-                <div className="r"><label>Warranty</label><div>15 days</div></div>
-                <div className="r"><label>Response</label><div>{ticket.eta}</div></div>
-              </div>
-              <div className="ticket-foot">
-                <div className="total"><span>Total paid</span><b>{ticket.price}</b></div>
-                <div className="mono" style={{ fontSize: "11px", color: "#8a836f" }}>GURUGRAM · NCR</div>
-              </div>
-            </div>
-          )}
+          <TwoWheelerQueryCard locationName="Palam Vihar, Gurgaon" />
         </div>
       </section>
+
+      <VehiclesWeService />
 
       <section className="section-alt">
         <div className="wrap">

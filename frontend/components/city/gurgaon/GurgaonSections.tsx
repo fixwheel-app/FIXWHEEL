@@ -4,8 +4,8 @@ const gurgaonConfig: CityPageConfig = {
   cityName: "Gurgaon",
   citySlug: "gurgaon",
   hero: {
-    eyebrow: "Doorstep bike mechanic · Gurgaon",
-    title: "Doorstep Bike Repair Service",
+    eyebrow: "Doorstep two wheeler mechanic · Gurgaon",
+  title: "Two Wheeler Bike Repair Service",
     emphasis: "in Gurgaon",
     lead: "FixWheel offers doorstep bike repair service in Gurgaon. A verified mechanic will come to your home, office, or anywhere you are stranded to fix your bike or scooter. No need to visit a garage or wait in lines.",
     bookingLabel: "Book a Mechanic in Gurgaon →",

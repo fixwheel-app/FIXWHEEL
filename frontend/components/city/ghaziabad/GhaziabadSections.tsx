@@ -4,8 +4,8 @@ const ghaziabadConfig: CityPageConfig = {
   cityName: "Ghaziabad",
   citySlug: "ghaziabad",
   hero: {
-    eyebrow: "Bike mechanic at your doorstep · Ghaziabad",
-    title: "Bike Mechanic Near Me",
+    eyebrow: "Two wheeler mechanic at your doorstep · Ghaziabad",
+  title: "Two Wheeler Bike Repair Service",
     emphasis: "in Ghaziabad",
     lead: "FixWheel sends verified mobile mechanics directly to your house driveway, society parking lot, or office basement across Ghaziabad. No more pushing your broken motorcycle to local workshops — we carry the parts and tools to fix it on-site.",
     bookingLabel: "Book a Mechanic in Ghaziabad →",
