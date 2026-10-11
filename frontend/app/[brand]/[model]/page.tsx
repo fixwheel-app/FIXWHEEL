@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { findModelBySlugs, getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
-import { BRAND_DETAILS } from "@/lib/brandDetails";
-import { CITIES_DB } from "@/lib/cityLocalityData";
 import ModelDetailClient from "./page.client";
-import BrandCityClient from "./BrandCityClient";
-
-const CITIES = Object.keys(CITIES_DB);
 
 interface PageProps {
   params: Promise<{
@@ -17,68 +12,14 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const allModels = getAllBikeModels();
-  const modelParams = allModels.map((m) => ({
+  return allModels.map((m) => ({
     brand: slugifyModel(m.brandName),
     model: slugifyModel(m.modelName),
   }));
-
-  const brandSet = new Set<string>();
-  allModels.forEach((m) => brandSet.add(slugifyModel(m.brandName)));
-  Object.keys(BRAND_DETAILS).forEach((b) => brandSet.add(slugifyModel(b)));
-
-  const cityParams: { brand: string; model: string }[] = [];
-  brandSet.forEach((brandSlug) => {
-    CITIES.forEach((citySlug) => {
-      cityParams.push({
-        brand: brandSlug,
-        model: citySlug,
-      });
-    });
-  });
-
-  return [...modelParams, ...cityParams];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { brand, model } = await params;
-  const isCity = CITIES.includes(model.toLowerCase());
-
-  if (isCity) {
-    const citySlug = model.toLowerCase();
-    const cityName = CITIES_DB[citySlug]?.name || citySlug;
-    const brandKey = brand.toLowerCase();
-    const brandData = BRAND_DETAILS[brandKey];
-    const brandName =
-      brandData?.name ||
-      brand
-        .split("-")
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ");
-
-    const title = `${brandName} Bike Service & Repair in ${cityName} | FixWheel Doorstep Service`;
-    const description = `Looking for certified ${brandName} bike service near you in ${cityName}? Book doorstep ${brandName} scooter & motorcycle repair in ${cityName}. 100% genuine parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
-    const canonicalUrl = `https://www.fixwheel.app/${brand}/${citySlug}`;
-
-    const keywords = brandData?.seoKeywords
-      ? brandData.seoKeywords.map((k) => `${k} ${cityName.toLowerCase()}`).join(", ")
-      : `${brandName.toLowerCase()} doorstep service ${cityName.toLowerCase()}, ${brandName.toLowerCase()} repair in ${cityName.toLowerCase()}, ${brandName.toLowerCase()} mechanic ${cityName.toLowerCase()}`;
-
-    return {
-      title,
-      description,
-      keywords,
-      alternates: {
-        canonical: canonicalUrl,
-      },
-      openGraph: {
-        title,
-        description,
-        url: canonicalUrl,
-        siteName: "FixWheel",
-        type: "website",
-      },
-    };
-  }
 
   const modelInfo = findModelBySlugs(brand, model);
 
@@ -152,30 +93,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ModelPage({ params }: PageProps) {
   const { brand, model } = await params;
-  const isCity = CITIES.includes(model.toLowerCase());
-
-  if (isCity) {
-    const citySlug = model.toLowerCase();
-    const cityConfig = CITIES_DB[citySlug];
-
-    if (!cityConfig) {
-      notFound();
-    }
-
-    const otherCities = Object.values(CITIES_DB)
-      .filter((city) => city.slug !== citySlug)
-      .map((city) => ({ slug: city.slug, name: city.name }));
-
-    return (
-      <BrandCityClient
-        brandSlug={brand}
-        citySlug={citySlug}
-        cityName={cityConfig.name}
-        localities={cityConfig.brandPageLocalities}
-        otherCities={otherCities}
-      />
-    );
-  }
 
   const modelInfo = findModelBySlugs(brand, model);
 

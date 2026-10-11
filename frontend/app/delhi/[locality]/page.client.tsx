@@ -418,7 +418,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          <TwoWheelerQueryCard locationName={`${data.name}, Delhi`} />
+          <TwoWheelerQueryCard />
         </div>
       </section>
 

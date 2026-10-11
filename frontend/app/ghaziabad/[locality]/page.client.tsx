@@ -416,7 +416,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          <TwoWheelerQueryCard locationName={`${data.name}, Ghaziabad`} />
+          <TwoWheelerQueryCard />
         </div>
       </section>
 

@@ -392,7 +392,7 @@ export default function PalamViharClientPage() {
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          <TwoWheelerQueryCard locationName="Palam Vihar, Gurgaon" />
+          <TwoWheelerQueryCard />
         </div>
       </section>
 

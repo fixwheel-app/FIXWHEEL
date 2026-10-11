@@ -63,7 +63,7 @@ export async function GET() {
   // Brand City pages (5 cities for all brands)
   brandList.forEach((b) => {
     CITIES.forEach((c) => {
-      xml += `  <url>\n    <loc>https://www.fixwheel.app/${b}/${c}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+      xml += `  <url>\n    <loc>https://www.fixwheel.app/${c}/${b}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     });
   });
 

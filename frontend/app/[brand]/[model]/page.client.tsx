@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
@@ -113,7 +114,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </span>
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6 text-white font-oswald break-words">
-                {brandName} {modelName} Service & Repair at Doorstep in Delhi
+                {brandName} {modelName} Service & Repair at Doorstep
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
@@ -137,47 +138,9 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </div>
             </div>
 
-            {/* Right Hero Interactive Model Ticket */}
+            {/* Right Hero Interactive Query Card */}
             <div className="lg:col-span-5">
-              <div className="bg-[#F8FAFC] text-slate-900 rounded-xl p-6 relative shadow-2xl border border-slate-200">
-                <div className="flex justify-between items-start border-b border-dashed border-slate-300 pb-4 mb-4">
-                  <div>
-                    <span className="font-mono text-xs font-bold text-slate-400 uppercase tracking-widest block">
-                      MODEL SERVICE TICKET
-                    </span>
-                    <span className="font-mono text-sm font-bold text-slate-900">
-                      FIXWHEEL-{modelName.toUpperCase().replace(/[^A-Z0-9]/g, "")}
-                    </span>
-                  </div>
-                  <span className="bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                    READY TO DISPATCH
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 mb-6 text-xs font-mono">
-                  <div>
-                    <span className="block text-slate-400 uppercase">STARTING PRICE</span>
-                    <span className="text-xl font-bold text-[#e62b2b]">₹199</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">ARRIVAL TIME</span>
-                    <span className="text-base font-bold text-slate-900">45 Minutes</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">LOCATION</span>
-                    <span className="text-sm font-bold text-slate-900">Doorstep (Home/Office)</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">WARRANTY</span>
-                    <span className="text-sm font-bold text-slate-900">15 Days Labor</span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-100 border border-slate-200 rounded-lg p-3 text-xs text-slate-600 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Verified Mechanics & 15-Day Labor Warranty</span>
-                </div>
-              </div>
+              <TwoWheelerQueryCard />
             </div>
           </div>
         </div>
@@ -214,7 +177,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             {/* Left Content Paragraphs */}
             <div className="lg:col-span-8 space-y-6 text-slate-700 text-base md:text-lg leading-relaxed">
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
-                Why Choose Doorstep {brandName} {modelName} Service in Delhi?
+                Why Choose Doorstep {brandName} {modelName} Service?
               </h2>
               <p>
                 Riding your {brandName} {modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.

@@ -420,7 +420,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>
-          <TwoWheelerQueryCard locationName={`${data.name}, Gurgaon`} />
+          <TwoWheelerQueryCard />
         </div>
       </section>
 

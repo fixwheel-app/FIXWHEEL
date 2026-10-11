@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, Phone, Wrench, ShieldCheck, Clock, Award, Compass } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getBrandLogo } from "@/lib/brandLogos";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
@@ -211,47 +212,9 @@ export default function ServicePageTemplate({
               </div>
             </div>
 
-            {/* Right Hero Interactive Service Ticket */}
+            {/* Right Hero Interactive Query Card */}
             <div className="lg:col-span-5">
-              <div className="bg-[#F8FAFC] text-slate-900 rounded-xl p-6 relative shadow-2xl border border-slate-200">
-                <div className="flex justify-between items-start border-b border-dashed border-slate-300 pb-4 mb-4">
-                  <div>
-                    <span className="font-mono text-xs font-bold text-slate-400 uppercase tracking-widest block">
-                      SERVICE TICKET
-                    </span>
-                    <span className="font-mono text-sm font-bold text-slate-900">
-                      FIXWHEEL-SRV-{serviceId.toUpperCase().slice(0, 6)}
-                    </span>
-                  </div>
-                  <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                    INSTANT DISPATCH
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 mb-6 text-xs font-mono">
-                  <div>
-                    <span className="block text-slate-400 uppercase">STARTING FROM</span>
-                    <span className="text-xl font-bold text-[#e62b2b]">{pageVars.startingPrice}</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">ARRIVAL TIME</span>
-                    <span className="text-base font-bold text-slate-900">{pageVars.avgTime}</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">LOCATION</span>
-                    <span className="text-sm font-bold text-slate-900">Doorstep (Home/Office)</span>
-                  </div>
-                  <div>
-                    <span className="block text-slate-400 uppercase">WARRANTY</span>
-                    <span className="text-sm font-bold text-slate-900">{pageVars.warranty}</span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-100 border border-slate-200 rounded-lg p-3 text-xs text-slate-600 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Verified Mechanics & {pageVars.warranty} Labor Warranty</span>
-                </div>
-              </div>
+              <TwoWheelerQueryCard />
             </div>
           </div>
         </div>

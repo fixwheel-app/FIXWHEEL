@@ -9,6 +9,7 @@ import { BIKE_DATA } from "@/lib/bikes";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Phone } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -1072,47 +1073,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </div>
             </div>
 
-            {/* BRAND HERO SNAPSHOT CARD (WHITE PAPER TICKET THEME) */}
-            <div className="hero-snapshot-card">
-              <div className="hero-snapshot-header">
-                <div className="hero-snapshot-title">
-                  FW-{brandData.name.substring(0, 3).toUpperCase()}-2026
-                  <span>BRAND SERVICE SNAPSHOT</span>
-                </div>
-                <div className="hero-snapshot-badge">
-                  {brandData.name} SPECIALIST ✓
-                </div>
-              </div>
-
-              <div className="hero-snapshot-grid">
-                <div className="hero-snapshot-item">
-                  <span className="hero-snapshot-label">Starting Price</span>
-                  <div className="hero-snapshot-val highlight">₹199 Onwards</div>
-                </div>
-                <div className="hero-snapshot-item">
-                  <span className="hero-snapshot-label">Arrival Guarantee</span>
-                  <div className="hero-snapshot-val">Within 45 Mins</div>
-                </div>
-                <div className="hero-snapshot-item full-width">
-                  <span className="hero-snapshot-label">Engine Oil Spec</span>
-                  <div className="hero-snapshot-val">{brandData.additionalInfo.engineOil}</div>
-                </div>
-                <div className="hero-snapshot-item">
-                  <span className="hero-snapshot-label">Service Warranty</span>
-                  <div className="hero-snapshot-val">{brandData.additionalInfo.warranty}</div>
-                </div>
-                <div className="hero-snapshot-item">
-                  <span className="hero-snapshot-label">Supported Models</span>
-                  <div className="hero-snapshot-val highlight">{allModels.length} Models</div>
-                </div>
-              </div>
-
-              <div className="hero-snapshot-foot">
-                <Link href={`/book#${brandSlug}`} className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                  Book {brandData.name} Service →
-                </Link>
-              </div>
-            </div>
+            <TwoWheelerQueryCard />
           </div>
         </div>
       </section>

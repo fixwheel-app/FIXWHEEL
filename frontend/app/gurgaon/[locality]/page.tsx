@@ -8,14 +8,23 @@ import {
   isBikeTypeSlug,
   renderCityBikeType,
 } from "@/lib/locationServiceRoutes";
+import {
+  BRAND_CITY_SLUGS,
+  generateBrandCityMetadata,
+  isBrandCitySlug,
+  renderBrandCity,
+} from "@/lib/brandCityRoutes";
 
 export async function generateStaticParams() {
-  return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS].map((locality) => ({ locality }));
+  return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS, ...BRAND_CITY_SLUGS].map((locality) => ({ locality }));
 }
 
 export async function generateMetadata({ params }: { params: { locality: string } }): Promise<Metadata> {
   if (isBikeTypeSlug(params.locality)) {
     return generateCityBikeTypeMetadata("gurgaon", params.locality);
+  }
+  if (isBrandCitySlug(params.locality)) {
+    return generateBrandCityMetadata("gurgaon", params.locality);
   }
   const data = LOCALITY_DB[params.locality];
   if (!data) return {};
@@ -96,6 +105,9 @@ export async function generateMetadata({ params }: { params: { locality: string 
 export default function GurgaonLocalityPage({ params }: { params: { locality: string } }) {
   if (isBikeTypeSlug(params.locality)) {
     return renderCityBikeType("gurgaon", params.locality);
+  }
+  if (isBrandCitySlug(params.locality)) {
+    return renderBrandCity("gurgaon", params.locality);
   }
   const data = LOCALITY_DB[params.locality];
   if (!data) {

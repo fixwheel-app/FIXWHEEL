@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ScootyRepairLayout from "@/app/scooty-repair/ScootyRepairLayout";
 import { SCOOTER_CITIES } from "@/app/scooty-repair/cityContent";
+import CruiserBikeLayout, { getCruiserFaqs } from "@/app/cruiser-bike-service/CruiserBikeLayout";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
@@ -12,6 +13,7 @@ export const BIKE_TYPE_SLUGS = [
   "commuter-bike-service",
   "sports-bike-service",
   "premium-bike-service",
+  "cruiser-bike-service",
 ] as const;
 
 const BIKE_TYPE_SET = new Set<string>(BIKE_TYPE_SLUGS);
@@ -73,6 +75,26 @@ export function generateCityServiceMetadata(citySlug: string, serviceSlug: strin
 
 export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: string) {
   if (!isBikeTypeSlug(bikeTypeSlug)) return {};
+  if (bikeTypeSlug === "cruiser-bike-service") {
+    const city = getCity(citySlug);
+    if (!city) return {};
+    const canonical = `https://www.fixwheel.app/${citySlug}/cruiser-bike-service`;
+    const title = `Cruiser Bike Service in ${city.name} – Doorstep Service | FixWheel`;
+    const description = `Book doorstep cruiser and modern-classic motorcycle service in ${city.name}. Chain care, brakes, battery checks and routine maintenance with transparent pricing.`;
+    return {
+      title,
+      description,
+      keywords: [
+        `cruiser bike service in ${city.name}`,
+        `cruiser bike mechanic near me ${city.name}`,
+        `Royal Enfield service at home ${city.name}`,
+        `Bajaj Avenger doorstep service ${city.name}`,
+        `Honda CB350 service ${city.name}`,
+      ],
+      alternates: { canonical },
+      openGraph: { type: "website", title, description, url: canonical },
+    };
+  }
   if (bikeTypeSlug === "scooty-repair") {
     const city = getCity(citySlug);
     const content = SCOOTER_CITIES[citySlug];
@@ -127,10 +149,72 @@ export function renderCityService(citySlug: string, serviceSlug: string) {
 
 export function renderCityBikeType(citySlug: string, bikeTypeSlug: string) {
   if (!isBikeTypeSlug(bikeTypeSlug)) notFound();
+  if (bikeTypeSlug === "cruiser-bike-service") {
+    return <CruiserCityRoute citySlug={citySlug} />;
+  }
   if (bikeTypeSlug === "scooty-repair") {
     return <ScootyCityRoute citySlug={citySlug} />;
   }
   return renderLocationService(bikeTypeSlug, citySlug);
+}
+
+async function CruiserCityRoute({ citySlug }: { citySlug: string }) {
+  const city = getCity(citySlug);
+  const content = SCOOTER_CITIES[citySlug];
+  if (!city || !content) notFound();
+
+  const stats = await getPublicStatsForCity("global").catch(
+    () => DEFAULT_PUBLIC_STATS.global,
+  );
+  const url = `https://www.fixwheel.app/${citySlug}/cruiser-bike-service`;
+  const faqs = getCruiserFaqs(city.name);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: `Doorstep cruiser bike service in ${city.name}`,
+        url,
+        serviceType: "Cruiser and modern-classic motorcycle service",
+        provider: { "@id": "https://www.fixwheel.app/#organization" },
+        areaServed: { "@type": "City", name: city.name },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+          { "@type": "ListItem", position: 2, name: city.name, item: `https://www.fixwheel.app/${citySlug}` },
+          { "@type": "ListItem", position: 3, name: "Vehicle Type", item: "https://www.fixwheel.app/services" },
+          { "@type": "ListItem", position: 4, name: "Cruiser Bike Service", item: url },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <CruiserBikeLayout
+        bikesServiced={String(stats.bikes_serviced)}
+        rating={stats.average_rating}
+        city={content}
+        areas={[...city.brandPageLocalities, ...(content.additionalAreas || [])]}
+      />
+    </>
+  );
 }
 
 async function ScootyCityRoute({ citySlug }: { citySlug: string }) {

@@ -10,6 +10,33 @@ export interface BikeLandingContent {
   paragraphs: string[];
   checks: string[];
   faqs: { q: string; a: string }[];
+  breadcrumbLabel?: string;
+  tag?: string;
+  heroTitle?: string;
+  pickerTitle?: string;
+  pickerLegend?: string;
+  bookLabel?: string;
+  symptoms?: string[][];
+  tips?: Record<string, string[]>;
+  howTitle?: string;
+  servicesTitle?: string;
+  servicesLead?: string;
+  services?: { id: ServicePriceId; title: string; description: string }[];
+  whyTitle?: string;
+  bookingTip?: string;
+  brandsLead?: string;
+  brands?: { name: string; slug: string; models: string }[];
+  otherModelsText?: string;
+  coverageTitle?: string;
+  coverageText?: string;
+  faqsTitle?: string;
+  reviewsTitle?: string;
+  reviewsLead?: string;
+  reviews?: { name: string; location: string; vehicle: string; rating: number; text: string }[];
+  finalTitle?: string;
+  finalLead?: string;
+  citiesTitle?: string;
+  cityPath?: string;
 }
 
 const bikeSymptoms = [
@@ -63,19 +90,25 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
  const citySlug = city?.name.toLowerCase();
  const vehicleHref = (path: string) => citySlug ? `/${citySlug}/${path === "/bike" ? "bike" : path.slice(1)}` : path;
  const electricRepairHref = citySlug ? `/${citySlug}/services/electric-scooter-repair` : "/electric-vehicle";
+ const activeSymptoms = bike?.symptoms || bikeSymptoms;
+ const activeTips = bike?.tips || bikeTips;
+ const activeServices = bike?.services || bikeServices;
+ const activeBrands = bike?.brands || bikeBrands;
+ const activeReviews = bike?.reviews || bikeReviews;
+ const bikeCityPath = bike?.cityPath || "/bike";
  return <div className="scooty-reference" data-theme="light">
 
 
 
 
-<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<a href="/services">Vehicle Type</a> &nbsp;/&nbsp; <span>{bike ? "Bike Repair & Service" : "Scooty & Scooter Repair"}</span></div></div>
+<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<a href="/services">Vehicle Type</a> &nbsp;/&nbsp; <span>{bike ? bike.breadcrumbLabel || "Bike Repair & Service" : "Scooty & Scooter Repair"}</span></div></div>
 
 {/* 1. HERO */}
 <div className="hero">
   <div className="wrap">
     <div>
-      <span className="tag">{bike ? "Bike repair & maintenance" : "Scooter & CVT specialist"}</span>
-      <h1>{bike ? "Doorstep Bike Repair & Service in Delhi NCR" : "Doorstep Scooty & Scooter Repair in " + (city?.name || "Delhi NCR")}</h1>
+      <span className="tag">{bike ? bike.tag || "Bike repair & maintenance" : "Scooter & CVT specialist"}</span>
+      <h1>{bike ? bike.heroTitle || "Doorstep Bike Repair & Service in Delhi NCR" : "Doorstep Scooty & Scooter Repair in " + (city?.name || "Delhi NCR")}</h1>
       <p className="lead">{bike?.lead || city?.lead || "Honda Activa, TVS Jupiter, Suzuki Access or TVS Ntorq giving you trouble? Get scooter repair at your home or office in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Tell us what you’re noticing, approve the repair price, and pay after the service."}</p>
       <div className="cta-row">
         <a className="btn btn-red" href="/book">Book doorstep service</a>
@@ -83,11 +116,11 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       </div>
     </div>
     <section className="picker" aria-labelledby="pk" style={{"padding":"20px"}}>
-      <h2 id="pk">{bike ? "What does your bike need?" : "What is your scooty doing?"}</h2>
+      <h2 id="pk">{bike ? bike.pickerTitle || "What does your bike need?" : "What is your scooty doing?"}</h2>
       <p>Select a problem for the next step.</p>
       <fieldset onChange={(event) => setSelected((event.target as HTMLInputElement).value)}>
-        <legend className="sr" style={{"position":"absolute","left":"-9999px"}}>{bike ? "Choose your bike’s symptom or service" : "Choose your scooter’s symptom"}</legend>
-        {bike ? bikeSymptoms.map(([value,label]) => <label className="opt" key={value}><input type="radio" name="s" value={value} /><span>{label}</span></label>) : <>
+        <legend className="sr" style={{"position":"absolute","left":"-9999px"}}>{bike ? bike.pickerLegend || "Choose your bike’s symptom or service" : "Choose your scooter’s symptom"}</legend>
+        {bike ? activeSymptoms.map(([value,label]) => <label className="opt" key={value}><input type="radio" name="s" value={value} /><span>{label}</span></label>) : <>
         <label className="opt"><input type="radio" name="s" value="starting" /><span>Won’t start</span></label>
         <label className="opt"><input type="radio" name="s" value="vibration" /><span>Jerks or vibrates</span></label>
         <label className="opt"><input type="radio" name="s" value="pickup" /><span>Poor pickup or mileage</span></label>
@@ -96,8 +129,8 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
         <label className="opt"><input type="radio" name="s" value="other" /><span>Something else</span></label>
         </>}
       </fieldset>
-      <div id="result" aria-live="polite" aria-atomic="true">{selected && <div className="box"><b>{(bike ? bikeTips : tips)[selected][0]}</b><br />{bike ? bikeTips[selected][1] : city && selected === "other" ? "Request an inspection. The mechanic will explain the findings and quote before any repair." : tips[selected][1]}</div>}</div>
-      <a className="btn btn-red" href="/book">{bike ? "Book bike repair" : "Book scooter repair"}</a>
+      <div id="result" aria-live="polite" aria-atomic="true">{selected && <div className="box"><b>{(bike ? activeTips : tips)[selected][0]}</b><br />{bike ? activeTips[selected][1] : city && selected === "other" ? "Request an inspection. The mechanic will explain the findings and quote before any repair." : tips[selected][1]}</div>}</div>
+      <a className="btn btn-red" href="/book">{bike ? bike.bookLabel || "Book bike repair" : "Book scooter repair"}</a>
     </section>
   </div>
 </div>
@@ -113,9 +146,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 3. HOW IT WORKS */}
 <section>
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>Four steps, and you pay only after the job is done.</p></div>
+    <div className="sec-head"><h2>{bike ? bike.howTitle || "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>Four steps, and you pay only after the job is done.</p></div>
     <div className="steps">
-      <div className="step"><h3>Book your service</h3><p>{city ? "Share your scooter model, symptom and full address in " + city.name + ". Confirm the visit time with the team." : "Select your bike, required service, location, date and preferred time."}</p></div>
+      <div className="step"><h3>Book your service</h3><p>{bike ? `Share your motorcycle model, required service${city ? ` and full address in ${city.name}` : ", location, date and preferred time"}.` : city ? "Share your scooter model, symptom and full address in " + city.name + ". Confirm the visit time with the team." : "Select your bike, required service, location, date and preferred time."}</p></div>
       <div className="step"><h3>Mechanic assigned</h3><p>FixWheel confirms your booking and assigns a verified mechanic near you.</p></div>
       <div className="step"><h3>Doorstep service</h3><p>The mechanic arrives with tools, inspects your vehicle and completes the approved work.</p></div>
       <div className="step"><h3>Review &amp; pay</h3><p>Check the completed service and pay only after the job is finished.</p></div>
@@ -126,9 +159,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 4. SERVICES */}
 <section className="alt" id="services">
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? "Bike services and repairs in Delhi NCR" : city ? "Scooter repair options in " + city.name : "Services we provide across Delhi NCR"}</h2><p>{bike ? "Listed starting rates apply to 0–249cc bikes. Your model, engine capacity, parts and required work determine the final quote." : "Transparent pricing for periodic servicing, CVT tuning and emergency breakdown repairs."} <a href="/pricing" style={{"color":"var(--accent)","fontWeight":"700"}}>View full price list</a></p></div>
+    <div className="sec-head"><h2>{bike ? bike.servicesTitle || "Bike services and repairs in Delhi NCR" : city ? "Scooter repair options in " + city.name : "Services we provide across Delhi NCR"}</h2><p>{bike ? bike.servicesLead || "Listed starting rates apply to 0–249cc bikes. Your model, engine capacity, parts and required work determine the final quote." : "Transparent pricing for periodic servicing, CVT tuning and emergency breakdown repairs."} <a href="/pricing" style={{"color":"var(--accent)","fontWeight":"700"}}>View full price list</a></p></div>
     <div className="grid3">
-      {bike ? bikeServices.map(service => <div className="svc" key={service.id}><div><h3>{service.title}</h3><p>{service.description}</p><span className="price">From ₹{getServicePricing(service.id).prices.cc0_249.toLocaleString("en-IN")}</span></div><a href={"/services/" + service.id}>View service</a></div>) : <>
+      {bike ? activeServices.map(service => <div className="svc" key={service.id}><div><h3>{service.title}</h3><p>{service.description}</p><span className="price">From ₹{getServicePricing(service.id).prices.cc0_249.toLocaleString("en-IN")}</span></div><a href={"/services/" + service.id}>View service</a></div>) : <>
       <div className="svc"><div><h3>Basic scooter service</h3><p>Oil, spark plug, air filter and brake checks.</p><span className="price">{"From ₹550"}</span></div><a href="/services/basic-service">View service</a></div>
       <div className="svc"><div><h3>Jump start</h3><p>Fast battery assistance for a drained or dead scooter battery.</p><span className="price">{"From ₹399"}</span></div><a href="/book">View service</a></div>
       <div className="svc"><div><h3>CVT and clutch inspection</h3><p>For vibration, shuddering or weak pickup.</p><span className="price">{"From ₹199 (inspection)"}</span></div><a href="/book">View service</a></div>
@@ -145,7 +178,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 <section>
   <div className="wrap two">
     <div>
-      <h2 style={{"fontSize":"clamp(24px,3.6vw,32px)"}}>{bike ? "Bike care that fits your ride" : city?.whyTitle || "Why choose doorstep scooty & scooter repair in Delhi NCR?"}</h2>
+      <h2 style={{"fontSize":"clamp(24px,3.6vw,32px)"}}>{bike ? bike.whyTitle || "Bike care that fits your ride" : city?.whyTitle || "Why choose doorstep scooty & scooter repair in Delhi NCR?"}</h2>
       {bike ? bike.paragraphs.map(p => <p key={p} style={{color:"var(--muted)",margin:"14px 0 0"}}>{p}</p>) : <p style={{"color":"var(--muted)","margin":"14px 0 0"}}>{city?.why || "Starting trouble, vibration on takeoff and weak pickup can have different causes. A doorstep inspection helps identify what your scooter needs before you approve the work. The mechanic explains the recommended repair and quotes any required parts before installation."}</p>}
       <ul className="checks">
         {bike ? bike.checks.map(item => <li key={item}>{item}</li>) : <>
@@ -156,7 +189,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
         <li>Air filter element dust cleaning &amp; tire pressure check</li>
         </>}
       </ul>
-      <p style={{"color":"var(--muted)","margin":"20px 0 0","fontSize":"15px"}}>{bike ? "Share your bike model, recent service history and the problem you have noticed. Tell us whether the bike starts and where it is parked." : city?.bookingTip || "Keep your model name and a short description of the problem ready when booking. Tell us if the scooter starts, and whether you are at home, at work or stranded on the road."}</p>
+      <p style={{"color":"var(--muted)","margin":"20px 0 0","fontSize":"15px"}}>{bike ? bike.bookingTip || "Share your bike model, recent service history and the problem you have noticed. Tell us whether the bike starts and where it is parked." : city?.bookingTip || "Keep your model name and a short description of the problem ready when booking. Tell us if the scooter starts, and whether you are at home, at work or stranded on the road."}</p>
     </div>
     <aside className="spec">
       <h3>Service specifications</h3>
@@ -175,9 +208,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 6. BRANDS */}
 <section className="alt">
   <div className="wrap">
-    <div className="sec-head"><h2>Brands we serve</h2><p>{bike ? "From daily commuters to performance motorcycles, share your make and model so we can confirm the right service." : city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
+    <div className="sec-head"><h2>Brands we serve</h2><p>{bike ? bike.brandsLead || "From daily commuters to performance motorcycles, share your make and model so we can confirm the right service." : city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
     <div className="brands">
-      {bike ? bikeBrands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>) : <>
+      {bike ? activeBrands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>) : <>
       <a className="brand" href="/honda"><img src={getBrandLogo("Honda")} alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
       <a className="brand" href="/tvs"><img src={getBrandLogo("TVS")} alt="TVS logo" width={36} height={36} loading="lazy" /><span><b>TVS</b><small>Jupiter, Ntorq, Scooty Zest</small></span></a>
       <a className="brand" href="/suzuki"><img src={getBrandLogo("Suzuki")} alt="Suzuki logo" width={36} height={36} loading="lazy" /><span><b>Suzuki</b><small>Access 125, Burgman Street, Avenis</small></span></a>
@@ -187,7 +220,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       <a className="brand" href="/aprilia"><img src={getBrandLogo("Aprilia")} alt="Aprilia logo" width={36} height={36} loading="lazy" /><span><b>Aprilia</b><small>SR 125/160, SXR 125/160</small></span></a>
       </>}
     </div>
-    <p className="other-models">{bike ? "Ride another bike model? Share the brand, model and engine capacity when booking to confirm the service and quote." : "Other scooty or scooter models? Share your brand and model when booking so we can confirm the right service for your vehicle."}</p>
+    <p className="other-models">{bike ? bike.otherModelsText || "Ride another bike model? Share the brand, model and engine capacity when booking to confirm the service and quote." : "Other scooty or scooter models? Share your brand and model when booking so we can confirm the right service for your vehicle."}</p>
     <div className="ev">
       <p>{bike ? <><b>Ride an electric bike or scooter?</b> Explore EV repair and servicing. Share your make, model and issue to confirm the right support.</> : <><b>Also riding an electric scooter?</b> Specialist support for Ola, Ather, TVS iQube and Chetak.</>}</p>
       <a className="btn" href={electricRepairHref}>Explore EV repair</a>
@@ -202,11 +235,11 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
   </div>
 </section>
 
-{city && <section><div className="wrap"><div className="sec-head"><h2>Scooter service across {city.name}</h2><p>{city.coverage}</p></div><div className="more">{areas.map(area => <span key={area} className="tag">{area}</span>)}</div><p>We provide doorstep scooter repair across {city.name}, including the areas listed above. Share your complete address when booking.</p></div></section>}
+{city && <section><div className="wrap"><div className="sec-head"><h2>{bike ? bike.coverageTitle || `Bike service across ${city.name}` : `Scooter service across ${city.name}`}</h2><p>{bike ? bike.coverageText || `Doorstep motorcycle service is available across the listed areas in ${city.name}.` : city.coverage}</p></div><div className="more">{areas.map(area => <span key={area} className="tag">{area}</span>)}</div><p>We provide doorstep {bike ? "motorcycle service" : "scooter repair"} across {city.name}, including the areas listed above. Share your complete address when booking.</p></div></section>}
 {/* 7. FAQ */}
 <section>
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? "Bike repair and service: your questions" : city ? "Scooty repair in " + city.name + ": your questions" : "Got questions about doorstep scooty repair?"}</h2></div>
+    <div className="sec-head"><h2>{bike ? bike.faqsTitle || "Bike repair and service: your questions" : city ? "Scooty repair in " + city.name + ": your questions" : "Got questions about doorstep scooty repair?"}</h2></div>
     <div className="faq">
 {bike || city ? (bike?.faqs || city!.faqs).map((faq,i) => <details key={faq.q} open={i===0}><summary>{faq.q}</summary><p>{faq.a}</p></details>) : <>
       <details open><summary>Why does my Activa, Jupiter, or Access vibrate or shudder during acceleration?</summary><p>Takeoff vibration is typically caused by accumulated clutch dust, worn variator rollers, or glazed clutch shoes inside the Continuously Variable Transmission (CVT) system. Our doorstep technician opens the clutch casing, degreases all transmission components, and resurfaces the clutch shoes on the spot to restore silky-smooth pickup.</p></details>
@@ -220,7 +253,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 </section>
 
 {/* 8. REVIEWS (single placement, right before the contact block) */}
-{bike ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>What bike owners say</h2><p>Riders across Delhi NCR share their doorstep service experiences.</p></div><div className="grid3">{bikeReviews.map(review => <article className="rev" key={review.name}><div><div className="top"><b>{review.name}</b><span className="star">★ {review.rating}</span></div><span className="chip">{review.vehicle}</span><p>“{review.text}”</p></div><small>{review.location}</small></article>)}</div></div></section> : city ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>Before your {city.name} mechanic visit</h2><p>A few details help us arrange the right inspection at the right place.</p></div><div className="grid3">{city.preparation.map(([title,text]) => <article className="rev" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section> : <section className="reviews">
+{bike ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>{bike.reviewsTitle || "What bike owners say"}</h2><p>{bike.reviewsLead || "Riders across Delhi NCR share their doorstep service experiences."}</p></div><div className="grid3">{activeReviews.map(review => <article className="rev" key={review.name}><div><div className="top"><b>{review.name}</b><span className="star">★ {review.rating}</span></div><span className="chip">{review.vehicle}</span><p>“{review.text}”</p></div><small>{review.location}</small></article>)}</div></div></section> : city ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>Before your {city.name} mechanic visit</h2><p>A few details help us arrange the right inspection at the right place.</p></div><div className="grid3">{city.preparation.map(([title,text]) => <article className="rev" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section> : <section className="reviews">
   <div className="wrap">
     <div className="sec-head"><h2>Scooter owners recommend us</h2><p>See how riders across Delhi NCR handled everyday scooter repairs at home.</p></div>
     <div className="grid3">
@@ -236,8 +269,8 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 <div className="final" id="contact">
   <div className="wrap">
     <div>
-      <h2>{bike ? "Ready to get your bike back on the road?" : city ? "Arrange your scooter repair in " + city.name : "Ready to service your two-wheeler?"}</h2>
-      <p>{bike ? "Book bike servicing at your home or office in Delhi NCR. Not sure what your motorcycle needs? Call or WhatsApp with your model, symptoms and location to discuss the next step." : city ? "Tell us your scooter model, symptoms and full address in " + city.name + ". Call or WhatsApp to confirm availability and discuss the repair before booking." : "Get an expert doorstep mechanic at your home or office parking in Delhi NCR within 45 minutes. Stuck with a breakdown? We dispatch 24/7 for punctures, dead batteries and snapped cables."}</p>
+      <h2>{bike ? bike.finalTitle || "Ready to get your bike back on the road?" : city ? "Arrange your scooter repair in " + city.name : "Ready to service your two-wheeler?"}</h2>
+      <p>{bike ? bike.finalLead || "Book bike servicing at your home or office in Delhi NCR. Not sure what your motorcycle needs? Call or WhatsApp with your model, symptoms and location to discuss the next step." : city ? "Tell us your scooter model, symptoms and full address in " + city.name + ". Call or WhatsApp to confirm availability and discuss the repair before booking." : "Get an expert doorstep mechanic at your home or office parking in Delhi NCR within 45 minutes. Stuck with a breakdown? We dispatch 24/7 for punctures, dead batteries and snapped cables."}</p>
       <div className="cta-row">
         <a className="btn btn-red" href="/book">Book now</a>
         <a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a>
@@ -255,9 +288,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 10. CITIES */}
 <section>
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? "Book doorstep bike service by city" : city ? "Scooter repair in other cities" : "Book doorstep scooty & scooter repair by city"}</h2></div>
+    <div className="sec-head"><h2>{bike ? bike.citiesTitle || "Book doorstep bike service by city" : city ? "Scooter repair in other cities" : "Book doorstep scooty & scooter repair by city"}</h2></div>
     <div className="cities">
-      {["Gurgaon", "Delhi", "Noida", "Ghaziabad", "Faridabad"].filter(name => name !== city?.name).map(name => <a key={name} href={"/" + name.toLowerCase() + (bike ? "/bike" : "/scooty-repair")}>{name}</a>)}
+      {["Gurgaon", "Delhi", "Noida", "Ghaziabad", "Faridabad"].filter(name => name !== city?.name).map(name => <a key={name} href={"/" + name.toLowerCase() + (bike ? bikeCityPath : "/scooty-repair")}>{name}</a>)}
     </div>
   </div>
 </section>

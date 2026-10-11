@@ -89,7 +89,7 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: '/services/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/services/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service|cruiser-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
@@ -99,7 +99,7 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: '/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service|cruiser-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
@@ -384,6 +384,12 @@ const nextConfig = {
         source: '/brands/:brand/:model',
         destination: '/:brand/:model',
         permanent: true,
+      },
+      // Brand city pages now follow the same city-first hierarchy as services.
+      {
+        source: '/:brand/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        destination: '/:city/:brand',
+        statusCode: 301,
       },
     ];
   },

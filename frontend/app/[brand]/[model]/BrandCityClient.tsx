@@ -6,8 +6,9 @@ import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BRAND_DETAILS, BrandDetailData } from "@/lib/brandDetails";
 import { BIKE_DATA } from "@/lib/bikes";
-import { Phone, Wrench, ShieldCheck, ArrowRight, MapPin, Check, Star } from "lucide-react";
+import { Phone, Wrench, ArrowRight, MapPin, Check, Star } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -406,9 +407,10 @@ export default function BrandCityClient({
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
+              { label: cityName, href: `/${citySlug}` },
               { label: "Brands", href: "/brands" },
               { label: brandName, href: `/${bKey}` },
-              { label: `${brandName} Service in ${cityName}` },
+              { label: `${brandName} Service` },
             ]}
           />
         </div>
@@ -432,37 +434,7 @@ export default function BrandCityClient({
             </div>
           </div>
 
-          <div className="hero-snapshot-card">
-            <div className="hero-snapshot-header">
-              <div className="hero-snapshot-title">
-                {brandName.toUpperCase()} DISPATCH TICKET
-                <span>{cityName.toUpperCase()} · NCR</span>
-              </div>
-              <div className="hero-snapshot-badge">DISPATCH READY</div>
-            </div>
-            <div className="hero-snapshot-grid">
-              <div>
-                <span className="hero-snapshot-label">STARTING PRICE</span>
-                <span className="hero-snapshot-val highlight">₹199</span>
-              </div>
-              <div>
-                <span className="hero-snapshot-label">ARRIVAL TIME</span>
-                <span className="hero-snapshot-val">45 Minutes</span>
-              </div>
-              <div>
-                <span className="hero-snapshot-label">LOCATION</span>
-                <span className="hero-snapshot-val">{cityName} (Home/Office)</span>
-              </div>
-              <div>
-                <span className="hero-snapshot-label">WARRANTY</span>
-                <span className="hero-snapshot-val">15 Days Labor</span>
-              </div>
-            </div>
-            <div style={{ background: "#F1F5F9", border: "1px solid #E2E8F0", padding: "10px", borderRadius: "4px", fontSize: "12px", color: "#475569", display: "flex", alignItems: "center", gap: "8px" }}>
-              <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-              <span>100% Genuine {brandName} OEM Spare Parts Guaranteed</span>
-            </div>
-          </div>
+          <TwoWheelerQueryCard />
         </div>
       </section>
 
@@ -635,7 +607,7 @@ export default function BrandCityClient({
             <div className="silo">
               <Link href={`/${bKey}`} className="active">{brandName} Main Hub</Link>
               {otherCities.map((city) => (
-                <Link key={city.slug} href={`/${bKey}/${city.slug}`}>
+                <Link key={city.slug} href={`/${city.slug}/${bKey}`}>
                   {brandName} in {city.name}
                 </Link>
               ))}

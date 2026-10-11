@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 
 export const dynamic = "force-static";
@@ -9,12 +8,11 @@ const CUSTOM_ROOT_SERVICES = [
   "commuter-bike-service",
   "scooty-repair",
   "premium-bike-service",
+  "cruiser-bike-service",
 ];
 
 export async function GET() {
-  const serviceSlugs = Object.keys(SERVICES_DB).filter((service) =>
-    CUSTOM_ROOT_SERVICES.includes(service)
-  );
+  const serviceSlugs = CUSTOM_ROOT_SERVICES;
   const citySlugs = Object.keys(CITIES_DB);
 
   let urlsXml = "";

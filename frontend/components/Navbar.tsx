@@ -43,6 +43,17 @@ const vehicleTypeLinks = [
   { name: 'Sport Bike', href: '/sports-bike-service', icon: 'sport' },
 ];
 
+const cityRouteSlugs = new Set(['delhi', 'gurgaon', 'noida', 'ghaziabad', 'faridabad']);
+const cityVehicleTypeSlugs = new Set(['bike', 'commuter-bike-service', 'scooty-repair', 'sports-bike-service', 'premium-bike-service', 'cruiser-bike-service']);
+const brandRouteSlugs = new Set([
+  'ampere', 'aprilia', 'ather', 'bajaj', 'bajaj-ev', 'benelli', 'benelli-keeway',
+  'bmw', 'bmw-motorrad', 'bounce', 'ducati', 'harley-davidson', 'hero',
+  'hero-electric', 'honda', 'husqvarna', 'jawa', 'joy-e-bike', 'kawasaki', 'ktm',
+  'matter', 'okinawa', 'ola-electric', 'other-brand', 'other-brand-ev', 'pure-ev',
+  'revolt', 'royal-enfield', 'scooters', 'simple-energy', 'suzuki', 'tork-motors',
+  'triumph', 'tvs', 'tvs-ev', 'ultraviolette', 'vespa', 'vida-hero', 'yamaha', 'yezdi',
+]);
+
 function VehicleTypeIcon({ type }: { type: string }) {
   // Center the supplied silhouettes without showing their surrounding white space.
   const imageWidths: Record<string, number> = { bike: 34, scooter: 42, cruiser: 54, premium: 48, sport: 45, electric: 30 };
@@ -134,25 +145,33 @@ export default function Navbar() {
   const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
 
   /* ─── Sync active path ───────────────────────────────────── */
+  const pathSegments = pathname?.split('/').filter(Boolean) || [];
+  const firstPathSegment = pathSegments[0] || '';
+  const secondPathSegment = pathSegments[1] || '';
+  const isCityRoute = cityRouteSlugs.has(firstPathSegment);
+  const isCityServiceRoute = isCityRoute && secondPathSegment === 'services';
+  const isCityVehicleTypeRoute = isCityRoute && cityVehicleTypeSlugs.has(secondPathSegment);
+  const isCityBrandRoute = isCityRoute && brandRouteSlugs.has(secondPathSegment);
+  const isBrandRoute = brandRouteSlugs.has(firstPathSegment) || pathname === '/brands';
+
   const isLinkActive = useCallback((linkHref: string) => {
     if (linkHref === '/') {
       return pathname === '/';
     }
     if (linkHref === '/delhi') {
-      const locs = ['/delhi', '/gurgaon', '/noida', '/faridabad', '/ghaziabad'];
-      return locs.some(loc => pathname?.startsWith(loc) && !pathname?.endsWith('/bike') && !pathname?.startsWith('/partner'));
+      return isCityRoute && !isCityServiceRoute && !isCityVehicleTypeRoute && !isCityBrandRoute;
     }
     if (linkHref === '/services') {
-      return pathname?.startsWith('/services');
+      return pathname?.startsWith('/services') || isCityServiceRoute || isCityBrandRoute || isBrandRoute;
     }
     if (linkHref === '/bike') {
-      return pathname?.endsWith('/bike') || pathname?.startsWith('/commuter-bike-service') || vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
+      return isCityVehicleTypeRoute || pathname?.startsWith('/commuter-bike-service') || vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
     }
     if (linkHref === '/partner') {
       return pathname?.startsWith('/partner');
     }
     return pathname?.startsWith(linkHref);
-  }, [pathname]);
+  }, [pathname, isBrandRoute, isCityBrandRoute, isCityRoute, isCityServiceRoute, isCityVehicleTypeRoute]);
 
   useEffect(() => {
     setActivePath(window.location.pathname + window.location.hash);

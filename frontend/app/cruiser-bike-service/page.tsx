@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import ServicePageTemplate from "@/components/ServicePageTemplate";
-import { getServicePrice } from "@/lib/pricingData";
+import CruiserBikeLayout, { getCruiserFaqs } from "./CruiserBikeLayout";
+import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 
+const title = "Cruiser Bike Service at Doorstep | FixWheel";
+const description = "Doorstep cruiser bike service across Delhi NCR for Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick and TVS Ronin.";
 const cruiserKeywords = [
   "cruiser bike service",
   "cruiser bike service near me",
@@ -21,67 +23,46 @@ const cruiserKeywords = [
 ];
 
 export const metadata: Metadata = {
-  title: "Cruiser Bike Service at Doorstep | FixWheel",
-  description:
-    "Doorstep cruiser bike service across Delhi NCR for Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick, and TVS Ronin.",
+  title,
+  description,
   keywords: cruiserKeywords,
-  alternates: {
-    canonical: "https://www.fixwheel.app/cruiser-bike-service",
-  },
-  openGraph: {
-    type: "website",
-    title: "Cruiser Bike Service at Doorstep | FixWheel",
-    description:
-      "Book doorstep maintenance for cruiser and modern-classic motorcycles with verified mechanics and transparent pricing.",
-    url: "https://www.fixwheel.app/cruiser-bike-service",
-  },
+  alternates: { canonical: "https://www.fixwheel.app/cruiser-bike-service" },
+  openGraph: { type: "website", title, description, url: "https://www.fixwheel.app/cruiser-bike-service" },
 };
 
-const baseCruiserPrice = getServicePrice("basic-service", "cc0_249");
-const startingPrice =
-  typeof baseCruiserPrice === "number"
-    ? `₹${baseCruiserPrice.toLocaleString("en-IN")}`
-    : String(baseCruiserPrice);
+export default async function CruiserBikeServicePage() {
+  const stats = await getPublicStatsForCity("global").catch(() => DEFAULT_PUBLIC_STATS.global);
+  const faqs = getCruiserFaqs();
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: "Doorstep cruiser bike service",
+        url: "https://www.fixwheel.app/cruiser-bike-service",
+        serviceType: "Cruiser and modern-classic motorcycle service",
+        provider: { "@id": "https://www.fixwheel.app/#organization" },
+        areaServed: ["Delhi", "Gurgaon", "Noida", "Ghaziabad", "Faridabad"].map((name) => ({ "@type": "City", name })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+          { "@type": "ListItem", position: 2, name: "Vehicle Type", item: "https://www.fixwheel.app/services" },
+          { "@type": "ListItem", position: 3, name: "Cruiser Bike Service", item: "https://www.fixwheel.app/cruiser-bike-service" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })),
+      },
+    ],
+  };
 
-const cruiserServiceData = {
-  serviceId: "cruiser-bike-service",
-  category: "Cruiser & Modern Classic",
-  title: "Cruiser Bike Service at Doorstep",
-  lead:
-    "Cruiser and modern-classic motorcycles need careful torque checks, smooth clutch adjustment, accurate chain alignment, and engine-specific lubrication. FixWheel services Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick, and TVS Ronin at your doorstep.",
-  startingPrice,
-  avgTime: "45 Mins",
-  warranty: "15 Days Labor Warranty",
-  descriptionParagraphs: [
-    "Cruiser motorcycles combine relaxed ergonomics with heavier frames, long-stroke engines, and model-specific service requirements. Loose drive chains, stiff control cables, worn brake pads, or incorrect fluid levels can quickly affect low-speed balance and highway comfort.",
-    "FixWheel sends a verified mechanic to your home or office parking with torque tools, electrical testers, chain-maintenance equipment, and the correct consumables for your motorcycle.",
-    "Every additional repair or spare part is inspected first and carried out only after you approve the price.",
-  ],
-  includedItems: [
-    "Engine oil level, leakage & service-interval inspection",
-    "Drive chain cleaning, slack adjustment & alignment check",
-    "Clutch, throttle and control-cable free-play adjustment",
-    "Front and rear brake wear, fluid and lever-response check",
-    "Battery voltage, charging output and terminal inspection",
-    "Fastener, suspension and tyre-condition safety check",
-  ],
-  faqs: [
-    {
-      q: "Which cruiser bikes can FixWheel service at home?",
-      a: "The supported range includes listed models from Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick, and TVS Ronin.",
-    },
-    {
-      q: "How is the exact cruiser bike service price calculated?",
-      a: "The rate depends on the selected service and engine-CC tier. Any additional repair or spare part is quoted for your approval before work begins.",
-    },
-    {
-      q: "Can the mechanic inspect chain, brakes, battery and control cables at my location?",
-      a: "Yes. These checks are part of the doorstep inspection, and the mechanic will explain any repair that needs your approval.",
-    },
-  ],
-  keywords: cruiserKeywords,
-};
-
-export default function CruiserBikeServicePage() {
-  return <ServicePageTemplate {...cruiserServiceData} />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <CruiserBikeLayout bikesServiced={String(stats.bikes_serviced)} rating={stats.average_rating} />
+    </>
+  );
 }

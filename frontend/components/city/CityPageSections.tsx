@@ -181,7 +181,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
               <div className="stat"><b>{config.hero.serviceArea}</b><span>Service area</span></div>
             </div>
           </div>
-          <TwoWheelerQueryCard locationName={config.cityName} />
+          <TwoWheelerQueryCard />
         </div>
       </section>
 
