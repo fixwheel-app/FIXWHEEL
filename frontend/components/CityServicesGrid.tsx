@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
+import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
 
 export interface CityServiceConfig {
   tag: string;
@@ -125,48 +126,16 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
   },
 ];
 
-const ELECTRIC_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
-  {
-    tag: "[EV SERVICE]",
-    id: "ev-service",
-    name: "Electric Scooter General Service",
-    desc: "Complete electronic BMS scan, high-voltage wiring check, brake shoe service, and battery health audit.",
-    price: 799,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-  {
-    tag: "[JUMPSTART]",
-    id: "jump-start",
-    name: "Jump Start",
-    desc: "Immediate doorstep emergency battery jump start service for drained or dead two-wheeler batteries.",
-    price: 399,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-  {
-    tag: "[PUNCTURE]",
-    id: "puncture",
-    name: "Doorstep Puncture Repair",
-    desc: "On-site tubeless or tube puncture repair at your home, office, or roadside location.",
-    price: 399,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-  {
-    tag: "[RUNNING]",
-    id: "running-repair",
-    name: "Running Repair",
-    desc: "Minor mechanical adjustments, cable replacement, clutch tuning, lever fitting, or bulb changes.",
-    price: 399,
-    priceNote: "starting from",
-    link: "/book",
-    linkText: "Book now →",
-  },
-];
+const ELECTRIC_SERVICE_CARDS_CONFIG: CityServiceConfig[] = ELECTRIC_SERVICE_OPTIONS.map((service) => ({
+  tag: service.tag,
+  id: service.id,
+  name: service.name,
+  desc: service.description,
+  price: service.price,
+  priceNote: "starting from",
+  link: "/book",
+  linkText: "Book now →",
+}));
 
 export interface CityServicesGridProps {
   cityName?: string;

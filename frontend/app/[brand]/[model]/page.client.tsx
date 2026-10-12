@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
@@ -27,6 +28,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
   };
 
   const { brandName, modelName, category } = modelInfo;
+  const isElectricModel = category === "Electric Motorbike";
 
   const bLow = brandName.toLowerCase();
   const mLow = modelName.toLowerCase();
@@ -39,7 +41,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
     `${mLow} mechanic near me`,
     `${bLow} ${mLow} service near me`,
     `doorstep ${mLow} service near me`,
-    `${mLow} oil change near me`,
+    `${mLow} ${isElectricModel ? "battery diagnostic" : "oil change"} near me`,
     `${mLow} battery replacement near me`,
     `${mLow} brake repair near me`,
     `${mLow} repair at home gurgaon`,
@@ -50,7 +52,32 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
     `bike mechanic near me at home`,
   ];
 
-  const faqs = [
+  const faqs = isElectricModel ? [
+    {
+      q: `Looking for ${brandName} ${modelName} EV service near me?`,
+      a: `FixWheel provides doorstep EV inspection and minor repair across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. We confirm diagnostic compatibility for your exact model before dispatch.`,
+    },
+    {
+      q: `How long does doorstep service for ${brandName} ${modelName} take?`,
+      a: `A routine EV inspection or minor repair generally takes 30 to 50 minutes at your home or office parking.`,
+    },
+    {
+      q: `What is checked during a ${brandName} ${modelName} EV service?`,
+      a: `The mechanic checks the BMS status, auxiliary battery voltage, charging port, accessible wiring, motor response, brakes, and tyres based on your reported issue.`,
+    },
+    {
+      q: `Can the traction battery of my ${brandName} ${modelName} be repaired at my doorstep?`,
+      a: `Doorstep work covers safe diagnostics and accessible systems. Sealed traction-battery or major motor repair is handled through EV pick and drop after you approve the quote.`,
+    },
+    {
+      q: `Can I get my ${brandName} ${modelName} serviced at my office parking lot?`,
+      a: `Yes. Our EV mechanics carry portable diagnostic and safety equipment for supported checks and minor repairs at your office or residential parking.`,
+    },
+    {
+      q: `Is there a warranty on ${brandName} ${modelName} doorstep service?`,
+      a: `FixWheel provides a 15-day labor and diagnostic warranty, plus the applicable manufacturer warranty on replacement components.`,
+    },
+  ] : [
     {
       q: `Looking for ${brandName} ${modelName} service near me in Delhi?`,
       a: `FixWheel is the top-rated doorstep ${brandName} ${modelName} service provider near you in Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. Our certified mobile mechanics reach your location within 45 minutes with genuine OEM parts and specialized tools.`,
@@ -140,7 +167,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
 
             {/* Right Hero Interactive Query Card */}
             <div className="lg:col-span-5">
-              <TwoWheelerQueryCard />
+              <TwoWheelerQueryCard electric={isElectricModel} />
             </div>
           </div>
         </div>
@@ -180,13 +207,17 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Why Choose Doorstep {brandName} {modelName} Service?
               </h2>
               <p>
-                Riding your {brandName} {modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.
+                {isElectricModel
+                  ? `Daily riding exposes your ${brandName} ${modelName} to heat, vibration, charging cycles, brake wear, and tyre-pressure changes. Regular checks help catch BMS warnings, loose accessible connections, reduced range, and braking issues early.`
+                  : `Riding your ${brandName} ${modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.`}
               </p>
               <p>
                 FixWheel dispatches certified mechanics trained specifically on {brandName} two-wheelers directly to your location. Equipped with high-grade diagnostic kits, genuine replacement parts, and portable washing equipment, we service your {modelName} right where it's parked.
               </p>
               <p>
-                From routine 15-point checkups and oil swaps to brake shoe replacement, chain lube, and battery testing, you receive 100% transparent pricing with zero visiting fees and a 15-day labor warranty.
+                {isElectricModel
+                  ? "From BMS scans and auxiliary-battery checks to brake service, puncture repair, and minor electrical diagnosis, you receive transparent EV pricing with zero visiting fees and a 15-day labor warranty."
+                  : "From routine 15-point checkups and oil swaps to brake shoe replacement, chain lube, and battery testing, you receive 100% transparent pricing with zero visiting fees and a 15-day labor warranty."}
               </p>
             </div>
 
@@ -213,7 +244,7 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
                       Recommended Interval
                     </span>
-                    <span className="font-bold text-slate-900">Every 3,000 km / 3 Months</span>
+                    <span className="font-bold text-slate-900">{isElectricModel ? "As per manufacturer schedule / 6 Months" : "Every 3,000 km / 3 Months"}</span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
@@ -239,6 +270,36 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </div>
             </div>
           </div>
+
+          {isElectricModel && (
+            <section className="mb-16" aria-labelledby="model-ev-services-heading">
+              <div className="mb-8">
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b] block mb-2">EV Service Catalog</span>
+                <h2 id="model-ev-services-heading" className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
+                  Electric Services for {brandName} {modelName}
+                </h2>
+                <p className="text-slate-600 mt-2">EV-specific rates with no petrol engine, carburetor, or CC-based services.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {ELECTRIC_SERVICE_OPTIONS.map((service) => (
+                  <article key={service.id} className="border border-slate-200 rounded-xl p-5 flex flex-col justify-between gap-5 bg-white">
+                    <div>
+                      <span className="font-mono text-[10px] font-bold tracking-widest text-[#e62b2b]">{service.tag}</span>
+                      <div className="flex items-start justify-between gap-3 mt-3">
+                        <h3 className="font-oswald text-lg font-bold text-slate-900">{service.name}</h3>
+                        <span className="font-mono text-[10px] whitespace-nowrap text-slate-500">⏱ {service.time}</span>
+                      </div>
+                      <p className="text-sm leading-6 text-slate-600 mt-3">{service.description}</p>
+                    </div>
+                    <div className="flex items-end justify-between gap-4 border-t border-slate-100 pt-4">
+                      <div><span className="block font-mono text-[10px] uppercase text-slate-500">Starting From</span><strong className="text-2xl text-[#e62b2b]">₹{service.price.toLocaleString("en-IN")}</strong></div>
+                      <Link href={`/book#${bSlug}`} className="bg-[#e62b2b] text-white px-4 py-2.5 rounded-md font-mono font-bold text-[11px] uppercase">Book EV Service →</Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* ===== BECOME A PARTNER SECTION ===== */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-center">

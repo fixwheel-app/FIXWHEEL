@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Phone } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -39,8 +40,39 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 
-  const brandData = BRAND_DETAILS[brandSlug.toLowerCase()] || {
-    name: formattedBrandName,
+  const electricCatalogBrand = findElectricBrandByReference(brandSlug);
+  const storedBrandData = BRAND_DETAILS[brandSlug.toLowerCase()];
+  const usesSharedElectricTemplate = Boolean(
+    storedBrandData && electricCatalogBrand && storedBrandData.name !== electricCatalogBrand.name
+  );
+  const brandData = storedBrandData ? (usesSharedElectricTemplate ? {
+    ...storedBrandData,
+    name: electricCatalogBrand!.name,
+    tagline: `Specialist Doorstep EV Service for ${electricCatalogBrand!.name}`,
+    description: `${electricCatalogBrand!.name} electric two-wheelers need dedicated battery-management, charging, motor, brake, tyre, and wiring checks. FixWheel sends EV-trained mechanics with diagnostic and electrical testing equipment to your home or office parking.`,
+    additionalInfo: {
+      engineOil: "Not Applicable — Electric Drivetrain Inspection",
+      warranty: "15-Day EV Diagnostic and Labor Warranty",
+      parts: `Genuine ${electricCatalogBrand!.name} Compatible Components`,
+      avgTime: "Within 45 Mins Doorstep Arrival",
+    },
+    keyBenefits: [
+      { title: "EV Diagnostic Check", desc: "BMS status, dashboard warnings, auxiliary voltage, accessible wiring, and charging-port condition are checked for supported models." },
+      { title: "Motor & Controller Inspection", desc: "Throttle response, motor behavior, and accessible controller connections are inspected based on the reported fault." },
+      { title: "EV Brake & Tyre Care", desc: "Disc pads, regenerative-brake response, tyre pressure, valves, and punctures are handled with EV-specific care." },
+    ],
+    reviews: [],
+    seoKeywords: [
+      `${electricCatalogBrand!.name.toLowerCase()} ev service at home`,
+      `${electricCatalogBrand!.name.toLowerCase()} repair near me`,
+      `doorstep electric scooter mechanic`,
+    ],
+    faqs: [],
+  } : {
+    ...storedBrandData,
+    name: electricCatalogBrand?.name || storedBrandData.name,
+  }) : {
+    name: electricCatalogBrand?.name || formattedBrandName,
     tagline: `Professional Doorstep Maintenance & Repair for ${formattedBrandName}`,
     description: `Get doorstep bike service and repair for all ${formattedBrandName} two-wheeler models right at your home or office parking. 100% genuine parts and 15-day labor warranty.`,
     additionalInfo: {
@@ -109,20 +141,23 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     bounce: "bounce",
   };
   const legacyCatalogBrandId = legacyCatalogBrandIds[brandSlug.toLowerCase()];
+  const electricBrandObj = electricCatalogBrand || findElectricBrandByReference(brandData.name, legacyCatalogBrandId);
   const allCatalogBrands = [
     ...BIKE_DATA["Non-Electric Motorbike"],
     ...BIKE_DATA["Electric Motorbike"],
   ];
-  let brandObj = legacyCatalogBrandId
+  let brandObj = electricBrandObj || (legacyCatalogBrandId
     ? allCatalogBrands.find((b) => b.id === legacyCatalogBrandId)
     : BIKE_DATA["Non-Electric Motorbike"].find(
         (b) => b.name.toLowerCase() === brandData.name.toLowerCase()
-      );
+      ));
   if (!brandObj) {
     brandObj = BIKE_DATA["Electric Motorbike"].find(
       (b) => b.name.toLowerCase() === brandData.name.toLowerCase()
     );
   }
+
+  const isElectricBrand = Boolean(electricBrandObj);
   // Fallbacks for sub-brands
   if (!brandObj) {
     if (brandData.name.toLowerCase().includes("ola")) {
@@ -141,7 +176,28 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
-  const defaultFaqs = [
+  const defaultFaqs = isElectricBrand ? [
+    {
+      q: `How long does doorstep ${brandData.name} EV service take?`,
+      a: `Most EV inspections and minor repairs take 30 to 50 minutes at your home or office parking. Model compatibility is confirmed before dispatch.`,
+    },
+    {
+      q: `What is checked during a ${brandData.name} EV service?`,
+      a: `The mechanic checks the BMS status, auxiliary battery voltage, accessible wiring, charging-port condition, motor response, brakes, and tyres according to the reported issue.`,
+    },
+    {
+      q: `Can FixWheel repair the traction battery at my doorstep?`,
+      a: `Doorstep work covers safe diagnostics and accessible systems. Sealed traction-battery or major motor repairs are moved through the EV pick-and-drop service after you approve the quote.`,
+    },
+    {
+      q: `Is there a warranty on doorstep ${brandData.name} EV repairs?`,
+      a: `Yes, FixWheel provides a 15-day labor and diagnostic warranty, plus the applicable manufacturer warranty on replacement components.`,
+    },
+    {
+      q: `Which locations do you cover for ${brandData.name} EV service?`,
+      a: `We cover Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad at home or office parking locations.`,
+    },
+  ] : [
     {
       q: `How long does doorstep ${brandData.name} service take in Delhi?`,
       a: `Routine servicing for ${brandData.name} two-wheelers typically takes 35 to 50 minutes. Our certified mechanics arrive fully equipped at your doorstep with all required OEM spares and tools.`,
@@ -164,7 +220,9 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     },
   ];
 
-  const brandFaqs = (brandData.faqs && brandData.faqs.length > 0) ? brandData.faqs : defaultFaqs;
+  const brandFaqs = isElectricBrand
+    ? defaultFaqs
+    : (brandData.faqs && brandData.faqs.length > 0) ? brandData.faqs : defaultFaqs;
 
   return (
     <div className={`brand-detail-scope ${oswald.variable} ${jetbrains.variable}`}>
@@ -1073,7 +1131,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </div>
             </div>
 
-            <TwoWheelerQueryCard />
+            <TwoWheelerQueryCard electric={isElectricBrand} />
           </div>
         </div>
       </section>
@@ -1231,119 +1289,75 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         </div>
       </section>
 
-      {/* ===== CC-BASED SERVICE PRICING TABLE SECTION ===== */}
-      <section className="cc-pricing-section">
+      {/* ===== SERVICE PRICING SECTION ===== */}
+      <section id={isElectricBrand ? "ev-service-pricing" : "service-pricing"} className="cc-pricing-section">
         <div className="wrap">
-          <div className="section-head" style={{ marginBottom: "32px" }}>
-            <div className="eyebrow">Transparent Pricing</div>
-            <h2>{brandData.name} Doorstep Service Rates by Engine CC</h2>
-            <p style={{ color: "#475569", marginTop: "8px", fontSize: "15.5px" }}>
-              Upfront, transparent pricing for all {brandData.name} motorcycles & scooters based on engine displacement. Select your bike's CC category to view exact rates.
-            </p>
-          </div>
-
-          {/* CC Category Selector Tabs */}
-          <div className="cc-tabs-row">
-            <button
-              className={cn("cc-tab-btn", selectedCcTab === "0-249" && "active")}
-              onClick={() => setSelectedCcTab("0-249")}
-            >
-              <b>0 – 249 CC</b>
-              <span>Commuter Bikes & Scooters</span>
-            </button>
-            <button
-              className={cn("cc-tab-btn", selectedCcTab === "250-399" && "active")}
-              onClick={() => setSelectedCcTab("250-399")}
-            >
-              <b>250 – 399 CC</b>
-              <span>Performance & Quarter-Liter</span>
-            </button>
-            <button
-              className={cn("cc-tab-btn", selectedCcTab === "400-599" && "active")}
-              onClick={() => setSelectedCcTab("400-599")}
-            >
-              <b>400 – 599 CC</b>
-              <span>Middleweight Motorcycles</span>
-            </button>
-            <button
-              className={cn("cc-tab-btn", selectedCcTab === "600+" && "active")}
-              onClick={() => setSelectedCcTab("600+")}
-            >
-              <b>600 CC & Above</b>
-              <span>Superbikes & Heavy Cruisers</span>
-            </button>
-          </div>
-
-          {/* Service Cards Grid for Selected CC */}
-          <div className="cc-pricing-grid">
-            {CC_PRICING_DATA.map((srv, idx) => {
-              const priceVal = srv.prices[selectedCcTab];
-              return (
-                <div className="cc-price-card" key={idx}>
-                  <div>
-                    <div className="cc-price-card-head">
-                      <h3>{srv.name}</h3>
-                      <span className="cc-price-time">⏱ {srv.time}</span>
-                    </div>
-                    <p>{srv.desc}</p>
-                  </div>
-                  <div className="cc-price-card-foot">
+          {isElectricBrand ? (
+            <>
+              <div className="section-head" style={{ marginBottom: "32px" }}>
+                <div className="eyebrow">EV Service Pricing</div>
+                <h2>{brandData.name} Electric Service & Repair Rates</h2>
+                <p style={{ color: "#475569", marginTop: "8px", fontSize: "15.5px" }}>
+                  EV-specific doorstep care for battery management, motor response, charging, brakes, tyres, and minor electrical faults. No petrol-engine services or CC pricing apply.
+                </p>
+              </div>
+              <div className="cc-pricing-grid">
+                {ELECTRIC_SERVICE_OPTIONS.map((service) => (
+                  <div className="cc-price-card" key={service.id}>
                     <div>
-                      <span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Transparent Price</span>
-                      <span className="cc-price-amount">{priceVal}</span>
+                      <div className="cc-price-card-head">
+                        <h3>{service.name}</h3>
+                        <span className="cc-price-time">⏱ {service.time}</span>
+                      </div>
+                      <p>{service.description}</p>
                     </div>
-                    <Link
-                      href={`/book#${brandSlug}`}
-                      className="btn btn-primary"
-                      style={{ padding: "8px 16px", fontSize: "11px" }}
-                    >
-                      Book Now →
-                    </Link>
+                    <div className="cc-price-card-foot">
+                      <div>
+                        <span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Starting From</span>
+                        <span className="cc-price-amount">₹{service.price.toLocaleString("en-IN")}</span>
+                      </div>
+                      <Link href={`/book#${brandSlug}`} className="btn btn-primary" style={{ padding: "8px 16px", fontSize: "11px" }}>
+                        Book EV Service →
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Toggle Full Matrix View */}
-          <div style={{ textAlign: "center", marginTop: "24px" }}>
-            <button
-              onClick={() => setShowFullMatrix(!showFullMatrix)}
-              className="btn btn-outline"
-              style={{ color: "var(--ink-dark)", borderColor: "var(--line-paper)" }}
-            >
-              {showFullMatrix ? "Hide Full CC Comparison Matrix ▲" : "View Full CC Comparison Matrix Table ▼"}
-            </button>
-          </div>
-
-          {/* Side-by-side Full Matrix Table */}
-          {showFullMatrix && (
-            <div className="matrix-table-wrap">
-              <table className="matrix-table">
-                <thead>
-                  <tr>
-                    <th>Service Name</th>
-                    <th className={cn(selectedCcTab === "0-249" && "highlight-col")}>0–249 CC</th>
-                    <th className={cn(selectedCcTab === "250-399" && "highlight-col")}>250–399 CC</th>
-                    <th className={cn(selectedCcTab === "400-599" && "highlight-col")}>400–599 CC</th>
-                    <th className={cn(selectedCcTab === "600+" && "highlight-col")}>600 CC+</th>
-                    <th>Est. Time</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {CC_PRICING_DATA.map((srv, idx) => (
-                    <tr key={idx}>
-                      <td style={{ fontWeight: 600 }}>{srv.name}</td>
-                      <td className="price-val">{srv.prices["0-249"]}</td>
-                      <td className="price-val">{srv.prices["250-399"]}</td>
-                      <td className="price-val">{srv.prices["400-599"]}</td>
-                      <td className="price-val">{srv.prices["600+"]}</td>
-                      <td className="mono" style={{ fontSize: "12px", color: "#64748B" }}>{srv.time}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="section-head" style={{ marginBottom: "32px" }}>
+                <div className="eyebrow">Transparent Pricing</div>
+                <h2>{brandData.name} Doorstep Service Rates by Engine CC</h2>
+                <p style={{ color: "#475569", marginTop: "8px", fontSize: "15.5px" }}>
+                  Upfront, transparent pricing for all {brandData.name} motorcycles & scooters based on engine displacement. Select your bike's CC category to view exact rates.
+                </p>
+              </div>
+              <div className="cc-tabs-row">
+                {[
+                  ["0-249", "0 – 249 CC", "Commuter Bikes & Scooters"],
+                  ["250-399", "250 – 399 CC", "Performance & Quarter-Liter"],
+                  ["400-599", "400 – 599 CC", "Middleweight Motorcycles"],
+                  ["600+", "600 CC & Above", "Superbikes & Heavy Cruisers"],
+                ].map(([value, label, detail]) => (
+                  <button key={value} className={cn("cc-tab-btn", selectedCcTab === value && "active")} onClick={() => setSelectedCcTab(value as typeof selectedCcTab)}>
+                    <b>{label}</b><span>{detail}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="cc-pricing-grid">
+                {CC_PRICING_DATA.map((service) => (
+                  <div className="cc-price-card" key={service.name}>
+                    <div><div className="cc-price-card-head"><h3>{service.name}</h3><span className="cc-price-time">⏱ {service.time}</span></div><p>{service.desc}</p></div>
+                    <div className="cc-price-card-foot"><div><span className="mono" style={{ fontSize: "10px", color: "#64748B", display: "block", textTransform: "uppercase" }}>Transparent Price</span><span className="cc-price-amount">{service.prices[selectedCcTab]}</span></div><Link href={`/book#${brandSlug}`} className="btn btn-primary" style={{ padding: "8px 16px", fontSize: "11px" }}>Book Now →</Link></div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ textAlign: "center", marginTop: "24px" }}><button onClick={() => setShowFullMatrix(!showFullMatrix)} className="btn btn-outline" style={{ color: "var(--ink-dark)", borderColor: "var(--line-paper)" }}>{showFullMatrix ? "Hide Full CC Comparison Matrix ▲" : "View Full CC Comparison Matrix Table ▼"}</button></div>
+              {showFullMatrix && (
+                <div className="matrix-table-wrap"><table className="matrix-table"><thead><tr><th>Service Name</th><th className={cn(selectedCcTab === "0-249" && "highlight-col")}>0–249 CC</th><th className={cn(selectedCcTab === "250-399" && "highlight-col")}>250–399 CC</th><th className={cn(selectedCcTab === "400-599" && "highlight-col")}>400–599 CC</th><th className={cn(selectedCcTab === "600+" && "highlight-col")}>600 CC+</th><th>Est. Time</th></tr></thead><tbody>{CC_PRICING_DATA.map((service) => <tr key={service.name}><td style={{ fontWeight: 600 }}>{service.name}</td><td className="price-val">{service.prices["0-249"]}</td><td className="price-val">{service.prices["250-399"]}</td><td className="price-val">{service.prices["400-599"]}</td><td className="price-val">{service.prices["600+"]}</td><td className="mono" style={{ fontSize: "12px", color: "#64748B" }}>{service.time}</td></tr>)}</tbody></table></div>
+              )}
+            </>
           )}
         </div>
       </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
+import { findElectricBrandByReference } from "@/lib/electricServices";
 import BrandDetailClient from "./page.client";
 
 interface PageProps {
@@ -23,7 +24,24 @@ export async function generateStaticParams() {
 
 function getBrandData(brandSlug: string) {
   const key = brandSlug.toLowerCase().trim();
-  if (BRAND_DETAILS[key]) return BRAND_DETAILS[key];
+  const electricBrand = findElectricBrandByReference(key);
+  if (BRAND_DETAILS[key]) {
+    const storedBrand = BRAND_DETAILS[key];
+    if (electricBrand && electricBrand.name !== storedBrand.name) {
+      return {
+        ...storedBrand,
+        name: electricBrand.name,
+        tagline: `Specialist Doorstep EV Service for ${electricBrand.name}`,
+        description: `Book EV-specific ${electricBrand.name} diagnostics, maintenance, and minor repair at your doorstep.`,
+        seoKeywords: [
+          `${electricBrand.name.toLowerCase()} ev service at home`,
+          `${electricBrand.name.toLowerCase()} repair near me`,
+          `doorstep electric scooter mechanic`,
+        ],
+      };
+    }
+    return storedBrand;
+  }
   if (!KNOWN_BRAND_SLUGS.has(key)) return undefined;
 
   // Preserve the existing generic presentation only for brands present in the

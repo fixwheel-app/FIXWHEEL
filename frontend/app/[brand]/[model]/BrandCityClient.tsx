@@ -9,6 +9,7 @@ import { BIKE_DATA } from "@/lib/bikes";
 import { Phone, Wrench, ArrowRight, MapPin, Check, Star } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -58,8 +59,35 @@ export default function BrandCityClient({
   }, [citySlug]);
 
   const bKey = brandSlug.toLowerCase();
-  const brandData: BrandDetailData = BRAND_DETAILS[bKey] || {
-    name: brandSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
+  const electricCatalogBrand = findElectricBrandByReference(bKey);
+  const storedBrandData = BRAND_DETAILS[bKey];
+  const usesSharedElectricTemplate = Boolean(
+    storedBrandData && electricCatalogBrand && storedBrandData.name !== electricCatalogBrand.name
+  );
+  const brandData: BrandDetailData = storedBrandData ? (usesSharedElectricTemplate ? {
+    ...storedBrandData,
+    name: electricCatalogBrand!.name,
+    tagline: `Specialist Doorstep EV Service for ${electricCatalogBrand!.name}`,
+    description: `${electricCatalogBrand!.name} electric two-wheelers receive dedicated BMS, charging, motor, brake, tyre, and accessible wiring checks at your doorstep.`,
+    additionalInfo: {
+      engineOil: "Not Applicable — Electric Drivetrain Inspection",
+      warranty: "15-Day EV Diagnostic and Labor Warranty",
+      parts: `Genuine ${electricCatalogBrand!.name} Compatible Components`,
+      avgTime: "Within 45 Mins Doorstep Arrival",
+    },
+    keyBenefits: [
+      { title: "EV Diagnostic Check", desc: "BMS status, dashboard warnings, auxiliary voltage, accessible wiring, and charging-port condition are checked for supported models." },
+      { title: "Motor & Controller Inspection", desc: "Throttle response, motor behavior, and accessible controller connections are inspected based on the reported fault." },
+      { title: "EV Brake & Tyre Care", desc: "Disc pads, regenerative-brake response, tyre pressure, valves, and punctures are handled with EV-specific care." },
+    ],
+    reviews: [],
+    seoKeywords: [],
+    faqs: [],
+  } : {
+    ...storedBrandData,
+    name: electricCatalogBrand?.name || storedBrandData.name,
+  }) : {
+    name: electricCatalogBrand?.name || brandSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
     tagline: `Professional Doorstep Service for ${brandSlug}`,
     description: `Get doorstep bike service and repair for all ${brandSlug} two-wheeler models in ${cityName}.`,
     additionalInfo: {
@@ -79,9 +107,11 @@ export default function BrandCityClient({
   };
 
   const brandName = brandData.name;
+  const electricBrandObj = electricCatalogBrand || findElectricBrandByReference(brandName);
+  const isElectricBrand = Boolean(electricBrandObj);
 
   // Models list from BIKE_DATA
-  let brandObj = BIKE_DATA["Non-Electric Motorbike"].find(
+  let brandObj = electricBrandObj || BIKE_DATA["Non-Electric Motorbike"].find(
     (b) => b.name.toLowerCase() === brandName.toLowerCase()
   );
   if (!brandObj) {
@@ -102,9 +132,32 @@ export default function BrandCityClient({
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
-  const heroDesc = (CITY_HERO_DESCS[citySlug.toLowerCase()] || CITY_HERO_DESCS.gurgaon)(brandName);
+  const heroDesc = isElectricBrand
+    ? `Get specialist doorstep ${brandName} EV service in ${cityName}. FixWheel provides BMS checks, auxiliary battery support, charging and motor diagnostics, brake service, tyre repair, and minor electrical work with transparent pricing.`
+    : (CITY_HERO_DESCS[citySlug.toLowerCase()] || CITY_HERO_DESCS.gurgaon)(brandName);
 
-  const cityFaqs = [
+  const cityFaqs = isElectricBrand ? [
+    {
+      q: `How long does doorstep ${brandName} EV service take in ${cityName}?`,
+      a: `Most EV inspections and minor repairs take 30 to 50 minutes at your home or office parking in ${cityName}. Model compatibility is confirmed before dispatch.`,
+    },
+    {
+      q: `What is checked during a ${brandName} EV service in ${cityName}?`,
+      a: `The mechanic checks the BMS status, auxiliary battery voltage, charging port, accessible wiring, motor response, brakes, and tyres according to the reported issue.`,
+    },
+    {
+      q: `Can you repair a sealed ${brandName} traction battery at my doorstep?`,
+      a: `Doorstep work covers safe diagnostics and accessible systems. Sealed battery-pack and major motor repairs use our EV pick-and-drop service after quote approval.`,
+    },
+    {
+      q: `Is there a warranty on ${brandName} EV service in ${cityName}?`,
+      a: `FixWheel provides a 15-day labor and diagnostic warranty, plus the applicable manufacturer warranty on replacement components.`,
+    },
+    {
+      q: `Which areas in ${cityName} do your ${brandName} EV mechanics cover?`,
+      a: `We cover all major sectors, residential societies, and commercial hubs in ${cityName}, including ${localities.slice(0, 4).join(", ")}.`,
+    },
+  ] : [
     {
       q: `How long does doorstep ${brandName} service take in ${cityName}?`,
       a: `Routine periodic servicing and minor repairs for ${brandName} two-wheelers take 35 to 50 minutes at your home or office parking in ${cityName}. Our mobile mechanic arrives fully equipped within 45 minutes.`,
@@ -434,7 +487,7 @@ export default function BrandCityClient({
             </div>
           </div>
 
-          <TwoWheelerQueryCard />
+          <TwoWheelerQueryCard electric={isElectricBrand} />
         </div>
       </section>
 
@@ -469,7 +522,11 @@ export default function BrandCityClient({
             <div className="section-head">
               <div className="eyebrow">{brandName} Models in {cityName}</div>
               <h2>{brandName} Bikes & Scooters Serviced at Doorstep in {cityName}</h2>
-              <p>We provide routine servicing, oil changes, engine tuning, and emergency repair for all {brandName} models across {cityName}:</p>
+              <p>
+                {isElectricBrand
+                  ? `We provide EV diagnostics, charging and motor checks, brake service, tyre repair, and minor electrical support for all ${brandName} models across ${cityName}:`
+                  : `We provide routine servicing, oil changes, engine tuning, and emergency repair for all ${brandName} models across ${cityName}:`}
+              </p>
             </div>
             <div className="models-grid">
               {allModels.map((model) => {
@@ -495,48 +552,26 @@ export default function BrandCityClient({
             <p>Transparent pricing with zero hidden fees. Pick your service and book a verified mechanic to your door:</p>
           </div>
           <div className="services-grid">
-            <div className="service-card">
-              <div>
-                <h3>Service with Engine Oil</h3>
-                <p>Complete oil drain, OEM-spec fresh engine oil refilled, spark plug clean & chain lube in {cityName}.</p>
+            {(isElectricBrand
+              ? ELECTRIC_SERVICE_OPTIONS.map((service) => ({
+                  name: service.name,
+                  description: `${service.description} Available at your doorstep in ${cityName}.`,
+                  price: service.price,
+                }))
+              : [
+                  { name: "Service with Engine Oil", description: `Complete oil drain, OEM-spec fresh engine oil refilled, spark plug clean & chain lube in ${cityName}.`, price: 999 },
+                  { name: "Basic Bike Service", description: `21-point checkup, brake adjust, spark plug clean, air filter check & electrical system check in ${cityName}.`, price: 550 },
+                  { name: "Doorstep Puncture Repair", description: `Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in ${cityName}.`, price: 399 },
+                  { name: "Brake Disc & Pad Repair", description: `Brake pad replacement, disc rotor inspection, drum shoe swap & cable calibration in ${cityName}.`, price: 199 },
+                  { name: "Battery Replacement", description: `On-site battery diagnostics, testing, jump-start & new warranty battery installation in ${cityName}.`, price: 99 },
+                  { name: "Running Repair", description: `Quick breakdown repair, clutch cable adjustment & accelerator cable replacement in ${cityName}.`, price: 399 },
+                ]
+            ).map((service) => (
+              <div className="service-card" key={service.name}>
+                <div><h3>{service.name}</h3><p>{service.description}</p></div>
+                <div className="price">₹{service.price.toLocaleString("en-IN")} <span>starting from</span></div>
               </div>
-              <div className="price">₹999 <span>starting from</span></div>
-            </div>
-            <div className="service-card">
-              <div>
-                <h3>Basic Bike Service</h3>
-                <p>21-point checkup, brake adjust, spark plug clean, air filter check & electrical system check in {cityName}.</p>
-              </div>
-              <div className="price">₹550 <span>starting from</span></div>
-            </div>
-            <div className="service-card">
-              <div>
-                <h3>Doorstep Puncture Repair</h3>
-                <p>Flat tyre tubeless & tube puncture repair on the spot at your home, office or roadside in {cityName}.</p>
-              </div>
-              <div className="price">₹399 <span>starting from</span></div>
-            </div>
-            <div className="service-card">
-              <div>
-                <h3>Brake Disc & Pad Repair</h3>
-                <p>Brake pad replacement, disc rotor inspection, drum shoe swap & cable calibration in {cityName}.</p>
-              </div>
-              <div className="price">₹199 <span>starting from</span></div>
-            </div>
-            <div className="service-card">
-              <div>
-                <h3>Battery Replacement</h3>
-                <p>On-site battery diagnostics, testing, jump-start & new warranty battery installation in {cityName}.</p>
-              </div>
-              <div className="price">₹99 <span>starting from</span></div>
-            </div>
-            <div className="service-card">
-              <div>
-                <h3>Running Repair</h3>
-                <p>Quick breakdown repair, clutch cable adjustment & accelerator cable replacement in {cityName}.</p>
-              </div>
-              <div className="price">₹399 <span>starting from</span></div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
