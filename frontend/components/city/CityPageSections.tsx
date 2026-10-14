@@ -5,6 +5,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import VehiclesWeService from "@/components/VehiclesWeService";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
@@ -171,7 +172,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             <h1>{config.hero.title}<br /><em>{config.hero.emphasis}</em></h1>
             <p className="lead">{config.hero.lead}</p>
             <div className="hero-ctas">
-              <Link href="/book" className="btn btn-primary">{config.hero.bookingLabel}</Link>
+              <HeroBookingAction><Link href="/book" className="btn btn-primary">{config.hero.bookingLabel}</Link></HeroBookingAction>
               <a href="#how" className="btn btn-ghost">See how it works</a>
             </div>
             <div className="stat-row">

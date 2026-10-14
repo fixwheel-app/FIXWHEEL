@@ -79,7 +79,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN VASANT KUNJ", title: "Basic Service", desc: "Brake check, plug clean, and air filter maintenance.", link: "/services/basic-service" },
       { rank: "#2 IN VASANT KUNJ", title: "Engine Oil Change", desc: "Oil drain and refilling with OEM mineral or synthetic oil.", link: "/services/oil-change" },
-      { rank: "#3 IN VASANT KUNJ", title: "Premium Bike Tuning", desc: "Customized service for sports bikes and cruiser motorcycles.", link: "/services/premium-bike-service" },
+      { rank: "#3 IN VASANT KUNJ", title: "Premium Bike Tuning", desc: "Customized service for sports bikes and cruiser motorcycles.", link: "/premium-bike" },
       { rank: "#4 IN VASANT KUNJ", title: "Brake Caliper Swap", desc: "On-site disc brake pad replacement and calibration.", link: "/services/brake-repair" }
     ]
   },
@@ -669,7 +669,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
     topServices: [
       { rank: "#1 IN RAJOURI GARDEN", title: "Basic Service", desc: "Commuter bike maintenance, chain adjustment, plug check.", link: "/services/basic-service" },
       { rank: "#2 IN RAJOURI GARDEN", title: "Engine Oil Change", desc: "Old engine oil drainage and premium OEM refill.", link: "/services/oil-change" },
-      { rank: "#3 IN RAJOURI GARDEN", title: "Premium Bike Tuning", desc: "Specialized service for sports bikes and cruiser motorcycles.", link: "/services/premium-bike-service" },
+      { rank: "#3 IN RAJOURI GARDEN", title: "Premium Bike Tuning", desc: "Specialized service for sports bikes and cruiser motorcycles.", link: "/premium-bike" },
       { rank: "#4 IN RAJOURI GARDEN", title: "Battery Replacement", desc: "On-site battery test and replacement with brand warranty.", link: "/services/battery-replacement" }
     ]
   },

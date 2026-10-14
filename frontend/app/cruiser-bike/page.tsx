@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: cruiserKeywords,
-  alternates: { canonical: "https://www.fixwheel.app/cruiser-bike-service" },
-  openGraph: { type: "website", title, description, url: "https://www.fixwheel.app/cruiser-bike-service" },
+  alternates: { canonical: "https://www.fixwheel.app/cruiser-bike" },
+  openGraph: { type: "website", title, description, url: "https://www.fixwheel.app/cruiser-bike" },
 };
 
 export default async function CruiserBikeServicePage() {
@@ -39,7 +39,7 @@ export default async function CruiserBikeServicePage() {
       {
         "@type": "Service",
         name: "Doorstep cruiser bike service",
-        url: "https://www.fixwheel.app/cruiser-bike-service",
+        url: "https://www.fixwheel.app/cruiser-bike",
         serviceType: "Cruiser and modern-classic motorcycle service",
         provider: { "@id": "https://www.fixwheel.app/#organization" },
         areaServed: ["Delhi", "Gurgaon", "Noida", "Ghaziabad", "Faridabad"].map((name) => ({ "@type": "City", name })),
@@ -49,7 +49,7 @@ export default async function CruiserBikeServicePage() {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
           { "@type": "ListItem", position: 2, name: "Vehicle Type", item: "https://www.fixwheel.app/services" },
-          { "@type": "ListItem", position: 3, name: "Cruiser Bike Service", item: "https://www.fixwheel.app/cruiser-bike-service" },
+          { "@type": "ListItem", position: 3, name: "Cruiser Bike Service", item: "https://www.fixwheel.app/cruiser-bike" },
         ],
       },
       {

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
 
 interface ModelClientProps {
@@ -148,13 +149,15 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Get an expert certified mechanic for your {brandName} {modelName} right at your home or office parking. 100% genuine OEM parts, 15-day labor warranty, and 45-minute doorstep dispatch.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-                <Link
-                  href={`/book#${bSlug}`}
-                  className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)]"
-                >
-                  Book Service Now →
-                </Link>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto">
+                <HeroBookingAction>
+                  <Link
+                    href={`/book#${bSlug}`}
+                    className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                  >
+                    Book Service Now →
+                  </Link>
+                </HeroBookingAction>
                 <a
                   href="tel:+918745945682"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"

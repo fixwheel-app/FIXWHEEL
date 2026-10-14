@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ScootyRepairLayout from "@/app/scooty-repair/ScootyRepairLayout";
 import { SCOOTER_CITIES } from "@/app/scooty-repair/cityContent";
-import CruiserBikeLayout, { getCruiserFaqs } from "@/app/cruiser-bike-service/CruiserBikeLayout";
+import CruiserBikeLayout, { getCruiserFaqs } from "@/app/cruiser-bike/CruiserBikeLayout";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
@@ -10,20 +10,31 @@ import { SERVICES_DB } from "@/lib/servicesData";
 
 export const BIKE_TYPE_SLUGS = [
   "scooty-repair",
-  "commuter-bike-service",
-  "sports-bike-service",
-  "premium-bike-service",
-  "cruiser-bike-service",
+  "electric-vehicle",
+  "sports-bike",
+  "premium-bike",
+  "cruiser-bike",
 ] as const;
 
 const BIKE_TYPE_SET = new Set<string>(BIKE_TYPE_SLUGS);
+const BIKE_TYPE_SERVICE_BY_ROUTE: Record<(typeof BIKE_TYPE_SLUGS)[number], string> = {
+  "scooty-repair": "scooty-repair",
+  "electric-vehicle": "electric-scooter-repair",
+  "sports-bike": "sports-bike-service",
+  "premium-bike": "premium-bike-service",
+  "cruiser-bike": "cruiser-bike-service",
+};
+const BIKE_TYPE_SERVICE_SET = new Set<string>([
+  "commuter-bike-service",
+  ...Object.values(BIKE_TYPE_SERVICE_BY_ROUTE),
+]);
 
 export function isBikeTypeSlug(slug: string) {
   return BIKE_TYPE_SET.has(slug);
 }
 
 export function getServiceSlugs() {
-  return Object.keys(SERVICES_DB).filter((slug) => !isBikeTypeSlug(slug));
+  return Object.keys(SERVICES_DB).filter((slug) => !BIKE_TYPE_SERVICE_SET.has(slug));
 }
 
 function getCity(citySlug: string) {
@@ -37,7 +48,7 @@ function cleanServiceTitle(title: string) {
     .trim();
 }
 
-function buildMetadata(serviceSlug: string, citySlug: string): Metadata {
+function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: string): Metadata {
   const service = SERVICES_DB[serviceSlug];
   const city = getCity(citySlug);
 
@@ -45,7 +56,7 @@ function buildMetadata(serviceSlug: string, citySlug: string): Metadata {
 
   const serviceName = cleanServiceTitle(service.title);
   const placeName = city.name;
-  const path = `/${citySlug}/${isBikeTypeSlug(serviceSlug) ? serviceSlug : `services/${serviceSlug}`}`;
+  const path = `/${citySlug}/${bikeTypeSlug || `services/${serviceSlug}`}`;
   const title = `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
   const description = `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
 
@@ -69,16 +80,16 @@ function buildMetadata(serviceSlug: string, citySlug: string): Metadata {
 }
 
 export function generateCityServiceMetadata(citySlug: string, serviceSlug: string) {
-  if (isBikeTypeSlug(serviceSlug)) return {};
+  if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) return {};
   return buildMetadata(serviceSlug, citySlug);
 }
 
 export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: string) {
   if (!isBikeTypeSlug(bikeTypeSlug)) return {};
-  if (bikeTypeSlug === "cruiser-bike-service") {
+  if (bikeTypeSlug === "cruiser-bike") {
     const city = getCity(citySlug);
     if (!city) return {};
-    const canonical = `https://www.fixwheel.app/${citySlug}/cruiser-bike-service`;
+    const canonical = `https://www.fixwheel.app/${citySlug}/cruiser-bike`;
     const title = `Cruiser Bike Service in ${city.name} – Doorstep Service | FixWheel`;
     const description = `Book doorstep cruiser and modern-classic motorcycle service in ${city.name}. Chain care, brakes, battery checks and routine maintenance with transparent pricing.`;
     return {
@@ -120,7 +131,8 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
       },
     };
   }
-  return buildMetadata(bikeTypeSlug, citySlug);
+  const serviceSlug = BIKE_TYPE_SERVICE_BY_ROUTE[bikeTypeSlug as (typeof BIKE_TYPE_SLUGS)[number]];
+  return buildMetadata(serviceSlug, citySlug, bikeTypeSlug);
 }
 
 function renderLocationService(serviceSlug: string, citySlug: string) {
@@ -143,19 +155,20 @@ function renderLocationService(serviceSlug: string, citySlug: string) {
 }
 
 export function renderCityService(citySlug: string, serviceSlug: string) {
-  if (isBikeTypeSlug(serviceSlug)) notFound();
+  if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) notFound();
   return renderLocationService(serviceSlug, citySlug);
 }
 
 export function renderCityBikeType(citySlug: string, bikeTypeSlug: string) {
   if (!isBikeTypeSlug(bikeTypeSlug)) notFound();
-  if (bikeTypeSlug === "cruiser-bike-service") {
+  if (bikeTypeSlug === "cruiser-bike") {
     return <CruiserCityRoute citySlug={citySlug} />;
   }
   if (bikeTypeSlug === "scooty-repair") {
     return <ScootyCityRoute citySlug={citySlug} />;
   }
-  return renderLocationService(bikeTypeSlug, citySlug);
+  const serviceSlug = BIKE_TYPE_SERVICE_BY_ROUTE[bikeTypeSlug as (typeof BIKE_TYPE_SLUGS)[number]];
+  return renderLocationService(serviceSlug, citySlug);
 }
 
 async function CruiserCityRoute({ citySlug }: { citySlug: string }) {
@@ -166,7 +179,7 @@ async function CruiserCityRoute({ citySlug }: { citySlug: string }) {
   const stats = await getPublicStatsForCity("global").catch(
     () => DEFAULT_PUBLIC_STATS.global,
   );
-  const url = `https://www.fixwheel.app/${citySlug}/cruiser-bike-service`;
+  const url = `https://www.fixwheel.app/${citySlug}/cruiser-bike`;
   const faqs = getCruiserFaqs(city.name);
   const structuredData = {
     "@context": "https://schema.org",

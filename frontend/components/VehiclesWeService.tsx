@@ -5,9 +5,9 @@ const vehicles = [
   { name: "Bike", description: "Repair & servicing", href: "/bike", image: "bike" },
   { name: "EV", description: "Electric scooters", href: "/electric-vehicle", image: "ev" },
   { name: "Scooty", description: "Gearless scooters", href: "/scooty-repair", image: "scooty" },
-  { name: "Sports Bike", description: "Performance rides", href: "/sports-bike-service", image: "sports" },
-  { name: "Cruiser / Bullet", description: "Classic motorcycles", href: "/cruiser-bike-service", image: "cruiser" },
-  { name: "Premium Bike", description: "Premium motorcycles", href: "/premium-bike-service", image: "premium" },
+  { name: "Sports Bike", description: "Performance rides", href: "/sports-bike", image: "sports" },
+  { name: "Cruiser / Bullet", description: "Classic motorcycles", href: "/cruiser-bike", image: "cruiser" },
+  { name: "Premium Bike", description: "Premium motorcycles", href: "/premium-bike", image: "premium" },
 ];
 
 export default function VehiclesWeService() {

@@ -6,6 +6,7 @@ import { getBrandLogo } from "@/lib/brandLogos";
 import { getPageVariables } from "@/lib/pageVariables";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import type { ServicePageProps } from "@/components/ServicePageTemplate";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import "../scooty-repair/scooty-reference.css";
 
 const symptoms = [
@@ -49,7 +50,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
     <div className="hero"><div className="wrap">
       <div><span className="tag">Electric two-wheeler care</span><h1>Doorstep EV &amp; Electric Repair in Delhi NCR</h1>
         <p className="lead">Charging trouble, a dashboard warning or brakes that need attention? Book an inspection for your electric scooter or bike at home or work across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Share your model so we can confirm the right support.</p>
-        <div className="cta-row"><a className="btn btn-red" href="/book">Book EV service</a><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div>
+        <div className="cta-row"><HeroBookingAction><a className="btn btn-red" href="/book">Book EV service</a></HeroBookingAction><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div>
       </div>
       <section className="picker" aria-labelledby="ev-picker" style={{ padding: 20 }}><h2 id="ev-picker">What does your EV need?</h2><p>Select the issue you’re noticing.</p>
         <fieldset><legend className="sr-only">Choose your electric vehicle’s issue</legend>{symptoms.map(([key, label]) => <label className="opt" key={key}><input type="radio" name="ev-symptom" value={key} checked={selected === key} onChange={() => setSelected(key)} /><span>{label}</span></label>)}</fieldset>
@@ -72,7 +73,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
       <p style={{ color: "var(--muted)", marginTop: 20 }}>Doorstep work focuses on safe diagnostics and accessible systems. Sealed battery-pack repair requires an appropriate specialist process; model-specific support is confirmed before the visit.</p>
     </div><aside className="spec"><h3>Service specifications</h3><dl><div><dt>Coverage</dt><dd>Delhi, Gurgaon, Noida, Ghaziabad and Faridabad</dd></div><div><dt>Arrival</dt><dd>{variables.avgTime}</dd></div><div><dt>Starting price</dt><dd>{variables.startingPrice}</dd></div><div><dt>Warranty</dt><dd>{variables.warranty}</dd></div><div><dt>Before work begins</dt><dd>Approve the diagnosis, repair and parts quote</dd></div><div><dt>Payment</dt><dd>After the service is completed</dd></div></dl><a className="btn btn-red" href="/book">Book this service</a></aside></div></section>
     <section className="alt"><div className="wrap"><div className="sec-head"><h2>EV brands we serve</h2><p>Popular electric scooters, with service support confirmed for your exact model.</p></div><div className="brands">{brands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>)}</div>
-      <p className="other-models">Ride another electric scooter or an electric bike? Share your brand, model and issue when booking so we can confirm compatibility and service availability.</p><div className="more"><a href="/bike">Bike</a><a href="/scooty-repair">Scooty &amp; Scooter</a><a href="/royal-enfield">Cruiser/Bullet</a><a href="/premium-bike-service">Premium Bike</a><a href="/sports-bike-service">Sport Bike</a></div>
+      <p className="other-models">Ride another electric scooter or an electric bike? Share your brand, model and issue when booking so we can confirm compatibility and service availability.</p><div className="more"><a href="/bike">Bike</a><a href="/scooty-repair">Scooty &amp; Scooter</a><a href="/cruiser-bike">Cruiser/Bullet</a><a href="/premium-bike">Premium Bike</a><a href="/sports-bike">Sport Bike</a></div>
     </div></section>
     <section><div className="wrap"><div className="sec-head"><h2>Electric vehicle repair: your questions</h2></div><div className="faq">{service.faqs.map((faq, i) => <details key={faq.q} open={i === 0}><summary>{faq.q}</summary><p>{faq.a}</p></details>)}</div></div></section>
     <section className="reviews"><div className="wrap"><div className="sec-head"><h2>Before your EV mechanic visit</h2><p>A few details help us arrange the right inspection.</p></div><div className="grid3">{[["Keep your model details ready", "Share the exact model and any recent service or repair history."], ["Share the warning or symptom", "Send a photo of the dashboard message or explain when the issue occurs."], ["Choose an accessible parking spot", "Provide the building entrance and parking location. Keep your keys and charger available."]].map(([title, text]) => <article className="rev" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
@@ -81,6 +82,6 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
       <a href="https://wa.me/918745945682"><span className="ic"><MessageCircle size={18} /></span><span><b>WhatsApp us</b><small>Share your model and issue</small></span></a>
       <a href="mailto:support@fixwheel.app"><span className="ic"><Mail size={18} /></span><span><b>support@fixwheel.app</b><small>Replies within 2 hours</small></span></a>
     </div></div></section>
-    <section><div className="wrap"><div className="sec-head"><h2>Book doorstep EV repair by city</h2></div><div className="cities">{cities.map(city => <a key={city} href={`/${city.toLowerCase()}/services/electric-scooter-repair`}>{city}</a>)}</div></div></section>
+    <section><div className="wrap"><div className="sec-head"><h2>Book doorstep EV repair by city</h2></div><div className="cities">{cities.map(city => <a key={city} href={`/${city.toLowerCase()}/electric-vehicle`}>{city}</a>)}</div></div></section>
   </div>;
 }

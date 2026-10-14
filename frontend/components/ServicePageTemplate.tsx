@@ -8,6 +8,7 @@ import { getBrandLogo } from "@/lib/brandLogos";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
@@ -90,6 +91,15 @@ const VEHICLE_TYPE_SERVICE_IDS = new Set([
   "sports-bike-service",
   "premium-bike-service",
 ]);
+
+const VEHICLE_TYPE_PUBLIC_ROUTES: Record<string, string> = {
+  "commuter-bike-service": "bike",
+  "scooty-repair": "scooty-repair",
+  "electric-scooter-repair": "electric-vehicle",
+  "cruiser-bike-service": "cruiser-bike",
+  "sports-bike-service": "sports-bike",
+  "premium-bike-service": "premium-bike",
+};
 
 export default function ServicePageTemplate({
   serviceId,
@@ -195,13 +205,15 @@ export default function ServicePageTemplate({
                 {lead}
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-                <Link
-                  href="/book"
-                  className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)]"
-                >
-                  Book Doorstep Service →
-                </Link>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto">
+                <HeroBookingAction>
+                  <Link
+                    href="/book"
+                    className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                  >
+                    Book Doorstep Service →
+                  </Link>
+                </HeroBookingAction>
                 <a
                   href="tel:+918745945682"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"
@@ -665,15 +677,9 @@ export default function ServicePageTemplate({
               ].map((c) => (
                 <Link
                   key={c.slug}
-                  href={
-                    isCruiserBike
-                      ? `/${c.slug}`
-                      : serviceId === "commuter-bike-service"
-                        ? `/${c.slug}/bike`
-                        : ["sports-bike-service", "commuter-bike-service", "scooty-repair", "premium-bike-service"].includes(serviceId)
-                      ? `/${c.slug}/${serviceId}`
-                      : `/${c.slug}/services/${serviceId}`
-                  }
+                  href={VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]
+                    ? `/${c.slug}/${VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]}`
+                    : `/${c.slug}/services/${serviceId}`}
                   className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
                 >
                   {c.name}

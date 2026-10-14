@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import { PRICING_CATEGORIES, SERVICE_PRICING_LIST, ServicePriceItem } from "@/lib/pricingData";
+import HeroBookingAction from "@/components/HeroBookingAction";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -456,13 +457,15 @@ export default function PricingClientPage() {
               <p>
                 No surprise bills or hidden mechanics fees. Inspect exact labor charges for commuter motorcycles, performance tourers, scooters, and electric EVs across Delhi-NCR.
               </p>
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
                 <Link href="#rate-card" className="btn btn-primary">
                   View Full Rate Card ↓
                 </Link>
-                <Link href="/book" className="btn" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--paper)', border: '1px solid var(--line)' }}>
-                  Book Doorstep Mechanic →
-                </Link>
+                <HeroBookingAction>
+                  <Link href="/book" className="btn" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--paper)', border: '1px solid var(--line)' }}>
+                    Book Doorstep Mechanic →
+                  </Link>
+                </HeroBookingAction>
               </div>
             </div>
 

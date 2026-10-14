@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
+import HeroBookingAction from "@/components/HeroBookingAction";
 
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
@@ -315,7 +316,7 @@ export default function ServicesClientPage() {
         }
 
         .services-new-page .btn-row {
-          display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+          display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start;
         }
 
         .services-new-page .btn {
@@ -706,9 +707,11 @@ export default function ServicesClientPage() {
                 Verified bike mechanics arrive at your home or office with genuine parts and diagnostic tools. No towing, no waiting in garage queues.
               </p>
               <div className="btn-row">
-                <Link href="/book" className="btn btn-primary font-sans">
-                  Book Doorstep Service →
-                </Link>
+                <HeroBookingAction>
+                  <Link href="/book" className="btn btn-primary font-sans">
+                    Book Doorstep Service →
+                  </Link>
+                </HeroBookingAction>
                 <a href="#pricing" className="btn btn-ghost font-sans">
                   View All Services
                 </a>

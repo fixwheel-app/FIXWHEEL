@@ -27,16 +27,16 @@ const LEGACY_SERVICE_URLS = [
   "/services/comprehensive-service",
   "/services/engine-repair",
   "/services/oil-change",
-  "/premium-bike-service",
+  "/premium-bike",
   "/bike",
-  "/sports-bike-service",
-  "/cruiser-bike-service",
+  "/sports-bike",
+  "/cruiser-bike",
   "/scooty-repair",
 ];
 
 const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
 const CITY_SERVICE_SLUGS = [
-  ...OFFICIAL_SERVICE_SLUGS,
+  ...OFFICIAL_SERVICE_SLUGS.filter((service) => service !== "electric-scooter-repair"),
   "oil-change",
   "comprehensive-service",
   "engine-repair",

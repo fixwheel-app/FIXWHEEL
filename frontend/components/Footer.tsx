@@ -94,9 +94,9 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-3 gap-y-1">
             <Link href="/services" className="hover:text-white transition-colors">Bike Repair Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/gurgaon" className="hover:text-white transition-colors">Bike Mechanic Near Me</Link>
+            <Link href="/services" className="hover:text-white transition-colors">Two Wheeler Mechanic Near Me</Link>
             <span className="text-white/20">•</span>
-            <Link href="/sports-bike-service" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
+            <Link href="/sports-bike" className="hover:text-white transition-colors">Sports Bike Repair Near Me</Link>
             <span className="text-white/20">•</span>
             <Link href="/electric-vehicle" className="hover:text-white transition-colors">EV Scooter Repair Near Me</Link>
             <span className="text-white/20">•</span>

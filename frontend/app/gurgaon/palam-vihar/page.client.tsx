@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import { getBrandLogo } from "@/lib/brandLogos";
 
 const oswald = Oswald({
@@ -128,7 +129,7 @@ export default function PalamViharClientPage() {
         .palamvihar-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: #FFFFFF; }
         .palamvihar-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .palamvihar-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
-        .palamvihar-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
+        .palamvihar-scope .hero-ctas { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
         /* ticket mock */
         .palamvihar-scope .ticket {
@@ -388,7 +389,7 @@ export default function PalamViharClientPage() {
             <h1>Doorstep Bike Repair<br />in <em>Palam Vihar, Gurgaon</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong>. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an arrival time of 45 minutes.</p>
             <div className="hero-ctas">
-              <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>

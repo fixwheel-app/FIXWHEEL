@@ -328,9 +328,9 @@ export default function Home() {
               { name: 'Bike', detail: 'Repair & servicing', image: 'bike', href: '/bike' },
               { name: 'EV', detail: 'Electric scooters', image: 'ev', href: '/electric-vehicle' },
               { name: 'Scooty', detail: 'Gearless scooters', image: 'scooty', href: '/scooty-repair' },
-              { name: 'Sports Bike', detail: 'Performance rides', image: 'sports', href: '/sports-bike-service' },
+              { name: 'Sports Bike', detail: 'Performance rides', image: 'sports', href: '/sports-bike' },
               { name: 'Cruiser / Bullet', detail: 'Classic motorcycles', image: 'cruiser', href: '/royal-enfield' },
-              { name: 'Premium Bike', detail: 'Premium motorcycles', image: 'premium', href: '/premium-bike-service' },
+              { name: 'Premium Bike', detail: 'Premium motorcycles', image: 'premium', href: '/premium-bike' },
             ].map((vehicle) => (
               <Link key={vehicle.image} href={vehicle.href} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transform-none">
                 <div className="relative aspect-[3/2] overflow-hidden bg-slate-100">

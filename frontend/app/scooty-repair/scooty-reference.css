@@ -36,7 +36,7 @@
 .scooty-reference .tag{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#ef4444;font-weight:700;font-size:13px;margin-bottom:20px}
 .scooty-reference .hero h1{font-size:clamp(30px,5.2vw,54px);margin-bottom:18px}
 .scooty-reference .hero p.lead{color:#cbd5e1;max-width:560px;margin:0 0 26px;font-size:17px}
-.scooty-reference .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.scooty-reference .cta-row{display:flex;align-items:flex-start;flex-wrap:wrap;gap:12px}
 .scooty-reference .picker{background:#fff;color:#0f172a;border-radius:16px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
 .scooty-reference .picker h2{font-size:22px;font-family:Inter,sans-serif;text-transform:none;font-weight:700}
 .scooty-reference .picker p{margin:4px 0 12px;color:#475569;font-size:14px}

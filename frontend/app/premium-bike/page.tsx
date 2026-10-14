@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Doorstep premium bike service Delhi. Expert care for Ninja, Dominar, Duke 390, Harley X440, Triumph, BMW Motorrad in Gurgaon, Delhi, Noida.",
   alternates: {
-    canonical: "https://www.fixwheel.app/premium-bike-service",
+    canonical: "https://www.fixwheel.app/premium-bike",
   },
   openGraph: {
     type: "website",
     title: "Premium & Superbike Service at Home | FixWheel",
     description: "Doorstep premium bike service Delhi. Certified mechanics, 45-min arrival, 15-day warranty.",
-    url: "https://www.fixwheel.app/premium-bike-service",
+    url: "https://www.fixwheel.app/premium-bike",
   },
 };
 

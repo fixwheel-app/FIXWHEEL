@@ -5,6 +5,7 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import { ChevronDown } from "lucide-react";
 import { getBrandLogo } from "@/lib/brandLogos";
 
@@ -306,6 +307,12 @@ export default function BrandsClientPage() {
         .brands-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--hero-text); }
         .brands-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brands-scope .hero p.lead { font-size: 16px; color: var(--hero-ink-dim); max-width: 580px; }
+        .brands-scope .hero-ctas {
+          display: flex;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 14px;
+        }
 
         /* TRUST STRIP */
         .brands-scope .trust-strip {
@@ -625,10 +632,14 @@ export default function BrandsClientPage() {
           .brands-scope .brand-grid { grid-template-columns: repeat(2, 1fr); }
           .brands-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width:639px){
+          .brands-scope .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
+          .brands-scope .hero-ctas > * { width: 100%; }
+          .brands-scope .hero-ctas .btn { width: 100%; justify-content: center; text-align: center; }
+        }
         @media (max-width:560px){
           .brands-scope .wrap { padding: 0 16px !important; }
           .brands-scope .hero h1 { font-size: 26px !important; line-height: 1.2 !important; word-break: break-word; }
-          .brands-scope .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
           .brands-scope .btn { width: 100%; justify-content: center; text-align: center; padding: 12px 16px; font-size: 12px; white-space: normal; }
           .brands-scope .brand-grid { grid-template-columns: 1fr; }
           .brands-scope .trust-inner { grid-template-columns: 1fr; }
@@ -656,7 +667,7 @@ export default function BrandsClientPage() {
             <h1>Doorstep Bike Repair &<br />Scooter Service <em>For All Brands</em></h1>
             <p className="lead">From Honda Activas to Royal Enfield Bullets, Ola scooters to Kawasaki Ninjas — FixWheel's verified mechanics service all major two-wheeler brands at your home, office, or roadside. One booking, any brand, guaranteed quality.</p>
             <div className="hero-ctas">
-              <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
               <a href="#brands" className="btn btn-ghost">Explore All Brands</a>
             </div>
           </div>

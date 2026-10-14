@@ -104,7 +104,7 @@ function cruiserContent(cityName?: string): BikeLandingContent {
     finalTitle: `Ready to service your cruiser in ${place}?`,
     finalLead: "Book at your home or office parking. If you are unsure which service to choose, call or WhatsApp with the motorcycle model, symptoms and location.",
     citiesTitle: cityName ? "Cruiser bike service in other cities" : "Book doorstep cruiser bike service by city",
-    cityPath: "/cruiser-bike-service",
+    cityPath: "/cruiser-bike",
   };
 }
 

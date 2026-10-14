@@ -140,7 +140,7 @@ export default function GurgaonClientPage() {
         .gurgaon-scope .hero h1 { font-size: 52px; margin: 0 0 22px; color: #FFFFFF; }
         .gurgaon-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .gurgaon-scope .hero p.lead { font-size: 17px; color: #A7A9AC; max-width: 520px; margin-bottom: 32px; }
-        .gurgaon-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
+        .gurgaon-scope .hero-ctas { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row { display: flex; gap: 36px; flex-wrap: wrap; }
         .gurgaon-scope .stat-row .stat { font-family: var(--font-jetbrains); }
         .gurgaon-scope .stat b { display: block; font-size: 22px; color: #FFFFFF; }

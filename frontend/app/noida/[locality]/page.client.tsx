@@ -10,6 +10,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import {
   getIntroParagraph,
   getWhyChooseTitle,
@@ -162,7 +163,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
         .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: #FFFFFF; }
         .${slug}-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .${slug}-scope .hero p.lead { font-size: 16.5px; color: #A7A9AC; max-width: 500px; margin-bottom: 28px; }
-        .${slug}-scope .hero-ctas { display: flex; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
+        .${slug}-scope .hero-ctas { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; flex-wrap: wrap; }
 
         /* ticket mock */
         .${slug}-scope .ticket {
@@ -412,7 +413,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
             <h1>Doorstep Bike Repair<br />in <em>{data.name}, Noida</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong>. {data.heroText}</p>
             <div className="hero-ctas">
-              <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
               <a href="#coverage" className="btn btn-ghost">Check my street</a>
             </div>
           </div>

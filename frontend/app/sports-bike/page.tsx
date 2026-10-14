@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Doorstep sports bike service Delhi. Liquid cooling flush, synthetic oil change, chain alignment for Yamaha R15, MT-15, KTM RC, Apache RTR in Gurgaon, Delhi, Noida.",
   alternates: {
-    canonical: "https://www.fixwheel.app/sports-bike-service",
+    canonical: "https://www.fixwheel.app/sports-bike",
   },
   openGraph: {
     type: "website",
     title: "Sports Bike Service at Home | FixWheel",
     description: "Doorstep sports bike service Delhi. Certified mechanics, 45-min arrival, 15-day warranty.",
-    url: "https://www.fixwheel.app/sports-bike-service",
+    url: "https://www.fixwheel.app/sports-bike",
   },
 };
 

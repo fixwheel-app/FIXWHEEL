@@ -38,13 +38,13 @@ const vehicleTypeLinks = [
   { name: 'Bike', href: '/bike', icon: 'bike' },
   { name: 'Scooty & Scooter', href: '/scooty-repair', icon: 'scooter' },
   { name: 'EV & Electric', href: '/electric-vehicle', icon: 'electric' },
-  { name: 'Cruiser Bike', href: '/cruiser-bike-service', icon: 'cruiser' },
-  { name: 'Premium Bike', href: '/premium-bike-service', icon: 'premium' },
-  { name: 'Sport Bike', href: '/sports-bike-service', icon: 'sport' },
+  { name: 'Cruiser Bike', href: '/cruiser-bike', icon: 'cruiser' },
+  { name: 'Premium Bike', href: '/premium-bike', icon: 'premium' },
+  { name: 'Sport Bike', href: '/sports-bike', icon: 'sport' },
 ];
 
 const cityRouteSlugs = new Set(['delhi', 'gurgaon', 'noida', 'ghaziabad', 'faridabad']);
-const cityVehicleTypeSlugs = new Set(['bike', 'commuter-bike-service', 'scooty-repair', 'sports-bike-service', 'premium-bike-service', 'cruiser-bike-service']);
+const cityVehicleTypeSlugs = new Set(['bike', 'scooty-repair', 'electric-vehicle', 'sports-bike', 'premium-bike', 'cruiser-bike']);
 const brandRouteSlugs = new Set([
   'ampere', 'aprilia', 'ather', 'bajaj', 'bajaj-ev', 'benelli', 'benelli-keeway',
   'bmw', 'bmw-motorrad', 'bounce', 'ducati', 'harley-davidson', 'hero',
@@ -165,7 +165,7 @@ export default function Navbar() {
       return pathname?.startsWith('/services') || isCityServiceRoute || isCityBrandRoute || isBrandRoute;
     }
     if (linkHref === '/bike') {
-      return isCityVehicleTypeRoute || pathname?.startsWith('/commuter-bike-service') || vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
+      return isCityVehicleTypeRoute || vehicleTypeLinks.some(({ href }) => pathname?.startsWith(href));
     }
     if (linkHref === '/partner') {
       return pathname?.startsWith('/partner');

@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./scooty-reference.css";
 import type { ScooterCityContent } from "./cityContent";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
+import HeroBookingAction from "@/components/HeroBookingAction";
 
 export interface BikeLandingContent {
   lead: string;
@@ -89,7 +90,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
  const [selected, setSelected] = useState("");
  const citySlug = city?.name.toLowerCase();
  const vehicleHref = (path: string) => citySlug ? `/${citySlug}/${path === "/bike" ? "bike" : path.slice(1)}` : path;
- const electricRepairHref = citySlug ? `/${citySlug}/services/electric-scooter-repair` : "/electric-vehicle";
+ const electricRepairHref = citySlug ? `/${citySlug}/electric-vehicle` : "/electric-vehicle";
  const activeSymptoms = bike?.symptoms || bikeSymptoms;
  const activeTips = bike?.tips || bikeTips;
  const activeServices = bike?.services || bikeServices;
@@ -111,7 +112,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       <h1>{bike ? bike.heroTitle || "Doorstep Bike Repair & Service in Delhi NCR" : "Doorstep Scooty & Scooter Repair in " + (city?.name || "Delhi NCR")}</h1>
       <p className="lead">{bike?.lead || city?.lead || "Honda Activa, TVS Jupiter, Suzuki Access or TVS Ntorq giving you trouble? Get scooter repair at your home or office in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Tell us what you’re noticing, approve the repair price, and pay after the service."}</p>
       <div className="cta-row">
-        <a className="btn btn-red" href="/book">Book doorstep service</a>
+        <HeroBookingAction><a className="btn btn-red" href="/book">Book doorstep service</a></HeroBookingAction>
         <a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a>
       </div>
     </div>
@@ -228,9 +229,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
     <div className="more">
       {bike ? <a href="/scooty-repair">Scooty &amp; Scooter Repair</a> : <a href={vehicleHref("/bike")}>Bike Repair &amp; Service</a>}
       <a href={electricRepairHref}>{bike ? "EV Bikes & Scooters" : "EV & Electric Scooter"}</a>
-      <a href={vehicleHref("/cruiser-bike-service")}>Cruiser Bike Service</a>
-      <a href={vehicleHref("/premium-bike-service")}>Premium Bike Service</a>
-      <a href={vehicleHref("/sports-bike-service")}>Sports Bike Service</a>
+      <a href={vehicleHref("/cruiser-bike")}>Cruiser Bike Service</a>
+      <a href={vehicleHref("/premium-bike")}>Premium Bike Service</a>
+      <a href={vehicleHref("/sports-bike")}>Sports Bike Service</a>
     </div>
   </div>
 </section>

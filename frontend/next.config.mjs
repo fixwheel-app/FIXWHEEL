@@ -89,8 +89,28 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: '/services/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service|cruiser-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/services/:bikeType(scooty-repair)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
+        statusCode: 301,
+      },
+      {
+        source: '/services/sports-bike-service/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        destination: '/:city/sports-bike',
+        statusCode: 301,
+      },
+      {
+        source: '/services/premium-bike-service/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        destination: '/:city/premium-bike',
+        statusCode: 301,
+      },
+      {
+        source: '/services/cruiser-bike-service/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        destination: '/:city/cruiser-bike',
+        statusCode: 301,
+      },
+      {
+        source: '/services/electric-scooter-repair/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
@@ -99,7 +119,7 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: '/:bikeType(scooty-repair|commuter-bike-service|sports-bike-service|premium-bike-service|cruiser-bike-service)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
+        source: '/:bikeType(scooty-repair)/:city(delhi|gurgaon|noida|ghaziabad|faridabad)',
         destination: '/:city/:bikeType',
         statusCode: 301,
       },
@@ -136,30 +156,45 @@ const nextConfig = {
         destination: '/book',
         permanent: true,
       },
-      // 301 Permanent Redirects for sports bike service pages (moved to root /sports-bike-service, locality pages removed)
+      // 301 Permanent Redirects for the clean /sports-bike route family.
+      {
+        source: '/sports-bike-service',
+        destination: '/sports-bike',
+        permanent: true,
+      },
+      {
+        source: '/sports-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/sports-bike',
+        permanent: true,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/sports-bike-service',
+        destination: '/:city/sports-bike',
+        permanent: true,
+      },
       {
         source: '/services/sports-bike-service',
-        destination: '/sports-bike-service',
+        destination: '/sports-bike',
         permanent: true,
       },
       {
         source: '/services/sports-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/sports-bike-service/:city',
+        destination: '/:city/sports-bike',
         permanent: true,
       },
       {
         source: '/services/sports-bike-service/:city/:locality+',
-        destination: '/sports-bike-service/:city',
+        destination: '/:city/sports-bike',
         permanent: true,
       },
       {
         source: '/sports-bike-service/:city/:locality+',
-        destination: '/sports-bike-service/:city',
+        destination: '/:city/sports-bike',
         permanent: true,
       },
       {
         source: '/services/sports-bike-service/:path*',
-        destination: '/sports-bike-service',
+        destination: '/sports-bike',
         permanent: true,
       },
       // 301 Permanent Redirects to the canonical EV service route
@@ -170,12 +205,12 @@ const nextConfig = {
       },
       {
         source: '/services/ev-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
         source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/ev-service',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
@@ -185,27 +220,32 @@ const nextConfig = {
       },
       {
         source: '/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
         source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/electric-scooter-repair',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
         source: '/services/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
         source: '/electric-scooter-repair/:city/:locality+',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
         source: '/services/electric-scooter-repair/:city/:locality+',
-        destination: '/:city/services/electric-scooter-repair',
+        destination: '/:city/electric-vehicle',
         statusCode: 301,
       },
       {
@@ -291,30 +331,76 @@ const nextConfig = {
         destination: '/scooty-repair',
         permanent: true,
       },
-      // 301 Permanent Redirects for Premium Bike service pages (moved to root /premium-bike-service, locality pages removed)
+      // 301 Permanent Redirects for the clean /premium-bike route family.
+      {
+        source: '/premium-bike-service',
+        destination: '/premium-bike',
+        permanent: true,
+      },
+      {
+        source: '/premium-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/premium-bike',
+        permanent: true,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/premium-bike-service',
+        destination: '/:city/premium-bike',
+        permanent: true,
+      },
       {
         source: '/services/premium-bike-service',
-        destination: '/premium-bike-service',
+        destination: '/premium-bike',
         permanent: true,
       },
       {
         source: '/services/premium-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
-        destination: '/premium-bike-service/:city',
+        destination: '/:city/premium-bike',
         permanent: true,
       },
       {
         source: '/services/premium-bike-service/:city/:locality+',
-        destination: '/premium-bike-service/:city',
+        destination: '/:city/premium-bike',
         permanent: true,
       },
       {
         source: '/premium-bike-service/:city/:locality+',
-        destination: '/premium-bike-service/:city',
+        destination: '/:city/premium-bike',
         permanent: true,
       },
       {
         source: '/services/premium-bike-service/:path*',
-        destination: '/premium-bike-service',
+        destination: '/premium-bike',
+        permanent: true,
+      },
+      // 301 Permanent Redirects for the clean /cruiser-bike route family.
+      {
+        source: '/cruiser-bike-service',
+        destination: '/cruiser-bike',
+        permanent: true,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/cruiser-bike-service',
+        destination: '/:city/cruiser-bike',
+        permanent: true,
+      },
+      {
+        source: '/services/cruiser-bike-service',
+        destination: '/cruiser-bike',
+        permanent: true,
+      },
+      {
+        source: '/services/cruiser-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/cruiser-bike',
+        permanent: true,
+      },
+      {
+        source: '/cruiser-bike-service/:city(gurgaon|delhi|noida|ghaziabad|faridabad)',
+        destination: '/:city/cruiser-bike',
+        permanent: true,
+      },
+      {
+        source: '/services/cruiser-bike-service/:path*',
+        destination: '/cruiser-bike',
         permanent: true,
       },
       // 301 Permanent Redirect for Basic service locality pages (locality pages removed, city pages kept under /services/basic-service/:city)

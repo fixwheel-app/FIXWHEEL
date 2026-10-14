@@ -4,11 +4,12 @@ import { CITIES_DB } from "@/lib/cityLocalityData";
 export const dynamic = "force-static";
 
 const CUSTOM_ROOT_SERVICES = [
-  "sports-bike-service",
-  "commuter-bike-service",
+  "sports-bike",
+  "bike",
   "scooty-repair",
-  "premium-bike-service",
-  "cruiser-bike-service",
+  "electric-vehicle",
+  "premium-bike",
+  "cruiser-bike",
 ];
 
 export async function GET() {
@@ -23,7 +24,7 @@ export async function GET() {
       const cityConfig = CITIES_DB[citySlug];
       if (!cityConfig) continue;
 
-      const locUrl = `https://www.fixwheel.app/${citySlug}/${service === "commuter-bike-service" ? "bike" : service}`;
+      const locUrl = `https://www.fixwheel.app/${citySlug}/${service}`;
 
       urlsXml += `  <url>
     <loc>${locUrl}</loc>

@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Phone } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import HeroBookingAction from "@/components/HeroBookingAction";
 import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 
 const oswald = Oswald({
@@ -340,7 +341,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         .brand-detail-scope .hero h1 { font-size: 48px; margin: 0 0 16px; color: var(--hero-text); }
         .brand-detail-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brand-detail-scope .hero p.lead { font-size: 15.5px; color: var(--hero-ink-dim); margin-bottom: 24px; line-height: 1.6; }
-        .brand-detail-scope .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+        .brand-detail-scope .hero-ctas { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
 
         .brand-detail-scope .hero-stats {
           display: grid;
@@ -1103,9 +1104,11 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               <p className="lead">{brandData.description}</p>
 
               <div className="hero-ctas">
-                <Link href={`/book#${brandSlug}`} className="btn btn-primary">
-                  Book {brandData.name} Service Now →
-                </Link>
+                <HeroBookingAction>
+                  <Link href={`/book#${brandSlug}`} className="btn btn-primary">
+                    Book {brandData.name} Service Now →
+                  </Link>
+                </HeroBookingAction>
                 <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
                   View Supported Models ({allModels.length})
                 </button>
