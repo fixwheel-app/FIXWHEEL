@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Phone, Calendar, MapPin, Bike, Check } from 'lucide-react';
+import { CheckCircle2, Phone, Calendar, MapPin, Bike, Check, Smartphone, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 
 const formatDate = (dateStr: string) => {
   if (!dateStr) return '';
@@ -56,11 +57,11 @@ export default function ConfirmationPage() {
   const displayPrice = formatPrice(bookingData.price);
 
   return (
-    <div className="min-h-screen py-10 md:py-16 flex items-start md:items-center justify-center bg-white">
+    <div className="min-h-screen py-8 md:py-10 flex items-start justify-center bg-white">
       <div className="max-w-3xl w-full px-4 sm:px-6 pt-8 md:pt-0">
 
         {/* Top Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -76,12 +77,56 @@ export default function ConfirmationPage() {
           </p>
         </div>
 
+        {/* Track booking in the app */}
+        <motion.section
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mb-6 overflow-hidden rounded-2xl border border-gray-200 bg-[#111820] shadow-sm"
+          aria-labelledby="track-order-title"
+        >
+          <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+            <div className="flex items-start gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-white">
+                <Smartphone className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h2 id="track-order-title" className="text-lg font-bold text-white sm:text-xl">
+                  Track your order in the FixWheel app
+                </h2>
+                <p className="mt-1 max-w-md text-sm leading-6 text-slate-300">
+                  Download the app to follow your booking and receive service updates.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-3 rounded-xl bg-white px-5 text-[#111820] transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-auto"
+              aria-label="Download the FixWheel app from Google Play"
+            >
+              <GooglePlayIcon className="h-6 w-6" />
+              <span className="text-left leading-tight">
+                <span className="block text-[10px] font-medium">GET IT ON</span>
+                <span className="block text-sm font-bold">Google Play</span>
+              </span>
+            </a>
+          </div>
+
+          <div className="flex items-start gap-2 border-t border-white/10 bg-white/5 px-5 py-3 text-xs leading-5 text-slate-300 sm:px-6">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+            <p>Update your mobile number in your app profile to track your orders.</p>
+          </div>
+        </motion.section>
+
         {/* Booking Summary Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-gray-50 border border-black/5 rounded-3xl p-6 md:p-8 shadow-md mb-10 relative overflow-hidden"
+          className="bg-gray-50 border border-black/5 rounded-3xl p-6 md:p-8 shadow-md mb-8 relative overflow-hidden"
         >
 
 
