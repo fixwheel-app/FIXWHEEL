@@ -25,6 +25,14 @@ export const SERVICE_PRICE_IDS = [
 export type ServicePriceId = typeof SERVICE_PRICE_IDS[number];
 export type ServicePriceTier = "cc0_249" | "cc250_399" | "cc400_599" | "cc600_above" | "electric";
 
+export const SERVICE_CHARGE_THRESHOLD = 399;
+export const DOORSTEP_SERVICE_CHARGE = 199;
+
+export const hasDoorstepServiceCharge = (
+  serviceId: ServicePriceId,
+  price: number | string | undefined
+) => serviceId !== "pick-drop" && typeof price === "number" && price <= SERVICE_CHARGE_THRESHOLD;
+
 export interface ServicePriceItem {
   id: ServicePriceId;
   name: string;
@@ -233,7 +241,7 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
       cc600_above: 149,
     },
     features: [
-      "Transparent Service Fee: ₹99",
+      "Battery installation labor rate: ₹99",
       "Terminal Cleaning & Anti-Corrosion Grease",
       "Old Battery Trade-in Discount Available",
       "100% Genuine Sealed Batteries (Exide / Amaron)"

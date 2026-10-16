@@ -65,7 +65,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     tag: "[BATTERY]",
     id: "battery-replacement",
     name: "Battery Replacement",
-    desc: "Battery testing, jump-start, and professional installation starting at ₹99 labor at your doorstep.",
+    desc: "Battery testing, jump-start, and professional installation at your doorstep.",
     priceNote: "starting from (labor)",
     link: "/book",
     linkText: "Book now →",
@@ -120,7 +120,7 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     id: "pick-drop",
     name: "Pick and Drop",
     desc: "We collect your bike from your location, get it serviced, and deliver it back — you stay put.",
-    priceNote: "starting from",
+    priceNote: "listed transit rate",
     link: "/book",
     linkText: "Book now →",
   },
@@ -152,10 +152,13 @@ export default function CityServicesGrid({ filterCategory = "all" }: CityService
       {serviceCards.map((item) => {
         const pricingEntry = SERVICE_PRICING_LIST.find((p) => p.id === item.id);
         const priceValue = item.price ?? (pricingEntry?.prices as any)?.electric ?? pricingEntry?.prices.cc0_249 ?? 399;
+        const advertisedPrice = item.id === "pick-drop" || typeof priceValue !== "number"
+          ? priceValue
+          : Math.max(priceValue, 399);
         const formattedPrice =
-          typeof priceValue === "number"
-            ? `₹${priceValue.toLocaleString("en-IN")}`
-            : `₹${priceValue}`;
+          typeof advertisedPrice === "number"
+            ? `₹${advertisedPrice.toLocaleString("en-IN")}`
+            : `₹${advertisedPrice}`;
 
         return (
           <div key={item.id} className="svc-card">

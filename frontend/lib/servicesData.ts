@@ -125,7 +125,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Scooter & CVT Specialist",
     title: "Doorstep Scooty & Scooter Repair in Delhi NCR",
     lead: "Looking for the best doorstep scooty repair in Delhi NCR, scooty mechanic near me, or scooter repair at home? FixWheel dispatches certified two-wheeler specialists across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad in under 45 minutes. From Honda Activa, TVS Jupiter, and Suzuki Access to TVS Ntorq and Hero Maestro — eliminate starting trouble, pickup lag, and CVT vibration right in your parking spot.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
@@ -151,7 +151,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       },
       {
         q: "How much does doorstep scooty repair cost in Delhi, Gurgaon, and Noida?",
-        a: "Doorstep scooter diagnostics and minor tune-ups start at just ₹199, while comprehensive periodic servicing starts at ₹550. If any spare parts (like drive belts, brake cables, or engine oil) are required, the price is quoted and approved by you before installation. There are zero hidden fees.",
+        a: "Doorstep scooter diagnostics and minor tune-ups start at ₹399, while comprehensive periodic servicing starts at ₹550. If any spare parts (like drive belts, brake cables, or engine oil) are required, the price is quoted and approved by you before installation.",
       },
       {
         q: "How quickly can a scooty mechanic reach my location across Delhi NCR?",
@@ -474,7 +474,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Fuel Systems",
     title: "Carburetor Cleaning & Jet Tuning at Doorstep",
     lead: "Cold starting issues, rough idling, or poor mileage? Get ultrasonic carburetor jet cleaning, float chamber flushing, and air-fuel mixture tuning.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "35 Mins",
     warranty: "15 Days Tuning Warranty",
     descriptionParagraphs: [
@@ -511,7 +511,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Computer Diagnostics",
     title: "BS6 Bike OBD Scanner Inspection at Doorstep",
     lead: "Check Engine Light (CEL) on? Digital OBD-II scanner diagnostics for all BS6 fuel-injected bikes to scan, diagnose, and clear ECU error codes.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "30 Mins",
     warranty: "Digital Health Report Included",
     descriptionParagraphs: [
@@ -548,7 +548,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Braking Systems",
     title: "Disc Brake Pad & Rotor Replacement at Doorstep",
     lead: "Squealing brakes or spongy lever? Mobile mechanics replace worn ceramic/organic disc pads, clean caliper pistons, and bleed hydraulic brake lines.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "35 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [
@@ -585,7 +585,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Drivetrain",
     title: "Chain & Sprocket Replacement at Doorstep",
     lead: "Worn sprockets cause chain slipping and sluggish acceleration. Get heavy-duty front/rear sprockets and O-ring drive chain kit replaced at your doorstep.",
-    startingPrice: "₹299",
+    startingPrice: "₹399",
     avgTime: "45 Mins",
     warranty: "15 Days Workmanship Warranty",
     descriptionParagraphs: [
@@ -622,7 +622,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Transit & Workshop",
     title: "Two-Wheeler Pick & Drop Service",
     lead: "Need extensive engine repair or paintwork? Safe GPS-tracked transit pickup from your location to our specialized workshop and doorstep return.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "Same-Day Pickup",
     warranty: "Transit Insured",
     descriptionParagraphs: [
@@ -757,8 +757,8 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     serviceId: "battery-replacement",
     category: "Electrical Systems",
     title: "Bike Battery Replacement at Doorstep",
-    lead: "Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and professional installation starting at ₹99 labor.",
-    startingPrice: "₹99",
+    lead: "Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep bike battery testing and professional installation starting at ₹399.",
+    startingPrice: "₹399",
     avgTime: "45 Mins",
     warranty: "Official Brand Warranty Included",
     descriptionParagraphs: [
@@ -790,7 +790,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     category: "Safety Systems",
     title: "Bike Brake Repair & Pad Replacement",
     lead: "Brakes are your two-wheeler's most critical safety component. Squeaking noise, loose brake levers, or reduced stopping distance require immediate expert repair right at your doorstep.",
-    startingPrice: "₹199",
+    startingPrice: "₹399",
     avgTime: "45 Mins",
     warranty: "15 Days Labor Warranty",
     descriptionParagraphs: [

@@ -181,7 +181,7 @@ export default function BrandsClientPage() {
     },
     {
       q: "Is there any price difference when servicing a premium or electric two-wheeler at home?",
-      a: "Our doorstep service packages start at just ₹199 across all commuter, scooter, and performance models. Standard labor charges and transparent OEM spare parts pricing apply without any hidden fees.",
+      a: "Our doorstep service packages start at ₹399 across commuter, scooter, and performance models. Applicable labor, service charges, and OEM spare-parts pricing are shown clearly before work begins.",
     },
     {
       q: "What warranty is provided on doorstep brand repairs and component replacements?",

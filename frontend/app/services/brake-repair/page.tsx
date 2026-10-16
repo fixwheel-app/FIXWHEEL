@@ -25,13 +25,13 @@ export default function BrakeRepairPage() {
       category="Safety Systems"
       title="Bike Brake Repair & Pad Replacement in Delhi"
       lead="Brakes are your two-wheeler's most critical safety component. Squeaking noise, loose brake levers, or reduced stopping distance require immediate expert repair right at your doorstep."
-      startingPrice="₹299"
+      startingPrice="₹399"
       avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
         "Stop-and-go commuting in Delhi wears down drum brake shoes and disc brake pads quickly. Riding with worn brake linings damages the brake rotor, decreases emergency braking control, and risks your safety.",
         "FixWheel dispatches certified mechanics with 100% genuine OEM brake shoes, high-friction disc pads, and DOT 3/4 brake fluids to your home or office parking lot. We clean brake drums, replace worn linings, lubricate brake levers, and bleed hydraulic lines.",
-        "Get instant brake servicing with transparent pricing, zero visiting charges, and full safety testing.",
+        "Get instant brake servicing with clear pricing confirmed before work and full safety testing.",
       ]}
       includedItems={[
         "Front & rear drum brake shoe inspection, degreasing & replacement",

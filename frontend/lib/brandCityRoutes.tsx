@@ -36,7 +36,7 @@ export function generateBrandCityMetadata(citySlug: string, brandSlug: string): 
   }
 
   const title = `${brandName} Bike Service & Repair in ${city.name} | FixWheel Doorstep Service`;
-  const description = `Looking for certified ${brandName} bike service near you in ${city.name}? Book doorstep ${brandName} scooter & motorcycle repair in ${city.name}. 100% genuine parts, ₹199 starting price, 45-min arrival, and 15-day warranty.`;
+  const description = `Looking for certified ${brandName} bike service near you in ${city.name}? Book doorstep ${brandName} scooter & motorcycle repair in ${city.name}. 100% genuine parts, services from ₹399, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/${city.slug}/${normalizedBrandSlug}`;
   const keywords = brandData?.seoKeywords
     ? brandData.seoKeywords.map((keyword) => `${keyword} ${city.name.toLowerCase()}`).join(", ")

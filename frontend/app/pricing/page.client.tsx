@@ -3,7 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Oswald, JetBrains_Mono } from "next/font/google";
-import { PRICING_CATEGORIES, SERVICE_PRICING_LIST, ServicePriceItem } from "@/lib/pricingData";
+import {
+  DOORSTEP_SERVICE_CHARGE,
+  hasDoorstepServiceCharge,
+  PRICING_CATEGORIES,
+  SERVICE_CHARGE_THRESHOLD,
+  SERVICE_PRICING_LIST,
+  ServicePriceItem,
+} from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
 
 const oswald = Oswald({
@@ -279,6 +286,18 @@ export default function PricingClientPage() {
           font-size: 12px;
           color: #6B6E72;
         }
+        .pricing-scope .service-charge-policy {
+          margin-top: 18px;
+          border: 1px solid #F2B8B8;
+          border-left: 4px solid var(--accent);
+          border-radius: 4px;
+          background: #FFF7F7;
+          padding: 14px 18px;
+          color: #4A3131;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .pricing-scope .service-charge-policy strong { color: #B91C1C; }
 
         /* ===== PRICING CARDS GRID ===== */
         .pricing-scope .pricing-grid-section {
@@ -353,6 +372,15 @@ export default function PricingClientPage() {
           font-family: var(--font-jetbrains), monospace;
           font-size: 11px;
           color: #6B6E72;
+          text-transform: uppercase;
+        }
+        .pricing-scope .card-charge-note {
+          margin: -10px 0 18px;
+          color: #B91C1C;
+          font-family: var(--font-jetbrains), monospace;
+          font-size: 10px;
+          font-weight: 700;
+          line-height: 1.45;
           text-transform: uppercase;
         }
         .pricing-scope .feature-list {
@@ -455,7 +483,7 @@ export default function PricingClientPage() {
               <div className="eyebrow">Official Rate Card · 100% Transparent Pricing</div>
               <h1>Doorstep Two Wheeler Service Charges</h1>
               <p>
-                No surprise bills or hidden mechanics fees. Inspect exact labor charges for commuter motorcycles, performance tourers, scooters, and electric EVs across Delhi-NCR.
+                Inspect exact labor charges for commuter motorcycles, performance tourers, scooters, and electric EVs across Delhi-NCR. Any applicable service charge is shown clearly below.
               </p>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
                 <Link href="#rate-card" className="btn btn-primary">
@@ -472,7 +500,7 @@ export default function PricingClientPage() {
             <div className="ticket">
               <div className="ticket-header">
                 <span>RUNNING REPAIR SERVICE</span>
-                <span style={{ color: '#22c55e' }}>✓ NO HIDDEN FEES</span>
+                <span style={{ color: '#22c55e' }}>✓ RATE CARD VERIFIED</span>
               </div>
               <div className="ticket-price-main">Starting ₹399</div>
               <p style={{ fontSize: '13px', color: '#5A5D62', marginBottom: '16px' }}>
@@ -517,6 +545,10 @@ export default function PricingClientPage() {
             </div>
           </div>
 
+          <div className="service-charge-policy" role="note">
+            <strong>₹{DOORSTEP_SERVICE_CHARGE} service charge:</strong> Added to services priced at ₹{SERVICE_CHARGE_THRESHOLD} or below. Pick &amp; Drop Service is excluded from this charge.
+          </div>
+
           <div style={{ height: '32px' }} />
 
           <div className="pricing-grid">
@@ -524,6 +556,7 @@ export default function PricingClientPage() {
               const rawPrice = getDisplayPrice(service);
               const isNumeric = typeof rawPrice === "number";
               const formattedPrice = isNumeric ? `₹${rawPrice}` : rawPrice;
+              const serviceChargeApplies = hasDoorstepServiceCharge(service.id, rawPrice);
 
               return (
                 <div key={service.id} className={`price-card ${service.popular ? "popular-card" : ""}`}>
@@ -536,6 +569,9 @@ export default function PricingClientPage() {
                     <div className="price-val">{formattedPrice}</div>
                     {isNumeric && <span className="price-unit">/ transparent price</span>}
                   </div>
+                  {serviceChargeApplies && (
+                    <p className="card-charge-note">+ ₹{DOORSTEP_SERVICE_CHARGE} service charge</p>
+                  )}
 
                   <div className="feature-list">
                     {service.features.map((feat, idx) => (
@@ -621,6 +657,9 @@ export default function PricingClientPage() {
               </tbody>
             </table>
           </div>
+          <div className="service-charge-policy" role="note">
+            <strong>Service charge policy:</strong> Add ₹{DOORSTEP_SERVICE_CHARGE} to any listed service priced at ₹{SERVICE_CHARGE_THRESHOLD} or below. This charge does not apply to Pick &amp; Drop Service.
+          </div>
 
         </div>
       </section>
@@ -630,7 +669,7 @@ export default function PricingClientPage() {
         <div className="wrap">
           <h2 style={{ fontSize: '38px', color: 'var(--paper)', marginBottom: '16px' }}>Ready to Schedule Your Doorstep Service?</h2>
           <p style={{ color: '#A7A9AC', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
-            Get a verified mobile mechanic at your home or office in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad. Transparent pricing, zero traveling fee, 15-day warranty.
+            Get a verified mobile mechanic at your home or office in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad. Clear rate-card pricing and a 15-day warranty.
           </p>
           <Link href="/book" className="btn btn-primary">
             Book Your Service Now →

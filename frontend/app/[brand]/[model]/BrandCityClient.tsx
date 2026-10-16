@@ -572,7 +572,7 @@ export default function BrandCityClient({
             ).map((service) => (
               <div className="service-card" key={service.name}>
                 <div><h3>{service.name}</h3><p>{service.description}</p></div>
-                <div className="price">₹{service.price.toLocaleString("en-IN")} <span>starting from</span></div>
+                <div className="price">₹{Math.max(service.price, 399).toLocaleString("en-IN")} <span>starting from</span></div>
               </div>
             ))}
           </div>

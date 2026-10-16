@@ -363,7 +363,7 @@ export default function Home() {
                   <h3 className="min-w-0 text-lg font-black leading-tight text-[#111820]">{service.name}</h3>
                 </div>
                 <div className="mt-auto flex items-end justify-between gap-3 pt-6">
-                  <p className="shrink-0 whitespace-nowrap text-sm font-black leading-tight text-accent sm:text-base">Starts from ₹{getServicePricing(service.priceId).prices.cc0_249.toLocaleString('en-IN')}</p>
+                  <p className="shrink-0 whitespace-nowrap text-sm font-black leading-tight text-accent sm:text-base">Starts from ₹{Math.max(Number(getServicePricing(service.priceId).prices.cc0_249), 399).toLocaleString('en-IN')}</p>
                   <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-black text-[#111820] transition-colors group-hover:text-accent">View Service <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
                 </div>
               </Link>

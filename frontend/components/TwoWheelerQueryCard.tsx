@@ -35,7 +35,7 @@ const petrolTips: Record<string, [string, string]> = {
   ],
   other: [
     "Not sure what’s wrong? That’s fine.",
-    "Book a ₹199 diagnosis and the mechanic will explain what he finds before any work.",
+    "Book a ₹399 diagnosis and the mechanic will explain what he finds before any work.",
   ],
 };
 

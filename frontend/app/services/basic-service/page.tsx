@@ -25,13 +25,13 @@ export default function BasicServicePage() {
       category="Regular Maintenance"
       title="Basic Bike Service at Doorstep in Delhi"
       lead="Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high."
-      startingPrice="₹199"
+      startingPrice="₹550"
       avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
         "Commuting through Delhi traffic subjects your bike's clutch cables, brake shoes, spark plugs, and air filters to extreme dust and friction. Without regular maintenance, carbon deposits accumulate in the engine, resulting in poor fuel efficiency, engine knocking, and starting trouble.",
         "Our certified doorstep mechanics arrive directly at your home or office parking with specialized diagnostic kits, OEM spare parts, and eco-friendly cleaning supplies. We perform a comprehensive 15-point checkup, adjusting control cables, cleaning spark plugs, inspecting brake liners, and lubricating key chassis pivots.",
-        "With FixWheel, you get 100% transparent pricing, zero hidden charges, and a 15-day quality warranty on every basic service.",
+        "With FixWheel, you get clear pricing before work begins and a 15-day quality warranty on every basic service.",
       ]}
       includedItems={[
         "Complete front & rear brake inspection and precision adjustment",
@@ -57,8 +57,8 @@ export default function BasicServicePage() {
           a: "We service all 100cc to 160cc commuter bikes and gearless scooters including Honda Activa, Hero Splendor, TVS Jupiter, Suzuki Access, and Bajaj Pulsar.",
         },
         {
-          q: "Are there any extra visiting charges for doorstep service in Gurgaon or Noida?",
-          a: "No! FixWheel offers transparent pricing with zero doorstep visit fees across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
+          q: "How are doorstep charges shown in Gurgaon or Noida?",
+          a: "FixWheel confirms the service rate and any applicable service charge before work begins across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
         },
       ]}
       keywords={[

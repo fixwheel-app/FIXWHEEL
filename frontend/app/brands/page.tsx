@@ -74,7 +74,7 @@ const brandsSchema = {
   telephone: "+918745945682",
   email: "support@fixwheel.app",
   image: "https://www.fixwheel.app/icon.png",
-  priceRange: "₹199 - ₹18000",
+  priceRange: "₹399 - ₹18000",
   address: {
     "@type": "PostalAddress",
     streetAddress: "NCR Region",

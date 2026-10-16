@@ -17,7 +17,7 @@ export default function OilChangePage() {
       category="Fluid & Lubrication"
       title="Bike Engine Oil Change at Doorstep in Delhi"
       lead="Engine oil is your bike's lifeblood. Prevent engine overheating and friction wear with 100% sealed genuine engine oil replacement (Motul, Yamalube, Castrol, HMSI, Liquid Gun) done at your home in 30 minutes."
-      startingPrice="₹349"
+      startingPrice="₹399"
       avgTime="45 Mins"
       warranty="100% Sealed Genuine Oil Guarantee"
       descriptionParagraphs={[

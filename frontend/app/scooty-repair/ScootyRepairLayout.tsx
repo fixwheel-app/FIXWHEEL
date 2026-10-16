@@ -83,7 +83,7 @@ const tips: Record<string, string[]> = {
   pickup:["Often a dirty air filter, worn belt or clogged CVT.","A tune-up with CVT and air filter cleaning usually restores it."],
   brakes:["Worn pads or shoes, or loose cables, are the usual causes.","We adjust or replace them and lubricate the cables."],
   tyre:["Tubeless punctures can be repaired right where you are.","We also check tyre pressure and the valve."],
-  other:["Not sure what’s wrong? That’s fine.","Book a ₹199 diagnosis and the mechanic will explain what he finds before any work."]
+  other:["Not sure what’s wrong? That’s fine.","Book a ₹399 diagnosis and the mechanic will explain what he finds before any work."]
 };
 
 export default function ScootyRepairLayout({ bikesServiced, rating, city, areas = [], bike }: { bikesServiced: string; rating: number; city?: ScooterCityContent; areas?: string[]; bike?: BikeLandingContent }) {
@@ -165,9 +165,9 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       {bike ? activeServices.map(service => <div className="svc" key={service.id}><div><h3>{service.title}</h3><p>{service.description}</p><span className="price">From ₹{getServicePricing(service.id).prices.cc0_249.toLocaleString("en-IN")}</span></div><a href={"/services/" + service.id}>View service</a></div>) : <>
       <div className="svc"><div><h3>Basic scooter service</h3><p>Oil, spark plug, air filter and brake checks.</p><span className="price">{"From ₹550"}</span></div><a href="/services/basic-service">View service</a></div>
       <div className="svc"><div><h3>Jump start</h3><p>Fast battery assistance for a drained or dead scooter battery.</p><span className="price">{"From ₹399"}</span></div><a href="/book">View service</a></div>
-      <div className="svc"><div><h3>CVT and clutch inspection</h3><p>For vibration, shuddering or weak pickup.</p><span className="price">{"From ₹199 (inspection)"}</span></div><a href="/book">View service</a></div>
-      <div className="svc"><div><h3>Brake repair</h3><p>Pads, shoes and cable adjustment.</p><span className="price">{"From ₹199"}</span></div><a href="/services/brake-repair">View service</a></div>
-      <div className="svc"><div><h3>Battery and self-start</h3><p>Battery testing, terminals and starter checks.</p><span className="price">{"From ₹99"}</span></div><a href="/services/battery-replacement">View service</a></div>
+      <div className="svc"><div><h3>CVT and clutch inspection</h3><p>For vibration, shuddering or weak pickup.</p><span className="price">{"From ₹399 (inspection)"}</span></div><a href="/book">View service</a></div>
+      <div className="svc"><div><h3>Brake repair</h3><p>Pads, shoes and cable adjustment.</p><span className="price">{"From ₹399"}</span></div><a href="/services/brake-repair">View service</a></div>
+      <div className="svc"><div><h3>Battery and self-start</h3><p>Battery testing, terminals and starter checks.</p><span className="price">{"From ₹399"}</span></div><a href="/services/battery-replacement">View service</a></div>
       <div className="svc"><div><h3>Puncture and tyre repair</h3><p>Tyre inspection and roadside puncture support.</p><span className="price">{"From ₹399"}</span></div><a href="/pricing">View service</a></div>
       </>}
     </div>
@@ -245,7 +245,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {bike || city ? (bike?.faqs || city!.faqs).map((faq,i) => <details key={faq.q} open={i===0}><summary>{faq.q}</summary><p>{faq.a}</p></details>) : <>
       <details open><summary>Why does my Activa, Jupiter, or Access vibrate or shudder during acceleration?</summary><p>Takeoff vibration is typically caused by accumulated clutch dust, worn variator rollers, or glazed clutch shoes inside the Continuously Variable Transmission (CVT) system. Our doorstep technician opens the clutch casing, degreases all transmission components, and resurfaces the clutch shoes on the spot to restore silky-smooth pickup.</p></details>
       <details><summary>My scooty won't start using self-start or kick start. Can you fix it at home in Delhi NCR?</summary><p>Yes! Starting issues on gearless scooters are usually due to discharged batteries, fouled spark plugs, clogged carburetors/fuel injectors, or loose starter relays. Our mobile mechanics carry multi-meters, jump-starters, spare plugs, and fresh batteries to diagnose and start your scooter at your home.</p></details>
-      <details><summary>How much does doorstep scooty repair cost in Delhi, Gurgaon, and Noida?</summary><p>Doorstep scooter diagnostics and minor tune-ups start at just ₹199, while comprehensive periodic servicing starts at ₹550. If any spare parts (like drive belts, brake cables, or engine oil) are required, the price is quoted and approved by you before installation. There are zero hidden fees.</p></details>
+      <details><summary>How much does doorstep scooty repair cost in Delhi, Gurgaon, and Noida?</summary><p>Doorstep scooter diagnostics and minor tune-ups start at ₹399, while comprehensive periodic servicing starts at ₹550. If any spare parts (like drive belts, brake cables, or engine oil) are required, the price is quoted and approved by you before installation.</p></details>
       <details><summary>How quickly can a scooty mechanic reach my location across Delhi NCR?</summary><p>Our mobile mechanics are stationed across key hubs in Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. We typically reach your home, office, or roadside breakdown location within 45 minutes of booking confirmation.</p></details>
       <details><summary>Do you provide doorstep puncture repair, brake replacement, and drive belt changes for scooters?</summary><p>Yes. Our service vans and technician toolkits are fully equipped to handle tubeless tyre puncture repairs, drum brake shoe/disc pad replacements, throttle/brake cable installations, and genuine OEM drive belt replacements right on-site.</p></details>
     </>}

@@ -112,7 +112,7 @@ export const BRAND_DETAILS: Record<string, BrandDetailData> = {
       },
       {
         q: "Is there any extra visiting charge for doorstep Hero servicing in Ghaziabad and Faridabad?",
-        a: "No extra visiting fees! Our starting service rates (from ₹199) are completely transparent and include doorstep arrival across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad."
+        a: "Our doorstep service rates start from ₹399 across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. The applicable rate and any service charge are shown clearly before booking."
       }
     ]
   },

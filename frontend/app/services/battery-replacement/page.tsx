@@ -24,8 +24,8 @@ export default function BatteryReplacementPage() {
       serviceId="battery-replacement"
       category="Electrical Systems"
       title="Bike Battery Replacement at Doorstep in Delhi"
-      lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep battery testing and replacement labor starting at ₹99. The selected battery is charged separately at actual price/MRP."
-      startingPrice="₹99"
+      lead="Facing self-start failure, dim headlights, or weak horn sounds? Get rapid doorstep battery testing and replacement service starting at ₹399. The selected battery is charged separately at actual price/MRP."
+      startingPrice="₹399"
       avgTime="45 Mins"
       warranty="Official Brand Warranty Included"
       descriptionParagraphs={[
