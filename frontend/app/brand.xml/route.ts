@@ -1,6 +1,20 @@
 import { NextResponse } from "next/server";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
+import { HONDA_MODEL_FAMILIES } from "@/lib/hondaModelFamilies";
+import { HERO_MODEL_FAMILIES } from "@/lib/heroModelFamilies";
+import { BAJAJ_MODEL_FAMILIES } from "@/lib/bajajModelFamilies";
+import { ROYAL_ENFIELD_MODEL_FAMILIES } from "@/lib/royalEnfieldModelFamilies";
+import { YAMAHA_MODEL_FAMILIES } from "@/lib/yamahaModelFamilies";
+import { KTM_MODEL_FAMILIES } from "@/lib/ktmModelFamilies";
+import { SUZUKI_MODEL_FAMILIES } from "@/lib/suzukiModelFamilies";
+import { OLA_MODEL_FAMILIES } from "@/lib/olaModelFamilies";
+import { ATHER_MODEL_FAMILIES } from "@/lib/atherModelFamilies";
+import { JAWA_MODEL_FAMILIES } from "@/lib/jawaModelFamilies";
+import { YEZDI_MODEL_FAMILIES } from "@/lib/yezdiModelFamilies";
+import { APRILIA_MODEL_FAMILIES } from "@/lib/apriliaModelFamilies";
+import { VESPA_MODEL_FAMILIES } from "@/lib/vespaModelFamilies";
+import { KAWASAKI_PAGE_FAMILIES } from "@/lib/kawasakiModelFamilies";
 
 export const dynamic = "force-static";
 
@@ -78,17 +92,88 @@ export async function GET() {
     xml += `  <url>\n    <loc>${locUrl}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 
-  // Individual Bike Model pages
-  const addedModelUrls = new Set<string>();
-  for (const m of allModels) {
-    const bSlug = slugifyModel(m.brandName);
-    const mSlug = slugifyModel(m.modelName);
-    const url = `https://www.fixwheel.app/${bSlug}/${mSlug}`;
+  // Honda model generations now share one canonical page per model family.
+  for (const family of HONDA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/honda/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
 
-    if (!addedModelUrls.has(url)) {
-      addedModelUrls.add(url);
-      xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-    }
+  // Hero model variants now share one canonical page per model family.
+  for (const family of HERO_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/hero/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Bajaj model variants now share one canonical page per model family.
+  for (const family of BAJAJ_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/bajaj/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Royal Enfield model variants now share one canonical page per model family.
+  for (const family of ROYAL_ENFIELD_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/royal-enfield/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Yamaha model variants now share one canonical page per model family.
+  for (const family of YAMAHA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/yamaha/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // KTM model variants now share one canonical page per model family.
+  for (const family of KTM_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/ktm/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Suzuki model variants now share one canonical page per model family.
+  for (const family of SUZUKI_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/suzuki/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Ola Electric model variants now share one canonical page per model family.
+  for (const family of OLA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/ola-electric/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Ather model variants now share one canonical page per model family.
+  for (const family of ATHER_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/ather/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Jawa model variants now share one canonical page per model family.
+  for (const family of JAWA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/jawa/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Yezdi model variants now share one canonical page per model family.
+  for (const family of YEZDI_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/yezdi/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Aprilia model variants now share one canonical page per model family.
+  for (const family of APRILIA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/aprilia/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Vespa model variants now share one canonical page per model family.
+  for (const family of VESPA_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/vespa/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // Ninja variants share the only Kawasaki model-family page.
+  for (const family of KAWASAKI_PAGE_FAMILIES) {
+    const url = `https://www.fixwheel.app/kawasaki/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 
   xml += `</urlset>`;

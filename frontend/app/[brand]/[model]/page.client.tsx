@@ -3,19 +3,34 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
+import { ArrowRight, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
+import type { HondaModelFamily } from "@/lib/hondaModelFamilies";
+import type { HeroModelFamily } from "@/lib/heroModelFamilies";
+import type { BajajModelFamily } from "@/lib/bajajModelFamilies";
+import type { RoyalEnfieldModelFamily } from "@/lib/royalEnfieldModelFamilies";
+import type { YamahaModelFamily } from "@/lib/yamahaModelFamilies";
+import type { KtmModelFamily } from "@/lib/ktmModelFamilies";
+import type { SuzukiModelFamily } from "@/lib/suzukiModelFamilies";
+import type { OlaModelFamily } from "@/lib/olaModelFamilies";
+import type { AtherModelFamily } from "@/lib/atherModelFamilies";
+import type { JawaModelFamily } from "@/lib/jawaModelFamilies";
+import type { YezdiModelFamily } from "@/lib/yezdiModelFamilies";
+import type { ApriliaModelFamily } from "@/lib/apriliaModelFamilies";
+import type { VespaModelFamily } from "@/lib/vespaModelFamilies";
+import type { KawasakiModelFamily } from "@/lib/kawasakiModelFamilies";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
+  familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily;
 }
 
-export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
+export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClientProps) {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global || DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
@@ -29,7 +44,18 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
   };
 
   const { brandName, modelName, category } = modelInfo;
-  const isElectricModel = category === "Electric Motorbike";
+  const isElectricModel = familyInfo
+    ? familyInfo.groups.every((group) => group.category === "EV")
+    : category === "Electric Motorbike";
+  const hasElectricModels = familyInfo
+    ? familyInfo.groups.some((group) => group.category === "EV")
+    : isElectricModel;
+  const hasCombustionModels = familyInfo
+    ? familyInfo.groups.some((group) => group.category !== "EV")
+    : !isElectricModel;
+  const isMixedDrivetrainFamily = hasElectricModels && hasCombustionModels;
+  const electricFamilyModels = familyInfo?.groups.find((group) => group.category === "EV")?.models || [];
+  const familyModelCount = familyInfo?.groups.reduce((total, group) => total + group.models.length, 0) || 0;
 
   const bLow = brandName.toLowerCase();
   const mLow = modelName.toLowerCase();
@@ -146,7 +172,9 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-                Get an expert certified mechanic for your {brandName} {modelName} right at your home or office parking. 100% genuine OEM parts, 15-day labor warranty, and 45-minute doorstep dispatch.
+                {isMixedDrivetrainFamily
+                  ? `Book doorstep care for Honda ${modelName} petrol scooters and electric models. Select the exact version so we dispatch the right mechanic, tools, and service plan.`
+                  : `Get an expert certified mechanic for your ${brandName} ${modelName} right at your home or office parking. 100% genuine OEM parts, 15-day labor warranty, and 45-minute doorstep dispatch.`}
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto">
@@ -200,6 +228,54 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
         </div>
       </div>
 
+      {familyInfo && (
+        <section className="border-b border-slate-200 bg-white py-12" aria-labelledby="family-models-heading">
+          <div className="container mx-auto max-w-6xl px-4">
+            <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 id="family-models-heading" className="mt-2 font-oswald text-2xl font-black uppercase tracking-tight text-slate-900 md:text-3xl">
+                  Serviced Models <span className="text-[#e62b2b]">({familyModelCount})</span>
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 md:text-base">
+                  Choose your exact {familyInfo.name} model. Every model listed below uses this shared service page.
+                </p>
+              </div>
+              <Link
+                href={`/${bSlug}`}
+                className="font-mono text-xs font-bold uppercase tracking-wider text-[#e62b2b] hover:text-red-700"
+              >
+                View all {brandName} models →
+              </Link>
+            </div>
+
+            <div className="space-y-9">
+              {familyInfo.groups.map((group) => (
+                <div key={group.category}>
+                  <div className="mb-4 flex items-center gap-3 border-b border-slate-200 pb-3">
+                    <h3 className="font-oswald text-xl font-bold uppercase text-slate-900">{group.category}</h3>
+                    <span className="inline-flex h-6 min-w-8 items-center justify-center rounded-full bg-[#e62b2b] px-2 font-mono text-[11px] font-bold text-white">
+                      {group.models.length}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.models.map((familyModel) => (
+                      <Link
+                        key={familyModel}
+                        href={`/book#${bSlug}`}
+                        className="flex min-h-20 items-center justify-between gap-4 rounded border border-slate-200 bg-white px-6 py-5 transition hover:-translate-y-0.5 hover:border-[#e62b2b] hover:shadow-lg"
+                      >
+                        <span className="font-mono text-sm font-bold text-slate-900">{familyModel}</span>
+                        <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider text-[#e62b2b]">View &amp; Book →</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ===== MAIN MODEL CONTENT SECTION ===== */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -210,7 +286,9 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 Why Choose Doorstep {brandName} {modelName} Service?
               </h2>
               <p>
-                {isElectricModel
+                {isMixedDrivetrainFamily
+                  ? `The ${brandName} ${modelName} family includes petrol scooters and electric variants. Petrol models need engine, CVT, belt, brake, and oil checks, while ${electricFamilyModels.join(" and ")} need battery-management, charging-port, motor-response, brake, tyre, and wiring checks.`
+                  : isElectricModel
                   ? `Daily riding exposes your ${brandName} ${modelName} to heat, vibration, charging cycles, brake wear, and tyre-pressure changes. Regular checks help catch BMS warnings, loose accessible connections, reduced range, and braking issues early.`
                   : `Riding your ${brandName} ${modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.`}
               </p>
@@ -218,7 +296,9 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                 FixWheel dispatches certified mechanics trained specifically on {brandName} two-wheelers directly to your location. Equipped with high-grade diagnostic kits, genuine replacement parts, and portable washing equipment, we service your {modelName} right where it's parked.
               </p>
               <p>
-                {isElectricModel
+                {isMixedDrivetrainFamily
+                  ? "Tell us the exact Activa version during booking. We assign petrol-scooter service for Activa 110–125 generations and EV diagnostics for Activa e: models, with transparent pricing and a 15-day labor warranty."
+                  : isElectricModel
                   ? "From BMS scans and auxiliary-battery checks to brake service, puncture repair, and minor electrical diagnosis, you receive transparent EV pricing with zero visiting fees and a 15-day labor warranty."
                   : "From routine 15-point checkups and oil swaps to brake shoe replacement, chain lube, and battery testing, you receive 100% transparent pricing with zero visiting fees and a 15-day labor warranty."}
               </p>
@@ -247,7 +327,11 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
                       Recommended Interval
                     </span>
-                    <span className="font-bold text-slate-900">{isElectricModel ? "As per manufacturer schedule / 6 Months" : "Every 3,000 km / 3 Months"}</span>
+                    <span className="font-bold text-slate-900">
+                      {isMixedDrivetrainFamily
+                        ? "Based on exact model and manufacturer schedule"
+                        : isElectricModel ? "As per manufacturer schedule / 6 Months" : "Every 3,000 km / 3 Months"}
+                    </span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
@@ -274,12 +358,12 @@ export default function ModelDetailClient({ modelInfo }: ModelClientProps) {
             </div>
           </div>
 
-          {isElectricModel && (
+          {hasElectricModels && (
             <section className="mb-16" aria-labelledby="model-ev-services-heading">
               <div className="mb-8">
                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b] block mb-2">EV Service Catalog</span>
                 <h2 id="model-ev-services-heading" className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                  Electric Services for {brandName} {modelName}
+                  Electric Services for {isMixedDrivetrainFamily ? electricFamilyModels.join(" & ") : `${brandName} ${modelName}`}
                 </h2>
                 <p className="text-slate-600 mt-2">EV-specific rates with no petrol engine, carburetor, or CC-based services.</p>
               </div>

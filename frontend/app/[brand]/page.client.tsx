@@ -12,6 +12,70 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
+import {
+  HONDA_MODEL_FAMILIES,
+  HONDA_MODEL_SECTIONS,
+} from "@/lib/hondaModelFamilies";
+import {
+  HERO_MODEL_FAMILIES,
+  HERO_MODEL_SECTIONS,
+} from "@/lib/heroModelFamilies";
+import {
+  BAJAJ_MODEL_FAMILIES,
+  BAJAJ_MODEL_SECTIONS,
+} from "@/lib/bajajModelFamilies";
+import {
+  ROYAL_ENFIELD_MODEL_FAMILIES,
+  ROYAL_ENFIELD_MODEL_SECTIONS,
+} from "@/lib/royalEnfieldModelFamilies";
+import {
+  YAMAHA_MODEL_FAMILIES,
+  YAMAHA_MODEL_SECTIONS,
+} from "@/lib/yamahaModelFamilies";
+import {
+  KTM_MODEL_FAMILIES,
+  KTM_MODEL_SECTIONS,
+} from "@/lib/ktmModelFamilies";
+import {
+  SUZUKI_MODEL_FAMILIES,
+  SUZUKI_MODEL_SECTIONS,
+} from "@/lib/suzukiModelFamilies";
+import {
+  OLA_MODEL_FAMILIES,
+  OLA_MODEL_SECTIONS,
+} from "@/lib/olaModelFamilies";
+import {
+  ATHER_MODEL_FAMILIES,
+  ATHER_MODEL_SECTIONS,
+} from "@/lib/atherModelFamilies";
+import {
+  JAWA_MODEL_FAMILIES,
+  JAWA_MODEL_SECTIONS,
+} from "@/lib/jawaModelFamilies";
+import {
+  YEZDI_MODEL_FAMILIES,
+  YEZDI_MODEL_SECTIONS,
+} from "@/lib/yezdiModelFamilies";
+import {
+  APRILIA_MODEL_FAMILIES,
+  APRILIA_MODEL_SECTIONS,
+} from "@/lib/apriliaModelFamilies";
+import {
+  VESPA_MODEL_FAMILIES,
+  VESPA_MODEL_SECTIONS,
+} from "@/lib/vespaModelFamilies";
+import {
+  HARLEY_DAVIDSON_MODEL_FAMILIES,
+  HARLEY_DAVIDSON_MODEL_SECTIONS,
+} from "@/lib/harleyDavidsonModelFamilies";
+import {
+  KAWASAKI_MODEL_FAMILIES,
+  KAWASAKI_MODEL_SECTIONS,
+} from "@/lib/kawasakiModelFamilies";
+import {
+  BMW_MODEL_FAMILIES,
+  BMW_MODEL_SECTIONS,
+} from "@/lib/bmwModelFamilies";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -168,10 +232,98 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     }
   }
 
-  const allModels = brandObj ? brandObj.models.map((m) => m.name) : [];
+  const isHondaBrand = brandSlug.toLowerCase() === "honda";
+  const isHeroBrand = brandSlug.toLowerCase() === "hero";
+  const isBajajBrand = brandSlug.toLowerCase() === "bajaj";
+  const isRoyalEnfieldBrand = brandSlug.toLowerCase() === "royal-enfield";
+  const isYamahaBrand = brandSlug.toLowerCase() === "yamaha";
+  const isKtmBrand = brandSlug.toLowerCase() === "ktm";
+  const isSuzukiBrand = brandSlug.toLowerCase() === "suzuki";
+  const isOlaBrand = brandSlug.toLowerCase() === "ola-electric";
+  const isAtherBrand = brandSlug.toLowerCase() === "ather";
+  const isJawaBrand = brandSlug.toLowerCase() === "jawa";
+  const isYezdiBrand = brandSlug.toLowerCase() === "yezdi";
+  const isApriliaBrand = brandSlug.toLowerCase() === "aprilia";
+  const isVespaBrand = brandSlug.toLowerCase() === "vespa";
+  const isHarleyDavidsonBrand = brandSlug.toLowerCase() === "harley-davidson";
+  const isKawasakiBrand = brandSlug.toLowerCase() === "kawasaki";
+  const isBmwBrand = brandSlug.toLowerCase() === "bmw";
+  const isFamilyBrand = isHondaBrand || isHeroBrand || isBajajBrand || isRoyalEnfieldBrand || isYamahaBrand || isKtmBrand || isSuzukiBrand || isOlaBrand || isAtherBrand || isJawaBrand || isYezdiBrand || isApriliaBrand || isVespaBrand || isHarleyDavidsonBrand || isKawasakiBrand || isBmwBrand;
+  const familySections = isHondaBrand
+    ? HONDA_MODEL_SECTIONS
+    : isHeroBrand
+      ? HERO_MODEL_SECTIONS
+      : isBajajBrand
+        ? BAJAJ_MODEL_SECTIONS
+        : isRoyalEnfieldBrand
+          ? ROYAL_ENFIELD_MODEL_SECTIONS
+          : isYamahaBrand
+            ? YAMAHA_MODEL_SECTIONS
+            : isKtmBrand
+              ? KTM_MODEL_SECTIONS
+              : isSuzukiBrand
+                ? SUZUKI_MODEL_SECTIONS
+                : isOlaBrand
+                  ? OLA_MODEL_SECTIONS
+                  : isAtherBrand
+                    ? ATHER_MODEL_SECTIONS
+                    : isJawaBrand
+                      ? JAWA_MODEL_SECTIONS
+                      : isYezdiBrand
+                        ? YEZDI_MODEL_SECTIONS
+                        : isApriliaBrand
+                          ? APRILIA_MODEL_SECTIONS
+                          : isVespaBrand
+                            ? VESPA_MODEL_SECTIONS
+                            : isHarleyDavidsonBrand
+                              ? HARLEY_DAVIDSON_MODEL_SECTIONS
+                              : isKawasakiBrand
+                                ? KAWASAKI_MODEL_SECTIONS
+                                : BMW_MODEL_SECTIONS;
+  const modelFamilies = isHondaBrand
+    ? HONDA_MODEL_FAMILIES
+    : isHeroBrand
+      ? HERO_MODEL_FAMILIES
+      : isBajajBrand
+        ? BAJAJ_MODEL_FAMILIES
+        : isRoyalEnfieldBrand
+          ? ROYAL_ENFIELD_MODEL_FAMILIES
+          : isYamahaBrand
+            ? YAMAHA_MODEL_FAMILIES
+            : isKtmBrand
+              ? KTM_MODEL_FAMILIES
+              : isSuzukiBrand
+                ? SUZUKI_MODEL_FAMILIES
+                : isOlaBrand
+                  ? OLA_MODEL_FAMILIES
+                  : isAtherBrand
+                    ? ATHER_MODEL_FAMILIES
+                    : isJawaBrand
+                      ? JAWA_MODEL_FAMILIES
+                      : isYezdiBrand
+                        ? YEZDI_MODEL_FAMILIES
+                        : isApriliaBrand
+                          ? APRILIA_MODEL_FAMILIES
+                          : isVespaBrand
+                            ? VESPA_MODEL_FAMILIES
+                            : isHarleyDavidsonBrand
+                              ? HARLEY_DAVIDSON_MODEL_FAMILIES
+                              : isKawasakiBrand
+                                ? KAWASAKI_MODEL_FAMILIES
+                                : BMW_MODEL_FAMILIES;
+  const allModels = isFamilyBrand
+    ? modelFamilies.map((family) => family.name)
+    : brandObj ? brandObj.models.map((m) => m.name) : [];
   const filteredModels = allModels.filter((m) =>
     m.toLowerCase().includes(modelQuery.toLowerCase().trim())
   );
+  const normalizedModelQuery = modelQuery.toLowerCase().trim();
+  const filteredFamilySections = familySections.map((section) => ({
+    ...section,
+    families: section.families.filter((family) =>
+      !normalizedModelQuery || family.name.toLowerCase().includes(normalizedModelQuery)
+    ),
+  })).filter((section) => section.families.length > 0);
 
   const toggleFaq = (idx: number) => {
     setOpenFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
@@ -656,7 +808,114 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           letter-spacing: 0.05em;
           text-transform: uppercase;
         }
-
+        .brand-detail-scope .honda-category + .honda-category {
+          margin-top: 38px;
+          padding-top: 34px;
+          border-top: 1px solid var(--line-paper);
+        }
+        .brand-detail-scope .honda-category-head {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 20px;
+          margin-bottom: 16px;
+        }
+        .brand-detail-scope .honda-category-title {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .brand-detail-scope .honda-category-title h3 {
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 25px;
+          color: var(--ink-dark);
+          text-transform: uppercase;
+        }
+        .brand-detail-scope .honda-category-count {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 34px;
+          height: 26px;
+          padding: 0 9px;
+          border-radius: 999px;
+          background: var(--accent);
+          color: #fff;
+          font: 700 11px var(--font-jetbrains), monospace;
+        }
+        .brand-detail-scope .honda-category-copy {
+          color: var(--ink-dim);
+          font-size: 13px;
+          text-align: right;
+        }
+        .brand-detail-scope .more-models-callout {
+          margin-top: 34px;
+          padding: 22px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 28px;
+          background: var(--ink-dark);
+          border-left: 4px solid var(--accent);
+          border-radius: 4px;
+        }
+        .brand-detail-scope .more-models-message {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          min-width: 0;
+        }
+        .brand-detail-scope .more-models-mark {
+          width: 42px;
+          height: 42px;
+          flex: 0 0 42px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: var(--accent);
+          color: #fff;
+          font: 700 25px/1 var(--font-jetbrains), monospace;
+        }
+        .brand-detail-scope .more-models-copy h3 {
+          margin: 0;
+          color: #fff;
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 21px;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+        .brand-detail-scope .more-models-copy p {
+          margin: 5px 0 0;
+          max-width: 720px;
+          color: #cbd5e1;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+        .brand-detail-scope .more-models-cta {
+          flex: 0 0 auto;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 44px;
+          padding: 0 20px;
+          border: 1px solid var(--accent);
+          border-radius: 3px;
+          background: var(--accent);
+          color: #fff;
+          font: 700 12px var(--font-jetbrains), monospace;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          transition: background-color 0.15s, border-color 0.15s;
+        }
+        .brand-detail-scope .more-models-cta:hover {
+          background: #c91f1f;
+          border-color: #c91f1f;
+        }
+        .brand-detail-scope .more-models-cta:focus-visible {
+          outline: 3px solid rgba(255, 255, 255, 0.85);
+          outline-offset: 3px;
+        }
         /* Tab Content: Reviews View */
         .brand-detail-scope .reviews-grid {
           display: grid;
@@ -1051,6 +1310,10 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           .brand-detail-scope .info-grid { grid-template-columns: 1fr; gap: 16px; }
           .brand-detail-scope .benefits-grid { grid-template-columns: 1fr; }
           .brand-detail-scope .models-grid { grid-template-columns: 1fr; }
+          .brand-detail-scope .honda-category-head { align-items: flex-start; flex-direction: column; gap: 6px; }
+          .brand-detail-scope .honda-category-copy { text-align: left; }
+          .brand-detail-scope .more-models-callout { align-items: stretch; flex-direction: column; gap: 18px; padding: 20px; }
+          .brand-detail-scope .more-models-cta { width: 100%; }
           .brand-detail-scope .reviews-grid { grid-template-columns: 1fr; }
           .brand-detail-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
           .brand-detail-scope .hero-stats { grid-template-columns: repeat(2, 1fr); }
@@ -1173,7 +1436,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                 className={cn("tab-header-btn", activeTab === "models" && "active")}
                 onClick={() => setActiveTab("models")}
               >
-                Serviced Models ({allModels.length})
+                {isFamilyBrand ? "Model Families" : "Serviced Models"} ({allModels.length})
               </button>
               <button
                 className={cn("tab-header-btn", activeTab === "description" && "active")}
@@ -1231,37 +1494,97 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                     <div className="model-search-bar">
                       <input
                         type="text"
-                        placeholder={`Search ${brandData.name} model...`}
+                        placeholder={isFamilyBrand ? `Search ${brandData.name} model family...` : `Search ${brandData.name} model...`}
                         value={modelQuery}
                         onChange={(e) => setModelQuery(e.target.value)}
                         className="model-search-input"
                       />
                     </div>
                   )}
-                  <div className="models-grid">
-                    {filteredModels.length === 0 ? (
+                  {isFamilyBrand ? (
+                    filteredFamilySections.length === 0 ? (
                       <p
-                        style={{ gridColumn: "span 3", textAlign: "center", color: "var(--ink-dim)" }}
+                        style={{ textAlign: "center", color: "var(--ink-dim)", padding: "36px 0" }}
                         className="mono"
                       >
-                        No matching models found. General doorstep servicing applies to all {brandData.name} vehicles.
+                        No {brandData.name} model families match your search.
                       </p>
                     ) : (
-                      filteredModels.map((model) => {
-                        const mSlug = model.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-                        return (
-                          <Link
-                            key={model}
-                            href={`/${brandSlug}/${mSlug}`}
-                            className="model-link-card"
-                          >
-                            <span className="name">{model}</span>
-                            <span className="action">View & Book →</span>
-                          </Link>
-                        );
-                      })
-                    )}
-                  </div>
+                      filteredFamilySections.map((section) => (
+                        <section className="honda-category" key={section.category} aria-labelledby={`${brandSlug}-${section.category.toLowerCase()}-heading`}>
+                          <div className="honda-category-head">
+                            <div className="honda-category-title">
+                              <h3 id={`${brandSlug}-${section.category.toLowerCase()}-heading`}>{section.category}</h3>
+                              <span className="honda-category-count">{section.families.length}</span>
+                            </div>
+                            <p className="honda-category-copy">
+                              {section.category === "Bike" && `${brandData.name} commuter, performance, adventure, and touring bikes`}
+                              {section.category === "Scooter" && `${brandData.name} petrol scooters and their generations`}
+                              {section.category === "EV" && `${brandData.name} electric scooters`}
+                            </p>
+                          </div>
+                          <div className="models-grid">
+                            {section.families.map((family) => {
+                              const booksDirectly = "bookingOnly" in family && family.bookingOnly;
+                              return (
+                                <Link
+                                  key={`${section.category}-${family.slug}`}
+                                  href={booksDirectly ? `/book#${brandSlug}` : `/${brandSlug}/${family.slug}`}
+                                  className="model-link-card"
+                                >
+                                  <span className="name">{family.name}</span>
+                                  <span className="action">{booksDirectly ? "Book service →" : "View family →"}</span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </section>
+                      ))
+                    )
+                  ) : (
+                    <div className="models-grid">
+                      {filteredModels.length === 0 ? (
+                        <p
+                          style={{ gridColumn: "span 3", textAlign: "center", color: "var(--ink-dim)" }}
+                          className="mono"
+                        >
+                          No matching models found. General doorstep servicing applies to all {brandData.name} vehicles.
+                        </p>
+                      ) : (
+                        filteredModels.map((model) => {
+                          return (
+                            <Link
+                              key={model}
+                              href={`/book#${brandSlug}`}
+                              className="model-link-card"
+                            >
+                              <span className="name">{model}</span>
+                              <span className="action">Book service →</span>
+                            </Link>
+                          );
+                        })
+                      )}
+                    </div>
+                  )}
+                  {isFamilyBrand && (
+                    <div id="more-models" className="more-models-callout">
+                      <div className="more-models-message">
+                        <span className="more-models-mark" aria-hidden="true">+</span>
+                        <div className="more-models-copy">
+                          <h3>We service other {brandData.name} models too</h3>
+                          <p>
+                            If your {brandData.name} isn&apos;t listed above, you can still book doorstep service. Share your model and repair needs when you book.
+                          </p>
+                        </div>
+                      </div>
+                      <Link
+                        href={`/book#${brandSlug}`}
+                        className="more-models-cta"
+                      >
+                        Book {brandData.name} service
+                      </Link>
+                    </div>
+                  )}
                 </div>
               )}
 
