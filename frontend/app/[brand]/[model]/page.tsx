@@ -71,6 +71,11 @@ import {
   findKawasakiFamilyBySlug,
   KAWASAKI_PAGE_FAMILIES,
 } from "@/lib/kawasakiModelFamilies";
+import {
+  findTvsFamilyByAnySlug,
+  findTvsFamilyBySlug,
+  TVS_MODEL_FAMILIES,
+} from "@/lib/tvsModelFamilies";
 import ModelDetailClient from "./page.client";
 
 interface PageProps {
@@ -96,6 +101,7 @@ export async function generateStaticParams() {
     ...APRILIA_MODEL_FAMILIES.map((family) => ({ brand: "aprilia", model: family.slug })),
     ...VESPA_MODEL_FAMILIES.map((family) => ({ brand: "vespa", model: family.slug })),
     ...KAWASAKI_PAGE_FAMILIES.map((family) => ({ brand: "kawasaki", model: family.slug })),
+    ...TVS_MODEL_FAMILIES.map((family) => ({ brand: "tvs", model: family.slug })),
   ];
 }
 
@@ -116,6 +122,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isAprilia = brand.toLowerCase() === "aprilia";
   const isVespa = brand.toLowerCase() === "vespa";
   const isKawasaki = brand.toLowerCase() === "kawasaki";
+  const isTvs = brand.toLowerCase() === "tvs";
   const hondaFamily = isHonda ? findHondaFamilyBySlug(model) : undefined;
   const heroFamily = isHero ? findHeroFamilyBySlug(model) : undefined;
   const bajajFamily = isBajaj ? findBajajFamilyBySlug(model) : undefined;
@@ -130,11 +137,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const apriliaFamily = isAprilia ? findApriliaFamilyBySlug(model) : undefined;
   const vespaFamily = isVespa ? findVespaFamilyBySlug(model) : undefined;
   const kawasakiFamily = isKawasaki ? findKawasakiFamilyBySlug(model) : undefined;
-  const modelFamily = hondaFamily || heroFamily || bajajFamily || royalEnfieldFamily || yamahaFamily || ktmFamily || suzukiFamily || olaFamily || atherFamily || jawaFamily || yezdiFamily || apriliaFamily || vespaFamily || kawasakiFamily;
+  const tvsFamily = isTvs ? findTvsFamilyBySlug(model) : undefined;
+  const modelFamily = hondaFamily || heroFamily || bajajFamily || royalEnfieldFamily || yamahaFamily || ktmFamily || suzukiFamily || olaFamily || atherFamily || jawaFamily || yezdiFamily || apriliaFamily || vespaFamily || kawasakiFamily || tvsFamily;
   const modelInfo = modelFamily
     ? {
-        brandId: isHonda ? "honda" : isHero ? "hero" : isBajaj ? "bajaj" : isRoyalEnfield ? "royal-enfield" : isYamaha ? "yamaha" : isKtm ? "ktm" : isSuzuki ? "suzuki" : isOla ? "ola-electric" : isAther ? "ather" : isJawa ? "jawa" : isYezdi ? "yezdi" : isAprilia ? "aprilia" : isVespa ? "vespa" : "kawasaki",
-        brandName: isHonda ? "Honda" : isHero ? "Hero" : isBajaj ? "Bajaj" : isRoyalEnfield ? "Royal Enfield" : isYamaha ? "Yamaha" : isKtm ? "KTM" : isSuzuki ? "Suzuki" : isOla ? "Ola Electric" : isAther ? "Ather" : isJawa ? "Jawa" : isYezdi ? "Yezdi" : isAprilia ? "Aprilia" : isVespa ? "Vespa" : "Kawasaki",
+        brandId: isHonda ? "honda" : isHero ? "hero" : isBajaj ? "bajaj" : isRoyalEnfield ? "royal-enfield" : isYamaha ? "yamaha" : isKtm ? "ktm" : isSuzuki ? "suzuki" : isOla ? "ola-electric" : isAther ? "ather" : isJawa ? "jawa" : isYezdi ? "yezdi" : isAprilia ? "aprilia" : isVespa ? "vespa" : isKawasaki ? "kawasaki" : "tvs",
+        brandName: isHonda ? "Honda" : isHero ? "Hero" : isBajaj ? "Bajaj" : isRoyalEnfield ? "Royal Enfield" : isYamaha ? "Yamaha" : isKtm ? "KTM" : isSuzuki ? "Suzuki" : isOla ? "Ola Electric" : isAther ? "Ather" : isJawa ? "Jawa" : isYezdi ? "Yezdi" : isAprilia ? "Aprilia" : isVespa ? "Vespa" : isKawasaki ? "Kawasaki" : "TVS",
         modelId: modelFamily.slug,
         modelName: modelFamily.name,
         category: modelFamily.groups.every((group) => group.category === "EV")
@@ -233,6 +241,7 @@ export default async function ModelPage({ params }: PageProps) {
   const isAprilia = brand.toLowerCase() === "aprilia";
   const isVespa = brand.toLowerCase() === "vespa";
   const isKawasaki = brand.toLowerCase() === "kawasaki";
+  const isTvs = brand.toLowerCase() === "tvs";
   const isHarleyDavidson = brand.toLowerCase() === "harley-davidson";
   const isBmw = brand.toLowerCase() === "bmw" || brand.toLowerCase() === "bmw-motorrad";
   const hondaFamily = isHonda ? findHondaFamilyByAnySlug(model) : undefined;
@@ -291,6 +300,10 @@ export default async function ModelPage({ params }: PageProps) {
   if (kawasakiFamily && model.toLowerCase() !== kawasakiFamily.slug) {
     permanentRedirect(`/kawasaki/${kawasakiFamily.slug}`);
   }
+  const tvsFamily = isTvs ? findTvsFamilyByAnySlug(model) : undefined;
+  if (tvsFamily && model.toLowerCase() !== tvsFamily.slug) {
+    permanentRedirect(`/tvs/${tvsFamily.slug}`);
+  }
   if (catalogModel && (isHarleyDavidson || isKawasaki || isBmw)) {
     permanentRedirect(`/book#${isBmw ? "bmw" : brand.toLowerCase()}`);
   }
@@ -309,11 +322,12 @@ export default async function ModelPage({ params }: PageProps) {
   const canonicalApriliaFamily = isAprilia ? findApriliaFamilyBySlug(model) : undefined;
   const canonicalVespaFamily = isVespa ? findVespaFamilyBySlug(model) : undefined;
   const canonicalKawasakiFamily = isKawasaki ? findKawasakiFamilyBySlug(model) : undefined;
-  const canonicalFamily = canonicalHondaFamily || canonicalHeroFamily || canonicalBajajFamily || canonicalRoyalEnfieldFamily || canonicalYamahaFamily || canonicalKtmFamily || canonicalSuzukiFamily || canonicalOlaFamily || canonicalAtherFamily || canonicalJawaFamily || canonicalYezdiFamily || canonicalApriliaFamily || canonicalVespaFamily || canonicalKawasakiFamily;
+  const canonicalTvsFamily = isTvs ? findTvsFamilyBySlug(model) : undefined;
+  const canonicalFamily = canonicalHondaFamily || canonicalHeroFamily || canonicalBajajFamily || canonicalRoyalEnfieldFamily || canonicalYamahaFamily || canonicalKtmFamily || canonicalSuzukiFamily || canonicalOlaFamily || canonicalAtherFamily || canonicalJawaFamily || canonicalYezdiFamily || canonicalApriliaFamily || canonicalVespaFamily || canonicalKawasakiFamily || canonicalTvsFamily;
   const modelInfo = canonicalFamily
     ? {
-        brandId: isHonda ? "honda" : isHero ? "hero" : isBajaj ? "bajaj" : isRoyalEnfield ? "royal-enfield" : isYamaha ? "yamaha" : isKtm ? "ktm" : isSuzuki ? "suzuki" : isOla ? "ola-electric" : isAther ? "ather" : isJawa ? "jawa" : isYezdi ? "yezdi" : isAprilia ? "aprilia" : isVespa ? "vespa" : "kawasaki",
-        brandName: isHonda ? "Honda" : isHero ? "Hero" : isBajaj ? "Bajaj" : isRoyalEnfield ? "Royal Enfield" : isYamaha ? "Yamaha" : isKtm ? "KTM" : isSuzuki ? "Suzuki" : isOla ? "Ola Electric" : isAther ? "Ather" : isJawa ? "Jawa" : isYezdi ? "Yezdi" : isAprilia ? "Aprilia" : isVespa ? "Vespa" : "Kawasaki",
+        brandId: isHonda ? "honda" : isHero ? "hero" : isBajaj ? "bajaj" : isRoyalEnfield ? "royal-enfield" : isYamaha ? "yamaha" : isKtm ? "ktm" : isSuzuki ? "suzuki" : isOla ? "ola-electric" : isAther ? "ather" : isJawa ? "jawa" : isYezdi ? "yezdi" : isAprilia ? "aprilia" : isVespa ? "vespa" : isKawasaki ? "kawasaki" : "tvs",
+        brandName: isHonda ? "Honda" : isHero ? "Hero" : isBajaj ? "Bajaj" : isRoyalEnfield ? "Royal Enfield" : isYamaha ? "Yamaha" : isKtm ? "KTM" : isSuzuki ? "Suzuki" : isOla ? "Ola Electric" : isAther ? "Ather" : isJawa ? "Jawa" : isYezdi ? "Yezdi" : isAprilia ? "Aprilia" : isVespa ? "Vespa" : isKawasaki ? "Kawasaki" : "TVS",
         modelId: canonicalFamily.slug,
         modelName: canonicalFamily.name,
         category: canonicalFamily.groups.every((group) => group.category === "EV")

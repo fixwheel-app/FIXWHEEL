@@ -15,6 +15,7 @@ import { YEZDI_MODEL_FAMILIES } from "@/lib/yezdiModelFamilies";
 import { APRILIA_MODEL_FAMILIES } from "@/lib/apriliaModelFamilies";
 import { VESPA_MODEL_FAMILIES } from "@/lib/vespaModelFamilies";
 import { KAWASAKI_PAGE_FAMILIES } from "@/lib/kawasakiModelFamilies";
+import { TVS_MODEL_FAMILIES } from "@/lib/tvsModelFamilies";
 
 export const dynamic = "force-static";
 
@@ -173,6 +174,12 @@ export async function GET() {
   // Ninja variants share the only Kawasaki model-family page.
   for (const family of KAWASAKI_PAGE_FAMILIES) {
     const url = `https://www.fixwheel.app/kawasaki/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // TVS model variants now share one canonical page per model family.
+  for (const family of TVS_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/tvs/${family.slug}`;
     xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 

@@ -24,10 +24,11 @@ import type { YezdiModelFamily } from "@/lib/yezdiModelFamilies";
 import type { ApriliaModelFamily } from "@/lib/apriliaModelFamilies";
 import type { VespaModelFamily } from "@/lib/vespaModelFamilies";
 import type { KawasakiModelFamily } from "@/lib/kawasakiModelFamilies";
+import type { TvsModelFamily } from "@/lib/tvsModelFamilies";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
-  familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily;
+  familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily | TvsModelFamily;
 }
 
 export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClientProps) {

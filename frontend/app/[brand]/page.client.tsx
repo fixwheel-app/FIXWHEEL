@@ -76,6 +76,10 @@ import {
   BMW_MODEL_FAMILIES,
   BMW_MODEL_SECTIONS,
 } from "@/lib/bmwModelFamilies";
+import {
+  TVS_MODEL_FAMILIES,
+  TVS_MODEL_SECTIONS,
+} from "@/lib/tvsModelFamilies";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -248,7 +252,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
   const isHarleyDavidsonBrand = brandSlug.toLowerCase() === "harley-davidson";
   const isKawasakiBrand = brandSlug.toLowerCase() === "kawasaki";
   const isBmwBrand = brandSlug.toLowerCase() === "bmw";
-  const isFamilyBrand = isHondaBrand || isHeroBrand || isBajajBrand || isRoyalEnfieldBrand || isYamahaBrand || isKtmBrand || isSuzukiBrand || isOlaBrand || isAtherBrand || isJawaBrand || isYezdiBrand || isApriliaBrand || isVespaBrand || isHarleyDavidsonBrand || isKawasakiBrand || isBmwBrand;
+  const isTvsBrand = brandSlug.toLowerCase() === "tvs";
+  const isFamilyBrand = isHondaBrand || isHeroBrand || isBajajBrand || isRoyalEnfieldBrand || isYamahaBrand || isKtmBrand || isSuzukiBrand || isOlaBrand || isAtherBrand || isJawaBrand || isYezdiBrand || isApriliaBrand || isVespaBrand || isHarleyDavidsonBrand || isKawasakiBrand || isBmwBrand || isTvsBrand;
   const familySections = isHondaBrand
     ? HONDA_MODEL_SECTIONS
     : isHeroBrand
@@ -279,7 +284,9 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                               ? HARLEY_DAVIDSON_MODEL_SECTIONS
                               : isKawasakiBrand
                                 ? KAWASAKI_MODEL_SECTIONS
-                                : BMW_MODEL_SECTIONS;
+                                : isBmwBrand
+                                  ? BMW_MODEL_SECTIONS
+                                  : TVS_MODEL_SECTIONS;
   const modelFamilies = isHondaBrand
     ? HONDA_MODEL_FAMILIES
     : isHeroBrand
@@ -310,7 +317,9 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                               ? HARLEY_DAVIDSON_MODEL_FAMILIES
                               : isKawasakiBrand
                                 ? KAWASAKI_MODEL_FAMILIES
-                                : BMW_MODEL_FAMILIES;
+                                : isBmwBrand
+                                  ? BMW_MODEL_FAMILIES
+                                  : TVS_MODEL_FAMILIES;
   const allModels = isFamilyBrand
     ? modelFamilies.map((family) => family.name)
     : brandObj ? brandObj.models.map((m) => m.name) : [];
