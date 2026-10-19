@@ -423,7 +423,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug="delhi" />
 
       <section className="section-alt">
         <div className="wrap">

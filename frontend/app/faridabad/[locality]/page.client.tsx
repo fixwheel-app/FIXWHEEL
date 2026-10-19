@@ -422,7 +422,7 @@ export default function FaridabadLocalityClientPage({ slug }: LocalityClientProp
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug="faridabad" />
 
       <section className="section-alt">
         <div className="wrap">

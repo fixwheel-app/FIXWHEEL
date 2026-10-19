@@ -397,7 +397,7 @@ export default function PalamViharClientPage() {
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug="gurgaon" />
 
       <section className="section-alt">
         <div className="wrap">

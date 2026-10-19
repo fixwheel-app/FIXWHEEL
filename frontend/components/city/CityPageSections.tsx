@@ -5,7 +5,6 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
-import HeroBookingAction from "@/components/HeroBookingAction";
 import VehiclesWeService from "@/components/VehiclesWeService";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
@@ -114,17 +113,6 @@ export interface CityPageSectionsProps {
   toggleFaq: (idx: number) => void;
 }
 
-const vehicleTypes = [
-  "🛵 Scooter",
-  "🏍️ Commuter Bike",
-  "⚡ EV Scooter",
-  "⚡ EV Bike",
-  "🏁 Sports Bike",
-  "🔵 Royal Enfield",
-  "🚲 Moped",
-  "+ all other types",
-];
-
 const brands = [
   { name: "Honda", domain: "honda.com" },
   { name: "Hero", domain: "heromotocorp.com" },
@@ -148,7 +136,6 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
   const [showAllAreas, setShowAllAreas] = useState(false);
   const arrivalTime = config.hero.arrivalTime === "page-variable" ? pageVars.avgTime : config.hero.arrivalTime;
   const rating = config.hero.ratingSource === "page-variable" ? pageVars.averageRating : stats.average_rating;
-  const configuredVehicleTypes = config.vehicles?.types || vehicleTypes;
   const configuredBrands = config.vehicles?.brands || brands;
   const partnerBenefits = config.partner.benefits || [
     "Set your own working hours",
@@ -171,9 +158,17 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             <div className="eyebrow">{config.hero.eyebrow}</div>
             <h1>{config.hero.title}<br /><em>{config.hero.emphasis}</em></h1>
             <p className="lead">{config.hero.lead}</p>
-            <div className="hero-ctas">
-              <HeroBookingAction><Link href="/book" className="btn btn-primary">{config.hero.bookingLabel}</Link></HeroBookingAction>
-              <a href="#how" className="btn btn-ghost">See how it works</a>
+            <div className="w-full sm:w-fit" style={{ maxWidth: "100%", marginBottom: "40px" }}>
+              <div className="hero-ctas" style={{ marginBottom: 0 }}>
+                <Link href="/book" className="btn btn-primary">{config.hero.bookingLabel}</Link>
+                <a href="#how" className="btn btn-ghost">See how it works</a>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", marginTop: "14px", color: "#c0c5cc", fontSize: "13px", fontWeight: 400, lineHeight: "20px" }}>
+                <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="m5 12 4 4L19 6" />
+                </svg>
+                <span>Pay after service</span>
+              </div>
             </div>
             <div className="stat-row">
               <div className="stat"><b>{arrivalTime}</b><span>Arrival time</span></div>
@@ -186,7 +181,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug={config.citySlug} />
 
       <section id="areas" className="section-alt">
         <div className="wrap">
@@ -246,15 +241,6 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
 
       <section>
         <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">Vehicle types</div>
-            <h2>{config.vehicles?.heading || "Every two-wheeler, serviced at your door"}</h2>
-            <p>{config.vehicles?.description || "From daily scooters and commuter bikes to sports motorcycles and EVs — our mechanics handle them all."}</p>
-          </div>
-          <div className="pill-row">
-            {configuredVehicleTypes.map((vehicleType) => <span className="pill" key={vehicleType}>{vehicleType}</span>)}
-          </div>
-          <div style={{ height: "44px" }}></div>
           <div className="section-head" style={{ marginBottom: "24px" }}>
             <div className="eyebrow">We service all major brands</div>
             <h2 style={{ fontSize: "26px" }}>{config.vehicles?.brandsHeading || `Any brand, any model — ${config.cityName} doorstep`}</h2>

@@ -266,7 +266,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClient
                         className="flex min-h-20 items-center justify-between gap-4 rounded border border-slate-200 bg-white px-6 py-5 transition hover:-translate-y-0.5 hover:border-[#e62b2b] hover:shadow-lg"
                       >
                         <span className="font-mono text-sm font-bold text-slate-900">{familyModel}</span>
-                        <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider text-[#e62b2b]">View &amp; Book →</span>
+                        <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider text-[#e62b2b]">Book →</span>
                       </Link>
                     ))}
                   </div>

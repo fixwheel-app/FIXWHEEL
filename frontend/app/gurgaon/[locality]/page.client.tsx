@@ -425,7 +425,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug="gurgaon" />
 
       <section className="section-alt">
         <div className="wrap">

@@ -421,7 +421,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
         </div>
       </section>
 
-      <VehiclesWeService />
+      <VehiclesWeService citySlug="noida" />
 
       <section className="section-alt">
         <div className="wrap">

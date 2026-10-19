@@ -10,7 +10,7 @@ const vehicles = [
   { name: "Premium Bike", description: "Premium motorcycles", href: "/premium-bike", image: "premium" },
 ];
 
-export default function VehiclesWeService() {
+export default function VehiclesWeService({ citySlug }: { citySlug: string }) {
   return (
     <section
       className="border-y border-slate-200 bg-slate-50 py-10 md:py-16"
@@ -34,7 +34,7 @@ export default function VehiclesWeService() {
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6 lg:gap-5">
           {vehicles.map((vehicle) => (
-            <Link key={vehicle.name} href={vehicle.href} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-xl">
+            <Link key={vehicle.name} href={`/${citySlug}${vehicle.href}`} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-xl">
               <div className="relative aspect-[4/2.65] overflow-hidden bg-slate-100">
                 <Image src={`/images/vehicles/${vehicle.image}.png`} alt={`${vehicle.name} service`} fill sizes="(max-width: 768px) 50vw, 220px" className="object-cover transition duration-300 group-hover:scale-105" />
               </div>
