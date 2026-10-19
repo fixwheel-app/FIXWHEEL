@@ -88,6 +88,85 @@ function getBrandData(brandSlug: string) {
   };
 }
 
+function getBrandSeoKeywords(brandSlug: string, brandName: string, existingKeywords: string[]) {
+  const normalizedBrandName = brandName.toLowerCase();
+  const normalizedSlug = brandSlug.toLowerCase();
+  const vehicleType = findElectricBrandByReference(normalizedSlug) ? "electric scooter" : "bike";
+  const serviceIntentKeywords = [
+    `${normalizedBrandName} service near me`,
+    `${normalizedBrandName} repair near me`,
+    `${normalizedBrandName} ${vehicleType} service near me`,
+    `${normalizedBrandName} ${vehicleType} repair at home`,
+    `${normalizedBrandName} mechanic near me`,
+    `${normalizedBrandName} service at home`,
+    `${normalizedBrandName} doorstep service`,
+    `${normalizedBrandName} doorstep repair`,
+    `book ${normalizedBrandName} service online`,
+    `${normalizedBrandName} two wheeler service delhi ncr`,
+    `${normalizedBrandName} service delhi`,
+    `${normalizedBrandName} service gurgaon`,
+    `${normalizedBrandName} service noida`,
+    `${normalizedBrandName} service faridabad`,
+    `${normalizedBrandName} service ghaziabad`,
+  ];
+
+  return Array.from(new Set([...existingKeywords, ...serviceIntentKeywords]));
+}
+
+type BrandData = NonNullable<ReturnType<typeof getBrandData>>;
+
+function getBrandFaqs(brandSlug: string, brandData: BrandData) {
+  if (findElectricBrandByReference(brandSlug)) {
+    return [
+      {
+        q: `How long does doorstep ${brandData.name} EV service take?`,
+        a: "Most EV inspections and minor repairs take 30 to 50 minutes at your home or office parking. Model compatibility is confirmed before dispatch.",
+      },
+      {
+        q: `What is checked during a ${brandData.name} EV service?`,
+        a: "The mechanic checks the BMS status, auxiliary battery voltage, accessible wiring, charging-port condition, motor response, brakes, and tyres according to the reported issue.",
+      },
+      {
+        q: "Can FixWheel repair the traction battery at my doorstep?",
+        a: "Doorstep work covers safe diagnostics and accessible systems. Sealed traction-battery or major motor repairs are moved through the EV pick-and-drop service after you approve the quote.",
+      },
+      {
+        q: `Is there a warranty on doorstep ${brandData.name} EV repairs?`,
+        a: "Yes, FixWheel provides a 15-day labor and diagnostic warranty, plus the applicable manufacturer warranty on replacement components.",
+      },
+      {
+        q: `Which locations do you cover for ${brandData.name} EV service?`,
+        a: "We cover Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad at home or office parking locations.",
+      },
+    ];
+  }
+
+  if (brandData.faqs?.length) return brandData.faqs;
+
+  return [
+    {
+      q: `How long does doorstep ${brandData.name} service take in Delhi?`,
+      a: `Routine servicing for ${brandData.name} two-wheelers typically takes 35 to 50 minutes. Our certified mechanics arrive fully equipped at your doorstep with all required OEM spares and tools.`,
+    },
+    {
+      q: `Do you use 100% genuine ${brandData.name} OEM spare parts?`,
+      a: `Yes, we use 100% genuine OEM spare parts (${brandData.additionalInfo.parts}). All replaced parts are inspected and handed over to you after servicing.`,
+    },
+    {
+      q: `What engine oil is used for ${brandData.name} bikes & scooters?`,
+      a: `We use recommended ${brandData.name} specification oil (${brandData.additionalInfo.engineOil}) or high-grade Motul/Yamalube synthetic blends depending on your bike model.`,
+    },
+    {
+      q: `Is there a warranty on doorstep ${brandData.name} repairs?`,
+      a: `Yes, FixWheel provides a 15-day quality labor warranty on all ${brandData.name} services and diagnostics, plus manufacturer warranties on replacement components.`,
+    },
+    {
+      q: `Which locations in Delhi do you cover for ${brandData.name} service?`,
+      a: "We cover all major locations across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. You can book doorstep service at your home or office parking.",
+    },
+  ];
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const brandData = getBrandData(params.brand);
   if (!brandData) {
@@ -96,11 +175,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const titleText = `Doorstep ${brandData.name} Service & Repair Near Me | FixWheel`;
   const descText = `Book professional doorstep ${brandData.name} bike service and repairs. ${brandData.tagline}. Transparent pricing, verified mechanics, 15-day warranty.`;
+  const keywords = getBrandSeoKeywords(params.brand, brandData.name, brandData.seoKeywords);
 
   return {
     title: titleText,
     description: descText,
-    keywords: brandData.seoKeywords.join(", "),
+    keywords,
     alternates: {
       canonical: `https://www.fixwheel.app/${params.brand.toLowerCase()}`,
     },
@@ -116,9 +196,57 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default function BrandDetailPage({ params }: PageProps) {
   const brandSlug = params.brand.toLowerCase();
-  if (!getBrandData(brandSlug)) {
+  const brandData = getBrandData(brandSlug);
+  if (!brandData) {
     notFound();
   }
 
-  return <BrandDetailClient brandSlug={brandSlug} />;
+  const pageUrl = `https://www.fixwheel.app/${brandSlug}`;
+  const brandFaqs = getBrandFaqs(brandSlug, brandData);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: `${brandData.name} Doorstep Service & Repair`,
+        serviceType: `${brandData.name} two-wheeler service and repair`,
+        url: pageUrl,
+        description: brandData.description,
+        provider: { "@id": "https://www.fixwheel.app/#organization" },
+        areaServed: ["Delhi", "Gurgaon", "Noida", "Ghaziabad", "Faridabad"].map((name) => ({
+          "@type": "City",
+          name,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+          { "@type": "ListItem", position: 2, name: "Brands", item: "https://www.fixwheel.app/brands" },
+          { "@type": "ListItem", position: 3, name: brandData.name, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: brandFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
+      <BrandDetailClient brandSlug={brandSlug} />
+    </>
+  );
 }

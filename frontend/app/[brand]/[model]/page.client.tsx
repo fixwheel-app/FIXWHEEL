@@ -29,9 +29,22 @@ import type { TvsModelFamily } from "@/lib/tvsModelFamilies";
 interface ModelClientProps {
   modelInfo: ResolvedModel;
   familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily | TvsModelFamily;
+  familyFaqs: Array<{ q: string; a: string }>;
 }
 
-export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClientProps) {
+function getMaintenanceCopy(category: string, brandName: string, familyModel: string) {
+  if (category === "EV") {
+    return `${brandName} ${familyModel} service checks can cover accessible charging and electrical connections, warning indicators, auxiliary power, motor response, brakes, tyres and the ride concern you report.`;
+  }
+
+  if (category === "Scooter") {
+    return `${brandName} ${familyModel} maintenance can cover starting and pickup, CVT drive behaviour, brakes, tyres, battery, lights and other symptoms recorded during booking.`;
+  }
+
+  return `${brandName} ${familyModel} maintenance can cover starting and pickup, clutch and gear operation, chain and sprockets, brakes, tyres, battery, lights and the issue you report.`;
+}
+
+export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }: ModelClientProps) {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global || DEFAULT_PUBLIC_STATS.global);
 
   useEffect(() => {
@@ -58,79 +71,9 @@ export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClient
   const electricFamilyModels = familyInfo?.groups.find((group) => group.category === "EV")?.models || [];
   const familyModelCount = familyInfo?.groups.reduce((total, group) => total + group.models.length, 0) || 0;
 
-  const bLow = brandName.toLowerCase();
-  const mLow = modelName.toLowerCase();
   const bSlug = slugifyModel(brandName);
-
-  // High-converting local & "near me" keywords tailored for this model
-  const keywords = [
-    `${mLow} service near me`,
-    `${mLow} repair near me`,
-    `${mLow} mechanic near me`,
-    `${bLow} ${mLow} service near me`,
-    `doorstep ${mLow} service near me`,
-    `${mLow} ${isElectricModel ? "battery diagnostic" : "oil change"} near me`,
-    `${mLow} battery replacement near me`,
-    `${mLow} brake repair near me`,
-    `${mLow} repair at home gurgaon`,
-    `${mLow} mechanic delhi`,
-    `${mLow} doorstep service noida`,
-    `${mLow} service ghaziabad`,
-    `${mLow} repair faridabad`,
-    `bike mechanic near me at home`,
-  ];
-
-  const faqs = isElectricModel ? [
-    {
-      q: `Looking for ${brandName} ${modelName} EV service near me?`,
-      a: `FixWheel provides doorstep EV inspection and minor repair across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. We confirm diagnostic compatibility for your exact model before dispatch.`,
-    },
-    {
-      q: `How long does doorstep service for ${brandName} ${modelName} take?`,
-      a: `A routine EV inspection or minor repair generally takes 30 to 50 minutes at your home or office parking.`,
-    },
-    {
-      q: `What is checked during a ${brandName} ${modelName} EV service?`,
-      a: `The mechanic checks the BMS status, auxiliary battery voltage, charging port, accessible wiring, motor response, brakes, and tyres based on your reported issue.`,
-    },
-    {
-      q: `Can the traction battery of my ${brandName} ${modelName} be repaired at my doorstep?`,
-      a: `Doorstep work covers safe diagnostics and accessible systems. Sealed traction-battery or major motor repair is handled through EV pick and drop after you approve the quote.`,
-    },
-    {
-      q: `Can I get my ${brandName} ${modelName} serviced at my office parking lot?`,
-      a: `Yes. Our EV mechanics carry portable diagnostic and safety equipment for supported checks and minor repairs at your office or residential parking.`,
-    },
-    {
-      q: `Is there a warranty on ${brandName} ${modelName} doorstep service?`,
-      a: `FixWheel provides a 15-day labor and diagnostic warranty, plus the applicable manufacturer warranty on replacement components.`,
-    },
-  ] : [
-    {
-      q: `Looking for ${brandName} ${modelName} service near me in Delhi?`,
-      a: `FixWheel is the top-rated doorstep ${brandName} ${modelName} service provider near you in Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad. Our certified mobile mechanics reach your location within 45 minutes with genuine OEM parts and specialized tools.`,
-    },
-    {
-      q: `How long does doorstep service for ${brandName} ${modelName} take?`,
-      a: `A standard periodic service or tune-up for ${brandName} ${modelName} takes 35 to 50 minutes at your home or office parking in Delhi.`,
-    },
-    {
-      q: `What engine oil is recommended for ${brandName} ${modelName}?`,
-      a: `We strictly follow manufacturer specifications using sealed OEM-grade or premium synthetic oil (Motul / Yamalube / HMSI / Castrol) matching ${brandName}'s official viscosity guidelines.`,
-    },
-    {
-      q: `Do you use genuine parts for ${brandName} ${modelName} repairs?`,
-      a: `Yes, 100%! We use sealed, genuine OEM replacement parts for ${brandName} ${modelName} including air filters, spark plugs, brake shoes, and cables.`,
-    },
-    {
-      q: `Can I get my ${brandName} ${modelName} serviced at my office parking lot?`,
-      a: `Absoluty! Our mobile doorstep mechanics arrive with portable tools and protective floor mats so zero mess is left in your office or residential parking.`,
-    },
-    {
-      q: `Is there a warranty on ${brandName} ${modelName} doorstep service?`,
-      a: `Yes! FixWheel provides a 15-day labor & diagnostic warranty on all ${brandName} ${modelName} repairs, plus manufacturer warranties on replaced components.`,
-    },
-  ];
+  const getBookingHref = (familyModel: string, category: string) =>
+    `/book?brand=${encodeURIComponent(bSlug)}&model=${encodeURIComponent(familyModel)}&type=${encodeURIComponent(category === "EV" ? "Electric Motorbike" : "Non-Electric Motorbike")}`;
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
@@ -262,7 +205,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClient
                     {group.models.map((familyModel) => (
                       <Link
                         key={familyModel}
-                        href={`/book#${bSlug}`}
+                        href={getBookingHref(familyModel, group.category)}
                         className="flex min-h-20 items-center justify-between gap-4 rounded border border-slate-200 bg-white px-6 py-5 transition hover:-translate-y-0.5 hover:border-[#e62b2b] hover:shadow-lg"
                       >
                         <span className="font-mono text-sm font-bold text-slate-900">{familyModel}</span>
@@ -272,6 +215,45 @@ export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClient
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {familyInfo && (
+        <section className="border-b border-slate-200 bg-slate-50 py-14" aria-labelledby="family-maintenance-heading">
+          <div className="container mx-auto max-w-6xl px-4">
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b]">Model-specific care</span>
+              <h2 id="family-maintenance-heading" className="mt-3 font-oswald text-2xl font-black uppercase tracking-tight text-slate-900 md:text-3xl">
+                Service issues and maintenance for every {modelName} model
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base">
+                Select the exact vehicle below so the booking carries the right model name. The checks shown are matched to its vehicle category and the issue you report.
+              </p>
+            </div>
+
+            <div className="mt-9 divide-y divide-slate-200 border-y border-slate-200">
+              {familyInfo.groups.flatMap((group) =>
+                group.models.map((familyModel) => (
+                  <article key={`${group.category}-${familyModel}`} className="grid gap-4 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] md:items-center">
+                    <div>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#e62b2b]">{group.category}</span>
+                      <h3 className="mt-1 font-oswald text-lg font-bold text-slate-900">{brandName} {familyModel}</h3>
+                    </div>
+                    <p className="text-sm leading-6 text-slate-600">
+                      {getMaintenanceCopy(group.category, brandName, familyModel)}
+                    </p>
+                    <Link
+                      href={getBookingHref(familyModel, group.category)}
+                      className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#e62b2b] hover:text-red-700"
+                    >
+                      Book {familyModel} service
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </article>
+                ))
+              )}
             </div>
           </div>
         </section>
@@ -388,6 +370,39 @@ export default function ModelDetailClient({ modelInfo, familyInfo }: ModelClient
               </div>
             </section>
           )}
+
+          <section className="mb-16 border-y border-slate-200 py-14" aria-labelledby="family-faq-heading">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)]">
+              <div>
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#e62b2b]">Questions before booking</span>
+                <h2 id="family-faq-heading" className="mt-3 font-oswald text-2xl font-black uppercase tracking-tight text-slate-900 md:text-3xl">
+                  {brandName} {modelName} service FAQ
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  Model coverage, maintenance checks and booking details for this shared family page.
+                </p>
+              </div>
+              <div className="divide-y divide-slate-200 border-t border-slate-200">
+                {familyFaqs.map((faq, idx) => {
+                  const isOpen = !!openFaqs[idx];
+                  return (
+                    <div key={faq.q} className="border-b border-slate-200">
+                      <button
+                        type="button"
+                        onClick={() => toggleFaq(idx)}
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                      >
+                        <span className="font-semibold text-slate-900">{faq.q}</span>
+                        <ChevronDown className={cn("h-5 w-5 shrink-0 text-[#e62b2b] transition-transform", isOpen && "rotate-180")} aria-hidden="true" />
+                      </button>
+                      {isOpen && <p className="max-w-3xl pb-5 text-sm leading-6 text-slate-600">{faq.a}</p>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
 
           {/* ===== BECOME A PARTNER SECTION ===== */}
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-center">

@@ -50,13 +50,16 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
         const rawHash = window.location.hash.replace(/^#/, '').split('?')[0].toLowerCase();
         const rawQueryBrand = (searchParams.get('brand') || searchParams.get('b') || '').toLowerCase();
         const targetBrandSlug = rawQueryBrand || rawHash;
+        const requestedType = searchParams.get('type');
 
         if (targetBrandSlug && BRAND_SLUG_MAP[targetBrandSlug]) {
           const preselectedBrand = BRAND_SLUG_MAP[targetBrandSlug];
           setBrand(preselectedBrand);
 
           const isElectric = (preselectedBrand === 'Ola Electric' || preselectedBrand === 'Ather');
-          setFuelType(isElectric ? 'Electric Motorbike' : 'Non-Electric Motorbike');
+          setFuelType(requestedType === 'Electric Motorbike' || requestedType === 'Non-Electric Motorbike'
+            ? requestedType
+            : isElectric ? 'Electric Motorbike' : 'Non-Electric Motorbike');
         }
 
         // 2. Handle search params model selection
@@ -79,9 +82,13 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
   const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false);
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
 
-  const currentBrands = BIKE_DATA[fuelType] || [];
+  const catalogBrands = BIKE_DATA[fuelType] || [];
+  const currentBrands = brand && !catalogBrands.some((candidate) => candidate.name === brand)
+    ? [{ id: brand.toLowerCase().replace(/\s+/g, '-'), name: brand, models: model ? [{ id: model.toLowerCase().replace(/\s+/g, '-'), name: model }] : [] }, ...catalogBrands]
+    : catalogBrands;
   const selectedBrandObj = currentBrands.find(b => b.name === brand);
-  const currentModels = selectedBrandObj ? selectedBrandObj.models.map(m => m.name) : [];
+  const catalogModels = selectedBrandObj ? selectedBrandObj.models.map(m => m.name) : [];
+  const currentModels = model && !catalogModels.includes(model) ? [model, ...catalogModels] : catalogModels;
 
   return (
     <div className="min-h-screen bg-[#111111] pt-24 pb-16 text-white font-sans">

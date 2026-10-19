@@ -78,6 +78,56 @@ import {
 } from "@/lib/tvsModelFamilies";
 import ModelDetailClient from "./page.client";
 
+interface FamilyLike {
+  name: string;
+  slug: string;
+  groups: Array<{ category: string; models: string[] }>;
+}
+
+interface FamilyFaq {
+  q: string;
+  a: string;
+}
+
+function formatModelList(models: string[]) {
+  if (models.length <= 1) return models[0] || "the listed model";
+  return `${models.slice(0, -1).join(", ")} and ${models[models.length - 1]}`;
+}
+
+function getFamilyFaqs(brandName: string, family: FamilyLike): FamilyFaq[] {
+  const models = family.groups.flatMap((group) => group.models);
+  const hasElectricModels = family.groups.some((group) => group.category === "EV");
+  const hasCombustionModels = family.groups.some((group) => group.category !== "EV");
+  const serviceChecks = hasElectricModels && hasCombustionModels
+    ? "Checks are matched to the selected model. Petrol models can be inspected for starting, pickup, transmission, drive, brake, tyre, battery and lighting concerns; electric models can be inspected for accessible charging and electrical connections, warning indicators, motor response, brakes and tyres."
+    : hasElectricModels
+      ? "FixWheel can inspect accessible charging and electrical connections, auxiliary power, warning indicators, motor response, brakes, tyres and the reported ride concern. Sealed traction-battery or motor work is assessed before workshop referral."
+      : "FixWheel can inspect starting and pickup, clutch or CVT operation, drive components, brakes, tyres, battery, lights and the specific issue you report when booking.";
+
+  return [
+    {
+      q: `Which ${brandName} ${family.name} models can I book on this page?`,
+      a: `This shared service page covers ${formatModelList(models)}. Choose your exact model when booking so the service request carries the correct vehicle details.`,
+    },
+    {
+      q: `What issues can FixWheel inspect for ${brandName} ${family.name} models?`,
+      a: serviceChecks,
+    },
+    {
+      q: `What maintenance can I book for a ${brandName} ${family.name}?`,
+      a: "You can report routine maintenance needs or a specific running, braking, tyre, electrical or starting concern. The booking form records the exact model and issue so the service team can confirm the suitable doorstep work before dispatch.",
+    },
+    {
+      q: `Can I book ${brandName} ${family.name} service at home or office?`,
+      a: "Yes. Doorstep bookings are available at home or office parking locations across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad, subject to service and model compatibility.",
+    },
+    {
+      q: `How do I book the correct ${brandName} ${family.name} model?`,
+      a: "Use the Book action beside your exact model on this page. It opens the booking form with the brand and model selected so you can add the issue, location and preferred time.",
+    },
+  ];
+}
+
 interface PageProps {
   params: Promise<{
     brand: string;
@@ -185,7 +235,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "manesar",
   ];
 
-  const keywords = [
+  const modelSearchKeywords = familyModels.flatMap((familyModel) => {
+    const normalizedModel = familyModel.toLowerCase();
+    const normalizedBrand = brandName.toLowerCase();
+
+    return [
+      `${normalizedBrand} ${normalizedModel} service near me`,
+      `${normalizedBrand} ${normalizedModel} repair near me`,
+      `${normalizedModel} service near me`,
+      `${normalizedModel} service at home`,
+      `${normalizedModel} doorstep service`,
+      `${normalizedModel} mechanic near me`,
+      `${normalizedModel} service delhi`,
+      `${normalizedModel} service gurgaon`,
+      `${normalizedModel} service noida`,
+      `${normalizedModel} service faridabad`,
+      `${normalizedModel} service ghaziabad`,
+    ];
+  });
+
+  const keywords = Array.from(new Set([
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} service near me`,
     `doorstep ${modelName.toLowerCase()} repair gurgaon`,
     `${brandName.toLowerCase()} ${modelName.toLowerCase()} mechanic home service gurgaon`,
@@ -203,8 +272,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     `${modelName.toLowerCase()} mechanic manesar gurgaon`,
     ...gurgaonLocalities.map((loc) => `${modelName.toLowerCase()} service in ${loc} gurgaon`),
     ...gurgaonLocalities.map((loc) => `${brandName.toLowerCase()} ${modelName.toLowerCase()} repair ${loc}`),
-    ...familyModels.map((familyModel) => `${brandName.toLowerCase()} ${familyModel.toLowerCase()} service near me`),
-  ].join(", ");
+    ...modelSearchKeywords,
+  ]));
 
   return {
     title,
@@ -336,9 +405,59 @@ export default async function ModelPage({ params }: PageProps) {
       }
     : undefined;
 
-  if (!modelInfo) {
+  if (!modelInfo || !canonicalFamily) {
     notFound();
   }
 
-  return <ModelDetailClient modelInfo={modelInfo} familyInfo={canonicalFamily} />;
+  const familyFaqs = getFamilyFaqs(modelInfo.brandName, canonicalFamily);
+  const brandSlug = slugifyModel(modelInfo.brandName);
+  const pageUrl = `https://www.fixwheel.app/${brandSlug}/${canonicalFamily.slug}`;
+  const familyModels = canonicalFamily.groups.flatMap((group) => group.models);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: `${modelInfo.brandName} ${canonicalFamily.name} Doorstep Service & Repair`,
+        serviceType: `${modelInfo.brandName} ${canonicalFamily.name} two-wheeler service and repair`,
+        url: pageUrl,
+        description: `Doorstep service and repair for ${formatModelList(familyModels)} across Delhi NCR.`,
+        provider: { "@id": "https://www.fixwheel.app/#organization" },
+        areaServed: ["Delhi", "Gurgaon", "Noida", "Ghaziabad", "Faridabad"].map((name) => ({
+          "@type": "City",
+          name,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+          { "@type": "ListItem", position: 2, name: "Brands", item: "https://www.fixwheel.app/brands" },
+          { "@type": "ListItem", position: 3, name: modelInfo.brandName, item: `https://www.fixwheel.app/${brandSlug}` },
+          { "@type": "ListItem", position: 4, name: canonicalFamily.name, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: familyFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
+      <ModelDetailClient modelInfo={modelInfo} familyInfo={canonicalFamily} familyFaqs={familyFaqs} />
+    </>
+  );
 }

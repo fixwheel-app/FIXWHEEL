@@ -4,6 +4,8 @@ import BrandCityClient from "@/app/[brand]/[model]/BrandCityClient";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
+import { findElectricBrandByReference } from "@/lib/electricServices";
+import { getBrandCityFaqs } from "@/lib/brandCityFaqs";
 
 const brandSlugSet = new Set<string>();
 
@@ -68,14 +70,61 @@ export function renderBrandCity(citySlug: string, brandSlug: string) {
   const otherCities = Object.values(CITIES_DB)
     .filter((otherCity) => otherCity.slug !== city.slug)
     .map((otherCity) => ({ slug: otherCity.slug, name: otherCity.name }));
+  const brandName = findElectricBrandByReference(normalizedBrandSlug)?.name || getBrandName(normalizedBrandSlug);
+  const brandData = BRAND_DETAILS[normalizedBrandSlug];
+  const isElectricBrand = Boolean(findElectricBrandByReference(normalizedBrandSlug));
+  const cityFaqs = getBrandCityFaqs(
+    brandName,
+    city.name,
+    city.brandPageLocalities,
+    isElectricBrand,
+    brandData?.additionalInfo.parts || "100% Genuine OEM Spare Parts & Cables",
+    brandData?.additionalInfo.engineOil || "OEM Specification Multi-Grade Engine Oil",
+  );
+  const canonicalUrl = `https://www.fixwheel.app/${city.slug}/${normalizedBrandSlug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${canonicalUrl}#service`,
+        name: `Doorstep ${brandName} service in ${city.name}`,
+        serviceType: `${brandName} two-wheeler maintenance and repair`,
+        url: canonicalUrl,
+        provider: { "@id": "https://www.fixwheel.app/#organization" },
+        areaServed: { "@type": "City", name: city.name },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+          { "@type": "ListItem", position: 2, name: city.name, item: `https://www.fixwheel.app/${city.slug}` },
+          { "@type": "ListItem", position: 3, name: "Brands", item: "https://www.fixwheel.app/brands" },
+          { "@type": "ListItem", position: 4, name: brandName, item: `https://www.fixwheel.app/${normalizedBrandSlug}` },
+          { "@type": "ListItem", position: 5, name: `${brandName} Service`, item: canonicalUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: cityFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
 
   return (
-    <BrandCityClient
-      brandSlug={normalizedBrandSlug}
-      citySlug={city.slug}
-      cityName={city.name}
-      localities={city.brandPageLocalities}
-      otherCities={otherCities}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <BrandCityClient
+        brandSlug={normalizedBrandSlug}
+        citySlug={city.slug}
+        cityName={city.name}
+        localities={city.brandPageLocalities}
+        otherCities={otherCities}
+      />
+    </>
   );
 }
