@@ -247,8 +247,11 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
               <p className="text-gray-400 text-sm font-bold uppercase tracking-widest text-center md:text-left">Available Services</p>
               
               {(fuelType === 'Electric Motorbike' 
-                ? ELECTRIC_SERVICES 
-                : NON_ELECTRIC_SERVICES.filter(srv => ccRange && srv.prices[ccRange] !== null)
+                ? ELECTRIC_SERVICES.filter(srv => srv.price >= 399)
+                : NON_ELECTRIC_SERVICES.filter(srv => {
+                    const price = ccRange ? srv.prices[ccRange] : null;
+                    return typeof price === 'number' && price >= 399;
+                  })
               ).map((srv) => {
                 const price = fuelType === 'Electric Motorbike' ? (srv as any).price : (ccRange ? (srv as any).prices[ccRange] : null);
                 let originalPrice: number | null = null;
@@ -327,6 +330,24 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
               })}
             </div>
           )}
+
+          <section className="mt-10 rounded-[2rem] border border-white/15 bg-white/5 px-6 py-8 text-center md:px-10 md:py-10" aria-labelledby="more-services-heading">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">More ways to service your ride</span>
+            <h2 id="more-services-heading" className="mt-3 text-2xl font-black text-white md:text-3xl">
+              For more services, download the FixWheel app
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-gray-300 md:text-base">
+              Explore additional two-wheeler services and book from your phone.
+            </p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center gap-3 rounded-full bg-accent px-7 py-4 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-accent-hover"
+            >
+              Get the app on Google Play <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </section>
 
         </div>
       </div>
