@@ -239,6 +239,16 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/:locality',
+        destination: '/:city/:locality/electric-vehicle',
+        statusCode: 301,
+      },
+      {
+        source: '/services/electric-scooter-repair/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/:locality',
+        destination: '/:city/:locality/electric-vehicle',
+        statusCode: 301,
+      },
+      {
         source: '/electric-scooter-repair/:city/:locality+',
         destination: '/:city/electric-vehicle',
         statusCode: 301,

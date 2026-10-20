@@ -36,7 +36,14 @@ const brands = [
 ];
 const cities = ["Gurgaon", "Delhi", "Noida", "Ghaziabad", "Faridabad"];
 
-export default function ElectricVehicleLayout({ service, bikesServiced, rating }: { service: ServicePageProps; bikesServiced: string; rating: number }) {
+interface EvLocality {
+  name: string;
+  slug: string;
+  cityName: string;
+  citySlug: string;
+}
+
+export default function ElectricVehicleLayout({ service, bikesServiced, rating, locality }: { service: ServicePageProps; bikesServiced: string; rating: number; locality?: EvLocality }) {
   const [selected, setSelected] = useState("");
   const [variables, setVariables] = useState({ startingPrice: service.startingPrice, avgTime: service.avgTime, warranty: service.warranty });
   useEffect(() => {
@@ -46,10 +53,10 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
   }, [service.startingPrice, service.avgTime, service.warranty]);
   const tip = symptoms.find(([key]) => key === selected)?.[2];
   return <div className="scooty-reference" data-theme="light">
-    <div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; <span>Electric Vehicle Repair</span></div></div>
+    <div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {locality && <><a href={`/${locality.citySlug}`}>{locality.cityName}</a> &nbsp;/&nbsp; <a href={`/${locality.citySlug}/${locality.slug}`}>{locality.name}</a> &nbsp;/&nbsp; </>}<span>Electric Vehicle Repair</span></div></div>
     <div className="hero"><div className="wrap">
-      <div><span className="tag">Electric two-wheeler care</span><h1>Doorstep EV &amp; Electric Repair in Delhi NCR</h1>
-        <p className="lead">Charging trouble, a dashboard warning or brakes that need attention? Book an inspection for your electric scooter or bike at home or work across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Share your model so we can confirm the right support.</p>
+      <div><span className="tag">Electric two-wheeler care</span><h1>{locality ? `Doorstep EV & Electric Repair in ${locality.name}, ${locality.cityName}` : "Doorstep EV & Electric Repair in Delhi NCR"}</h1>
+        <p className="lead">{locality ? `Charging trouble, a dashboard warning or brakes that need attention in ${locality.name}? Book an inspection for your electric scooter or bike at home or work in ${locality.name}, ${locality.cityName}. Share your model so we can confirm the right support.` : "Charging trouble, a dashboard warning or brakes that need attention? Book an inspection for your electric scooter or bike at home or work across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Share your model so we can confirm the right support."}</p>
         <div className="cta-row"><HeroBookingAction><a className="btn btn-red" href="/book">Book EV service</a></HeroBookingAction><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div>
       </div>
       <section className="picker" aria-labelledby="ev-picker" style={{ padding: 20 }}><h2 id="ev-picker">What does your EV need?</h2><p>Select the issue you’re noticing.</p>
@@ -58,6 +65,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
       </section>
     </div></div>
     <div className="stats"><div className="wrap"><div><b>{variables.avgTime}</b><small>Doorstep arrival</small></div><div><b>{rating} ★</b><small>FixWheel customer rating</small></div><div><b>{bikesServiced}+</b><small>Two-wheelers serviced across Delhi NCR</small></div><div><b>{variables.warranty}</b><small>EV service warranty</small></div></div></div>
+    {locality && <section><div className="wrap"><div className="sec-head"><h2>Electric scooter service in {locality.name}</h2><p>Need help with an Ola S1, Ather 450, TVS iQube or Bajaj Chetak in {locality.name}, {locality.cityName}? Tell us your exact model and whether you need a battery or charging check, dashboard diagnosis, brake service or puncture support. We confirm the available service and model compatibility before your visit.</p></div></div></section>}
     <section><div className="wrap"><div className="sec-head"><h2>How doorstep EV service works</h2><p>A clear diagnosis, an approved quote and payment after the job.</p></div><div className="steps">
       {[["Tell us about your EV", "Share the make, model, symptoms and complete address."], ["Confirm the visit", "The team checks service compatibility and arranges your mechanic."], ["Inspect and approve", "Review the diagnosis and quote before any repair or replacement."], ["Check and pay", "Check the completed work and pay after the service."]].map(([title, text]) => <div className="step" key={title}><h3>{title}</h3><p>{text}</p></div>)}
     </div></div></section>
@@ -71,7 +79,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating }
     <section><div className="wrap two"><div><h2>Care built around your electric ride</h2><p style={{ color: "var(--muted)", marginTop: 14 }}>An EV has different service needs from a petrol scooter. Tell us about charging behaviour, range changes, warning messages or unusual noises so the mechanic can focus the inspection on the relevant systems.</p>
       <ul className="checks">{service.includedItems.map(item => <li key={item}>{item}</li>)}</ul>
       <p style={{ color: "var(--muted)", marginTop: 20 }}>Doorstep work focuses on safe diagnostics and accessible systems. Sealed battery-pack repair requires an appropriate specialist process; model-specific support is confirmed before the visit.</p>
-    </div><aside className="spec"><h3>Service specifications</h3><dl><div><dt>Coverage</dt><dd>Delhi, Gurgaon, Noida, Ghaziabad and Faridabad</dd></div><div><dt>Arrival</dt><dd>{variables.avgTime}</dd></div><div><dt>Starting price</dt><dd>{variables.startingPrice}</dd></div><div><dt>Warranty</dt><dd>{variables.warranty}</dd></div><div><dt>Before work begins</dt><dd>Approve the diagnosis, repair and parts quote</dd></div><div><dt>Payment</dt><dd>After the service is completed</dd></div></dl><a className="btn btn-red" href="/book">Book this service</a></aside></div></section>
+    </div><aside className="spec"><h3>Service specifications</h3><dl><div><dt>Coverage</dt><dd>{locality ? `${locality.name}, ${locality.cityName}` : "Delhi, Gurgaon, Noida, Ghaziabad and Faridabad"}</dd></div><div><dt>Arrival</dt><dd>{variables.avgTime}</dd></div><div><dt>Starting price</dt><dd>{variables.startingPrice}</dd></div><div><dt>Warranty</dt><dd>{variables.warranty}</dd></div><div><dt>Before work begins</dt><dd>Approve the diagnosis, repair and parts quote</dd></div><div><dt>Payment</dt><dd>After the service is completed</dd></div></dl><a className="btn btn-red" href="/book">Book this service</a></aside></div></section>
     <section className="alt"><div className="wrap"><div className="sec-head"><h2>EV brands we serve</h2><p>Popular electric scooters, with service support confirmed for your exact model.</p></div><div className="brands">{brands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>)}</div>
       <p className="other-models">Ride another electric scooter or an electric bike? Share your brand, model and issue when booking so we can confirm compatibility and service availability.</p><div className="more"><a href="/bike">Bike</a><a href="/scooty-repair">Scooty &amp; Scooter</a><a href="/cruiser-bike">Cruiser/Bullet</a><a href="/premium-bike">Premium Bike</a><a href="/sports-bike">Sport Bike</a></div>
     </div></section>
