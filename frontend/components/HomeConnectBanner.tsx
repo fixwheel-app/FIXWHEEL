@@ -14,7 +14,7 @@ const socialLinks = [
       </svg>
     ),
   },
-  { name: "Instagram", href: "https://www.instagram.com/fixwheel.app?igsh=ZDBqZTB1c2tsMWU1", icon: <Instagram className="h-5 w-5" /> },
+  { name: "Instagram", href: "https://www.instagram.com/fixwheel_app", icon: <Instagram className="h-5 w-5" /> },
   { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61573309963156", icon: <Facebook className="h-5 w-5" /> },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/fixwheel-app/", icon: <Linkedin className="h-5 w-5" /> },
 ];
