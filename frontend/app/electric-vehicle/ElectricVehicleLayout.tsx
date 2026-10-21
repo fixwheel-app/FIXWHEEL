@@ -69,7 +69,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating, 
     <section><div className="wrap"><div className="sec-head"><h2>How doorstep EV service works</h2><p>A clear diagnosis, an approved quote and payment after the job.</p></div><div className="steps">
       {[["Tell us about your EV", "Share the make, model, symptoms and complete address."], ["Confirm the visit", "The team checks service compatibility and arranges your mechanic."], ["Inspect and approve", "Review the diagnosis and quote before any repair or replacement."], ["Check and pay", "Check the completed work and pay after the service."]].map(([title, text]) => <div className="step" key={title}><h3>{title}</h3><p>{text}</p></div>)}
     </div></div></section>
-    <section className="alt"><div className="wrap"><div className="sec-head"><h2>EV services at your doorstep</h2><p>Service availability depends on your model, diagnostic compatibility and the work required.</p><div className="from"><span>EV service starts from</span><b>{variables.startingPrice}</b></div></div>
+    <section className="alt"><div className="wrap"><div className="sec-head"><h2>EV services at your doorstep</h2><p>Service availability depends on your model, diagnostic compatibility and the work required.</p></div>
       <div className="grid3">{services.map(({ title, description, priceId }) => {
         const price = priceId ? getServicePricing(priceId).prices.electric : undefined;
         return <article className="svc" key={title}><div><h3>{title}</h3><p>{description}</p><span className="price">{typeof price === "number" ? `From ₹${price.toLocaleString("en-IN")}` : "Quote after inspection"}</span></div><a href="/book">{priceId ? "Book service →" : "Request inspection →"}</a></article>;

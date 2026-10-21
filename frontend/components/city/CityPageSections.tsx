@@ -194,17 +194,30 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             {visibleAreas.map((area, idx) => (
               <Link key={idx} href={`/${config.citySlug}/${area.slug}`} className="area-tag">📍 {area.name}</Link>
             ))}
-            {config.coverage.areas.length > 10 && <button
+            {config.coverage.areas.length > 10 && (showAllAreas ? <>
+              <span className="area-tag" style={{ backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }}>
+                📍 Across all {config.cityName}
+              </span>
+              <button
+                type="button"
+                className="area-tag"
+                aria-expanded="true"
+                onClick={() => setShowAllAreas(false)}
+                style={{ borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
+              >
+                View less
+              </button>
+            </> : <button
               type="button"
               className="area-tag"
-              aria-expanded={showAllAreas}
-              onClick={() => setShowAllAreas((current) => !current)}
+              aria-expanded="false"
+              onClick={() => setShowAllAreas(true)}
               style={config.coverage.expansionStyle === "filled"
                 ? { backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)", cursor: "pointer" }
                 : { borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
             >
-              {showAllAreas ? "Show top 10 localities" : `📍 + Across all ${config.cityName}`}
-            </button>}
+              View more
+            </button>)}
           </div>
         </div>
       </section>

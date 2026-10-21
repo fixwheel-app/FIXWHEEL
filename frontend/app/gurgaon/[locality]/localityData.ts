@@ -15,6 +15,43 @@ export interface LocalityDetails {
 }
 
 export const LOCALITY_DB: Record<string, LocalityDetails> = {
+  "palam-vihar": {
+    name: "Palam Vihar",
+    slug: "palam-vihar",
+    eta: "45 min",
+    servicePrice: "399",
+    aggregateRating: "4.7",
+    reviewCount: "473",
+    subRegionText: "Blocks A–J, Palam Vihar Market, Club Road, the Extension, and the Dwarka-border stretch.",
+    heroText: "Doorstep bike repair and scooter service in Palam Vihar, Gurgaon. Book a verified mechanic for service at your home, office parking, society gate, or roadside location.",
+    whyChooseText: "Palam Vihar's gated societies and busy roads can make a garage visit inconvenient. FixWheel brings routine service and common repairs to the place where your two-wheeler is parked.",
+    coveragePoints: [
+      "Block A to Block J",
+      "Palam Vihar Market",
+      "Palam Vihar Club Road",
+      "DAV School Stretch",
+      "St. Xavier's School Road",
+      "Palam Vihar Extension",
+      "Dwarka Border Stretch",
+      "Sector 109–113 Boundary",
+      "Palam Vihar Metro Stretch"
+    ],
+    reviews: [
+      { stars: "★★★★★", text: "Scooter wouldn't start one morning. Mechanic came right to Block D and had it running before I left for work.", who: "Ankit Malhotra — Block D, Palam Vihar" },
+      { stars: "★★★★★", text: "He came right up to our society gate near Club Road. Guard let him in, no issues at all.", who: "Simran Kaur — Palam Vihar Club Road" }
+    ],
+    faqs: [
+      { q: "Does the mechanic come inside my society in Palam Vihar?", a: "The mechanic can come to the parking location allowed by your society. Share the gate and parking details when you book." },
+      { q: "Do you cover Palam Vihar Extension and the Dwarka-border stretch?", a: "Yes. Palam Vihar Extension and the Dwarka-border stretch are included in the Palam Vihar service area." },
+      { q: "What if my street is not listed?", a: "The list highlights commonly requested locations. Share your exact address when booking so the team can confirm service availability." }
+    ],
+    topServices: [
+      { rank: "#1 IN PALAM VIHAR", title: "Basic Service", desc: "Brake, chain, spark plug, and electrical checks for daily-use two-wheelers.", link: "/services/basic-service" },
+      { rank: "#2 IN PALAM VIHAR", title: "Engine Oil Change", desc: "Oil replacement, filter check, and chain lubrication at your parking location.", link: "/services/oil-change" },
+      { rank: "#3 IN PALAM VIHAR", title: "Puncture Repair", desc: "On-site tyre and puncture support at a safe, accessible location.", link: "/pricing" },
+      { rank: "#4 IN PALAM VIHAR", title: "Battery Replacement", desc: "Battery testing, jump-start support, and replacement where required.", link: "/services/battery-replacement" }
+    ]
+  },
   "dlf-phase-1": {
     name: "DLF Phase 1",
     slug: "dlf-phase-1",

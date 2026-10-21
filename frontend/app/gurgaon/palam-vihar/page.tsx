@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PalamViharClientPage from "./page.client";
+import GurgaonLocalityClientPage from "../[locality]/page.client";
 
 export const metadata: Metadata = {
   title: "Bike Mechanic Near Me in Palam Vihar, Gurgaon – Doorstep Bike Repair | FixWheel",
@@ -216,7 +216,7 @@ export default function PalamViharPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <PalamViharClientPage />
+      <GurgaonLocalityClientPage slug="palam-vihar" />
     </>
   );
 }
