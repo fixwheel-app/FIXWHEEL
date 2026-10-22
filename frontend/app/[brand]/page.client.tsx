@@ -1758,11 +1758,11 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           <div>
             <div className="eyebrow">Contact</div>
             <h2>Contact us</h2>
-            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>Have a question about {brandData.name} service? We are available from 8 AM to 8 PM.</p>
+            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>Have a question about {brandData.name} service? We are available from 8 AM to 10 PM.</p>
             <div className="contact-list">
               <div className="contact-item">
                 <div className="ic">☎</div>
-                <div><b>+91 87459 45682</b><span>Call us between 8AM and 8PM</span></div>
+                <div><b>+91 87459 45682</b><span>Call us between 8 AM and 10 PM</span></div>
               </div>
               <div className="contact-item">
                 <div className="ic">✉</div>

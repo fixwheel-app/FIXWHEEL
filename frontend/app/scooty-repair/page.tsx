@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { SERVICES_DB } from "@/lib/servicesData";
 import ScootyRepairLayout from "./ScootyRepairLayout";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS } from "@/lib/publicStats";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Doorstep Scooty & Scooter Repair in Delhi NCR | FixWheel",
   description:
     "Book doorstep scooty repair in Delhi NCR. Certified mechanics for Activa, Jupiter, Access, Ntorq in Delhi, Gurgaon, Noida, Ghaziabad, Faridabad. 45-min arrival, 15-day warranty.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       "Book doorstep scooty repair in Delhi NCR. Certified mechanics for Activa, Jupiter, Access, Ntorq in Delhi, Gurgaon, Noida, Ghaziabad, Faridabad. 45-min arrival, 15-day warranty.",
     url: "https://www.fixwheel.app/scooty-repair",
   },
-};
+});
 
 export default async function ScootyRepairPage() {
   const serviceData = SERVICES_DB["scooty-repair"];

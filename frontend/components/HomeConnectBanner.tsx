@@ -29,7 +29,7 @@ const contactItems = [
   {
     label: "Helpline",
     value: "+91 87459 45682",
-    note: "Mon-Sun 8 AM - 9 PM",
+    note: "Daily 8 AM - 10 PM",
     href: "tel:+918745945682",
     icon: <Phone className="h-5 w-5" />,
   },

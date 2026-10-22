@@ -91,7 +91,7 @@ export default function ContactClientPage() {
       title: "Call Us",
       value: "+91 87459 45682",
       href: "tel:+918745945682",
-      description: "Mon - Sat, 9am - 7pm"
+      description: "Daily, 8 AM - 10 PM"
     },
     {
       icon: Mail,

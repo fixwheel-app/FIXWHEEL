@@ -146,8 +146,8 @@ const gurgaonConfig: CityPageConfig = {
   ],
   contact: {
     heading: "Contact us",
-    description: "Have a question? We are available from 8 AM to 8 PM.",
-    callNote: "Call us between 8AM and 8PM",
+    description: "Have a question? We are available from 8 AM to 10 PM.",
+    callNote: "Call us between 8 AM and 10 PM",
   },
   roadside: {
     heading: "Gurgaon Roadside Assistance",

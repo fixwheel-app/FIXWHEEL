@@ -213,7 +213,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
     benefits: [
       { title: "Dense Residential Hubs", desc: "High density of commuters in Indirapuram and Vaishali means short traveling distance between consecutive jobs." },
       { title: "Flexible Operational Radius", desc: "Choose your preferred working radius in Ghaziabad to fit your daily schedule." },
-      { title: "Dedicated Partner Support", desc: "24/7 helpline for partner mechanics to assist with customer navigation, technical queries, or spare parts." }
+      { title: "Dedicated Partner Support", desc: "Daily helpline from 8 AM to 10 PM for partner mechanics who need help with customer navigation, technical queries, or spare parts." }
     ],
     faqs: [
       {
@@ -234,7 +234,7 @@ export const PARTNER_CITY_DATA: Record<string, PartnerCityData> = {
       },
       {
         q: "What safety measures are provided for night or breakdown jobs in Ghaziabad?",
-        a: "Mechanics have SOS emergency triggers in the app, live location tracking, and 24/7 partner support dispatch."
+        a: "Mechanics have SOS emergency triggers and live location tracking in the app, with partner support available daily from 8 AM to 10 PM."
       }
     ],
     seoKeywords: [

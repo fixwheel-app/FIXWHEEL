@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import AboutClient from './page.client';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "About FixWheel — Doorstep Bike Repair in Delhi",
   description: "FixWheel brings the garage to you. Verified doorstep mechanics, transparent pricing, and fast response times across Delhi.",
   alternates: {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function AboutPage() {
   return <AboutClient />;

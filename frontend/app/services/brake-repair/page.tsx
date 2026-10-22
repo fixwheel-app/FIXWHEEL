@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Brake Repair & Replacement at Home | FixWheel",
   description:
     "Doorstep bike brake repair Delhi. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "FixWheel",
     type: "website",
   },
-};
+});
 
 export default function BrakeRepairPage() {
   return (

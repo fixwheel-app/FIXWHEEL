@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import PricingClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Service & Repair Rates | Transparent Doorstep Pricing | FixWheel",
   description: "View upfront, transparent pricing for doorstep bike service, engine oil change, brake repairs, and roadside assistance across Delhi.",
   alternates: {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://www.fixwheel.app/pricing",
     type: "website",
   },
-};
+});
 
 export default function PricingPage() {
   return <PricingClientPage />;

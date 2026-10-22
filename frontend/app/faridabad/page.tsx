@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import FaridabadClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Faridabad – Doorstep Bike Repair Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Faridabad? FixWheel sends verified mechanics to your home, office, or roadside 24/7. Doorstep bike repair & scooty service across NIT, Sector 15, 16, 17, 21, Ballabhgarh & all Faridabad areas. Starting ₹550.",
+  description: "Book verified doorstep bike and scooter service in Faridabad from 8 AM to 10 PM. Get home, office, and roadside support across NIT and Ballabhgarh.",
   keywords: [
     "bike mechanic near me Faridabad",
     "two wheeler mechanic near me Faridabad",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "scooty repair Faridabad",
     "scooter repair at home Faridabad",
     "scooter mechanic near me Faridabad",
-    "24/7 bike mechanic near me Faridabad",
+    "24/7 emergency roadside bike assistance Faridabad",
     "bike mechanic on call Faridabad",
     "two wheeler mechanic in Faridabad with phone number",
     "bike repair at doorstep Faridabad",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/faridabad",
   },
-};
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

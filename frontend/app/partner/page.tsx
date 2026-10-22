@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PartnerClient from './page.client';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Become a Partner Mechanic — FixWheel Delhi",
   description: "Are you a mechanic or garage owner in Delhi? Partner with FixWheel and get doorstep service bookings directly. Apply now.",
   alternates: {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function PartnerPage() {
   return <PartnerClient />;

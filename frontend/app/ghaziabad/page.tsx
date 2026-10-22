@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import GhaziabadClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Ghaziabad – Doorstep Bike Repair & Scooter Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Ghaziabad? FixWheel sends verified mechanics to your home, office, or roadside 24/7. Doorstep bike repair & scooter service across Indirapuram, Vaishali, Kaushambi, Raj Nagar & all Ghaziabad areas. Starting ₹550.",
+  description: "Book verified doorstep bike and scooter service in Ghaziabad from 8 AM to 10 PM. Get home, office, and roadside support across major Ghaziabad areas.",
   keywords: [
     "bike mechanic near me Ghaziabad",
     "two wheeler mechanic near me Ghaziabad",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "scooty repair Ghaziabad",
     "scooter repair at home Ghaziabad",
     "scooter mechanic near me Ghaziabad",
-    "24/7 bike mechanic near me Ghaziabad",
+    "24/7 emergency roadside bike assistance Ghaziabad",
     "bike mechanic on call Ghaziabad",
     "two wheeler mechanic in Ghaziabad with phone number",
     "bike repair at doorstep Ghaziabad",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/ghaziabad",
   },
-};
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import BookClient from './page.client';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Book a Bike Service at Your Doorstep | FixWheel",
   description: "Book a doorstep two-wheeler service in Delhi. Choose your vehicle and pick a package that suits you.",
   alternates: {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function BookPage() {
   return <BookClient />;

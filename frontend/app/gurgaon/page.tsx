@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import GurgaonClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Gurgaon – Doorstep Bike Repair Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Gurgaon? FixWheel sends a verified mechanic on call to your home, office, or roadside 24/7. Doorstep bike repair, scooty repair & scooter service in Gurugram. Call +91-87459-45682. Starting ₹550.",
+  description: "Book verified doorstep bike and scooter service in Gurgaon from 8 AM to 10 PM. Get home, office, and roadside support across Gurugram with FixWheel.",
   keywords: [
     "bike mechanic near me Gurgaon",
     "bike mechanic near me Gurugram",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "scooty repair Gurgaon",
     "scooter repair at home Gurgaon",
     "scooter mechanic near me Gurgaon",
-    "24/7 bike mechanic near me Gurgaon",
+    "24/7 emergency roadside bike assistance Gurgaon",
     "bike mechanic on call Gurgaon",
     "two wheeler mechanic near me Gurgaon",
     "two wheeler mechanic in Gurgaon with phone number",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/gurgaon",
   },
-};
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -237,10 +238,10 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is there a 24/7 bike mechanic near me in Gurgaon?",
+      "name": "Is 24/7 emergency roadside assistance available in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. FixWheel provides 24/7 bike mechanic service in Gurgaon. You can book a mechanic on call any time of day or night for emergency roadside assistance or doorstep repair. Call +91-87459-45682 or book online."
+        "text": "Yes. FixWheel provides 24/7 emergency roadside assistance for breakdowns in Gurgaon. Routine doorstep service bookings are available daily from 8 AM to 10 PM."
       }
     },
     {

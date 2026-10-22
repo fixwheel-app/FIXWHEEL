@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SERVICES_DB } from "@/lib/servicesData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Premium & Superbike Service at Home | FixWheel",
   description:
     "Doorstep premium bike service Delhi. Expert care for Ninja, Dominar, Duke 390, Harley X440, Triumph, BMW Motorrad in Gurgaon, Delhi, Noida.",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     description: "Doorstep premium bike service Delhi. Certified mechanics, 45-min arrival, 15-day warranty.",
     url: "https://www.fixwheel.app/premium-bike",
   },
-};
+});
 
 export default function PremiumBikeServicePage() {
   const serviceData = SERVICES_DB["premium-bike-service"];

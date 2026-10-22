@@ -438,13 +438,13 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
                 — CONTACT
               </span>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">Contact us</h3>
-              <p className="text-slate-600 text-sm mb-6">Have a question? We are available from 8 AM to 8 PM.</p>
+              <p className="text-slate-600 text-sm mb-6">Have a question? We are available from 8 AM to 10 PM.</p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-[#e62b2b] text-sm">☎</div>
                   <div>
                     <div className="font-bold text-slate-900 text-sm">+91 87459 45682</div>
-                    <div className="text-xs text-slate-500">Call us between 8AM and 8PM</div>
+                    <div className="text-xs text-slate-500">Call us between 8 AM and 10 PM</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

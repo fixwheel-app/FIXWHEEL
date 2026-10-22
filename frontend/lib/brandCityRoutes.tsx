@@ -6,6 +6,7 @@ import { CITIES_DB } from "@/lib/cityLocalityData";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import { findElectricBrandByReference } from "@/lib/electricServices";
 import { getBrandCityFaqs } from "@/lib/brandCityFaqs";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const brandSlugSet = new Set<string>();
 
@@ -44,7 +45,7 @@ export function generateBrandCityMetadata(citySlug: string, brandSlug: string): 
     ? brandData.seoKeywords.map((keyword) => `${keyword} ${city.name.toLowerCase()}`).join(", ")
     : `${brandName.toLowerCase()} doorstep service ${city.name.toLowerCase()}, ${brandName.toLowerCase()} repair in ${city.name.toLowerCase()}, ${brandName.toLowerCase()} mechanic ${city.name.toLowerCase()}`;
 
-  return {
+  return completePageMetadata({
     title,
     description,
     keywords,
@@ -56,7 +57,7 @@ export function generateBrandCityMetadata(citySlug: string, brandSlug: string): 
       siteName: "FixWheel",
       type: "website",
     },
-  };
+  });
 }
 
 export function renderBrandCity(citySlug: string, brandSlug: string) {

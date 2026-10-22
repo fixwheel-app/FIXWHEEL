@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import DeleteAccountClient from './page.client';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Request Account Deletion — FixWheel",
   description: "Request to delete your FixWheel account. Enter your email and reason for account deletion.",
   robots: {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function DeleteAccountPage() {
   return <DeleteAccountClient />;

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
 import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import { findElectricBrandByReference } from "@/lib/electricServices";
+import { completePageMetadata } from "@/lib/seoMetadata";
 import BrandDetailClient from "./page.client";
 
 interface PageProps {
@@ -177,7 +178,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const descText = `Book professional doorstep ${brandData.name} bike service and repairs. ${brandData.tagline}. Transparent pricing, verified mechanics, 15-day warranty.`;
   const keywords = getBrandSeoKeywords(params.brand, brandData.name, brandData.seoKeywords);
 
-  return {
+  return completePageMetadata({
     title: titleText,
     description: descText,
     keywords,
@@ -191,7 +192,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "FixWheel",
       type: "website",
     },
-  };
+  });
 }
 
 export default function BrandDetailPage({ params }: PageProps) {

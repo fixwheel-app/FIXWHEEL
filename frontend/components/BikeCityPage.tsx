@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const ALLOWED_CITIES = ["gurgaon", "delhi", "noida", "ghaziabad", "faridabad"];
 
@@ -17,9 +18,11 @@ export async function generateMetadata({
   }
 
   const cityData = CITIES_DB[citySlug];
-  return {
-    title: `Bike Repair & Service in ${cityData.name} – At Your Doorstep | FixWheel`,
-    description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics for Hero Splendor, Honda Shine, Bajaj Pulsar & TVS Raider. Arrives in 45 mins. FixWheel.`,
+  const title = `Bike Repair & Service in ${cityData.name} – At Your Doorstep | FixWheel`;
+  const description = `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics for Hero Splendor, Honda Shine, Bajaj Pulsar & TVS Raider. Arrives in 45 mins. FixWheel.`;
+  return completePageMetadata({
+    title,
+    description,
     keywords: [
       `commuter bike service in ${cityData.name}`,
       `hero splendor repair near me ${cityData.name}`,
@@ -32,11 +35,11 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      title: `Bike Repair & Service in ${cityData.name} – Doorstep Repair | FixWheel`,
-      description: `Book doorstep commuter bike service in ${cityData.name}. Certified mechanics, 45-min arrival, transparent pricing, 15-day warranty.`,
+      title,
+      description,
       url: `https://www.fixwheel.app/${citySlug}/bike`,
     },
-  };
+  });
 }
 
 export default function CommuterBikeCityPage({

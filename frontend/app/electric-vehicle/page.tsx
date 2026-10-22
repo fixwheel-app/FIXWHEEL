@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import ElectricVehicleLayout from "./ElectricVehicleLayout";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS } from "@/lib/publicStats";
 import { SERVICES_DB } from "@/lib/servicesData";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const service = SERVICES_DB["electric-scooter-repair"];
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: `${service.title} | FixWheel`,
   description: service.lead,
   keywords: service.keywords,
   alternates: { canonical: "https://www.fixwheel.app/electric-vehicle" },
   openGraph: { type: "website", title: `${service.title} | FixWheel`, description: service.lead, url: "https://www.fixwheel.app/electric-vehicle" },
-};
+});
 
 export default async function ElectricVehiclePage() {
   const stats = await getPublicStatsForCity("global").catch(() => DEFAULT_PUBLIC_STATS.global);

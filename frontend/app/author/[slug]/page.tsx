@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import AuthorClientPage from "./page.client";
 import { AUTHORS_DB } from "@/lib/authorData";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 interface PageProps {
   params: {
@@ -18,7 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
+  const canonical = `https://www.fixwheel.app/author/${params.slug}`;
+  return completePageMetadata({
     title: `${author.name} - ${author.role} | FixWheel`,
     description: author.bio,
     keywords: [
@@ -28,13 +30,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "motorcycle technical guides",
       ...author.specializations
     ],
+    alternates: { canonical },
     openGraph: {
       title: `${author.name} - ${author.role} | FixWheel`,
       description: author.bio,
       type: "profile",
-      images: [{ url: author.avatar }]
+      images: [{ url: author.avatar }],
+      url: canonical,
     }
-  };
+  });
 }
 
 export async function generateStaticParams() {

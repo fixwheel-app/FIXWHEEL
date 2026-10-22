@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import BrandsClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 // SEO configuration for FixWheel brands page - trigger rebuild v2
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Doorstep Two Wheeler Service for All Brands | FixWheel",
   description:
     "FixWheel services all major two-wheeler brands at your doorstep — Honda, Hero, Bajaj, TVS, Royal Enfield, Yamaha, Suzuki, KTM, Ola Electric, Ather, Vespa, Jawa, Aprilia, Harley-Davidson, Kawasaki & Benelli. Book a verified mechanic now.",
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/brands",
   },
-};
+});
 
 const brandsSchema = {
   "@context": "https://schema.org",

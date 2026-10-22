@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CruiserBikeLayout, { getCruiserFaqs } from "./CruiserBikeLayout";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const title = "Cruiser Bike Service at Doorstep | FixWheel";
 const description = "Doorstep cruiser bike service across Delhi NCR for Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick and TVS Ronin.";
@@ -22,13 +23,13 @@ const cruiserKeywords = [
   "tvs ronin service at home",
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title,
   description,
   keywords: cruiserKeywords,
   alternates: { canonical: "https://www.fixwheel.app/cruiser-bike" },
   openGraph: { type: "website", title, description, url: "https://www.fixwheel.app/cruiser-bike" },
-};
+});
 
 export default async function CruiserBikeServicePage() {
   const stats = await getPublicStatsForCity("global").catch(() => DEFAULT_PUBLIC_STATS.global);

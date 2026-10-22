@@ -246,7 +246,7 @@ export const LOCALITY_DB: Record<string, LocalityDetails> = {
       { stars: "★★★★★", text: "Saved me a lot of time. Repaired my scooter in the driveway. Highly recommended.", who: "Geeta Rao — Vyapar Kendra Area, Sushant Lok" }
     ],
     faqs: [
-      { q: "What are your service timings in Sushant Lok?", a: "We take bookings from 8 AM to 8 PM. Emergency roadside help operates 24/7." },
+      { q: "What are your service timings in Sushant Lok?", a: "We take bookings from 8 AM to 10 PM. Emergency roadside help operates 24/7." },
       { q: "Do you cover Sushant Lok Phase 2 and 3?", a: "Yes, our mechanics cover all blocks of Sushant Lok Phase 1, Phase 2, and Phase 3." }
     ],
     topServices: [

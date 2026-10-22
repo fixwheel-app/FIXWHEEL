@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 interface PageProps {
   params: {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
     const serviceData = SERVICES_DB[params.service];
-    return {
+    return completePageMetadata({
       title: `${serviceData.title} | FixWheel`,
       description: serviceData.lead,
       keywords: serviceData.keywords,
@@ -40,19 +41,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: serviceData.lead,
         url: `https://www.fixwheel.app/services/${params.service}`,
       },
-    };
+    });
   }
 
   // Case 2: City Landing (/services/delhi, /services/ghaziabad, /services/noida, etc.)
   if (CITIES_DB[params.service]) {
     const cityData = CITIES_DB[params.service];
-    return {
-      title: `Doorstep Bike Repair & Service in ${cityData.name} | FixWheel`,
-      description: `Book verified doorstep bike mechanic in ${cityData.name}. Arrives in 45 minutes for engine oil change, brake repair, battery replacement & full service.`,
+    const title = `Doorstep Bike Repair & Service in ${cityData.name} | FixWheel`;
+    const description = `Book verified doorstep bike mechanic in ${cityData.name}. Arrives in 45 minutes for engine oil change, brake repair, battery replacement & full service.`;
+    const canonical = `https://www.fixwheel.app/services/${params.service}`;
+    return completePageMetadata({
+      title,
+      description,
       alternates: {
-        canonical: `https://www.fixwheel.app/services/${params.service}`,
+        canonical,
       },
-    };
+      openGraph: { type: "website", title, description, url: canonical },
+    });
   }
 
   return {};

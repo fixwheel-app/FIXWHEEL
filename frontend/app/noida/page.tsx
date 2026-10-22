@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import NoidaClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Noida – Doorstep Bike Repair & Scooty Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Noida? FixWheel sends a verified two wheeler mechanic to your home, office, or roadside 24/7. Doorstep bike repair, scooty repair & service across Sector 18, 62, 63, 137, 150 & all Noida sectors. Starting ₹550.",
+  description: "Book verified doorstep bike and scooter service in Noida from 8 AM to 10 PM. Get home, office, and roadside support across Noida sectors with FixWheel.",
   keywords: [
     "bike mechanic near me Noida",
     "bike mechanic near me Greater Noida",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "scooty repair Noida",
     "scooter repair at home Noida",
     "scooter mechanic near me Noida",
-    "24/7 bike mechanic near me Noida",
+    "24/7 emergency roadside bike assistance Noida",
     "bike mechanic on call Noida",
     "two wheeler mechanic near me Noida",
     "two wheeler mechanic in Noida with phone number",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/noida",
   },
-};
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

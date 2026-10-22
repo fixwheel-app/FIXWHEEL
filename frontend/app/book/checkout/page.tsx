@@ -1,7 +1,8 @@
 import BookingForm from '@/components/BookingForm';
 import type { Metadata } from 'next';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Book a Mechanic — FixWheel Doorstep Bike Service",
   description: "Book your doorstep bike service in minutes. Pick a time slot and a verified mechanic comes to you. Serving Delhi.",
   robots: {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function BookCheckoutPage() {
   return (

@@ -77,6 +77,7 @@ import {
   TVS_MODEL_FAMILIES,
 } from "@/lib/tvsModelFamilies";
 import ModelDetailClient from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 interface FamilyLike {
   name: string;
@@ -275,7 +276,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...modelSearchKeywords,
   ]));
 
-  return {
+  return completePageMetadata({
     title,
     description,
     keywords,
@@ -289,7 +290,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "FixWheel",
       type: "website",
     },
-  };
+  });
 }
 
 export default async function ModelPage({ params }: PageProps) {

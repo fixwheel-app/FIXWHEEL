@@ -4,6 +4,7 @@ import ElectricVehicleLayout from "@/app/electric-vehicle/ElectricVehicleLayout"
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { SERVICES_DB } from "@/lib/servicesData";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const service = SERVICES_DB["electric-scooter-repair"];
 const siteUrl = "https://www.fixwheel.app";
@@ -25,7 +26,7 @@ export function generateEvLocalityMetadata(citySlug: string, localitySlug: strin
   const title = `Electric Scooter & EV Repair in ${locality.name}, ${city.name} | FixWheel`;
   const description = `Book doorstep electric scooter and EV repair in ${locality.name}, ${city.name}. Get help with charging issues, dashboard warnings, brakes and routine maintenance. Model compatibility is confirmed before service.`;
 
-  return {
+  return completePageMetadata({
     title,
     description,
     keywords: [
@@ -42,7 +43,7 @@ export function generateEvLocalityMetadata(citySlug: string, localitySlug: strin
     ],
     alternates: { canonical: url },
     openGraph: { type: "website", title, description, url },
-  };
+  });
 }
 
 export async function renderEvLocality(citySlug: string, localitySlug: string) {

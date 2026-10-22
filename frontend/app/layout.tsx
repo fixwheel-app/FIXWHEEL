@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "FixWheel — Doorstep Bike Service Delhi",
     template: "%s",
   },
-  description: "Doorstep motorcycle servicing platform for Delhi.",
+  description: "Book verified doorstep bike, scooter, and electric two-wheeler service with transparent pricing and support from FixWheel across Delhi NCR cities.",
   keywords: "bike repair delhi, doorstep bike service, bicycle mechanic delhi, bike repair at home",
   icons: {
     icon: [
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "FixWheel — Doorstep Bike Repairs",
-    description: "Expert repairs. Your doorstep. 60-second booking.",
+    title: "FixWheel — Doorstep Bike Service Delhi",
+    description: "Book verified doorstep bike, scooter, and electric two-wheeler service with transparent pricing and support from FixWheel across Delhi NCR cities.",
     url: "https://www.fixwheel.app",
     type: "website",
     siteName: "FixWheel"

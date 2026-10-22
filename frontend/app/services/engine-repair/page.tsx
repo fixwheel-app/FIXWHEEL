@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Engine Repair & Overhaul at Home | FixWheel",
   description:
     "Doorstep bike engine diagnostics & repair Delhi. Valve clearance adjustment, clutch plate replacements, starter motor repair.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/engine-repair",
   },
-};
+});
 
 export default function EngineRepairPage() {
   return (

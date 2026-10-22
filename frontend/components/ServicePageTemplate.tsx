@@ -623,7 +623,7 @@ export default function ServicePageTemplate({
                     <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">📞</div>
                     <div>
                       <b className="block text-slate-900">+91 87459 45682</b>
-                      <span className="text-xs text-slate-500">Call us between 8 AM and 8 PM</span>
+                      <span className="text-xs text-slate-500">Call us between 8 AM and 10 PM</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">

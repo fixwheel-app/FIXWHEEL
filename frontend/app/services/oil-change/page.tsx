@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Engine Oil Change at Home in Delhi | FixWheel",
   description:
     "Doorstep bike engine oil change Delhi. Genuine Motul, Yamalube, Castrol, and Honda OEM engine oil replacement at home in Gurgaon, Delhi, Noida.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/oil-change",
   },
-};
+});
 
 export default function OilChangePage() {
   return (

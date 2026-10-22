@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ScootyRepairLayout from "../scooty-repair/ScootyRepairLayout";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS } from "@/lib/publicStats";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 const title = "Doorstep Bike Repair & Service in Delhi NCR | FixWheel";
 const description = "Book bike repair and servicing at home in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Get help with starting trouble, brakes, chains and routine maintenance.";
@@ -12,12 +13,12 @@ const faqs = [
   { q: "Do you repair sports, premium and classic bikes?", a: "FixWheel has dedicated service pages for sports bikes, premium motorcycles and Royal Enfield bikes. Share the exact model and issue when booking so the required service can be confirmed." },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title, description,
   keywords: ["bike repair in Delhi NCR", "bike service at home", "doorstep bike servicing", "bike mechanic near me"],
   alternates: { canonical: "https://www.fixwheel.app/bike" },
   openGraph: { type: "website", title, description, url: "https://www.fixwheel.app/bike" },
-};
+});
 
 export default async function BikePage() {
   const stats = await getPublicStatsForCity("global").catch(() => DEFAULT_PUBLIC_STATS.global);

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import DelhiClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Delhi – Doorstep Bike Repair & Scooty Service | FixWheel",
-  description: "Looking for a bike mechanic near me in Delhi? FixWheel sends a verified mechanic on call 24/7 to your home, office, or roadside. Doorstep bike repair, scooty mechanic at home & scooter repair in South & West Delhi. Call +91-87459-45682. Starting ₹550.",
+  description: "Book verified doorstep bike and scooter service in Delhi from 8 AM to 10 PM. Get home, office, and roadside support across South and West Delhi with FixWheel.",
   keywords: [
     "bike mechanic near me Delhi",
     "bike repair near me Delhi",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     "scooty repair Delhi",
     "scooter repair at home Delhi",
     "scooter mechanic near me Delhi",
-    "24/7 bike mechanic near me Delhi",
+    "24/7 emergency roadside bike assistance Delhi",
     "bike mechanic on call Delhi",
     "two wheeler mechanic near me Delhi",
     "two wheeler mechanic in Delhi with phone number",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.fixwheel.app/delhi",
   },
-};
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -216,10 +217,10 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is there a 24/7 bike mechanic near me in Delhi?",
+      "name": "Is 24/7 emergency roadside assistance available in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. FixWheel provides 24/7 bike mechanic service in Delhi. You can book a mechanic on call any time for emergency roadside assistance or doorstep repair. Call +91-87459-45682 or book on fixwheel.app."
+        "text": "Yes. FixWheel provides 24/7 emergency roadside assistance for breakdowns in Delhi. Routine doorstep service bookings are available daily from 8 AM to 10 PM."
       }
     },
     {

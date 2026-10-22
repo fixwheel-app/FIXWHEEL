@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import ContactClientPage from "./page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Contact Us | Doorstep Bike Service & Repair Support – FixWheel",
   description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
   keywords: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     description: "Contact FixWheel for doorstep bike repair, scooter service, and emergency breakdown assistance in Delhi. Call +91 87459 45682 or email support@fixwheel.app for immediate booking support.",
     url: "https://www.fixwheel.app/contact",
   },
-};
+});
 
 export default function ContactPage() {
   const jsonLd = {

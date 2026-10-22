@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Comprehensive Bike Service at Doorstep | FixWheel",
   description: "Full comprehensive bike service at home in Delhi. Deep inspection, engine oil swap, carburetor/FI tuning, and full safety checks.",
   alternates: {
     canonical: "https://www.fixwheel.app/services/comprehensive-service",
   },
-};
+});
 
 export default function ComprehensiveServicePage() {
   return (

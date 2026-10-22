@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import GurgaonLocalityClientPage from "../[locality]/page.client";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Mechanic Near Me in Palam Vihar, Gurgaon – Doorstep Bike Repair | FixWheel",
   description: "Looking for a bike mechanic near me in Palam Vihar, Gurgaon? FixWheel sends verified mechanics on call to your doorstep in 45 mins. Oil change, brake repair, scooty service & emergency puncture. Call +91-87459-45682. Starting ₹399.",
   keywords: [
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     "battery replacement bike Palam Vihar",
     "battery replacement bike near me Palam Vihar",
     "brake repair bike Palam Vihar",
-    "24/7 bike mechanic near me Palam Vihar",
+    "24/7 emergency roadside bike assistance Palam Vihar",
     "bike mechanic on call Palam Vihar",
     "bike mechanic near me open now Palam Vihar",
     "two wheeler mechanic in Palam Vihar Gurgaon with phone number",
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     description: "Looking for a bike mechanic near me in Palam Vihar, Gurgaon? FixWheel sends verified mechanics on call to your doorstep in 45 mins. Oil change, brake repair, scooty service & emergency puncture. Call +91-87459-45682. Starting ₹399.",
     url: "https://www.fixwheel.app/gurgaon/palam-vihar",
   },
-};
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",

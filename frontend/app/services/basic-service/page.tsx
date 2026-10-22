@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Basic Bike Service at Doorstep in Delhi | FixWheel",
   description:
     "Book professional basic bike service Delhi. Regular tune-ups, brake adjustments, chain lubing, spark plug cleaning at home in Gurgaon, Delhi, Noida, Ghaziabad, Faridabad.",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "FixWheel",
     type: "website",
   },
-};
+});
 
 export default function BasicServicePage() {
   return (

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import BlogHubClient from "./page.client";
 import { getWordPressPosts, getWordPressCategories } from "@/lib/wordpress";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const revalidate = 60; // Incremental Static Regeneration every 60 seconds
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "FixWheel Blog — Doorstep Two-Wheeler Maintenance Tips & News",
   description: "Read expert two-wheeler maintenance tips, bike engine oil guides, DIY repair hacks, electric scooter battery care, and Indian motorcycle industry news.",
   alternates: {
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default async function BlogHubPage() {
   const [posts, categories] = await Promise.all([

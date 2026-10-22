@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Bike Battery Replacement at Home in Delhi | FixWheel",
   description:
     "Instant doorstep bike battery replacement Delhi. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "FixWheel",
     type: "website",
   },
-};
+});
 
 export default function BatteryReplacementPage() {
   return (

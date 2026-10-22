@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostClient from "./page.client";
 import { getWordPressPostBySlug, getAllWordPressPostSlugs } from "@/lib/wordpress";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const revalidate = 60; // Incremental Static Regeneration every 60s
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? post.image
     : `https://www.fixwheel.app${post.image}`;
 
-  return {
+  return completePageMetadata({
     title: titleText,
     description: descText,
     keywords: (post.keywords || []).join(", "),
@@ -55,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       ],
     },
-  };
+  });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

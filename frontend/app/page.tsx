@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import HomeClient from './page.client';
+import { completePageMetadata } from '@/lib/seoMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completePageMetadata({
   title: "Two-Wheeler Repair & Service in Delhi NCR | FixWheel",
   description: "Book doorstep two-wheeler repair and service in Delhi NCR. Bike, scooty and EV care at home in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad with FixWheel.",
   keywords: [
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function Home() {
   const jsonLd = {
@@ -80,8 +81,8 @@ export default function Home() {
         "Saturday",
         "Sunday"
       ],
-      "opens": "00:00",
-      "closes": "23:59"
+      "opens": "08:00",
+      "closes": "22:00"
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61573309963156",

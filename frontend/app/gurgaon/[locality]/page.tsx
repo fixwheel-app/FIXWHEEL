@@ -14,6 +14,7 @@ import {
   isBrandCitySlug,
   renderBrandCity,
 } from "@/lib/brandCityRoutes";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 export async function generateStaticParams() {
   return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS, ...BRAND_CITY_SLUGS].map((locality) => ({ locality }));
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
   const data = LOCALITY_DB[params.locality];
   if (!data) return {};
 
-  return {
+  return completePageMetadata({
     title: `Bike Mechanic Near Me in ${data.name}, Gurgaon – Doorstep Bike Repair | FixWheel`,
     description: `Looking for a bike mechanic near me in ${data.name}, Gurgaon? FixWheel dispatches certified mechanics to your doorstep in ${data.eta} for oil change, brake repair, battery replacement & full service. Call +91-87459-45682. Starting ₹399.`,
     keywords: [
@@ -80,7 +81,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
       `battery replacement bike ${data.name}`,
       `battery replacement bike near me ${data.name}`,
       `brake repair bike ${data.name}`,
-      `24/7 bike mechanic near me ${data.name}`,
+      `24/7 emergency roadside bike assistance ${data.name}`,
       `bike mechanic on call ${data.name}`,
       `bike mechanic near me open now ${data.name}`,
       `two wheeler mechanic in ${data.name} Gurgaon with phone number`,
@@ -99,7 +100,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
       description: `Looking for a bike mechanic near me in ${data.name}, Gurgaon? FixWheel dispatches certified mechanics to your doorstep in ${data.eta} for oil change, brake repair, battery replacement & full service. Call +91-87459-45682. Starting ₹399.`,
       url: `https://www.fixwheel.app/gurgaon/${params.locality}`,
     },
-  };
+  });
 }
 
 export default function GurgaonLocalityPage({ params }: { params: { locality: string } }) {
@@ -203,10 +204,10 @@ export default function GurgaonLocalityPage({ params }: { params: { locality: st
     "mainEntity": [
       {
         "@type": "Question",
-        "name": `Is there a 24/7 bike mechanic on call near me in ${data.name}?`,
+        "name": `Is 24/7 emergency roadside assistance available in ${data.name}?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `Yes. FixWheel provides 24/7 bike mechanic service in ${data.name}, Gurgaon. Call +91-87459-45682 or book on fixwheel.app to get a verified mechanic on call at your doorstep any time — day or night.`
+          "text": `Yes. FixWheel provides 24/7 emergency roadside assistance for breakdowns in ${data.name}, Gurgaon. Routine doorstep service is available daily from 8 AM to 10 PM.`
         }
       },
       {

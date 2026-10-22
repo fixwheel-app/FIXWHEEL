@@ -338,9 +338,9 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
           <div>
             <div className="eyebrow">Contact</div>
             <h2>{config.contact?.heading || "Get in touch"}</h2>
-            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>{config.contact?.description || "Call or email us. We respond within 2 hours during business hours (8 AM – 8 PM)."}</p>
+            <p style={{ color: "var(--ink-dim)", marginTop: "10px" }}>{config.contact?.description || "Call or email us. We respond within 2 hours during business hours (8 AM – 10 PM)."}</p>
             <div className="contact-list">
-              <div className="contact-item"><div className="ic">☎</div><div><b>+91 87459 45682</b><span>{config.contact?.callNote || "Call us between 8 AM and 8 PM"}</span></div></div>
+              <div className="contact-item"><div className="ic">☎</div><div><b>+91 87459 45682</b><span>{config.contact?.callNote || "Call us between 8 AM and 10 PM"}</span></div></div>
               <div className="contact-item"><div className="ic">✉</div><div><b>support@fixwheel.app</b><span>We reply within 2 hours</span></div></div>
               <div className="contact-item"><div className="ic">💬</div><div><b>Chat on WhatsApp</b><span>Fastest way to book</span></div></div>
             </div>

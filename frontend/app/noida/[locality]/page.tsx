@@ -14,6 +14,7 @@ import {
   isBrandCitySlug,
   renderBrandCity,
 } from "@/lib/brandCityRoutes";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 export async function generateStaticParams() {
   return [...Object.keys(LOCALITY_DB), ...BIKE_TYPE_SLUGS, ...BRAND_CITY_SLUGS].map((locality) => ({ locality }));
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
   const data = LOCALITY_DB[params.locality];
   if (!data) return {};
 
-  return {
+  return completePageMetadata({
     title: `Bike Mechanic Near Me in ${data.name}, Noida – Doorstep Bike Repair | FixWheel`,
     description: `Looking for a bike mechanic near me in ${data.name}, Noida? FixWheel dispatches certified mechanics to your doorstep in ${data.eta} for oil change, brake repair, battery replacement & full service. Call +91-87459-45682. Starting ₹399.`,
     keywords: [
@@ -80,7 +81,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
       `battery replacement bike ${data.name}`,
       `battery replacement bike near me ${data.name}`,
       `brake repair bike ${data.name}`,
-      `24/7 bike mechanic near me ${data.name}`,
+      `24/7 emergency roadside bike assistance ${data.name}`,
       `bike mechanic on call ${data.name}`,
       `bike mechanic near me open now ${data.name}`,
       `two wheeler mechanic in ${data.name} Noida with phone number`,
@@ -99,7 +100,7 @@ export async function generateMetadata({ params }: { params: { locality: string 
       description: `Looking for a bike mechanic near me in ${data.name}, Noida? FixWheel dispatches certified mechanics to your doorstep in ${data.eta} for oil change, brake repair, battery replacement & full service. Call +91-87459-45682. Starting ₹399.`,
       url: `https://www.fixwheel.app/noida/${params.locality}`,
     },
-  };
+  });
 }
 
 export default function NoidaLocalityPage({ params }: { params: { locality: string } }) {

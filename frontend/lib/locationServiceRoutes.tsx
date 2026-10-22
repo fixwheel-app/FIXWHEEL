@@ -7,6 +7,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { SERVICES_DB } from "@/lib/servicesData";
+import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const BIKE_TYPE_SLUGS = [
   "scooty-repair",
@@ -60,7 +61,7 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
   const title = `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
   const description = `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
 
-  return {
+  return completePageMetadata({
     title,
     description,
     keywords: [
@@ -76,7 +77,7 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
       description,
       url: `https://www.fixwheel.app${path}`,
     },
-  };
+  });
 }
 
 export function generateCityServiceMetadata(citySlug: string, serviceSlug: string) {
@@ -92,7 +93,7 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
     const canonical = `https://www.fixwheel.app/${citySlug}/cruiser-bike`;
     const title = `Cruiser Bike Service in ${city.name} – Doorstep Service | FixWheel`;
     const description = `Book doorstep cruiser and modern-classic motorcycle service in ${city.name}. Chain care, brakes, battery checks and routine maintenance with transparent pricing.`;
-    return {
+    return completePageMetadata({
       title,
       description,
       keywords: [
@@ -104,7 +105,7 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
       ],
       alternates: { canonical },
       openGraph: { type: "website", title, description, url: canonical },
-    };
+    });
   }
   if (bikeTypeSlug === "scooty-repair") {
     const city = getCity(citySlug);
@@ -112,8 +113,9 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
     if (!city || !content) return {};
 
     const canonical = `https://www.fixwheel.app/${citySlug}/scooty-repair`;
-    return {
-      title: `Scooty & Scooter Repair in ${city.name} – Doorstep Service | FixWheel`,
+    const title = `Scooty & Scooter Repair in ${city.name} – Doorstep Service | FixWheel`;
+    return completePageMetadata({
+      title,
       description: content.description,
       keywords: [
         `scooty repair in ${city.name}`,
@@ -125,11 +127,11 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
       alternates: { canonical },
       openGraph: {
         type: "website",
-        title: `Scooty Repair in ${city.name} – Doorstep Service | FixWheel`,
+        title,
         description: content.description,
         url: canonical,
       },
-    };
+    });
   }
   const serviceSlug = BIKE_TYPE_SERVICE_BY_ROUTE[bikeTypeSlug as (typeof BIKE_TYPE_SLUGS)[number]];
   return buildMetadata(serviceSlug, citySlug, bikeTypeSlug);
