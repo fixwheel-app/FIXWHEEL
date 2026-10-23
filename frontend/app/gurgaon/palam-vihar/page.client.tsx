@@ -8,8 +8,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
-import HeroBookingAction from "@/components/HeroBookingAction";
-import { getBrandLogo } from "@/lib/brandLogos";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
+import CitySwitcher from "@/components/CitySwitcher";
+import PopularBrands from "@/components/PopularBrands";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -388,9 +389,12 @@ export default function PalamViharClientPage() {
             <div className="eyebrow">Bike repair service · Palam Vihar</div>
             <h1>Doorstep Bike Repair<br />in <em>Palam Vihar, Gurgaon</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in Palam Vihar</strong> and professional <strong>bike repair in Palam Vihar at home</strong>. A verified, background-checked mechanic comes to your home, society gate, or roadside anywhere in Palam Vihar — Block A to J, the Market, Club Road, or the Extension — with an arrival time of 45 minutes.</p>
-            <div className="hero-ctas">
-              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
-              <a href="#coverage" className="btn btn-ghost">Check my street</a>
+            <div>
+              <div className="hero-ctas" style={{ marginBottom: 0 }}>
+                <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+                <a href="#coverage" className="btn btn-ghost">Check my street</a>
+              </div>
+              <PaymentTrustRow className="mt-3" />
             </div>
           </div>
           <TwoWheelerQueryCard />
@@ -411,38 +415,6 @@ export default function PalamViharClientPage() {
             <div className="trust-cell"><b>{stats.bikes_serviced}+</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Coverage across Palam Vihar</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">Why FixWheel Palam Vihar</div>
-            <h2>Built for how Palam Vihar actually rides</h2>
-            <p>Narrow society lanes, guarded gates, and a market stretch that's always busy — doorstep service is built to work around all of it.</p>
-          </div>
-          <div className="why-grid">
-            <div className="why-card">
-              <span className="num">01</span>
-              <h3>True doorstep, not drop-off</h3>
-              <p>Mechanic comes to your home, society gate, or the market anywhere in Palam Vihar — you never push the bike anywhere.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">02</span>
-              <h3>Verified, background-checked</h3>
-              <p>Every mechanic is trained and vetted before being assigned to a job — not a random gig worker showing up at your door.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">03</span>
-              <h3>Price quoted before work starts</h3>
-              <p>No "found more issues" surprise bills. You see and approve the price before a single tool comes out.</p>
-            </div>
-            <div className="why-card">
-              <span className="num">04</span>
-              <h3>Same standard, every visit</h3>
-              <p>45-minute arrival and a 15-day service warranty, applied consistently across Palam Vihar.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -558,24 +530,7 @@ export default function PalamViharClientPage() {
             <h2>Serviced in Palam Vihar, whatever you ride</h2>
             <p>From daily commuter scooters to Royal Enfields, our mechanics work across every major brand.</p>
           </div>
-          <div className="brand-row">
-            <div className="brand-chip"><img src={getBrandLogo("Royal Enfield")} alt="Royal Enfield bike repair Palam Vihar" />Royal Enfield</div>
-            <div className="brand-chip"><img src={getBrandLogo("Honda")} alt="Honda bike repair Palam Vihar" />Honda</div>
-            <div className="brand-chip"><img src={getBrandLogo("Yamaha")} alt="Yamaha bike repair Palam Vihar" />Yamaha</div>
-            <div className="brand-chip"><img src={getBrandLogo("Suzuki")} alt="Suzuki bike repair Palam Vihar" />Suzuki</div>
-            <div className="brand-chip"><img src={getBrandLogo("KTM")} alt="KTM bike repair Palam Vihar" />KTM</div>
-            <div className="brand-chip"><img src={getBrandLogo("Bajaj")} alt="Bajaj bike repair Palam Vihar" />Bajaj</div>
-            <div className="brand-chip"><img src={getBrandLogo("TVS")} alt="TVS bike repair Palam Vihar" />TVS</div>
-            <div className="brand-chip"><img src={getBrandLogo("Hero")} alt="Hero bike repair Palam Vihar" />Hero</div>
-            <div className="brand-chip"><img src={getBrandLogo("Vespa")} alt="Vespa bike repair Palam Vihar" />Vespa</div>
-            <div className="brand-chip"><img src={getBrandLogo("Ola Electric")} alt="Ola Electric bike repair Palam Vihar" />Ola Electric</div>
-            <div className="brand-chip"><img src={getBrandLogo("Ather")} alt="Ather bike repair Palam Vihar" />Ather</div>
-            <div className="brand-chip"><img src={getBrandLogo("Jawa")} alt="Jawa bike repair Palam Vihar" />Jawa</div>
-            <div className="brand-chip"><img src={getBrandLogo("Aprilia")} alt="Aprilia bike repair Palam Vihar" />Aprilia</div>
-            <div className="brand-chip"><img src={getBrandLogo("Harley-Davidson")} alt="Harley-Davidson bike repair Palam Vihar" />Harley-Davidson</div>
-            <div className="brand-chip"><img src={getBrandLogo("Kawasaki")} alt="Kawasaki bike repair Palam Vihar" />Kawasaki</div>
-            <div className="brand-chip"><img src={getBrandLogo("Benelli")} alt="Benelli bike repair Palam Vihar" />Benelli</div>
-          </div>
+          <PopularBrands cityName="Gurgaon" />
         </div>
       </section>
 
@@ -675,6 +630,7 @@ export default function PalamViharClientPage() {
           </div>
         </div>
       </section>
+      <CitySwitcher currentCity="Gurgaon" />
     </div>
   );
 }

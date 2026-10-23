@@ -231,7 +231,15 @@ const faqSchema = {
       "name": "How quickly can a mechanic reach me in Noida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In most Noida sectors, our mechanics arrive within 45 minutes of booking confirmation."
+        "text": "Arrival depends on traffic and mechanic availability in your zone. In many Noida sectors, a mechanic can reach within about 45 minutes after booking confirmation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the mechanic enter my Noida society or office parking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Share the gate, tower, basement, or visitor-entry details while booking. The assigned mechanic will coordinate with you before arrival."
       }
     },
     {
@@ -239,7 +247,7 @@ const faqSchema = {
       "name": "What does doorstep bike repair cost in Noida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work."
+        "text": "Basic service starts from ₹550 depending on the vehicle and work required. You receive the quote and approve any extra parts before the mechanic proceeds."
       }
     },
     {
@@ -247,7 +255,7 @@ const faqSchema = {
       "name": "Which areas in Noida does FixWheel cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We cover all major Noida sectors (18, 62, 137, 150, etc.) as well as Greater Noida West, Knowledge Park, and Noida Extension."
+        "text": "Coverage includes central Noida, Sector 62, the Expressway sectors, Sector 137 and 150, Noida Extension, Greater Noida West, Knowledge Park, and nearby serviced locations."
       }
     },
     {
@@ -260,10 +268,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Can you service my EV scooter in Noida?",
+      "name": "Can you inspect an electric scooter in Noida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Noida."
+        "text": "Yes. We support compatible Ola, Ather, TVS iQube, Bajaj Chetak, and other electric two-wheelers for diagnostics and serviceable mechanical or electrical issues."
       }
     },
     {

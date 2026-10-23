@@ -10,11 +10,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
-import HeroBookingAction from "@/components/HeroBookingAction";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
+import CitySwitcher from "@/components/CitySwitcher";
 import {
   getIntroParagraph,
-  getWhyChooseTitle,
-  getWhyChooseCards,
   getHowItWorksTitle,
   getHowItWorksSteps,
   getCoverageTitle,
@@ -71,7 +70,6 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
   // Interlinking: List other key localities in Ghaziabad
   const otherSlugs = Object.keys(LOCALITY_DB).filter((k) => k !== slug).slice(0, 5);
 
-  const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
   const finalCta = getFinalCTAText(data.name, "Ghaziabad");
 
@@ -412,9 +410,12 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
             <div className="eyebrow">Bike repair service · {data.name}</div>
             <h1>Doorstep Bike Repair<br />in <em>{data.name}, Ghaziabad</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong>. {data.heroText}</p>
-            <div className="hero-ctas">
-              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
-              <a href="#coverage" className="btn btn-ghost">Check my street</a>
+            <div>
+              <div className="hero-ctas" style={{ marginBottom: 0 }}>
+                <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+                <a href="#coverage" className="btn btn-ghost">Check my street</a>
+              </div>
+              <PaymentTrustRow className="mt-3" />
             </div>
           </div>
           <TwoWheelerQueryCard />
@@ -435,25 +436,6 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
             <div className="trust-cell"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Local Coverage</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">Why FixWheel {data.name}</div>
-            <h2>{getWhyChooseTitle(data.name)}</h2>
-            <p>{data.whyChooseText}</p>
-          </div>
-          <div className="why-grid">
-            {whyCards.map((card, idx) => (
-              <div className="why-card" key={idx}>
-                <span className="num">0{idx + 1}</span>
-                <h3>{card.title}</h3>
-                <p>{card.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -680,6 +662,7 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
           <Link href="/book" className="btn btn-primary">Book Your Doorstep Service Now →</Link>
         </div>
       </section>
+      <CitySwitcher currentCity="Ghaziabad" />
     </div>
   );
 }

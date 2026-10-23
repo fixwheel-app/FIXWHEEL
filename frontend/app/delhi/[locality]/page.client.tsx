@@ -10,12 +10,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
-import HeroBookingAction from "@/components/HeroBookingAction";
-import { getBrandLogo } from "@/lib/brandLogos";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
+import CitySwitcher from "@/components/CitySwitcher";
+import PopularBrands from "@/components/PopularBrands";
 import {
   getIntroParagraph,
-  getWhyChooseTitle,
-  getWhyChooseCards,
   getHowItWorksTitle,
   getHowItWorksSteps,
   getCoverageTitle,
@@ -72,7 +71,6 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
   // Interlinking: List other key localities in Delhi
   const otherSlugs = Object.keys(LOCALITY_DB).filter((k) => k !== slug).slice(0, 5);
 
-  const whyCards = getWhyChooseCards(data.name);
   const howSteps = getHowItWorksSteps(data.name);
   const finalCta = getFinalCTAText(data.name, "Delhi");
 
@@ -414,9 +412,12 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             <div className="eyebrow">Bike repair service · {data.name}</div>
             <h1>Doorstep Bike Repair<br />in <em>{data.name}, Delhi</em></h1>
             <p className="lead">Looking for <strong>doorstep repair near me</strong> or a verified <strong>two wheeler mechanic near me</strong>? FixWheel provides <strong>doorstep repair in {data.name}</strong> and professional <strong>bike repair in {data.name} at home</strong>. {data.heroText}</p>
-            <div className="hero-ctas">
-              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
-              <a href="#coverage" className="btn btn-ghost">Check my street</a>
+            <div>
+              <div className="hero-ctas" style={{ marginBottom: 0 }}>
+                <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+                <a href="#coverage" className="btn btn-ghost">Check my street</a>
+              </div>
+              <PaymentTrustRow className="mt-3" />
             </div>
           </div>
           <TwoWheelerQueryCard />
@@ -437,25 +438,6 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             <div className="trust-cell"><b>{pageVars.bikesServicedText}</b><span>Total vehicles serviced</span></div>
             <div className="trust-cell"><b>{stats.average_rating}★</b><span>Rider rating</span></div>
             <div className="trust-cell"><b>All blocks</b><span>Local Coverage</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">Why FixWheel {data.name}</div>
-            <h2>{getWhyChooseTitle(data.name)}</h2>
-            <p>{data.whyChooseText}</p>
-          </div>
-          <div className="why-grid">
-            {whyCards.map((card, idx) => (
-              <div className="why-card" key={idx}>
-                <span className="num">0{idx + 1}</span>
-                <h3>{card.title}</h3>
-                <p>{card.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -550,24 +532,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
             <h2>Serviced in {data.name}, whatever you ride</h2>
             <p>From daily commuter scooters to Royal Enfields, our mechanics work across every major brand.</p>
           </div>
-          <div className="brand-row">
-            <div className="brand-chip"><img src={getBrandLogo("Royal Enfield")} alt={`Royal Enfield bike repair ${data.name}`} />Royal Enfield</div>
-            <div className="brand-chip"><img src={getBrandLogo("Honda")} alt={`Honda bike repair ${data.name}`} />Honda</div>
-            <div className="brand-chip"><img src={getBrandLogo("Yamaha")} alt={`Yamaha bike repair ${data.name}`} />Yamaha</div>
-            <div className="brand-chip"><img src={getBrandLogo("Suzuki")} alt={`Suzuki bike repair ${data.name}`} />Suzuki</div>
-            <div className="brand-chip"><img src={getBrandLogo("KTM")} alt={`KTM bike repair ${data.name}`} />KTM</div>
-            <div className="brand-chip"><img src={getBrandLogo("Bajaj")} alt={`Bajaj bike repair ${data.name}`} />Bajaj</div>
-            <div className="brand-chip"><img src={getBrandLogo("TVS")} alt={`TVS bike repair ${data.name}`} />TVS</div>
-            <div className="brand-chip"><img src={getBrandLogo("Hero")} alt={`Hero bike repair ${data.name}`} />Hero</div>
-            <div className="brand-chip"><img src={getBrandLogo("Vespa")} alt={`Vespa bike repair ${data.name}`} />Vespa</div>
-            <div className="brand-chip"><img src={getBrandLogo("Ola Electric")} alt={`Ola Electric bike repair ${data.name}`} />Ola Electric</div>
-            <div className="brand-chip"><img src={getBrandLogo("Ather")} alt={`Ather bike repair ${data.name}`} />Ather</div>
-            <div className="brand-chip"><img src={getBrandLogo("Jawa")} alt={`Jawa bike repair ${data.name}`} />Jawa</div>
-            <div className="brand-chip"><img src={getBrandLogo("Aprilia")} alt={`Aprilia bike repair ${data.name}`} />Aprilia</div>
-            <div className="brand-chip"><img src={getBrandLogo("Harley-Davidson")} alt={`Harley-Davidson bike repair ${data.name}`} />Harley-Davidson</div>
-            <div className="brand-chip"><img src={getBrandLogo("Kawasaki")} alt={`Kawasaki bike repair ${data.name}`} />Kawasaki</div>
-            <div className="brand-chip"><img src={getBrandLogo("Benelli")} alt={`Benelli bike repair ${data.name}`} />Benelli</div>
-          </div>
+          <PopularBrands cityName={data.name} />
         </div>
       </section>
 
@@ -706,6 +671,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
           </div>
         </div>
       </section>
+      <CitySwitcher currentCity="Delhi" />
     </div>
   );
 }

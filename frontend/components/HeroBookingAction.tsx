@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 
 interface HeroBookingActionProps {
   children: ReactNode;
@@ -7,11 +8,9 @@ interface HeroBookingActionProps {
 
 export default function HeroBookingAction({ children, className = "" }: HeroBookingActionProps) {
   return (
-    <div className={`flex w-full flex-col items-center gap-2 sm:w-auto ${className}`.trim()}>
+    <div className={`flex w-full flex-col items-center gap-3 sm:w-auto ${className}`.trim()}>
       {children}
-      <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-white/75">
-        Pay after service
-      </span>
+      <PaymentTrustRow className="font-mono uppercase tracking-[0.08em]" />
     </div>
   );
 }

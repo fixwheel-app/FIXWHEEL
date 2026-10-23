@@ -6,9 +6,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
+import PopularBrands from "@/components/PopularBrands";
+import CitySwitcher from "@/components/CitySwitcher";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
-import { getBrandLogo } from "@/lib/brandLogos";
 
 export interface CityArea {
   name: string;
@@ -136,7 +138,6 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
   const [showAllAreas, setShowAllAreas] = useState(false);
   const arrivalTime = config.hero.arrivalTime === "page-variable" ? pageVars.avgTime : config.hero.arrivalTime;
   const rating = config.hero.ratingSource === "page-variable" ? pageVars.averageRating : stats.average_rating;
-  const configuredBrands = config.vehicles?.brands || brands;
   const partnerBenefits = config.partner.benefits || [
     "Set your own working hours",
     "Manage bookings from your phone",
@@ -163,12 +164,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
                 <Link href="/book" className="btn btn-primary">{config.hero.bookingLabel}</Link>
                 <a href="#how" className="btn btn-ghost">See how it works</a>
               </div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", marginTop: "14px", color: "#c0c5cc", fontSize: "13px", fontWeight: 400, lineHeight: "20px" }}>
-                <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <path d="m5 12 4 4L19 6" />
-                </svg>
-                <span>Pay after service</span>
-              </div>
+              <PaymentTrustRow className="mt-3" />
             </div>
             <div className="stat-row">
               <div className="stat"><b>{arrivalTime}</b><span>Arrival time</span></div>
@@ -194,47 +190,44 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             {visibleAreas.map((area, idx) => (
               <Link key={idx} href={`/${config.citySlug}/${area.slug}`} className="area-tag">📍 {area.name}</Link>
             ))}
-            {config.coverage.areas.length > 10 && (showAllAreas ? <>
-              <span className="area-tag" style={{ backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }}>
-                📍 Across all {config.cityName}
-              </span>
+          </div>
+          {config.coverage.areas.length > 10 && (
+            <div style={{ marginTop: "22px", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+              {showAllAreas && (
+                <span className="area-tag" style={{ backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }}>
+                  Across all {config.cityName}
+                </span>
+              )}
               <button
                 type="button"
                 className="area-tag"
-                aria-expanded="true"
-                onClick={() => setShowAllAreas(false)}
-                style={{ borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
+                aria-expanded={showAllAreas}
+                onClick={() => setShowAllAreas((value) => !value)}
+                style={showAllAreas
+                  ? { borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }
+                  : config.coverage.expansionStyle === "filled"
+                    ? { backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)", cursor: "pointer" }
+                    : { borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
               >
-                View less
+                {showAllAreas ? "View less" : "View more"}
               </button>
-            </> : <button
-              type="button"
-              className="area-tag"
-              aria-expanded="false"
-              onClick={() => setShowAllAreas(true)}
-              style={config.coverage.expansionStyle === "filled"
-                ? { backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)", cursor: "pointer" }
-                : { borderColor: "var(--accent)", color: "var(--accent)", cursor: "pointer" }}
-            >
-              View more
-            </button>)}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
-      <section>
+      <section id="how">
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">Why FixWheel {config.cityName}</div>
-            <h2>{config.why.heading}</h2>
-            <p>{config.why.description}</p>
+            <div className="eyebrow">How it works</div>
+            <h2>{config.howHeading || "Book to fixed — 4 simple steps"}</h2>
           </div>
-          <div className="why-grid">
-            {config.why.cards.map((card, idx) => (
-              <div className="why-card" key={card.title}>
-                <span className="num">{String(idx + 1).padStart(2, "0")}</span>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
+          <div className="steps">
+            {config.how.map((step, idx) => (
+              <div className="step" key={step.title}>
+                <span className="n">{String(idx + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
               </div>
             ))}
           </div>
@@ -258,29 +251,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             <div className="eyebrow">We service all major brands</div>
             <h2 style={{ fontSize: "26px" }}>{config.vehicles?.brandsHeading || `Any brand, any model — ${config.cityName} doorstep`}</h2>
           </div>
-          <div className="brand-row">
-            {configuredBrands.map((brand) => (
-              <div className="brand-chip" key={brand.name}><img src={getBrandLogo(brand.name)} alt={`${brand.name} logo`} className="object-contain" />{brand.name}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="how" className="section-alt">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">How it works</div>
-            <h2>{config.howHeading || "Book to fixed — 4 simple steps"}</h2>
-          </div>
-          <div className="steps">
-            {config.how.map((step, idx) => (
-              <div className="step" key={step.title}>
-                <span className="n">{String(idx + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
-            ))}
-          </div>
+          <PopularBrands cityName={config.cityName} />
         </div>
       </section>
 
@@ -357,19 +328,6 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
         </div>
       </section>
 
-      {config.cityLinks && (
-        <section className="keywords-section" style={{ padding: "60px 0", borderBottom: "1px solid var(--line-paper)", background: "#FFFFFF" }}>
-          <div className="wrap">
-            <h3 className="keywords-title" style={{ fontSize: "18px", color: "var(--ink-dark)", marginBottom: "20px", fontFamily: "var(--font-jetbrains)", textTransform: "uppercase" }}>Book Doorstep Service by City</h3>
-            <div className="locations-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
-              {config.cityLinks.map((link) => (
-                <Link key={link.href} href={link.href} style={{ padding: "14px 16px", background: "#0F172A", border: "1px solid #334155", borderRadius: "6px", fontWeight: "700", color: "#FFFFFF", textAlign: "center", fontSize: "13.5px", textDecoration: "none" }}>{link.label}</Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="final-cta" style={{ borderBottom: "none" }}>
         <div className="wrap">
           <h2>{config.finalCta.heading}</h2>
@@ -377,6 +335,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
           <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
         </div>
       </section>
+      <CitySwitcher currentCity={config.cityName} />
     </>
   );
 }

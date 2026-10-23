@@ -117,7 +117,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       </div>
     </div>
     <section className="picker" aria-labelledby="pk" style={{"padding":"20px"}}>
-      <h2 id="pk">{bike ? bike.pickerTitle || "What does your bike need?" : "What is your scooty doing?"}</h2>
+      <h2 id="pk">{bike ? bike.pickerTitle || "What does your bike need?" : "What is your vehicle doing?"}</h2>
       <p>Select a problem for the next step.</p>
       <fieldset onChange={(event) => setSelected((event.target as HTMLInputElement).value)}>
         <legend className="sr" style={{"position":"absolute","left":"-9999px"}}>{bike ? bike.pickerLegend || "Choose your bike’s symptom or service" : "Choose your scooter’s symptom"}</legend>

@@ -83,17 +83,17 @@ export default function TwoWheelerQueryCard({ electric = false }: TwoWheelerQuer
   const [selected, setSelected] = useState("");
   const symptoms = electric ? electricSymptoms : petrolSymptoms;
   const tips = electric ? electricTips : petrolTips;
-  const headingId = electric ? "ev-problem-heading" : "scooty-problem-heading";
+  const headingId = electric ? "ev-problem-heading" : "vehicle-problem-heading";
 
   return (
     <section aria-labelledby={headingId} className="rounded-2xl bg-white text-slate-950" style={{ boxShadow: "0 20px 40px rgba(0,0,0,.35)", padding: "20px" }}>
       <h2 id={headingId} style={{ fontFamily: "Inter, Arial, sans-serif", fontSize: "22px", fontWeight: 700, lineHeight: 1.2, textTransform: "none" }}>
-        {electric ? "What does your electric two-wheeler need?" : "What is your scooty doing?"}
+        {electric ? "What does your electric two-wheeler need?" : "What is your vehicle doing?"}
       </h2>
       <p className="text-slate-700" style={{ fontSize: "14px", margin: "4px 0 12px" }}>Select a problem for the next step.</p>
       <fieldset className="grid" style={{ border: 0, gap: "6px", margin: 0, padding: 0 }}>
         <legend style={{ height: "1px", margin: "-1px", overflow: "hidden", padding: 0, position: "absolute", width: "1px", clip: "rect(0, 0, 0, 0)" }}>
-          {electric ? "Choose your electric vehicle’s issue" : "Choose your scooter’s symptom"}
+          {electric ? "Choose your electric vehicle’s issue" : "Choose your vehicle’s symptom"}
         </legend>
         {symptoms.map((symptom) => (
           <label key={symptom.value} className="relative block cursor-pointer">
@@ -114,7 +114,7 @@ export default function TwoWheelerQueryCard({ electric = false }: TwoWheelerQuer
         )}
       </div>
       <Link href="/book" style={{ borderRadius: "6px", color: "#fff", marginTop: "12px", padding: "14px 24px", textDecoration: "none" }} className="flex w-full items-center justify-center bg-accent text-sm font-bold text-white transition hover:bg-red-600">
-        {electric ? "Book EV service" : "Book scooter repair"}
+        {electric ? "Book EV service" : "Book vehicle repair"}
       </Link>
     </section>
   );
