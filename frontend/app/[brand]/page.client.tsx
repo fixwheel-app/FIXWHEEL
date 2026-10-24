@@ -11,6 +11,7 @@ import { ChevronDown, Phone } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
+import BrandServiceGuide from "@/components/BrandServiceGuide";
 import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 import {
   HONDA_MODEL_FAMILIES,
@@ -1542,7 +1543,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                                   className="model-link-card"
                                 >
                                   <span className="name">{family.name}</span>
-                                  <span className="action">{booksDirectly ? "Book service →" : "View family →"}</span>
+                                  <span className="action">{booksDirectly ? "Book service →" : "Explore models →"}</span>
                                 </Link>
                               );
                             })}
@@ -1696,6 +1697,8 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           )}
         </div>
       </section>
+
+      <BrandServiceGuide brandName={brandData.name} brandSlug={brandSlug} />
 
       {/* ===== BECOME A PARTNER SECTION ===== */}
       <section className="section-alt" style={{ borderTop: "1px solid var(--line-paper)", borderBottom: "1px solid var(--line-paper)", padding: "88px 0" }}>

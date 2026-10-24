@@ -13,6 +13,7 @@ import VehiclesWeService from "@/components/VehiclesWeService";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import CitySwitcher from "@/components/CitySwitcher";
 import PopularBrands from "@/components/PopularBrands";
+import HowSectionActions from "@/components/HowSectionActions";
 import {
   getIntroParagraph,
   getHowItWorksTitle,
@@ -472,6 +473,7 @@ export default function GurgaonLocalityClientPage({ slug }: LocalityClientProps)
               <p>{howSteps[3]}</p>
             </div>
           </div>
+          <HowSectionActions />
         </div>
       </section>
 

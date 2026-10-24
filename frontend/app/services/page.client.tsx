@@ -9,6 +9,7 @@ import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
+import HowSectionActions from "@/components/HowSectionActions";
 
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
@@ -894,6 +895,7 @@ export default function ServicesClientPage() {
                 <p>Take a test ride, inspect replaced parts, and pay digitally with a 15-day warranty.</p>
               </div>
             </div>
+            <HowSectionActions />
           </div>
         </section>
 

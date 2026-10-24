@@ -11,6 +11,7 @@ import VehiclesWeService from "@/components/VehiclesWeService";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import CitySwitcher from "@/components/CitySwitcher";
 import PopularBrands from "@/components/PopularBrands";
+import HowSectionActions from "@/components/HowSectionActions";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -447,6 +448,7 @@ export default function PalamViharClientPage() {
               <p>Pay only the quoted price, then rate the mechanic who serviced your bike.</p>
             </div>
           </div>
+          <HowSectionActions />
         </div>
       </section>
 

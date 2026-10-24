@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import HowSectionActions from '@/components/HowSectionActions';
 import { 
   Settings, Smartphone, Clock, ShieldCheck, 
   UserCheck, MapPin, Wrench, CheckCircle2, 
-  Flag, IndianRupee, ArrowRight, Truck, ThumbsUp
+  Flag, IndianRupee, Truck, ThumbsUp
 } from 'lucide-react';
 
 export default function HowItWorks() {
@@ -181,13 +181,7 @@ export default function HowItWorks() {
                 Book in less than a minute and we'll take care of the rest.
               </p>
             </div>
-            <Link
-              href="/book"
-              className="group flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all duration-300 shadow-[0_10px_20px_rgba(255,107,0,0.2)] hover:shadow-[0_10px_30px_rgba(255,107,0,0.4)] hover:-translate-y-1 whitespace-nowrap w-full md:w-auto"
-            >
-              Book Your Service Now
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            <HowSectionActions align="center" flush />
           </div>
         </motion.div>
 

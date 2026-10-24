@@ -5,6 +5,7 @@ import "./scooty-reference.css";
 import type { ScooterCityContent } from "./cityContent";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
+import HowSectionActions from "@/components/HowSectionActions";
 
 export interface BikeLandingContent {
   lead: string;
@@ -102,7 +103,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 
 
 
-<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<a href="/services">Vehicle Type</a> &nbsp;/&nbsp; <span>{bike ? bike.breadcrumbLabel || "Bike Repair & Service" : "Scooty & Scooter Repair"}</span></div></div>
+<div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {city && <><a href={`/${citySlug}`}>{city.name}</a> &nbsp;/&nbsp; </>}<span>{bike ? bike.breadcrumbLabel || "Bike Repair & Service" : "Scooty & Scooter Repair"}</span></div></div>
 
 {/* 1. HERO */}
 <div className="hero">
@@ -154,6 +155,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       <div className="step"><h3>Doorstep service</h3><p>The mechanic arrives with tools, inspects your vehicle and completes the approved work.</p></div>
       <div className="step"><h3>Review &amp; pay</h3><p>Check the completed service and pay only after the job is finished.</p></div>
     </div>
+    <HowSectionActions />
   </div>
 </section>
 

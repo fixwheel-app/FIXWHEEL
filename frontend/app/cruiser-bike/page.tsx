@@ -49,8 +49,7 @@ export default async function CruiserBikeServicePage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
-          { "@type": "ListItem", position: 2, name: "Vehicle Type", item: "https://www.fixwheel.app/services" },
-          { "@type": "ListItem", position: 3, name: "Cruiser Bike Service", item: "https://www.fixwheel.app/cruiser-bike" },
+          { "@type": "ListItem", position: 2, name: "Cruiser Bike Service", item: "https://www.fixwheel.app/cruiser-bike" },
         ],
       },
       {

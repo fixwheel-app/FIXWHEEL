@@ -9,6 +9,7 @@ import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
+import BrandServiceGuide from "@/components/BrandServiceGuide";
 import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
 import type { HondaModelFamily } from "@/lib/hondaModelFamilies";
 import type { HeroModelFamily } from "@/lib/heroModelFamilies";
@@ -370,6 +371,10 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
               </div>
             </section>
           )}
+
+          <div className="mb-16 -mx-4 sm:mx-0">
+            <BrandServiceGuide brandName={brandName} brandSlug={bSlug} familyName={modelName} />
+          </div>
 
           <section className="mb-16 border-y border-slate-200 py-14" aria-labelledby="family-faq-heading">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)]">

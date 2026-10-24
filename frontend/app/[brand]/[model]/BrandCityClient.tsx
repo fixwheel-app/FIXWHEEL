@@ -662,7 +662,7 @@ export default function BrandCityClient({
                             className="model-card"
                           >
                             <div className="name">{family.name}</div>
-                            <div className="go">{booksDirectly ? "Book service →" : "View family →"}</div>
+                            <div className="go">{booksDirectly ? "Book service →" : "Explore models →"}</div>
                           </Link>
                         );
                       })}

@@ -9,6 +9,7 @@ import VehiclesWeService from "@/components/VehiclesWeService";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import PopularBrands from "@/components/PopularBrands";
 import CitySwitcher from "@/components/CitySwitcher";
+import HowSectionActions from "@/components/HowSectionActions";
 import type { PageVariables } from "@/lib/pageVariables";
 import type { PublicStatRecord } from "@/lib/publicStats";
 
@@ -190,14 +191,14 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
             {visibleAreas.map((area, idx) => (
               <Link key={idx} href={`/${config.citySlug}/${area.slug}`} className="area-tag">📍 {area.name}</Link>
             ))}
+            {showAllAreas && (
+              <span className="area-tag" style={{ backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }}>
+                Across all {config.cityName}
+              </span>
+            )}
           </div>
           {config.coverage.areas.length > 10 && (
-            <div style={{ marginTop: "22px", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-              {showAllAreas && (
-                <span className="area-tag" style={{ backgroundColor: "var(--accent)", color: "#FFFFFF", borderColor: "var(--accent)" }}>
-                  Across all {config.cityName}
-                </span>
-              )}
+            <div style={{ marginTop: "22px" }}>
               <button
                 type="button"
                 className="area-tag"
@@ -231,6 +232,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
               </div>
             ))}
           </div>
+          <HowSectionActions />
         </div>
       </section>
 

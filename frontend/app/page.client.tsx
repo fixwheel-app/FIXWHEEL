@@ -12,6 +12,7 @@ import {
 import { getServicePricing, type ServicePriceId } from '@/lib/pricingData';
 import BrandsMarquee from '@/components/BrandsMarquee';
 import HomeCoverageSection from '@/components/HomeCoverageSection';
+import HowSectionActions from '@/components/HowSectionActions';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 import { submitQuery } from '@/lib/api';
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from '@/lib/publicStats';
@@ -409,6 +410,7 @@ export default function Home() {
               })}
             </div>
           </div>
+          <HowSectionActions align="center" />
         </div>
       </section>
 

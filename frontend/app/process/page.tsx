@@ -1,7 +1,7 @@
 "use client";
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import HowSectionActions from '@/components/HowSectionActions';
 
 export default function ProcessPage() {
   return (
@@ -51,11 +51,7 @@ export default function ProcessPage() {
             ))}
           </div>
 
-          <div className="mt-12 md:mt-20 text-center">
-            <Link href="/services" className="inline-block bg-accent px-6 py-3 md:px-10 md:py-4 font-black text-white text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-colors shadow-[0_0_20px_rgba(230,43,43,0.3)]">
-              Book Now
-            </Link>
-          </div>
+          <HowSectionActions align="center" />
         </div>
       </section>
     </div>

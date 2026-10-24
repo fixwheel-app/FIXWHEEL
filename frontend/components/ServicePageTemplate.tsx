@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
+import HowSectionActions from "@/components/HowSectionActions";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
@@ -397,6 +398,7 @@ export default function ServicePageTemplate({
                 </div>
               </div>
             )}
+            <HowSectionActions />
           </div>
 
           {(isScootyRepair || isElectricRepair) && (
