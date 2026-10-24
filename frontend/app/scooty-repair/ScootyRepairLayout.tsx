@@ -6,6 +6,7 @@ import type { ScooterCityContent } from "./cityContent";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 
 export interface BikeLandingContent {
   lead: string;
@@ -112,10 +113,16 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       <span className="tag">{bike ? bike.tag || "Bike repair & maintenance" : "Scooter & CVT specialist"}</span>
       <h1>{bike ? bike.heroTitle || "Doorstep Bike Repair & Service in Delhi NCR" : "Doorstep Scooty & Scooter Repair in " + (city?.name || "Delhi NCR")}</h1>
       <p className="lead">{bike?.lead || city?.lead || "Honda Activa, TVS Jupiter, Suzuki Access or TVS Ntorq giving you trouble? Get scooter repair at your home or office in Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Tell us what you’re noticing, approve the repair price, and pay after the service."}</p>
-      <div className="cta-row">
+      {bike ? <div className="bike-hero-actions">
+        <div className="cta-row">
+          <a className="btn btn-red" href="/book">Book doorstep service</a>
+          <a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a>
+        </div>
+        <PaymentTrustRow className="font-mono uppercase tracking-[0.08em]" />
+      </div> : <div className="cta-row">
         <HeroBookingAction><a className="btn btn-red" href="/book">Book doorstep service</a></HeroBookingAction>
         <a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a>
-      </div>
+      </div>}
     </div>
     <section className="picker" aria-labelledby="pk" style={{"padding":"20px"}}>
       <h2 id="pk">{bike ? bike.pickerTitle || "What does your bike need?" : "What is your vehicle doing?"}</h2>

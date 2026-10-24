@@ -37,6 +37,13 @@
 .scooty-reference .hero h1{font-size:clamp(30px,5.2vw,54px);margin-bottom:18px}
 .scooty-reference .hero p.lead{color:#cbd5e1;max-width:560px;margin:0 0 26px;font-size:17px}
 .scooty-reference .cta-row{display:flex;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.scooty-reference .bike-hero-actions{display:flex;width:max-content;max-width:100%;flex-direction:column;align-items:flex-start;gap:14px}
+.scooty-reference .bike-hero-actions .payment-trust-row{justify-content:flex-start;margin-top:0!important}
+@media(max-width:560px){
+  .scooty-reference .bike-hero-actions{width:100%}
+  .scooty-reference .bike-hero-actions .cta-row{display:grid;width:100%;grid-template-columns:1fr}
+  .scooty-reference .bike-hero-actions .btn{width:100%;min-height:52px}
+}
 .scooty-reference .picker{background:#fff;color:#0f172a;border-radius:16px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
 .scooty-reference .picker h2{font-size:22px;font-family:Inter,sans-serif;text-transform:none;font-weight:700}
 .scooty-reference .picker p{margin:4px 0 12px;color:#475569;font-size:14px}
