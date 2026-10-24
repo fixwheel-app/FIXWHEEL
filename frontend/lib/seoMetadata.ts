@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 
 const MIN_DESCRIPTION_LENGTH = 150;
 const MAX_DESCRIPTION_LENGTH = 170;
+const DEFAULT_OPEN_GRAPH_IMAGES = [
+  {
+    url: "/logo.png",
+    width: 512,
+    height: 512,
+    alt: "FixWheel logo",
+  },
+];
 
 const DESCRIPTION_ADDITIONS = [
   " Book online today.",
@@ -88,6 +96,9 @@ export function completePageMetadata(metadata: Metadata): Metadata {
   const openGraphType = metadata.openGraph && "type" in metadata.openGraph
     ? metadata.openGraph.type
     : "website";
+  const openGraphImages = metadata.openGraph && "images" in metadata.openGraph
+    ? metadata.openGraph.images
+    : undefined;
 
   if (!title || !description || !canonical) {
     return {
@@ -109,6 +120,7 @@ export function completePageMetadata(metadata: Metadata): Metadata {
       description,
       url: canonical,
       type: openGraphType,
+      images: openGraphImages || DEFAULT_OPEN_GRAPH_IMAGES,
     },
   };
 }

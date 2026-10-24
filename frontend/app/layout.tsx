@@ -36,7 +36,15 @@ export const metadata: Metadata = {
     description: "Book verified doorstep bike, scooter, and electric two-wheeler service with transparent pricing and support from FixWheel across Delhi NCR cities.",
     url: "https://www.fixwheel.app",
     type: "website",
-    siteName: "FixWheel"
+    siteName: "FixWheel",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "FixWheel logo",
+      },
+    ],
   },
   verification: {
     google: "71UoB7e03OEormKOZ0HXPxAkXORZ37XkQlXdFYx4YxI",

@@ -12,6 +12,7 @@ import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import VehiclesWeService from "@/components/VehiclesWeService";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import CitySwitcher from "@/components/CitySwitcher";
+import PopularBrands from "@/components/PopularBrands";
 import {
   getIntroParagraph,
   getHowItWorksTitle,
@@ -519,6 +520,17 @@ export default function GhaziabadLocalityClientPage({ slug }: LocalityClientProp
             <p>Our mobile mechanics cover all common two-wheeler repairs and routine maintenance in {data.name}. Here are all the bike repair services available at your doorstep:</p>
           </div>
           <CityServicesGrid cityName="Ghaziabad" />
+        </div>
+      </section>
+
+      <section>
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">Popular two-wheeler brands</div>
+            <h2>We service leading brands in {data.name}</h2>
+            <p>Choose from the most commonly serviced brands, or open our complete brand directory to find your vehicle.</p>
+          </div>
+          <PopularBrands cityName={data.name} />
         </div>
       </section>
 
