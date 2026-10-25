@@ -5,7 +5,7 @@ const delhiConfig: CityPageConfig = {
   citySlug: "delhi",
   hero: {
     eyebrow: "Two wheeler mechanic at your doorstep · Delhi",
-  title: "Two Wheeler Bike Repair Service",
+  title: "Two-Wheeler Repair Service",
     emphasis: "in Delhi",
     lead: "FixWheel sends verified mechanics to your location anywhere in South and South-West Delhi. Whether it is your home parking, office basement, or a roadside breakdown — we bring the tools, you keep your day going.",
     bookingLabel: "Book a Mechanic in Delhi →",
@@ -58,20 +58,20 @@ const delhiConfig: CityPageConfig = {
     ],
   },
   why: {
-    heading: "Bike repair without the garage run",
+    heading: "Two-Wheeler repair without the garage run",
     description: "Delhi traffic makes getting to a mechanic a half-day task. We bring the mechanic to you instead.",
     cards: [
-      { title: "Your location, our tools", text: "The mechanic arrives at your address with a full toolkit. You do not need to move your bike anywhere." },
+      { title: "Your location, our tools", text: "The mechanic arrives at your address with a full toolkit. You do not need to move your two-wheeler anywhere." },
       { title: "Verified before dispatch", text: "Every mechanic on the platform is background-checked and trained before they get assigned a single job." },
       { title: "Price locked upfront", text: "You see the price before any work starts. If extra parts are needed, we confirm the cost with you first." },
       { title: "15-day labor warranty", text: "If something goes wrong with the same repair within 15 days, a mechanic comes back at no extra charge." },
     ],
   },
-  servicesDescription: "All repairs are done at your doorstep across South and South-West Delhi. Select a service to check pricing for your bike model.",
+  servicesDescription: "All repairs are done at your doorstep across South and South-West Delhi. Select a service to check pricing for your two-wheeler model.",
   how: [
-    { title: "1. Pick a service", text: "Select what your bike needs and pick a time slot on our app or website." },
+    { title: "1. Pick a service", text: "Select what your two-wheeler needs and pick a time slot on our app or website." },
     { title: "2. Mechanic dispatched", text: "A verified mechanic near your location is assigned and heads to you." },
-    { title: "3. Repaired on-site", text: "Your bike is fixed right where it is parked — home, office, or roadside." },
+    { title: "3. Repaired on-site", text: "Your two-wheeler is fixed right where it is parked — home, office, or roadside." },
     { title: "4. Pay and rate", text: "Pay the quoted amount via UPI, card, or cash, then rate the mechanic." },
   ],
   reviews: {
@@ -84,13 +84,13 @@ const delhiConfig: CityPageConfig = {
     ],
   },
   partner: {
-    heading: "Are you a bike mechanic in Delhi?",
+    heading: "Are you a two-wheeler mechanic in Delhi?",
     description: "Join the FixWheel network and receive bookings from riders in your area. Set your own hours and manage everything from your phone.",
     registrationText: "Register in a few minutes and start receiving service requests in Delhi.",
   },
   faqs: [
     { question: "How quickly can a mechanic reach me in Delhi?", answer: "In most South and South-West Delhi localities, our mechanics arrive within 30 to 45 minutes of booking confirmation." },
-    { question: "What does doorstep bike repair cost in Delhi?", answer: "Basic service starts from ₹550 depending on your bike model and cc. We confirm the exact price before starting any work." },
+    { question: "What does doorstep two-wheeler repair cost in Delhi?", answer: "Basic service starts from ₹550 depending on your two-wheeler model and cc. We confirm the exact price before starting any work." },
     { question: "Which areas in Delhi does FixWheel cover?", answer: "We cover South and South-West Delhi including Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, Mahipalpur, Hari Nagar, Najafgarh, Palam, Saket, Hauz Khas, and surrounding areas." },
     { question: "Do you offer emergency roadside help in Delhi?", answer: "Yes, we dispatch mechanics for roadside breakdowns across our Delhi service area. Available 24/7." },
     { question: "Can you service my EV scooter in Delhi?", answer: "Yes, we service Ola, Ather, TVS iQube, and other electric two-wheelers at your doorstep in Delhi." },
@@ -101,7 +101,7 @@ const delhiConfig: CityPageConfig = {
     description: "Broken down on a Delhi road? A mechanic will come to your exact location with tools to diagnose and fix the issue on the spot.",
   },
   finalCta: {
-    heading: "Book doorstep bike repair in Delhi.",
+    heading: "Book doorstep two-wheeler repair in Delhi.",
     description: "Verified mechanic at your home or office across South & South-West Delhi. Starting ₹550. No garage visit needed.",
   },
 };

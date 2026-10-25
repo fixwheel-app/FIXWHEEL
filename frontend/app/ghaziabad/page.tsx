@@ -3,41 +3,41 @@ import GhaziabadClientPage from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Mechanic Near Me in Ghaziabad – Doorstep Bike Repair & Scooter Service | FixWheel",
-  description: "Book verified doorstep bike and scooter service in Ghaziabad from 8 AM to 10 PM. Get home, office, and roadside support across major Ghaziabad areas.",
+  title: "Doorstep Two-Wheeler Repair & Service in Ghaziabad | FixWheel",
+  description: "Book verified doorstep two-wheeler service in Ghaziabad from 8 AM to 10 PM. Get home, office, and roadside repair support across major Ghaziabad areas with FixWheel.",
   keywords: [
-    "bike mechanic near me Ghaziabad",
+    "two-wheeler mechanic near me Ghaziabad",
     "two wheeler mechanic near me Ghaziabad",
-    "bike repair near me Ghaziabad",
-    "sports bike repair near me Ghaziabad",
-    "sports bike mechanic near me Ghaziabad",
+    "two-wheeler repair near me Ghaziabad",
+    "sports motorcycle repair near me Ghaziabad",
+    "sports motorcycle mechanic near me Ghaziabad",
     "ev scooter repair near me Ghaziabad",
     "electric scooter repair near me Ghaziabad",
     "royal enfield mechanic near me Ghaziabad",
     "scooty repair near me Ghaziabad",
-    "bike service near me Ghaziabad",
-    "bike repair at home Ghaziabad",
-    "doorstep bike service Ghaziabad",
+    "two-wheeler service near me Ghaziabad",
+    "two-wheeler repair at home Ghaziabad",
+    "doorstep two-wheeler service Ghaziabad",
     "scooty mechanic at home Ghaziabad",
     "scooty repair Ghaziabad",
     "scooter repair at home Ghaziabad",
     "scooter mechanic near me Ghaziabad",
-    "24/7 emergency roadside bike assistance Ghaziabad",
-    "bike mechanic on call Ghaziabad",
+    "24/7 emergency roadside two-wheeler assistance Ghaziabad",
+    "two-wheeler mechanic on call Ghaziabad",
     "two wheeler mechanic in Ghaziabad with phone number",
-    "bike repair at doorstep Ghaziabad",
-    "bike mechanic near me open now Ghaziabad",
-    "doorstep bike service near me Ghaziabad",
-    "mobile bike mechanic Ghaziabad",
-    "bike electrician near me Ghaziabad",
-    "online bike mechanic Ghaziabad",
-    "bike repair shops near me Ghaziabad",
-    "bike mechanic Indirapuram",
-    "bike mechanic Vaishali Ghaziabad",
-    "bike repair Kaushambi",
-    "bike mechanic Raj Nagar Extension",
-    "doorstep bike repair Vasundhara Ghaziabad",
-    "bike repair Crossings Republik Ghaziabad"
+    "two-wheeler repair at doorstep Ghaziabad",
+    "two-wheeler mechanic near me open now Ghaziabad",
+    "doorstep two-wheeler service near me Ghaziabad",
+    "mobile two-wheeler mechanic Ghaziabad",
+    "two-wheeler electrician near me Ghaziabad",
+    "online two-wheeler mechanic Ghaziabad",
+    "two-wheeler repair shops near me Ghaziabad",
+    "two-wheeler mechanic Indirapuram",
+    "two-wheeler mechanic Vaishali Ghaziabad",
+    "two-wheeler repair Kaushambi",
+    "two-wheeler mechanic Raj Nagar Extension",
+    "doorstep two-wheeler repair Vasundhara Ghaziabad",
+    "two-wheeler repair Crossings Republik Ghaziabad"
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/ghaziabad",
@@ -48,8 +48,8 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Bike Repair Service in Ghaziabad",
-  "description": "Verified mechanics come to your home, office, or roadside in Ghaziabad to repair your bike or scooter. Covering Indirapuram, Vaishali, Kaushambi, Raj Nagar and all Ghaziabad areas.",
+  "name": "Doorstep Two-Wheeler Repair Service in Ghaziabad",
+  "description": "Verified mechanics come to your home, office, or roadside in Ghaziabad to repair your two-wheeler. Covering Indirapuram, Vaishali, Kaushambi, Raj Nagar and all Ghaziabad areas.",
   "url": "https://www.fixwheel.app/ghaziabad",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -81,7 +81,7 @@ const serviceSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bike Repair Services in Ghaziabad",
+    "name": "Two-Wheeler Repair Services in Ghaziabad",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -96,7 +96,7 @@ const serviceSchema = {
           "@type": "PriceSpecification",
           "price": "550",
           "priceCurrency": "INR",
-          "description": "Starting price for 0-249cc bikes"
+          "description": "Starting price for 0-249cc two-wheelers"
         }
       },
       {
@@ -184,7 +184,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "OBD Scanner Inspection",
-          "description": "Diagnostic scanner connected to your bike to read fault codes and detect issues."
+          "description": "Diagnostic scanner connected to your two-wheeler to read fault codes and detect issues."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -204,7 +204,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Pick and Drop",
-          "description": "We collect your bike, service it, and deliver it back to you."
+          "description": "We collect your two-wheeler, service it, and deliver it back to you."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -235,10 +235,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What does doorstep bike repair cost in Ghaziabad?",
+      "name": "What does doorstep two-wheeler repair cost in Ghaziabad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work."
+        "text": "Basic service starts from ₹550 depending on your two-wheeler model. We confirm the exact price before starting any work."
       }
     },
     {

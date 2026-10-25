@@ -3,40 +3,40 @@ import NoidaClientPage from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Mechanic Near Me in Noida – Doorstep Bike Repair & Scooty Service | FixWheel",
-  description: "Book verified doorstep bike and scooter service in Noida from 8 AM to 10 PM. Get home, office, and roadside support across Noida sectors with FixWheel.",
+  title: "Doorstep Two-Wheeler Repair & Service in Noida | FixWheel",
+  description: "Book verified doorstep two-wheeler service in Noida from 8 AM to 10 PM. Get home, office, and roadside repair support across Noida and Greater Noida West with FixWheel.",
   keywords: [
-    "bike mechanic near me Noida",
-    "bike mechanic near me Greater Noida",
-    "bike repair near me Noida",
-    "sports bike repair near me Noida",
-    "sports bike mechanic near me Noida",
+    "two-wheeler mechanic near me Noida",
+    "two-wheeler mechanic near me Greater Noida",
+    "two-wheeler repair near me Noida",
+    "sports motorcycle repair near me Noida",
+    "sports motorcycle mechanic near me Noida",
     "ev scooter repair near me Noida",
     "electric scooter repair near me Noida",
     "royal enfield mechanic near me Noida",
     "scooty repair near me Noida",
-    "bike service near me Noida",
-    "bike repair at home Noida",
-    "doorstep bike service Noida",
+    "two-wheeler service near me Noida",
+    "two-wheeler repair at home Noida",
+    "doorstep two-wheeler service Noida",
     "scooty mechanic at home Noida",
     "scooty repair Noida",
     "scooter repair at home Noida",
     "scooter mechanic near me Noida",
-    "24/7 emergency roadside bike assistance Noida",
-    "bike mechanic on call Noida",
+    "24/7 emergency roadside two-wheeler assistance Noida",
+    "two-wheeler mechanic on call Noida",
     "two wheeler mechanic near me Noida",
     "two wheeler mechanic in Noida with phone number",
-    "bike repair at doorstep Noida",
-    "bike mechanic near me open now Noida",
-    "doorstep bike service near me Noida",
-    "mobile bike mechanic Noida",
-    "bike electrician near me Noida",
-    "online bike mechanic Noida",
-    "bike repair shops near me Noida",
-    "bike mechanic Sector 62 Noida",
-    "bike mechanic Sector 18 Noida",
-    "bike repair Sector 137 Noida",
-    "doorstep bike repair Noida Extension",
+    "two-wheeler repair at doorstep Noida",
+    "two-wheeler mechanic near me open now Noida",
+    "doorstep two-wheeler service near me Noida",
+    "mobile two-wheeler mechanic Noida",
+    "two-wheeler electrician near me Noida",
+    "online two-wheeler mechanic Noida",
+    "two-wheeler repair shops near me Noida",
+    "two-wheeler mechanic Sector 62 Noida",
+    "two-wheeler mechanic Sector 18 Noida",
+    "two-wheeler repair Sector 137 Noida",
+    "doorstep two-wheeler repair Noida Extension",
     "two wheeler mechanic Greater Noida West"
   ],
   alternates: {
@@ -48,8 +48,8 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Bike Repair Service in Noida",
-  "description": "Verified mechanics come to your home, office, or roadside in Noida to repair your bike or scooter. Covering Sector 18, 62, 137, 150, Greater Noida West, and all Noida sectors.",
+  "name": "Doorstep Two-Wheeler Repair Service in Noida",
+  "description": "Verified mechanics come to your home, office, or roadside in Noida to repair your two-wheeler. Covering Sector 18, 62, 137, 150, Greater Noida West, and all Noida sectors.",
   "url": "https://www.fixwheel.app/noida",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -82,7 +82,7 @@ const serviceSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bike Repair Services in Noida",
+    "name": "Two-Wheeler Repair Services in Noida",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -97,7 +97,7 @@ const serviceSchema = {
           "@type": "PriceSpecification",
           "price": "550",
           "priceCurrency": "INR",
-          "description": "Starting price for 0-249cc bikes"
+          "description": "Starting price for 0-249cc two-wheelers"
         }
       },
       {
@@ -185,7 +185,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "OBD Scanner Inspection",
-          "description": "Diagnostic scanner connected to your bike to read fault codes and detect issues."
+          "description": "Diagnostic scanner connected to your two-wheeler to read fault codes and detect issues."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -205,7 +205,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Pick and Drop",
-          "description": "We collect your bike, service it, and deliver it back to you."
+          "description": "We collect your two-wheeler, service it, and deliver it back to you."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -244,7 +244,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What does doorstep bike repair cost in Noida?",
+      "name": "What does doorstep two-wheeler repair cost in Noida?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Basic service starts from ₹550 depending on the vehicle and work required. You receive the quote and approve any extra parts before the mechanic proceeds."

@@ -5,7 +5,7 @@ const noidaConfig: CityPageConfig = {
   citySlug: "noida",
   hero: {
     eyebrow: "Two wheeler mechanic at your doorstep · Noida",
-  title: "Two Wheeler Bike Repair Service",
+  title: "Two-Wheeler Repair Service",
     emphasis: "in Noida",
     lead: "Get a verified two-wheeler mechanic at your society, office, or roadside location in Noida. We cover central Noida, the Expressway sectors, Noida Extension, and Greater Noida West with tools and common parts brought to you.",
     bookingLabel: "Book a Mechanic in Noida →",
@@ -67,11 +67,11 @@ const noidaConfig: CityPageConfig = {
       { name: "Techzone 4", slug: "techzone-4" },
     ],
   },
-  servicesHeading: "Doorstep bike and scooter repair for Noida riders",
+  servicesHeading: "Doorstep two-wheeler repair for Noida riders",
   servicesDescription: "Book routine servicing, brake and battery work, puncture support, diagnostics, or breakdown repair without taking your two-wheeler through Noida traffic to a workshop.",
   why: {
     heading: "Professional service right in your society parking",
-    description: "High-rise society gates or busy tech parks — our mechanics coordinate directly to service your bike while you work or relax.",
+    description: "High-rise society gates or busy tech parks — our mechanics coordinate directly to service your two-wheeler while you work or relax.",
     cards: [
       { title: "Convenient at-home service", text: "Our mechanics carry out the entire service inside your gated society basement, driveway, or office parking slot." },
       { title: "Trained & verified professionals", text: "Every mechanic is background-checked and trained, giving you complete safety and professional mechanical work." },
@@ -95,14 +95,14 @@ const noidaConfig: CityPageConfig = {
     ],
   },
   partner: {
-    heading: "Are you a bike mechanic in Noida?",
+    heading: "Are you a two-wheeler mechanic in Noida?",
     description: "Join the FixWheel network and receive nearby bookings from Noida sectors, the Expressway belt, and Greater Noida West. Set your availability and manage jobs from your phone.",
     registrationText: "Register your skills and service area to start receiving Noida booking requests.",
   },
   faqs: [
     { question: "How quickly can a mechanic reach me in Noida?", answer: "Arrival depends on traffic and mechanic availability in your zone. In many Noida sectors, a mechanic can reach within about 45 minutes after booking confirmation." },
     { question: "Can the mechanic enter my Noida society or office parking?", answer: "Yes. Share the gate, tower, basement, or visitor-entry details while booking. The assigned mechanic will coordinate with you before arrival." },
-    { question: "What does doorstep bike repair cost in Noida?", answer: "Basic service starts from ₹550 depending on the vehicle and work required. You receive the quote and approve any extra parts before the mechanic proceeds." },
+    { question: "What does doorstep two-wheeler repair cost in Noida?", answer: "Basic service starts from ₹550 depending on the vehicle and work required. You receive the quote and approve any extra parts before the mechanic proceeds." },
     { question: "Which areas in Noida does FixWheel cover?", answer: "Coverage includes central Noida, Sector 62, the Expressway sectors, Sector 137 and 150, Noida Extension, Greater Noida West, Knowledge Park, and nearby serviced locations." },
     { question: "Do you offer emergency roadside help in Noida?", answer: "Yes, we dispatch mechanics for roadside breakdowns across our Noida service area. Available 24/7." },
     { question: "Can you inspect an electric scooter in Noida?", answer: "Yes. We support compatible Ola, Ather, TVS iQube, Bajaj Chetak, and other electric two-wheelers for diagnostics and serviceable mechanical or electrical issues." },

@@ -9,7 +9,7 @@ function CheckIcon() {
 export default function PaymentTrustRow({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`payment-trust-row flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-semibold text-white/80 ${className}`.trim()}
+      className={`payment-trust-row flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-semibold text-white/80 max-[560px]:flex-col max-[560px]:items-start ${className}`.trim()}
       aria-label="Payment benefits"
       style={{ marginTop: "10px" }}
     >

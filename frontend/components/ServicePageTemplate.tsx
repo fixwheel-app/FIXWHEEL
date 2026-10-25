@@ -10,6 +10,7 @@ import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 
@@ -206,23 +207,44 @@ export default function ServicePageTemplate({
                 {lead}
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto">
-                <HeroBookingAction>
-                  <Link
-                    href="/book"
-                    className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+              {isVehicleType ? (
+                <div className="flex w-full flex-col items-start gap-3 sm:w-max sm:max-w-full">
+                  <div className="grid w-full grid-cols-1 gap-3 sm:flex sm:w-auto sm:items-start">
+                    <Link
+                      href="/book"
+                      className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                    >
+                      Book Doorstep Service →
+                    </Link>
+                    <a
+                      href="tel:+918745945682"
+                      className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 sm:w-auto sm:px-6 sm:py-4 sm:text-sm"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Call Mechanic
+                    </a>
+                  </div>
+                  <PaymentTrustRow className="justify-start font-mono uppercase tracking-[0.08em]" />
+                </div>
+              ) : (
+                <div className="flex flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start">
+                  <HeroBookingAction>
+                    <Link
+                      href="/book"
+                      className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                    >
+                      Book Doorstep Service →
+                    </Link>
+                  </HeroBookingAction>
+                  <a
+                    href="tel:+918745945682"
+                    className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 sm:px-6 sm:py-4 sm:text-sm"
                   >
-                    Book Doorstep Service →
-                  </Link>
-                </HeroBookingAction>
-                <a
-                  href="tel:+918745945682"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Mechanic
-                </a>
-              </div>
+                    <Phone className="w-4 h-4" />
+                    Call Mechanic
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Right Hero Interactive Query Card */}

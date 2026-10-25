@@ -5,7 +5,7 @@ const ghaziabadConfig: CityPageConfig = {
   citySlug: "ghaziabad",
   hero: {
     eyebrow: "Two wheeler mechanic at your doorstep · Ghaziabad",
-  title: "Two Wheeler Bike Repair Service",
+  title: "Two-Wheeler Repair Service",
     emphasis: "in Ghaziabad",
     lead: "FixWheel sends verified mobile mechanics directly to your house driveway, society parking lot, or office basement across Ghaziabad. No more pushing your broken motorcycle to local workshops — we carry the parts and tools to fix it on-site.",
     bookingLabel: "Book a Mechanic in Ghaziabad →",
@@ -67,9 +67,9 @@ const ghaziabadConfig: CityPageConfig = {
     ],
   },
   how: [
-    { title: "1. Pick a service", text: "Select what your bike needs and pick a time slot on our app or website." },
+    { title: "1. Pick a service", text: "Select what your two-wheeler needs and pick a time slot on our app or website." },
     { title: "2. Mechanic dispatched", text: "A verified mechanic near your location in Ghaziabad is assigned and heads to you." },
-    { title: "3. Repaired on-site", text: "Your bike is fixed right where it is parked — home, office, or society parking." },
+    { title: "3. Repaired on-site", text: "Your two-wheeler is fixed right where it is parked — home, office, or society parking." },
     { title: "4. Pay and rate", text: "Pay the quoted amount via UPI, card, or cash, then rate the mechanic." },
   ],
   reviews: {
@@ -82,13 +82,13 @@ const ghaziabadConfig: CityPageConfig = {
     ],
   },
   partner: {
-    heading: "Are you a bike mechanic in Ghaziabad?",
+    heading: "Are you a two-wheeler mechanic in Ghaziabad?",
     description: "Join the FixWheel network and receive bookings from riders in Ghaziabad. Set your own hours and manage everything from your phone.",
     registrationText: "Register in a few minutes and start receiving service requests in Ghaziabad.",
   },
   faqs: [
     { question: "How quickly can a mechanic reach me in Ghaziabad?", answer: "In most Ghaziabad sectors and residential blocks, our mechanics arrive within 45 minutes of booking confirmation." },
-    { question: "What does doorstep bike repair cost in Ghaziabad?", answer: "Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work." },
+    { question: "What does doorstep two-wheeler repair cost in Ghaziabad?", answer: "Basic service starts from ₹550 depending on your two-wheeler model. We confirm the exact price before starting any work." },
     { question: "Which areas in Ghaziabad does FixWheel cover?", answer: "We cover all major locations including Indirapuram, Vaishali, Kaushambi, Vasundhara, Raj Nagar Extension, Sanjay Nagar, and Crossings Republik." },
     { question: "Do you offer emergency roadside help in Ghaziabad?", answer: "Yes, we dispatch mechanics for roadside breakdowns across our Ghaziabad service area, including NH-24 and GT Road. Available 24/7." },
     { question: "Is there a warranty on the repair?", answer: "Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge." },
@@ -98,7 +98,7 @@ const ghaziabadConfig: CityPageConfig = {
     description: "Stranded on NH-24, GT Road, or near Hindon River? A mechanic will come to your exact location with tools to fix the issue on the spot.",
   },
   finalCta: {
-    heading: "Book doorstep bike repair in Ghaziabad.",
+    heading: "Book doorstep two-wheeler repair in Ghaziabad.",
     description: "Verified mechanic at your home or office across Indirapuram, Vaishali, Kaushambi, Vasundhara, Raj Nagar & all Ghaziabad areas. Starting ₹550.",
   },
 };

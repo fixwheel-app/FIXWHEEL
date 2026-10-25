@@ -3,36 +3,36 @@ import GurgaonClientPage from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Mechanic Near Me in Gurgaon – Doorstep Bike Repair Service | FixWheel",
-  description: "Book verified doorstep bike and scooter service in Gurgaon from 8 AM to 10 PM. Get home, office, and roadside support across Gurugram with FixWheel.",
+  title: "Doorstep Two-Wheeler Repair & Service in Gurgaon | FixWheel",
+  description: "Book verified doorstep two-wheeler service in Gurgaon from 8 AM to 10 PM. Get home, office, and roadside repair support across Gurugram with FixWheel.",
   keywords: [
-    "bike mechanic near me Gurgaon",
-    "bike mechanic near me Gurugram",
-    "bike repair near me Gurgaon",
-    "sports bike repair near me Gurgaon",
-    "sports bike mechanic near me Gurgaon",
+    "two-wheeler mechanic near me Gurgaon",
+    "two-wheeler mechanic near me Gurugram",
+    "two-wheeler repair near me Gurgaon",
+    "sports motorcycle repair near me Gurgaon",
+    "sports motorcycle mechanic near me Gurgaon",
     "ev scooter repair near me Gurgaon",
     "electric scooter repair near me Gurgaon",
     "royal enfield mechanic near me Gurgaon",
     "scooty repair near me Gurgaon",
-    "bike service near me Gurgaon",
-    "bike repair at home Gurgaon",
-    "doorstep bike service Gurgaon",
+    "two-wheeler service near me Gurgaon",
+    "two-wheeler repair at home Gurgaon",
+    "doorstep two-wheeler service Gurgaon",
     "scooty mechanic at home Gurgaon",
     "scooty repair Gurgaon",
     "scooter repair at home Gurgaon",
     "scooter mechanic near me Gurgaon",
-    "24/7 emergency roadside bike assistance Gurgaon",
-    "bike mechanic on call Gurgaon",
+    "24/7 emergency roadside two-wheeler assistance Gurgaon",
+    "two-wheeler mechanic on call Gurgaon",
     "two wheeler mechanic near me Gurgaon",
     "two wheeler mechanic in Gurgaon with phone number",
-    "bike repair at doorstep Gurgaon",
-    "bike mechanic near me open now Gurgaon",
-    "doorstep bike service near me Gurgaon",
-    "mobile bike mechanic Gurugram",
-    "bike electrician near me Gurgaon",
-    "online bike mechanic Gurgaon",
-    "bike repair shops near me Gurgaon"
+    "two-wheeler repair at doorstep Gurgaon",
+    "two-wheeler mechanic near me open now Gurgaon",
+    "doorstep two-wheeler service near me Gurgaon",
+    "mobile two-wheeler mechanic Gurugram",
+    "two-wheeler electrician near me Gurgaon",
+    "online two-wheeler mechanic Gurgaon",
+    "two-wheeler repair shops near me Gurgaon"
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/gurgaon",
@@ -43,8 +43,8 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Bike Repair Service in Gurgaon",
-  "description": "Professional doorstep bike and two-wheeler repair service in Gurgaon. Verified mechanics come to your home, office, or roadside location to service and repair your bike or scooter.",
+  "name": "Doorstep Two-Wheeler Repair Service in Gurgaon",
+  "description": "Professional doorstep two-wheeler repair service in Gurgaon. Verified mechanics come to your home, office, or roadside location to service and repair your two-wheeler.",
   "url": "https://www.fixwheel.app/gurgaon",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "address": {
@@ -92,7 +92,7 @@ const serviceSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bike Repair Services in Gurgaon",
+    "name": "Two-Wheeler Repair Services in Gurgaon",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -107,7 +107,7 @@ const serviceSchema = {
           "@type": "PriceSpecification",
           "price": "550",
           "priceCurrency": "INR",
-          "description": "Starting price for 0-249cc bikes"
+          "description": "Starting price for 0-249cc two-wheelers"
         }
       },
       {
@@ -215,7 +215,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Pick and Drop",
-          "description": "We pick up your bike, get it serviced, and drop it back at your location."
+          "description": "We pick up your two-wheeler, get it serviced, and drop it back at your location."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -262,31 +262,31 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "How do I find a bike mechanic on call near me in Gurgaon?",
+      "name": "How do I find a two-wheeler mechanic on call near me in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Book on fixwheel.app or call +91-87459-45682. Our on-call bike mechanics are stationed across Gurgaon and will reach you in under 45 minutes. No garage visit needed — the mechanic comes to you."
+        "text": "Book on fixwheel.app or call +91-87459-45682. Our on-call two-wheeler mechanics are stationed across Gurgaon and will reach you in under 45 minutes. No garage visit needed — the mechanic comes to you."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the phone number for bike mechanic in Gurgaon?",
+      "name": "What is the phone number for two-wheeler mechanic in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can reach FixWheel's Gurgaon bike mechanic team at +91-87459-45682. We cover all sectors in Gurgaon and Gurugram for doorstep two-wheeler repair and servicing."
+        "text": "You can reach FixWheel's Gurgaon two-wheeler mechanic team at +91-87459-45682. We cover all sectors in Gurgaon and Gurugram for doorstep two-wheeler repair and servicing."
       }
     },
     {
       "@type": "Question",
-      "name": "Is FixWheel open now for bike repair in Gurgaon?",
+      "name": "Is FixWheel open now for two-wheeler repair in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, FixWheel is available for bike repair in Gurgaon right now. We operate 7 days a week with extended hours. For late-night emergencies, our 24/7 roadside assistance line is always active."
+        "text": "Yes, FixWheel is available for two-wheeler repair in Gurgaon right now. We operate 7 days a week with extended hours. For late-night emergencies, our 24/7 roadside assistance line is always active."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does doorstep bike service take in Gurgaon?",
+      "name": "How long does doorstep two-wheeler service take in Gurgaon?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Most repairs take 30 to 50 minutes. Engine oil changes take about 30 minutes, and full services take 45 to 60 minutes. We confirm the time needed before we start."

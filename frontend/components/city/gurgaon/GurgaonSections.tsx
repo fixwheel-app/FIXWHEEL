@@ -5,9 +5,9 @@ const gurgaonConfig: CityPageConfig = {
   citySlug: "gurgaon",
   hero: {
     eyebrow: "Doorstep two wheeler mechanic · Gurgaon",
-  title: "Two Wheeler Bike Repair Service",
+  title: "Two-Wheeler Repair Service",
     emphasis: "in Gurgaon",
-    lead: "FixWheel offers doorstep bike repair service in Gurgaon. A verified mechanic will come to your home, office, or anywhere you are stranded to fix your bike or scooter. No need to visit a garage or wait in lines.",
+    lead: "FixWheel offers doorstep two-wheeler repair service in Gurgaon. A verified mechanic will come to your home, office, or anywhere you are stranded to fix your two-wheeler. No need to visit a garage or wait in lines.",
     bookingLabel: "Book a Mechanic in Gurgaon →",
     arrivalTime: "45 min",
     ratingSource: "public-stats",
@@ -69,24 +69,24 @@ const gurgaonConfig: CityPageConfig = {
   },
   why: {
     heading: "How we work in Gurgaon",
-    description: "Avoid traffic and long waits. Get your bike serviced at home or office without pushing it to a shop.",
+    description: "Avoid traffic and long waits. Get your two-wheeler serviced at home or office without pushing it to a shop.",
     cards: [
-      { title: "We come to you", text: "Our mechanic will visit your home, office, or any location in Gurgaon. You do not have to move your bike." },
+      { title: "We come to you", text: "Our mechanic will visit your home, office, or any location in Gurgaon. You do not have to move your two-wheeler." },
       { title: "Trained mechanics", text: "All our mechanics are trained, verified, and background-checked before joining the platform." },
       { title: "Transparent pricing", text: "We give you a clear price before we start working. There are no hidden fees or surprise costs." },
       { title: "Fast arrival", text: "Our mechanics are spread across Gurgaon so we can reach you quickly, usually within 45 minutes." },
     ],
   },
-  servicesHeading: "Bike Repair & Service Packages in Gurgaon",
+  servicesHeading: "Two-Wheeler Repair & Service Packages in Gurgaon",
   vehicles: {
-    heading: "We service all bikes and scooters",
-    description: "We repair all two-wheelers including daily scooters, commuter bikes, and electric vehicles.",
+    heading: "We service all two-wheelers",
+    description: "We service scooters, commuter motorcycles, electric two-wheelers, and premium motorcycles.",
     types: [
       "🛵 Scooter",
-      "🏍️ Bike",
+      "🏍️ Motorcycle",
       "⚡ EV Scooter",
-      "⚡ EV Bike",
-      "🏁 Sports Bike",
+      "⚡ Electric two-wheeler",
+      "🏁 Sports motorcycle",
       "🔵 Royal Enfield",
       "+ all other types",
     ],
@@ -110,11 +110,11 @@ const gurgaonConfig: CityPageConfig = {
       { name: "Benelli", domain: "benelli.com" },
     ],
   },
-  howHeading: "4 steps from booking to a fixed bike",
+  howHeading: "4 steps from booking to a fixed two-wheeler",
   how: [
     { title: "1. Book a slot", text: "Pick your service and choose a time on our app or website." },
     { title: "2. Mechanic assigned", text: "We assign a verified mechanic near you." },
-    { title: "3. Service at your doorstep", text: "The mechanic repairs your bike at your home or office." },
+    { title: "3. Service at your doorstep", text: "The mechanic repairs your two-wheeler at your home or office." },
     { title: "4. Pay and rate", text: "Pay the transparent price online or cash and rate the mechanic." },
   ],
   reviews: {
@@ -122,12 +122,12 @@ const gurgaonConfig: CityPageConfig = {
     rating: "4.7★",
     items: [
       { text: "Quoted the price before starting, no extra charges added later. Honest service.", author: "Priya S. — Gurgaon" },
-      { text: "Bike broke down near Cyber Hub. Mechanic arrived in 15 minutes and didn't overcharge for the emergency call.", author: "Rahul Sharma — Gurgaon" },
+      { text: "My two-wheeler broke down near Cyber Hub. Mechanic arrived in 15 minutes and didn't overcharge for the emergency call.", author: "Rahul Sharma — Gurgaon" },
       { text: "Used them for my Royal Enfield. Genuine parts used and the engine feels noticeably smoother now.", author: "Vikram Singh — Gurgaon" },
     ],
   },
   partner: {
-    heading: "Are you a bike mechanic in Gurgaon?",
+    heading: "Are you a two-wheeler mechanic in Gurgaon?",
     description: "Join our team of mechanics in Gurgaon. Work on your own schedule, get more customers, and grow your income.",
     registrationText: "Sign up in a few minutes and start getting service requests in your area.",
     benefits: [
@@ -137,11 +137,11 @@ const gurgaonConfig: CityPageConfig = {
     ],
   },
   faqs: [
-    { question: "How long does doorstep bike service take in Gurgaon?", answer: "Most repairs take 30 to 50 minutes. We tell you the time needed before we start." },
-    { question: "How much does doorstep bike service cost in Gurgaon?", answer: "Service starts from ₹550 depending on your bike model. We give you a clear price before starting." },
+    { question: "How long does doorstep two-wheeler service take in Gurgaon?", answer: "Most repairs take 30 to 50 minutes. We tell you the time needed before we start." },
+    { question: "How much does doorstep two-wheeler service cost in Gurgaon?", answer: "Service starts from ₹550 depending on your two-wheeler model. We give you a clear price before starting." },
     { question: "Which areas do you cover in Gurgaon?", answer: "We cover all areas and sectors in Gurgaon." },
     { question: "Can I book emergency roadside assistance in Gurgaon?", answer: "Yes, our roadside assistance is available 24/7 in Gurgaon." },
-    { question: "Do you service Royal Enfield bikes at home in Gurgaon?", answer: "Yes, we repair and service all Royal Enfield models at your home." },
+    { question: "Do you service Royal Enfield motorcycles at home in Gurgaon?", answer: "Yes, we repair and service all Royal Enfield models at your home." },
     { question: "Is there a warranty on the repair?", answer: "Yes, we provide a 15-day warranty on our service." },
   ],
   contact: {
@@ -151,7 +151,7 @@ const gurgaonConfig: CityPageConfig = {
   },
   roadside: {
     heading: "Gurgaon Roadside Assistance",
-    description: "Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your bike or scooter on the spot.",
+    description: "Stranded on the road or have a breakdown in Gurgaon? A mechanic will come to your location with tools to fix your two-wheeler on the spot.",
     badgeColor: "#FFFFFF",
   },
   cityLinks: [
@@ -162,7 +162,7 @@ const gurgaonConfig: CityPageConfig = {
     { href: "/faridabad", label: "Faridabad" },
   ],
   finalCta: {
-    heading: "Book doorstep bike repair in Gurgaon.",
+    heading: "Book doorstep two-wheeler repair in Gurgaon.",
     description: "Verified mechanic at your home or office, anywhere in Gurugram. Starting ₹550. No garage visit needed.",
   },
 };

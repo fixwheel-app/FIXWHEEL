@@ -294,7 +294,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
 
       <section id="faq">
         <div className="wrap">
-          <div className="section-head"><div className="eyebrow">FAQs</div><h2>Common questions about bike repair in {config.cityName}</h2></div>
+          <div className="section-head"><div className="eyebrow">FAQs</div><h2>Common questions about two-wheeler repair in {config.cityName}</h2></div>
           <div className="faq-list">
             {config.faqs.map((faq, idx) => (
               <div className={`faq-item ${openFaqs[idx] ? "open" : ""}`} key={faq.question}>
@@ -334,7 +334,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
         <div className="wrap">
           <h2>{config.finalCta.heading}</h2>
           <p>{config.finalCta.description}</p>
-          <Link href="/book" className="btn btn-dark">Book Your Bike Service →</Link>
+          <Link href="/book" className="btn btn-dark">Book Your Two-Wheeler Service →</Link>
         </div>
       </section>
       <CitySwitcher currentCity={config.cityName} />

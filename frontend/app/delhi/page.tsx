@@ -3,30 +3,30 @@ import DelhiClientPage from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Mechanic Near Me in Delhi – Doorstep Bike Repair & Scooty Service | FixWheel",
-  description: "Book verified doorstep bike and scooter service in Delhi from 8 AM to 10 PM. Get home, office, and roadside support across South and West Delhi with FixWheel.",
+  title: "Doorstep Two-Wheeler Repair & Service in Delhi | FixWheel",
+  description: "Book verified doorstep two-wheeler service in Delhi from 8 AM to 10 PM. Get home, office, and roadside repair support across South and West Delhi with FixWheel.",
   keywords: [
-    "bike mechanic near me Delhi",
-    "bike repair near me Delhi",
-    "bike service near me Delhi",
-    "bike repair at home Delhi",
-    "doorstep bike service Delhi",
+    "two-wheeler mechanic near me Delhi",
+    "two-wheeler repair near me Delhi",
+    "two-wheeler service near me Delhi",
+    "two-wheeler repair at home Delhi",
+    "doorstep two-wheeler service Delhi",
     "scooty mechanic at home Delhi",
     "scooty repair Delhi",
     "scooter repair at home Delhi",
     "scooter mechanic near me Delhi",
-    "24/7 emergency roadside bike assistance Delhi",
-    "bike mechanic on call Delhi",
+    "24/7 emergency roadside two-wheeler assistance Delhi",
+    "two-wheeler mechanic on call Delhi",
     "two wheeler mechanic near me Delhi",
     "two wheeler mechanic in Delhi with phone number",
-    "bike repair at doorstep Delhi",
-    "bike mechanic near me open now Delhi",
-    "doorstep bike service near me Delhi",
-    "mobile bike mechanic Delhi",
-    "bike electrician near me Delhi",
-    "online bike mechanic Delhi",
-    "bike repair shops near me Delhi",
-    "bike service Delhi"
+    "two-wheeler repair at doorstep Delhi",
+    "two-wheeler mechanic near me open now Delhi",
+    "doorstep two-wheeler service near me Delhi",
+    "mobile two-wheeler mechanic Delhi",
+    "two-wheeler electrician near me Delhi",
+    "online two-wheeler mechanic Delhi",
+    "two-wheeler repair shops near me Delhi",
+    "two-wheeler service Delhi"
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/delhi",
@@ -37,8 +37,8 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Bike Repair Service in Delhi",
-  "description": "Verified mechanics come to your home, office, or roadside in Delhi to repair your bike or scooter. Covering Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, and all South & South-West Delhi localities.",
+  "name": "Doorstep Two-Wheeler Repair Service in Delhi",
+  "description": "Verified mechanics come to your home, office, or roadside in Delhi to repair your two-wheeler. Covering Dwarka, Kapashera, Vasant Kunj, Janakpuri, Bijwasan, and all South & South-West Delhi localities.",
   "url": "https://www.fixwheel.app/delhi",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -71,7 +71,7 @@ const serviceSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bike Repair Services in Delhi",
+    "name": "Two-Wheeler Repair Services in Delhi",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -86,7 +86,7 @@ const serviceSchema = {
           "@type": "PriceSpecification",
           "price": "550",
           "priceCurrency": "INR",
-          "description": "Starting price for 0-249cc bikes"
+          "description": "Starting price for 0-249cc two-wheelers"
         }
       },
       {
@@ -174,7 +174,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "OBD Scanner Inspection",
-          "description": "Diagnostic scanner connected to your bike to read fault codes and detect issues."
+          "description": "Diagnostic scanner connected to your two-wheeler to read fault codes and detect issues."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -194,7 +194,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Pick and Drop",
-          "description": "We collect your bike, service it, and deliver it back to you."
+          "description": "We collect your two-wheeler, service it, and deliver it back to you."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -241,34 +241,34 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What is the phone number for bike mechanic in Delhi?",
+      "name": "What is the phone number for two-wheeler mechanic in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can reach FixWheel's Delhi bike mechanic team at +91-87459-45682. We cover South Delhi, West Delhi, and South-West Delhi areas for doorstep two-wheeler repair and servicing."
+        "text": "You can reach FixWheel's Delhi two-wheeler mechanic team at +91-87459-45682. We cover South Delhi, West Delhi, and South-West Delhi areas for doorstep two-wheeler repair and servicing."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I get a bike mechanic on call near me in Delhi?",
+      "name": "How do I get a two-wheeler mechanic on call near me in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Call +91-87459-45682 or book on fixwheel.app. Our on-call bike mechanics reach your location in Dwarka, Kapashera, Vasant Kunj, Janakpuri, and all Delhi areas within 45 minutes."
+        "text": "Call +91-87459-45682 or book on fixwheel.app. Our on-call two-wheeler mechanics reach your location in Dwarka, Kapashera, Vasant Kunj, Janakpuri, and all Delhi areas within 45 minutes."
       }
     },
     {
       "@type": "Question",
-      "name": "Is FixWheel open now for bike repair in Delhi?",
+      "name": "Is FixWheel open now for two-wheeler repair in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, FixWheel is available for bike repair in Delhi right now. We operate 7 days a week. For late-night emergencies, our 24/7 roadside assistance is always active."
+        "text": "Yes, FixWheel is available for two-wheeler repair in Delhi right now. We operate 7 days a week. For late-night emergencies, our 24/7 roadside assistance is always active."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you do bike repair on road in Delhi?",
+      "name": "Do you do two-wheeler repair on road in Delhi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. If your bike breaks down on the road in Delhi, call +91-87459-45682. We dispatch a mechanic to your exact location for roadside repair — puncture fix, battery jump-start, running repair, or emergency assistance."
+        "text": "Yes. If your two-wheeler breaks down on the road in Delhi, call +91-87459-45682. We dispatch a mechanic to your exact location for roadside repair — puncture fix, battery jump-start, running repair, or emergency assistance."
       }
     },
     {

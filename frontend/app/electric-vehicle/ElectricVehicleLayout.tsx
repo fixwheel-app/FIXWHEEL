@@ -6,8 +6,8 @@ import { getBrandLogo } from "@/lib/brandLogos";
 import { getPageVariables } from "@/lib/pageVariables";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import type { ServicePageProps } from "@/components/ServicePageTemplate";
-import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import "../scooty-repair/scooty-reference.css";
 
 const symptoms = [
@@ -58,7 +58,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating, 
     <div className="hero"><div className="wrap">
       <div><span className="tag">Electric two-wheeler care</span><h1>{locality ? `Doorstep EV & Electric Repair in ${locality.name}, ${locality.cityName}` : "Doorstep EV & Electric Repair in Delhi NCR"}</h1>
         <p className="lead">{locality ? `Charging trouble, a dashboard warning or brakes that need attention in ${locality.name}? Book an inspection for your electric scooter or bike at home or work in ${locality.name}, ${locality.cityName}. Share your model so we can confirm the right support.` : "Charging trouble, a dashboard warning or brakes that need attention? Book an inspection for your electric scooter or bike at home or work across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Share your model so we can confirm the right support."}</p>
-        <div className="cta-row"><HeroBookingAction><a className="btn btn-red" href="/book">Book EV service</a></HeroBookingAction><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div>
+        <div className="bike-hero-actions"><div className="cta-row"><a className="btn btn-red" href="/book">Book EV service</a><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div><PaymentTrustRow className="font-mono uppercase tracking-[0.08em]" /></div>
       </div>
       <section className="picker" aria-labelledby="ev-picker" style={{ padding: 20 }}><h2 id="ev-picker">What does your EV need?</h2><p>Select the issue you’re noticing.</p>
         <fieldset><legend className="sr-only">Choose your electric vehicle’s issue</legend>{symptoms.map(([key, label]) => <label className="opt" key={key}><input type="radio" name="ev-symptom" value={key} checked={selected === key} onChange={() => setSelected(key)} /><span>{label}</span></label>)}</fieldset>

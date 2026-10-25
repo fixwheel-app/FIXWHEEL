@@ -199,7 +199,7 @@ export default function Navbar() {
     { name: 'SERVICES',       href: '/services' },
     { name: 'VEHICLE TYPE',   href: '/bike' },
     { name: 'LOCATIONS',      href: '/delhi' },
-    { name: 'BLOG',           href: '/blog' },
+    { name: 'ABOUT US',       href: '/about' },
     { name: 'BECOME PARTNER', href: '/partner' },
     { name: 'CONTACT',        href: '/contact' },
   ];

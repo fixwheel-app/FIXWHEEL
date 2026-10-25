@@ -3,41 +3,41 @@ import FaridabadClientPage from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Mechanic Near Me in Faridabad – Doorstep Bike Repair Service | FixWheel",
-  description: "Book verified doorstep bike and scooter service in Faridabad from 8 AM to 10 PM. Get home, office, and roadside support across NIT and Ballabhgarh.",
+  title: "Doorstep Two-Wheeler Repair & Service in Faridabad | FixWheel",
+  description: "Book verified doorstep two-wheeler service in Faridabad from 8 AM to 10 PM. Get home, office, and roadside repair support across NIT and Ballabhgarh with FixWheel.",
   keywords: [
-    "bike mechanic near me Faridabad",
+    "two-wheeler mechanic near me Faridabad",
     "two wheeler mechanic near me Faridabad",
-    "bike repair near me Faridabad",
-    "sports bike repair near me Faridabad",
-    "sports bike mechanic near me Faridabad",
+    "two-wheeler repair near me Faridabad",
+    "sports motorcycle repair near me Faridabad",
+    "sports motorcycle mechanic near me Faridabad",
     "ev scooter repair near me Faridabad",
     "electric scooter repair near me Faridabad",
     "royal enfield mechanic near me Faridabad",
     "scooty repair near me Faridabad",
-    "bike service near me Faridabad",
-    "bike repair at home Faridabad",
-    "doorstep bike service Faridabad",
+    "two-wheeler service near me Faridabad",
+    "two-wheeler repair at home Faridabad",
+    "doorstep two-wheeler service Faridabad",
     "scooty mechanic at home Faridabad",
     "scooty repair Faridabad",
     "scooter repair at home Faridabad",
     "scooter mechanic near me Faridabad",
-    "24/7 emergency roadside bike assistance Faridabad",
-    "bike mechanic on call Faridabad",
+    "24/7 emergency roadside two-wheeler assistance Faridabad",
+    "two-wheeler mechanic on call Faridabad",
     "two wheeler mechanic in Faridabad with phone number",
-    "bike repair at doorstep Faridabad",
-    "bike mechanic near me open now Faridabad",
-    "doorstep bike service near me Faridabad",
-    "mobile bike mechanic Faridabad",
-    "bike electrician near me Faridabad",
-    "online bike mechanic Faridabad",
-    "bike repair shops near me Faridabad",
-    "bike mechanic NIT Faridabad",
-    "bike mechanic Sector 15 Faridabad",
-    "bike mechanic Sector 16 Faridabad",
-    "bike mechanic Ballabhgarh",
-    "doorstep bike repair Surajkund Faridabad",
-    "bike repair Greater Faridabad"
+    "two-wheeler repair at doorstep Faridabad",
+    "two-wheeler mechanic near me open now Faridabad",
+    "doorstep two-wheeler service near me Faridabad",
+    "mobile two-wheeler mechanic Faridabad",
+    "two-wheeler electrician near me Faridabad",
+    "online two-wheeler mechanic Faridabad",
+    "two-wheeler repair shops near me Faridabad",
+    "two-wheeler mechanic NIT Faridabad",
+    "two-wheeler mechanic Sector 15 Faridabad",
+    "two-wheeler mechanic Sector 16 Faridabad",
+    "two-wheeler mechanic Ballabhgarh",
+    "doorstep two-wheeler repair Surajkund Faridabad",
+    "two-wheeler repair Greater Faridabad"
   ],
   alternates: {
     canonical: "https://www.fixwheel.app/faridabad",
@@ -48,8 +48,8 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
-  "name": "Doorstep Bike Repair Service in Faridabad",
-  "description": "Verified mechanics come to your home, office, or roadside in Faridabad to repair your bike or scooter. Covering NIT, Sector 15, 16, 21, Ballabhgarh, Suraj Kund and all Faridabad areas.",
+  "name": "Doorstep Two-Wheeler Repair Service in Faridabad",
+  "description": "Verified mechanics come to your home, office, or roadside in Faridabad to repair your two-wheeler. Covering NIT, Sector 15, 16, 21, Ballabhgarh, Suraj Kund and all Faridabad areas.",
   "url": "https://www.fixwheel.app/faridabad",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -81,7 +81,7 @@ const serviceSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bike Repair Services in Faridabad",
+    "name": "Two-Wheeler Repair Services in Faridabad",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -96,7 +96,7 @@ const serviceSchema = {
           "@type": "PriceSpecification",
           "price": "550",
           "priceCurrency": "INR",
-          "description": "Starting price for 0-249cc bikes"
+          "description": "Starting price for 0-249cc two-wheelers"
         }
       },
       {
@@ -184,7 +184,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "OBD Scanner Inspection",
-          "description": "Diagnostic scanner connected to your bike to read fault codes and detect issues."
+          "description": "Diagnostic scanner connected to your two-wheeler to read fault codes and detect issues."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -204,7 +204,7 @@ const serviceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Pick and Drop",
-          "description": "We collect your bike, service it, and deliver it back to you."
+          "description": "We collect your two-wheeler, service it, and deliver it back to you."
         },
         "price": "199",
         "priceCurrency": "INR"
@@ -235,10 +235,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What does doorstep bike repair cost in Faridabad?",
+      "name": "What does doorstep two-wheeler repair cost in Faridabad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹550 depending on your bike model. We confirm the exact price before starting any work."
+        "text": "Basic service starts from ₹550 depending on your two-wheeler model. We confirm the exact price before starting any work."
       }
     },
     {
