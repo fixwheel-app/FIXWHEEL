@@ -40,8 +40,8 @@ export const CITY_SERVICE_CARDS_CONFIG: CityServiceConfig[] = [
     name: "Engine Repair",
     desc: "Engine diagnosis, fault identification and component-level repair — all done at your doorstep by a verified mechanic.",
     priceNote: "starting from (half engine)",
-    link: "/book",
-    linkText: "Book now →",
+    link: "/services/engine-repair",
+    linkText: "View engine service →",
   },
   {
     tag: "[PUNCTURE]",

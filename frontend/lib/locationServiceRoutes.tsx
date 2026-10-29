@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import ScootyRepairLayout from "@/app/scooty-repair/ScootyRepairLayout";
 import { SCOOTER_CITIES } from "@/app/scooty-repair/cityContent";
 import CruiserBikeLayout, { getCruiserFaqs } from "@/app/cruiser-bike/CruiserBikeLayout";
@@ -29,13 +29,20 @@ const BIKE_TYPE_SERVICE_SET = new Set<string>([
   "commuter-bike-service",
   ...Object.values(BIKE_TYPE_SERVICE_BY_ROUTE),
 ]);
+const CONSOLIDATED_ENGINE_SERVICE_SET = new Set([
+  "engine-half",
+  "engine-full",
+  "engine-repair",
+]);
 
 export function isBikeTypeSlug(slug: string) {
   return BIKE_TYPE_SET.has(slug);
 }
 
 export function getServiceSlugs() {
-  return Object.keys(SERVICES_DB).filter((slug) => !BIKE_TYPE_SERVICE_SET.has(slug));
+  return Object.keys(SERVICES_DB).filter(
+    (slug) => !BIKE_TYPE_SERVICE_SET.has(slug) && !CONSOLIDATED_ENGINE_SERVICE_SET.has(slug),
+  );
 }
 
 function getCity(citySlug: string) {
@@ -82,6 +89,9 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
 
 export function generateCityServiceMetadata(citySlug: string, serviceSlug: string) {
   if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) return {};
+  if (CONSOLIDATED_ENGINE_SERVICE_SET.has(serviceSlug)) {
+    return { alternates: { canonical: "https://www.fixwheel.app/services/engine-repair" } };
+  }
   return buildMetadata(serviceSlug, citySlug);
 }
 
@@ -158,6 +168,9 @@ function renderLocationService(serviceSlug: string, citySlug: string) {
 
 export function renderCityService(citySlug: string, serviceSlug: string) {
   if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) notFound();
+  if (CONSOLIDATED_ENGINE_SERVICE_SET.has(serviceSlug)) {
+    redirect("/services/engine-repair");
+  }
   return renderLocationService(serviceSlug, citySlug);
 }
 

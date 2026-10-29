@@ -4,7 +4,7 @@ import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
   title: "Doorstep Two-Wheeler Repair & Service in Ghaziabad | FixWheel",
-  description: "Book verified doorstep two-wheeler service in Ghaziabad from 8 AM to 10 PM. Get home, office, and roadside repair support across major Ghaziabad areas with FixWheel.",
+  description: "Book verified doorstep two-wheeler repair in Ghaziabad from 8 AM to 10 PM across Indirapuram, Vaishali, Vasundhara, Raj Nagar, and Crossings Republik.",
   keywords: [
     "two-wheeler mechanic near me Ghaziabad",
     "two wheeler mechanic near me Ghaziabad",
@@ -49,7 +49,7 @@ const serviceSchema = {
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
   "name": "Doorstep Two-Wheeler Repair Service in Ghaziabad",
-  "description": "Verified mechanics come to your home, office, or roadside in Ghaziabad to repair your two-wheeler. Covering Indirapuram, Vaishali, Kaushambi, Raj Nagar and all Ghaziabad areas.",
+  "description": "Book doorstep two-wheeler repair for Ghaziabad societies, khands, sectors, workplaces, and supported roadside locations across the city's listed service areas.",
   "url": "https://www.fixwheel.app/ghaziabad",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -227,42 +227,58 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How quickly can a mechanic reach me in Ghaziabad?",
+      "name": "Do you cover Indirapuram, Vaishali, and Vasundhara?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In most Ghaziabad sectors and residential blocks, our mechanics arrive within 45 minutes of booking confirmation."
+        "text": "These localities are included in the listed Ghaziabad coverage. Add the khand or sector, society, tower, gate, and parking location so availability can be confirmed for your exact address."
       }
     },
     {
       "@type": "Question",
-      "name": "What does doorstep two-wheeler repair cost in Ghaziabad?",
+      "name": "Can I book service in Raj Nagar Extension or Crossings Republik?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹550 depending on your two-wheeler model. We confirm the exact price before starting any work."
+        "text": "Yes, you can request a visit in these listed areas. Provide the society name, tower, gate, and visitor-entry instructions because a city name or pin code alone may not identify the correct entrance."
       }
     },
     {
       "@type": "Question",
-      "name": "Which areas in Ghaziabad does FixWheel cover?",
+      "name": "Why should I include the khand or sector in my address?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We cover all major locations including Indirapuram, Vaishali, Kaushambi, Vasundhara, Raj Nagar Extension, Sanjay Nagar, and Crossings Republik."
+        "text": "Indirapuram, Vaishali, and Vasundhara contain multiple khands, sectors, and gated societies. The complete address helps the mechanic plan the correct route and meet you at the right parking location."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you offer emergency roadside help in Ghaziabad?",
+      "name": "Can I request roadside help on NH-9 or GT Road?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we dispatch mechanics for roadside breakdowns across our Ghaziabad service area, including NH-24 and GT Road. Available 24/7."
+        "text": "Roadside assistance is available 24/7 within the supported Ghaziabad service area. Share a live location, direction of travel, nearby landmark, vehicle model, and symptoms so the team can confirm dispatch."
       }
     },
     {
       "@type": "Question",
-      "name": "Is there a warranty on the repair?",
+      "name": "Should I select routine service if my two-wheeler will not start?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge."
+        "text": "Describe it as a starting fault and include any battery, ignition, or electrical symptoms you noticed. The mechanic can inspect the vehicle and recommend the correct work before you approve it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does doorstep two-wheeler service cost in Ghaziabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basic service starts from ₹550 depending on the model and work required. Additional labour or parts are quoted after inspection and require your approval before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a warranty on FixWheel service in Ghaziabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligible work includes a 15-day labour warranty. Keep the booking details and contact the team if the same serviced issue returns during the warranty period."
       }
     }
   ]

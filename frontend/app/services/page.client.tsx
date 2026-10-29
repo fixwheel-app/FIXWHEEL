@@ -10,6 +10,7 @@ import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/p
 import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
@@ -34,8 +35,8 @@ const SERVICE_PAGE_ROUTES: Record<string, string> = {
   "jump-start": "/services/jump-start",
   "puncture": "/services/puncture",
   "running-repair": "/services/running-repair",
-  "engine-half": "/services/engine-half",
-  "engine-full": "/services/engine-full",
+  "engine-half": "/services/engine-repair#half-engine",
+  "engine-full": "/services/engine-repair#full-engine",
   "carburetor-cleaning": "/services/carburetor-cleaning",
   "obd-inspection": "/services/obd-inspection",
   "battery-replacement": "/services/battery-replacement",
@@ -733,45 +734,7 @@ export default function ServicesClientPage() {
               </div>
             </div>
 
-            <div className="ticket font-sans">
-              <div className="ticket-top">
-                <div>
-                  <div className="tnum">TICKET #FW-2026-SRV</div>
-                  <div className="text-[11px] font-mono text-slate-500 font-bold mt-0.5">
-                    FIXWHEEL DOORSTEP PASS
-                  </div>
-                </div>
-                <div className="stamp">VERIFIED MECHANIC</div>
-              </div>
-              <div className="ticket-body">
-                <div className="ticket-row">
-                  <span className="label">SERVICE TYPE</span>
-                  <span className="val">Running Repair</span>
-                </div>
-                <div className="ticket-row">
-                  <span className="label">COVERAGE</span>
-                  <span className="val">Delhi NCR</span>
-                </div>
-                <div className="ticket-row">
-                  <span className="label">LOCATION</span>
-                  <span className="val">Home / Office</span>
-                </div>
-                <div className="ticket-row">
-                  <span className="label">WARRANTY</span>
-                  <span className="val">15 Days Labor</span>
-                </div>
-                <div className="ticket-row">
-                  <span className="label">STATUS</span>
-                  <span className="val" style={{ color: "#16A34A" }}>
-                    READY TO DISPATCH ✓
-                  </span>
-                </div>
-                <div className="ticket-foot">
-                  <span className="total-label">STARTING AT</span>
-                  <span className="total-val">₹399</span>
-                </div>
-              </div>
-            </div>
+            <TwoWheelerQueryCard />
           </div>
         </header>
 

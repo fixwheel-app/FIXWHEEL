@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
@@ -12,9 +12,12 @@ interface PageProps {
 }
 
 const EXCLUDED_SERVICES = ["sports-bike-service", "royal-enfield-service", "commuter-bike-service", "scooty-repair", "premium-bike-service", "electric-scooter-repair"];
+const LEGACY_ENGINE_SERVICE_SLUGS = new Set(["engine-half", "engine-full"]);
 
 export async function generateStaticParams() {
-  const serviceSlugs = Object.keys(SERVICES_DB).filter((s) => !EXCLUDED_SERVICES.includes(s));
+  const serviceSlugs = Object.keys(SERVICES_DB).filter(
+    (s) => !EXCLUDED_SERVICES.includes(s) && !LEGACY_ENGINE_SERVICE_SLUGS.has(s),
+  );
   const citySlugs = Object.keys(CITIES_DB);
 
   return [...serviceSlugs, ...citySlugs].map((s) => ({
@@ -24,6 +27,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   if (EXCLUDED_SERVICES.includes(params.service)) return {};
+  if (LEGACY_ENGINE_SERVICE_SLUGS.has(params.service)) {
+    return { alternates: { canonical: "https://www.fixwheel.app/services/engine-repair" } };
+  }
 
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
@@ -66,6 +72,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default function ServiceOrCityPage({ params }: PageProps) {
   if (EXCLUDED_SERVICES.includes(params.service)) {
     notFound();
+  }
+  if (LEGACY_ENGINE_SERVICE_SLUGS.has(params.service)) {
+    redirect("/services/engine-repair");
   }
 
   // Case 1: Standard Service (/services/engine-repair)

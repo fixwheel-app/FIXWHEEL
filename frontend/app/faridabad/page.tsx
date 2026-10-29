@@ -4,7 +4,7 @@ import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const metadata: Metadata = completePageMetadata({
   title: "Doorstep Two-Wheeler Repair & Service in Faridabad | FixWheel",
-  description: "Book verified doorstep two-wheeler service in Faridabad from 8 AM to 10 PM. Get home, office, and roadside repair support across NIT and Ballabhgarh with FixWheel.",
+  description: "Book doorstep two-wheeler repair in Faridabad from 8 AM to 10 PM. Get verified service across NIT, major sectors, Greater Faridabad, and Ballabhgarh. Book online.",
   keywords: [
     "two-wheeler mechanic near me Faridabad",
     "two wheeler mechanic near me Faridabad",
@@ -49,7 +49,7 @@ const serviceSchema = {
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Service",
   "name": "Doorstep Two-Wheeler Repair Service in Faridabad",
-  "description": "Verified mechanics come to your home, office, or roadside in Faridabad to repair your two-wheeler. Covering NIT, Sector 15, 16, 21, Ballabhgarh, Suraj Kund and all Faridabad areas.",
+  "description": "Book doorstep two-wheeler repair for NIT blocks, numbered sectors, Greater Faridabad societies, Ballabhgarh addresses, workplaces, and supported roadside locations.",
   "url": "https://www.fixwheel.app/faridabad",
   "serviceType": "Two Wheeler Repair and Maintenance",
   "areaServed": {
@@ -227,42 +227,58 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How quickly can a mechanic reach me in Faridabad?",
+      "name": "Do you cover both NIT Faridabad and Greater Faridabad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In most Faridabad sectors and NIT areas, our mechanics arrive within 45 minutes of booking confirmation."
+        "text": "Both areas are included in our listed coverage. Enter the NIT block or the Greater Faridabad sector, society, tower, and gate so the team can confirm availability for your exact address."
       }
     },
     {
       "@type": "Question",
-      "name": "What does doorstep two-wheeler repair cost in Faridabad?",
+      "name": "What address details should I provide for a Faridabad booking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Basic service starts from ₹550 depending on your two-wheeler model. We confirm the exact price before starting any work."
+        "text": "Include the sector or NIT block, building or society name, gate, nearby chowk or landmark, and the exact parking location. For Ballabhgarh and village-road addresses, add a live location when possible."
       }
     },
     {
       "@type": "Question",
-      "name": "Which areas in Faridabad does FixWheel cover?",
+      "name": "Can a mechanic visit my workplace in an industrial area?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We cover all major Faridabad sectors (Sector 15, 16, 21, 37, 86, etc.) as well as NIT, Old Faridabad, Ballabhgarh, and Suraj Kund."
+        "text": "You can request a workplace visit after checking entry permission and identifying a safe space where two-wheeler work is allowed. Share the company gate and contact person while booking."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you offer emergency roadside help in Faridabad?",
+      "name": "Can I request roadside help near Mathura Road or Bata Chowk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we dispatch mechanics for roadside breakdowns across our Faridabad service area, including Mathura Road and Suraj Kund Road. Available 24/7."
+        "text": "Roadside assistance is available 24/7 within the supported Faridabad service area. Share your live location, direction of travel, vehicle model, and symptoms so the team can confirm dispatch."
       }
     },
     {
       "@type": "Question",
-      "name": "Is there a warranty on the repair?",
+      "name": "What if I do not know which repair my two-wheeler needs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, all repairs come with a 15-day labor warranty. If anything goes wrong with the same issue, we send a mechanic back at no extra charge."
+        "text": "Describe what the vehicle is doing, such as not starting, losing power, making noise, braking poorly, or losing air. The mechanic can inspect it and explain the recommended work before you approve the quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does doorstep two-wheeler service cost in Faridabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basic service starts from ₹550 depending on the model and work required. Any additional labour or parts are explained after inspection and require your approval before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a warranty on FixWheel service in Faridabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligible work includes a 15-day labour warranty. Keep the booking details and contact the team if the same serviced issue returns during the warranty period."
       }
     }
   ]

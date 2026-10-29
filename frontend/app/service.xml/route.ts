@@ -11,8 +11,7 @@ const OFFICIAL_SERVICE_SLUGS = [
   "jump-start",
   "puncture",
   "running-repair",
-  "engine-half",
-  "engine-full",
+  "engine-repair",
   "carburetor-cleaning",
   "obd-inspection",
   "battery-replacement",
@@ -25,7 +24,6 @@ const OFFICIAL_SERVICE_SLUGS = [
 const LEGACY_SERVICE_URLS = [
   "/services/brake-repair",
   "/services/comprehensive-service",
-  "/services/engine-repair",
   "/services/oil-change",
   "/premium-bike",
   "/bike",
@@ -36,10 +34,11 @@ const LEGACY_SERVICE_URLS = [
 
 const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
 const CITY_SERVICE_SLUGS = [
-  ...OFFICIAL_SERVICE_SLUGS.filter((service) => service !== "electric-scooter-repair"),
+  ...OFFICIAL_SERVICE_SLUGS.filter(
+    (service) => service !== "electric-scooter-repair" && service !== "engine-repair",
+  ),
   "oil-change",
   "comprehensive-service",
-  "engine-repair",
   "battery-replacement",
   "brake-repair",
 ];

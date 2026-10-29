@@ -431,11 +431,47 @@ const nextConfig = {
         destination: '/services/comprehensive-service/:city',
         permanent: true,
       },
-      // 301 Permanent Redirect for Engine Repair locality pages (locality pages removed, city pages kept under /services/engine-repair/:city)
+      // Half-engine and full-engine pages are consolidated into one canonical engine repair page.
       {
-        source: '/services/engine-repair/:city/:locality+',
-        destination: '/services/engine-repair/:city',
-        permanent: true,
+        source: '/services/engine-half',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/engine-half/:path*',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/engine-full',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/services/engine-full/:path*',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/engine-half',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/engine-full',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      {
+        source: '/:city(gurgaon|delhi|noida|ghaziabad|faridabad)/services/engine-repair',
+        destination: '/services/engine-repair',
+        statusCode: 301,
+      },
+      // Retired city and locality variants also resolve to the single canonical page.
+      {
+        source: '/services/engine-repair/:path+',
+        destination: '/services/engine-repair',
+        statusCode: 301,
       },
       // 301 Permanent Redirect for Battery Replacement locality pages (locality pages removed, city pages kept under /services/battery-replacement/:city)
       {
