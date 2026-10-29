@@ -2,12 +2,42 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Wrench } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
 import { cn } from '@/lib/utils';
 import { PackageType } from '@/types';
+import { GooglePlayIcon } from '@/components/GooglePlayIcon';
+
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN';
+
+const APP_QUICK_SERVICES = [
+  {
+    name: 'Battery replacement',
+    detail: 'Battery fitting labour and terminal care',
+  },
+  {
+    name: 'Carburetor cleaning',
+    detail: 'Jet cleaning and idle tuning',
+  },
+  {
+    name: 'OBD scanner inspection',
+    detail: 'ECU fault-code and sensor scan',
+  },
+  {
+    name: 'Brake disc replacement',
+    detail: 'Brake pad or rotor fitting labour',
+  },
+  {
+    name: 'Chain & sprocket replacement',
+    detail: 'Drive-kit fitting and wheel alignment',
+  },
+  {
+    name: 'Pick & drop service',
+    detail: 'Workshop pickup and return transport',
+  },
+] as const;
 
 const BRAND_SLUG_MAP: Record<string, string> = {
   "honda": "Honda",
@@ -331,22 +361,55 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
             </div>
           )}
 
-          <section className="mt-10 rounded-[2rem] border border-white/15 bg-white/5 px-6 py-8 text-center md:px-10 md:py-10" aria-labelledby="more-services-heading">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">More ways to service your ride</span>
-            <h2 id="more-services-heading" className="mt-3 text-2xl font-black text-white md:text-3xl">
-              For more services, download the FixWheel app
-            </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-gray-300 md:text-base">
-              Explore additional two-wheeler services and book from your phone.
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-3 rounded-full bg-accent px-7 py-4 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-accent-hover"
-            >
-              Get the app on Google Play <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+          <section
+            className="relative left-1/2 mt-10 w-[calc(100vw-2rem)] max-w-5xl -translate-x-1/2 overflow-hidden rounded-2xl border border-white/15 bg-[#1a1a1a] shadow-[0_24px_70px_rgba(0,0,0,0.32)]"
+            aria-labelledby="more-services-heading"
+          >
+            <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
+              <div className="flex flex-col justify-between border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+                <div>
+                  <h2 id="more-services-heading" className="max-w-md text-3xl font-black leading-tight text-white sm:text-4xl">
+                    Quick services are available in the FixWheel app
+                  </h2>
+                  <p className="mt-4 max-w-md text-sm leading-6 text-gray-300 sm:text-base">
+                    Book these additional jobs from your phone, choose your vehicle, and confirm the service details before checkout.
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <a
+                    href={PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-lg bg-accent px-5 text-sm font-black uppercase tracking-wider text-white transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  >
+                    <GooglePlayIcon className="h-5 w-5 shrink-0" />
+                    <span>Get app · 10% off</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 lg:p-10">
+                <div className="flex items-end justify-between gap-4 border-b border-white/15 pb-4">
+                  <h3 className="text-lg font-black text-white sm:text-xl">More services you can book in the app</h3>
+                  <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-accent">6 services</span>
+                </div>
+                <ul className="grid sm:grid-cols-2" aria-label="Quick services available in the FixWheel app">
+                  {APP_QUICK_SERVICES.map((service) => (
+                    <li
+                      key={service.name}
+                      className="border-b border-white/10 py-4 sm:odd:pr-5 sm:even:border-l sm:even:pl-5"
+                    >
+                      <span className="font-bold leading-5 text-white">{service.name}</span>
+                      <p className="mt-1 text-xs leading-5 text-gray-400">{service.detail}</p>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-xs leading-5 text-gray-400">
+                  Choose your vehicle in the app to check availability and confirm the service details before booking.
+                </p>
+              </div>
+            </div>
           </section>
 
         </div>
