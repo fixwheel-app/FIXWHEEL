@@ -9,7 +9,8 @@ import {
 } from '../src/lib/bookingPricing';
 import { bookingSchema } from '../src/middleware/validateBooking';
 import { getServicePrice, ServicePriceTier } from '../../frontend/lib/pricingData';
-import { createBooking } from '../src/controllers/bookingController';
+import { createBooking, createBookingWithGeocoder } from '../src/controllers/bookingController';
+import { db } from '../src/lib/db';
 
 const nonElectricCases: Array<[BookingPriceSelection['serviceId'], BookingPriceSelection['packageName'], BookingPriceSelection['ccRange'], number]> = [
   ['basic-service', 'General Service', '0-249', 550],
@@ -254,4 +255,140 @@ test('booking controller rejects a tampered quote before persistence', async () 
     success: false,
     error: 'Quoted price does not match the official rate',
   });
+});
+
+test('booking controller persists the geocoded address coordinates', async () => {
+  let statusCode: number | undefined;
+  let responseBody: unknown;
+  let persistedData: Record<string, unknown> | undefined;
+  const bookingDelegate = db.booking as unknown as Record<string, unknown>;
+  const originalFindUnique = bookingDelegate.findUnique;
+  const originalCreate = bookingDelegate.create;
+  const originalResendKey = process.env.RESEND_API_KEY;
+
+  bookingDelegate.findUnique = async () => null;
+  bookingDelegate.create = async ({ data }: { data: Record<string, unknown> }) => {
+    persistedData = data;
+    return {
+      ...data,
+      id: 'test-booking-id',
+      createdAt: new Date(),
+      issueDescription: null,
+    };
+  };
+  delete process.env.RESEND_API_KEY;
+
+  const req = {
+    body: bookingSchema.parse({
+      customerName: 'Test Rider',
+      phone: '9876543210',
+      address: 'Connaught Place near Rajiv Chowk Metro Station',
+      city: 'Delhi',
+      bookingDate: '2026-09-15',
+      bikeType: 'Non-Electric Motorbike',
+      bikeModel: 'Test Model',
+      preferredSlot: '8:00 AM - 9:00 AM',
+      package: 'General Service',
+      serviceId: 'basic-service',
+      ccRange: '0-249',
+      price: 550,
+    }),
+  } as Request<{}, {}, ReturnType<typeof bookingSchema.parse>>;
+  const res = {
+    status: (code: number) => {
+      statusCode = code;
+      return res;
+    },
+    json: (body: unknown) => {
+      responseBody = body;
+      return res;
+    },
+  } as unknown as Response;
+
+  try {
+    await createBookingWithGeocoder(
+      req,
+      res,
+      async () => ({ latitude: 28.6139391, longitude: 77.2090212 }),
+    );
+  } finally {
+    bookingDelegate.findUnique = originalFindUnique;
+    bookingDelegate.create = originalCreate;
+    if (originalResendKey === undefined) {
+      delete process.env.RESEND_API_KEY;
+    } else {
+      process.env.RESEND_API_KEY = originalResendKey;
+    }
+  }
+
+  assert.equal(statusCode, 201);
+  assert.equal((responseBody as { success: boolean }).success, true);
+  assert.equal(persistedData?.addressLatitude, 28.6139391);
+  assert.equal(persistedData?.addressLongitude, 77.2090212);
+});
+
+test('booking controller creates the row with null coordinates as the final fallback', async () => {
+  let statusCode: number | undefined;
+  let responseBody: unknown;
+  let persistedData: Record<string, unknown> | undefined;
+  const bookingDelegate = db.booking as unknown as Record<string, unknown>;
+  const originalFindUnique = bookingDelegate.findUnique;
+  const originalCreate = bookingDelegate.create;
+  const originalResendKey = process.env.RESEND_API_KEY;
+
+  bookingDelegate.findUnique = async () => null;
+  bookingDelegate.create = async ({ data }: { data: Record<string, unknown> }) => {
+    persistedData = data;
+    return {
+      ...data,
+      id: 'test-booking-id-without-coordinates',
+      createdAt: new Date(),
+      issueDescription: null,
+    };
+  };
+  delete process.env.RESEND_API_KEY;
+
+  const req = {
+    body: bookingSchema.parse({
+      customerName: 'Test Rider',
+      phone: '9876543210',
+      address: 'Unknown address with enough detail',
+      city: 'Noida',
+      bookingDate: '2026-09-15',
+      bikeType: 'Non-Electric Motorbike',
+      bikeModel: 'Test Model',
+      preferredSlot: '8:00 AM - 9:00 AM',
+      package: 'General Service',
+      serviceId: 'basic-service',
+      ccRange: '0-249',
+      price: 550,
+    }),
+  } as Request<{}, {}, ReturnType<typeof bookingSchema.parse>>;
+  const res = {
+    status: (code: number) => {
+      statusCode = code;
+      return res;
+    },
+    json: (body: unknown) => {
+      responseBody = body;
+      return res;
+    },
+  } as unknown as Response;
+
+  try {
+    await createBookingWithGeocoder(req, res, async () => null);
+  } finally {
+    bookingDelegate.findUnique = originalFindUnique;
+    bookingDelegate.create = originalCreate;
+    if (originalResendKey === undefined) {
+      delete process.env.RESEND_API_KEY;
+    } else {
+      process.env.RESEND_API_KEY = originalResendKey;
+    }
+  }
+
+  assert.equal(statusCode, 201);
+  assert.equal((responseBody as { success: boolean }).success, true);
+  assert.equal(persistedData?.addressLatitude, null);
+  assert.equal(persistedData?.addressLongitude, null);
 });

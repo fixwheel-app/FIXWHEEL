@@ -3,6 +3,9 @@ import { db } from '../lib/db';
 import { sendBookingNotification } from '../lib/notifications';
 import { BookingInput } from '../middleware/validateBooking';
 import { BookingPricingError, calculateBookingPrice, verifyQuotedPrice } from '../lib/bookingPricing';
+import { geocodeAddress } from '../lib/geocoding';
+
+type GeocodeAddress = typeof geocodeAddress;
 
 const generateBookingRef = (): string => {
   const chars = '0123456789ABCDEF';
@@ -13,7 +16,11 @@ const generateBookingRef = (): string => {
   return `FW-${hex}`;
 };
 
-export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Response): Promise<void> => {
+export const createBookingWithGeocoder = async (
+  req: Request<{}, {}, BookingInput>,
+  res: Response,
+  geocode: GeocodeAddress,
+): Promise<void> => {
   try {
     const bookingData = req.body;
     const price = calculateBookingPrice({
@@ -23,6 +30,15 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
       ccRange: bookingData.ccRange,
     });
     verifyQuotedPrice(bookingData.price, price);
+    let coordinates = null;
+    try {
+      coordinates = await geocode(bookingData.address, bookingData.city);
+    } catch (error) {
+      console.warn(
+        '[Booking Geocoding] Coordinate lookup failed; saving booking without coordinates.',
+        error instanceof Error ? error.message : 'Unknown lookup error',
+      );
+    }
     
     // Ensure unique booking ref
     let bookingRef = generateBookingRef();
@@ -44,6 +60,8 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
         customerName: bookingData.customerName,
         phone: "+91" + bookingData.phone, // Prepend India country code as per requirements (exact 10 digits provided)
         address: bookingData.address,
+        addressLongitude: coordinates?.longitude ?? null,
+        addressLatitude: coordinates?.latitude ?? null,
         city: bookingData.city,
         bookingDate: bookingData.bookingDate,
         bikeType: bookingData.bikeType,
@@ -107,3 +125,8 @@ export const createBooking = async (req: Request<{}, {}, BookingInput>, res: Res
     });
   }
 };
+
+export const createBooking = async (
+  req: Request<{}, {}, BookingInput>,
+  res: Response,
+): Promise<void> => createBookingWithGeocoder(req, res, geocodeAddress);

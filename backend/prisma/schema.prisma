@@ -13,6 +13,8 @@ model Booking {
   customerName     String
   phone            String
   address          String
+  addressLongitude Float?   @map("address_longitude")
+  addressLatitude  Float?   @map("address_latitude")
   bikeType         String
   bikeModel        String
   issueDescription String?
