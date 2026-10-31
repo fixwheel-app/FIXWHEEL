@@ -21,12 +21,15 @@ export interface BikeLandingContent {
   symptoms?: string[][];
   tips?: Record<string, string[]>;
   howTitle?: string;
+  howLead?: string;
+  howSteps?: { title: string; text: string }[];
   servicesTitle?: string;
   servicesLead?: string;
   services?: { id: ServicePriceId; title: string; description: string }[];
   whyTitle?: string;
   bookingTip?: string;
   brandsLead?: string;
+  brandsTitle?: string;
   brands?: { name: string; slug: string; models: string }[];
   otherModelsText?: string;
   coverageTitle?: string;
@@ -35,6 +38,10 @@ export interface BikeLandingContent {
   reviewsTitle?: string;
   reviewsLead?: string;
   reviews?: { name: string; location: string; vehicle: string; rating: number; text: string }[];
+  guidesTitle?: string;
+  guidesLead?: string;
+  guides?: { title: string; text: string }[];
+  specs?: { label: string; value: string }[];
   finalTitle?: string;
   finalLead?: string;
   citiesTitle?: string;
@@ -151,12 +158,14 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 3. HOW IT WORKS */}
 <section>
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? bike.howTitle || "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>Four steps, and you pay only after the job is done.</p></div>
+    <div className="sec-head"><h2>{bike ? bike.howTitle || "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>{bike?.howLead || "Four steps, and you pay only after the job is done."}</p></div>
     <div className="steps">
+      {bike?.howSteps ? bike.howSteps.map((step) => <div className="step" key={step.title}><h3>{step.title}</h3><p>{step.text}</p></div>) : <>
       <div className="step"><h3>Book your service</h3><p>{bike ? `Share your motorcycle model, required service${city ? ` and full address in ${city.name}` : ", location, date and preferred time"}.` : city ? "Share your scooter model, symptom and full address in " + city.name + ". Confirm the visit time with the team." : "Select your bike, required service, location, date and preferred time."}</p></div>
       <div className="step"><h3>Mechanic assigned</h3><p>FixWheel confirms your booking and assigns a verified mechanic near you.</p></div>
       <div className="step"><h3>Doorstep service</h3><p>The mechanic arrives with tools, inspects your vehicle and completes the approved work.</p></div>
       <div className="step"><h3>Review &amp; pay</h3><p>Check the completed service and pay only after the job is finished.</p></div>
+      </>}
     </div>
     <HowSectionActions />
   </div>
@@ -200,11 +209,13 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
     <aside className="spec">
       <h3>Service specifications</h3>
       <dl>
+        {bike?.specs ? bike.specs.map((specification) => <div key={specification.label}><dt>{specification.label}</dt><dd>{specification.value}</dd></div>) : <>
         <div><dt>Service coverage</dt><dd>{city ? city.name + " — confirm your exact address" : "Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)"}</dd></div>
         <div><dt>Arrival duration</dt><dd>{bike || city ? "45 minutes at your doorstep" : "25 – 45 minutes at your doorstep"}</dd></div>
         <div><dt>Parts policy</dt><dd>100% sealed OEM parts &amp; cables</dd></div>
         <div><dt>Warranty</dt><dd>15 days labor warranty</dd></div>
         <div><dt>Payment mode</dt><dd>UPI, card, cash after job completion</dd></div>
+        </>}
       </dl>
       <a className="btn btn-red" href="/book">Book this service</a>
     </aside>
@@ -214,7 +225,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 {/* 6. BRANDS */}
 <section className="alt">
   <div className="wrap">
-    <div className="sec-head"><h2>Brands we serve</h2><p>{bike ? bike.brandsLead || "From daily commuters to performance motorcycles, share your make and model so we can confirm the right service." : city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
+    <div className="sec-head"><h2>{bike?.brandsTitle || "Brands we serve"}</h2><p>{bike ? bike.brandsLead || "From daily commuters to performance motorcycles, share your make and model so we can confirm the right service." : city ? "Activa, Jupiter, Access, Ntorq and other scooter models: tell us your model when arranging a visit in " + city.name + "." : "Popular gearless scooter brands serviced across Delhi NCR with 100% genuine parts."}</p></div>
     <div className="brands">
       {bike ? activeBrands.map(brand => <a className="brand" href={"/" + brand.slug} key={brand.slug}><img src={getBrandLogo(brand.name)} alt={brand.name + " logo"} width={36} height={36} loading="lazy" /><span><b>{brand.name}</b><small>{brand.models}</small></span></a>) : <>
       <a className="brand" href="/honda"><img src={getBrandLogo("Honda")} alt="Honda logo" width={36} height={36} loading="lazy" /><span><b>Honda</b><small>Activa, Dio, Grazia</small></span></a>
@@ -259,7 +270,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 </section>
 
 {/* 8. REVIEWS (single placement, right before the contact block) */}
-{bike ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>{bike.reviewsTitle || "What bike owners say"}</h2><p>{bike.reviewsLead || "Riders across Delhi NCR share their doorstep service experiences."}</p></div><div className="grid3">{activeReviews.map(review => <article className="rev" key={review.name}><div><div className="top"><b>{review.name}</b><span className="star">★ {review.rating}</span></div><span className="chip">{review.vehicle}</span><p>“{review.text}”</p></div><small>{review.location}</small></article>)}</div></div></section> : city ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>Before your {city.name} mechanic visit</h2><p>A few details help us arrange the right inspection at the right place.</p></div><div className="grid3">{city.preparation.map(([title,text]) => <article className="rev" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section> : <section className="reviews">
+{bike?.guides ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>{bike.guidesTitle || "Prepare for your doorstep service"}</h2><p>{bike.guidesLead || "A few details help us arrange the right inspection for your motorcycle."}</p></div><div className="grid3">{bike.guides.map(guide => <article className="rev" key={guide.title}><h3>{guide.title}</h3><p>{guide.text}</p></article>)}</div></div></section> : bike ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>{bike.reviewsTitle || "What bike owners say"}</h2><p>{bike.reviewsLead || "Riders across Delhi NCR share their doorstep service experiences."}</p></div><div className="grid3">{activeReviews.map(review => <article className="rev" key={review.name}><div><div className="top"><b>{review.name}</b><span className="star">★ {review.rating}</span></div><span className="chip">{review.vehicle}</span><p>“{review.text}”</p></div><small>{review.location}</small></article>)}</div></div></section> : city ? <section className="reviews"><div className="wrap"><div className="sec-head"><h2>Before your {city.name} mechanic visit</h2><p>A few details help us arrange the right inspection at the right place.</p></div><div className="grid3">{city.preparation.map(([title,text]) => <article className="rev" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section> : <section className="reviews">
   <div className="wrap">
     <div className="sec-head"><h2>Scooter owners recommend us</h2><p>See how riders across Delhi NCR handled everyday scooter repairs at home.</p></div>
     <div className="grid3">

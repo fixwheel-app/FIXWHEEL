@@ -2,11 +2,11 @@
 
 import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useForm, type FieldErrors } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import { Lock, AlertCircle, CheckCircle2, MapPin, Sunrise, Sun, Sunset, Clock, Check } from 'lucide-react';
+import { Lock, AlertCircle, CheckCircle2, MapPin, Sunrise, Sun, Sunset, Clock, Check, ShieldCheck } from 'lucide-react';
 import { submitBooking } from '@/lib/api';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES } from '@/lib/constants';
 import LoadingSpinner from './LoadingSpinner';
@@ -59,6 +59,28 @@ const bookingSchema = z.object({
 
 export type BookingSchemaType = z.infer<typeof bookingSchema>;
 
+const REQUIRED_FIELD_ORDER: (keyof BookingSchemaType)[] = [
+  "bikeType",
+  "bikeModel",
+  "customerName",
+  "phone",
+  "city",
+  "address",
+  "bookingDate",
+  "preferredSlot",
+];
+
+const FIELD_LABELS: Partial<Record<keyof BookingSchemaType, string>> = {
+  bikeType: "Vehicle type",
+  bikeModel: "Vehicle model",
+  customerName: "Full name",
+  phone: "Phone number",
+  city: "City",
+  address: "Full address",
+  bookingDate: "Booking date",
+  preferredSlot: "Preferred time slot",
+};
+
 const SLOT_METADATA: Record<string, { period: 'morning' | 'afternoon' | 'evening', timeOnly: string }> = {
   "8:00 AM - 9:00 AM": { period: 'morning', timeOnly: "8:00 - 9:00 AM" },
   "9:00 AM - 10:00 AM": { period: 'morning', timeOnly: "9:00 - 10:00 AM" },
@@ -108,8 +130,10 @@ function BookingFormInner() {
   const [selectedPackageId, setSelectedPackageId] = useState<string>(initialPackage);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorToast, setErrorToast] = useState<string | null>(null);
+  const [showValidationSummary, setShowValidationSummary] = useState(false);
+  const [incompleteFields, setIncompleteFields] = useState<(keyof BookingSchemaType)[]>([]);
 
-  const { register, handleSubmit, formState: { errors, isValid }, watch, setValue, getValues } = useForm<BookingSchemaType>({
+  const { register, handleSubmit, formState: { errors }, watch, setValue, getValues } = useForm<BookingSchemaType>({
     resolver: zodResolver(bookingSchema),
     mode: 'onChange',
     defaultValues: {
@@ -127,6 +151,8 @@ function BookingFormInner() {
   const selectedSlot = watch("preferredSlot");
   const selectedCity = watch("city");
   const selectedBikeType = watch("bikeType");
+  const watchedRequiredValues = watch(REQUIRED_FIELD_ORDER);
+  const watchedRequiredValuesKey = JSON.stringify(watchedRequiredValues);
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
   const pkgData = (selectedBikeType === 'Electric Motorbike'
     ? ELECTRIC_SERVICES
@@ -143,6 +169,44 @@ function BookingFormInner() {
     "Transparent pricing.",
     "Doorstep assistance."
   ];
+  const scrollToField = (field: keyof BookingSchemaType) => {
+    const container = document.querySelector<HTMLElement>(`[data-booking-field="${field}"]`);
+    if (!container) return;
+
+    container.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => {
+      const control = container.querySelector<HTMLElement>('input:not([type="hidden"]), textarea, select, button');
+      control?.focus({ preventScroll: true });
+    }, 350);
+  };
+
+  const onInvalid = (fieldErrors: FieldErrors<BookingSchemaType>) => {
+    setShowValidationSummary(true);
+    setErrorToast(null);
+    const currentIncompleteFields = REQUIRED_FIELD_ORDER.filter((field) => Boolean(fieldErrors[field]));
+    setIncompleteFields(currentIncompleteFields);
+    const firstIncompleteField = currentIncompleteFields[0];
+    if (firstIncompleteField) scrollToField(firstIncompleteField);
+  };
+
+  useEffect(() => {
+    if (!showValidationSummary) return;
+
+    const validationResult = bookingSchema.safeParse(getValues());
+    const currentIncompleteFields = validationResult.success
+      ? []
+      : REQUIRED_FIELD_ORDER.filter((field) => validationResult.error.issues.some((issue) => issue.path[0] === field));
+
+    setIncompleteFields((currentFields) => {
+      const unchanged = currentFields.length === currentIncompleteFields.length
+        && currentFields.every((field, index) => field === currentIncompleteFields[index]);
+      return unchanged ? currentFields : currentIncompleteFields;
+    });
+
+    if (currentIncompleteFields.length === 0) {
+      setShowValidationSummary(false);
+    }
+  }, [showValidationSummary, watchedRequiredValuesKey, getValues]);
 
   useEffect(() => {
     const today = getLocalDateString();
@@ -247,6 +311,16 @@ function BookingFormInner() {
           </div>
         </div>
 
+        <div className="mb-8 flex items-start gap-4 rounded-xl bg-[#111111] p-4 text-white shadow-[0_10px_28px_rgba(0,0,0,0.16)] md:p-5" aria-label="Payment policy">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-white">
+            <ShieldCheck className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div className="min-w-0">
+            <p className="text-base font-bold md:text-lg">Pay after service</p>
+            <p className="mt-1 text-sm leading-6 text-gray-300">No advance payment. Review the completed work first, then pay for the approved service.</p>
+          </div>
+        </div>
+
         {errorToast && (
           <div className="mb-6 p-4 bg-status-error/10 border border-status-error/30 rounded-xl flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-status-error shrink-0 mt-0.5" />
@@ -254,14 +328,38 @@ function BookingFormInner() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={handleSubmit(onSubmit, onInvalid)} className="space-y-8" noValidate>
+          {showValidationSummary && incompleteFields.length > 0 && (
+            <div className="rounded-xl border border-status-error/35 bg-status-error/[0.06] p-4 md:p-5" role="alert" aria-live="assertive">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-status-error" aria-hidden="true" />
+                <div className="min-w-0">
+                  <p className="font-bold text-gray-950">Complete {incompleteFields.length === 1 ? "this required field" : "these required fields"}</p>
+                  <p className="mt-1 text-sm text-gray-600">Select a field below to return to it.</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {incompleteFields.map((field) => (
+                      <li key={field}>
+                        <button
+                          type="button"
+                          onClick={() => scrollToField(field)}
+                          className="min-h-10 rounded-lg border border-status-error/30 bg-white px-3 py-2 text-sm font-semibold text-status-error transition-colors hover:bg-status-error/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-status-error"
+                        >
+                          {FIELD_LABELS[field] || field}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
           
           {/* Section: Vehicle Details */}
           <div className="space-y-5">
             <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-2 text-lg">Vehicle Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Bike Type */}
-              <div>
+              <div data-booking-field="bikeType">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Bike Type *</label>
                 <select 
                   {...register("bikeType")}
@@ -274,10 +372,11 @@ function BookingFormInner() {
               </div>
 
               {/* Bike Model */}
-              <div>
+              <div data-booking-field="bikeModel">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Bike Model *</label>
                 <input 
                   {...register("bikeModel")}
+                  aria-invalid={Boolean(errors.bikeModel)}
                   placeholder="Hero Sprint 26T"
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
@@ -294,11 +393,12 @@ function BookingFormInner() {
             <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-2 text-lg">Contact Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name */}
-              <div>
+              <div data-booking-field="customerName">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                 <div className="relative">
                   <input 
                     {...register("customerName")}
+                    aria-invalid={Boolean(errors.customerName)}
                     placeholder="Rahul Sharma"
                     className={cn(
                       "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
@@ -313,7 +413,7 @@ function BookingFormInner() {
               </div>
 
               {/* Phone */}
-              <div>
+              <div data-booking-field="phone">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                 <div className="relative flex">
                   <span className="inline-flex items-center px-3 border border-r-0 border-gray-200 bg-gray-50 text-gray-600 rounded-l-xl">
@@ -321,6 +421,7 @@ function BookingFormInner() {
                   </span>
                   <input 
                     {...register("phone")}
+                    aria-invalid={Boolean(errors.phone)}
                     placeholder="9876543210"
                     maxLength={10}
                     className={cn(
@@ -334,7 +435,7 @@ function BookingFormInner() {
             </div>
 
             {/* City */}
-            <div className="space-y-4">
+            <div className="space-y-4" data-booking-field="city">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-gray-500" />
                 <label className="block text-sm font-semibold text-gray-800">Select City *</label>
@@ -386,10 +487,11 @@ function BookingFormInner() {
             </div>
 
             {/* Address */}
-            <div>
+            <div data-booking-field="address">
               <label className="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
               <textarea 
                 {...register("address")}
+                aria-invalid={Boolean(errors.address)}
                 placeholder="House No, Street, Area"
                 rows={3}
                 className={cn(
@@ -425,10 +527,11 @@ function BookingFormInner() {
 
             <div className="space-y-6">
               {/* Booking Date */}
-              <div className="max-w-md">
+              <div className="max-w-md" data-booking-field="bookingDate">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Booking Date *</label>
                 <input 
                   type="date"
+                  aria-invalid={Boolean(errors.bookingDate)}
                   min={getLocalDateString()}
                   max={getLocalMaxDateString(30)}
                   {...register("bookingDate")}
@@ -441,7 +544,7 @@ function BookingFormInner() {
               </div>
 
               {/* Preferred Slot */}
-              <div className="space-y-4">
+              <div className="space-y-4" data-booking-field="preferredSlot">
                 <div className="flex items-center gap-2 mb-1">
                   <Clock className="w-4 h-4 text-gray-500" />
                   <label className="block text-sm font-medium text-gray-700">Preferred Time Slot *</label>
@@ -543,7 +646,7 @@ function BookingFormInner() {
 
           <button 
             type="submit" 
-            disabled={isSubmitting || !isValid}
+            disabled={isSubmitting}
             className="w-full flex justify-center items-center py-3 md:py-4 bg-accent hover:bg-accent-hover disabled:bg-accent/50 disabled:cursor-not-allowed text-white font-semibold text-base md:text-lg rounded-xl transition-all shadow-[0_4px_14px_rgba(249,115,22,0.4)] disabled:shadow-none"
           >
             {isSubmitting ? <LoadingSpinner className="text-white" /> : "Confirm Booking"}
@@ -565,6 +668,14 @@ function BookingFormInner() {
             <p className="text-2xl md:text-3xl font-bold text-black shrink-0">₹{price}</p>
           </div>
 
+          <div className="mb-5 flex items-start gap-3 rounded-xl bg-[#111111] p-4 text-white md:mb-6">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+            <div>
+              <p className="text-sm font-bold">Pay after service</p>
+              <p className="mt-1 text-xs leading-5 text-gray-300">No advance payment. Pay after reviewing the approved work.</p>
+            </div>
+          </div>
+
           <p className="font-semibold text-black mb-3 md:mb-4 text-sm md:text-base">What's included:</p>
           <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
             {includesList.map((item, index) => (
@@ -577,7 +688,7 @@ function BookingFormInner() {
 
           <div className="bg-white border border-black/5 text-gray-600 text-xs rounded-xl p-3 md:p-4 flex items-start gap-2 md:gap-3 shadow-sm">
             <Lock className="w-4 h-4 shrink-0 text-gray-400 mt-0.5" />
-            <p>Your connection is secure. You will not be charged now. Payment is securely processed after the repair is completed.</p>
+            <p>Your booking details are sent securely. No payment is collected while you complete this form.</p>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { Check, ChevronDown, Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
@@ -39,79 +39,161 @@ const APP_QUICK_SERVICES = [
   },
 ] as const;
 
-const BRAND_SLUG_MAP: Record<string, string> = {
-  "honda": "Honda",
-  "hero": "Hero",
-  "bajaj": "Bajaj",
-  "tvs": "TVS",
-  "royal-enfield": "Royal Enfield",
-  "yamaha": "Yamaha",
-  "suzuki": "Suzuki",
-  "ktm": "KTM",
-  "ola-electric": "Ola Electric",
-  "ather": "Ather",
-  "vespa": "Vespa",
-  "jawa": "Jawa",
-  "aprilia": "Aprilia",
-  "harley-davidson": "Harley-Davidson",
-  "kawasaki": "Kawasaki",
-  "benelli": "Benelli",
+type SearchableSelectProps = {
+  id: string;
+  label: string;
+  placeholder: string;
+  value: string;
+  options: string[];
+  disabled?: boolean;
+  onSelect: (value: string) => void;
 };
 
-export default function BookClient({ initialBrand }: { initialBrand?: string }) {
+function SearchableSelect({ id, label, placeholder, value, options, disabled = false, onSelect }: SearchableSelectProps) {
+  const [query, setQuery] = useState(value);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const listboxId = `${id}-listbox`;
+  const normalizedQuery = query === value ? "" : query.trim().toLowerCase();
+  const filteredOptions = options.filter((option) => option.toLowerCase().includes(normalizedQuery));
+
+  useEffect(() => {
+    setQuery(value);
+  }, [value]);
+
+  useEffect(() => {
+    setActiveIndex(filteredOptions.length ? 0 : -1);
+  }, [query, options.length]);
+
+  const chooseOption = (option: string) => {
+    setQuery(option);
+    onSelect(option);
+    setIsOpen(false);
+    setActiveIndex(-1);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setIsOpen(true);
+      setActiveIndex((index) => Math.min(index + 1, filteredOptions.length - 1));
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setActiveIndex((index) => Math.max(index - 1, 0));
+    } else if (event.key === 'Enter' && isOpen && activeIndex >= 0 && filteredOptions[activeIndex]) {
+      event.preventDefault();
+      chooseOption(filteredOptions[activeIndex]);
+    } else if (event.key === 'Escape') {
+      setIsOpen(false);
+      setQuery(value);
+    }
+  };
+
+  return (
+    <div className="relative">
+      <label htmlFor={id} className="mb-2 block text-sm font-bold text-white">
+        {label}
+      </label>
+      <div className={cn(
+        "flex min-h-14 items-center rounded-xl border bg-[#181818] transition-colors",
+        isOpen ? "border-accent ring-2 ring-accent/20" : "border-white/25 hover:border-white/45",
+        disabled && "cursor-not-allowed opacity-45"
+      )}>
+        <Search className="ml-4 h-5 w-5 shrink-0 text-gray-400" aria-hidden="true" />
+        <input
+          id={id}
+          type="text"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={isOpen}
+          aria-controls={listboxId}
+          aria-activedescendant={activeIndex >= 0 ? `${id}-option-${activeIndex}` : undefined}
+          autoComplete="off"
+          disabled={disabled}
+          value={query}
+          placeholder={placeholder}
+          onFocus={() => setIsOpen(true)}
+          onBlur={() => {
+            window.setTimeout(() => {
+              setIsOpen(false);
+              setQuery(value);
+            }, 100);
+          }}
+          onKeyDown={handleKeyDown}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setIsOpen(true);
+          }}
+          className="min-w-0 flex-1 bg-transparent px-3 py-4 text-base font-semibold text-white outline-none placeholder:text-gray-500"
+        />
+        <button
+          type="button"
+          disabled={disabled}
+          aria-label={isOpen ? `Close ${label.toLowerCase()} list` : `Open ${label.toLowerCase()} list`}
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => setIsOpen((open) => !open)}
+          className="mr-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed"
+        >
+          <ChevronDown className={cn("h-5 w-5 transition-transform", isOpen && "rotate-180")} aria-hidden="true" />
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && !disabled && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.16 }}
+            className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a] shadow-[0_18px_44px_rgba(0,0,0,0.45)]"
+          >
+            <div id={listboxId} role="listbox" aria-label={label} className="max-h-64 overflow-y-auto p-2 custom-scrollbar">
+              {filteredOptions.length ? filteredOptions.map((option, index) => (
+                <button
+                  id={`${id}-option-${index}`}
+                  key={option}
+                  type="button"
+                  role="option"
+                  aria-selected={value === option}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onClick={() => chooseOption(option)}
+                  className={cn(
+                    "flex min-h-11 w-full items-center justify-between rounded-lg px-4 py-2.5 text-left text-sm font-semibold transition-colors",
+                    activeIndex === index ? "bg-white/10 text-white" : "text-gray-300 hover:bg-white/10 hover:text-white",
+                    value === option && "text-accent"
+                  )}
+                >
+                  <span>{option}</span>
+                  {value === option && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                </button>
+              )) : (
+                <div className="px-4 py-5 text-sm text-gray-400">
+                  No match found. Try a different spelling.
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <p className="mt-2 text-xs text-gray-400">
+        {disabled ? "Select a brand first to search its models." : "Type to search, or open the list to browse."}
+      </p>
+    </div>
+  );
+}
+
+export default function BookClient() {
   const router = useRouter();
 
-  const brandName = initialBrand ? BRAND_SLUG_MAP[initialBrand.toLowerCase()] : undefined;
-  const initialFuel = (brandName === 'Ola Electric' || brandName === 'Ather') 
-    ? 'Electric Motorbike' 
-    : 'Non-Electric Motorbike';
-
   // Selections
-  const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>(initialFuel);
-  const [brand, setBrand] = useState<string>(brandName || '');
+  const [fuelType, setFuelType] = useState<'Non-Electric Motorbike' | 'Electric Motorbike'>('Non-Electric Motorbike');
+  const [brand, setBrand] = useState<string>('');
   const [model, setModel] = useState<string>('');
-  
-  useEffect(() => {
-    const handleHashAndParams = () => {
-      if (typeof window !== 'undefined') {
-        const searchParams = new URLSearchParams(window.location.search);
-
-        // 1. Get brand from query param (?brand=hero) or hash (#hero)
-        const rawHash = window.location.hash.replace(/^#/, '').split('?')[0].toLowerCase();
-        const rawQueryBrand = (searchParams.get('brand') || searchParams.get('b') || '').toLowerCase();
-        const targetBrandSlug = rawQueryBrand || rawHash;
-        const requestedType = searchParams.get('type');
-
-        if (targetBrandSlug && BRAND_SLUG_MAP[targetBrandSlug]) {
-          const preselectedBrand = BRAND_SLUG_MAP[targetBrandSlug];
-          setBrand(preselectedBrand);
-
-          const isElectric = (preselectedBrand === 'Ola Electric' || preselectedBrand === 'Ather');
-          setFuelType(requestedType === 'Electric Motorbike' || requestedType === 'Non-Electric Motorbike'
-            ? requestedType
-            : isElectric ? 'Electric Motorbike' : 'Non-Electric Motorbike');
-        }
-
-        // 2. Handle search params model selection
-        const queryModel = searchParams.get('model') || searchParams.get('m');
-        if (queryModel) {
-          setModel(queryModel);
-        }
-      }
-    };
-    
-    handleHashAndParams();
-    window.addEventListener('hashchange', handleHashAndParams);
-    return () => window.removeEventListener('hashchange', handleHashAndParams);
-  }, []);
   
   // Non-Electric specific
   const [ccRange, setCcRange] = useState<CCRange | null>(null);
   
-  // UI States
-  const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false);
-  const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
-
   const catalogBrands = BIKE_DATA[fuelType] || [];
   const currentBrands = brand && !catalogBrands.some((candidate) => candidate.name === brand)
     ? [{ id: brand.toLowerCase().replace(/\s+/g, '-'), name: brand, models: model ? [{ id: model.toLowerCase().replace(/\s+/g, '-'), name: model }] : [] }, ...catalogBrands]
@@ -164,86 +246,32 @@ export default function BookClient({ initialBrand }: { initialBrand?: string }) 
             </button>
           </div>
 
-          {/* Brand Dropdown */}
-          <div className="relative z-30">
-            <button
-              onClick={() => setIsBrandDropdownOpen(!isBrandDropdownOpen)}
-              className="w-full bg-transparent border border-white/30 hover:border-white/60 text-white px-6 py-4 rounded-full flex items-center justify-between font-bold tracking-widest uppercase transition-colors"
-            >
-              <span className={brand ? "text-white" : "text-gray-400"}>
-                {brand || "BRAND"}
-              </span>
-              <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform", isBrandDropdownOpen && "rotate-180")} />
-            </button>
+          <div className="grid gap-5 rounded-2xl border border-white/10 bg-white/[0.025] p-4 sm:p-5">
+            <div className="relative z-20">
+              <SearchableSelect
+                id="vehicle-brand"
+                label="Brand"
+                placeholder="Select brand"
+                value={brand}
+                options={currentBrands.map((candidate) => candidate.name)}
+                onSelect={(selectedBrand) => {
+                  setBrand(selectedBrand);
+                  setModel('');
+                }}
+              />
+            </div>
 
-            <AnimatePresence>
-              {isBrandDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-60 overflow-y-auto custom-scrollbar"
-                >
-                  {currentBrands.map((b) => (
-                    <button
-                      key={b.id}
-                      onClick={() => {
-                        setBrand(b.name);
-                        setModel('');
-                        setIsBrandDropdownOpen(false);
-                      }}
-                      className={cn(
-                        "w-full text-left px-6 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0 uppercase tracking-wider font-bold text-sm",
-                        brand === b.name ? "text-accent" : "text-gray-300"
-                      )}
-                    >
-                      {b.name}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Model Dropdown */}
-          <div className="relative z-20">
-            <button
-              onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
-              disabled={!brand}
-              className="w-full bg-transparent border border-white/30 hover:border-white/60 disabled:opacity-50 disabled:hover:border-white/30 text-white px-6 py-4 rounded-full flex items-center justify-between font-bold tracking-widest uppercase transition-colors"
-            >
-              <span className={model ? "text-white" : "text-gray-400"}>
-                {model || "MODEL"}
-              </span>
-              <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform", isModelDropdownOpen && "rotate-180")} />
-            </button>
-
-            <AnimatePresence>
-              {isModelDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-60 overflow-y-auto custom-scrollbar"
-                >
-                  {currentModels.map((m) => (
-                    <button
-                      key={m}
-                      onClick={() => {
-                        setModel(m);
-                        setIsModelDropdownOpen(false);
-                      }}
-                      className={cn(
-                        "w-full text-left px-6 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0 uppercase tracking-wider font-bold text-sm",
-                        model === m ? "text-accent" : "text-gray-300"
-                      )}
-                    >
-                      {m}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="relative z-10">
+              <SearchableSelect
+                id="vehicle-model"
+                label="Model"
+                placeholder="Select model"
+                value={model}
+                options={currentModels}
+                disabled={!brand}
+                onSelect={setModel}
+              />
+            </div>
           </div>
 
           {/* CC Range Selection for Non-Electric */}
