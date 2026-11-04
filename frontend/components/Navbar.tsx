@@ -812,11 +812,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </nav>
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] md:hidden">
-        <Link href="/book" onClick={() => setIsOpen(false)} className="pointer-events-auto flex h-12 w-full items-center justify-center rounded-2xl bg-accent font-bold uppercase tracking-wide text-white shadow-[0_6px_20px_rgba(255,59,48,0.3)] transition-[background-color,transform] hover:bg-accent-hover active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
-          Book Service
-        </Link>
-      </div>
     </>
   );
 }
