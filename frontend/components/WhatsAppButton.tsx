@@ -2,13 +2,15 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import { shouldShowMobileBookingBar } from '@/lib/mobileBookingBar';
 
 const WhatsAppButton = () => {
   const pathname = usePathname();
   if (pathname?.startsWith('/admin') || pathname?.startsWith('/route-analysis')) return null;
+  const hasMobileBookingBar = shouldShowMobileBookingBar(pathname);
 
   return (
-    <div className="fixed bottom-[calc(24px+env(safe-area-inset-bottom))] right-6 z-[9999] flex flex-col items-end group">
+    <div className={`fixed right-6 z-[9999] flex flex-col items-end group ${hasMobileBookingBar ? 'bottom-[calc(96px+env(safe-area-inset-bottom))] md:bottom-6' : 'bottom-[calc(24px+env(safe-area-inset-bottom))]'}`}>
       {/* Tooltip */}
       <div className="absolute -top-12 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white text-gray-800 text-sm py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap pointer-events-none font-medium">
         Chat with us

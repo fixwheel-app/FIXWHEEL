@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown, Search } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
@@ -11,6 +11,7 @@ import { PackageType } from '@/types';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN';
+const OTHER_MODEL_OPTION = 'Other Model';
 
 const APP_QUICK_SERVICES = [
   {
@@ -55,7 +56,12 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
   const [activeIndex, setActiveIndex] = useState(-1);
   const listboxId = `${id}-listbox`;
   const normalizedQuery = query === value ? "" : query.trim().toLowerCase();
-  const filteredOptions = options.filter((option) => option.toLowerCase().includes(normalizedQuery));
+  const matchingOptions = options.filter((option) => option.toLowerCase().includes(normalizedQuery));
+  const fallbackOption = label === 'Brand'
+    ? options.find((option) => option.toLowerCase().startsWith('other brand'))
+    : options.find((option) => option.toLowerCase() === OTHER_MODEL_OPTION.toLowerCase());
+  const isFallbackResult = Boolean(normalizedQuery && matchingOptions.length === 0 && fallbackOption);
+  const filteredOptions = isFallbackResult && fallbackOption ? [fallbackOption] : matchingOptions;
 
   useEffect(() => {
     setQuery(value);
@@ -91,15 +97,16 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
 
   return (
     <div className="relative">
-      <label htmlFor={id} className="mb-2 block text-sm font-bold text-white">
-        {label}
-      </label>
+      <div className="mb-2">
+        <label htmlFor={id} className="block text-sm font-bold text-white">
+          {label}
+        </label>
+      </div>
       <div className={cn(
-        "flex min-h-14 items-center rounded-xl border bg-[#181818] transition-colors",
-        isOpen ? "border-accent ring-2 ring-accent/20" : "border-white/25 hover:border-white/45",
+        "group flex min-h-14 items-center overflow-hidden rounded-lg border bg-[#181818] transition-[border-color,box-shadow]",
+        isOpen ? "border-accent shadow-[0_0_0_3px_rgba(230,43,43,0.16)]" : "border-white/20 hover:border-white/40",
         disabled && "cursor-not-allowed opacity-45"
       )}>
-        <Search className="ml-4 h-5 w-5 shrink-0 text-gray-400" aria-hidden="true" />
         <input
           id={id}
           type="text"
@@ -124,7 +131,7 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
             setQuery(event.target.value);
             setIsOpen(true);
           }}
-          className="min-w-0 flex-1 bg-transparent px-3 py-4 text-base font-semibold text-white outline-none placeholder:text-gray-500"
+          className="min-w-0 flex-1 bg-transparent px-4 py-4 text-base font-semibold text-white caret-accent outline-none placeholder:font-medium placeholder:text-gray-500"
         />
         <button
           type="button"
@@ -132,9 +139,9 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
           aria-label={isOpen ? `Close ${label.toLowerCase()} list` : `Open ${label.toLowerCase()} list`}
           onMouseDown={(event) => event.preventDefault()}
           onClick={() => setIsOpen((open) => !open)}
-          className="mr-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed"
+          className="flex min-h-14 w-14 shrink-0 items-center justify-center border-l border-white/10 text-gray-400 transition-colors hover:bg-white/[0.06] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-accent disabled:cursor-not-allowed"
         >
-          <ChevronDown className={cn("h-5 w-5 transition-transform", isOpen && "rotate-180")} aria-hidden="true" />
+          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} aria-hidden="true" />
         </button>
       </div>
 
@@ -145,9 +152,13 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.16 }}
-            className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a] shadow-[0_18px_44px_rgba(0,0,0,0.45)]"
+            className="mt-2 overflow-hidden rounded-lg border border-white/15 bg-[#1a1a1a] shadow-[0_16px_36px_rgba(0,0,0,0.38)]"
           >
-            <div id={listboxId} role="listbox" aria-label={label} className="max-h-64 overflow-y-auto p-2 custom-scrollbar">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5 text-xs text-gray-400">
+              <span>{isFallbackResult ? "No exact match — try this option" : normalizedQuery ? "Matching options" : `All ${label.toLowerCase()}s`}</span>
+              <span className="tabular-nums">{filteredOptions.length}</span>
+            </div>
+            <div id={listboxId} role="listbox" aria-label={label} className="max-h-60 overflow-y-auto p-1.5 custom-scrollbar">
               {filteredOptions.length ? filteredOptions.map((option, index) => (
                 <button
                   id={`${id}-option-${index}`}
@@ -159,25 +170,32 @@ function SearchableSelect({ id, label, placeholder, value, options, disabled = f
                   onMouseEnter={() => setActiveIndex(index)}
                   onClick={() => chooseOption(option)}
                   className={cn(
-                    "flex min-h-11 w-full items-center justify-between rounded-lg px-4 py-2.5 text-left text-sm font-semibold transition-colors",
-                    activeIndex === index ? "bg-white/10 text-white" : "text-gray-300 hover:bg-white/10 hover:text-white",
-                    value === option && "text-accent"
+                    "flex min-h-11 w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-semibold transition-colors",
+                    activeIndex === index ? "bg-white/[0.08] text-white" : "text-gray-300 hover:bg-white/[0.06] hover:text-white",
+                    value === option && "bg-accent/10 text-accent"
                   )}
                 >
-                  <span>{option}</span>
+                  <span className="min-w-0">
+                    <span className="block">{option}</span>
+                    {isFallbackResult && option === fallbackOption && (
+                      <span className="mt-0.5 block text-xs font-medium text-gray-400">
+                        Select this and enter the exact {label.toLowerCase()} at checkout.
+                      </span>
+                    )}
+                  </span>
                   {value === option && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
                 </button>
               )) : (
                 <div className="px-4 py-5 text-sm text-gray-400">
-                  No match found. Try a different spelling.
+                  No options are available right now.
                 </div>
               )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-      <p className="mt-2 text-xs text-gray-400">
-        {disabled ? "Select a brand first to search its models." : "Type to search, or open the list to browse."}
+      <p className="mt-2 text-xs leading-5 text-gray-400">
+        {disabled ? "Choose a brand to unlock its models." : "Type a name or use the arrow to browse the full list."}
       </p>
     </div>
   );
@@ -200,7 +218,10 @@ export default function BookClient() {
     : catalogBrands;
   const selectedBrandObj = currentBrands.find(b => b.name === brand);
   const catalogModels = selectedBrandObj ? selectedBrandObj.models.map(m => m.name) : [];
-  const currentModels = model && !catalogModels.includes(model) ? [model, ...catalogModels] : catalogModels;
+  const modelsWithFallback = catalogModels.includes(OTHER_MODEL_OPTION)
+    ? catalogModels
+    : [...catalogModels, OTHER_MODEL_OPTION];
+  const currentModels = model && !modelsWithFallback.includes(model) ? [model, ...modelsWithFallback] : modelsWithFallback;
 
   return (
     <div className="min-h-screen bg-[#111111] pt-24 pb-16 text-white font-sans">
@@ -247,7 +268,7 @@ export default function BookClient() {
           </div>
 
           <div className="grid gap-5 rounded-2xl border border-white/10 bg-white/[0.025] p-4 sm:p-5">
-            <div className="relative z-20">
+            <div>
               <SearchableSelect
                 id="vehicle-brand"
                 label="Brand"
@@ -261,7 +282,7 @@ export default function BookClient() {
               />
             </div>
 
-            <div className="relative z-10">
+            <div>
               <SearchableSelect
                 id="vehicle-model"
                 label="Model"
@@ -348,10 +369,22 @@ export default function BookClient() {
                             <span className="text-2xl sm:text-3xl font-black text-black">₹{price}</span>
                           </div>
                         </div>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
-                          <span>• Available at Doorstep</span>
-                          <span>• 15 Days Warranty</span>
-                        </div>
+                        {'cardQuestion' in srv && srv.cardQuestion && (
+                          <p className="mb-1 text-sm font-black uppercase tracking-wide text-gray-900 md:text-base">
+                            {srv.cardQuestion}
+                          </p>
+                        )}
+                        {'cardDescription' in srv && srv.cardDescription && (
+                          <p className="mb-4 text-sm font-semibold leading-6 text-gray-600 md:text-base">
+                            {srv.cardDescription}
+                          </p>
+                        )}
+                        {srv.id !== 'Diagnosis' && (
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
+                            <span>• Available at Doorstep</span>
+                            <span>• 15 Days Warranty</span>
+                          </div>
+                        )}
                         <div className="flex items-start justify-between gap-3">
                           <div className="inline-block bg-gray-100 px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200 whitespace-nowrap">
                             ⏱ {srv.estimatedTime}
@@ -365,6 +398,8 @@ export default function BookClient() {
                                   package: srv.id,
                                   serviceId: srv.pricingId,
                                   bike: bikeStr,
+                                  brand,
+                                  model,
                                   type: fuelType,
                                   price: price.toString()
                                 });

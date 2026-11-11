@@ -5,22 +5,31 @@ const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.fixwhe
 interface HowSectionActionsProps {
   align?: "start" | "center";
   bookingHref?: string;
+  bookingLabel?: string;
   flush?: boolean;
 }
 
 export default function HowSectionActions({
   align = "start",
   bookingHref = "/book",
+  bookingLabel = "Book now",
   flush = false,
 }: HowSectionActionsProps) {
+  const bookingIsExternal = bookingHref.startsWith("http");
+
   return (
     <>
       <div
         className={`how-section-actions${align === "center" ? " how-section-actions--center" : ""}${flush ? " how-section-actions--flush" : ""}`}
         aria-label="Service booking options"
       >
-        <Link className="how-section-action how-section-action--primary" href={bookingHref}>
-          Book now
+        <Link
+          className="how-section-action how-section-action--primary"
+          href={bookingHref}
+          target={bookingIsExternal ? "_blank" : undefined}
+          rel={bookingIsExternal ? "noopener noreferrer" : undefined}
+        >
+          {bookingLabel}
         </Link>
         <a
           className="how-section-action how-section-action--secondary"

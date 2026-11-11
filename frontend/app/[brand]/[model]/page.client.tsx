@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
-import HeroBookingAction from "@/components/HeroBookingAction";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import BrandServiceGuide from "@/components/BrandServiceGuide";
 import { ELECTRIC_SERVICE_OPTIONS } from "@/lib/electricServices";
 import type { HondaModelFamily } from "@/lib/hondaModelFamilies";
@@ -25,16 +25,17 @@ import type { YezdiModelFamily } from "@/lib/yezdiModelFamilies";
 import type { ApriliaModelFamily } from "@/lib/apriliaModelFamilies";
 import type { VespaModelFamily } from "@/lib/vespaModelFamilies";
 import type { KawasakiModelFamily } from "@/lib/kawasakiModelFamilies";
+import type { BmwModelFamily } from "@/lib/bmwModelFamilies";
 import type { TvsModelFamily } from "@/lib/tvsModelFamilies";
 
 interface ModelClientProps {
   modelInfo: ResolvedModel;
-  familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily | TvsModelFamily;
+  familyInfo?: HondaModelFamily | HeroModelFamily | BajajModelFamily | RoyalEnfieldModelFamily | YamahaModelFamily | KtmModelFamily | SuzukiModelFamily | OlaModelFamily | AtherModelFamily | JawaModelFamily | YezdiModelFamily | ApriliaModelFamily | VespaModelFamily | KawasakiModelFamily | BmwModelFamily | TvsModelFamily;
   familyFaqs: Array<{ q: string; a: string }>;
 }
 
-function getMaintenanceCopy(category: string, brandName: string, familyModel: string) {
-  if (category === "EV") {
+function getMaintenanceCopy(category: string, brandName: string, familyModel: string, electricFamily = false) {
+  if (category === "EV" || electricFamily) {
     return `${brandName} ${familyModel} service checks can cover accessible charging and electrical connections, warning indicators, auxiliary power, motor response, brakes, tyres and the ride concern you report.`;
   }
 
@@ -59,22 +60,25 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
   };
 
   const { brandName, modelName, category } = modelInfo;
+  const isExplicitlyElectricFamily = Boolean(familyInfo && "electric" in familyInfo && familyInfo.electric);
   const isElectricModel = familyInfo
-    ? familyInfo.groups.every((group) => group.category === "EV")
+    ? isExplicitlyElectricFamily || familyInfo.groups.every((group) => group.category === "EV")
     : category === "Electric Motorbike";
   const hasElectricModels = familyInfo
-    ? familyInfo.groups.some((group) => group.category === "EV")
+    ? isExplicitlyElectricFamily || familyInfo.groups.some((group) => group.category === "EV")
     : isElectricModel;
   const hasCombustionModels = familyInfo
-    ? familyInfo.groups.some((group) => group.category !== "EV")
+    ? !isExplicitlyElectricFamily && familyInfo.groups.some((group) => group.category !== "EV")
     : !isElectricModel;
   const isMixedDrivetrainFamily = hasElectricModels && hasCombustionModels;
-  const electricFamilyModels = familyInfo?.groups.find((group) => group.category === "EV")?.models || [];
+  const electricFamilyModels = isExplicitlyElectricFamily
+    ? familyInfo?.groups.flatMap((group) => group.models) || []
+    : familyInfo?.groups.find((group) => group.category === "EV")?.models || [];
   const familyModelCount = familyInfo?.groups.reduce((total, group) => total + group.models.length, 0) || 0;
 
   const bSlug = slugifyModel(brandName);
   const getBookingHref = (familyModel: string, category: string) =>
-    `/book?brand=${encodeURIComponent(bSlug)}&model=${encodeURIComponent(familyModel)}&type=${encodeURIComponent(category === "EV" ? "Electric Motorbike" : "Non-Electric Motorbike")}`;
+    `/book?brand=${encodeURIComponent(bSlug)}&model=${encodeURIComponent(familyModel)}&type=${encodeURIComponent(category === "EV" || isExplicitlyElectricFamily ? "Electric Motorbike" : "Non-Electric Motorbike")}`;
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
@@ -122,22 +126,23 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
                   : `Get an expert certified mechanic for your ${brandName} ${modelName} right at your home or office parking. 100% genuine OEM parts, 15-day labor warranty, and 45-minute doorstep dispatch.`}
               </p>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto">
-                <HeroBookingAction>
+              <div className="w-full sm:w-auto">
+                <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row">
                   <Link
                     href={`/book#${bSlug}`}
-                    className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                    className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:-translate-y-0.5 hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:px-8 sm:text-sm"
                   >
                     Book Service Now →
                   </Link>
-                </HeroBookingAction>
-                <a
-                  href="tel:+918745945682"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-md font-mono font-bold tracking-wider uppercase text-xs sm:text-sm transition-all"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Mechanic
-                </a>
+                  <a
+                    href="tel:+918745945682"
+                    className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:px-6 sm:text-sm"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Call Mechanic
+                  </a>
+                </div>
+                <PaymentTrustRow className="!mt-3 !justify-start font-mono uppercase tracking-[0.08em]" />
               </div>
             </div>
 
@@ -243,7 +248,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
                       <h3 className="mt-1 font-oswald text-lg font-bold text-slate-900">{brandName} {familyModel}</h3>
                     </div>
                     <p className="text-sm leading-6 text-slate-600">
-                      {getMaintenanceCopy(group.category, brandName, familyModel)}
+                      {getMaintenanceCopy(group.category, brandName, familyModel, isExplicitlyElectricFamily)}
                     </p>
                     <Link
                       href={getBookingHref(familyModel, group.category)}

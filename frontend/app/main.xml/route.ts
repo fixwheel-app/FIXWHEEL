@@ -84,6 +84,12 @@ export async function GET() {
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.fixwheel.app/how-to-book</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.fixwheel.app/partner</loc>
     <lastmod>2026-07-25T19:39:55+00:00</lastmod>
     <changefreq>monthly</changefreq>

@@ -17,6 +17,7 @@ model Booking {
   addressLatitude  Float?   @map("address_latitude")
   bikeType         String
   bikeModel        String
+  cc               String?
   issueDescription String?
   preferredSlot    String
   package          String

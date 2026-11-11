@@ -9,7 +9,7 @@ import { BIKE_DATA } from "@/lib/bikes";
 import { Phone, Wrench, ArrowRight, MapPin, Check, Star } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
-import HeroBookingAction from "@/components/HeroBookingAction";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 import { HONDA_MODEL_FAMILIES, HONDA_MODEL_SECTIONS } from "@/lib/hondaModelFamilies";
 import { HERO_MODEL_FAMILIES, HERO_MODEL_SECTIONS } from "@/lib/heroModelFamilies";
@@ -380,7 +380,9 @@ export default function BrandCityClient({
         .brand-city-scope .hero h1 { font-size: 42px; margin: 0 0 16px; color: var(--hero-text); }
         .brand-city-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brand-city-scope .hero p.lead { font-size: 15.5px; color: var(--hero-ink-dim); margin-bottom: 24px; line-height: 1.6; }
-        .brand-city-scope .hero-ctas { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+        .brand-city-scope .hero-ctas { margin-bottom: 0; }
+        .brand-city-scope .hero-action-row { display: flex; align-items: stretch; gap: 14px; flex-wrap: wrap; }
+        .brand-city-scope .hero-action-row .btn { min-height: 50px; justify-content: center; }
 
         /* ===== HERO SNAPSHOT CARD ===== */
         .brand-city-scope .hero-snapshot-card {
@@ -559,6 +561,10 @@ export default function BrandCityClient({
           .brand-city-scope .reviews-grid { grid-template-columns: 1fr; }
           .brand-city-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 560px) {
+          .brand-city-scope .hero-action-row { flex-direction: column; }
+          .brand-city-scope .hero-action-row .btn { width: 100%; }
+        }
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
@@ -584,15 +590,16 @@ export default function BrandCityClient({
             <h1>Doorstep <em>{brandName}</em> Bike Service in {cityName}</h1>
             <p className="lead">{heroDesc}</p>
             <div className="hero-ctas">
-              <HeroBookingAction>
+              <div className="hero-action-row">
                 <Link href={`/book#${bKey}`} className="btn btn-primary">
                   Book {brandName} Service →
                 </Link>
-              </HeroBookingAction>
-              <a href="tel:+918745945682" className="btn btn-dark" style={{ border: "1px solid rgba(255,255,255,0.2)" }}>
-                <Phone className="w-4 h-4" />
-                Call Mechanic
-              </a>
+                <a href="tel:+918745945682" className="btn btn-dark" style={{ border: "1px solid rgba(255,255,255,0.2)" }}>
+                  <Phone className="w-4 h-4" />
+                  Call Mechanic
+                </a>
+              </div>
+              <PaymentTrustRow className="!mt-3 !justify-start font-mono uppercase tracking-[0.08em]" />
             </div>
           </div>
 

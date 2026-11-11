@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useForm, type FieldErrors } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -27,7 +27,7 @@ function getLocalMaxDateString(daysAhead: number = 30): string {
 }
 
 // Zod Schema matching the backend requirements
-const bookingSchema = z.object({
+const bookingSchemaBase = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must not exceed 50 characters"),
   phone: z.string().length(10, "10 digit number required").regex(/^\d+$/, "Numbers only"),
   address: z.string().min(15, "Address must be at least 15 characters"),
@@ -38,7 +38,8 @@ const bookingSchema = z.object({
     return val >= todayStr && val <= maxStr;
   }, "Date must be within the next 30 days"),
   bikeType: z.enum(["Electric Motorbike", "Non-Electric Motorbike", "Scooter"]),
-  bikeModel: z.string().min(3, "Model must be at least 3 characters"),
+  bikeBrand: z.string().trim().min(2, "Enter your bike brand").max(50, "Brand must not exceed 50 characters"),
+  bikeModel: z.string().trim().min(2, "Enter your bike model").max(80, "Model must not exceed 80 characters"),
   issueDescription: z.string().max(300, "Max 300 characters").optional(),
   preferredSlot: z.enum([
     "8:00 AM - 9:00 AM", 
@@ -57,9 +58,9 @@ const bookingSchema = z.object({
   package: z.enum(PACKAGE_TYPES)
 });
 
-export type BookingSchemaType = z.infer<typeof bookingSchema>;
+export type BookingSchemaType = z.infer<typeof bookingSchemaBase>;
 
-const REQUIRED_FIELD_ORDER: (keyof BookingSchemaType)[] = [
+const BASE_REQUIRED_FIELD_ORDER: (keyof BookingSchemaType)[] = [
   "bikeType",
   "bikeModel",
   "customerName",
@@ -72,6 +73,7 @@ const REQUIRED_FIELD_ORDER: (keyof BookingSchemaType)[] = [
 
 const FIELD_LABELS: Partial<Record<keyof BookingSchemaType, string>> = {
   bikeType: "Vehicle type",
+  bikeBrand: "Bike brand",
   bikeModel: "Vehicle model",
   customerName: "Full name",
   phone: "Phone number",
@@ -124,8 +126,20 @@ function BookingFormInner() {
   // Initialize defaults from query params
   const initialPackage = (searchParams.get('package') as PackageType) || "General Service";
   const initialType = searchParams.get('type') || "Non-Electric Motorbike";
-  const initialModel = searchParams.get('bike') || searchParams.get('model') || "";
+  const initialBrand = searchParams.get('brand')?.trim() || "";
+  const initialSelectedModel = searchParams.get('model')?.trim() || "";
+  const initialBike = searchParams.get('bike')?.trim() || "";
+  const requiresCustomBrand = initialBrand.toLowerCase().startsWith("other brand");
+  const requiresCustomModel = initialSelectedModel.toLowerCase() === "other model";
+  const initialModel = requiresCustomModel ? "" : (initialSelectedModel || initialBike);
   const initialCcRange = searchParams.get('ccRange') || undefined;
+  const bookingSchema = bookingSchemaBase;
+  const requiredFieldOrder = useMemo<(keyof BookingSchemaType)[]>(
+    () => requiresCustomBrand
+      ? ["bikeType", "bikeBrand", ...BASE_REQUIRED_FIELD_ORDER.filter((field) => field !== "bikeType")]
+      : BASE_REQUIRED_FIELD_ORDER,
+    [requiresCustomBrand]
+  );
   
   const [selectedPackageId, setSelectedPackageId] = useState<string>(initialPackage);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -139,6 +153,7 @@ function BookingFormInner() {
     defaultValues: {
       package: selectedPackageId as PackageType,
       bikeType: initialType as BookingSchemaType["bikeType"],
+      bikeBrand: requiresCustomBrand ? "" : initialBrand,
       bikeModel: initialModel,
       preferredSlot: "8:00 AM - 9:00 AM",
       city: "Delhi",
@@ -151,7 +166,7 @@ function BookingFormInner() {
   const selectedSlot = watch("preferredSlot");
   const selectedCity = watch("city");
   const selectedBikeType = watch("bikeType");
-  const watchedRequiredValues = watch(REQUIRED_FIELD_ORDER);
+  const watchedRequiredValues = watch(requiredFieldOrder);
   const watchedRequiredValuesKey = JSON.stringify(watchedRequiredValues);
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
   const pkgData = (selectedBikeType === 'Electric Motorbike'
@@ -183,7 +198,7 @@ function BookingFormInner() {
   const onInvalid = (fieldErrors: FieldErrors<BookingSchemaType>) => {
     setShowValidationSummary(true);
     setErrorToast(null);
-    const currentIncompleteFields = REQUIRED_FIELD_ORDER.filter((field) => Boolean(fieldErrors[field]));
+    const currentIncompleteFields = requiredFieldOrder.filter((field) => Boolean(fieldErrors[field]));
     setIncompleteFields(currentIncompleteFields);
     const firstIncompleteField = currentIncompleteFields[0];
     if (firstIncompleteField) scrollToField(firstIncompleteField);
@@ -195,7 +210,7 @@ function BookingFormInner() {
     const validationResult = bookingSchema.safeParse(getValues());
     const currentIncompleteFields = validationResult.success
       ? []
-      : REQUIRED_FIELD_ORDER.filter((field) => validationResult.error.issues.some((issue) => issue.path[0] === field));
+      : requiredFieldOrder.filter((field) => validationResult.error.issues.some((issue) => issue.path[0] === field));
 
     setIncompleteFields((currentFields) => {
       const unchanged = currentFields.length === currentIncompleteFields.length
@@ -206,7 +221,7 @@ function BookingFormInner() {
     if (currentIncompleteFields.length === 0) {
       setShowValidationSummary(false);
     }
-  }, [showValidationSummary, watchedRequiredValuesKey, getValues]);
+  }, [showValidationSummary, watchedRequiredValuesKey, getValues, bookingSchema, requiredFieldOrder]);
 
   useEffect(() => {
     const today = getLocalDateString();
@@ -272,8 +287,16 @@ function BookingFormInner() {
       return;
     }
 
+    const resolvedBrand = requiresCustomBrand ? data.bikeBrand?.trim() || "" : initialBrand;
+    const resolvedBikeModel = [resolvedBrand, data.bikeModel.trim()].filter(Boolean).join(" ");
+    const { bikeBrand: _bikeBrand, ...bookingData } = data;
+    const submissionData = {
+      ...bookingData,
+      bikeModel: resolvedBikeModel,
+    };
+
     const response = await submitBooking({
-      ...data,
+      ...submissionData,
       serviceId: pkgData.pricingId,
       ccRange: data.bikeType === 'Electric Motorbike' ? undefined : initialCcRange,
       price: selectedPrice
@@ -282,7 +305,7 @@ function BookingFormInner() {
     if (response.success && response.bookingId) {
       // Store in localStorage for confirmation page
       localStorage.setItem('latestBooking', JSON.stringify({
-        ...data,
+        ...submissionData,
         bookingRef: response.bookingId,
         price: String(response.price ?? selectedPrice ?? price ?? "")
       }));
@@ -317,7 +340,7 @@ function BookingFormInner() {
           </div>
           <div className="min-w-0">
             <p className="text-base font-bold md:text-lg">Pay after service</p>
-            <p className="mt-1 text-sm leading-6 text-gray-300">No advance payment. Review the completed work first, then pay for the approved service.</p>
+            <p className="mt-1 text-sm leading-6 text-gray-300">No advance payment. Pay after reviewing the approved work.</p>
           </div>
         </div>
 
@@ -371,19 +394,48 @@ function BookingFormInner() {
                 </select>
               </div>
 
+              {requiresCustomBrand && (
+                <div data-booking-field="bikeBrand">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Bike Brand *</label>
+                  <input
+                    {...register("bikeBrand")}
+                    required
+                    aria-invalid={Boolean(errors.bikeBrand)}
+                    aria-describedby={errors.bikeBrand ? "bike-brand-error" : "bike-brand-hint"}
+                    placeholder="Enter your bike brand"
+                    autoComplete="off"
+                    className={cn(
+                      "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
+                      errors.bikeBrand ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
+                    )}
+                  />
+                  <p id="bike-brand-hint" className="mt-1.5 text-xs text-gray-500">Required because you selected Other Brand.</p>
+                  {errors.bikeBrand && <p id="bike-brand-error" className="text-status-error text-xs mt-1" role="alert">{errors.bikeBrand.message}</p>}
+                </div>
+              )}
+
               {/* Bike Model */}
               <div data-booking-field="bikeModel">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Bike Model *</label>
                 <input 
                   {...register("bikeModel")}
+                  required
                   aria-invalid={Boolean(errors.bikeModel)}
-                  placeholder="Hero Sprint 26T"
+                  aria-describedby={errors.bikeModel ? "bike-model-error" : requiresCustomModel ? "bike-model-hint" : undefined}
+                  placeholder={requiresCustomModel ? "Enter your bike model" : "Hero Sprint 26T"}
+                  autoComplete="off"
                   className={cn(
                     "w-full bg-white border text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-1 transition-all",
                     errors.bikeModel ? "border-status-error focus:ring-status-error" : "border-gray-200 focus:border-accent focus:ring-accent"
                   )}
                 />
-                {errors.bikeModel && <p className="text-status-error text-xs mt-1">{errors.bikeModel.message}</p>}
+                {requiresCustomModel && initialBrand && !requiresCustomBrand && (
+                  <p id="bike-model-hint" className="mt-1.5 text-xs text-gray-500">Required because you selected Other Model. Selected brand: {initialBrand}</p>
+                )}
+                {requiresCustomModel && requiresCustomBrand && (
+                  <p id="bike-model-hint" className="mt-1.5 text-xs text-gray-500">Required because you selected Other Model.</p>
+                )}
+                {errors.bikeModel && <p id="bike-model-error" className="text-status-error text-xs mt-1" role="alert">{errors.bikeModel.message}</p>}
               </div>
             </div>
           </div>
@@ -666,14 +718,6 @@ function BookingFormInner() {
               <p className="text-accent text-sm">Estimated Price</p>
             </div>
             <p className="text-2xl md:text-3xl font-bold text-black shrink-0">₹{price}</p>
-          </div>
-
-          <div className="mb-5 flex items-start gap-3 rounded-xl bg-[#111111] p-4 text-white md:mb-6">
-            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-            <div>
-              <p className="text-sm font-bold">Pay after service</p>
-              <p className="mt-1 text-xs leading-5 text-gray-300">No advance payment. Pay after reviewing the approved work.</p>
-            </div>
           </div>
 
           <p className="font-semibold text-black mb-3 md:mb-4 text-sm md:text-base">What's included:</p>

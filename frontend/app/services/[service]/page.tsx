@@ -80,6 +80,55 @@ export default function ServiceOrCityPage({ params }: PageProps) {
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
     const serviceData = SERVICES_DB[params.service];
+    if (params.service === "diagnosis") {
+      const canonical = "https://www.fixwheel.app/services/diagnosis";
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: serviceData.title,
+            serviceType: "Doorstep two-wheeler fault diagnosis",
+            description: serviceData.lead,
+            url: canonical,
+            provider: {
+              "@type": "Organization",
+              name: "FixWheel",
+              url: "https://www.fixwheel.app",
+            },
+            areaServed: ["Delhi", "Gurgaon", "Noida", "Ghaziabad", "Faridabad"],
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://www.fixwheel.app/services" },
+              { "@type": "ListItem", position: 3, name: "Two-Wheeler Diagnosis", item: canonical },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: serviceData.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
+          },
+        ],
+      };
+
+      return (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+            }}
+          />
+          <ServicePageTemplate {...serviceData} />
+        </>
+      );
+    }
     return <ServicePageTemplate {...serviceData} />;
   }
 

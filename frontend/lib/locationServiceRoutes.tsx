@@ -34,6 +34,7 @@ const CONSOLIDATED_ENGINE_SERVICE_SET = new Set([
   "engine-full",
   "engine-repair",
 ]);
+const ROOT_ONLY_SERVICE_SET = new Set(["diagnosis"]);
 
 export function isBikeTypeSlug(slug: string) {
   return BIKE_TYPE_SET.has(slug);
@@ -41,7 +42,9 @@ export function isBikeTypeSlug(slug: string) {
 
 export function getServiceSlugs() {
   return Object.keys(SERVICES_DB).filter(
-    (slug) => !BIKE_TYPE_SERVICE_SET.has(slug) && !CONSOLIDATED_ENGINE_SERVICE_SET.has(slug),
+    (slug) => !BIKE_TYPE_SERVICE_SET.has(slug)
+      && !CONSOLIDATED_ENGINE_SERVICE_SET.has(slug)
+      && !ROOT_ONLY_SERVICE_SET.has(slug),
   );
 }
 
@@ -89,6 +92,7 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
 
 export function generateCityServiceMetadata(citySlug: string, serviceSlug: string) {
   if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) return {};
+  if (ROOT_ONLY_SERVICE_SET.has(serviceSlug)) return {};
   if (CONSOLIDATED_ENGINE_SERVICE_SET.has(serviceSlug)) {
     return { alternates: { canonical: "https://www.fixwheel.app/services/engine-repair" } };
   }
@@ -168,6 +172,7 @@ function renderLocationService(serviceSlug: string, citySlug: string) {
 
 export function renderCityService(citySlug: string, serviceSlug: string) {
   if (BIKE_TYPE_SERVICE_SET.has(serviceSlug)) notFound();
+  if (ROOT_ONLY_SERVICE_SET.has(serviceSlug)) notFound();
   if (CONSOLIDATED_ENGINE_SERVICE_SET.has(serviceSlug)) {
     redirect("/services/engine-repair");
   }

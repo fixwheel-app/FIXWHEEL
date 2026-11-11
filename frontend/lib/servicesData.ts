@@ -284,6 +284,57 @@ export const SERVICES_DB: Record<string, ServiceData> = {
       "motorcycle oil filter replacement",
     ],
   },
+  "diagnosis": {
+    serviceId: "diagnosis",
+    category: "Fault Finding & Inspection",
+    title: "Doorstep Two-Wheeler Diagnosis",
+    lead: "Not sure what is wrong with your bike or scooter? A verified FixWheel mechanic checks it at your location, finds the likely fault, and explains the next repair step.",
+    startingPrice: "₹399",
+    avgTime: "45 Mins",
+    warranty: "Repair Only After Approval",
+    descriptionParagraphs: [
+      "Starting trouble, unusual noise, vibration, poor pickup, warning lights, leaks, or a sudden change in braking can have more than one cause. Replacing parts before identifying the fault can waste time and money.",
+      "During a doorstep diagnosis, the mechanic checks the symptoms you describe and inspects the accessible mechanical and electrical systems that could be responsible. The visit focuses on finding the likely cause and determining whether the next step can be completed at your location.",
+      "Diagnosis does not automatically authorize a repair. The mechanic explains the finding first, and any additional labor or parts are quoted separately for your approval.",
+    ],
+    includedItems: [
+      "Symptom check based on what you noticed while riding or starting",
+      "Visual safety inspection of accessible mechanical and electrical parts",
+      "Battery, charging, ignition, fuel-delivery, and starting-system checks where relevant",
+      "Brake, tyre, cable, control, leakage, and unusual-noise inspection",
+      "Explanation of the likely fault and the recommended next step",
+      "Separate quote before any repair, adjustment, or replacement begins",
+    ],
+    faqs: [
+      {
+        q: "When should I book a two-wheeler diagnosis?",
+        a: "Book a diagnosis when the bike or scooter will not start, loses pickup, vibrates, makes a new noise, shows a warning light, leaks fluid, or has a problem you cannot identify confidently.",
+      },
+      {
+        q: "Does diagnosis include the repair?",
+        a: "No. The diagnosis identifies the likely fault and the recommended next step. Any repair labor or replacement parts are explained and quoted separately before work begins.",
+      },
+      {
+        q: "Can the mechanic repair the problem during the same visit?",
+        a: "If the fault is accessible, the required tools or parts are available, and you approve the quote, eligible minor work may be completed during the visit. Workshop work is recommended separately when required.",
+      },
+      {
+        q: "Is an OBD scan included for every bike?",
+        a: "An OBD scan is used only when the two-wheeler supports compatible electronic diagnostics and the reported fault calls for it. Many mechanical problems are diagnosed through physical checks and testing instead.",
+      },
+    ],
+    keywords: [
+      "bike diagnosis near me",
+      "doorstep bike inspection",
+      "bike problem diagnosis at home",
+      "scooter mechanic diagnosis",
+      "two wheeler fault finding",
+      "bike not starting mechanic near me",
+      "motorcycle diagnostic service Delhi NCR",
+      "doorstep mechanic inspection Gurgaon",
+      "bike diagnosis Noida",
+    ],
+  },
   "jump-start": {
     serviceId: "jump-start",
     category: "Emergency Assistance",

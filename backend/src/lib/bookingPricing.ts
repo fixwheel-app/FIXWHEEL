@@ -1,6 +1,7 @@
 export const BOOKABLE_SERVICE_IDS = [
   'basic-service',
   'service-engine-oil',
+  'diagnosis',
   'jump-start',
   'puncture',
   'running-repair',
@@ -35,6 +36,11 @@ const BOOKING_PRICING: Record<BookableServiceId, ServicePricing> = {
   'service-engine-oil': {
     packageName: 'General Service with engine oil',
     nonElectric: { '0-249': 999, '250-399': 1999, '400-599': 2990, '600+': 3999 },
+  },
+  diagnosis: {
+    packageName: 'Diagnosis',
+    nonElectric: { '0-249': 399, '250-399': 399, '400-599': 399, '600+': 399 },
+    electric: 399,
   },
   'jump-start': {
     packageName: 'Jump start',

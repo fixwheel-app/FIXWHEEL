@@ -14,12 +14,6 @@ export interface HondaModelFamily {
 
 export const HONDA_MODEL_FAMILIES: HondaModelFamily[] = [
   {
-    name: "Dream",
-    slug: "dream",
-    groups: [{ category: "Bike", models: ["CD 110 Dream", "Dream Neo", "Dream Yuga"] }],
-    legacySlugs: ["cd-110-dream", "dream-yuga"],
-  },
-  {
     name: "Shine",
     slug: "shine",
     groups: [{ category: "Bike", models: ["Shine 100", "Shine 100 DX", "CB Shine 125", "Shine SP"] }],
@@ -89,22 +83,6 @@ export const HONDA_MODEL_FAMILIES: HondaModelFamily[] = [
     slug: "dio",
     groups: [{ category: "Scooter", models: ["Dio 110", "Dio 125"] }],
     legacySlugs: ["dio-125"],
-  },
-  {
-    name: "Grazia",
-    slug: "grazia",
-    groups: [{ category: "Scooter", models: ["Grazia 125"] }],
-    legacySlugs: ["grazia-125"],
-  },
-  {
-    name: "Aviator",
-    slug: "aviator",
-    groups: [{ category: "Scooter", models: ["Aviator 110"] }],
-  },
-  {
-    name: "Eterno",
-    slug: "eterno",
-    groups: [{ category: "Scooter", models: ["Eterno 150"] }],
   },
   {
     name: "QC",

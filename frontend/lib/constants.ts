@@ -7,6 +7,8 @@ export interface NonElectricService {
   id: PackageType;
   name: PackageType;
   displayName?: string;
+  cardQuestion?: string;
+  cardDescription?: string;
   pricingId: ServicePriceId;
   prices: Record<CCRange, number | null>;
   includes?: string[];
@@ -17,6 +19,9 @@ export interface ElectricService {
   id: PackageType;
   name: PackageType;
   pricingId: ServicePriceId;
+  displayName?: string;
+  cardQuestion?: string;
+  cardDescription?: string;
   price: number;
   includes?: string[];
   estimatedTime: string;
@@ -104,6 +109,22 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
       "Engine Oil Change",
       "Spark Plug Cleaning"
     ]
+  },
+  {
+    id: "Diagnosis",
+    name: "Diagnosis",
+    displayName: "Diagnosis",
+    cardQuestion: "Not sure what is wrong?",
+    cardDescription: "Start with a mechanic diagnosis.",
+    pricingId: "diagnosis",
+    prices: getNonElectricPrices("diagnosis"),
+    estimatedTime: "45 MINS",
+    includes: [
+      "Reported Symptom Assessment",
+      "Accessible Mechanical & Electrical Checks",
+      "Likely Fault Explanation",
+      "Separate Repair Quote Before Work Begins",
+    ],
   },
   { 
     id: "Jump start", 
@@ -270,6 +291,7 @@ export const NON_ELECTRIC_SERVICES: NonElectricService[] = [
 
 export const ELECTRIC_SERVICES: ElectricService[] = [
   { id: "General Service", name: "General Service", pricingId: "ev-service", price: getElectricPrice("ev-service"), estimatedTime: "2 HOURS", includes: ["BMS Health & Cell Diagnostic", "Hub Motor & Sensor Check", "Regenerative Brake Calibration", "High Voltage Wire Check"] },
+  { id: "Diagnosis", name: "Diagnosis", displayName: "Diagnosis", cardQuestion: "Not sure what is wrong?", cardDescription: "Start with a mechanic diagnosis.", pricingId: "diagnosis", price: getElectricPrice("diagnosis"), estimatedTime: "45 MINS", includes: ["Reported Symptom Assessment", "Accessible Mechanical & Electrical Checks", "Likely Fault Explanation", "Separate Repair Quote Before Work Begins"] },
   { id: "Jump start", name: "Jump start", pricingId: "jump-start", price: getElectricPrice("jump-start"), estimatedTime: "30 MINS", includes: ["Auxiliary Battery Boost", "Terminal Voltage Check", "Fast Doorstep Arrival"] },
   { id: "Puncture", name: "Puncture", pricingId: "puncture", price: getElectricPrice("puncture"), estimatedTime: "30 MINS", includes: ["Tubeless Rubber Strip Repair", "Air Pressure Calibration", "Valve Inspection"] },
   { id: "Running Repair", name: "Running Repair", pricingId: "running-repair", price: getElectricPrice("running-repair"), estimatedTime: "30 MINS", includes: ["Throttle Sensor Calibration", "Brake Lever Fitting", "Minor Electrical Repair"] },

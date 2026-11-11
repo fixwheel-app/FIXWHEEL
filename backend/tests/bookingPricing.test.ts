@@ -9,7 +9,7 @@ import {
 } from '../src/lib/bookingPricing';
 import { bookingSchema } from '../src/middleware/validateBooking';
 import { getServicePrice, ServicePriceTier } from '../../frontend/lib/pricingData';
-import { createBooking, createBookingWithGeocoder } from '../src/controllers/bookingController';
+import { createBooking, createBookingWithGeocoder, formatBikeModelWithCc } from '../src/controllers/bookingController';
 import { db } from '../src/lib/db';
 
 const nonElectricCases: Array<[BookingPriceSelection['serviceId'], BookingPriceSelection['packageName'], BookingPriceSelection['ccRange'], number]> = [
@@ -21,6 +21,10 @@ const nonElectricCases: Array<[BookingPriceSelection['serviceId'], BookingPriceS
   ['service-engine-oil', 'General Service with engine oil', '250-399', 1999],
   ['service-engine-oil', 'General Service with engine oil', '400-599', 2990],
   ['service-engine-oil', 'General Service with engine oil', '600+', 3999],
+  ['diagnosis', 'Diagnosis', '0-249', 399],
+  ['diagnosis', 'Diagnosis', '250-399', 399],
+  ['diagnosis', 'Diagnosis', '400-599', 399],
+  ['diagnosis', 'Diagnosis', '600+', 399],
   ['jump-start', 'Jump start', '0-249', 399],
   ['jump-start', 'Jump start', '250-399', 399],
   ['jump-start', 'Jump start', '400-599', 499],
@@ -94,6 +98,7 @@ test('backend transactional rates match the frontend catalog', () => {
 
   const electricCases: Array<[BookingPriceSelection['serviceId'], string]> = [
     ['ev-service', 'General Service'],
+    ['diagnosis', 'Diagnosis'],
     ['jump-start', 'Jump start'],
     ['puncture', 'Puncture'],
     ['running-repair', 'Running Repair'],
@@ -111,6 +116,7 @@ test('backend transactional rates match the frontend catalog', () => {
 test('calculates the approved electric service rates', () => {
   const cases: Array<[BookingPriceSelection['serviceId'], string, number]> = [
     ['ev-service', 'General Service', 799],
+    ['diagnosis', 'Diagnosis', 399],
     ['jump-start', 'Jump start', 399],
     ['puncture', 'Puncture', 399],
     ['running-repair', 'Running Repair', 399],
@@ -200,6 +206,7 @@ test('request validation accepts every newly added booking service', () => {
   };
 
   const cases = [
+    ['diagnosis', 'Diagnosis', 399],
     ['battery-replacement', 'Battery Replacement', 99],
     ['carburetor-cleaning', 'Carburetor Cleaning', 199],
     ['obd-inspection', 'OBD Scanner Inspection', 199],
@@ -216,6 +223,18 @@ test('request validation accepts every newly added booking service', () => {
       price,
     }).success, true);
   }
+});
+
+test('formats website bike models with the selected CC range without duplicating app suffixes', () => {
+  assert.equal(formatBikeModelWithCc('KTM 390 Adventure X', '0-249'), 'KTM 390 Adventure X (0 TO 249 CC)');
+  assert.equal(formatBikeModelWithCc('Test Model', '250-399'), 'Test Model (250 TO 399 CC)');
+  assert.equal(formatBikeModelWithCc('Test Model', '400-599'), 'Test Model (400 TO 599 CC)');
+  assert.equal(formatBikeModelWithCc('Test Model', '600+'), 'Test Model (600 CC & ABOVE)');
+  assert.equal(
+    formatBikeModelWithCc('KTM 390 Adventure X (0 TO 249 CC)', '0-249'),
+    'KTM 390 Adventure X (0 TO 249 CC)',
+  );
+  assert.equal(formatBikeModelWithCc('Ola Electric S1 Pro'), 'Ola Electric S1 Pro');
 });
 
 test('booking controller rejects a tampered quote before persistence', async () => {
@@ -325,6 +344,8 @@ test('booking controller persists the geocoded address coordinates', async () =>
   assert.equal((responseBody as { success: boolean }).success, true);
   assert.equal(persistedData?.addressLatitude, 28.6139391);
   assert.equal(persistedData?.addressLongitude, 77.2090212);
+  assert.equal(persistedData?.cc, '0-249');
+  assert.equal(persistedData?.bikeModel, 'Test Model (0 TO 249 CC)');
 });
 
 test('booking controller creates the row with null coordinates as the final fallback', async () => {
@@ -391,4 +412,6 @@ test('booking controller creates the row with null coordinates as the final fall
   assert.equal((responseBody as { success: boolean }).success, true);
   assert.equal(persistedData?.addressLatitude, null);
   assert.equal(persistedData?.addressLongitude, null);
+  assert.equal(persistedData?.cc, '0-249');
+  assert.equal(persistedData?.bikeModel, 'Test Model (0 TO 249 CC)');
 });

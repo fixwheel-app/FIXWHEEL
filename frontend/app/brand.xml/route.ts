@@ -15,6 +15,7 @@ import { YEZDI_MODEL_FAMILIES } from "@/lib/yezdiModelFamilies";
 import { APRILIA_MODEL_FAMILIES } from "@/lib/apriliaModelFamilies";
 import { VESPA_MODEL_FAMILIES } from "@/lib/vespaModelFamilies";
 import { KAWASAKI_PAGE_FAMILIES } from "@/lib/kawasakiModelFamilies";
+import { BMW_MODEL_FAMILIES } from "@/lib/bmwModelFamilies";
 import { TVS_MODEL_FAMILIES } from "@/lib/tvsModelFamilies";
 
 export const dynamic = "force-static";
@@ -174,6 +175,12 @@ export async function GET() {
   // Ninja variants share the only Kawasaki model-family page.
   for (const family of KAWASAKI_PAGE_FAMILIES) {
     const url = `https://www.fixwheel.app/kawasaki/${family.slug}`;
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  }
+
+  // BMW Motorrad models share one canonical page per model family.
+  for (const family of BMW_MODEL_FAMILIES) {
+    const url = `https://www.fixwheel.app/bmw-motorrad/${family.slug}`;
     xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   }
 

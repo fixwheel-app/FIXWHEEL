@@ -8,7 +8,6 @@ import { getBrandLogo } from "@/lib/brandLogos";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
-import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
@@ -152,6 +151,9 @@ export default function ServicePageTemplate({
   const isScootyRepair = serviceId === "scooty-repair";
   const isElectricRepair = serviceId === "electric-scooter-repair";
   const isCruiserBike = serviceId === "cruiser-bike-service";
+  const isDiagnosis = serviceId === "diagnosis";
+  const primaryBookingHref = "/book";
+  const primaryBookingLabel = isDiagnosis ? "Book a Mechanic →" : "Book Doorstep Service →";
   const isVehicleType = VEHICLE_TYPE_SERVICE_IDS.has(serviceId);
   const displayedBrands = isScootyRepair
     ? SCOOTER_BRANDS
@@ -211,10 +213,10 @@ export default function ServicePageTemplate({
                 <div className="flex w-full flex-col items-start gap-3 sm:w-max sm:max-w-full">
                   <div className="grid w-full grid-cols-1 gap-3 sm:flex sm:w-auto sm:items-start">
                     <Link
-                      href="/book"
+                      href={primaryBookingHref}
                       className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
                     >
-                      Book Doorstep Service →
+                      {primaryBookingLabel}
                     </Link>
                     <a
                       href="tel:+918745945682"
@@ -227,22 +229,23 @@ export default function ServicePageTemplate({
                   <PaymentTrustRow className="justify-start font-mono uppercase tracking-[0.08em]" />
                 </div>
               ) : (
-                <div className="flex flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start">
-                  <HeroBookingAction>
+                <div className="flex w-full flex-col items-start gap-3 sm:w-max sm:max-w-full">
+                  <div className="grid w-full grid-cols-1 gap-3 sm:flex sm:w-auto sm:items-stretch">
                     <Link
-                      href="/book"
-                      className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:bg-red-600 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
+                      href={primaryBookingHref}
+                      className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-md bg-[#e62b2b] px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(230,43,43,0.35)] transition-all hover:-translate-y-0.5 hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:px-8 sm:text-sm"
                     >
-                      Book Doorstep Service →
+                      {primaryBookingLabel}
                     </Link>
-                  </HeroBookingAction>
-                  <a
-                    href="tel:+918745945682"
-                    className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 sm:px-6 sm:py-4 sm:text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Call Mechanic
-                  </a>
+                    <a
+                      href="tel:+918745945682"
+                      className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:px-6 sm:text-sm"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Call Mechanic
+                    </a>
+                  </div>
+                  <PaymentTrustRow className="!mt-0 !justify-start font-mono uppercase tracking-[0.08em]" />
                 </div>
               )}
             </div>
@@ -272,8 +275,8 @@ export default function ServicePageTemplate({
               <span className="text-xs text-slate-500 uppercase tracking-wider">Bikes Serviced</span>
             </div>
             <div className="p-2">
-              <b className="block text-2xl font-bold text-slate-900">{pageVars.warranty}</b>
-              <span className="text-xs text-slate-500 uppercase tracking-wider">Labor Warranty</span>
+              <b className="block text-2xl font-bold text-slate-900">{isDiagnosis ? "Approval First" : pageVars.warranty}</b>
+              <span className="text-xs text-slate-500 uppercase tracking-wider">{isDiagnosis ? "Before Any Repair" : "Labor Warranty"}</span>
             </div>
           </div>
         </div>
@@ -312,35 +315,41 @@ export default function ServicePageTemplate({
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Arrival Duration
+                      {isDiagnosis ? "Visit Timing" : "Arrival Duration"}
                     </span>
-                    <span className="font-bold text-slate-900">25 – 45 Minutes at your doorstep</span>
+                    <span className="font-bold text-slate-900">
+                      {isDiagnosis ? "Confirmed when booking" : "25 – 45 Minutes at your doorstep"}
+                    </span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Parts Policy
+                      {isDiagnosis ? "Visit Focus" : "Parts Policy"}
                     </span>
-                    <span className="font-bold text-slate-900">100% Sealed OEM Parts & Cables</span>
+                    <span className="font-bold text-slate-900">
+                      {isDiagnosis ? "Fault Finding & Next-Step Advice" : "100% Sealed OEM Parts & Cables"}
+                    </span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Warranty
+                      {isDiagnosis ? "Repair Approval" : "Warranty"}
                     </span>
-                    <span className="font-bold text-slate-900">{warranty}</span>
+                    <span className="font-bold text-slate-900">{isDiagnosis ? "Required Before Work Begins" : warranty}</span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Payment Mode
+                      {isDiagnosis ? "Diagnosis Fee" : "Payment Mode"}
                     </span>
-                    <span className="font-bold text-slate-900">UPI, Card, Cash after Job Completion</span>
+                    <span className="font-bold text-slate-900">
+                      {isDiagnosis ? "₹399" : "UPI, Card, Cash after Job Completion"}
+                    </span>
                   </div>
                 </div>
 
                 <Link
-                  href="/book"
+                  href={primaryBookingHref}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-red-600 text-white py-3.5 rounded-md font-mono font-bold text-xs uppercase tracking-wider transition-all"
                 >
-                  Book This Service
+                  {isDiagnosis ? "Book a Mechanic" : "Book This Service"}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -354,11 +363,30 @@ export default function ServicePageTemplate({
                 HASSLE-FREE WORKFLOW
               </span>
               <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                {isScootyRepair ? "How Doorstep Scooty Service Works" : "How Doorstep Bike Service Works"}
+                {isDiagnosis
+                  ? "How Doorstep Two-Wheeler Diagnosis Works"
+                  : isScootyRepair
+                    ? "How Doorstep Scooty Service Works"
+                    : "How Doorstep Bike Service Works"}
               </h2>
             </div>
 
-            {isScootyRepair ? (
+            {isDiagnosis ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { number: "01", title: "Describe the Symptom", description: "Tell us what changed, when it happens, and whether the vehicle can be started or ridden safely." },
+                  { number: "02", title: "Mechanic Checks the Vehicle", description: "A verified mechanic inspects the relevant accessible mechanical and electrical systems at your location." },
+                  { number: "03", title: "Understand the Finding", description: "The mechanic explains the likely fault, the recommended next step, and whether specialist workshop work is needed." },
+                  { number: "04", title: "Approve the Next Step", description: "Review the separate repair quote and decide what work, if any, should begin." },
+                ].map((step) => (
+                  <div key={step.number} className="bg-white border border-slate-200 rounded-xl p-6 relative">
+                    <span className="font-mono text-3xl font-bold text-red-100 block mb-2">{step.number}</span>
+                    <h3 className="font-bold text-slate-900 text-lg mb-2">{step.title}</h3>
+                    <p className="text-sm text-slate-600">{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            ) : isScootyRepair ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
@@ -420,7 +448,10 @@ export default function ServicePageTemplate({
                 </div>
               </div>
             )}
-            <HowSectionActions />
+            <HowSectionActions
+              bookingHref={primaryBookingHref}
+              bookingLabel={isDiagnosis ? "Book a mechanic" : undefined}
+            />
           </div>
 
           {(isScootyRepair || isElectricRepair) && (
@@ -701,9 +732,11 @@ export default function ServicePageTemplate({
               ].map((c) => (
                 <Link
                   key={c.slug}
-                  href={VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]
-                    ? `/${c.slug}/${VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]}`
-                    : `/${c.slug}/services/${serviceId}`}
+                  href={isDiagnosis
+                    ? `/${c.slug}`
+                    : VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]
+                      ? `/${c.slug}/${VEHICLE_TYPE_PUBLIC_ROUTES[serviceId]}`
+                      : `/${c.slug}/services/${serviceId}`}
                   className="bg-slate-800 border border-slate-700 hover:border-red-500 text-center py-3 rounded-lg font-mono text-xs font-bold text-white hover:text-red-400 transition-all shadow-sm"
                 >
                   {c.name}
@@ -716,17 +749,19 @@ export default function ServicePageTemplate({
           {/* ===== BOTTOM CTA BANNER ===== */}
           <div className="bg-[#17181A] text-white rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-white/10">
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-4 font-oswald">
-              Ready to Service Your Two-Wheeler?
+              {isDiagnosis ? "Ready to Find the Problem?" : "Ready to Service Your Two-Wheeler?"}
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
-              Get an expert doorstep mechanic at your home or office parking in {locationName || "Delhi NCR"} within 45 minutes.
+              {isDiagnosis
+                ? `Describe the symptom and book a doorstep mechanic in ${locationName || "Delhi NCR"}. We inspect the likely cause before you approve any repair.`
+                : `Get an expert doorstep mechanic at your home or office parking in ${locationName || "Delhi NCR"} within 45 minutes.`}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/book"
+                href={primaryBookingHref}
                 className="inline-flex items-center justify-center gap-3 bg-[#e62b2b] hover:bg-red-600 text-white px-8 py-4 rounded-md font-mono font-bold tracking-wider uppercase text-sm transition-all shadow-[0_4px_20px_rgba(230,43,43,0.35)] hover:scale-[1.02]"
               >
-                BOOK NOW
+                {isDiagnosis ? "BOOK A MECHANIC" : "BOOK NOW"}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a

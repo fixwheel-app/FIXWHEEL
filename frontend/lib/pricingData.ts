@@ -8,6 +8,7 @@ export interface PricingCategory {
 export const SERVICE_PRICE_IDS = [
   "basic-service",
   "service-engine-oil",
+  "diagnosis",
   "jump-start",
   "puncture",
   "running-repair",
@@ -97,6 +98,25 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
       "Doorstep Mechanic Service"
     ],
     popular: true
+  },
+  {
+    id: "diagnosis",
+    name: "Diagnosis",
+    description: "Doorstep fault finding when the cause of a two-wheeler problem is not yet clear.",
+    category: "Non-Electric",
+    prices: {
+      cc0_249: 399,
+      cc250_399: 399,
+      cc400_599: 399,
+      cc600_above: 399,
+      electric: 399,
+    },
+    features: [
+      "Reported Symptom Assessment",
+      "Accessible Mechanical & Electrical Checks",
+      "Likely Fault Explanation",
+      "Separate Repair Quote Before Work Begins",
+    ],
   },
   {
     id: "jump-start",

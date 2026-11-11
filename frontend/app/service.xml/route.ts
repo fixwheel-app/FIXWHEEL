@@ -8,6 +8,7 @@ const LAST_MODIFIED = "2026-09-17T00:00:00+05:30";
 const OFFICIAL_SERVICE_SLUGS = [
   "basic-service",
   "service-engine-oil",
+  "diagnosis",
   "jump-start",
   "puncture",
   "running-repair",
@@ -35,7 +36,9 @@ const LEGACY_SERVICE_URLS = [
 const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
 const CITY_SERVICE_SLUGS = [
   ...OFFICIAL_SERVICE_SLUGS.filter(
-    (service) => service !== "electric-scooter-repair" && service !== "engine-repair",
+    (service) => service !== "electric-scooter-repair"
+      && service !== "engine-repair"
+      && service !== "diagnosis",
   ),
   "oil-change",
   "comprehensive-service",

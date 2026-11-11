@@ -28,6 +28,7 @@ export const bookingSchema = z.object({
   package: z.enum([
     "General Service",
     "General Service with engine oil",
+    "Diagnosis",
     "Puncture",
     "Running Repair",
     "Engine Half",

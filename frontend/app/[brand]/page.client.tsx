@@ -252,7 +252,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
   const isVespaBrand = brandSlug.toLowerCase() === "vespa";
   const isHarleyDavidsonBrand = brandSlug.toLowerCase() === "harley-davidson";
   const isKawasakiBrand = brandSlug.toLowerCase() === "kawasaki";
-  const isBmwBrand = brandSlug.toLowerCase() === "bmw";
+  const isBmwBrand = brandSlug.toLowerCase() === "bmw" || brandSlug.toLowerCase() === "bmw-motorrad";
   const isTvsBrand = brandSlug.toLowerCase() === "tvs";
   const isFamilyBrand = isHondaBrand || isHeroBrand || isBajajBrand || isRoyalEnfieldBrand || isYamahaBrand || isKtmBrand || isSuzukiBrand || isOlaBrand || isAtherBrand || isJawaBrand || isYezdiBrand || isApriliaBrand || isVespaBrand || isHarleyDavidsonBrand || isKawasakiBrand || isBmwBrand || isTvsBrand;
   const familySections = isHondaBrand
@@ -1529,13 +1529,15 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                             </div>
                             <p className="honda-category-copy">
                               {section.category === "Bike" && `${brandData.name} commuter, performance, adventure, and touring bikes`}
-                              {section.category === "Scooter" && `${brandData.name} petrol scooters and their generations`}
+                              {section.category === "Scooter" && (isBmwBrand
+                                ? `${brandData.name} electric scooter family`
+                                : `${brandData.name} petrol scooters and their generations`)}
                               {section.category === "EV" && `${brandData.name} electric scooters`}
                             </p>
                           </div>
                           <div className="models-grid">
                             {section.families.map((family) => {
-                              const booksDirectly = "bookingOnly" in family && family.bookingOnly;
+                              const booksDirectly = "bookingOnly" in family && family.bookingOnly && !isBmwBrand;
                               return (
                                 <Link
                                   key={`${section.category}-${family.slug}`}

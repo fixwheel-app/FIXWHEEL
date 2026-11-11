@@ -4,8 +4,23 @@ import { sendBookingNotification } from '../lib/notifications';
 import { BookingInput } from '../middleware/validateBooking';
 import { BookingPricingError, calculateBookingPrice, verifyQuotedPrice } from '../lib/bookingPricing';
 import { geocodeAddress } from '../lib/geocoding';
+import type { BookingCcRange } from '../lib/bookingPricing';
 
 type GeocodeAddress = typeof geocodeAddress;
+
+const CC_RANGE_LABELS: Record<BookingCcRange, string> = {
+  '0-249': '0 TO 249 CC',
+  '250-399': '250 TO 399 CC',
+  '400-599': '400 TO 599 CC',
+  '600+': '600 CC & ABOVE',
+};
+
+export const formatBikeModelWithCc = (bikeModel: string, ccRange?: BookingCcRange): string => {
+  if (!ccRange) return bikeModel;
+
+  const suffix = `(${CC_RANGE_LABELS[ccRange]})`;
+  return bikeModel.trim().toUpperCase().endsWith(suffix) ? bikeModel.trim() : `${bikeModel.trim()} ${suffix}`;
+};
 
 const generateBookingRef = (): string => {
   const chars = '0123456789ABCDEF';
@@ -65,7 +80,8 @@ export const createBookingWithGeocoder = async (
         city: bookingData.city,
         bookingDate: bookingData.bookingDate,
         bikeType: bookingData.bikeType,
-        bikeModel: bookingData.bikeModel,
+        bikeModel: formatBikeModelWithCc(bookingData.bikeModel, bookingData.ccRange),
+        cc: bookingData.ccRange ?? null,
         issueDescription: bookingData.issueDescription || null,
         preferredSlot: bookingData.preferredSlot,
         package: bookingData.package,

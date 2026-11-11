@@ -15,6 +15,7 @@ import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
   "service-engine-oil": "[ENGINE OIL]",
+  "diagnosis": "[DIAGNOSIS]",
   "jump-start": "[JUMPSTART]",
   "puncture": "[PUNCTURE]",
   "running-repair": "[REPAIR]",
@@ -163,17 +164,33 @@ export default function ServicesClientPage() {
     getPageVariables('services', 'global').then(setPageVars);
   }, []);
 
-  const servicesList = SERVICE_PRICING_LIST.map((item) => {
+  const servicesList = SERVICE_PRICING_LIST.flatMap((item) => {
     const rawPrice = item.prices.cc0_249 !== undefined ? item.prices.cc0_249 : item.prices.electric;
     const formattedPrice = typeof rawPrice === "number" ? `₹${rawPrice}` : `${rawPrice}`;
-    return {
+    const service = {
       id: item.id,
       tag: SERVICE_TAGS[item.id] || `[${item.name.toUpperCase().slice(0, 8)}]`,
       name: item.name,
       desc: item.description,
       link: SERVICE_PAGE_ROUTES[item.id] || `/services/${item.id}`,
       price: formattedPrice,
+      priceLabel: "Starting",
     };
+
+    if (item.id !== "service-engine-oil") return [service];
+
+    return [
+      service,
+      {
+        id: "diagnosis",
+        tag: SERVICE_TAGS.diagnosis,
+        name: "Two-Wheeler Diagnosis",
+        desc: "A verified mechanic checks the symptoms at your location, identifies the likely fault, and explains the next repair step before work begins.",
+        link: "/services/diagnosis",
+        price: "₹399",
+        priceLabel: "Starting",
+      },
+    ];
   });
 
   const faqs = [
@@ -738,6 +755,37 @@ export default function ServicesClientPage() {
           </div>
         </header>
 
+        {/* SERVICES CATALOG & PRICING */}
+        <section id="pricing" className="alt-section">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="tag">ALL SERVICES & CATALOG</span>
+              <h2>Two-Wheeler Service Packages in Delhi NCR</h2>
+              <p>
+                Select a service below to view detailed checklist items, FAQs, and transparent doorstep pricing.
+              </p>
+            </div>
+
+            <div className="related-grid font-sans">
+              {servicesList.map((service) => (
+                <Link key={service.id} href={service.link} className="related-card group">
+                  <div>
+                    <span className="icon-mono">{service.tag}</span>
+                    <h3>{service.name}</h3>
+                    <p>{service.desc}</p>
+                  </div>
+                  <div className="flex items-center justify-between gap-4 pt-4 border-t border-slate-200 mt-auto">
+                    <span className="text-xs font-mono font-bold text-slate-500 uppercase">{service.priceLabel}</span>
+                    <span className="text-sm font-mono font-extrabold text-[#e62b2b] text-right">
+                      {service.price} →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* OVERVIEW SECTION */}
         <section className="bg-white">
           <div className="wrap overview-grid">
@@ -766,7 +814,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Mechanics Network</span>
-                  <span className="v">{pageVars.totalPartners}+ Active Verified Mechanics</span>
+                  <span className="v">60+ Verified Mechanics</span>
                 </li>
                 <li>
                   <span>Service Area</span>
@@ -859,37 +907,6 @@ export default function ServicesClientPage() {
               </div>
             </div>
             <HowSectionActions />
-          </div>
-        </section>
-
-        {/* SERVICES CATALOG & PRICING */}
-        <section id="pricing" className="alt-section">
-          <div className="wrap">
-            <div className="section-head">
-              <span className="tag">ALL SERVICES & CATALOG</span>
-              <h2>Two-Wheeler Service Packages in Delhi NCR</h2>
-              <p>
-                Select a service below to view detailed checklist items, FAQs, and transparent doorstep pricing.
-              </p>
-            </div>
-
-            <div className="related-grid font-sans">
-              {servicesList.map((service) => (
-                <Link key={service.id} href={service.link} className="related-card group">
-                  <div>
-                    <span className="icon-mono">{service.tag}</span>
-                    <h3>{service.name}</h3>
-                    <p>{service.desc}</p>
-                  </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 mt-auto">
-                    <span className="text-xs font-mono font-bold text-slate-500 uppercase">Starting</span>
-                    <span className="text-base font-mono font-extrabold text-[#e62b2b] whitespace-nowrap">
-                      {service.price} →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
         </section>
 

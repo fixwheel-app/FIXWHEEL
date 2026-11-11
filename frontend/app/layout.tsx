@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CallButton from "@/components/CallButton";
+import MobileBookingBar from "@/components/MobileBookingBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -139,6 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <main className="flex-grow pt-[var(--site-header-height,100px)] md:pt-[var(--site-header-height,116px)]">
           {children}
         </main>
+        <MobileBookingBar />
         <WhatsAppButton />
         <CallButton />
         <Footer />

@@ -1,6 +1,7 @@
 export const PACKAGE_TYPES = [
   "General Service",
   "General Service with engine oil",
+  "Diagnosis",
   "Puncture",
   "Running Repair",
   "Engine Half",
