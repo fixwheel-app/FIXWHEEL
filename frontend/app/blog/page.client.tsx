@@ -2,22 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BLOG_POSTS, BlogPost } from "@/lib/blogData";
 import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 interface BlogHubClientProps {
   initialPosts?: BlogPost[];
@@ -46,7 +33,7 @@ export default function BlogHubClient({ initialPosts, initialCategories }: BlogH
   const featuredPost = posts[0] || BLOG_POSTS[0]; // First post as featured post
 
   return (
-    <div className={`blog-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`blog-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .blog-scope {
           --bg:#17181A;

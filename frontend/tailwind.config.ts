@@ -33,7 +33,7 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-inter, 'Inter')", "'Segoe UI'", "Arial", "sans-serif"],
       },
       animation: {
         "float": "float 6s ease-in-out infinite",

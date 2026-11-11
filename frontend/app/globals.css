@@ -2,10 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Keep the FixWheel typography independent of a deploy-time Google Fonts
+ * download. These files are served with the app, so production and localhost
+ * use the same typefaces even when the build environment has no network.
+ */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+  --font-inter: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-oswald: "Oswald", "Arial Narrow", Arial, sans-serif;
+  --font-jetbrains: "JetBrains Mono", Consolas, monospace;
 }
 
 html, body {
@@ -18,6 +50,7 @@ html {
 }
 
 body {
+  font-family: var(--font-inter, "Inter"), "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -3,23 +3,10 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import { ChevronDown } from "lucide-react";
 import { getBrandLogo } from "@/lib/brandLogos";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 const brands = [
   {
@@ -201,7 +188,7 @@ export default function BrandsClientPage() {
   });
 
   return (
-    <div className={`brands-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`brands-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .brands-scope {
           --bg:#FFFFFF;

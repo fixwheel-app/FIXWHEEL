@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BRAND_DETAILS, BrandDetailData } from "@/lib/brandDetails";
 import { BIKE_DATA } from "@/lib/bikes";
 import { Phone, Wrench, ArrowRight, MapPin, Check, Star } from "lucide-react";
@@ -29,18 +28,6 @@ import { KAWASAKI_MODEL_FAMILIES, KAWASAKI_MODEL_SECTIONS } from "@/lib/kawasaki
 import { BMW_MODEL_FAMILIES, BMW_MODEL_SECTIONS } from "@/lib/bmwModelFamilies";
 import { TVS_MODEL_FAMILIES, TVS_MODEL_SECTIONS } from "@/lib/tvsModelFamilies";
 import { getBrandCityFaqs } from "@/lib/brandCityFaqs";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 const CITY_HERO_DESCS: Record<string, (brand: string) => string> = {
   gurgaon: (brand) =>
@@ -275,7 +262,7 @@ export default function BrandCityClient({
   ];
 
   return (
-    <div className={`brand-city-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`brand-city-scope`}>
       <style
         dangerouslySetInnerHTML={{
           __html: `

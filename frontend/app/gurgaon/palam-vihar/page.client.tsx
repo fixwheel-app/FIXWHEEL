@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
@@ -12,18 +11,6 @@ import PaymentTrustRow from "@/components/PaymentTrustRow";
 import CitySwitcher from "@/components/CitySwitcher";
 import PopularBrands from "@/components/PopularBrands";
 import HowSectionActions from "@/components/HowSectionActions";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 export default function PalamViharClientPage() {
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.gurgaon || DEFAULT_PUBLIC_STATS.global);
@@ -44,7 +31,7 @@ export default function PalamViharClientPage() {
   };
 
   return (
-    <div className={`palamvihar-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`palamvihar-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .palamvihar-scope {
           --bg:#0F172A;

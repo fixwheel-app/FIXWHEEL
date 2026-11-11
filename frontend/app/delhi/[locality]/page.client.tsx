@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { LOCALITY_DB } from "./localityData";
 import Breadcrumb from "@/components/Breadcrumb";
 import CityServicesGrid from "@/components/CityServicesGrid";
@@ -21,18 +20,6 @@ import {
   getCoverageTitle,
   getFinalCTAText,
 } from "@/lib/contentVariations";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 interface LocalityClientProps {
   slug: string;
@@ -76,7 +63,7 @@ export default function DelhiLocalityClientPage({ slug }: LocalityClientProps) {
   const finalCta = getFinalCTAText(data.name, "Delhi");
 
   return (
-    <div className={`${slug}-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`${slug}-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .${slug}-scope {
           --bg:#0F172A;

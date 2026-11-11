@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
 import { BIKE_DATA } from "@/lib/bikes";
 import { cn } from "@/lib/utils";
@@ -81,18 +80,6 @@ import {
   TVS_MODEL_FAMILIES,
   TVS_MODEL_SECTIONS,
 } from "@/lib/tvsModelFamilies";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 interface ClientProps {
   brandSlug: string;
@@ -388,7 +375,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
     : (brandData.faqs && brandData.faqs.length > 0) ? brandData.faqs : defaultFaqs;
 
   return (
-    <div className={`brand-detail-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`brand-detail-scope`}>
       <style
         dangerouslySetInnerHTML={{
           __html: `

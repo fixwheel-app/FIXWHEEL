@@ -2,22 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { AUTHORS_DB } from "@/lib/authorData";
 import { BLOG_POSTS } from "@/lib/blogData";
 import Breadcrumb from "@/components/Breadcrumb";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 interface AuthorClientProps {
   slug: string;
@@ -35,7 +22,7 @@ export default function AuthorClientPage({ slug }: AuthorClientProps) {
   });
 
   return (
-    <div className={`author-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`author-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .author-scope {
           --bg:#17181A;

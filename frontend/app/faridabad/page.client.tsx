@@ -4,19 +4,6 @@ import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
 import { FaridabadSections } from "@/components/city/faridabad/FaridabadSections";
-import { Oswald, JetBrains_Mono } from "next/font/google";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 export default function FaridabadClientPage() {
   const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
@@ -39,7 +26,7 @@ export default function FaridabadClientPage() {
   };
 
   return (
-    <div className={`faridabad-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`faridabad-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .faridabad-scope {
           --bg:#0F172A;

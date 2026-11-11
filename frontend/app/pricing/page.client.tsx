@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import {
   DOORSTEP_SERVICE_CHARGE,
   hasDoorstepServiceCharge,
@@ -12,18 +11,6 @@ import {
   ServicePriceItem,
 } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 export default function PricingClientPage() {
   const [activeTab, setActiveTab] = useState<string>("cc0_249");
@@ -48,7 +35,7 @@ export default function PricingClientPage() {
   });
 
   return (
-    <div className={`pricing-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`pricing-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .pricing-scope {
           --bg:#17181A;

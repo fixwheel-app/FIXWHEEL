@@ -2,22 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Oswald, JetBrains_Mono } from "next/font/google";
 import { BLOG_POSTS, BlogPost } from "@/lib/blogData";
 import { supabase } from "@/lib/supabase";
 import Breadcrumb from "@/components/Breadcrumb";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains",
-});
 
 interface ClientProps {
   slug: string;
@@ -175,7 +162,7 @@ export default function BlogPostClient({ slug, post: initialPost }: ClientProps)
   const recommendedPosts = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <div className={`post-scope ${oswald.variable} ${jetbrains.variable}`}>
+    <div className={`post-scope`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .post-scope {
           --bg:#17181A;
