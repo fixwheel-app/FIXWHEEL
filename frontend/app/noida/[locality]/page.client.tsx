@@ -145,7 +145,7 @@ export default function NoidaLocalityClientPage({ slug }: LocalityClientProps) {
 
         /* ===== HERO ===== */
         .${slug}-scope .hero { position: relative; padding: 64px 0 56px; background: #17181A; color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.12); overflow: hidden; }
-        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
+        .${slug}-scope .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%); pointer-events: none; }
         .${slug}-scope .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
         .${slug}-scope .hero h1 { font-size: 44px; margin: 0 0 20px; color: #FFFFFF; }
         .${slug}-scope .hero h1 em { font-style: normal; color: var(--accent); }

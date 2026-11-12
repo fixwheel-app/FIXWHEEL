@@ -134,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <Navbar />
-        <main className="flex-grow pt-[var(--site-header-height,100px)] md:pt-[var(--site-header-height,116px)]">
+        <main className="flex-grow pt-[var(--site-header-height,64px)] md:pt-[var(--site-header-height,80px)]">
           {children}
         </main>
         <MobileBookingBar />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GooglePlayIcon } from "@/components/GooglePlayIcon";
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN";
 
@@ -37,7 +38,8 @@ export default function HowSectionActions({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Get the app for 10% off
+          <GooglePlayIcon className="how-section-action__play-icon" />
+          <span>10% OFF</span>
         </a>
       </div>
       <style
@@ -89,6 +91,16 @@ export default function HowSectionActions({
               background: #ffffff;
               border-color: #cbd5e1;
               color: #0f172a;
+              flex: none;
+              gap: 9px;
+              min-width: 136px;
+              padding-inline: 18px;
+              white-space: nowrap;
+            }
+            .how-section-action__play-icon {
+              width: 20px;
+              height: 20px;
+              flex: 0 0 auto;
             }
             .how-section-action--secondary:hover {
               border-color: #0f172a;
@@ -104,8 +116,12 @@ export default function HowSectionActions({
                 align-items: stretch;
                 flex-direction: column;
               }
-              .how-section-action {
+              .how-section-action--primary {
                 width: 100%;
+              }
+              .how-section-action--secondary {
+                align-self: center;
+                width: auto;
               }
             }
           `,

@@ -83,7 +83,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="container mx-auto px-4 max-w-6xl">
           <Breadcrumb
             items={[
@@ -100,10 +100,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
       <div className="bg-[#17181A] text-white pt-10 md:pt-12 pb-12 border-b border-white/10 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg, rgba(230,43,43,0.15) 0 2px, transparent 2px 14px)",
-          }}
+          style={{ backgroundImage: "none" }}
         />
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
@@ -276,7 +273,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
               </h2>
               <p>
                 {isMixedDrivetrainFamily
-                  ? `The ${brandName} ${modelName} family includes petrol scooters and electric variants. Petrol models need engine, CVT, belt, brake, and oil checks, while ${electricFamilyModels.join(" and ")} need battery-management, charging-port, motor-response, brake, tyre, and wiring checks.`
+                  ? `The ${brandName} ${modelName} range includes petrol scooters and electric variants. Petrol models need engine, CVT, belt, brake, and oil checks, while ${electricFamilyModels.join(" and ")} need battery-management, charging-port, motor-response, brake, tyre, and wiring checks.`
                   : isElectricModel
                   ? `Daily riding exposes your ${brandName} ${modelName} to heat, vibration, charging cycles, brake wear, and tyre-pressure changes. Regular checks help catch BMS warnings, loose accessible connections, reduced range, and braking issues early.`
                   : `Riding your ${brandName} ${modelName} through Delhi's demanding traffic and weather causes gradual wear on engine oil, spark plugs, brake shoes, and drive belts. Ignoring periodic maintenance leads to starting trouble, excessive vibrations, and dropping fuel efficiency.`}
@@ -389,7 +386,7 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
                   {brandName} {modelName} service FAQ
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Model coverage, maintenance checks and booking details for this shared family page.
+                  Model coverage, maintenance checks and booking details for this shared model page.
                 </p>
               </div>
               <div className="divide-y divide-slate-200 border-t border-slate-200">

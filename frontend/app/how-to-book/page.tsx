@@ -131,7 +131,7 @@ export default function HowToBookPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
       />
 
-      <div className="border-b border-white/10 bg-[#111214] py-3">
+      <div className="site-breadcrumb-bar border-b border-white/10 bg-[#111214] py-3">
         <div className="mx-auto max-w-6xl px-4">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "How to Book" }]} />
         </div>

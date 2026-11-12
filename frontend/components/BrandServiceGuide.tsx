@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GooglePlayIcon } from "@/components/GooglePlayIcon";
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN";
 
@@ -226,6 +227,17 @@ export default function BrandServiceGuide({ brandName, brandSlug, familyName }: 
           background: #ff5252;
           color: #ffffff;
         }
+        .brand-service-guide .guide-action.app-action {
+          gap: 9px;
+          min-width: 136px;
+          padding-inline: 18px;
+          white-space: nowrap;
+        }
+        .brand-service-guide .guide-action.app-action svg {
+          width: 20px;
+          height: 20px;
+          flex: 0 0 auto;
+        }
         .brand-service-guide .city-links {
           display: flex;
           flex-wrap: wrap;
@@ -269,7 +281,8 @@ export default function BrandServiceGuide({ brandName, brandSlug, familyName }: 
           .brand-service-guide .guide-intro { font-size: 16px; }
           .brand-service-guide .steps-grid { grid-template-columns: 1fr; gap: 26px; }
           .brand-service-guide .guide-actions { flex-direction: column; }
-          .brand-service-guide .guide-action { width: 100%; }
+          .brand-service-guide .guide-action.primary { width: 100%; }
+          .brand-service-guide .guide-action.app-action { align-self: center; width: auto; }
           .brand-service-guide .city-links { flex-direction: column; gap: 16px; }
         }
       ` }} />
@@ -317,7 +330,10 @@ export default function BrandServiceGuide({ brandName, brandSlug, familyName }: 
 
           <div className="guide-actions">
             <Link href={`/book#${brandSlug}`} className="guide-action primary">Book now</Link>
-            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="guide-action">Get the app for 10% off</a>
+            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="guide-action app-action">
+              <GooglePlayIcon />
+              <span>10% OFF</span>
+            </a>
           </div>
         </div>
 

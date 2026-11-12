@@ -150,7 +150,7 @@ export default function EngineRepairPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="border-b border-white/10 bg-[#111214] py-3">
+      <div className="site-breadcrumb-bar border-b border-white/10 bg-[#111214] py-3">
         <div className="mx-auto max-w-6xl px-4">
           <Breadcrumb
             items={[
@@ -165,10 +165,7 @@ export default function EngineRepairPage() {
       <section className="relative overflow-hidden border-b border-white/10 bg-[#17181a] text-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-25"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg, rgba(230,43,43,.16) 0 2px, transparent 2px 16px)",
-          }}
+          style={{ backgroundImage: "none" }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:py-20">
           <div>

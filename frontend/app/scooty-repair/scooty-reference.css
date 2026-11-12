@@ -30,7 +30,7 @@
 .scooty-reference .crumbs{background:var(--darker);padding:12px 0;font-size:13px;color:#cbd5e1}
 .scooty-reference .crumbs span{color:#ef4444;font-weight:700}
 .scooty-reference .hero{background:var(--dark);color:#fff;padding:48px 0 56px;position:relative;overflow:hidden}
-.scooty-reference .hero::before{content:"";position:absolute;inset:0;opacity:.2;background:repeating-linear-gradient(135deg,rgba(230,43,43,.15) 0 2px,transparent 2px 14px)}
+.scooty-reference .hero::before{content:"";position:absolute;inset:0;opacity:.2;background:none}
 .scooty-reference .hero .wrap{position:relative;display:grid;gap:40px;grid-template-columns:7fr 5fr;align-items:center}
 @media(max-width:900px){.scooty-reference .hero .wrap{grid-template-columns:1fr}}
 .scooty-reference .tag{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#ef4444;font-weight:700;font-size:13px;margin-bottom:20px}

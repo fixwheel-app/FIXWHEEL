@@ -281,7 +281,7 @@ export default function ServicesClientPage() {
         .services-new-page .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background-image: repeating-linear-gradient(135deg, rgba(230,43,43,0.08) 0 2px, transparent 2px 14px);
+          background-image: none;
           pointer-events: none;
         }
 
@@ -705,7 +705,7 @@ export default function ServicesClientPage() {
 
       <div className="services-new-page">
         {/* BREADCRUMB */}
-        <div style={{ background: "#111214", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+        <div className="site-breadcrumb-bar" style={{ background: "#111214", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
           <div className="wrap">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           </div>

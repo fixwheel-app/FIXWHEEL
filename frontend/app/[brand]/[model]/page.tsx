@@ -222,7 +222,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const familyModels = modelFamily?.groups.flatMap((group) => group.models) || [];
   const title = `${brandName} ${modelName} Service Near Me | Doorstep Repair Delhi | FixWheel`;
   const description = modelFamily
-    ? `Book doorstep service for the ${brandName} ${modelName} family, including ${familyModels.slice(0, 4).join(", ")}${familyModels.length > 4 ? ", and more" : ""}. Available across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad.`
+    ? `Book doorstep service for ${brandName} ${modelName} models, including ${familyModels.slice(0, 4).join(", ")}${familyModels.length > 4 ? ", and more" : ""}. Available across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad.`
     : `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, services from ₹399, 45-min arrival, and 15-day warranty.`;
   const canonicalUrl = `https://www.fixwheel.app/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
 

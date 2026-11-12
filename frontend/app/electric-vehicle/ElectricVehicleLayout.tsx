@@ -8,16 +8,9 @@ import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import type { ServicePageProps } from "@/components/ServicePageTemplate";
 import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
+import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import "../scooty-repair/scooty-reference.css";
 
-const symptoms = [
-  ["starting", "Won’t switch on or enter ready mode", "Share the dashboard message, battery level and when the issue started. The inspection will help identify the next step."],
-  ["charging", "Not charging or reduced range", "Tell us whether the charger connects, any warning shown and your recent charging experience. Keep the charger available for the visit."],
-  ["warning", "Dashboard warning or error code", "Send the exact error code and your model. Diagnostic support depends on compatibility with your vehicle."],
-  ["brakes", "Weak or noisy brakes", "Describe any change in braking or lever feel. The mechanic checks the braking system before recommending work."],
-  ["tyre", "Flat tyre or air loss", "Share which tyre is affected and park in a safe place. Tell us your model and location when requesting assistance."],
-  ["other", "Routine maintenance or another issue", "Share the make, model and symptoms so the team can confirm the appropriate service before booking."],
-];
 const services: { title: string; description: string; priceId?: ServicePriceId }[] = [
   { title: "Electric scooter general service", description: "Routine EV checks and servicing, with support confirmed for your model.", priceId: "ev-service" },
   { title: "EV jump start", description: "Assistance for a discharged auxiliary battery, where compatible. This does not recharge the traction battery.", priceId: "jump-start" },
@@ -45,14 +38,12 @@ interface EvLocality {
 }
 
 export default function ElectricVehicleLayout({ service, bikesServiced, rating, locality }: { service: ServicePageProps; bikesServiced: string; rating: number; locality?: EvLocality }) {
-  const [selected, setSelected] = useState("");
   const [variables, setVariables] = useState({ startingPrice: service.startingPrice, avgTime: service.avgTime, warranty: service.warranty });
   useEffect(() => {
     getPageVariables("services/electric-scooter-repair", "global", {
       defaultPrice: service.startingPrice, defaultAvgTime: service.avgTime, defaultWarranty: service.warranty, useGlobalOverrides: false,
     }).then(setVariables);
   }, [service.startingPrice, service.avgTime, service.warranty]);
-  const tip = symptoms.find(([key]) => key === selected)?.[2];
   return <div className="scooty-reference" data-theme="light">
     <div className="crumbs"><div className="wrap"><a href="/">Home</a> &nbsp;/&nbsp; {locality && <><a href={`/${locality.citySlug}`}>{locality.cityName}</a> &nbsp;/&nbsp; <a href={`/${locality.citySlug}/${locality.slug}`}>{locality.name}</a> &nbsp;/&nbsp; </>}<span>Electric Vehicle Repair</span></div></div>
     <div className="hero"><div className="wrap">
@@ -60,10 +51,7 @@ export default function ElectricVehicleLayout({ service, bikesServiced, rating, 
         <p className="lead">{locality ? `Charging trouble, a dashboard warning or brakes that need attention in ${locality.name}? Book an inspection for your electric scooter or bike at home or work in ${locality.name}, ${locality.cityName}. Share your model so we can confirm the right support.` : "Charging trouble, a dashboard warning or brakes that need attention? Book an inspection for your electric scooter or bike at home or work across Delhi, Gurgaon, Noida, Ghaziabad and Faridabad. Share your model so we can confirm the right support."}</p>
         <div className="bike-hero-actions"><div className="cta-row"><a className="btn btn-red" href="/book">Book EV service</a><a className="btn btn-ghost" href="tel:+918745945682">Call mechanic</a></div><PaymentTrustRow className="font-mono uppercase tracking-[0.08em]" /></div>
       </div>
-      <section className="picker" aria-labelledby="ev-picker" style={{ padding: 20 }}><h2 id="ev-picker">What does your EV need?</h2><p>Select the issue you’re noticing.</p>
-        <fieldset><legend className="sr-only">Choose your electric vehicle’s issue</legend>{symptoms.map(([key, label]) => <label className="opt" key={key}><input type="radio" name="ev-symptom" value={key} checked={selected === key} onChange={() => setSelected(key)} /><span>{label}</span></label>)}</fieldset>
-        <div aria-live="polite">{tip && <div className="box">{tip}</div>}</div><a className="btn btn-red" href="/book">Book an EV inspection</a>
-      </section>
+      <TwoWheelerQueryCard electric />
     </div></div>
     <div className="stats"><div className="wrap"><div><b>{variables.avgTime}</b><small>Doorstep arrival</small></div><div><b>{rating} ★</b><small>FixWheel customer rating</small></div><div><b>{bikesServiced}+</b><small>Two-wheelers serviced across Delhi NCR</small></div><div><b>{variables.warranty}</b><small>EV service warranty</small></div></div></div>
     {locality && <section><div className="wrap"><div className="sec-head"><h2>Electric scooter service in {locality.name}</h2><p>Need help with an Ola S1, Ather 450, TVS iQube or Bajaj Chetak in {locality.name}, {locality.cityName}? Tell us your exact model and whether you need a battery or charging check, dashboard diagnosis, brake service or puncture support. We confirm the available service and model compatibility before your visit.</p></div></div></section>}

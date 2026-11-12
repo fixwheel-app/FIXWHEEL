@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Compass, Mail, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity, PublicStatRecord } from "@/lib/publicStats";
+import { GooglePlayIcon } from "@/components/GooglePlayIcon";
 
 const whyDifferent = [
   { num: "01", title: "Pay after service", desc: "Check the finished work, then pay. Nothing upfront." },
@@ -127,7 +128,7 @@ export default function AboutClient() {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/book" className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-black">Book now <ArrowRight className="h-4 w-4" /></Link>
-            <a href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-lg border border-gray-300 px-6 py-3 text-sm font-black uppercase tracking-wider text-black transition hover:border-accent hover:text-accent">Get the app for 10% off</a>
+            <a href="https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-3 text-sm font-black uppercase tracking-wider text-black transition hover:border-accent hover:text-accent"><GooglePlayIcon className="h-5 w-5" />10% OFF</a>
           </div>
         </div></div>
       </section>

@@ -172,7 +172,7 @@ export default function ServicePageTemplate({
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="container mx-auto px-4 max-w-6xl">
           <Breadcrumb
             items={breadcrumbItems}
@@ -185,10 +185,7 @@ export default function ServicePageTemplate({
         {/* Decorative background grid pattern */}
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg, rgba(230,43,43,0.15) 0 2px, transparent 2px 14px)",
-          }}
+          style={{ backgroundImage: "none" }}
         />
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">

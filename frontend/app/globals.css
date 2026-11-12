@@ -55,6 +55,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Breadcrumb data remains in page metadata, but the extra visual bar is not part of the UI. */
+.breadcrumb,
+.crumb,
+.crumbs,
+.site-breadcrumb-bar {
+  display: none !important;
+}
+
 /* Custom scrollbar for better look in dark mode */
 ::-webkit-scrollbar {
   width: 8px;

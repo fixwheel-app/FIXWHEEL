@@ -148,7 +148,7 @@ export default function CityPageSections({ config, pageVars, stats, openFaqs, to
 
   return (
     <>
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: config.cityName }]} />
         </div>

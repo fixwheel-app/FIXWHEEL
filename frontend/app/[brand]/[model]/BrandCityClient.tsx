@@ -352,9 +352,7 @@ export default function BrandCityClient({
         .brand-city-scope .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background:
-            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
-            radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.12), transparent 70%);
+          background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.12), transparent 70%);
           pointer-events: none;
         }
         .brand-city-scope .hero-grid {
@@ -555,7 +553,7 @@ export default function BrandCityClient({
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb
             items={[
@@ -623,7 +621,7 @@ export default function BrandCityClient({
         <section>
           <div className="wrap">
             <div className="section-head">
-              <div className="eyebrow">{isFamilyBrand ? `${brandName} Model Families` : `${brandName} Models`} in {cityName}</div>
+              <div className="eyebrow">{brandName} Models in {cityName}</div>
               <h2>{brandName} Bikes & Scooters Serviced at Doorstep in {cityName}</h2>
               <p>
                 {isElectricBrand

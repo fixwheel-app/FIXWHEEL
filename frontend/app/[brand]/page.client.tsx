@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Phone } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
-import HeroBookingAction from "@/components/HeroBookingAction";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import BrandServiceGuide from "@/components/BrandServiceGuide";
 import { ELECTRIC_SERVICE_OPTIONS, findElectricBrandByReference } from "@/lib/electricServices";
 import {
@@ -472,9 +472,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         .brand-detail-scope .hero::before {
           content: "";
           position: absolute; inset: 0;
-          background:
-            repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px),
-            radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.12), transparent 70%);
+          background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.12), transparent 70%);
           pointer-events: none;
         }
         .brand-detail-scope .hero-grid {
@@ -490,7 +488,21 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         .brand-detail-scope .hero h1 { font-size: 48px; margin: 0 0 16px; color: var(--hero-text); }
         .brand-detail-scope .hero h1 em { font-style: normal; color: var(--accent); }
         .brand-detail-scope .hero p.lead { font-size: 15.5px; color: var(--hero-ink-dim); margin-bottom: 24px; line-height: 1.6; }
-        .brand-detail-scope .hero-ctas { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+        .brand-detail-scope .hero-ctas {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          align-items: start;
+          gap: 14px;
+          max-width: 760px;
+          margin-bottom: 28px;
+        }
+        .brand-detail-scope .hero-ctas > * { min-width: 0; width: 100%; }
+        .brand-detail-scope .hero-ctas .btn {
+          width: 100%;
+          min-height: 54px;
+          justify-content: center;
+          text-align: center;
+        }
 
         .brand-detail-scope .hero-stats {
           display: grid;
@@ -1320,14 +1332,13 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
           .brand-detail-scope .wrap { padding: 0 16px !important; }
           .brand-detail-scope .hero { padding-top: 32px; padding-bottom: 24px; }
           .brand-detail-scope .hero h1 { font-size: 24px !important; line-height: 1.2 !important; word-break: break-word; overflow-wrap: break-word; }
-          .brand-detail-scope .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
+          .brand-detail-scope .hero-ctas { grid-template-columns: 1fr; width: 100%; gap: 10px; }
           .brand-detail-scope .btn { width: 100%; justify-content: center; text-align: center; padding: 12px 16px; font-size: 12px; white-space: normal; word-break: break-word; }
           .brand-detail-scope .hero-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
           .brand-detail-scope .hero-stat b { font-size: 15px !important; }
           .brand-detail-scope .hero-stat span { font-size: 9.5px !important; }
           .brand-detail-scope .cc-tabs-row { grid-template-columns: 1fr; }
           .brand-detail-scope .models-grid { grid-template-columns: 1fr; }
-          .brand-detail-scope .trust-inner { grid-template-columns: 1fr; }
           .brand-detail-scope .tab-headers { flex-direction: column; padding-right: 8px; gap: 4px; }
           .brand-detail-scope .tab-header-btn { border-bottom: 1px solid var(--line-paper); border-radius: 4px; padding: 10px 12px; font-size: 12px; }
           .brand-detail-scope .tab-content { padding: 14px; }
@@ -1338,7 +1349,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
       />
 
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands", href: "/brands" }, { label: brandData.name }]} />
         </div>
@@ -1363,15 +1374,16 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
               </h1>
               <p className="lead">{brandData.description}</p>
 
-              <div className="hero-ctas">
-                <HeroBookingAction>
+              <div>
+                <div className="hero-ctas">
                   <Link href={`/book#${brandSlug}`} className="btn btn-primary">
                     Book {brandData.name} Service Now →
                   </Link>
-                </HeroBookingAction>
-                <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
-                  View Supported Models ({allModels.length})
-                </button>
+                  <button onClick={() => setActiveTab("models")} className="btn btn-outline" style={{ background: "transparent", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}>
+                    View Supported Models ({allModels.length})
+                  </button>
+                </div>
+                <PaymentTrustRow className="mb-7 font-mono uppercase tracking-[0.08em]" />
               </div>
 
               <div className="hero-stats">
@@ -1399,30 +1411,6 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
         </div>
       </section>
 
-      {/* ===== TRUST STRIP ===== */}
-      <section className="trust-strip">
-        <div className="wrap">
-          <div className="trust-inner">
-            <div className="trust-item">
-              <b>DOORSTEP</b>
-              <span>Home or Office</span>
-            </div>
-            <div className="trust-item">
-              <b>15 DAYS</b>
-              <span>Labor Warranty</span>
-            </div>
-            <div className="trust-item">
-              <b>ZERO HIGHWAY</b>
-              <span>Transparent Pricing</span>
-            </div>
-            <div className="trust-item">
-              <b>VERIFIED</b>
-              <span>Certified Mechanics</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ===== TABS SECTION ===== */}
       <section className="tabs-section">
         <div className="wrap">
@@ -1433,7 +1421,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                 className={cn("tab-header-btn", activeTab === "models" && "active")}
                 onClick={() => setActiveTab("models")}
               >
-                {isFamilyBrand ? "Model Families" : "Serviced Models"} ({allModels.length})
+                Models ({allModels.length})
               </button>
               <button
                 className={cn("tab-header-btn", activeTab === "description" && "active")}
@@ -1491,7 +1479,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                     <div className="model-search-bar">
                       <input
                         type="text"
-                        placeholder={isFamilyBrand ? `Search ${brandData.name} model family...` : `Search ${brandData.name} model...`}
+                        placeholder={`Search ${brandData.name} models...`}
                         value={modelQuery}
                         onChange={(e) => setModelQuery(e.target.value)}
                         className="model-search-input"
@@ -1504,7 +1492,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                         style={{ textAlign: "center", color: "var(--ink-dim)", padding: "36px 0" }}
                         className="mono"
                       >
-                        No {brandData.name} model families match your search.
+                        No {brandData.name} models match your search.
                       </p>
                     ) : (
                       filteredFamilySections.map((section) => (
@@ -1517,7 +1505,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
                             <p className="honda-category-copy">
                               {section.category === "Bike" && `${brandData.name} commuter, performance, adventure, and touring bikes`}
                               {section.category === "Scooter" && (isBmwBrand
-                                ? `${brandData.name} electric scooter family`
+                                ? `${brandData.name} electric scooter models`
                                 : `${brandData.name} petrol scooters and their generations`)}
                               {section.category === "EV" && `${brandData.name} electric scooters`}
                             </p>

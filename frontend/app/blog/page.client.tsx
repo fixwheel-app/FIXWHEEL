@@ -121,7 +121,7 @@ export default function BlogHubClient({ initialPosts, initialCategories }: BlogH
         }
         .blog-scope .hero::before {
           content: ""; position: absolute; inset: 0;
-          background: repeating-linear-gradient(135deg, rgba(230,43,43,0.05) 0 2px, transparent 2px 14px), radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
+          background: radial-gradient(600px 300px at 85% 0%, rgba(230,43,43,0.10), transparent 70%);
           pointer-events: none;
         }
         .blog-scope .hero h1 { font-size: 60px; margin: 0 0 16px; color: var(--paper); }

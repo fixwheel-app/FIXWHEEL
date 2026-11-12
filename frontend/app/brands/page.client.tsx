@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import HeroBookingAction from "@/components/HeroBookingAction";
+import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { ChevronDown } from "lucide-react";
 import { getBrandLogo } from "@/lib/brandLogos";
 
@@ -296,9 +296,23 @@ export default function BrandsClientPage() {
         .brands-scope .hero p.lead { font-size: 16px; color: var(--hero-ink-dim); max-width: 580px; }
         .brands-scope .hero-ctas {
           display: flex;
+          flex-direction: column;
           align-items: flex-start;
-          flex-wrap: wrap;
+          gap: 16px;
+          width: min(100%, 690px);
+          margin-top: 30px;
+        }
+        .brands-scope .hero-actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 14px;
+          width: 100%;
+        }
+        .brands-scope .hero-actions .btn {
+          width: 100%;
+          min-height: 64px;
+          justify-content: center;
+          text-align: center;
         }
 
         /* TRUST STRIP */
@@ -620,8 +634,8 @@ export default function BrandsClientPage() {
           .brands-scope .trust-inner { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width:639px){
-          .brands-scope .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
-          .brands-scope .hero-ctas > * { width: 100%; }
+          .brands-scope .hero-ctas { width: 100%; gap: 14px; margin-top: 24px; }
+          .brands-scope .hero-actions { grid-template-columns: 1fr; gap: 10px; }
           .brands-scope .hero-ctas .btn { width: 100%; justify-content: center; text-align: center; }
         }
         @media (max-width:560px){
@@ -640,7 +654,7 @@ export default function BrandsClientPage() {
       ` }} />
 
       {/* ===== BREADCRUMB ===== */}
-      <div style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+      <div className="site-breadcrumb-bar" style={{ background: "#111214", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
         <div className="wrap">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Brands" }]} />
         </div>
@@ -654,8 +668,11 @@ export default function BrandsClientPage() {
             <h1>Doorstep Bike Repair &<br />Scooter Service <em>For All Brands</em></h1>
             <p className="lead">From Honda Activas to Royal Enfield Bullets, Ola scooters to Kawasaki Ninjas — FixWheel's verified mechanics service all major two-wheeler brands at your home, office, or roadside. One booking, any brand, guaranteed quality.</p>
             <div className="hero-ctas">
-              <HeroBookingAction><Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link></HeroBookingAction>
-              <a href="#brands" className="btn btn-ghost">Explore All Brands</a>
+              <div className="hero-actions">
+                <Link href="/book" className="btn btn-primary">Book a Mechanic Now →</Link>
+                <a href="#brands" className="btn btn-ghost">Explore All Brands</a>
+              </div>
+              <PaymentTrustRow className="font-mono uppercase tracking-[0.08em]" />
             </div>
           </div>
         </div>
