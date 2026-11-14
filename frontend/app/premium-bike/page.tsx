@@ -4,12 +4,12 @@ import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 const title = "Premium Bike Service at Home in Delhi NCR | FixWheel";
-const description = "Book premium bike service at your doorstep across Delhi NCR for diagnostics, fluids, brakes, cooling and drivetrain care. Approve the quote before work begins.";
+const description = "Book model-specific premium bike service at home across Delhi NCR for electronics, cooling, brakes, fluids and drivetrain checks, with the scope confirmed first.";
 
 const faqs = [
   {
-    q: "Can premium motorcycles be serviced at home or at work?",
-    a: "Routine maintenance, diagnostics and approved minor repairs can be completed where the motorcycle is safely parked and there is enough working access. Jobs that need workshop equipment are identified after inspection.",
+    q: "Which premium-bike checks can be handled at my parking spot?",
+    a: "A suitable doorstep visit can cover model identification, accessible diagnostics, fluid and safety checks, routine maintenance and approved minor work. The first inspection identifies anything that needs specialist workshop equipment.",
   },
   {
     q: "What details should I share when booking premium bike service?",
@@ -74,8 +74,8 @@ const premiumBikeContent: BikeLandingContent = {
   whyTitle: "Premium bike care starts with the exact model",
   paragraphs: [
     "Premium motorcycles vary widely in cooling systems, electronics, fluid specifications, brake hardware and service access. The correct approach begins with the exact model and the symptom or maintenance interval, not a generic package.",
-    "A doorstep visit is suited to inspection, diagnostics, routine maintenance and approved minor work when the motorcycle is safely parked. The mechanic confirms compatibility before using any fluid or replacement part.",
-    "When a repair needs dismantling, machining or specialist workshop equipment, the next step is explained before pickup. You approve the scope and quote before additional work begins.",
+    "At the doorstep, the priority is correct identification: model, year, engine capacity, warning state and recent service history. That context is used to check whether a fluid, filter, diagnostic connection or replacement part is suitable before use.",
+    "Internal repairs and complex electrical work are not forced into a parking-area visit. If specialist equipment or dismantling is required, the proposed workshop path is explained before pickup or additional work.",
   ],
   checks: [
     "Correct engine-oil grade and filter requirement for the model",

@@ -4,12 +4,12 @@ import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 const title = "Sports Bike Service at Home in Delhi NCR | FixWheel";
-const description = "Book sports bike service at your doorstep across Delhi NCR for cooling, braking, chain, oil and performance issue checks. Approve the quote before work begins.";
+const description = "Book sports bike service at home across Delhi NCR for overheating, brake feel, chain noise, warning lights and throttle-response concerns. Inspect before repair.";
 
 const faqs = [
   {
-    q: "Can a sports bike be serviced at my home or office?",
-    a: "Routine maintenance, inspection and approved minor repairs can be completed where the motorcycle is safely parked and there is suitable working access. Work that needs workshop equipment is identified after inspection.",
+    q: "Which sports-bike jobs are suitable for a doorstep visit?",
+    a: "A safely parked motorcycle can receive routine checks, symptom-led inspection, maintenance and approved accessible repairs. Internal engine work, machining and jobs requiring specialist equipment are routed to the appropriate workshop process.",
   },
   {
     q: "What information should I provide for a sports bike booking?",
@@ -74,8 +74,8 @@ const sportsBikeContent: BikeLandingContent = {
   whyTitle: "Sports bike care should follow the symptom",
   paragraphs: [
     "A sports bike combines responsive controls with model-specific cooling, braking, fuel-injection and drivetrain systems. Similar symptoms can have different causes, so inspection should come before parts replacement.",
-    "A doorstep visit is suited to routine maintenance, accessible diagnosis and approved minor work when the motorcycle is safely parked. The mechanic confirms fluid and part compatibility for the exact model before use.",
-    "Internal engine work, machining and repairs that need specialist workshop equipment are not forced into a roadside job. The next step and quote are explained before any workshop movement or additional work.",
+    "For a doorstep visit, describe the exact riding condition: cold start, traffic heat, hard acceleration, braking or a particular engine speed. That information focuses the first checks on the systems connected to the symptom.",
+    "Routine work and accessible repairs can be completed at a safe parking spot after model compatibility is confirmed. Track-related faults, internal damage or work needing specialist equipment follow a separate workshop recommendation and approval.",
   ],
   checks: [
     "Correct engine-oil grade and filter requirement for the model",

@@ -3,24 +3,13 @@ import CruiserBikeLayout, { getCruiserFaqs } from "./CruiserBikeLayout";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
-const title = "Cruiser Bike Service at Doorstep | FixWheel";
-const description = "Doorstep cruiser bike service across Delhi NCR for Royal Enfield, Bajaj Avenger, Honda CB350, Jawa, Yezdi, Harley-Davidson, Triumph, Kawasaki, Benelli, Hero Mavrick and TVS Ronin.";
+const title = "Cruiser Bike Service at Home in Delhi NCR | FixWheel";
+const description = "Book doorstep cruiser bike service across Delhi NCR for chain, clutch, brakes, battery and periodic maintenance on modern-classic and relaxed-riding motorcycles.";
 const cruiserKeywords = [
-  "cruiser bike service",
   "cruiser bike service near me",
   "cruiser bike mechanic near me",
   "doorstep cruiser bike service Delhi NCR",
-  "royal enfield service at home",
-  "bajaj avenger doorstep service",
-  "honda cb350 home service",
-  "jawa bike repair near me",
-  "yezdi roadster doorstep service",
-  "harley davidson x440 home service",
-  "triumph bonneville doorstep service",
-  "kawasaki eliminator service near me",
-  "benelli imperiale home service",
-  "hero mavrick doorstep service",
-  "tvs ronin service at home",
+  "modern classic motorcycle service at home",
 ];
 
 export const metadata: Metadata = completePageMetadata({

@@ -8,6 +8,8 @@ import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 
 export interface BikeLandingContent {
+  vehicleKind?: "bike" | "scooter";
+  statsLabel?: string;
   lead: string;
   paragraphs: string[];
   checks: string[];
@@ -97,6 +99,7 @@ const tips: Record<string, string[]> = {
 export default function ScootyRepairLayout({ bikesServiced, rating, city, areas = [], bike }: { bikesServiced: string; rating: number; city?: ScooterCityContent; areas?: string[]; bike?: BikeLandingContent }) {
  const [selected, setSelected] = useState("");
  const citySlug = city?.name.toLowerCase();
+ const isConfiguredScooter = bike?.vehicleKind === "scooter";
  const vehicleHref = (path: string) => citySlug ? `/${citySlug}/${path === "/bike" ? "bike" : path.slice(1)}` : path;
  const electricRepairHref = citySlug ? `/${citySlug}/electric-vehicle` : "/electric-vehicle";
  const activeSymptoms = bike?.symptoms || bikeSymptoms;
@@ -128,11 +131,11 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       </div>
     </div>
     <section className="picker" aria-labelledby="pk" style={{"padding":"20px"}}>
-      <h2 id="pk">{bike ? bike.pickerTitle || "What does your bike need?" : "What is your vehicle doing?"}</h2>
+      <h2 id="pk">{isConfiguredScooter ? "What is your vehicle doing?" : bike ? bike.pickerTitle || "What does your bike need?" : "What is your vehicle doing?"}</h2>
       <p>Select a problem for the next step.</p>
       <fieldset onChange={(event) => setSelected((event.target as HTMLInputElement).value)}>
-        <legend className="sr" style={{"position":"absolute","left":"-9999px"}}>{bike ? bike.pickerLegend || "Choose your bike’s symptom or service" : "Choose your scooter’s symptom"}</legend>
-        {bike ? activeSymptoms.map(([value,label]) => <label className="opt" key={value}><input type="radio" name="s" value={value} /><span>{label}</span></label>) : <>
+        <legend className="sr" style={{"position":"absolute","left":"-9999px"}}>{isConfiguredScooter ? "Choose your scooter’s symptom" : bike ? bike.pickerLegend || "Choose your bike’s symptom or service" : "Choose your scooter’s symptom"}</legend>
+        {bike && !isConfiguredScooter ? activeSymptoms.map(([value,label]) => <label className="opt" key={value}><input type="radio" name="s" value={value} /><span>{label}</span></label>) : <>
         <label className="opt"><input type="radio" name="s" value="starting" /><span>Won’t start</span></label>
         <label className="opt"><input type="radio" name="s" value="vibration" /><span>Jerks or vibrates</span></label>
         <label className="opt"><input type="radio" name="s" value="pickup" /><span>Poor pickup or mileage</span></label>
@@ -141,8 +144,8 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
         <label className="opt"><input type="radio" name="s" value="other" /><span>Something else</span></label>
         </>}
       </fieldset>
-      <div id="result" aria-live="polite" aria-atomic="true">{selected && <div className="box"><b>{(bike ? activeTips : tips)[selected][0]}</b><br />{bike ? activeTips[selected][1] : city && selected === "other" ? "Request an inspection. The mechanic will explain the findings and quote before any repair." : tips[selected][1]}</div>}</div>
-      <a className="btn btn-red" href="/book">{bike ? bike.bookLabel || "Book bike repair" : "Book scooter repair"}</a>
+      <div id="result" aria-live="polite" aria-atomic="true">{selected && <div className="box"><b>{(bike && !isConfiguredScooter ? activeTips : tips)[selected][0]}</b><br />{bike && !isConfiguredScooter ? activeTips[selected][1] : city && selected === "other" ? "Request an inspection. The mechanic will explain the findings and quote before any repair." : tips[selected][1]}</div>}</div>
+      <a className="btn btn-red" href="/book">{isConfiguredScooter ? "Book scooter repair" : bike ? bike.bookLabel || "Book bike repair" : "Book scooter repair"}</a>
     </section>
   </div>
 </div>
@@ -151,17 +154,17 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
 <div className="stats"><div className="wrap">
   <div><b>45 Mins</b><small>Doorstep arrival</small></div>
   <div><b>{rating} ★</b><small>{city ? "Delhi NCR customer rating" : "Customer rating"}</small></div>
-  <div><b>{bikesServiced}+</b><small>{city ? "Bikes serviced across Delhi NCR" : "Bikes serviced"}</small></div>
+  <div><b>{bikesServiced}+</b><small>{bike?.statsLabel || (bike ? "Motorcycles serviced" : city ? "Scooters serviced across Delhi NCR" : "Scooters serviced")}</small></div>
   <div><b>15 Days</b><small>Labor warranty</small></div>
 </div></div>
 
 {/* 3. HOW IT WORKS */}
 <section>
   <div className="wrap">
-    <div className="sec-head"><h2>{bike ? bike.howTitle || "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>{bike?.howLead || "Four steps, and you pay only after the job is done."}</p></div>
+    <div className="sec-head"><h2>{isConfiguredScooter ? "How doorstep scooty service works" : bike ? bike.howTitle || "How doorstep bike service works" : city ? "Booking scooter repair in " + city.name : "How doorstep scooty service works"}</h2><p>{isConfiguredScooter ? "Four steps, and you pay only after the job is done." : bike?.howLead || "Four steps, and you pay only after the job is done."}</p></div>
     <div className="steps">
-      {bike?.howSteps ? bike.howSteps.map((step) => <div className="step" key={step.title}><h3>{step.title}</h3><p>{step.text}</p></div>) : <>
-      <div className="step"><h3>Book your service</h3><p>{bike ? `Share your motorcycle model, required service${city ? ` and full address in ${city.name}` : ", location, date and preferred time"}.` : city ? "Share your scooter model, symptom and full address in " + city.name + ". Confirm the visit time with the team." : "Select your bike, required service, location, date and preferred time."}</p></div>
+      {bike?.howSteps && !isConfiguredScooter ? bike.howSteps.map((step) => <div className="step" key={step.title}><h3>{step.title}</h3><p>{step.text}</p></div>) : <>
+      <div className="step"><h3>Book your service</h3><p>{bike && !isConfiguredScooter ? `Share your motorcycle model, required service${city ? ` and full address in ${city.name}` : ", location, date and preferred time"}.` : city ? "Share your scooter model, symptom and full address in " + city.name + ". Confirm the visit time with the team." : "Select your bike, required service, location, date and preferred time."}</p></div>
       <div className="step"><h3>Mechanic assigned</h3><p>FixWheel confirms your booking and assigns a verified mechanic near you.</p></div>
       <div className="step"><h3>Doorstep service</h3><p>The mechanic arrives with tools, inspects your vehicle and completes the approved work.</p></div>
       <div className="step"><h3>Review &amp; pay</h3><p>Check the completed service and pay only after the job is finished.</p></div>
@@ -243,7 +246,7 @@ export default function ScootyRepairLayout({ bikesServiced, rating, city, areas 
       <a className="btn" href={electricRepairHref}>Explore EV repair</a>
     </div>
     <div className="more">
-      {bike ? <a href="/scooty-repair">Scooty &amp; Scooter Repair</a> : <a href={vehicleHref("/bike")}>Bike Repair &amp; Service</a>}
+      {bike?.vehicleKind === "scooter" ? <a href={vehicleHref("/bike")}>Bike Repair &amp; Service</a> : bike ? <a href="/scooty-repair">Scooty &amp; Scooter Repair</a> : <a href={vehicleHref("/bike")}>Bike Repair &amp; Service</a>}
       <a href={electricRepairHref}>{bike ? "EV Bikes & Scooters" : "EV & Electric Scooter"}</a>
       <a href={vehicleHref("/cruiser-bike")}>Cruiser Bike Service</a>
       <a href={vehicleHref("/premium-bike")}>Premium Bike Service</a>
