@@ -665,7 +665,7 @@ export default function BrandsClientPage() {
         <div className="wrap">
           <div className="hero-inner">
             <div className="eyebrow">All Two-Wheeler Brands · Doorstep Service</div>
-            <h1>Doorstep Bike Repair &<br />Scooter Service <em>For All Brands</em></h1>
+            <h1>Doorstep Two Wheeler<br />Service <em>For All Brands</em></h1>
             <p className="lead">From Honda Activas to Royal Enfield Bullets, Ola scooters to Kawasaki Ninjas — FixWheel's verified mechanics service all major two-wheeler brands at your home, office, or roadside. One booking, any brand, guaranteed quality.</p>
             <div className="hero-ctas">
               <div className="hero-actions">
@@ -766,7 +766,7 @@ export default function BrandsClientPage() {
             </div>
           )}
           <div className="count-strip">
-            <p>Showing <b>{filteredBrands.length}</b> of <b>{brands.length} brands</b> · <b>80+ models</b> — all serviced at your doorstep</p>
+            <p>We service other two-wheeler brands too, beyond those listed here.</p>
             <Link href="/book" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "11px" }}>Book Now →</Link>
           </div>
         </div>
@@ -806,7 +806,7 @@ export default function BrandsClientPage() {
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: "40px" }}>
             <div className="eyebrow">FAQS</div>
-            <h2>Common questions about doorstep brand servicing</h2>
+            <h2>Common questions about servicing different two-wheeler brands</h2>
           </div>
 
           <div className="faq-list">
