@@ -11,6 +11,7 @@ import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
+import type { CityServicesConfig } from "@/lib/cityServicesData";
 
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
@@ -151,20 +152,26 @@ const SERVICE_CITIES: ServiceCityInfo[] = [
   },
 ];
 
-export default function ServicesClientPage() {
-  const [selectedCitySlug, setSelectedCitySlug] = useState<string>("gurgaon");
+export default function ServicesClientPage({ city }: { city?: CityServicesConfig }) {
+  const [selectedCitySlug, setSelectedCitySlug] = useState<string>(city?.slug || "gurgaon");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
   const [pageVars, setPageVars] = useState<PageVariables>(DEFAULT_PAGE_VARIABLES);
 
-  const activeCity = SERVICE_CITIES.find((c) => c.slug === selectedCitySlug) || SERVICE_CITIES[0];
+  const serviceCities = city
+    ? SERVICE_CITIES.map((entry) => entry.slug === city.slug
+      ? { ...entry, name: city.name, shortName: city.name, areas: city.coverage }
+      : entry)
+    : SERVICE_CITIES;
+  const activeCity = serviceCities.find((c) => c.slug === selectedCitySlug) || serviceCities[0];
+  const locationName = city?.name || "Delhi NCR";
 
   useEffect(() => {
-    getPublicStatsForCity('global').then(setStats);
-    getPageVariables('services', 'global').then(setPageVars);
-  }, []);
+    getPublicStatsForCity(city?.slug || 'global').then(setStats);
+    getPageVariables('services', city?.slug || 'global').then(setPageVars);
+  }, [city?.slug]);
 
-  const servicesList = SERVICE_PRICING_LIST.flatMap((item) => {
+  const servicesList = SERVICE_PRICING_LIST.map((item) => {
     const rawPrice = item.prices.cc0_249 !== undefined ? item.prices.cc0_249 : item.prices.electric;
     const formattedPrice = typeof rawPrice === "number" ? `₹${rawPrice}` : `${rawPrice}`;
     const service = {
@@ -177,23 +184,10 @@ export default function ServicesClientPage() {
       priceLabel: "Starting",
     };
 
-    if (item.id !== "service-engine-oil") return [service];
-
-    return [
-      service,
-      {
-        id: "diagnosis",
-        tag: SERVICE_TAGS.diagnosis,
-        name: "Two-Wheeler Diagnosis",
-        desc: "A verified mechanic checks the symptoms at your location, identifies the likely fault, and explains the next repair step before work begins.",
-        link: "/services/diagnosis",
-        price: "₹399",
-        priceLabel: "Starting",
-      },
-    ];
+    return service;
   });
 
-  const faqs = [
+  const faqs = city ? city.faqs.map((faq) => ({ q: faq.question, a: faq.answer })) : [
     {
       q: "How long does doorstep bike service take in Delhi NCR?",
       a: "Most routine servicing and repairs take 25 to 45 minutes. If a major repair requires more time, your mechanic will explain the timeline upfront.",
@@ -717,13 +711,13 @@ export default function ServicesClientPage() {
             <div>
               <div className="eyebrow">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span>Bike Mechanic at Home — Delhi NCR</span>
+                <span>Two-Wheeler Service Packages — {locationName}</span>
               </div>
               <h1>
-                Doorstep Bike Repair Service in <em>Delhi NCR</em>
+                Two-Wheeler Service Packages at Home in <em>{locationName}</em>
               </h1>
               <p className="lead">
-                Verified bike mechanics arrive at your home or office with genuine parts and diagnostic tools. No towing, no waiting in garage queues.
+                {city?.hero || "Compare periodic maintenance, service with engine oil, diagnosis and repair packages before booking a mechanic for your bike or scooter."}
               </p>
               <div className="btn-row">
                 <HeroBookingAction>
@@ -760,7 +754,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">ALL SERVICES & CATALOG</span>
-              <h2>Two-Wheeler Service Packages in Delhi NCR</h2>
+              <h2>Two-Wheeler Service Packages in {locationName}</h2>
               <p>
                 Select a service below to view detailed checklist items, FAQs, and transparent doorstep pricing.
               </p>
@@ -792,13 +786,13 @@ export default function ServicesClientPage() {
             <div>
               <span className="tag">WHAT'S INCLUDED</span>
               <h2 className="text-3xl font-black text-slate-900 mb-4">
-                Doorstep Two-Wheeler Repair — All Services at Your Location
+                Choose the Right Two-Wheeler Service Package
               </h2>
               <p className="mb-4">
-                FixWheel brings certified motorcycle and scooter mechanics directly to your doorstep across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Our mobile units carry high-grade diagnostic tools, OEM replacement parts, and eco-friendly cleaning supplies.
+                {city?.planning || "The package directory separates planned servicing from fault diagnosis and specific repairs across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Start by choosing your vehicle so the available work and official price match its type and engine range."}
               </p>
               <p className="mb-4">
-                Whether you need a quick engine oil swap for your Honda Activa, tappet valve tuning for your Royal Enfield, or emergency roadside puncture repair, we execute everything on the spot inside your home or office parking.
+                {city?.access || "Choose general service for routine maintenance, the engine-oil package when that listed work is required, or diagnosis when you know the symptom but not the cause. Repair work outside a selected package is explained before it begins."}
               </p>
               <p>
                 Every service comes with upfront transparent quotes, zero doorstep visit fees, and a 15-day labor guarantee.
@@ -818,7 +812,7 @@ export default function ServicesClientPage() {
                 </li>
                 <li>
                   <span>Service Area</span>
-                  <span className="v">Entire Delhi NCR</span>
+                  <span className="v">{locationName}</span>
                 </li>
                 <li>
                   <span>Parts Policy</span>
@@ -915,7 +909,7 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">COVERAGE</span>
-              <h2>Service Areas Across Delhi NCR</h2>
+              <h2>Service Areas Across {locationName}</h2>
               <p>Doorstep bike mechanics ready for instant dispatch across major cities.</p>
             </div>
 
@@ -925,13 +919,13 @@ export default function ServicesClientPage() {
                 BOOK DOORSTEP SERVICE BY CITY
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-sans">
-                {SERVICE_CITIES.map((city) => {
-                  const isSelected = city.slug === selectedCitySlug;
+                {serviceCities.map((cityOption) => {
+                  const isSelected = cityOption.slug === selectedCitySlug;
                   return (
                     <button
-                      key={city.slug}
+                      key={cityOption.slug}
                       type="button"
-                      onClick={() => setSelectedCitySlug(city.slug)}
+                      onClick={() => setSelectedCitySlug(cityOption.slug)}
                       className={cn(
                         "text-center py-3 px-3 rounded-lg font-mono text-xs font-bold transition-all shadow-sm cursor-pointer",
                         isSelected
@@ -939,7 +933,7 @@ export default function ServicesClientPage() {
                           : "bg-slate-900 border border-slate-800 text-white hover:border-slate-700 hover:text-red-400"
                       )}
                     >
-                      {city.buttonLabel || city.name}
+                      {cityOption.buttonLabel || cityOption.name}
                     </button>
                   );
                 })}
@@ -962,7 +956,7 @@ export default function ServicesClientPage() {
                   </div>
                 ))}
                 <Link
-                  href={`/${activeCity.slug}`}
+                  href={`/${activeCity.slug}/services`}
                   className="area-item !text-[#e62b2b] font-bold border-red-200 bg-red-50/50 hover:bg-red-50 hover:border-red-400 transition-colors"
                 >
                   View {activeCity.shortName} →
@@ -980,7 +974,7 @@ export default function ServicesClientPage() {
                   </p>
                 </div>
                 <Link
-                  href={`/${activeCity.slug}`}
+                  href={`/${activeCity.slug}/services`}
                   className="inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-[#c92222] text-white font-mono text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap"
                 >
                   View {activeCity.shortName}
@@ -996,35 +990,23 @@ export default function ServicesClientPage() {
           <div className="wrap">
             <div className="section-head">
               <span className="tag">REVIEWS</span>
-              <h2>What Delhi NCR Riders Say About FixWheel</h2>
+              <h2>{city ? `Planning Doorstep Service in ${city.name}` : "What Delhi NCR Riders Say About FixWheel"}</h2>
             </div>
             <div className="review-grid font-sans">
               <div className="review-card">
                 <div className="stars">★★★★★</div>
-                <p>
-                  "Mechanic reached my office parking in Gurgaon in 25 minutes and replaced my Activa battery on the spot. Fantastic service!"
-                </p>
-                <div className="review-meta">
-                  <span>RAHUL M.</span>
-                  <span>GURGAON</span>
-                </div>
+                <p>{city ? city.hero : '"Mechanic reached my office parking in Gurgaon in 25 minutes and replaced my Activa battery on the spot. Fantastic service!"'}</p>
+                <div className="review-meta"><span>{city ? "CHOOSE THE RIGHT PACKAGE" : "RAHUL M."}</span><span>{city ? city.name.toUpperCase() : "GURGAON"}</span></div>
               </div>
               <div className="review-card">
                 <div className="stars">★★★★★</div>
-                <p>
-                  "Quoted the price upfront before starting, no extra charges added. Got my Classic 350 oil changed right at home."
-                </p>
-                <div className="review-meta"><span>PRIYA S.</span><span>DELHI</span></div>
+                <p>{city ? city.planning : '"Quoted the price upfront before starting, no extra charges added. Got my Classic 350 oil changed right at home."'}</p>
+                <div className="review-meta"><span>{city ? "SHARE COMPLETE ADDRESS" : "PRIYA S."}</span><span>{city ? city.name.toUpperCase() : "DELHI"}</span></div>
               </div>
               <div className="review-card">
                 <div className="stars">★★★★★</div>
-                <p>
-                  "Puncture at night near Dwarka Expressway, booked assistance online and mechanic arrived in 40 minutes with air compressor."
-                </p>
-                <div className="review-meta">
-                  <span>AMIT K.</span>
-                  <span>DWARKA</span>
-                </div>
+                <p>{city ? city.access : '"Puncture at night near Dwarka Expressway, booked assistance online and mechanic arrived in 40 minutes with air compressor."'}</p>
+                <div className="review-meta"><span>{city ? "CONFIRM PARKING ACCESS" : "AMIT K."}</span><span>{city ? city.name.toUpperCase() : "DWARKA"}</span></div>
               </div>
             </div>
           </div>
@@ -1035,7 +1017,7 @@ export default function ServicesClientPage() {
           <div className="wrap max-w-3xl">
             <div className="section-head">
               <span className="tag">FAQS</span>
-              <h2>Common Questions About Doorstep Service</h2>
+              <h2>Common Questions About Doorstep Service in {locationName}</h2>
             </div>
             <div id="faq-list">
               {faqs.map((faq, index) => {
@@ -1064,9 +1046,9 @@ export default function ServicesClientPage() {
         {/* FINAL CTA BANNER */}
         <section className="final-cta" id="book">
           <div className="wrap">
-            <h2>Book Doorstep Two-Wheeler Service in Delhi NCR</h2>
+            <h2>Book Doorstep Two-Wheeler Service in {locationName}</h2>
             <p>
-              Certified mechanics at your home or office parking. Running Repair starts at ₹399. Zero visiting fees.
+              Choose your vehicle, compare the applicable service packages, and request a doorstep visit in {locationName}.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book" className="btn btn-primary font-sans">

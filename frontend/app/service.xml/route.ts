@@ -56,6 +56,10 @@ function urlNode(path: string, priority: string) {
 }
 
 export async function GET() {
+  const serviceIndexes = [
+    urlNode("/services", "0.9"),
+    ...SERVICE_CITIES.map((city) => urlNode(`/${city}/services`, "0.8")),
+  ];
   const officialLandingPages = OFFICIAL_SERVICE_SLUGS.map((service) =>
     urlNode(service === "electric-scooter-repair" ? "/electric-vehicle" : `/services/${service}`, "0.8")
   );
@@ -67,7 +71,7 @@ export async function GET() {
   return new NextResponse(
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...officialLandingPages, ...officialCityPages, ...legacyPages].join("\n")}
+${[...serviceIndexes, ...officialLandingPages, ...officialCityPages, ...legacyPages].join("\n")}
 </urlset>`,
     {
       headers: {

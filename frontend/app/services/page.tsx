@@ -3,15 +3,15 @@ import ServicesClient from './page.client';
 import { completePageMetadata } from '@/lib/seoMetadata';
 
 export const metadata: Metadata = completePageMetadata({
-  title: "Doorstep Bike Repair Service in Delhi NCR | FixWheel",
-  description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Running Repair starts at ₹399. Available across Delhi NCR.",
-  keywords: "doorstep bike repair Delhi NCR, bike service at home Delhi NCR, bike mechanic near me, two wheeler repair at home, bike repair at home Delhi NCR, motorcycle repair Delhi NCR, scooter repair Delhi NCR, bike servicing at home, home bike service, doorstep bike mechanic Delhi NCR, bike oil change at home Delhi NCR, bike puncture repair at home, Honda Activa service at home, Royal Enfield service Delhi NCR, bike service near me Gurugram, scooty service at home Delhi NCR, online bike service Delhi NCR, bike breakdown assistance Delhi NCR, two wheeler service at home Gurugram, bike mechanic on call Delhi NCR",
+  title: "Two-Wheeler Service Packages at Home in Delhi NCR | FixWheel",
+  description: "Compare two-wheeler service packages at home across Delhi NCR. Choose periodic bike maintenance, service with engine oil, diagnosis and repair packages with doorstep booking.",
+  keywords: "two wheeler service package, two wheeler bike service package at home, two wheeler service in Delhi NCR, bike service packages Delhi NCR, doorstep two wheeler maintenance package, bike servicing package at home, scooter service package at home, motorcycle service package Delhi NCR, periodic bike service package, bike service with engine oil package",
   alternates: {
     canonical: "https://www.fixwheel.app/services",
   },
   openGraph: {
-    title: "Doorstep Bike Repair Service in Delhi NCR | FixWheel",
-    description: "Book doorstep bike repair in Delhi NCR. FixWheel sends verified mechanics to your home or office for bike service, oil change, tyre repair, battery replacement & more. Running Repair starts at ₹399. Available across Delhi NCR.",
+    title: "Two-Wheeler Service Packages at Home in Delhi NCR | FixWheel",
+    description: "Compare two-wheeler service packages for doorstep maintenance, engine-oil service, diagnosis and repairs across Delhi NCR.",
     url: "https://www.fixwheel.app/services",
     siteName: "FixWheel",
     type: "website",
