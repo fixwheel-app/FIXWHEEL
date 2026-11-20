@@ -13,24 +13,6 @@ import { GooglePlayIcon } from '@/components/GooglePlayIcon';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.fixwheel.customer&hl=en_IN';
 const OTHER_MODEL_OPTION = 'Other Model';
 
-const SERVICE_IMAGE_BY_ID: Record<string, string> = {
-  'basic-service': '/bike-bg.png',
-  'service-engine-oil': '/blog_oil.jpg',
-  diagnosis: '/blog_engine.jpg',
-  'jump-start': '/blog_electric.jpg',
-  puncture: '/images/vehicles/bike.png',
-  'running-repair': '/blog_engine.jpg',
-  'engine-half': '/blog_engine.jpg',
-  'engine-full': '/blog_engine.jpg',
-  'battery-replacement': '/blog_electric.jpg',
-  'carburetor-cleaning': '/blog_engine.jpg',
-  'obd-inspection': '/blog_electric.jpg',
-  'disc-replacement': '/blog_brakes.jpg',
-  'chain-sprocket': '/blog_chain.jpg',
-  'pick-drop': '/images/vehicles/bike.png',
-  'ev-service': '/blog_electric.jpg',
-};
-
 const APP_QUICK_SERVICES = [
   {
     name: 'Battery replacement',
@@ -371,12 +353,11 @@ export default function BookClient() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
                     <div className="relative z-10 flex flex-col md:flex-row gap-6 mb-8">
-                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-100 border border-gray-200 rounded-2xl flex-shrink-0 overflow-hidden shadow-inner">
-                         <img
-                           src={SERVICE_IMAGE_BY_ID[srv.pricingId] || '/bike-bg.png'}
-                           alt={`${'displayName' in srv && srv.displayName ? srv.displayName : srv.name} service`}
-                           className="h-full w-full object-cover"
-                         />
+                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center shadow-inner p-2 text-center">
+                         <img src="/logo.png" alt="FixWheel Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain mb-1" />
+                         <span className="font-black text-[10px] md:text-[11px] tracking-tighter text-black uppercase leading-tight">
+                           <span className="text-accent">Fix</span>Wheel
+                         </span>
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
