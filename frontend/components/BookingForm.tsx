@@ -124,8 +124,11 @@ function BookingFormInner() {
   const router = useRouter();
   
   // Initialize defaults from query params
-  const initialPackage = (searchParams.get('package') as PackageType) || "General Service";
   const initialType = searchParams.get('type') || "Non-Electric Motorbike";
+  const initialServiceId = searchParams.get('serviceId');
+  const initialServiceCatalog = initialType === 'Electric Motorbike' ? ELECTRIC_SERVICES : NON_ELECTRIC_SERVICES;
+  const packageFromServiceId = initialServiceCatalog.find((service) => service.pricingId === initialServiceId)?.id;
+  const initialPackage = (packageFromServiceId || searchParams.get('package') || "General Service") as PackageType;
   const initialBrand = searchParams.get('brand')?.trim() || "";
   const initialSelectedModel = searchParams.get('model')?.trim() || "";
   const initialBike = searchParams.get('bike')?.trim() || "";

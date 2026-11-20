@@ -152,7 +152,9 @@ export default function ServicePageTemplate({
   const isElectricRepair = serviceId === "electric-scooter-repair";
   const isCruiserBike = serviceId === "cruiser-bike-service";
   const isDiagnosis = serviceId === "diagnosis";
-  const primaryBookingHref = "/book";
+  const primaryBookingHref = isDiagnosis
+    ? "/book?package=Diagnosis&serviceId=diagnosis"
+    : "/book";
   const primaryBookingLabel = isDiagnosis ? "Book a Mechanic →" : "Book Doorstep Service →";
   const isVehicleType = VEHICLE_TYPE_SERVICE_IDS.has(serviceId);
   const displayedBrands = isScootyRepair
