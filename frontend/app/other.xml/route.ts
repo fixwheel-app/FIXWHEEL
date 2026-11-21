@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server';
+import { OTHER_SITEMAP_PAGES } from '@/lib/pageRegistry';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
+  const urlNodes = OTHER_SITEMAP_PAGES.map(({ path, lastModified, changeFrequency, priority }) => `  <url>
+    <loc>https://www.fixwheel.app${path}</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>${changeFrequency}</changefreq>
+    <priority>${priority}</priority>
+  </url>`).join('\n');
+
   return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.fixwheel.app/pricing</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
+${urlNodes}
 </urlset>`, {
     headers: {
       'Content-Type': 'application/xml',

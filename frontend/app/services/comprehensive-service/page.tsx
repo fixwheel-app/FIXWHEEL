@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
+const editorial = SERVICE_DETAIL_CONTENT["comprehensive-service"];
 export const metadata: Metadata = completePageMetadata({
-  title: "Comprehensive Bike Service at Doorstep | FixWheel",
-  description: "Full comprehensive bike service at home in Delhi. Deep inspection, engine oil swap, carburetor/FI tuning, and full safety checks.",
-  alternates: {
-    canonical: "https://www.fixwheel.app/services/comprehensive-service",
-  },
+  title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`,
+  description: `${editorial.summary} See the service scope, process and pricing information for Delhi NCR.`,
+  keywords: [editorial.name.toLowerCase(), `${editorial.name.toLowerCase()} near me`, `${editorial.name.toLowerCase()} delhi ncr`],
+  alternates: { canonical: "https://www.fixwheel.app/services/comprehensive-service" },
+  openGraph: { title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`, description: editorial.summary, url: "https://www.fixwheel.app/services/comprehensive-service", type: "website" },
 });
 
 export default function ComprehensiveServicePage() {

@@ -2,21 +2,14 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
+const editorial = SERVICE_DETAIL_CONTENT["brake-repair"];
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Brake Repair & Replacement at Home | FixWheel",
-  description:
-    "Doorstep bike brake repair Delhi. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
-  alternates: {
-    canonical: "https://www.fixwheel.app/services/brake-repair",
-  },
-  openGraph: {
-    title: "Bike Brake Repair & Replacement at Home | FixWheel",
-    description:
-      "Doorstep bike brake repair Delhi. Drum brake shoe replacements, disc pad cleaning, hydraulic fluid bleeding at home in Gurgaon, Delhi, Noida, Ghaziabad.",
-    url: "https://www.fixwheel.app/services/brake-repair",
-    siteName: "FixWheel",
-    type: "website",
-  },
+  title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`,
+  description: `${editorial.summary} See the service scope, process and pricing information for Delhi NCR.`,
+  keywords: [editorial.name.toLowerCase(), `${editorial.name.toLowerCase()} near me`, `${editorial.name.toLowerCase()} delhi ncr`],
+  alternates: { canonical: "https://www.fixwheel.app/services/brake-repair" },
+  openGraph: { title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`, description: editorial.summary, url: "https://www.fixwheel.app/services/brake-repair", type: "website" },
 });
 
 export default function BrakeRepairPage() {

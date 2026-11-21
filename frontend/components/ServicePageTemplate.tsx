@@ -12,6 +12,9 @@ import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
+import { SERVICE_PRICING_LIST, PRICING_CATEGORIES, DOORSTEP_SERVICE_CHARGE, hasDoorstepServiceCharge, type ServicePriceId } from "@/lib/pricingData";
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
+import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
 
 interface FaqItem {
   q: string;
@@ -31,6 +34,7 @@ export interface ServicePageProps {
   keywords: string[];
   locationName?: string;
   locationSlug?: string;
+  basicServiceDetails?: boolean;
 }
 
 interface ServiceBrand {
@@ -49,7 +53,7 @@ const SUPPORTED_BRANDS: ServiceBrand[] = [
   { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha") },
   { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki") },
   { name: "KTM", slug: "ktm", logo: getBrandLogo("KTM") },
-  { name: "Ola Electric", slug: "ola-electric", logo: getBrandLogo("Ola Electric") },
+  { name: "Ola Electric", slug: getCanonicalBrandSlug("ola")!, logo: getBrandLogo("Ola Electric") },
   { name: "Ather", slug: "ather", logo: getBrandLogo("Ather") },
   { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa") },
   { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi") },
@@ -116,6 +120,7 @@ export default function ServicePageTemplate({
   keywords,
   locationName,
   locationSlug,
+  basicServiceDetails = false,
 }: ServicePageProps) {
   const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({ 0: true });
   const [stats, setStats] = useState<PublicStatRecord>(DEFAULT_PUBLIC_STATS.global);
@@ -152,6 +157,44 @@ export default function ServicePageTemplate({
   const isElectricRepair = serviceId === "electric-scooter-repair";
   const isCruiserBike = serviceId === "cruiser-bike-service";
   const isDiagnosis = serviceId === "diagnosis";
+  const detail = serviceId !== "engine-repair" && serviceId !== "basic-service" ? SERVICE_DETAIL_CONTENT[serviceId] : undefined;
+  const detailItems = detail?.included || includedItems;
+  const detailFaqs = detail?.faqs || faqs;
+  // Legacy page names do not always represent a priced catalog package.
+  // Show the nearest published option explicitly as an alternative, never as this service's own rate.
+  const relatedPriceId: Record<string, ServicePriceId> = {
+    "oil-change": "service-engine-oil",
+    "comprehensive-service": "service-engine-oil",
+    "brake-repair": "disc-replacement",
+  };
+  const priceId = relatedPriceId[serviceId] || serviceId;
+  const isRelatedPrice = priceId !== serviceId;
+  const catalogService = SERVICE_PRICING_LIST.find((item) => item.id === priceId);
+  const basePrice = catalogService?.prices.cc0_249;
+  const visiblePrice = typeof basePrice === "number" ? `₹${basePrice.toLocaleString("en-IN")}` : null;
+  const extraVisitCharge = catalogService && hasDoorstepServiceCharge(catalogService.id as ServicePriceId, basePrice);
+  const relatedServiceIds: Record<string, string[]> = {
+    "basic-service": ["oil-change", "brake-repair", "battery-replacement"],
+    "oil-change": ["basic-service", "battery-replacement", "brake-repair"],
+    "brake-repair": ["basic-service", "tyre-replacement", "battery-replacement"],
+    "battery-replacement": ["basic-service", "oil-change", "brake-repair"],
+    "tyre-replacement": ["brake-repair", "basic-service", "general-washing"],
+    "general-washing": ["basic-service", "oil-change"],
+    "engine-repair": ["oil-change", "basic-service"],
+    "comprehensive-service": ["oil-change", "brake-repair"],
+    "service-engine-oil": ["basic-service", "brake-repair", "battery-replacement"],
+    diagnosis: ["battery-replacement", "brake-repair", "basic-service"],
+    "jump-start": ["battery-replacement", "basic-service"],
+    puncture: ["basic-service", "brake-repair"],
+    "running-repair": ["diagnosis", "basic-service"],
+    "carburetor-cleaning": ["diagnosis", "basic-service"],
+    "obd-inspection": ["diagnosis", "basic-service"],
+    "disc-replacement": ["brake-repair", "basic-service"],
+    "chain-sprocket": ["basic-service", "oil-change"],
+    "pick-drop": ["diagnosis", "basic-service"],
+  };
+  const relatedServices = (relatedServiceIds[serviceId] || ["basic-service", "oil-change"])
+    .filter((id) => id !== serviceId);
   const primaryBookingHref = isDiagnosis
     ? "/book?package=Diagnosis&serviceId=diagnosis"
     : "/book";
@@ -205,8 +248,15 @@ export default function ServicePageTemplate({
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-                {lead}
+                {detail?.summary || lead}
               </p>
+              {visiblePrice && (
+                <div className="mb-7 rounded-xl border border-white/20 bg-white/5 p-5 max-w-md">
+                  <span className="block text-xs uppercase tracking-widest text-slate-300">{isRelatedPrice ? `Related published option: ${catalogService?.name}` : "Service price"} · 0–249 cc</span>
+                  <strong className="block text-3xl font-bold text-white mt-1">{isRelatedPrice ? "Option from" : "From"} {visiblePrice}</strong>
+                  <span className="block text-xs text-slate-300 mt-2">{isRelatedPrice ? "This is a different package; confirm the price for the service on this page. " : ""}{extraVisitCharge ? `A ₹${DOORSTEP_SERVICE_CHARGE} doorstep charge applies to this tier. ` : ""}Parts and additional work are quoted before approval.</span>
+                </div>
+              )}
 
               {isVehicleType ? (
                 <div className="flex w-full flex-col items-start gap-3 sm:w-max sm:max-w-full">
@@ -290,7 +340,7 @@ export default function ServicePageTemplate({
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
                 Why Choose Doorstep {cleanServiceName} in {locationName || "Delhi NCR"}?
               </h2>
-              {descriptionParagraphs.map((para, i) => (
+              {(detail ? [detail.summary, `Tell us your vehicle model and symptoms. The mechanic confirms what can be done at your location and quotes any additional parts or work before you approve it.`] : descriptionParagraphs).map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
@@ -317,7 +367,7 @@ export default function ServicePageTemplate({
                       {isDiagnosis ? "Visit Timing" : "Arrival Duration"}
                     </span>
                     <span className="font-bold text-slate-900">
-                      {isDiagnosis ? "Confirmed when booking" : "25 – 45 Minutes at your doorstep"}
+                      {detail ? "Confirmed when booking" : isDiagnosis ? "Confirmed when booking" : "25 - 45 Minutes at your doorstep"}
                     </span>
                   </div>
                   <div>
@@ -325,21 +375,21 @@ export default function ServicePageTemplate({
                       {isDiagnosis ? "Visit Focus" : "Parts Policy"}
                     </span>
                     <span className="font-bold text-slate-900">
-                      {isDiagnosis ? "Fault Finding & Next-Step Advice" : "100% Sealed OEM Parts & Cables"}
+                      {detail ? "Confirm parts and extra work before approval" : isDiagnosis ? "Fault Finding & Next-Step Advice" : "100% Sealed OEM Parts & Cables"}
                     </span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
                       {isDiagnosis ? "Repair Approval" : "Warranty"}
                     </span>
-                    <span className="font-bold text-slate-900">{isDiagnosis ? "Required Before Work Begins" : warranty}</span>
+                    <span className="font-bold text-slate-900">{detail ? "Confirm applicable terms at booking" : isDiagnosis ? "Required Before Work Begins" : warranty}</span>
                   </div>
                   <div>
                     <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
                       {isDiagnosis ? "Diagnosis Fee" : "Payment Mode"}
                     </span>
                     <span className="font-bold text-slate-900">
-                      {isDiagnosis ? "₹399" : "UPI, Card, Cash after Job Completion"}
+                      {detail ? (isRelatedPrice ? "Request an itemized quote for this service" : visiblePrice ? `From ${visiblePrice} by vehicle category` : "Request an itemized quote") : isDiagnosis ? "₹399" : "UPI, Card, Cash after Job Completion"}
                     </span>
                   </div>
                 </div>
@@ -355,6 +405,29 @@ export default function ServicePageTemplate({
             </div>
           </div>
 
+          {(basicServiceDetails || detail) && (
+            <section className="mb-16" aria-labelledby="basic-price-heading">
+              <div className="mb-7 max-w-3xl"><span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Clear pricing</span><h2 id="basic-price-heading" className="mt-2 text-3xl font-black uppercase font-oswald">{isRelatedPrice ? `${catalogService?.name}: published prices` : `${basicServiceDetails ? "Basic service" : detail?.name} price by vehicle`}</h2><p className="mt-2 text-slate-600">{isRelatedPrice ? `The pricing page lists ${catalogService?.name}, which is a different package from ${detail?.name}. These prices are for the listed package only; request a separate quote for ${detail?.name}.` : catalogService ? "Select your engine capacity to see the service price. Parts and additional work are quoted separately before you approve them." : "The price depends on the vehicle and work required. Request an itemized quote before approving service."}</p></div>
+              {catalogService && <div className="overflow-x-auto rounded-2xl border border-slate-200"><table className="w-full min-w-[560px] text-left"><thead className="bg-slate-900 text-white"><tr><th scope="col" className="p-4">Vehicle category</th><th scope="col" className="p-4">Service price</th><th scope="col" className="p-4">Doorstep charge</th></tr></thead><tbody>{PRICING_CATEGORIES.filter((tier) => tier.id !== "electric" || catalogService.prices.electric !== undefined).map((tier) => { const price = catalogService.prices[tier.id as keyof typeof catalogService.prices]; const chargeApplies = hasDoorstepServiceCharge(catalogService.id, price); return <tr key={tier.id} className="border-t border-slate-200"><th scope="row" className="p-4 font-semibold">{tier.name}</th><td className="p-4 font-bold">{typeof price === "number" ? `₹${price.toLocaleString("en-IN")}` : price}</td><td className="p-4">{chargeApplies ? `₹${DOORSTEP_SERVICE_CHARGE} extra` : "No separate doorstep charge under the current price rule"}</td></tr>; })}</tbody></table></div>}
+              <p className="mt-3 text-sm text-slate-600">{isRelatedPrice ? `The pricing page does not list a standalone ${detail?.name} rate. Confirm the exact service and total price before booking.` : catalogService ? `These are current catalog prices. Final scope and any parts cost are confirmed before work begins.${catalogService.prices.electric === undefined ? " Electric two-wheelers use a separate service." : ""}` : "No fixed price is shown for this service in the current catalog. Confirm the total quote before work begins."}</p>
+              <Link href={primaryBookingHref} className="mt-5 inline-flex items-center gap-2 rounded-md bg-red-600 px-6 py-3 font-bold text-white hover:bg-red-700">Book {basicServiceDetails ? "basic service" : "this service"} <ArrowRight className="h-4 w-4" /></Link>
+            </section>
+          )}
+
+          <section className="mb-16" aria-labelledby="service-inclusions">
+            <div className="max-w-2xl mb-7">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Scope of work</span>
+              <h2 id="service-inclusions" className="text-3xl font-black uppercase text-slate-900 font-oswald mt-2">What we check and do</h2>
+              <p className="text-slate-600 mt-2">The mechanic confirms the work needed for your vehicle before starting. Additional repairs and parts require your approval.</p>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {detailItems.map((item) => <div key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-800"><Check className="h-5 w-5 shrink-0 text-red-600" aria-hidden="true" /><span>{item}</span></div>)}
+            </div>
+            {basicServiceDetails && <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold">What is outside the basic service price?</h3><ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2"><li>Engine oil and oil filter replacement</li><li>Replacement parts, including brake pads, batteries and cables</li><li>Washing and major mechanical repairs</li><li>Any extra work found during inspection</li></ul><p className="mt-4 text-sm text-slate-600">These may be available separately. Ask for a quote and approve the price before any extra work.</p></div>}
+            {detail && <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold">What is outside this service price?</h3><ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2">{detail.excluded.map((item) => <li key={item}>{item}</li>)}</ul><p className="mt-4 text-sm text-slate-600">Ask for a separate quote before approving any additional work.</p></div>}
+            {visiblePrice && <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-slate-900 p-5 text-white"><div><strong className="text-xl">{isRelatedPrice ? `${catalogService?.name} from ` : "From "}{visiblePrice}</strong><p className="text-xs text-slate-300">{isRelatedPrice ? "Related package price; request a quote for this service" : "0–249 cc · final quote depends on vehicle and work"}</p></div><Link href={primaryBookingHref} className="rounded-md bg-red-600 px-6 py-3 font-bold hover:bg-red-700">Book this service</Link></div>}
+          </section>
+
           {/* ===== STEP-BY-STEP PROCESS ===== */}
           <div className="mb-16">
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -362,7 +435,9 @@ export default function ServicePageTemplate({
                 HASSLE-FREE WORKFLOW
               </span>
               <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                {isDiagnosis
+                {detail
+                  ? `How ${detail.name} Works`
+                  : isDiagnosis
                   ? "How Doorstep Two-Wheeler Diagnosis Works"
                   : isScootyRepair
                     ? "How Doorstep Scooty Service Works"
@@ -370,7 +445,16 @@ export default function ServicePageTemplate({
               </h2>
             </div>
 
-            {isDiagnosis ? (
+            {detail ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">{detail.steps.map(([heading, copy], index) => <div key={heading} className="rounded-xl border border-slate-200 bg-white p-6"><span className="text-3xl font-bold text-red-200">0{index + 1}</span><h3 className="mt-3 text-lg font-bold">{heading}</h3><p className="mt-2 text-sm text-slate-600">{copy}</p></div>)}</div>
+            ) : basicServiceDetails ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">{[
+                { title: "Confirm the vehicle", description: "Share the model and symptoms; the mechanic checks the bike or scooter and confirms the basic service scope." },
+                { title: "Inspect key systems", description: "Check brakes, tyres, lights, battery, spark plug, air filter and chain where applicable." },
+                { title: "Perform basic upkeep", description: "Clean and adjust applicable parts, lubricate the chain and controls, and flag anything needing replacement." },
+                { title: "Review the result", description: "The mechanic explains findings and any separate quote; review the completed work before payment." },
+              ].map((step, index) => <div key={step.title} className="rounded-xl border border-slate-200 bg-white p-6"><span className="text-3xl font-bold text-red-200">0{index + 1}</span><h3 className="mt-3 text-lg font-bold">{step.title}</h3><p className="mt-2 text-sm text-slate-600">{step.description}</p></div>)}</div>
+            ) : isDiagnosis ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   { number: "01", title: "Describe the Symptom", description: "Tell us what changed, when it happens, and whether the vehicle can be started or ridden safely." },
@@ -421,30 +505,13 @@ export default function ServicePageTemplate({
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">01</span>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2">1. Book Online</h3>
-                  <p className="text-sm text-slate-600">
-                    Select your bike model and preferred doorstep time slot in under 60 seconds.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">02</span>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2">2. Mechanic Dispatched</h3>
-                  <p className="text-sm text-slate-600">
-                    Our certified technician arrives at your doorstep within 45 minutes with OEM tools.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-slate-200 rounded-xl p-6 relative">
-                  <span className="font-mono text-3xl font-bold text-red-100 block mb-2">03</span>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2">3. Doorstep Service</h3>
-                  <p className="text-sm text-slate-600">
-                    Watch full servicing done right in your home or office parking with zero mess.
-                  </p>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {[
+                  { title: "Choose a time", description: `Share your vehicle, location and request for ${cleanServiceName.toLowerCase()}.` },
+                  { title: "Inspect and confirm", description: "The mechanic checks the vehicle and confirms the work and any parts needed." },
+                  { title: "Complete the work", description: `The mechanic carries out the approved ${cleanServiceName.toLowerCase()} work and checks the result.` },
+                  { title: "Review and pay", description: "Review the completed job and pay the agreed amount." },
+                ].map((step, index) => <div key={step.title} className="rounded-xl border border-slate-200 bg-white p-6"><span className="text-3xl font-bold text-red-200">0{index + 1}</span><h3 className="mt-3 text-lg font-bold text-slate-900">{step.title}</h3><p className="mt-2 text-sm text-slate-600">{step.description}</p></div>)}
               </div>
             )}
             <HowSectionActions
@@ -452,6 +519,15 @@ export default function ServicePageTemplate({
               bookingLabel={isDiagnosis ? "Book a mechanic" : undefined}
             />
           </div>
+
+          <section className="mb-16" aria-labelledby="related-services">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Plan your visit</span>
+            <h2 id="related-services" className="mt-2 text-3xl font-black uppercase text-slate-900 font-oswald">Services to consider together</h2>
+            <p className="mt-2 mb-6 text-slate-600">Choose these only if your vehicle needs them. The mechanic can inspect and quote additional work.</p>
+            <div className="grid gap-4 md:grid-cols-3">
+              {relatedServices.map((id) => <Link key={id} href={`/services/${id}`} className="group rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-red-500"><h3 className="font-bold text-slate-900 group-hover:text-red-600">{id.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}</h3><span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-red-600">See service details <ArrowRight className="h-4 w-4" /></span></Link>)}
+            </div>
+          </section>
 
           {(isScootyRepair || isElectricRepair) && (
             <div className="service-page-service-rail mb-16">
@@ -626,7 +702,7 @@ export default function ServicePageTemplate({
             </div>
 
             <div className="space-y-3">
-              {faqs.map((faq, idx) => {
+              {detailFaqs.map((faq, idx) => {
                 const isOpen = !!openFaqs[idx];
                 return (
                   <div

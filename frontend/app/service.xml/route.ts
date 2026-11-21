@@ -1,50 +1,15 @@
 import { NextResponse } from "next/server";
+import {
+  CITY_SERVICE_SLUGS,
+  LEGACY_SERVICE_PATHS,
+  OFFICIAL_SERVICE_SLUGS,
+  PUBLIC_CITY_SLUGS,
+} from "@/lib/pageRegistry";
 
 export const dynamic = "force-static";
 
 const SITE_URL = "https://www.fixwheel.app";
 const LAST_MODIFIED = "2026-09-17T00:00:00+05:30";
-
-const OFFICIAL_SERVICE_SLUGS = [
-  "basic-service",
-  "service-engine-oil",
-  "diagnosis",
-  "jump-start",
-  "puncture",
-  "running-repair",
-  "engine-repair",
-  "carburetor-cleaning",
-  "obd-inspection",
-  "battery-replacement",
-  "disc-replacement",
-  "chain-sprocket",
-  "pick-drop",
-  "electric-scooter-repair",
-];
-
-const LEGACY_SERVICE_URLS = [
-  "/services/brake-repair",
-  "/services/comprehensive-service",
-  "/services/oil-change",
-  "/premium-bike",
-  "/bike",
-  "/sports-bike",
-  "/cruiser-bike",
-  "/scooty-repair",
-];
-
-const SERVICE_CITIES = ["gurgaon", "delhi", "noida", "faridabad", "ghaziabad"];
-const CITY_SERVICE_SLUGS = [
-  ...OFFICIAL_SERVICE_SLUGS.filter(
-    (service) => service !== "electric-scooter-repair"
-      && service !== "engine-repair"
-      && service !== "diagnosis",
-  ),
-  "oil-change",
-  "comprehensive-service",
-  "battery-replacement",
-  "brake-repair",
-];
 
 function urlNode(path: string, priority: string) {
   return `  <url>
@@ -58,15 +23,15 @@ function urlNode(path: string, priority: string) {
 export async function GET() {
   const serviceIndexes = [
     urlNode("/services", "0.9"),
-    ...SERVICE_CITIES.map((city) => urlNode(`/${city}/services`, "0.8")),
+    ...PUBLIC_CITY_SLUGS.map((city) => urlNode(`/${city}/services`, "0.8")),
   ];
   const officialLandingPages = OFFICIAL_SERVICE_SLUGS.map((service) =>
     urlNode(service === "electric-scooter-repair" ? "/electric-vehicle" : `/services/${service}`, "0.8")
   );
   const officialCityPages = CITY_SERVICE_SLUGS.flatMap((service) =>
-    SERVICE_CITIES.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
+    PUBLIC_CITY_SLUGS.map((city) => urlNode(`/${city}/services/${service}`, "0.7"))
   );
-  const legacyPages = LEGACY_SERVICE_URLS.map((path) => urlNode(path, "0.8"));
+  const legacyPages = LEGACY_SERVICE_PATHS.map((path) => urlNode(path, "0.8"));
 
   return new NextResponse(
     `<?xml version="1.0" encoding="UTF-8"?>

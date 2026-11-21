@@ -1,26 +1,15 @@
 import { NextResponse } from "next/server";
 import { CITIES_DB } from "@/lib/cityLocalityData";
+import { PUBLIC_CITY_SLUGS, ROOT_VEHICLE_TYPE_SLUGS } from "@/lib/pageRegistry";
 
 export const dynamic = "force-static";
 
-const CUSTOM_ROOT_SERVICES = [
-  "sports-bike",
-  "bike",
-  "scooty-repair",
-  "electric-vehicle",
-  "premium-bike",
-  "cruiser-bike",
-];
-
 export async function GET() {
-  const serviceSlugs = CUSTOM_ROOT_SERVICES;
-  const citySlugs = Object.keys(CITIES_DB);
-
   let urlsXml = "";
   const now = new Date().toISOString();
 
-  for (const service of serviceSlugs) {
-    for (const citySlug of citySlugs) {
+  for (const service of ROOT_VEHICLE_TYPE_SLUGS) {
+    for (const citySlug of PUBLIC_CITY_SLUGS) {
       const cityConfig = CITIES_DB[citySlug];
       if (!cityConfig) continue;
 

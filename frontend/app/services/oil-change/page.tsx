@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
+const editorial = SERVICE_DETAIL_CONTENT["oil-change"];
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Engine Oil Change at Home in Delhi | FixWheel",
-  description:
-    "Doorstep bike engine oil change Delhi. Genuine Motul, Yamalube, Castrol, and Honda OEM engine oil replacement at home in Gurgaon, Delhi, Noida.",
-  alternates: {
-    canonical: "https://www.fixwheel.app/services/oil-change",
-  },
+  title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`,
+  description: `${editorial.summary} See the service scope, process and pricing information for Delhi NCR.`,
+  keywords: [editorial.name.toLowerCase(), `${editorial.name.toLowerCase()} near me`, `${editorial.name.toLowerCase()} delhi ncr`],
+  alternates: { canonical: "https://www.fixwheel.app/services/oil-change" },
+  openGraph: { title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`, description: editorial.summary, url: "https://www.fixwheel.app/services/oil-change", type: "website" },
 });
 
 export default function OilChangePage() {

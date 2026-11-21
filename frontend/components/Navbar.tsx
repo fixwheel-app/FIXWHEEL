@@ -8,6 +8,7 @@ import { Menu, X, Wrench, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
+import { getPublicBrandSlugs } from '@/lib/brandRegistry';
 
 /* ─── Mega-dropdown data ───────────────────────────────────── */
 const serviceLinks = [
@@ -45,14 +46,7 @@ const vehicleTypeLinks = [
 
 const cityRouteSlugs = new Set(['delhi', 'gurgaon', 'noida', 'ghaziabad', 'faridabad']);
 const cityVehicleTypeSlugs = new Set(['bike', 'scooty-repair', 'electric-vehicle', 'sports-bike', 'premium-bike', 'cruiser-bike']);
-const brandRouteSlugs = new Set([
-  'ampere', 'aprilia', 'ather', 'bajaj', 'bajaj-ev', 'benelli', 'benelli-keeway',
-  'bmw', 'bmw-motorrad', 'bounce', 'ducati', 'harley-davidson', 'hero',
-  'hero-electric', 'honda', 'husqvarna', 'jawa', 'joy-e-bike', 'kawasaki', 'ktm',
-  'matter', 'okinawa', 'ola-electric', 'other-brand', 'other-brand-ev', 'pure-ev',
-  'revolt', 'royal-enfield', 'scooters', 'simple-energy', 'suzuki', 'tork-motors',
-  'triumph', 'tvs', 'tvs-ev', 'ultraviolette', 'vespa', 'vida-hero', 'yamaha', 'yezdi',
-]);
+const brandRouteSlugs = new Set<string>(getPublicBrandSlugs());
 
 function VehicleTypeIcon({ type }: { type: string }) {
   // Center the supplied silhouettes without showing their surrounding white space.

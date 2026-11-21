@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
-import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
+import { getBrandRegistryEntry, getPublicBrandSlugs } from "@/lib/brandRegistry";
 import { findElectricBrandByReference } from "@/lib/electricServices";
 import { completePageMetadata } from "@/lib/seoMetadata";
 import BrandDetailClient from "./page.client";
@@ -12,10 +12,8 @@ interface PageProps {
   };
 }
 
-const KNOWN_BRAND_SLUGS = new Set([
-  ...Object.keys(BRAND_DETAILS).map(slugifyModel),
-  ...getAllBikeModels().map(({ brandName }) => slugifyModel(brandName)),
-]);
+// Only published registry slugs are statically generated.
+const KNOWN_BRAND_SLUGS = new Set<string>(getPublicBrandSlugs({ includeLegacyAliases: true }));
 
 export async function generateStaticParams() {
   return Array.from(KNOWN_BRAND_SLUGS).map((brand) => ({
@@ -25,6 +23,7 @@ export async function generateStaticParams() {
 
 function getBrandData(brandSlug: string) {
   const key = brandSlug.toLowerCase().trim();
+  const registryEntry = getBrandRegistryEntry(key);
   const electricBrand = findElectricBrandByReference(key);
   if (BRAND_DETAILS[key]) {
     const storedBrand = BRAND_DETAILS[key];
@@ -43,7 +42,7 @@ function getBrandData(brandSlug: string) {
     }
     return storedBrand;
   }
-  if (!KNOWN_BRAND_SLUGS.has(key)) return undefined;
+  if (!registryEntry || !KNOWN_BRAND_SLUGS.has(key)) return undefined;
 
   // Preserve the existing generic presentation only for brands present in the
   // authoritative bike catalog. Unknown slugs must return a real 404.

@@ -6,6 +6,7 @@ import { Check, ChevronDown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
+import { getRecommendedCcRange } from '@/lib/vehicleCcRanges';
 import { cn } from '@/lib/utils';
 import { PackageType } from '@/types';
 import { GooglePlayIcon } from '@/components/GooglePlayIcon';
@@ -211,6 +212,8 @@ export default function BookClient() {
   
   // Non-Electric specific
   const [ccRange, setCcRange] = useState<CCRange | null>(null);
+  const [recommendedCcRange, setRecommendedCcRange] = useState<CCRange | null>(null);
+  const [ccSelectionSource, setCcSelectionSource] = useState<'automatic' | 'manual' | null>(null);
   
   const catalogBrands = BIKE_DATA[fuelType] || [];
   const currentBrands = brand && !catalogBrands.some((candidate) => candidate.name === brand)
@@ -222,6 +225,27 @@ export default function BookClient() {
     ? catalogModels
     : [...catalogModels, OTHER_MODEL_OPTION];
   const currentModels = model && !modelsWithFallback.includes(model) ? [model, ...modelsWithFallback] : modelsWithFallback;
+  const selectedCcLabel = CCRANGES.find((range) => range.value === ccRange)?.label;
+  const recommendedCcLabel = CCRANGES.find((range) => range.value === recommendedCcRange)?.label;
+
+  const resetCcSelection = () => {
+    setCcRange(null);
+    setRecommendedCcRange(null);
+    setCcSelectionSource(null);
+  };
+
+  const selectModel = (selectedModel: string) => {
+    setModel(selectedModel);
+
+    const selectedModelObj = selectedBrandObj?.models.find((candidate) => candidate.name === selectedModel);
+    const recommendation = selectedBrandObj && selectedModelObj
+      ? getRecommendedCcRange(selectedBrandObj.id, selectedModelObj.id)
+      : null;
+
+    setRecommendedCcRange(recommendation);
+    setCcRange(recommendation);
+    setCcSelectionSource(recommendation ? 'automatic' : null);
+  };
 
   return (
     <div className="min-h-screen bg-[#111111] pt-24 pb-16 text-white font-sans">
@@ -239,6 +263,7 @@ export default function BookClient() {
                 setFuelType('Non-Electric Motorbike');
                 setBrand('');
                 setModel('');
+                resetCcSelection();
               }}
               className={cn(
                 "flex-1 py-3 px-6 rounded-full font-bold tracking-widest uppercase transition-all",
@@ -254,7 +279,7 @@ export default function BookClient() {
                 setFuelType('Electric Motorbike');
                 setBrand('');
                 setModel('');
-                setCcRange(null);
+                resetCcSelection();
               }}
               className={cn(
                 "flex-1 py-3 px-6 rounded-full font-bold tracking-widest uppercase transition-all",
@@ -278,6 +303,7 @@ export default function BookClient() {
                 onSelect={(selectedBrand) => {
                   setBrand(selectedBrand);
                   setModel('');
+                  resetCcSelection();
                 }}
               />
             </div>
@@ -290,32 +316,93 @@ export default function BookClient() {
                 value={model}
                 options={currentModels}
                 disabled={!brand}
-                onSelect={setModel}
+                onSelect={selectModel}
               />
             </div>
           </div>
 
           {/* CC Range Selection for Non-Electric */}
           {fuelType === 'Non-Electric Motorbike' && (
-            <div className="mt-4">
-              <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mb-4 text-center md:text-left">Select CC Range</p>
+            <div className="mt-4" aria-labelledby="engine-cc-range-heading">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                <p id="engine-cc-range-heading" className="text-sm font-bold uppercase tracking-widest text-gray-300">
+                  Engine CC Range
+                </p>
+                {ccSelectionSource === 'automatic' && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-300">
+                    <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                    Auto selected
+                  </span>
+                )}
+                {ccSelectionSource === 'manual' && (
+                  <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-gray-300">
+                    Manually changed
+                  </span>
+                )}
+              </div>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {CCRANGES.map((range) => (
                   <button
                     key={range.value}
                     onClick={() => {
                       setCcRange(range.value);
+                      setCcSelectionSource('manual');
                     }}
+                    aria-pressed={ccRange === range.value}
                     className={cn(
-                      "py-4 px-2 rounded-full border text-center font-bold tracking-widest uppercase transition-all text-xs",
+                      "relative min-h-16 rounded-xl border px-3 py-3 text-center text-xs font-bold uppercase tracking-widest transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
                       ccRange === range.value
-                        ? "bg-accent/10 border-accent text-white shadow-[0_0_15px_rgba(230,43,43,0.3)]"
+                        ? "border-accent bg-accent/10 text-white shadow-[0_0_15px_rgba(230,43,43,0.3)]"
                         : "border-white/20 text-gray-400 hover:border-white/40 hover:text-gray-200 bg-transparent"
                     )}
                   >
-                    {range.label}
+                    <span className="block">{range.label}</span>
+                    {recommendedCcRange === range.value && (
+                      <span className={cn(
+                        "mt-1 block text-[9px] tracking-[0.16em]",
+                        ccRange === range.value ? "text-red-200" : "text-gray-500"
+                      )}>
+                        Recommended
+                      </span>
+                    )}
                   </button>
                 ))}
+              </div>
+
+              <div className="mt-4 min-h-12 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 text-gray-300" aria-live="polite">
+                {!model && (
+                  <p>Select a model and we’ll choose its usual engine range automatically.</p>
+                )}
+                {model && ccSelectionSource === 'automatic' && selectedCcLabel && (
+                  <p>
+                    <span className="font-bold text-white">{selectedCcLabel}</span> selected for {model}. If your variant differs, choose another range above.
+                  </p>
+                )}
+                {model && ccSelectionSource === 'manual' && (
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p>
+                      Using your selected range{selectedCcLabel ? `: ${selectedCcLabel}` : ''}.
+                      {recommendedCcLabel ? ` The usual range for ${model} is ${recommendedCcLabel}.` : ''}
+                    </p>
+                    {recommendedCcRange && ccRange !== recommendedCcRange && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCcRange(recommendedCcRange);
+                          setCcSelectionSource('automatic');
+                        }}
+                        className="shrink-0 font-bold text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                      >
+                        Use recommended
+                      </button>
+                    )}
+                  </div>
+                )}
+                {model && !ccRange && (
+                  <p>
+                    This model’s engine range needs confirmation. Select the correct range above to see accurate services and prices.
+                  </p>
+                )}
               </div>
             </div>
           )}

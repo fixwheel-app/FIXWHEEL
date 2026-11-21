@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { ChevronDown } from "lucide-react";
 import { getBrandLogo } from "@/lib/brandLogos";
+import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
 
 const brands = [
   {
@@ -759,7 +760,7 @@ export default function BrandsClientPage() {
                   </div>
                   <div className="brand-card-cta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                     <Link href={`/book#${brand.name.toLowerCase().replace(/ /g, "-")}`}>Book {brand.name} Service →</Link>
-                    <Link href={`/${brand.name.toLowerCase().replace(/ /g, "-")}`} style={{ color: 'var(--ink-dim)', fontSize: '11px', transition: 'color 0.15s' }} className="hover-white">Models & Info →</Link>
+                    <Link href={`/${getCanonicalBrandSlug(brand.name.toLowerCase().replace(/ /g, "-")) || brand.name.toLowerCase().replace(/ /g, "-")}`} style={{ color: 'var(--ink-dim)', fontSize: '11px', transition: 'color 0.15s' }} className="hover-white">Models & Info →</Link>
                   </div>
                 </div>
               ))}

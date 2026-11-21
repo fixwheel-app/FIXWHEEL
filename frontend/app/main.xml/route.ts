@@ -1,118 +1,23 @@
 import { NextResponse } from 'next/server';
+import { MAIN_SITEMAP_PAGES } from '@/lib/pageRegistry';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
+  const urlNodes = MAIN_SITEMAP_PAGES.map(({ path, lastModified, changeFrequency, priority }) => {
+    const location = path === "/" ? "https://www.fixwheel.app" : `https://www.fixwheel.app${path}`;
+
+    return `  <url>
+    <loc>${location}</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>${changeFrequency}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+  }).join('\n');
+
   return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.fixwheel.app</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/about</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/author/sanjay-kumar</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/author/zakir-hussain</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/bike-engine-oil-guide</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/carburetor-vs-fi-maintenance</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/disc-vs-drum-brake-maintenance</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/electric-scooter-battery-care</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/monsoon-bike-care-tips</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/blog/motorcycle-chain-maintenance-guide</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/book</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/contact</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/faq</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/how-to-book</loc>
-    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/partner</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/privacy-policy</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/process</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.fixwheel.app/terms</loc>
-    <lastmod>2026-07-25T19:39:55+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+${urlNodes}
 </urlset>`, {
     headers: {
       'Content-Type': 'application/xml',

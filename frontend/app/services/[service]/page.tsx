@@ -4,6 +4,7 @@ import { SERVICES_DB } from "@/lib/servicesData";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { completePageMetadata } from "@/lib/seoMetadata";
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
 
 interface PageProps {
   params: {
@@ -34,17 +35,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Case 1: Standard Service (/services/engine-repair)
   if (SERVICES_DB[params.service]) {
     const serviceData = SERVICES_DB[params.service];
+    const editorial = SERVICE_DETAIL_CONTENT[params.service];
+    const seoTitle = editorial ? `${editorial.name} at Doorstep in Delhi NCR | FixWheel` : `${serviceData.title} | FixWheel`;
+    const seoDescription = editorial ? `${editorial.summary} See what is included, vehicle-based pricing and how the service works across Delhi NCR.` : serviceData.lead;
     return completePageMetadata({
-      title: `${serviceData.title} | FixWheel`,
-      description: serviceData.lead,
-      keywords: serviceData.keywords,
+      title: seoTitle,
+      description: seoDescription,
+      keywords: editorial ? [editorial.name.toLowerCase(), `${editorial.name.toLowerCase()} near me`, `${editorial.name.toLowerCase()} delhi ncr`, ...serviceData.keywords.slice(0, 3)] : serviceData.keywords,
       alternates: {
         canonical: `https://www.fixwheel.app/services/${params.service}`,
       },
       openGraph: {
         type: "website",
-        title: `${serviceData.title} | FixWheel`,
-        description: serviceData.lead,
+        title: seoTitle,
+        description: seoDescription,
         url: `https://www.fixwheel.app/services/${params.service}`,
       },
     });

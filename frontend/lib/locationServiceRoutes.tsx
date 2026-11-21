@@ -7,6 +7,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { CITIES_DB } from "@/lib/cityLocalityData";
 import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { SERVICES_DB } from "@/lib/servicesData";
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
 export const BIKE_TYPE_SLUGS = [
@@ -65,11 +66,14 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
 
   if (!service || !city) return {};
 
-  const serviceName = cleanServiceTitle(service.title);
+  const editorial = bikeTypeSlug ? undefined : SERVICE_DETAIL_CONTENT[serviceSlug];
+  const serviceName = editorial?.name || cleanServiceTitle(service.title);
   const placeName = city.name;
   const path = `/${citySlug}/${bikeTypeSlug || `services/${serviceSlug}`}`;
   const title = `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
-  const description = `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
+  const description = editorial
+    ? `${editorial.summary} Check what is included, vehicle-based pricing and the work flow in ${placeName}.`
+    : `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
 
   return completePageMetadata({
     title,

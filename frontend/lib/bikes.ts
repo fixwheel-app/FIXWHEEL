@@ -182,6 +182,13 @@ export const BIKE_DATA: Record<string, BikeBrand[]> = {
       ]
     },
     {
+      id: "bmw",
+      name: "BMW Motorrad",
+      models: [
+        { id: "ce04", name: "CE 04" }
+      ]
+    },
+    {
       id: "other_ev",
       name: "Other Brand (EV)",
       models: [{ id: "other_ev_model", name: "Other Model" }]
@@ -358,7 +365,8 @@ export const BIKE_DATA: Record<string, BikeBrand[]> = {
         { id: "thunderbird350", name: "Thunderbird 350 / 350X" },
         { id: "thunderbird500", name: "Thunderbird 500 / 500X" },
         { id: "electra350", name: "Bullet Electra 350" },
-        { id: "machismo", name: "Machismo 350 / 500" }
+        { id: "machismo350", name: "Machismo 350" },
+        { id: "machismo500", name: "Machismo 500" }
       ]
     },
     {
@@ -551,8 +559,7 @@ export const BIKE_DATA: Record<string, BikeBrand[]> = {
         { id: "f900r", name: "F 900 R" },
         { id: "s1000rr", name: "S 1000 RR" },
         { id: "r1250gs", name: "R 1250 GS" },
-        { id: "r1300gs", name: "R 1300 GS" },
-        { id: "ce04", name: "CE 04 (Electric)" }
+        { id: "r1300gs", name: "R 1300 GS" }
       ]
     },
     {

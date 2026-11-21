@@ -22,44 +22,50 @@ export const metadata: Metadata = completePageMetadata({
 export default function BasicServicePage() {
   return (
     <ServicePageTemplate
+      basicServiceDetails
       serviceId="basic-service"
       category="Regular Maintenance"
       title="Basic Bike Service at Doorstep in Delhi"
-      lead="Keep your daily commuter motorcycle or scooter running flawlessly with FixWheel's periodic basic bike service package. Skipping regular checkups leads to unexpected breakdowns — our 45-minute doorstep tune-up keeps your ride smooth and mileage high."
+      lead="Book a doorstep check and routine upkeep for your bike or scooter. We inspect key safety and maintenance points, explain what needs attention, and confirm any additional work before it begins."
       startingPrice="₹550"
       avgTime="45 Mins"
       warranty="15 Days Labor Warranty"
       descriptionParagraphs={[
-        "Commuting through Delhi traffic subjects your bike's clutch cables, brake shoes, spark plugs, and air filters to extreme dust and friction. Without regular maintenance, carbon deposits accumulate in the engine, resulting in poor fuel efficiency, engine knocking, and starting trouble.",
-        "Our certified doorstep mechanics arrive directly at your home or office parking with specialized diagnostic kits, OEM spare parts, and eco-friendly cleaning supplies. We perform a comprehensive 15-point checkup, adjusting control cables, cleaning spark plugs, inspecting brake liners, and lubricating key chassis pivots.",
-        "With FixWheel, you get clear pricing before work begins and a 15-day quality warranty on every basic service.",
+        "Routine maintenance helps you spot wear before it develops into a larger repair. Basic service focuses on inspection, cleaning, adjustment and lubrication of accessible parts on your two-wheeler.",
+        "The mechanic reviews the vehicle first, performs the agreed basic upkeep and explains any parts or repair work that would need a separate quote. The work depends on the vehicle's design and condition.",
       ]}
       includedItems={[
-        "Complete front & rear brake inspection and precision adjustment",
-        "Spark plug cleaning, electrode gap setting & ignition check",
-        "Air filter inspection, dust removal & airflow check",
-        "Drive chain deep cleaning, tensioning & high-tack spray lube",
-        "Full electrical system test (headlights, indicators, horn, battery voltage)",
-        "Lubrication of control cables, center stand pivot & brake levers",
-        "Carburetor / FI idling speed adjustment for maximum mileage",
-        "Tire pressure calibration & tread depth safety check",
+        "Brake inspection and adjustment where applicable",
+        "Spark plug and air filter inspection and cleaning where accessible",
+        "Chain inspection, cleaning and lubrication on chain-drive vehicles",
+        "Lights, indicators and horn check",
+        "Control cable and lever inspection and lubrication where applicable",
+        "Tyre pressure and tread inspection",
       ]}
       faqs={[
         {
           q: "How long does doorstep basic bike service take?",
-          a: "A basic doorstep bike service typically takes 35 to 45 minutes to complete at your home or office parking.",
+          a: "The time depends on your vehicle and its condition. Confirm the appointment time and expected work duration when booking.",
         },
         {
           q: "Is engine oil change included in basic service?",
-          a: "Basic service includes engine oil health inspection and top-up if needed. Complete oil replacement with a new sealed bottle can be selected during booking.",
+          a: "No. Engine oil and oil filter replacement are separate from the basic service price. Ask for the oil grade and an itemized quote before approving an oil change.",
         },
         {
-          q: "What bike models are covered under basic service?",
-          a: "We service all 100cc to 160cc commuter bikes and gearless scooters including Honda Activa, Hero Splendor, TVS Jupiter, Suzuki Access, and Bajaj Pulsar.",
+          q: "Can you service my bike or scooter in my parking area?",
+          a: "Share your vehicle model and location when booking. The team can confirm whether the requested work can be done at your location or needs a workshop.",
         },
         {
-          q: "How are doorstep charges shown in Gurgaon or Noida?",
-          a: "FixWheel confirms the service rate and any applicable service charge before work begins across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad.",
+          q: "What if the mechanic finds another fault?",
+          a: "The mechanic should explain the finding and give you a separate quote. Additional repairs or replacement parts should begin only after you approve them.",
+        },
+        {
+          q: "Does basic service include a wash or new parts?",
+          a: "No. Washing and replacement parts are outside the basic service price. Ask for an itemized quote if you want them added.",
+        },
+        {
+          q: "How much is basic service for my vehicle?",
+          a: "The price depends on engine capacity. Check the vehicle-category price table above and confirm your model and any additional work when booking.",
         },
       ]}
       keywords={[

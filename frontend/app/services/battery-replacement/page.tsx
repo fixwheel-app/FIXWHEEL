@@ -2,21 +2,14 @@ import type { Metadata } from "next";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
+import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
+const editorial = SERVICE_DETAIL_CONTENT["battery-replacement"];
 export const metadata: Metadata = completePageMetadata({
-  title: "Bike Battery Replacement at Home in Delhi | FixWheel",
-  description:
-    "Instant doorstep bike battery replacement Delhi. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
-  alternates: {
-    canonical: "https://www.fixwheel.app/services/battery-replacement",
-  },
-  openGraph: {
-    title: "Bike Battery Replacement at Home in Delhi | FixWheel",
-    description:
-      "Instant doorstep bike battery replacement Delhi. Certified battery testing, Exide & Amaron batteries with manufacturer warranty card in Gurgaon, Delhi, Noida.",
-    url: "https://www.fixwheel.app/services/battery-replacement",
-    siteName: "FixWheel",
-    type: "website",
-  },
+  title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`,
+  description: `${editorial.summary} See the service scope, process and pricing information for Delhi NCR.`,
+  keywords: [editorial.name.toLowerCase(), `${editorial.name.toLowerCase()} near me`, `${editorial.name.toLowerCase()} delhi ncr`],
+  alternates: { canonical: "https://www.fixwheel.app/services/battery-replacement" },
+  openGraph: { title: `${editorial.name} at Doorstep in Delhi NCR | FixWheel`, description: editorial.summary, url: "https://www.fixwheel.app/services/battery-replacement", type: "website" },
 });
 
 export default function BatteryReplacementPage() {
