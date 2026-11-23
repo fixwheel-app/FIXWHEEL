@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:routes": "node scripts/run-route-integrity.cjs",
+    "test:routes:built": "node --test --test-concurrency=1 tests/route-sitemap.test.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

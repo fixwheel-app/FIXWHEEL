@@ -4,83 +4,68 @@ import { findModelBySlugs, slugifyModel } from "@/lib/modelSlug";
 import {
   findHondaFamilyByAnySlug,
   findHondaFamilyBySlug,
-  HONDA_MODEL_FAMILIES,
 } from "@/lib/hondaModelFamilies";
 import {
   findHeroFamilyByAnySlug,
   findHeroFamilyBySlug,
-  HERO_MODEL_FAMILIES,
 } from "@/lib/heroModelFamilies";
 import {
   findBajajFamilyByAnySlug,
   findBajajFamilyBySlug,
-  BAJAJ_MODEL_FAMILIES,
 } from "@/lib/bajajModelFamilies";
 import {
   findRoyalEnfieldFamilyByAnySlug,
   findRoyalEnfieldFamilyBySlug,
-  ROYAL_ENFIELD_MODEL_FAMILIES,
 } from "@/lib/royalEnfieldModelFamilies";
 import {
   findYamahaFamilyByAnySlug,
   findYamahaFamilyBySlug,
-  YAMAHA_MODEL_FAMILIES,
 } from "@/lib/yamahaModelFamilies";
 import {
   findKtmFamilyByAnySlug,
   findKtmFamilyBySlug,
-  KTM_MODEL_FAMILIES,
 } from "@/lib/ktmModelFamilies";
 import {
   findSuzukiFamilyByAnySlug,
   findSuzukiFamilyBySlug,
-  SUZUKI_MODEL_FAMILIES,
 } from "@/lib/suzukiModelFamilies";
 import {
   findOlaFamilyByAnySlug,
   findOlaFamilyBySlug,
-  OLA_MODEL_FAMILIES,
 } from "@/lib/olaModelFamilies";
 import {
   findAtherFamilyByAnySlug,
   findAtherFamilyBySlug,
-  ATHER_MODEL_FAMILIES,
 } from "@/lib/atherModelFamilies";
 import {
   findJawaFamilyByAnySlug,
   findJawaFamilyBySlug,
-  JAWA_MODEL_FAMILIES,
 } from "@/lib/jawaModelFamilies";
 import {
   findYezdiFamilyByAnySlug,
   findYezdiFamilyBySlug,
-  YEZDI_MODEL_FAMILIES,
 } from "@/lib/yezdiModelFamilies";
 import {
   findApriliaFamilyByAnySlug,
   findApriliaFamilyBySlug,
-  APRILIA_MODEL_FAMILIES,
 } from "@/lib/apriliaModelFamilies";
 import {
   findVespaFamilyByAnySlug,
   findVespaFamilyBySlug,
-  VESPA_MODEL_FAMILIES,
 } from "@/lib/vespaModelFamilies";
 import {
   findKawasakiFamilyByAnySlug,
   findKawasakiFamilyBySlug,
-  KAWASAKI_PAGE_FAMILIES,
 } from "@/lib/kawasakiModelFamilies";
 import {
   findBmwFamilyByAnySlug,
   findBmwFamilyBySlug,
-  BMW_MODEL_FAMILIES,
 } from "@/lib/bmwModelFamilies";
 import {
   findTvsFamilyByAnySlug,
   findTvsFamilyBySlug,
-  TVS_MODEL_FAMILIES,
 } from "@/lib/tvsModelFamilies";
+import { getBrandFamilyStaticParams, getCanonicalBrandSlug } from "@/lib/brandRegistry";
 import ModelDetailClient from "./page.client";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
@@ -143,24 +128,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return [
-    ...HONDA_MODEL_FAMILIES.map((family) => ({ brand: "honda", model: family.slug })),
-    ...HERO_MODEL_FAMILIES.map((family) => ({ brand: "hero", model: family.slug })),
-    ...BAJAJ_MODEL_FAMILIES.map((family) => ({ brand: "bajaj", model: family.slug })),
-    ...ROYAL_ENFIELD_MODEL_FAMILIES.map((family) => ({ brand: "royal-enfield", model: family.slug })),
-    ...YAMAHA_MODEL_FAMILIES.map((family) => ({ brand: "yamaha", model: family.slug })),
-    ...KTM_MODEL_FAMILIES.map((family) => ({ brand: "ktm", model: family.slug })),
-    ...SUZUKI_MODEL_FAMILIES.map((family) => ({ brand: "suzuki", model: family.slug })),
-    ...OLA_MODEL_FAMILIES.map((family) => ({ brand: "ola-electric", model: family.slug })),
-    ...ATHER_MODEL_FAMILIES.map((family) => ({ brand: "ather", model: family.slug })),
-    ...JAWA_MODEL_FAMILIES.map((family) => ({ brand: "jawa", model: family.slug })),
-    ...YEZDI_MODEL_FAMILIES.map((family) => ({ brand: "yezdi", model: family.slug })),
-    ...APRILIA_MODEL_FAMILIES.map((family) => ({ brand: "aprilia", model: family.slug })),
-    ...VESPA_MODEL_FAMILIES.map((family) => ({ brand: "vespa", model: family.slug })),
-    ...KAWASAKI_PAGE_FAMILIES.map((family) => ({ brand: "kawasaki", model: family.slug })),
-    ...BMW_MODEL_FAMILIES.map((family) => ({ brand: "bmw-motorrad", model: family.slug })),
-    ...TVS_MODEL_FAMILIES.map((family) => ({ brand: "tvs", model: family.slug })),
-  ];
+  return getBrandFamilyStaticParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -173,7 +141,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isYamaha = brand.toLowerCase() === "yamaha";
   const isKtm = brand.toLowerCase() === "ktm";
   const isSuzuki = brand.toLowerCase() === "suzuki";
-  const isOla = brand.toLowerCase() === "ola-electric";
+  const isOla = getCanonicalBrandSlug(brand) === "ola";
   const isAther = brand.toLowerCase() === "ather";
   const isJawa = brand.toLowerCase() === "jawa";
   const isYezdi = brand.toLowerCase() === "yezdi";
@@ -224,7 +192,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = modelFamily
     ? `Book doorstep service for ${brandName} ${modelName} models, including ${familyModels.slice(0, 4).join(", ")}${familyModels.length > 4 ? ", and more" : ""}. Available across Gurgaon, Delhi, Noida, Ghaziabad, and Faridabad.`
     : `Searching for ${brandName} ${modelName} service near me? Book doorstep ${modelName} repair & tune-up in Gurgaon, Delhi, Noida, Ghaziabad & Faridabad. 100% genuine OEM parts, services from ₹399, 45-min arrival, and 15-day warranty.`;
-  const canonicalUrl = `https://www.fixwheel.app/${slugifyModel(brandName)}/${slugifyModel(modelName)}`;
+  const canonicalUrl = `https://www.fixwheel.app/${getCanonicalBrandSlug(brand) || slugifyModel(brandName)}/${modelFamily?.slug || slugifyModel(modelName)}`;
 
   const gurgaonLocalities = [
     "dlf phase 1",
@@ -313,7 +281,7 @@ export default async function ModelPage({ params }: PageProps) {
   const isYamaha = brand.toLowerCase() === "yamaha";
   const isKtm = brand.toLowerCase() === "ktm";
   const isSuzuki = brand.toLowerCase() === "suzuki";
-  const isOla = brand.toLowerCase() === "ola-electric";
+  const isOla = getCanonicalBrandSlug(brand) === "ola";
   const isAther = brand.toLowerCase() === "ather";
   const isJawa = brand.toLowerCase() === "jawa";
   const isYezdi = brand.toLowerCase() === "yezdi";
@@ -353,7 +321,7 @@ export default async function ModelPage({ params }: PageProps) {
   }
   const olaFamily = isOla ? findOlaFamilyByAnySlug(model) : undefined;
   if (olaFamily && model.toLowerCase() !== olaFamily.slug) {
-    permanentRedirect(`/ola-electric/${olaFamily.slug}`);
+    permanentRedirect(`/ola/${olaFamily.slug}`);
   }
   const atherFamily = isAther ? findAtherFamilyByAnySlug(model) : undefined;
   if (atherFamily && model.toLowerCase() !== atherFamily.slug) {
@@ -425,7 +393,7 @@ export default async function ModelPage({ params }: PageProps) {
   }
 
   const familyFaqs = getFamilyFaqs(modelInfo.brandName, canonicalFamily);
-  const brandSlug = slugifyModel(modelInfo.brandName);
+  const brandSlug = getCanonicalBrandSlug(brand) || slugifyModel(modelInfo.brandName);
   const pageUrl = `https://www.fixwheel.app/${brandSlug}/${canonicalFamily.slug}`;
   const familyModels = canonicalFamily.groups.flatMap((group) => group.models);
   const structuredData = {

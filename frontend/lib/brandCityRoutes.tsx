@@ -2,16 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BrandCityClient from "@/app/[brand]/[model]/BrandCityClient";
 import { BRAND_DETAILS } from "@/lib/brandDetails";
+import { getPublicBrandSlugs } from "@/lib/brandRegistry";
 import { CITIES_DB } from "@/lib/cityLocalityData";
-import { getAllBikeModels, slugifyModel } from "@/lib/modelSlug";
 import { findElectricBrandByReference } from "@/lib/electricServices";
 import { getBrandCityFaqs } from "@/lib/brandCityFaqs";
 import { completePageMetadata } from "@/lib/seoMetadata";
 
-const brandSlugSet = new Set<string>();
-
-getAllBikeModels().forEach(({ brandName }) => brandSlugSet.add(slugifyModel(brandName)));
-Object.keys(BRAND_DETAILS).forEach((brand) => brandSlugSet.add(slugifyModel(brand)));
+// Publish only active brand slugs from the registry.
+const brandSlugSet = new Set<string>(getPublicBrandSlugs({ includeLegacyAliases: true }));
 
 export const BRAND_CITY_SLUGS = Array.from(brandSlugSet).sort();
 

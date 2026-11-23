@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { getBrandLogo } from "@/lib/brandLogos";
+import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
 import { getPageVariables } from "@/lib/pageVariables";
 import { getServicePricing, type ServicePriceId } from "@/lib/pricingData";
 import type { ServicePageProps } from "@/components/ServicePageTemplate";
@@ -23,7 +24,7 @@ const services: { title: string; description: string; priceId?: ServicePriceId }
   { title: "Sensors and wiring", description: "Inspection of accessible wiring, throttle inputs and safety interlocks where supported." },
 ];
 const brands = [
-  { name: "Ola Electric", slug: "ola-electric", models: "S1 range" },
+  { name: "Ola Electric", slug: getCanonicalBrandSlug("ola")!, models: "S1 range" },
   { name: "Ather", slug: "ather", models: "450 range" },
   { name: "TVS", slug: "tvs-ev", models: "iQube" },
   { name: "Bajaj", slug: "bajaj-ev", models: "Chetak" },

@@ -1,60 +1,20 @@
 import { NextResponse } from 'next/server';
+import { SITEMAP_DOCUMENTS } from '@/lib/pageRegistry';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
   const lastmod = new Date().toISOString();
+  const sitemapNodes = SITEMAP_DOCUMENTS.map(
+    ({ path }) => `  <sitemap>
+    <loc>https://www.fixwheel.app${path}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>`,
+  ).join('\n');
 
   return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://www.fixwheel.app/main.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/blog.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/service.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/brand.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/becomepartner.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/gurgaon.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/delhi.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/noida.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/faridabad.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/ghaziabad.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/other.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.fixwheel.app/bike-type.xml</loc>
-    <lastmod>${lastmod}</lastmod>
-  </sitemap>
+${sitemapNodes}
 </sitemapindex>`, {
     headers: {
       'Content-Type': 'application/xml',

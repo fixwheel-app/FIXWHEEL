@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { PARTNER_SITEMAP_PAGE } from "@/lib/pageRegistry";
 
 export const dynamic = "force-static";
 
@@ -8,7 +9,7 @@ export async function GET() {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
   // Main Become Partner landing page only
-  xml += `  <url>\n    <loc>https://www.fixwheel.app/partner</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+  xml += `  <url>\n    <loc>https://www.fixwheel.app${PARTNER_SITEMAP_PAGE.path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${PARTNER_SITEMAP_PAGE.changeFrequency}</changefreq>\n    <priority>${PARTNER_SITEMAP_PAGE.priority}</priority>\n  </url>\n`;
 
   xml += `</urlset>`;
 

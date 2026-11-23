@@ -140,7 +140,7 @@ export default function BrandCityClient({
   const isYamahaBrand = bKey === "yamaha";
   const isKtmBrand = bKey === "ktm";
   const isSuzukiBrand = bKey === "suzuki";
-  const isOlaBrand = bKey === "ola-electric";
+  const isOlaBrand = bKey === "ola";
   const isAtherBrand = bKey === "ather";
   const isJawaBrand = bKey === "jawa";
   const isYezdiBrand = bKey === "yezdi";
@@ -148,7 +148,7 @@ export default function BrandCityClient({
   const isVespaBrand = bKey === "vespa";
   const isHarleyDavidsonBrand = bKey === "harley-davidson";
   const isKawasakiBrand = bKey === "kawasaki";
-  const isBmwBrand = bKey === "bmw";
+  const isBmwBrand = bKey === "bmw-motorrad";
   const isTvsBrand = bKey === "tvs";
   const isFamilyBrand = isHondaBrand || isHeroBrand || isBajajBrand || isRoyalEnfieldBrand || isYamahaBrand || isKtmBrand || isSuzukiBrand || isOlaBrand || isAtherBrand || isJawaBrand || isYezdiBrand || isApriliaBrand || isVespaBrand || isHarleyDavidsonBrand || isKawasakiBrand || isBmwBrand || isTvsBrand;
   const familySections = isHondaBrand

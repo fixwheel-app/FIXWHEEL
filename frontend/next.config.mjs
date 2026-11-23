@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   images: {
     remotePatterns: [
       {
@@ -29,7 +30,7 @@ const nextConfig = {
       // them to the authoritative model pages instead of publishing duplicates.
       {
         source: '/:legacyBrand(okinawa|ampere|bounce)/:model(roadster-x|s1-air|s1-x-4-kwh|s1-x-3-kwh|roadster-pro|s1-x|s1-x-2-kwh|s1-pro-gen-2|roadster)',
-        destination: '/ola-electric/:model',
+        destination: '/ola/:model',
         statusCode: 301,
       },
       {
@@ -49,12 +50,12 @@ const nextConfig = {
       },
       {
         source: '/vida-hero-',
-        destination: '/vida-hero',
+        destination: '/vida',
         statusCode: 301,
       },
       {
         source: '/other-brand-ev-',
-        destination: '/other-brand-ev',
+        destination: '/other-ev',
         statusCode: 301,
       },
       {

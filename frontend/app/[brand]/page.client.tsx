@@ -231,7 +231,7 @@ export default function BrandDetailClient({ brandSlug }: ClientProps) {
   const isYamahaBrand = brandSlug.toLowerCase() === "yamaha";
   const isKtmBrand = brandSlug.toLowerCase() === "ktm";
   const isSuzukiBrand = brandSlug.toLowerCase() === "suzuki";
-  const isOlaBrand = brandSlug.toLowerCase() === "ola-electric";
+  const isOlaBrand = brandSlug.toLowerCase() === "ola";
   const isAtherBrand = brandSlug.toLowerCase() === "ather";
   const isJawaBrand = brandSlug.toLowerCase() === "jawa";
   const isYezdiBrand = brandSlug.toLowerCase() === "yezdi";

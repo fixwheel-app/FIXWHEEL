@@ -11,6 +11,7 @@ frontend/.env
 
 # ignoring next build
 .next/
+.next-route-test-*/
 out/
 build/
 dist/

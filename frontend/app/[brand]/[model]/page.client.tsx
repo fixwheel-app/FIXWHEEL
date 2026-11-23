@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ResolvedModel, slugifyModel } from "@/lib/modelSlug";
+import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
 import Breadcrumb from "@/components/Breadcrumb";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
@@ -76,9 +77,10 @@ export default function ModelDetailClient({ modelInfo, familyInfo, familyFaqs }:
     : familyInfo?.groups.find((group) => group.category === "EV")?.models || [];
   const familyModelCount = familyInfo?.groups.reduce((total, group) => total + group.models.length, 0) || 0;
 
-  const bSlug = slugifyModel(brandName);
+  const bookingSlug = slugifyModel(brandName);
+  const bSlug = getCanonicalBrandSlug(bookingSlug) || bookingSlug;
   const getBookingHref = (familyModel: string, category: string) =>
-    `/book?brand=${encodeURIComponent(bSlug)}&model=${encodeURIComponent(familyModel)}&type=${encodeURIComponent(category === "EV" || isExplicitlyElectricFamily ? "Electric Motorbike" : "Non-Electric Motorbike")}`;
+    `/book?brand=${encodeURIComponent(bookingSlug)}&model=${encodeURIComponent(familyModel)}&type=${encodeURIComponent(category === "EV" || isExplicitlyElectricFamily ? "Electric Motorbike" : "Non-Electric Motorbike")}`;
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans relative z-10">

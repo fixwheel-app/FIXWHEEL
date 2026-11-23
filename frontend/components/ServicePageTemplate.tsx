@@ -12,6 +12,7 @@ import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
+import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
 
 interface FaqItem {
   q: string;
@@ -49,7 +50,7 @@ const SUPPORTED_BRANDS: ServiceBrand[] = [
   { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha") },
   { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki") },
   { name: "KTM", slug: "ktm", logo: getBrandLogo("KTM") },
-  { name: "Ola Electric", slug: "ola-electric", logo: getBrandLogo("Ola Electric") },
+  { name: "Ola Electric", slug: getCanonicalBrandSlug("ola")!, logo: getBrandLogo("Ola Electric") },
   { name: "Ather", slug: "ather", logo: getBrandLogo("Ather") },
   { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa") },
   { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi") },
