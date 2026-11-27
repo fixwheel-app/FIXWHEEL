@@ -103,7 +103,7 @@ export default function ServiceOrCityPage({ params }: PageProps) {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fixwheel.app/" },
               { "@type": "ListItem", position: 2, name: "Services", item: "https://www.fixwheel.app/services" },
-              { "@type": "ListItem", position: 3, name: "Two-Wheeler Diagnosis", item: canonical },
+              { "@type": "ListItem", position: 3, name: "Book a Mechanic", item: canonical },
             ],
           },
           {

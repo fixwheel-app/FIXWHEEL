@@ -101,7 +101,7 @@ export const SERVICE_PRICING_LIST: ServicePriceItem[] = [
   },
   {
     id: "diagnosis",
-    name: "Diagnosis",
+    name: "Book a Mechanic",
     description: "Doorstep fault finding when the cause of a two-wheeler problem is not yet clear.",
     category: "Non-Electric",
     prices: {
