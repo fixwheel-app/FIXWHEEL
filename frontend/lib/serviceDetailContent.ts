@@ -21,7 +21,7 @@ export const SERVICE_DETAIL_CONTENT: Record<string, ServiceDetailContent> = {
     faqs: [{q:"Is engine oil included?",a:"Yes. This package includes engine oil and an oil filter as listed in the pricing catalog; confirm the grade and applicability for your model before booking."},{q:"Can I choose the oil grade?",a:"Use the grade specified for your vehicle. Confirm the product and any price difference before the service."},{q:"Are other replacement parts included?",a:"Other parts and repairs need a separate quote and your approval."}],
   },
   diagnosis: {
-    name: "Two-Wheeler Fault Diagnosis",
+    name: "Book a Mechanic",
     summary: "Find the likely cause of a bike or scooter fault before approving a repair.",
     included: ["Discussion of the reported symptom", "Accessible mechanical and electrical checks", "Explanation of likely causes", "Advice on next steps and a separate repair quote"],
     excluded: ["Repair labour", "Replacement parts", "Workshop teardown or specialist testing"],

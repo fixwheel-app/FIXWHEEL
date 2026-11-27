@@ -9,6 +9,7 @@ import { DEFAULT_PUBLIC_STATS, getPublicStatsForCity } from "@/lib/publicStats";
 import { SERVICES_DB } from "@/lib/servicesData";
 import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
 import { completePageMetadata } from "@/lib/seoMetadata";
+import { getVehicleCityContent, type VehicleCityRoute } from "@/lib/vehicleCityContent";
 
 export const BIKE_TYPE_SLUGS = [
   "scooty-repair",
@@ -70,15 +71,18 @@ function buildMetadata(serviceSlug: string, citySlug: string, bikeTypeSlug?: str
   const serviceName = editorial?.name || cleanServiceTitle(service.title);
   const placeName = city.name;
   const path = `/${citySlug}/${bikeTypeSlug || `services/${serviceSlug}`}`;
-  const title = `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
-  const description = editorial
+  const vehicleContent = bikeTypeSlug && bikeTypeSlug !== "scooty-repair"
+    ? getVehicleCityContent(citySlug, bikeTypeSlug as VehicleCityRoute)
+    : undefined;
+  const title = vehicleContent?.title || `${serviceName} in ${placeName} – Doorstep Service | FixWheel`;
+  const description = vehicleContent?.description || (editorial
     ? `${editorial.summary} Check what is included, vehicle-based pricing and the work flow in ${placeName}.`
-    : `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`;
+    : `Book doorstep ${serviceName.toLowerCase()} in ${placeName}. Verified mechanics, transparent pricing, and a 15-day labor warranty.`);
 
   return completePageMetadata({
     title,
     description,
-    keywords: [
+    keywords: vehicleContent?.keywords || [
       `${serviceName.toLowerCase()} in ${placeName}`,
       `${serviceName.toLowerCase()} near me ${placeName}`,
       `doorstep two-wheeler service ${placeName}`,
@@ -109,12 +113,13 @@ export function generateCityBikeTypeMetadata(citySlug: string, bikeTypeSlug: str
     const city = getCity(citySlug);
     if (!city) return {};
     const canonical = `https://www.fixwheel.app/${citySlug}/cruiser-bike`;
-    const title = `Cruiser Bike Service in ${city.name} – Doorstep Service | FixWheel`;
-    const description = `Book doorstep cruiser and modern-classic motorcycle service in ${city.name}. Chain care, brakes, battery checks and routine maintenance with transparent pricing.`;
+    const vehicleContent = getVehicleCityContent(citySlug, "cruiser-bike");
+    const title = vehicleContent?.title || `Cruiser Bike Service in ${city.name} – Doorstep Service | FixWheel`;
+    const description = vehicleContent?.description || `Book doorstep cruiser and modern-classic motorcycle service in ${city.name}. Chain care, brakes, battery checks and routine maintenance with transparent pricing.`;
     return completePageMetadata({
       title,
       description,
-      keywords: [
+      keywords: vehicleContent?.keywords || [
         `cruiser bike service in ${city.name}`,
         `cruiser bike mechanic near me ${city.name}`,
         `Royal Enfield service at home ${city.name}`,
@@ -162,12 +167,18 @@ function renderLocationService(serviceSlug: string, citySlug: string) {
   if (!service || !city) notFound();
 
   const serviceName = cleanServiceTitle(service.title);
+  const bikeTypeSlug = Object.entries(BIKE_TYPE_SERVICE_BY_ROUTE).find(([, mappedService]) => mappedService === serviceSlug)?.[0] as (typeof BIKE_TYPE_SLUGS)[number] | undefined;
+  const vehicleContent = bikeTypeSlug && bikeTypeSlug !== "scooty-repair"
+    ? getVehicleCityContent(citySlug, bikeTypeSlug as VehicleCityRoute)
+    : undefined;
 
   return (
     <ServicePageTemplate
       {...service}
       serviceId={serviceSlug}
       title={`${serviceName} at Doorstep in ${city.name}`}
+      lead={vehicleContent?.lead || service.lead}
+      descriptionParagraphs={vehicleContent?.paragraphs || service.descriptionParagraphs}
       locationName={city.name}
       locationSlug={citySlug}
     />
@@ -248,6 +259,7 @@ async function CruiserCityRoute({ citySlug }: { citySlug: string }) {
         bikesServiced={String(stats.bikes_serviced)}
         rating={stats.average_rating}
         city={content}
+        citySlug={citySlug}
         areas={[...city.brandPageLocalities, ...(content.additionalAreas || [])]}
       />
     </>

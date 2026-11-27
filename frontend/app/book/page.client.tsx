@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, ChevronDown, Clock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { NON_ELECTRIC_SERVICES, ELECTRIC_SERVICES, CCRANGES, CCRange } from '@/lib/constants';
 import { BIKE_DATA } from '@/lib/bikes';
@@ -328,12 +328,6 @@ export default function BookClient() {
                 <p id="engine-cc-range-heading" className="text-sm font-bold uppercase tracking-widest text-gray-300">
                   Engine CC Range
                 </p>
-                {ccSelectionSource === 'automatic' && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-300">
-                    <Check className="h-3.5 w-3.5" aria-hidden="true" />
-                    Auto selected
-                  </span>
-                )}
                 {ccSelectionSource === 'manual' && (
                   <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-gray-300">
                     Manually changed
@@ -409,7 +403,7 @@ export default function BookClient() {
 
           {/* Services Selection */}
           {(fuelType === 'Electric Motorbike' || ccRange) && (
-            <div className="mt-8 flex flex-col gap-8 pb-8">
+            <div className="mt-8 flex flex-col gap-5 pb-8">
               <p className="text-gray-400 text-sm font-bold uppercase tracking-widest text-center md:text-left">Available Services</p>
               
               {(fuelType === 'Electric Motorbike' 
@@ -420,64 +414,66 @@ export default function BookClient() {
                   })
               ).map((srv) => {
                 const price = fuelType === 'Electric Motorbike' ? (srv as any).price : (ccRange ? (srv as any).prices[ccRange] : null);
-                let originalPrice: number | null = null;
-
-                if (price !== null) {
-                  if (srv.id === 'Engine Half') {
-                    originalPrice = price + 1000;
-                  } else if (srv.id === 'Engine full') {
-                    originalPrice = price + 2000;
-                  } else if (price >= 1000) {
-                    originalPrice = Math.round(price * 1.15 / 50) * 50;
-                  } else {
-                    originalPrice = price + 100;
-                  }
-                }
                 
                 return (
-                  <div key={srv.id} className="bg-white rounded-[2rem] p-6 md:p-8 text-black shadow-2xl relative overflow-hidden">
-                    {/* Decorative Background */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-
-                    <div className="relative z-10 flex flex-col md:flex-row gap-6 mb-8">
-                      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-50 border border-gray-100 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center shadow-inner p-2 text-center">
-                         <img src="/logo.png" alt="FixWheel Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain mb-1" />
-                         <span className="font-black text-[10px] md:text-[11px] tracking-tighter text-black uppercase leading-tight">
-                           <span className="text-accent">Fix</span>Wheel
-                         </span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-wider">{'displayName' in srv && srv.displayName ? srv.displayName : srv.name}</h2>
-                          <div className="flex items-baseline gap-2 md:gap-3 shrink-0">
-                            {originalPrice !== null && (
-                              <span className="text-sm sm:text-base md:text-lg line-through text-gray-400 font-bold">₹{originalPrice}</span>
-                            )}
-                            <span className="text-2xl sm:text-3xl font-black text-black">₹{price}</span>
+                  <article key={srv.id} className="overflow-hidden rounded-2xl bg-white text-black shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+                    <div className="grid gap-5 p-5 sm:p-6 md:grid-cols-[5.5rem_minmax(0,1fr)_12rem] md:items-center md:gap-6 md:p-7">
+                      <div className="flex items-start gap-4 md:block">
+                        <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-[#f5f5f5] p-2 text-center md:h-[5.5rem] md:w-[5.5rem]">
+                          <img src="/logo.png" alt="" className="mb-1 h-8 w-8 object-contain md:h-10 md:w-10" />
+                          <span className="text-[9px] font-black uppercase leading-none tracking-tight text-black md:text-[10px]">
+                            <span className="text-accent">Fix</span>Wheel
+                          </span>
+                        </div>
+                        <div className="min-w-0 md:hidden">
+                          <h2 className="text-xl font-black uppercase leading-tight tracking-wide">
+                            {'displayName' in srv && srv.displayName ? srv.displayName : srv.name}
+                          </h2>
+                          <div className="mt-2 flex items-baseline gap-2 tabular-nums">
+                            <span className="text-2xl font-black text-black">₹{price}</span>
                           </div>
                         </div>
+                      </div>
+
+                      <div className="min-w-0">
+                        <h2 className="hidden text-2xl font-black uppercase leading-tight tracking-wide md:block">
+                          {'displayName' in srv && srv.displayName ? srv.displayName : srv.name}
+                        </h2>
                         {'cardQuestion' in srv && srv.cardQuestion && (
-                          <p className="mb-1 text-sm font-black uppercase tracking-wide text-gray-900 md:text-base">
+                          <p className="mt-3 text-sm font-black uppercase tracking-wide text-gray-900">
                             {srv.cardQuestion}
                           </p>
                         )}
                         {'cardDescription' in srv && srv.cardDescription && (
-                          <p className="mb-4 text-sm font-semibold leading-6 text-gray-600 md:text-base">
+                          <p className="mt-1 max-w-2xl text-sm font-semibold leading-6 text-gray-600">
                             {srv.cardDescription}
                           </p>
                         )}
-                        {srv.id !== 'Diagnosis' && (
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">
-                            <span>• Available at Doorstep</span>
-                            <span>• 15 Days Warranty</span>
-                          </div>
-                        )}
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="inline-block bg-gray-100 px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-widest text-gray-800 border border-gray-200 whitespace-nowrap">
-                            ⏱ {srv.estimatedTime}
-                          </div>
-                          <div className="flex flex-col items-end gap-2 min-w-0">
-                            <button
+                        <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] font-black uppercase tracking-wide text-gray-700">
+                          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg bg-gray-100 px-3">
+                            <Clock className="h-4 w-4 text-accent" aria-hidden="true" />
+                            {srv.estimatedTime}
+                          </span>
+                          <span className="inline-flex min-h-9 items-center rounded-lg bg-gray-100 px-3">
+                            Doorstep service
+                          </span>
+                          {srv.id !== 'Diagnosis' && (
+                            <span className="inline-flex min-h-9 items-center rounded-lg bg-gray-100 px-3">
+                              15 days warranty
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="border-t border-gray-200 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+                        <div className="hidden items-baseline justify-end gap-2 tabular-nums md:flex">
+                          <span className="text-3xl font-black text-black">₹{price}</span>
+                        </div>
+                        <p className="mb-3 hidden text-right text-[10px] font-bold uppercase tracking-widest text-gray-500 md:block">
+                          Service price
+                        </p>
+                        <div className="flex flex-col gap-2">
+                          <button
                               onClick={() => {
                                 if (!brand || !model || price === null) return;
                                 const bikeStr = `${brand} ${model}`.trim();
@@ -494,18 +490,17 @@ export default function BookClient() {
                                 router.push(`/book/checkout?${query}`);
                               }}
                               disabled={!brand || !model}
-                              className="whitespace-nowrap px-4 sm:px-8 md:px-10 py-3 bg-accent hover:bg-accent-hover disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-[11px] sm:text-sm rounded-full font-black tracking-wider sm:tracking-widest uppercase transition-all shadow-[0_4px_20px_rgba(230,43,43,0.3)] disabled:shadow-none"
+                              className="min-h-12 w-full rounded-xl bg-accent px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-[0_8px_22px_rgba(230,43,43,0.25)] transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none"
                             >
                               BOOK SERVICE
                             </button>
                             {(!brand || !model) && (
-                              <p className="max-w-[12rem] text-[10px] sm:text-xs leading-tight text-status-error font-bold uppercase tracking-wider text-right">Select Brand & Model first</p>
+                              <p className="text-center text-[10px] font-bold uppercase leading-tight tracking-wider text-status-error">Select Brand & Model first</p>
                             )}
-                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>

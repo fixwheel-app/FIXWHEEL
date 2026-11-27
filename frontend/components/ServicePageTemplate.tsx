@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
+import { ArrowRight, Check, Droplet, Phone, Wrench, Clock, Award, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getBrandLogo } from "@/lib/brandLogos";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -10,8 +10,10 @@ import CityServicesGrid from "@/components/CityServicesGrid";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
 import HowSectionActions from "@/components/HowSectionActions";
 import PaymentTrustRow from "@/components/PaymentTrustRow";
+import VehiclesWeService from "@/components/VehiclesWeService";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
+import { BIKE_DATA } from "@/lib/bikes";
 import { SERVICE_PRICING_LIST, PRICING_CATEGORIES, DOORSTEP_SERVICE_CHARGE, hasDoorstepServiceCharge, type ServicePriceId } from "@/lib/pricingData";
 import { SERVICE_DETAIL_CONTENT } from "@/lib/serviceDetailContent";
 import { getCanonicalBrandSlug } from "@/lib/brandRegistry";
@@ -44,23 +46,34 @@ interface ServiceBrand {
   models?: string;
 }
 
+const normalizeBrandName = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+const getPopularModels = (brandName: string): string | undefined => {
+  const normalizedName = normalizeBrandName(brandName);
+  const matchingBrand = Object.values(BIKE_DATA)
+    .flat()
+    .find((brand) => normalizeBrandName(brand.name) === normalizedName);
+
+  return matchingBrand?.models.slice(0, 3).map((model) => model.name).join(", ");
+};
+
 const SUPPORTED_BRANDS: ServiceBrand[] = [
-  { name: "Honda", slug: "honda", logo: getBrandLogo("Honda") },
-  { name: "Hero", slug: "hero", logo: getBrandLogo("Hero") },
-  { name: "Royal Enfield", slug: "royal-enfield", logo: getBrandLogo("Royal Enfield") },
-  { name: "TVS", slug: "tvs", logo: getBrandLogo("TVS") },
-  { name: "Bajaj", slug: "bajaj", logo: getBrandLogo("Bajaj") },
-  { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha") },
-  { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki") },
-  { name: "KTM", slug: "ktm", logo: getBrandLogo("KTM") },
-  { name: "Ola Electric", slug: getCanonicalBrandSlug("ola")!, logo: getBrandLogo("Ola Electric") },
-  { name: "Ather", slug: "ather", logo: getBrandLogo("Ather") },
-  { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa") },
-  { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi") },
-  { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia") },
-  { name: "Vespa", slug: "vespa", logo: getBrandLogo("Vespa") },
-  { name: "Harley-Davidson", slug: "harley-davidson", logo: getBrandLogo("Harley-Davidson") },
-  { name: "Kawasaki", slug: "kawasaki", logo: getBrandLogo("Kawasaki") },
+  { name: "Honda", slug: "honda", logo: getBrandLogo("Honda"), models: getPopularModels("Honda") },
+  { name: "Hero", slug: "hero", logo: getBrandLogo("Hero"), models: getPopularModels("Hero") },
+  { name: "Royal Enfield", slug: "royal-enfield", logo: getBrandLogo("Royal Enfield"), models: getPopularModels("Royal Enfield") },
+  { name: "TVS", slug: "tvs", logo: getBrandLogo("TVS"), models: getPopularModels("TVS") },
+  { name: "Bajaj", slug: "bajaj", logo: getBrandLogo("Bajaj"), models: getPopularModels("Bajaj") },
+  { name: "Yamaha", slug: "yamaha", logo: getBrandLogo("Yamaha"), models: getPopularModels("Yamaha") },
+  { name: "Suzuki", slug: "suzuki", logo: getBrandLogo("Suzuki"), models: getPopularModels("Suzuki") },
+  { name: "KTM", slug: "ktm", logo: getBrandLogo("KTM"), models: getPopularModels("KTM") },
+  { name: "Ola Electric", slug: getCanonicalBrandSlug("ola")!, logo: getBrandLogo("Ola Electric"), models: getPopularModels("Ola Electric") },
+  { name: "Ather", slug: "ather", logo: getBrandLogo("Ather"), models: getPopularModels("Ather") },
+  { name: "Jawa", slug: "jawa", logo: getBrandLogo("Jawa"), models: getPopularModels("Jawa") },
+  { name: "Yezdi", slug: "yezdi", logo: getBrandLogo("Yezdi"), models: getPopularModels("Yezdi") },
+  { name: "Aprilia", slug: "aprilia", logo: getBrandLogo("Aprilia"), models: getPopularModels("Aprilia") },
+  { name: "Vespa", slug: "vespa", logo: getBrandLogo("Vespa"), models: getPopularModels("Vespa") },
+  { name: "Harley-Davidson", slug: "harley-davidson", logo: getBrandLogo("Harley-Davidson"), models: getPopularModels("Harley-Davidson") },
+  { name: "Kawasaki", slug: "kawasaki", logo: getBrandLogo("Kawasaki"), models: getPopularModels("Kawasaki") },
 ];
 
 const SCOOTER_BRANDS: ServiceBrand[] = [
@@ -331,79 +344,54 @@ export default function ServicePageTemplate({
         </div>
       </div>
 
+      <VehiclesWeService citySlug={locationSlug} />
+
       {/* ===== MAIN CONTENT SECTION ===== */}
-      <div className="py-16 bg-white">
+      <div className="bg-white pt-16">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-            {/* Left Content Paragraphs */}
-            <div className="lg:col-span-8 space-y-6 text-slate-700 text-base md:text-lg leading-relaxed">
-              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald border-b border-slate-200 pb-3">
-                Why Choose Doorstep {cleanServiceName} in {locationName || "Delhi NCR"}?
-              </h2>
-              {(detail ? [detail.summary, `Tell us your vehicle model and symptoms. The mechanic confirms what can be done at your location and quotes any additional parts or work before you approve it.`] : descriptionParagraphs).map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+          <section className="mb-16" aria-labelledby="service-inclusions">
+            <div className="max-w-2xl mb-7">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Scope of work</span>
+              <h2 id="service-inclusions" className="text-3xl font-black uppercase text-slate-900 font-oswald mt-2">What we check and do</h2>
+              <p className="text-slate-600 mt-2">The mechanic confirms the work needed for your vehicle before starting. Additional repairs and parts require your approval.</p>
             </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {detailItems.map((item) => <div key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-800"><Check className="h-5 w-5 shrink-0 text-red-600" aria-hidden="true" /><span>{item}</span></div>)}
+            </div>
+            {basicServiceDetails && (
+              <div id="basic-service-exclusions" className="mt-7 rounded-2xl border border-slate-200 bg-white p-6">
+                <h3 className="text-xl font-bold">What is outside the basic service price?</h3>
+                <ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2">
+                  <li>Engine oil and oil filter replacement</li>
+                  <li>Replacement parts, including brake pads, batteries and cables</li>
+                  <li>Washing and major mechanical repairs</li>
+                  <li>Any extra work found during inspection</li>
+                </ul>
+                <p className="mt-4 text-sm text-slate-600">These may be available separately. Ask for a quote and approve the price before any extra work.</p>
 
-            {/* Right Quick Info Panel */}
-            <div className="lg:col-span-4">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-6 sticky top-28">
-                <h3 className="text-lg font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-3 font-oswald">
-                  Service Specifications
-                </h3>
-                <div className="space-y-4 font-sans text-sm">
-                  <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      Service Coverage
+                <div className="mt-6 flex flex-col gap-4 rounded-xl border border-red-200 bg-red-50/70 p-4 sm:flex-row sm:items-center sm:justify-between md:p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-red-600 shadow-sm ring-1 ring-red-100" aria-hidden="true">
+                      <Droplet className="h-5 w-5" />
                     </span>
-                    <span className="font-bold text-slate-900">
-                      {locationName
-                        ? `${locationName} & Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)`
-                        : "Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)"}
-                    </span>
+                    <div>
+                      <h4 className="font-bold text-slate-950">Need engine oil replacement too?</h4>
+                      <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">Engine oil is booked as a separate service so you can review the correct oil grade, service scope and quote for your vehicle.</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      {isDiagnosis ? "Visit Timing" : "Arrival Duration"}
-                    </span>
-                    <span className="font-bold text-slate-900">
-                      {detail ? "Confirmed when booking" : isDiagnosis ? "Confirmed when booking" : "25 - 45 Minutes at your doorstep"}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      {isDiagnosis ? "Visit Focus" : "Parts Policy"}
-                    </span>
-                    <span className="font-bold text-slate-900">
-                      {detail ? "Confirm parts and extra work before approval" : isDiagnosis ? "Fault Finding & Next-Step Advice" : "100% Sealed OEM Parts & Cables"}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      {isDiagnosis ? "Repair Approval" : "Warranty"}
-                    </span>
-                    <span className="font-bold text-slate-900">{detail ? "Confirm applicable terms at booking" : isDiagnosis ? "Required Before Work Begins" : warranty}</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-slate-400">
-                      {isDiagnosis ? "Diagnosis Fee" : "Payment Mode"}
-                    </span>
-                    <span className="font-bold text-slate-900">
-                      {detail ? (isRelatedPrice ? "Request an itemized quote for this service" : visiblePrice ? `From ${visiblePrice} by vehicle category` : "Request an itemized quote") : isDiagnosis ? "₹399" : "UPI, Card, Cash after Job Completion"}
-                    </span>
-                  </div>
+                  <Link
+                    href={locationSlug ? `/${locationSlug}/services/oil-change` : "/services/oil-change"}
+                    className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-red-600 bg-white px-4 py-2.5 text-sm font-bold text-red-600 transition-colors hover:bg-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                  >
+                    View engine oil service
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </div>
-
-                <Link
-                  href={primaryBookingHref}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#e62b2b] hover:bg-red-600 text-white py-3.5 rounded-md font-mono font-bold text-xs uppercase tracking-wider transition-all"
-                >
-                  {isDiagnosis ? "Book a Mechanic" : "Book This Service"}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
-            </div>
-          </div>
+            )}
+            {detail && <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold">What is outside this service price?</h3><ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2">{detail.excluded.map((item) => <li key={item}>{item}</li>)}</ul><p className="mt-4 text-sm text-slate-600">Ask for a separate quote before approving any additional work.</p></div>}
+            {visiblePrice && <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-slate-900 p-5 text-white"><div><strong className="text-xl">{isRelatedPrice ? `${catalogService?.name} from ` : "From "}{visiblePrice}</strong><p className="text-xs text-slate-300">{isRelatedPrice ? "Related package price; request a quote for this service" : "0–249 cc · final quote depends on vehicle and work"}</p></div><Link href={primaryBookingHref} className="rounded-md bg-red-600 px-6 py-3 font-bold hover:bg-red-700">Book this service</Link></div>}
+          </section>
 
           {(basicServiceDetails || detail) && (
             <section className="mb-16" aria-labelledby="basic-price-heading">
@@ -414,18 +402,29 @@ export default function ServicePageTemplate({
             </section>
           )}
 
-          <section className="mb-16" aria-labelledby="service-inclusions">
-            <div className="max-w-2xl mb-7">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Scope of work</span>
-              <h2 id="service-inclusions" className="text-3xl font-black uppercase text-slate-900 font-oswald mt-2">What we check and do</h2>
-              <p className="text-slate-600 mt-2">The mechanic confirms the work needed for your vehicle before starting. Additional repairs and parts require your approval.</p>
+          <section className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="space-y-6 text-base leading-relaxed text-slate-700 md:text-lg lg:col-span-8">
+              <h2 className="border-b border-slate-200 pb-3 font-oswald text-2xl font-black uppercase tracking-tight text-slate-900 md:text-3xl">
+                Why Choose Doorstep {cleanServiceName} in {locationName || "Delhi NCR"}?
+              </h2>
+              {(detail ? [detail.summary, `Tell us your vehicle model and symptoms. The mechanic confirms what can be done at your location and quotes any additional parts or work before you approve it.`] : descriptionParagraphs).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
-            <div className="grid gap-3 md:grid-cols-2">
-              {detailItems.map((item) => <div key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-800"><Check className="h-5 w-5 shrink-0 text-red-600" aria-hidden="true" /><span>{item}</span></div>)}
+
+            <div className="lg:col-span-4">
+              <div className="sticky top-28 space-y-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="border-b border-slate-200 pb-3 font-oswald text-lg font-bold uppercase tracking-wider text-slate-900">Service Specifications</h3>
+                <div className="space-y-4 font-sans text-sm">
+                  <div><span className="block font-mono text-xs uppercase tracking-wider text-slate-400">Service Coverage</span><span className="font-bold text-slate-900">{locationName ? `${locationName} & Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)` : "Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad)"}</span></div>
+                  <div><span className="block font-mono text-xs uppercase tracking-wider text-slate-400">{isDiagnosis ? "Visit Timing" : "Arrival Duration"}</span><span className="font-bold text-slate-900">{detail || isDiagnosis ? "Confirmed when booking" : "25 - 45 Minutes at your doorstep"}</span></div>
+                  <div><span className="block font-mono text-xs uppercase tracking-wider text-slate-400">{isDiagnosis ? "Visit Focus" : "Parts Policy"}</span><span className="font-bold text-slate-900">{detail ? "Confirm parts and extra work before approval" : isDiagnosis ? "Fault Finding & Next-Step Advice" : "100% Sealed OEM Parts & Cables"}</span></div>
+                  <div><span className="block font-mono text-xs uppercase tracking-wider text-slate-400">{isDiagnosis ? "Repair Approval" : "Warranty"}</span><span className="font-bold text-slate-900">{detail ? "Confirm applicable terms at booking" : isDiagnosis ? "Required Before Work Begins" : warranty}</span></div>
+                  <div><span className="block font-mono text-xs uppercase tracking-wider text-slate-400">{isDiagnosis ? "Mechanic Visit Fee" : "Payment Mode"}</span><span className="font-bold text-slate-900">{detail ? (isRelatedPrice ? "Request an itemized quote for this service" : visiblePrice ? `From ${visiblePrice} by vehicle category` : "Request an itemized quote") : isDiagnosis ? "₹399" : "UPI, Card, Cash after Job Completion"}</span></div>
+                </div>
+                <Link href={primaryBookingHref} className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#e62b2b] py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-red-600">{isDiagnosis ? "Book a Mechanic" : "Book This Service"}<ArrowRight className="h-4 w-4" /></Link>
+              </div>
             </div>
-            {basicServiceDetails && <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold">What is outside the basic service price?</h3><ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2"><li>Engine oil and oil filter replacement</li><li>Replacement parts, including brake pads, batteries and cables</li><li>Washing and major mechanical repairs</li><li>Any extra work found during inspection</li></ul><p className="mt-4 text-sm text-slate-600">These may be available separately. Ask for a quote and approve the price before any extra work.</p></div>}
-            {detail && <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold">What is outside this service price?</h3><ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2">{detail.excluded.map((item) => <li key={item}>{item}</li>)}</ul><p className="mt-4 text-sm text-slate-600">Ask for a separate quote before approving any additional work.</p></div>}
-            {visiblePrice && <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-slate-900 p-5 text-white"><div><strong className="text-xl">{isRelatedPrice ? `${catalogService?.name} from ` : "From "}{visiblePrice}</strong><p className="text-xs text-slate-300">{isRelatedPrice ? "Related package price; request a quote for this service" : "0–249 cc · final quote depends on vehicle and work"}</p></div><Link href={primaryBookingHref} className="rounded-md bg-red-600 px-6 py-3 font-bold hover:bg-red-700">Book this service</Link></div>}
           </section>
 
           {/* ===== STEP-BY-STEP PROCESS ===== */}
@@ -438,7 +437,7 @@ export default function ServicePageTemplate({
                 {detail
                   ? `How ${detail.name} Works`
                   : isDiagnosis
-                  ? "How Doorstep Two-Wheeler Diagnosis Works"
+                  ? "How Book a Mechanic Works"
                   : isScootyRepair
                     ? "How Doorstep Scooty Service Works"
                     : "How Doorstep Bike Service Works"}
@@ -520,12 +519,28 @@ export default function ServicePageTemplate({
             />
           </div>
 
-          <section className="mb-16" aria-labelledby="related-services">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Plan your visit</span>
-            <h2 id="related-services" className="mt-2 text-3xl font-black uppercase text-slate-900 font-oswald">Services to consider together</h2>
-            <p className="mt-2 mb-6 text-slate-600">Choose these only if your vehicle needs them. The mechanic can inspect and quote additional work.</p>
-            <div className="grid gap-4 md:grid-cols-3">
-              {relatedServices.map((id) => <Link key={id} href={`/services/${id}`} className="group rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-red-500"><h3 className="font-bold text-slate-900 group-hover:text-red-600">{id.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}</h3><span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-red-600">See service details <ArrowRight className="h-4 w-4" /></span></Link>)}
+          <section className="relative left-1/2 mb-16 w-screen -translate-x-1/2 border-y border-slate-200 bg-white py-12" aria-labelledby="related-services">
+            <div className="mx-auto max-w-6xl px-4">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-600">Plan your visit</span>
+              <h2 id="related-services" className="mt-2 text-3xl font-black uppercase text-slate-900 font-oswald">Services to consider together</h2>
+              <p className="mt-2 mb-6 text-slate-600">Choose these only if your vehicle needs them. The mechanic can inspect and quote additional work.</p>
+              <div className="grid border-y border-slate-200 md:grid-cols-3 md:divide-x md:divide-slate-200">
+              {relatedServices.map((id) => (
+                <Link
+                  key={id}
+                  href={`/services/${id}`}
+                  className="group flex min-h-28 items-center justify-between gap-4 border-b border-slate-200 py-5 transition-colors last:border-b-0 hover:text-red-600 md:border-b-0 md:px-6 md:first:pl-0 md:last:pr-0"
+                >
+                  <span>
+                    <span className="block font-bold text-slate-900 transition-colors group-hover:text-red-600">
+                      {id === "diagnosis" ? "Book a Mechanic" : id.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}
+                    </span>
+                    <span className="mt-1 block text-sm text-slate-500">View service details</span>
+                  </span>
+                  <ArrowRight className="h-5 w-5 shrink-0 text-red-500 transition-transform group-hover:translate-x-1" />
+                </Link>
+              ))}
+              </div>
             </div>
           </section>
 
@@ -598,7 +613,8 @@ export default function ServicePageTemplate({
           )}
 
           {/* ===== BRANDS WE SERVE (SLIDING / SCROLLABLE CAROUSEL) ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
+          <section className="relative left-1/2 mb-16 w-screen -translate-x-1/2 overflow-hidden border-y border-slate-200 bg-slate-50 py-12">
+            <div className="mx-auto max-w-6xl px-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
@@ -644,7 +660,7 @@ export default function ServicePageTemplate({
             {/* Horizontal Sliding Track */}
             <div
               id="service-brands-track"
-              className="flex items-center gap-3 overflow-x-auto py-2 px-1 snap-x snap-mandatory scroll-smooth"
+              className="flex items-stretch gap-3 overflow-x-auto py-2 px-1 snap-x snap-mandatory scroll-smooth"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {displayedBrands.map((b) => (
@@ -652,15 +668,15 @@ export default function ServicePageTemplate({
                   key={b.slug}
                   href={`/${b.slug}`}
                   className={cn(
-                    "flex-shrink-0 flex items-center gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-3 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start",
-                    isScootyRepair || isCruiserBike ? "min-w-[230px]" : "min-w-[150px]"
+                    "flex-shrink-0 flex min-h-[96px] items-start gap-3 bg-white border border-slate-200 hover:border-red-500 px-4 py-4 rounded-xl font-sans text-sm font-bold text-slate-900 hover:text-red-600 transition-all shadow-sm group snap-start",
+                    isScootyRepair || isCruiserBike ? "w-[270px]" : "w-[250px]"
                   )}
                 >
-                  <img src={b.logo} alt={b.name} className="w-6 h-6 rounded-full object-contain bg-slate-50 p-0.5 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />
-                  <span>
+                  <img src={b.logo} alt={b.name} className="w-8 h-8 rounded-full object-contain bg-slate-50 p-1 border border-slate-200 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="min-w-0">
                     <span className="block whitespace-nowrap">{b.name}</span>
                     {b.models && (
-                      <span className="block mt-0.5 text-[10px] leading-snug font-normal text-slate-500 group-hover:text-slate-600">
+                      <span className="block mt-1.5 text-[11px] leading-relaxed font-normal text-slate-500 group-hover:text-slate-600">
                         {b.models}
                       </span>
                     )}
@@ -688,56 +704,66 @@ export default function ServicePageTemplate({
                 </Link>
               </div>
             )}
-          </div>
-
-          {/* ===== EXPANDABLE FAQS ===== */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="mb-8">
-              <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
-                FREQUENTLY ASKED QUESTIONS
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900 font-oswald">
-                Got Questions About {title}?
-              </h2>
             </div>
+          </section>
 
-            <div className="space-y-3">
+          {/* ===== LOCALITY-STYLE FAQS ===== */}
+          <section id="faq" className="relative left-1/2 mb-16 w-screen -translate-x-1/2 border-y border-slate-200 bg-white py-12 md:py-14">
+            <div className="mx-auto max-w-6xl px-4">
+              <div className="mb-7">
+              <span className="mb-2 block font-mono text-xs font-bold uppercase tracking-widest text-red-500">
+                FAQs — {locationName || "Delhi NCR"}
+              </span>
+              <h2 className="font-oswald text-3xl font-black uppercase tracking-tight text-slate-900">
+                Questions about {cleanServiceName}
+              </h2>
+              </div>
+
+              <div className="border-t border-slate-200">
               {detailFaqs.map((faq, idx) => {
                 const isOpen = !!openFaqs[idx];
+                const answerId = `service-faq-answer-${idx}`;
                 return (
-                  <div
-                    key={idx}
-                    className={cn(
-                      "bg-white border rounded-lg overflow-hidden transition-colors",
-                      isOpen ? "border-red-500" : "border-slate-200"
-                    )}
-                  >
+                  <div key={idx} className="border-b border-slate-200">
                     <button
-                      className="w-full px-6 py-4 text-left flex justify-between items-center font-oswald text-lg uppercase text-slate-900"
+                      type="button"
+                      className="flex w-full items-center justify-between gap-5 py-5 text-left text-[15.5px] font-medium text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-500"
                       onClick={() => toggleFaq(idx)}
+                      aria-expanded={isOpen}
+                      aria-controls={answerId}
                     >
                       <span>{faq.q}</span>
-                      <ChevronDown
+                      <span
+                        aria-hidden="true"
                         className={cn(
-                          "w-5 h-5 text-slate-400 transition-transform duration-200",
-                          isOpen && "rotate-180 text-red-500"
+                          "shrink-0 font-mono text-lg text-red-500 transition-transform duration-200",
+                          isOpen && "rotate-45"
                         )}
-                      />
+                      >
+                        +
+                      </span>
                     </button>
-                    {isOpen && (
-                      <div className="px-6 pb-5 pt-3 text-base font-medium text-slate-700 leading-relaxed border-t border-slate-200">
+                    <div
+                      id={answerId}
+                      className={cn(
+                        "overflow-hidden transition-[max-height] duration-300 ease-out",
+                        isOpen ? "max-h-64" : "max-h-0"
+                      )}
+                    >
+                      <p className="max-w-3xl pb-5 text-sm leading-7 text-slate-600 md:text-[14.5px]">
                         {faq.a}
-                      </div>
-                    )}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
+              </div>
             </div>
-          </div>
+          </section>
 
           {/* ===== CONTACT US & EMERGENCY ASSISTANCE ===== */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 mb-16 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <section className="relative left-1/2 mb-16 w-screen -translate-x-1/2 border-y border-slate-200 bg-slate-50 py-12 md:py-14">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 md:grid-cols-2">
               <div>
                 <span className="font-mono text-xs text-red-500 font-bold uppercase tracking-widest block mb-1">
                   GET IN TOUCH & EMERGENCY HELP
@@ -790,11 +816,12 @@ export default function ServicePageTemplate({
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* ===== CITY & LOCALITY LINKS ===== */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-16 text-white shadow-xl">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-slate-800 bg-slate-900 py-12 text-white">
+            <div className="mx-auto max-w-6xl px-4">
+              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
               BOOK DOORSTEP {cleanServiceName.toUpperCase()} BY CITY
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
@@ -817,13 +844,15 @@ export default function ServicePageTemplate({
                   {c.name}
                 </Link>
               ))}
-            </div>
+              </div>
 
-          </div>
+            </div>
+          </section>
 
           {/* ===== BOTTOM CTA BANNER ===== */}
-          <div className="bg-[#17181A] text-white rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-white/10">
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-4 font-oswald">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[#17181A] py-14 text-center text-white md:py-16">
+            <div className="mx-auto max-w-6xl px-4">
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-4 font-oswald">
               {isDiagnosis ? "Ready to Find the Problem?" : "Ready to Service Your Two-Wheeler?"}
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto mb-8 text-sm md:text-base">
@@ -846,8 +875,9 @@ export default function ServicePageTemplate({
                 <Phone className="w-4 h-4" />
                 Call Mechanic
               </a>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>

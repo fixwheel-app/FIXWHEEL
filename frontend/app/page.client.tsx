@@ -39,12 +39,12 @@ export default function Home() {
   ];
 
   const homeServices: { name: string; href: string; priceId: ServicePriceId; note: string }[] = [
-    { name: "Basic Service", href: "/services", priceId: "basic-service", note: "General service" },
-    { name: "Jump Start", href: "/services", priceId: "jump-start", note: "Emergency battery jump-start" },
-    { name: "Engine Repair", href: "/services", priceId: "engine-half", note: "Engine half overhaul" },
-    { name: "Brake Repair", href: "/services", priceId: "disc-replacement", note: "Disc replacement labor" },
+    { name: "Basic Service", href: "/services/basic-service", priceId: "basic-service", note: "General service" },
+    { name: "Jump Start", href: "/services/jump-start", priceId: "jump-start", note: "Emergency battery jump-start" },
+    { name: "Engine Repair", href: "/services/engine-repair", priceId: "engine-half", note: "Engine half overhaul" },
+    { name: "Brake Repair", href: "/services/brake-repair", priceId: "disc-replacement", note: "Disc replacement labor" },
     { name: "Roadside Assistance", href: "/services", priceId: "battery-replacement", note: "Emergency roadside assistance" },
-    { name: "Tyre Replacement/Repair", href: "/services", priceId: "puncture", note: "Puncture repair; replacement quoted separately" },
+    { name: "Tyre Replacement/Repair", href: "/services/puncture", priceId: "puncture", note: "Puncture repair; replacement quoted separately" },
   ];
 
   // ── FAQ data (from the site FAQ page) ─────────────────────────────────────

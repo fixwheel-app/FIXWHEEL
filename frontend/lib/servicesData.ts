@@ -287,7 +287,7 @@ export const SERVICES_DB: Record<string, ServiceData> = {
   "diagnosis": {
     serviceId: "diagnosis",
     category: "Fault Finding & Inspection",
-    title: "Doorstep Two-Wheeler Diagnosis",
+    title: "Book a Mechanic at Your Doorstep",
     lead: "Not sure what is wrong with your bike or scooter? A verified FixWheel mechanic checks it at your location, finds the likely fault, and explains the next repair step.",
     startingPrice: "₹399",
     avgTime: "45 Mins",
@@ -307,11 +307,11 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     ],
     faqs: [
       {
-        q: "When should I book a two-wheeler diagnosis?",
-        a: "Book a diagnosis when the bike or scooter will not start, loses pickup, vibrates, makes a new noise, shows a warning light, leaks fluid, or has a problem you cannot identify confidently.",
+        q: "When should I book a mechanic?",
+        a: "Book a mechanic when the bike or scooter will not start, loses pickup, vibrates, makes a new noise, shows a warning light, leaks fluid, or has a problem you cannot identify confidently.",
       },
       {
-        q: "Does diagnosis include the repair?",
+        q: "Does booking a mechanic include the repair?",
         a: "No. The diagnosis identifies the likely fault and the recommended next step. Any repair labor or replacement parts are explained and quoted separately before work begins.",
       },
       {

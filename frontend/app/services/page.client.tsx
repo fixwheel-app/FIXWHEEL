@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import Breadcrumb from "@/components/Breadcrumb";
 import { getPublicStatsForCity, DEFAULT_PUBLIC_STATS, PublicStatRecord } from "@/lib/publicStats";
 import { getPageVariables, PageVariables, DEFAULT_PAGE_VARIABLES } from "@/lib/pageVariables";
-import { SERVICE_PRICING_LIST } from "@/lib/pricingData";
+import { DOORSTEP_SERVICE_CHARGE, hasDoorstepServiceCharge, SERVICE_PRICING_LIST } from "@/lib/pricingData";
 import HeroBookingAction from "@/components/HeroBookingAction";
 import HowSectionActions from "@/components/HowSectionActions";
 import TwoWheelerQueryCard from "@/components/TwoWheelerQueryCard";
@@ -16,7 +16,7 @@ import type { CityServicesConfig } from "@/lib/cityServicesData";
 const SERVICE_TAGS: Record<string, string> = {
   "basic-service": "[GENERAL]",
   "service-engine-oil": "[ENGINE OIL]",
-  "diagnosis": "[DIAGNOSIS]",
+  "diagnosis": "[MECHANIC]",
   "jump-start": "[JUMPSTART]",
   "puncture": "[PUNCTURE]",
   "running-repair": "[REPAIR]",
@@ -181,6 +181,7 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
       desc: item.description,
       link: SERVICE_PAGE_ROUTES[item.id] || `/services/${item.id}`,
       price: formattedPrice,
+      serviceChargeApplies: hasDoorstepServiceCharge(item.id, rawPrice),
       priceLabel: "Starting",
     };
 
@@ -566,16 +567,18 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
 
         /* SERVICES GRID */
         .services-new-page .related-grid {
-          display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         .services-new-page .related-card {
           border: 1px solid var(--line-dark);
           border-radius: 12px;
-          padding: 28px;
+          padding: 24px;
           transition: border-color .2s, transform .2s, box-shadow .2s;
           background: #FFFFFF;
-          display: flex; flex-col; justify-between;
+          display: flex;
+          min-height: 276px;
+          flex-direction: column;
         }
 
         .services-new-page .related-card:hover {
@@ -584,15 +587,124 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
         }
 
         .services-new-page .related-card .icon-mono {
-          font-family: 'JetBrains Mono', monospace; color: var(--orange); font-size: 12px; font-weight: 700; display: block; margin-bottom: 12px;
+          font-family: 'JetBrains Mono', monospace; color: var(--orange); font-size: 11px; font-weight: 700; display: block; margin-bottom: 10px;
         }
 
         .services-new-page .related-card h3 {
-          font-size: 20px; font-weight: 900; margin-bottom: 8px; color: var(--ink);
+          font-size: 21px; font-weight: 900; margin-bottom: 8px; color: var(--ink);
         }
 
         .services-new-page .related-card p {
-          font-size: 14px; color: var(--grey); line-height: 1.6; margin-bottom: 16px;
+          font-size: 14px; color: var(--grey); line-height: 1.55; margin: 0;
+        }
+
+        .services-new-page .service-card-main {
+          flex: 1;
+        }
+
+        .services-new-page .service-card-footer {
+          margin-top: 20px;
+          padding-top: 16px;
+          border-top: 1px solid var(--line-dark);
+        }
+
+        .services-new-page .service-card-price {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 14px;
+        }
+
+        .services-new-page .service-card-price span:first-child {
+          color: var(--grey);
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: .06em;
+          text-transform: uppercase;
+        }
+
+        .services-new-page .service-card-price strong {
+          color: var(--ink);
+          font-size: 20px;
+          font-variant-numeric: tabular-nums;
+        }
+
+        .services-new-page .service-card-price-values {
+          display: inline-flex;
+          align-items: baseline;
+          justify-content: flex-end;
+          gap: 8px;
+          white-space: nowrap;
+        }
+
+        .services-new-page .service-card-charge-note {
+          margin: -2px 0 12px;
+          color: var(--orange-deep);
+          font-size: 11px;
+          font-weight: 700;
+          line-height: 1.4;
+        }
+
+        .services-new-page .service-card-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        .services-new-page .service-card-action {
+          display: inline-flex;
+          min-height: 44px;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          border-radius: 8px;
+          padding: 10px 12px;
+          font-size: 13px;
+          font-weight: 800;
+          transition: background-color .2s, border-color .2s, color .2s;
+        }
+
+        .services-new-page .service-card-action.details {
+          border: 1px solid var(--line-dark);
+          color: var(--ink);
+        }
+
+        .services-new-page .service-card-action.details:hover {
+          border-color: #94A3B8;
+          background: var(--paper-dim);
+        }
+
+        .services-new-page .service-card-action.book {
+          border: 1px solid var(--orange);
+          background: var(--orange);
+          color: #FFFFFF;
+        }
+
+        .services-new-page .service-card-action.book:hover {
+          border-color: var(--orange-deep);
+          background: var(--orange-deep);
+        }
+
+        .services-new-page .service-card-action:focus-visible {
+          outline: 3px solid rgba(230,43,43,.22);
+          outline-offset: 2px;
+        }
+
+        @media (max-width: 420px) {
+          .services-new-page .related-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .services-new-page .related-card {
+            min-height: 0;
+            padding: 20px;
+          }
+
+          .services-new-page .service-card-actions {
+            grid-template-columns: 1fr;
+          }
         }
 
         /* AREAS */
@@ -717,7 +829,7 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
                 Two-Wheeler Service Packages at Home in <em>{locationName}</em>
               </h1>
               <p className="lead">
-                {city?.hero || "Compare periodic maintenance, service with engine oil, diagnosis and repair packages before booking a mechanic for your bike or scooter."}
+                {city?.hero || "Compare periodic maintenance, service with engine oil, Book a Mechanic and repair packages for your bike or scooter."}
               </p>
               <div className="btn-row">
                 <HeroBookingAction>
@@ -762,19 +874,43 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
 
             <div className="related-grid font-sans">
               {servicesList.map((service) => (
-                <Link key={service.id} href={service.link} className="related-card group">
-                  <div>
+                <article key={service.id} className="related-card">
+                  <div className="service-card-main">
                     <span className="icon-mono">{service.tag}</span>
                     <h3>{service.name}</h3>
                     <p>{service.desc}</p>
                   </div>
-                  <div className="flex items-center justify-between gap-4 pt-4 border-t border-slate-200 mt-auto">
-                    <span className="text-xs font-mono font-bold text-slate-500 uppercase">{service.priceLabel}</span>
-                    <span className="text-sm font-mono font-extrabold text-[#e62b2b] text-right">
-                      {service.price} →
-                    </span>
+                  <div className="service-card-footer">
+                    <div className="service-card-price">
+                      <span>{service.priceLabel} price</span>
+                      <div className="service-card-price-values">
+                        <strong>{service.price}</strong>
+                      </div>
+                    </div>
+                    {service.serviceChargeApplies && (
+                      <p className="service-card-charge-note">
+                        + ₹{DOORSTEP_SERVICE_CHARGE} service charge applies
+                      </p>
+                    )}
+                    <div className="service-card-actions">
+                      <Link
+                        href={service.link}
+                        className="service-card-action details"
+                        aria-label={`View ${service.name} details`}
+                      >
+                        View details
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                      <Link
+                        href="/book"
+                        className="service-card-action book"
+                        aria-label={`Book ${service.name}`}
+                      >
+                        Book now
+                      </Link>
+                    </div>
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
           </div>
@@ -789,13 +925,13 @@ export default function ServicesClientPage({ city }: { city?: CityServicesConfig
                 Choose the Right Two-Wheeler Service Package
               </h2>
               <p className="mb-4">
-                {city?.planning || "The package directory separates planned servicing from fault diagnosis and specific repairs across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Start by choosing your vehicle so the available work and official price match its type and engine range."}
+                {city?.planning || "The package directory separates planned servicing from Book a Mechanic fault inspection and specific repairs across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad. Start by choosing your vehicle so the available work and official price match its type and engine range."}
               </p>
               <p className="mb-4">
-                {city?.access || "Choose general service for routine maintenance, the engine-oil package when that listed work is required, or diagnosis when you know the symptom but not the cause. Repair work outside a selected package is explained before it begins."}
+                {city?.access || "Choose general service for routine maintenance, the engine-oil package when that listed work is required, or Book a Mechanic when you know the symptom but not the cause. Repair work outside a selected package is explained before it begins."}
               </p>
               <p>
-                Every service comes with upfront transparent quotes, zero doorstep visit fees, and a 15-day labor guarantee.
+                Service prices and any applicable doorstep charge are shown before booking. Additional work is quoted for approval.
               </p>
             </div>
 
