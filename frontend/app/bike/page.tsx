@@ -25,7 +25,7 @@ const bikeContent: BikeLandingContent = {
   services: [
     { id: "basic-service", title: "Periodic bike service", description: "Routine checks for the chain, brakes, controls, battery, filters and visible leaks." },
     { id: "service-engine-oil", title: "Bike service with engine oil", description: "Scheduled service with the suitable oil and filter requirement confirmed for the model." },
-    { id: "diagnosis", title: "Motorcycle diagnosis", description: "An inspection when the symptom is unclear or more than one system may be involved." },
+    { id: "diagnosis", title: "Book a mechanic", description: "An inspection when the symptom is unclear or more than one system may be involved." },
     { id: "chain-sprocket", title: "Chain and sprocket inspection", description: "Check slack, alignment and wear before approved adjustment or replacement work." },
     { id: "disc-replacement", title: "Bike brake inspection", description: "Inspect braking response and accessible wear components before quoting the repair." },
     { id: "puncture", title: "Bike puncture assistance", description: "Tube or tubeless tyre support at a safe parking or roadside location." },
@@ -73,7 +73,7 @@ const bikeContent: BikeLandingContent = {
     { title: "Park with safe access", text: "Choose a level parking spot where the motorcycle can be inspected without blocking traffic or building access." },
   ],
   finalTitle: "Book the right service for your motorcycle",
-  finalLead: "Choose your bike and the closest service need, or request a diagnosis if the cause is unclear. Add the complete address so the doorstep visit can be confirmed.",
+  finalLead: "Choose your bike and the closest service need, or Book a Mechanic if the cause is unclear. Add the complete address so the doorstep visit can be confirmed.",
   citiesTitle: "Find doorstep bike service in your city",
   cityPath: "/bike",
 };

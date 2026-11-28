@@ -4,14 +4,14 @@ import { completePageMetadata } from '@/lib/seoMetadata';
 
 export const metadata: Metadata = completePageMetadata({
   title: "Two-Wheeler Service Packages at Home in Delhi NCR | FixWheel",
-  description: "Compare two-wheeler service packages at home across Delhi NCR. Choose periodic bike maintenance, service with engine oil, diagnosis and repair packages with doorstep booking.",
+  description: "Compare two-wheeler service packages at home across Delhi NCR. Choose periodic bike maintenance, service with engine oil, Book a Mechanic and repair packages with doorstep booking.",
   keywords: "two wheeler service package, two wheeler bike service package at home, two wheeler service in Delhi NCR, bike service packages Delhi NCR, doorstep two wheeler maintenance package, bike servicing package at home, scooter service package at home, motorcycle service package Delhi NCR, periodic bike service package, bike service with engine oil package",
   alternates: {
     canonical: "https://www.fixwheel.app/services",
   },
   openGraph: {
     title: "Two-Wheeler Service Packages at Home in Delhi NCR | FixWheel",
-    description: "Compare two-wheeler service packages for doorstep maintenance, engine-oil service, diagnosis and repairs across Delhi NCR.",
+    description: "Compare two-wheeler service packages for doorstep maintenance, engine-oil service, Book a Mechanic and repairs across Delhi NCR.",
     url: "https://www.fixwheel.app/services",
     siteName: "FixWheel",
     type: "website",

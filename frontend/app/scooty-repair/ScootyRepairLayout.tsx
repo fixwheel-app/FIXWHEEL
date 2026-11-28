@@ -93,7 +93,7 @@ const tips: Record<string, string[]> = {
   pickup:["Often a dirty air filter, worn belt or clogged CVT.","A tune-up with CVT and air filter cleaning usually restores it."],
   brakes:["Worn pads or shoes, or loose cables, are the usual causes.","We adjust or replace them and lubricate the cables."],
   tyre:["Tubeless punctures can be repaired right where you are.","We also check tyre pressure and the valve."],
-  other:["Not sure what’s wrong? That’s fine.","Book a ₹399 diagnosis and the mechanic will explain what he finds before any work."]
+  other:["Not sure what’s wrong? That’s fine.","Book a mechanic for ₹399 and review the findings before approving any work."]
 };
 
 export default function ScootyRepairLayout({ bikesServiced, rating, city, areas = [], bike }: { bikesServiced: string; rating: number; city?: ScooterCityContent; areas?: string[]; bike?: BikeLandingContent }) {

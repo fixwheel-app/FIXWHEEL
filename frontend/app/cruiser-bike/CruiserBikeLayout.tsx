@@ -1,5 +1,6 @@
 import ScootyRepairLayout, { type BikeLandingContent } from "@/app/scooty-repair/ScootyRepairLayout";
 import type { ScooterCityContent } from "@/app/scooty-repair/cityContent";
+import { getVehicleCityContent } from "@/lib/vehicleCityContent";
 
 export function getCruiserFaqs(place = "Delhi NCR") {
   return [
@@ -26,13 +27,14 @@ export function getCruiserFaqs(place = "Delhi NCR") {
   ];
 }
 
-function cruiserContent(cityName?: string): BikeLandingContent {
+function cruiserContent(cityName?: string, citySlug?: string): BikeLandingContent {
   const place = cityName || "Delhi NCR";
+  const cityCopy = citySlug ? getVehicleCityContent(citySlug, "cruiser-bike") : undefined;
   return {
     breadcrumbLabel: "Cruiser Bike Service",
     tag: "Cruiser & modern-classic specialist",
     heroTitle: `Doorstep Cruiser Bike Service in ${place}`,
-    lead: `A cruiser or modern-classic motorcycle places different demands on its chain, controls, brakes and battery than a lightweight commuter. Book doorstep inspection and scheduled service in ${place}, with the exact model and work confirmed before the visit.`,
+    lead: cityCopy?.lead || `A cruiser or modern-classic motorcycle places different demands on its chain, controls, brakes and battery than a lightweight commuter. Book doorstep inspection and scheduled service in ${place}, with the exact model and work confirmed before the visit.`,
     pickerTitle: "What does your cruiser bike need?",
     pickerLegend: "Choose your cruiser bike symptom or service",
     bookLabel: "Book cruiser bike service",
@@ -64,7 +66,7 @@ function cruiserContent(cityName?: string): BikeLandingContent {
       { id: "running-repair", title: "Running repairs", description: "Minor cable, control and mechanical adjustments based on inspection." },
     ],
     whyTitle: `Cruiser care designed for heavier motorcycles in ${place}`,
-    paragraphs: [
+    paragraphs: cityCopy?.paragraphs || [
       "Cruiser and modern-classic motorcycles combine relaxed ergonomics with heavier frames, long-stroke engines and model-specific service requirements. Chain slack, cable adjustment and braking condition have a direct effect on low-speed control and highway comfort.",
       "FixWheel sends a verified mechanic to your home or office parking with the tools needed for inspection, routine maintenance and approved minor repairs.",
       "The mechanic explains the findings before starting additional work. You approve the labour and parts quote, review the completed job and pay after service.",
@@ -77,7 +79,7 @@ function cruiserContent(cityName?: string): BikeLandingContent {
       "Battery voltage, charging output and terminal inspection",
       "Fastener, suspension and tyre-condition safety check",
     ],
-    bookingTip: `Share your cruiser make, model, engine capacity, recent service history and exact parking location${cityName ? ` in ${cityName}` : ""}. Mention any warning light, leak, noise or change in handling.`,
+    bookingTip: cityCopy?.bookingTip || `Share your cruiser make, model, engine capacity, recent service history and exact parking location${cityName ? ` in ${cityName}` : ""}. Mention any warning light, leak, noise or change in handling.`,
     brandsLead: "Cruiser and modern-classic support across popular Indian and international makes. Share the exact model so the service and parts requirement can be confirmed.",
     brands: [
       { name: "Royal Enfield", slug: "royal-enfield", models: "Classic, Bullet, Hunter, Meteor" },
@@ -91,7 +93,7 @@ function cruiserContent(cityName?: string): BikeLandingContent {
     ],
     otherModelsText: "Ride another cruiser or modern classic? Share the make, model and engine capacity when booking so availability and pricing can be confirmed.",
     coverageTitle: `Cruiser bike service across ${place}`,
-    coverageText: `Book doorstep cruiser maintenance in the listed service areas across ${place}. Exact availability is confirmed using your full address and motorcycle details.`,
+    coverageText: cityCopy?.coverageText || `Book doorstep cruiser maintenance in the listed service areas across ${place}. Exact availability is confirmed using your full address and motorcycle details.`,
     faqsTitle: `Cruiser bike service in ${place}: your questions`,
     faqs: getCruiserFaqs(place),
     specs: [
@@ -115,14 +117,14 @@ function cruiserContent(cityName?: string): BikeLandingContent {
   };
 }
 
-export default function CruiserBikeLayout({ bikesServiced, rating, city, areas = [] }: { bikesServiced: string; rating: number; city?: ScooterCityContent; areas?: string[] }) {
+export default function CruiserBikeLayout({ bikesServiced, rating, city, citySlug, areas = [] }: { bikesServiced: string; rating: number; city?: ScooterCityContent; citySlug?: string; areas?: string[] }) {
   return (
     <ScootyRepairLayout
       bikesServiced={bikesServiced}
       rating={rating}
       city={city}
       areas={areas}
-      bike={cruiserContent(city?.name)}
+      bike={cruiserContent(city?.name, citySlug)}
     />
   );
 }

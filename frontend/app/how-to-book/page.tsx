@@ -56,7 +56,7 @@ const bookingSteps = [
   },
   {
     title: "Pick the right service",
-    text: "Compare the available service cards for your vehicle. Choose routine maintenance, service with engine oil, a repair package, or start with diagnosis when the fault is unclear.",
+    text: "Compare the available service cards for your vehicle. Choose routine maintenance, service with engine oil, a repair package, or Book a Mechanic when the fault is unclear.",
     icon: Wrench,
   },
   {
@@ -74,7 +74,7 @@ const bookingSteps = [
 const faqs = [
   {
     q: "Can I book a mechanic if I do not know what is wrong?",
-    a: "Yes. Choose the doorstep diagnosis option. A mechanic checks the reported symptoms, explains the likely fault, and quotes any repair separately before work begins.",
+    a: "Yes. Choose Book a Mechanic. The mechanic checks the reported symptoms, explains the likely fault, and quotes any repair separately before work begins.",
   },
   {
     q: "What details should I keep ready before booking?",
@@ -218,7 +218,7 @@ export default function HowToBookPage() {
             <div>
               <h2 className="font-oswald text-3xl font-black uppercase tracking-[-0.02em] md:text-4xl">Choose the service that matches the job</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                A clear service choice helps the mechanic prepare the right tools. If the fault is unclear, start with diagnosis instead of guessing a repair.
+                A clear service choice helps the mechanic prepare the right tools. If the fault is unclear, Book a Mechanic instead of guessing a repair.
               </p>
               <Link href="/services" className="mt-6 inline-flex items-center gap-2 font-bold text-[#d92323] underline decoration-2 underline-offset-4">
                 View every FixWheel service <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -227,7 +227,7 @@ export default function HowToBookPage() {
 
             <div className="divide-y divide-slate-300 border-y border-slate-300">
               {[
-                { icon: Search, title: "Diagnosis", text: "Choose this when you know the symptom but not the fault.", href: "/services/diagnosis" },
+                { icon: Search, title: "Book a Mechanic", text: "Choose this when you know the symptom but not the fault.", href: "/services/diagnosis" },
                 { icon: ShieldCheck, title: "General service", text: "Choose this for scheduled checks, adjustments, cleaning, and lubrication.", href: "/services/basic-service" },
                 { icon: Wrench, title: "Service with engine oil", text: "Choose this when periodic maintenance also needs sealed engine oil and filter replacement.", href: "/services/service-engine-oil" },
               ].map(({ icon: Icon, title, text, href }) => (

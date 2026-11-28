@@ -287,15 +287,15 @@ export const SERVICES_DB: Record<string, ServiceData> = {
   "diagnosis": {
     serviceId: "diagnosis",
     category: "Fault Finding & Inspection",
-    title: "Doorstep Two-Wheeler Diagnosis",
+    title: "Book a Mechanic at Your Doorstep",
     lead: "Not sure what is wrong with your bike or scooter? A verified FixWheel mechanic checks it at your location, finds the likely fault, and explains the next repair step.",
     startingPrice: "₹399",
     avgTime: "45 Mins",
     warranty: "Repair Only After Approval",
     descriptionParagraphs: [
       "Starting trouble, unusual noise, vibration, poor pickup, warning lights, leaks, or a sudden change in braking can have more than one cause. Replacing parts before identifying the fault can waste time and money.",
-      "During a doorstep diagnosis, the mechanic checks the symptoms you describe and inspects the accessible mechanical and electrical systems that could be responsible. The visit focuses on finding the likely cause and determining whether the next step can be completed at your location.",
-      "Diagnosis does not automatically authorize a repair. The mechanic explains the finding first, and any additional labor or parts are quoted separately for your approval.",
+      "When you Book a Mechanic, the mechanic checks the symptoms you describe and inspects the accessible mechanical and electrical systems that could be responsible. The visit focuses on finding the likely cause and determining whether the next step can be completed at your location.",
+      "Booking a mechanic does not automatically authorize a repair. The mechanic explains the finding first, and any additional labor or parts are quoted separately for your approval.",
     ],
     includedItems: [
       "Symptom check based on what you noticed while riding or starting",
@@ -307,12 +307,12 @@ export const SERVICES_DB: Record<string, ServiceData> = {
     ],
     faqs: [
       {
-        q: "When should I book a two-wheeler diagnosis?",
-        a: "Book a diagnosis when the bike or scooter will not start, loses pickup, vibrates, makes a new noise, shows a warning light, leaks fluid, or has a problem you cannot identify confidently.",
+        q: "When should I book a mechanic?",
+        a: "Book a mechanic when the bike or scooter will not start, loses pickup, vibrates, makes a new noise, shows a warning light, leaks fluid, or has a problem you cannot identify confidently.",
       },
       {
-        q: "Does diagnosis include the repair?",
-        a: "No. The diagnosis identifies the likely fault and the recommended next step. Any repair labor or replacement parts are explained and quoted separately before work begins.",
+        q: "Does booking a mechanic include the repair?",
+        a: "No. The mechanic identifies the likely fault and recommends the next step. Any repair labor or replacement parts are explained and quoted separately before work begins.",
       },
       {
         q: "Can the mechanic repair the problem during the same visit?",

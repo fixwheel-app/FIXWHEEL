@@ -40,7 +40,7 @@ const scooterContent: BikeLandingContent = {
   services: [
     { id: "basic-service", title: "Periodic scooter service", description: "Routine checks for starting, filters, controls, brakes, tyres and visible leaks." },
     { id: "service-engine-oil", title: "Scooter service with engine oil", description: "Scheduled maintenance with the suitable oil and filter requirement confirmed first." },
-    { id: "diagnosis", title: "Scooter problem diagnosis", description: "Start with an inspection when the cause of vibration, noise or poor running is unclear." },
+    { id: "diagnosis", title: "Book a mechanic", description: "Start with an inspection when the cause of vibration, noise or poor running is unclear." },
     { id: "battery-replacement", title: "Battery and self-start check", description: "Check accessible starting components before an approved battery or repair decision." },
     { id: "disc-replacement", title: "Scooter brake inspection", description: "Review lever response and accessible wear components before quoting the work." },
     { id: "puncture", title: "Scooter puncture assistance", description: "Tube or tubeless tyre support at a safe parking or roadside location." },
@@ -88,7 +88,7 @@ const scooterContent: BikeLandingContent = {
     { title: "Mention long storage", text: "Tell us if the scooter has not been ridden for weeks or if the battery has already been charged or jump-started." },
   ],
   finalTitle: "Book the right service for your scooter",
-  finalLead: "Select your petrol scooter and the closest service need. If the cause is unclear, choose diagnosis and describe the symptom in the booking form.",
+  finalLead: "Select your petrol scooter and the closest service need. If the cause is unclear, Book a Mechanic and describe the symptom in the booking form.",
   citiesTitle: "Find doorstep scooty repair in your city",
   cityPath: "/scooty-repair",
 };
